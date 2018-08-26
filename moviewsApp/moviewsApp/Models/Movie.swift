@@ -43,4 +43,9 @@ class Movie : NSObject {
         self.overview = jsonData["overview"].exists() ? jsonData["overview"].string : ""
         self.releaseDate = jsonData["release_date"].exists() ? jsonData["release_date"].string : ""
     }
+    
+    func verifyGenre(genre: String)-> Bool{
+        let movieGenres = Genre.genres.filter({self.genreIds!.contains($0.id!)}).map({$0.name})
+        return movieGenres.contains(genre)
+    }
 }

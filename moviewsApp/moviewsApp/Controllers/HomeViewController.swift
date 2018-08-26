@@ -156,6 +156,7 @@ extension homeViewController : MovieCollectionCellDelegate{
         else {
             self.moviesCollection.reloadData()
         }
+        self.updateFavoritesMovies()
     }
     
     func didremoveFavorites(indexPath: IndexPath) {
@@ -166,5 +167,6 @@ extension homeViewController : MovieCollectionCellDelegate{
         else {
             self.moviesCollection.reloadData()
         }
+        self.updateFavoritesMovies()
     }
 }

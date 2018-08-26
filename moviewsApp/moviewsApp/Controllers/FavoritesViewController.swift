@@ -7,25 +7,86 @@
 //
 
 import UIKit
+import Toast_Swift
+
+
+protocol FavoritesViewControllerDelegate : class {
+    func didSelectFilters(array : [String : String])
+}
 
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var removeFiltersButton: UIButton!
+    
+    var moviesFiltered : [Movie] = Movie.favorites
+    var filters : [String : String] = [:]
+    @IBOutlet weak var heightBUtton: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.navigationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = "Favorites"
+        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.isTranslucent = false
+        
         self.tableView.reloadData()
+        self.setupHeightButton()
+        self.title = "Favorites"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.title = ""
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! FiltersViewController
+        vc.delegate = self
+        if self.filters.count > 0{
+            vc.valuesFilter = self.filters.map({$0.value})
+        }
     }
 
+    func applyFilters(){
+        self.moviesFiltered = Movie.favorites
+        self.filters.forEach { (key , value) in
+            if value != ""{
+                if key == "date"{
+                    self.moviesFiltered = self.moviesFiltered.filter({$0.releaseDate?.split(separator: "-")[0].description == value})
+                }
+                else if key == "genre"{
+                    self.moviesFiltered = self.moviesFiltered.filter({$0.verifyGenre(genre: value)})
+                }
+            }
+        }
+    }
+    
+    func setupHeightButton(){
+        self.heightBUtton.constant = self.filters.filter({ (key , value) -> Bool in
+            return value != ""
+            }).count > 0 ? 45 : 0
+        
+        UIView.animate(withDuration: 0.5) {
+            self.removeFiltersButton.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func removeFilters(_ sender: UIButton) {
+        self.filters = [:]
+        self.setupHeightButton()
+        self.applyFilters()
+        self.tableView.reloadSections(IndexSet(0...0), with: .fade)
+    }
 }
 
 extension FavoritesViewController : UITableViewDelegate{
@@ -37,6 +98,7 @@ extension FavoritesViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "UNFAVORITE") { (action, indexPath) in
             Movie.favorites.remove(at: indexPath.row)
+            self.moviesFiltered.remove(at: indexPath.row)
             tableView.performBatchUpdates({
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }, completion: nil)
@@ -52,16 +114,16 @@ extension FavoritesViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Movie.favorites.count
+        return moviesFiltered.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favorite-movie-cell", for: indexPath) as! FavofiteMovieTableViewCell
         
-        cell.titleLabel.text = Movie.favorites[indexPath.row].title
-        cell.overviewLabel.text = Movie.favorites[indexPath.row].overview
-        cell.yearLabel.text = Movie.favorites[indexPath.row].releaseDate?.split(separator: "-")[0].description
-        guard let posterPath = Movie.favorites[indexPath.row].posterPath else {
+        cell.titleLabel.text = moviesFiltered[indexPath.row].title
+        cell.overviewLabel.text = moviesFiltered[indexPath.row].overview
+        cell.yearLabel.text = moviesFiltered[indexPath.row].releaseDate?.split(separator: "-")[0].description
+        guard let posterPath = moviesFiltered[indexPath.row].posterPath else {
             return cell
         }
         cell.posterImage.loadPicture(of: "\(baseURLS.posters.rawValue)\(posterPath)")
@@ -78,5 +140,22 @@ extension FavoritesViewController : UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
+    }
+}
+
+extension FavoritesViewController : FavoritesViewControllerDelegate{
+    func didSelectFilters(array : [String : String]){
+        self.filters = array
+        self.applyFilters()
+    }
+}
+
+extension FavoritesViewController : UINavigationControllerDelegate{
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if Movie.favorites.count == 0{
+            self.view.makeToast("you do not have selected movies")
+            return false
+        }
+        return true
     }
 }
