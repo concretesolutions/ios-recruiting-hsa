@@ -30,8 +30,8 @@
 		458E71E9213846D400A0C892 /* CustomIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E71E8213846D400A0C892 /* CustomIndicator.swift */; };
 		458E71EB213852F600A0C892 /* gifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E71EA213852F600A0C892 /* gifExtension.swift */; };
 		458E71ED213855B200A0C892 /* custom-indicator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 458E71EC213855B200A0C892 /* custom-indicator.gif */; };
-		45F52CE5213C34DE00275FC4 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F52CE4213C34DE00275FC4 /* Movies.storyboard */; };
-		45F52CE7213C364E00275FC4 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F52CE6213C362A00275FC4 /* Favorite.storyboard */; };
+		4599F81921334A2700E51F70 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4599F81521334A2700E51F70 /* Favorite.storyboard */; };
+		4599F81A21334A2700E51F70 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4599F81721334A2700E51F70 /* Movies.storyboard */; };
 		7C87ECE07B9CEF05CC7B7959 /* Pods_moviewsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322297B27A269105C771509F /* Pods_moviewsAppTests.framework */; };
 		D08314E3F5082C75BED77638 /* Pods_moviewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AD69F49286BCF8CD12BD60 /* Pods_moviewsAppUITests.framework */; };
 		FA4D32962E66E3919CAA8438 /* Pods_moviewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA49B8CE86AE58E2602023F /* Pods_moviewsApp.framework */; };
@@ -88,8 +88,8 @@
 		458E71E8213846D400A0C892 /* CustomIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIndicator.swift; sourceTree = "<group>"; };
 		458E71EA213852F600A0C892 /* gifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifExtension.swift; sourceTree = "<group>"; };
 		458E71EC213855B200A0C892 /* custom-indicator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "custom-indicator.gif"; sourceTree = "<group>"; };
-		45F52CE4213C34DE00275FC4 /* Movies.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
-		45F52CE6213C362A00275FC4 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = /Users/carlosjaramillo/Desktop/peliculas/moviewsApp/moviewsApp/Favorite.storyboard; sourceTree = "<absolute>"; };
+		4599F81621334A2700E51F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorite.storyboard; sourceTree = "<group>"; };
+		4599F81821334A2700E51F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Movies.storyboard; sourceTree = "<group>"; };
 		6960D101470D3EFB3732876E /* Pods-moviewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviewsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-moviewsApp/Pods-moviewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		8FA49B8CE86AE58E2602023F /* Pods_moviewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moviewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AD69F49286BCF8CD12BD60 /* Pods_moviewsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moviewsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,9 +239,9 @@
 		45F52CE3213C347000275FC4 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				45F52CE6213C362A00275FC4 /* Favorite.storyboard */,
+				4599F81521334A2700E51F70 /* Favorite.storyboard */,
+				4599F81721334A2700E51F70 /* Movies.storyboard */,
 				458DB72D213760FB005DD195 /* Main.storyboard */,
-				45F52CE4213C34DE00275FC4 /* Movies.storyboard */,
 			);
 			name = Sections;
 			sourceTree = "<group>";
@@ -368,11 +368,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				458E71ED213855B200A0C892 /* custom-indicator.gif in Resources */,
+				4599F81A21334A2700E51F70 /* Movies.storyboard in Resources */,
 				458DB734213760FD005DD195 /* LaunchScreen.storyboard in Resources */,
-				45F52CE7213C364E00275FC4 /* Favorite.storyboard in Resources */,
 				458DB731213760FD005DD195 /* Assets.xcassets in Resources */,
+				4599F81921334A2700E51F70 /* Favorite.storyboard in Resources */,
 				458DB72F213760FB005DD195 /* Main.storyboard in Resources */,
-				45F52CE5213C34DE00275FC4 /* Movies.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +542,22 @@
 				458DB733213760FD005DD195 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4599F81521334A2700E51F70 /* Favorite.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4599F81621334A2700E51F70 /* Base */,
+			);
+			name = Favorite.storyboard;
+			sourceTree = "<group>";
+		};
+		4599F81721334A2700E51F70 /* Movies.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4599F81821334A2700E51F70 /* Base */,
+			);
+			name = Movies.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
