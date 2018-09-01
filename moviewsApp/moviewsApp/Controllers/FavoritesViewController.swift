@@ -10,26 +10,73 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = "Favorites"
+        self.tableView.reloadData()
     }
-    */
 
+}
+
+extension FavoritesViewController : UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "UNFAVORITE") { (action, indexPath) in
+            Movie.favorites.remove(at: indexPath.row)
+            tableView.performBatchUpdates({
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }, completion: nil)
+        }
+        
+        return [delete]
+    }
+}
+
+extension FavoritesViewController : UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Movie.favorites.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favorite-movie-cell", for: indexPath) as! FavofiteMovieTableViewCell
+        
+        cell.titleLabel.text = Movie.favorites[indexPath.row].title
+        cell.overviewLabel.text = Movie.favorites[indexPath.row].overview
+        cell.yearLabel.text = Movie.favorites[indexPath.row].releaseDate?.split(separator: "-")[0].description
+        guard let posterPath = Movie.favorites[indexPath.row].posterPath else {
+            return cell
+        }
+        cell.posterImage.loadPicture(of: "\(baseURLS.posters.rawValue)\(posterPath)")
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 124
+    }
+}
+
+extension FavoritesViewController : UIScrollViewDelegate{
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
 }

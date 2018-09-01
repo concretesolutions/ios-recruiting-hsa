@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().tintColor = .black
+        
+        API.shared.getGenres { (success, genres) in
+            if success{
+                Genre.genres = genres!
+            }
+        }
         
         return true
     }

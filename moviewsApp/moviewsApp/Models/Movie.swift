@@ -1,0 +1,46 @@
+
+import Foundation
+import SwiftyJSON
+
+class Movie : NSObject {
+    
+    static var favorites : [Movie] = []
+    
+    var voteCount : Int?
+    var id : Int?
+    var video : Bool?
+    var voteAverage : Double?
+    var title : String?
+    var popularity : Double?
+    var posterPath : String?
+    var originalLanguage : String?
+    var genreIds : [Int]?
+    var backdropPath : String?
+    var isAdults : Bool?
+    var overview : String?
+    var releaseDate : String?
+    
+    init(jsonData : JSON) {
+        self.voteCount = jsonData["vote_count"].exists() ? jsonData["vote_count"].int : 0
+        self.id = jsonData["id"].exists() ? jsonData["id"].int : 0
+        self.video = jsonData["video"].exists() ? jsonData["video"].bool : false
+        self.voteAverage = jsonData["vote_average"].exists() ? jsonData["vote_average"].double : 0
+        self.title = jsonData["title"].exists() ? jsonData["title"].string : ""
+        self.popularity = jsonData["popularity"].exists() ? jsonData["popularity"].double : 0
+        self.posterPath = jsonData["poster_path"].exists() ? jsonData["poster_path"].string : ""
+        self.originalLanguage = jsonData["original_language"].exists() ? jsonData["vote_count"].string : ""
+        if let array = jsonData["genre_ids"].array{
+            self.genreIds = []
+            for json in array{
+                guard let id = json.int else{
+                    return
+                }
+                self.genreIds!.append(id)
+            }
+        }
+        self.backdropPath = jsonData["backdrop_path"].exists() ? jsonData["backdrop_path"].string : ""
+        self.isAdults = jsonData["adult"].exists() ? jsonData["adult"].bool : false
+        self.overview = jsonData["overview"].exists() ? jsonData["overview"].string : ""
+        self.releaseDate = jsonData["release_date"].exists() ? jsonData["release_date"].string : ""
+    }
+}
