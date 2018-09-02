@@ -100,6 +100,7 @@ class MovieDetailViewController: UIViewController {
             Movie.favorites.append(movie!)
             self.likeButton.tintColor = UIColor(named: "principalColor")
         }
+        self.updateFavoritesMovies()
     }
 }
 
