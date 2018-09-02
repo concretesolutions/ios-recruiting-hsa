@@ -28,14 +28,6 @@
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-cr-wBx">
-                                        <rect key="frame" x="340" y="514" width="20" height="19"/>
-                                        <color key="tintColor" red="0.96862745100000003" green="0.80784313730000001" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="Oxd-l5-qqJ"/>
-                                            <constraint firstAttribute="height" constant="19" id="up8-jk-Ig7"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qdo-Mv-8ln">
                                         <rect key="frame" x="16" y="15" width="344" height="488"/>
                                         <color key="backgroundColor" red="0.55294117649999996" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,21 +98,32 @@
                                     <constraint firstAttribute="trailing" secondItem="P8m-hB-cOp" secondAttribute="trailing" constant="16" id="UMy-zC-c6t"/>
                                     <constraint firstAttribute="trailing" secondItem="qdo-Mv-8ln" secondAttribute="trailing" constant="16" id="b18-cl-wbu"/>
                                     <constraint firstItem="qdo-Mv-8ln" firstAttribute="leading" secondItem="ecw-y4-aNx" secondAttribute="leading" constant="16" id="b8D-Ln-vnc"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Md-cr-wBx" secondAttribute="trailing" constant="16" id="bHk-Bn-PTJ"/>
                                     <constraint firstItem="qdo-Mv-8ln" firstAttribute="centerX" secondItem="ecw-y4-aNx" secondAttribute="centerX" id="bbV-1h-B1U"/>
                                     <constraint firstItem="P8m-hB-cOp" firstAttribute="leading" secondItem="ecw-y4-aNx" secondAttribute="leading" constant="16" id="cph-dy-29Q"/>
                                     <constraint firstItem="qcH-KL-199" firstAttribute="leading" secondItem="ecw-y4-aNx" secondAttribute="leading" constant="16" id="eNm-Gk-2SJ"/>
                                     <constraint firstAttribute="trailing" secondItem="qcH-KL-199" secondAttribute="trailing" constant="16" id="ihc-Ma-Y9F"/>
-                                    <constraint firstItem="2Md-cr-wBx" firstAttribute="centerY" secondItem="nZ8-56-rdT" secondAttribute="centerY" id="sHP-Yx-nOR"/>
                                     <constraint firstAttribute="bottom" secondItem="qdo-Mv-8ln" secondAttribute="bottom" constant="144" id="xRG-mf-M6p"/>
                                     <constraint firstItem="P8m-hB-cOp" firstAttribute="top" secondItem="qdo-Mv-8ln" secondAttribute="bottom" constant="10" id="y3f-pO-jdO"/>
                                 </constraints>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCD-A7-U3t">
+                                <rect key="frame" x="339" y="532" width="20" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="CVE-Sr-RH9"/>
+                                    <constraint firstAttribute="height" constant="19" id="omh-SQ-9Lt"/>
+                                </constraints>
+                                <state key="normal" image="favorite"/>
+                                <connections>
+                                    <action selector="tapHeart:" destination="JQX-f5-EIb" eventType="touchUpInside" id="bcV-LR-Xyu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ecw-y4-aNx" firstAttribute="leading" secondItem="Q4a-ao-8xD" secondAttribute="leading" id="92W-cB-CTV"/>
+                            <constraint firstItem="Ev5-V5-bLZ" firstAttribute="trailing" secondItem="OCD-A7-U3t" secondAttribute="trailing" constant="16" id="9ah-1J-lm1"/>
+                            <constraint firstItem="OCD-A7-U3t" firstAttribute="top" secondItem="Ev5-V5-bLZ" secondAttribute="top" constant="512" id="ILH-G8-G8a"/>
                             <constraint firstItem="ecw-y4-aNx" firstAttribute="top" secondItem="Q4a-ao-8xD" secondAttribute="top" id="VjK-k3-H7Y"/>
                             <constraint firstItem="ecw-y4-aNx" firstAttribute="trailing" secondItem="Ev5-V5-bLZ" secondAttribute="trailing" id="yjv-G5-4pg"/>
                             <constraint firstAttribute="bottom" secondItem="ecw-y4-aNx" secondAttribute="bottom" id="z48-4j-627"/>
@@ -129,11 +132,12 @@
                     </view>
                     <connections>
                         <outlet property="genresLabel" destination="jAi-IU-ZzP" id="6ZH-yd-CXd"/>
-                        <outlet property="likeButton" destination="2Md-cr-wBx" id="vWT-j4-hNN"/>
+                        <outlet property="likeButton" destination="OCD-A7-U3t" id="KiY-Se-1GH"/>
                         <outlet property="nameMovieLabel" destination="nZ8-56-rdT" id="mQd-BD-HVU"/>
                         <outlet property="overviewLabel" destination="qcH-KL-199" id="G0k-Cp-a4C"/>
                         <outlet property="posterMovieImage" destination="qdo-Mv-8ln" id="KqS-1Y-aUF"/>
-                        <outlet property="scroll" destination="ecw-y4-aNx" id="Maz-ha-fq2"/>
+                        <outlet property="scroll" destination="ecw-y4-aNx" id="wES-Ak-aEY"/>
+                        <outlet property="topLayoutButton" destination="ILH-G8-G8a" id="iWM-Yi-RgO"/>
                         <outlet property="yearLabel" destination="YDE-y3-naX" id="Q0Z-53-h4h"/>
                     </connections>
                 </viewController>

@@ -10,19 +10,21 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
 
-    @IBOutlet weak var likeButton: UIImageView!
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var posterMovieImage: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var nameMovieLabel: UILabel!
     @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var topLayoutButton: NSLayoutConstraint!
     
     var movie : Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        scroll.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,9 +52,12 @@ class MovieDetailViewController: UIViewController {
         self.overviewLabel.lineBreakMode = .byWordWrapping
         self.overviewLabel.preferredMaxLayoutWidth = self.scroll.frame.width
         
+        likeButton.setImage(#imageLiteral(resourceName: "favorite").withRenderingMode(.alwaysTemplate), for: .normal)
         if Movie.favorites.filter({$0.id == self.movie?.id}).count > 0{
-            self.likeButton.image = #imageLiteral(resourceName: "favorite").withRenderingMode(.alwaysTemplate)
             self.likeButton.tintColor = UIColor(named: "principalColor")
+        }
+        else{
+            self.likeButton.tintColor = .gray
         }
         
         self.genresLabel.text = self.generateGenreText(genreIds: genres)
@@ -86,4 +91,21 @@ class MovieDetailViewController: UIViewController {
         return text
     }
 
+    @IBAction func tapHeart(_ sender: UIButton) {
+        if Movie.favorites.contains(self.movie!){
+            Movie.favorites = Movie.favorites.filter({$0 != movie})
+            self.likeButton.tintColor = .gray
+        }
+        else{
+            Movie.favorites.append(movie!)
+            self.likeButton.tintColor = UIColor(named: "principalColor")
+        }
+    }
 }
+
+extension MovieDetailViewController : UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.topLayoutButton.constant = 512 + (scrollView.contentOffset.y * -1)
+    }
+}
+
