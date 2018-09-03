@@ -18,9 +18,10 @@ class Connectivity {
 }
 
 enum baseURLS : String{
-    case movies = "https://api.themoviedb.org/3/movie/popular"
+    case popularMovies = "https://api.themoviedb.org/3/movie/popular"
     case posters = "https://image.tmdb.org/t/p/w150_and_h225_bestv2/"
     case genres = "https://api.themoviedb.org/3/genre/movie/list"
+    case searchMovies = "https://api.themoviedb.org/3/search/movie"
 }
 
 class API {
@@ -40,8 +41,10 @@ class API {
         alamoFireManager = Alamofire.SessionManager(configuration: configuration)
     }
     
-    func getMovies(page : Int , completion:@escaping (Bool , [Movie]? , Int? , Int?) ->()) {
-        let url: String = "\(baseURLS.movies.rawValue)?api_key=\(self.apiKey)&language=es&page=\(page)"
+    func getMovies(page : Int , text : String, completion:@escaping (Bool , [Movie]? , Int? , Int?) ->()) {
+
+        let url: String = text.isEmpty ? "\(baseURLS.popularMovies.rawValue)?api_key=\(self.apiKey)&language=es&page=\(page)" :
+        "\(baseURLS.searchMovies.rawValue)?api_key=\(self.apiKey)&language=es&page=\(page)&include_adult=false&query=\(text)"
         
         let headers: HTTPHeaders = [
             "Accept": "application/json",
@@ -100,109 +103,36 @@ class API {
                 return completion(false, nil)
             }
         }
-    }
-    
-    func registerDevice(_ userId: String, token: String, completion:@escaping (Bool) ->()) {
-       /*
-        let model = UIDevice.current.model
-        let UUID = UIDevice.current.identifierForVendor!.uuidString
         
-        let url: String = "\(SERVER_URL)/device"
-
-        let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "Content-Type":"application/json"
-        ]
-        
-        let parameters: [String : String] = ["userId"           : userId,
-                                             "deviceType"       : model/*"ios"*/,
-                                             "notificationToken": token,
-                                             "UUID"             : UUID]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON  { response in
+        func getMoviesSearch(page : Int  , completion:@escaping (Bool , [Movie]? , Int? , Int?) ->()) {
             
-            print(response)
+            let headers: HTTPHeaders = [
+                "Accept": "application/json",
+                "Content-Type":"application/json"
+            ]
             
-            switch(response.result) {
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON  { response in
                 
-            case .success(_):
-                if(response.response?.statusCode == 200){
-                    if let json = response.result.value as? [String : Any]{
-                        if json["success"] != nil {
-                            let success = json["success"] as! Int
-                            if success == 1 {
-                                completion(true)
-                                return
-                            } else {
-                                completion(false)
-                                return
-                            }
+                switch(response.result) {
+                case .success(_):
+                    if response.response?.statusCode == 200{
+                        let json = JSON(response.result.value as Any)
+                        guard let results = json["results"].array , let totalPages = json["total_pages"].int , let totalResult = json["total_results"].int else{
+                            return completion(false , nil, nil, nil)
                         }
+                        var movies : [Movie] = []
+                        for item in results{
+                            let movie = Movie(jsonData: item)
+                            movies.append(movie)
+                        }
+                        return completion(true , movies, totalPages , totalResult)
                     }
-                    return
+                    return completion(false, nil, nil, nil)
+                case .failure(_):
+                    return completion(false, nil, nil, nil)
                 }
-                
-                break
-                
-            case .failure(_):
-                print(response.result.error ?? "")
-                break
-                
             }
-            completion(false)
         }
-        
-        */
-    
     }
     
-    //MARK: - HOME
-    func getFriends(userId: String, completion:@escaping (Bool) ->()) {
-       /* let url: String = "\(SERVER_URL)/api/v2/\(userId)/friends"
-        let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "Content-Type":"application/json"
-        ]
-        
-        Alamofire.request(url, method: .get, headers: headers).responseJSON  { response in
-            print(response)
-            
-            switch(response.result) {
-                
-            case .success(_):
-                if(response.response?.statusCode == 200){
-                    
-                    if let array = response.result.value as? NSArray {
-                        
-                        var friends = [Friend]()
-                        for element in array {
-                            if let friendDict = element as? NSDictionary {
-                                print(friendDict)
-                                if let id = friendDict["id"] as? String, let ownerId = Session.shared.userId {
-                                    let friend = Friend(fromDictionary: friendDict, id: id, friendOwnerId: ownerId)
-                                    friends.append(friend)
-                                }
-                            }
-                            
-                        }
-                        completion(true, friends)
-                        return
-                    }
-                    
-                } else{
-                    print("Error status code: \(String(describing: response.response?.statusCode))")
-                    completion(false, nil)
-                    return
-                }
-                
-                break
-                
-            case .failure(_):
-                completion(false, nil)
-                print(response.result.error!)
-                break
-                
-            }
-        }*/
-        
-    }
 }

@@ -40,7 +40,8 @@ class MovieDetailViewController: UIViewController {
                 let overview = self.movie?.overview ,
                 let genres = self.movie?.genreIds ,
                 let year = self.movie?.releaseDate ,
-                let name = self.movie?.title else {
+                let name = self.movie?.title,
+                let id = self.movie?.id else{
                 
             return
         }
@@ -53,7 +54,7 @@ class MovieDetailViewController: UIViewController {
         self.overviewLabel.preferredMaxLayoutWidth = self.scroll.frame.width
         
         likeButton.setImage(#imageLiteral(resourceName: "favorite").withRenderingMode(.alwaysTemplate), for: .normal)
-        if Movie.favorites.filter({$0.id == self.movie?.id}).count > 0{
+        if Movie.favorites.filter({$0.id == id}).count > 0{
             self.likeButton.tintColor = UIColor(named: "principalColor")
         }
         else{
@@ -92,12 +93,15 @@ class MovieDetailViewController: UIViewController {
     }
 
     @IBAction func tapHeart(_ sender: UIButton) {
-        if Movie.favorites.contains(self.movie!){
-            Movie.favorites = Movie.favorites.filter({$0 != movie})
+        guard let id = movie?.id else {
+            return
+        }
+        if Movie.favorites.filter({$0.id == id}).count > 0{
+            Movie.removeFavoriteMovie(withID: id)
             self.likeButton.tintColor = .gray
         }
         else{
-            Movie.favorites.append(movie!)
+            Movie.saveFavoriteMovie(movie: movie!)
             self.likeButton.tintColor = UIColor(named: "principalColor")
         }
         self.updateFavoritesMovies()

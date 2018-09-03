@@ -8,7 +8,7 @@
 
 import UIKit
 import Toast_Swift
-
+import CoreData
 
 protocol FavoritesViewControllerDelegate : class {
     func didSelectFilters(array : [String : String])
@@ -19,7 +19,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var removeFiltersButton: UIButton!
     
-    var moviesFiltered : [Movie] = Movie.favorites
+    var moviesFiltered = Movie.favorites
     var filters : [String : String] = [:]
     @IBOutlet weak var heightBUtton: NSLayoutConstraint!
     
@@ -38,6 +38,7 @@ class FavoritesViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.isTranslucent = false
         
+        self.applyFilters()
         self.tableView.reloadData()
         self.setupHeightButton()
         self.title = "Favorites"
@@ -58,6 +59,7 @@ class FavoritesViewController: UIViewController {
     }
 
     func applyFilters(){
+        Movie.loadFavoritesFromStore()
         self.moviesFiltered = Movie.favorites
         self.filters.forEach { (key , value) in
             if value != ""{
@@ -65,10 +67,16 @@ class FavoritesViewController: UIViewController {
                     self.moviesFiltered = self.moviesFiltered.filter({$0.releaseDate?.split(separator: "-")[0].description == value})
                 }
                 else if key == "genre"{
-                    self.moviesFiltered = self.moviesFiltered.filter({$0.verifyGenre(genre: value)})
+                    self.moviesFiltered = self.moviesFiltered.filter({verifyGenre(genre: value , movie: $0)})
                 }
             }
         }
+    }
+    
+    
+    func verifyGenre(genre: String ,movie : Favorites)-> Bool{
+        let movieGenres = Genre.genres.filter({movie.genreIds!.contains($0.id!)}).map({$0.name})
+        return movieGenres.contains(genre)
     }
     
     func setupHeightButton(){
@@ -153,7 +161,7 @@ extension FavoritesViewController : FavoritesViewControllerDelegate{
 extension FavoritesViewController : UINavigationControllerDelegate{
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if Movie.favorites.count == 0{
-            self.view.makeToast("you do not have selected movies")
+            self.view.makeToast("you do not have selected favorites movies")
             return false
         }
         return true

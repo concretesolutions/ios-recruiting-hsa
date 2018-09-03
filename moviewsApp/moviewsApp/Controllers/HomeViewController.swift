@@ -13,14 +13,23 @@ class homeViewController: UIViewController {
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var moviesCollection: UICollectionView!
     
+    lazy var refreshControl: UIRefreshControl = UIRefreshControl()
+    
     var moviesData : [Movie] = []
-    var favorites : [Movie] = []
     var numPages : Int = 1
     var currentPage : Int = 1
+    var currentTextSearch : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showIndicator()
+        
+        self.refreshControl.addTarget(self, action: #selector(self.refreshDataMovies), for: UIControlEvents.valueChanged)
+        if #available(iOS 10.0, *) {
+            self.moviesCollection.refreshControl = self.refreshControl
+        } else {
+            self.moviesCollection.addSubview(self.refreshControl)
+        }
+        
         self.setupDelegates()
         self.loadMoviesData()
     }
@@ -34,6 +43,13 @@ class homeViewController: UIViewController {
         self.moviesCollection.reloadData()
     }
     
+    @objc func refreshDataMovies(){
+        self.refreshControl.beginRefreshing()
+        self.currentPage = 1
+        self.numPages = 1
+        self.loadMoviesData()
+    }
+    
     func setupDelegates(){
         self.search.delegate = self
         self.moviesCollection.delegate = self
@@ -41,23 +57,35 @@ class homeViewController: UIViewController {
     }
     
     func loadMoviesData(){
-        if self.currentPage > self.numPages {
+        if self.currentPage > self.numPages{
             return
         }
-        API.shared.getMovies(page: self.currentPage) { (success, movies, totalPages, totalResults) in
+        if currentPage == 1{
+            self.moviesData.removeAll()
+            self.moviesCollection.reloadData()
+            self.showIndicator()
+        }
+        API.shared.getMovies(page: self.currentPage , text: self.currentTextSearch) { (success, movies, totalPages, totalResults) in
             if self.currentPage == 1{
                 self.hideIndicator()
+                self.refreshControl.endRefreshing()
             }
             if success{
                 var indexpaths : [IndexPath] = []
-                for i in self.moviesData.count ..< (movies?.count)! + self.moviesData.count{
-                    indexpaths.append(IndexPath(row: i, section: 0))
-                }
+                
                 self.moviesData = self.moviesData + movies!
                 self.currentPage += 1
                 self.numPages = totalPages!
                 
-                self.moviesCollection.insertItems(at: indexpaths)
+                if self.moviesCollection.numberOfItems(inSection: 0) == 0 {
+                    self.moviesCollection.reloadData()
+                }
+                else{
+                    for i in self.moviesCollection.numberOfItems(inSection: 0) ..< self.moviesData.count{
+                        indexpaths.append(IndexPath(row: i, section: 0))
+                    }
+                    self.moviesCollection.insertItems(at: indexpaths)
+                }
             }
         }
     }
@@ -67,16 +95,17 @@ class homeViewController: UIViewController {
 extension homeViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
-        searchBar.resignFirstResponder()
+        self.currentPage = 1
+        self.numPages = 1
+        self.currentTextSearch = searchBar.text!
+        self.moviesCollection.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        self.loadMoviesData()
+        self.view.endEditing(true)
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return !((searchBar.text?.count == 0 || searchBar.text?.last == " ") && text == " ")
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    }
-    
 }
 
 extension homeViewController : UICollectionViewDelegateFlowLayout {
@@ -106,7 +135,7 @@ extension homeViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movie-cell", for: indexPath) as! MovieCollectionViewCell
         
         cell.nameMovie.text = self.moviesData[indexPath.row].title
-        cell.likeButton.tintColor = Movie.favorites.filter({$0.id == self.moviesData[indexPath.row].id}).count > 0 ? UIColor(named: "principalColor") : .white
+        cell.likeButton.tintColor = Movie.favorites.filter({$0.id == self.moviesData[indexPath.row].id!}).count > 0 ? UIColor(named: "principalColor") : .white
         cell.delegate = self
         guard let posterPath = self.moviesData[indexPath.row].posterPath else {
             return cell
@@ -149,7 +178,7 @@ extension homeViewController : UIScrollViewDelegate {
 extension homeViewController : MovieCollectionCellDelegate{
     
     func didAddFavorites(indexPath: IndexPath) {
-        Movie.favorites.append(self.moviesData[indexPath.row])
+        Movie.saveFavoriteMovie(movie: self.moviesData[indexPath.row])
         if #available(iOS 11.0, *) {
             self.moviesCollection.reloadItems(at: [indexPath])
         }
@@ -160,7 +189,7 @@ extension homeViewController : MovieCollectionCellDelegate{
     }
     
     func didremoveFavorites(indexPath: IndexPath) {
-        Movie.favorites = Movie.favorites.filter({$0.id != self.moviesData[indexPath.row].id})
+        Movie.removeFavoriteMovie(withID: self.moviesData[indexPath.row].id!)
         if #available(iOS 11.0, *) {
             self.moviesCollection.reloadItems(at: [indexPath])
         }

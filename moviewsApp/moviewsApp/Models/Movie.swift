@@ -1,10 +1,11 @@
 
 import Foundation
 import SwiftyJSON
+import CoreData
 
-class Movie : NSObject {
+class Movie{
     
-    static var favorites : [Movie] = []
+    static var favorites = [Favorites]()
     
     var voteCount : Int?
     var id : Int?
@@ -44,8 +45,46 @@ class Movie : NSObject {
         self.releaseDate = jsonData["release_date"].exists() ? jsonData["release_date"].string : ""
     }
     
-    func verifyGenre(genre: String)-> Bool{
-        let movieGenres = Genre.genres.filter({self.genreIds!.contains($0.id!)}).map({$0.name})
-        return movieGenres.contains(genre)
+    static func loadFavoritesFromStore(){
+    
+        let fetchResults : NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        do {
+            let movies = try PersistenceService.context.fetch(fetchResults)
+            self.favorites = movies
+        } catch{
+        }
     }
+    
+    static func saveFavoriteMovie(movie : Movie){
+        let favoriteMovie = Favorites(context: PersistenceService.context)
+        favoriteMovie.id = Int64(movie.id!)
+        favoriteMovie.voteCount = Int64(movie.voteCount!)
+        favoriteMovie.video = movie.video!
+        favoriteMovie.voteAverage = movie.voteAverage!
+        favoriteMovie.title = movie.title
+        favoriteMovie.popularity = movie.popularity!
+        favoriteMovie.posterPath = movie.posterPath
+        favoriteMovie.originalLanguage = movie.originalLanguage
+        favoriteMovie.backdropPath = movie.backdropPath
+        favoriteMovie.isAdults = movie.isAdults!
+        favoriteMovie.overview = movie.overview
+        favoriteMovie.releaseDate = movie.releaseDate
+        favoriteMovie.genreIds = movie.genreIds! as NSArray
+        PersistenceService.saveContext()
+        loadFavoritesFromStore()
+    }
+    
+    static func removeFavoriteMovie(withID id : Int){
+        let fetchResults : NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        fetchResults.predicate = NSPredicate.init(format: "id==\(id)")
+        do {
+            let movies = try PersistenceService.context.fetch(fetchResults)
+            for obj in movies {
+                PersistenceService.context.delete(obj)
+            }
+        } catch{
+        }
+        loadFavoritesFromStore()
+    }
+    
 }

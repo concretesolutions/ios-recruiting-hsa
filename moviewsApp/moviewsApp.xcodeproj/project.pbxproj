@@ -32,6 +32,8 @@
 		458E71ED213855B200A0C892 /* custom-indicator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 458E71EC213855B200A0C892 /* custom-indicator.gif */; };
 		4599F81921334A2700E51F70 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4599F81521334A2700E51F70 /* Favorite.storyboard */; };
 		4599F81A21334A2700E51F70 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4599F81721334A2700E51F70 /* Movies.storyboard */; };
+		45B4973E213CD96900734F39 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45B4973C213CD96900734F39 /* Model.xcdatamodeld */; };
+		45B49740213CDB3100734F39 /* PersistenceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4973F213CDB3100734F39 /* PersistenceContext.swift */; };
 		7C87ECE07B9CEF05CC7B7959 /* Pods_moviewsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322297B27A269105C771509F /* Pods_moviewsAppTests.framework */; };
 		D08314E3F5082C75BED77638 /* Pods_moviewsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AD69F49286BCF8CD12BD60 /* Pods_moviewsAppUITests.framework */; };
 		FA4D32962E66E3919CAA8438 /* Pods_moviewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA49B8CE86AE58E2602023F /* Pods_moviewsApp.framework */; };
@@ -90,6 +92,8 @@
 		458E71EC213855B200A0C892 /* custom-indicator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "custom-indicator.gif"; sourceTree = "<group>"; };
 		4599F81621334A2700E51F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorite.storyboard; sourceTree = "<group>"; };
 		4599F81821334A2700E51F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Movies.storyboard; sourceTree = "<group>"; };
+		45B4973D213CD96900734F39 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		45B4973F213CDB3100734F39 /* PersistenceContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceContext.swift; sourceTree = "<group>"; };
 		6960D101470D3EFB3732876E /* Pods-moviewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviewsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-moviewsApp/Pods-moviewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		8FA49B8CE86AE58E2602023F /* Pods_moviewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moviewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AD69F49286BCF8CD12BD60 /* Pods_moviewsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moviewsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +196,8 @@
 				458DB732213760FD005DD195 /* LaunchScreen.storyboard */,
 				458DB735213760FD005DD195 /* Info.plist */,
 				458E71EC213855B200A0C892 /* custom-indicator.gif */,
+				45B4973C213CD96900734F39 /* Model.xcdatamodeld */,
+				45B4973F213CDB3100734F39 /* PersistenceContext.swift */,
 			);
 			path = moviewsApp;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 		458E71E62138331200A0C892 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				45A44B11213D92E400552A9D /* CoreDataModels */,
 				457893CB2139D63200442DEC /* Movie.swift */,
 				455AC450213AE39E002AB8F8 /* Genre.swift */,
 			);
@@ -234,6 +241,13 @@
 				453D70F3213B639F00536E44 /* GlobalVars.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		45A44B11213D92E400552A9D /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreDataModels;
 			sourceTree = "<group>";
 		};
 		45F52CE3213C347000275FC4 /* Sections */ = {
@@ -477,10 +491,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				458E71EB213852F600A0C892 /* gifExtension.swift in Sources */,
+				45B49740213CDB3100734F39 /* PersistenceContext.swift in Sources */,
 				458E71E9213846D400A0C892 /* CustomIndicator.swift in Sources */,
 				458DB72C213760FB005DD195 /* HomeViewController.swift in Sources */,
 				457893CE2139D8B100442DEC /* API.swift in Sources */,
 				453D70F2212E254A00536E44 /* FiltersViewController.swift in Sources */,
+				45B4973E213CD96900734F39 /* Model.xcdatamodeld in Sources */,
 				457893D7213A4DAF00442DEC /* MovieDetailViewController.swift in Sources */,
 				457893D1213A0F3900442DEC /* activityFooterCollectionReusableView.swift in Sources */,
 				457893D5213A26A300442DEC /* ImageLoader.swift in Sources */,
@@ -835,6 +851,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		45B4973C213CD96900734F39 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				45B4973D213CD96900734F39 /* Model.xcdatamodel */,
+			);
+			currentVersion = 45B4973D213CD96900734F39 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 458DB71E213760FB005DD195 /* Project object */;
 }
