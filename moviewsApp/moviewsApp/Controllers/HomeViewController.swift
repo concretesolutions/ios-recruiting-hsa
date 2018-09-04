@@ -50,7 +50,7 @@ class homeViewController: UIViewController {
         self.loadMoviesData()
     }
     
-    func setupDelegates(){
+    override func setupDelegates(){
         self.search.delegate = self
         self.moviesCollection.delegate = self
         self.moviesCollection.dataSource = self

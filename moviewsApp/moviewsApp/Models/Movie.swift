@@ -45,6 +45,22 @@ class Movie{
         self.releaseDate = jsonData["release_date"].exists() ? jsonData["release_date"].string : ""
     }
     
+    init(favorite : Favorites) {
+        self.id = favorite.id.hashValue
+        self.voteCount = favorite.voteCount.hashValue
+        self.video = favorite.video
+        self.voteAverage = favorite.voteAverage
+        self.title = favorite.title
+        self.popularity = favorite.popularity
+        self.posterPath = favorite.posterPath
+        self.originalLanguage = favorite.originalLanguage
+        self.backdropPath = favorite.backdropPath
+        self.isAdults = favorite.isAdults
+        self.overview = favorite.overview
+        self.releaseDate = favorite.releaseDate
+        self.genreIds = favorite.genreIds as? [Int]
+    }
+    
     static func loadFavoritesFromStore(){
     
         let fetchResults : NSFetchRequest<Favorites> = Favorites.fetchRequest()
@@ -86,5 +102,4 @@ class Movie{
         }
         loadFavoritesFromStore()
     }
-    
 }

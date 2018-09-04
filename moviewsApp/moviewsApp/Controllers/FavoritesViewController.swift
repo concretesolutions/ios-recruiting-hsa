@@ -17,6 +17,7 @@ protocol FavoritesViewControllerDelegate : class {
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var removeFiltersButton: UIButton!
     
     var moviesFiltered = Movie.favorites
@@ -25,11 +26,8 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        self.navigationController?.delegate = self
+        self.setupDelegates()
+        self.applyFilters()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +36,6 @@ class FavoritesViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.isTranslucent = false
         
-        self.applyFilters()
-        self.tableView.reloadData()
         self.setupHeightButton()
         self.title = "Favorites"
     }
@@ -48,6 +44,13 @@ class FavoritesViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         self.title = ""
+    }
+    
+    override func setupDelegates(){
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.navigationController?.delegate = self
+        self.search.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,8 +74,23 @@ class FavoritesViewController: UIViewController {
                 }
             }
         }
+        
+        guard let text = self.search.text else {
+            return
+        }
+        if text.count > 2{
+            var array = [Favorites]()
+            for movie in self.moviesFiltered {
+                if movie.title?.lowercased().range(of: text.lowercased()) != nil {
+                    array.append(movie)
+                }
+            }
+            self.moviesFiltered = array
+            self.tableView.reloadSections(IndexSet(0...0), with: .fade)
+            return
+        }
+        self.tableView.reloadData()
     }
-    
     
     func verifyGenre(genre: String ,movie : Favorites)-> Bool{
         let movieGenres = Genre.genres.filter({movie.genreIds!.contains($0.id!)}).map({$0.name})
@@ -92,8 +110,24 @@ class FavoritesViewController: UIViewController {
     @IBAction func removeFilters(_ sender: UIButton) {
         self.filters = [:]
         self.setupHeightButton()
+        self.moviesFiltered = Movie.favorites
         self.applyFilters()
         self.tableView.reloadSections(IndexSet(0...0), with: .fade)
+    }
+}
+
+extension FavoritesViewController : UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        self.view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return !((searchBar.text?.count == 0 || searchBar.text?.last == " ") && text == " ")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.applyFilters()
     }
 }
 
@@ -113,6 +147,10 @@ extension FavoritesViewController : UITableViewDelegate{
         }
         
         return [delete]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.goToMovieDetail(movie: Movie(favorite : self.moviesFiltered[indexPath.row]))
     }
 }
 
@@ -154,6 +192,7 @@ extension FavoritesViewController : UIScrollViewDelegate{
 extension FavoritesViewController : FavoritesViewControllerDelegate{
     func didSelectFilters(array : [String : String]){
         self.filters = array
+        self.search.text = ""
         self.applyFilters()
     }
 }

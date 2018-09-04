@@ -55,4 +55,7 @@ extension UIViewController{
             }
         }
     }
+    
+    @objc func setupDelegates(){
+    }
 }

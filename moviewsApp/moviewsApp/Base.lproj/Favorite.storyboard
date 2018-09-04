@@ -154,12 +154,13 @@
                     <connections>
                         <outlet property="heightBUtton" destination="3LT-gE-fTg" id="Obs-En-LqQ"/>
                         <outlet property="removeFiltersButton" destination="U11-VN-zJm" id="RT1-15-CjS"/>
+                        <outlet property="search" destination="GaE-QC-P2s" id="q8a-xA-w5z"/>
                         <outlet property="tableView" destination="zKt-Mn-ncD" id="SWk-9W-7K8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ou-di-RaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="497.90104947526243"/>
+            <point key="canvasLocation" x="2186" y="498"/>
         </scene>
         <!--Filters View Controller-->
         <scene sceneID="6tt-ik-J6V">

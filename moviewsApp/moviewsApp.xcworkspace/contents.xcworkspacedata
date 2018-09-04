@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:moviewsApp/Models/Favorites+CoreDataClass.swift">
+      location = "group:moviewsApp/Models/../../Favorites+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:moviewsApp/Models/Favorites+CoreDataProperties.swift">
+      location = "group:moviewsApp/Models/../../Favorites+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:moviewsApp.xcodeproj">

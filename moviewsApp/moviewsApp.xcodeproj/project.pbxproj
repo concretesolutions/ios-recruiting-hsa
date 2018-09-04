@@ -193,7 +193,6 @@
 				454E53A4213784E5001A5B5E /* Controllers */,
 				458DB729213760FB005DD195 /* AppDelegate.swift */,
 				458DB730213760FD005DD195 /* Assets.xcassets */,
-				458DB732213760FD005DD195 /* LaunchScreen.storyboard */,
 				458DB735213760FD005DD195 /* Info.plist */,
 				458E71EC213855B200A0C892 /* custom-indicator.gif */,
 				45B4973C213CD96900734F39 /* Model.xcdatamodeld */,
@@ -223,7 +222,6 @@
 		458E71E62138331200A0C892 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				45A44B11213D92E400552A9D /* CoreDataModels */,
 				457893CB2139D63200442DEC /* Movie.swift */,
 				455AC450213AE39E002AB8F8 /* Genre.swift */,
 			);
@@ -243,16 +241,10 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		45A44B11213D92E400552A9D /* CoreDataModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CoreDataModels;
-			sourceTree = "<group>";
-		};
 		45F52CE3213C347000275FC4 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				458DB732213760FD005DD195 /* LaunchScreen.storyboard */,
 				4599F81521334A2700E51F70 /* Favorite.storyboard */,
 				4599F81721334A2700E51F70 /* Movies.storyboard */,
 				458DB72D213760FB005DD195 /* Main.storyboard */,
