@@ -61,6 +61,8 @@ class Movie{
         self.genreIds = favorite.genreIds as? [Int]
     }
     
+    
+    /// trae las peliculas del store
     static func loadFavoritesFromStore(){
     
         let fetchResults : NSFetchRequest<Favorites> = Favorites.fetchRequest()
@@ -71,6 +73,10 @@ class Movie{
         }
     }
     
+    
+    /// guarda la pelicula en las favoritas
+    ///
+    /// - Parameter movie: data para crear el objeto Favorites para guardarlo en core data
     static func saveFavoriteMovie(movie : Movie){
         let favoriteMovie = Favorites(context: PersistenceService.context)
         favoriteMovie.id = Int64(movie.id!)
@@ -90,6 +96,10 @@ class Movie{
         loadFavoritesFromStore()
     }
     
+    
+    /// elimina la palicula de las favoritas
+    ///
+    /// - Parameter id: id de la pelicula
     static func removeFavoriteMovie(withID id : Int){
         let fetchResults : NSFetchRequest<Favorites> = Favorites.fetchRequest()
         fetchResults.predicate = NSPredicate.init(format: "id==\(id)")

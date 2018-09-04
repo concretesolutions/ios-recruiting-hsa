@@ -65,6 +65,8 @@ class FavoritesViewController: UIViewController {
         }
     }
 
+    
+    /// aplica los filtros sobre las peliculas favoritas y recarga la tabla
     func applyFilters(){
         Movie.loadFavoritesFromStore()
         self.moviesFiltered = Movie.favorites
@@ -96,11 +98,20 @@ class FavoritesViewController: UIViewController {
         self.tableView.reloadData()
     }
     
+    
+    /// verifica si la pelicula pertenece a ese genero
+    ///
+    /// - Parameters:
+    ///   - genre: genero de la pelicula
+    ///   - movie: pelicula
+    /// - Returns: resultado
     func verifyGenre(genre: String ,movie : Favorites)-> Bool{
         let movieGenres = Genre.genres.filter({movie.genreIds!.contains($0.id!)}).map({$0.name})
         return movieGenres.contains(genre)
     }
     
+    
+    /// gestiona el alto del boton de eliminar filtros si hay filtros aplicados o no
     func setupHeightButton(){
         self.heightBUtton.constant = self.filters.filter({ (key , value) -> Bool in
             return value != ""
@@ -111,6 +122,10 @@ class FavoritesViewController: UIViewController {
         }
     }
     
+    
+    /// remueve los filtros
+    ///
+    /// - Parameter sender: boton que ejecuta la funcion
     @IBAction func removeFilters(_ sender: UIButton) {
         self.filters = [:]
         self.setupHeightButton()

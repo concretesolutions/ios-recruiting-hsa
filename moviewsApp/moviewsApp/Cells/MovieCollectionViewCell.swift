@@ -32,6 +32,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
         self.nameMovie.text = ""
     }
     
+    
+    /// ejecuta el delegado que le indica a la vista que se quiere guardar o borrar la pelicula en favoritos
+    ///
+    /// - Parameter sender: boton del corazon
     @IBAction func tapHeart(_ sender: UIButton) {
         guard let collection = self.superview as? UICollectionView else {
             return

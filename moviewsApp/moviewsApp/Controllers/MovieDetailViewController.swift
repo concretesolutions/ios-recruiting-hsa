@@ -35,6 +35,8 @@ class MovieDetailViewController: UIViewController {
         self.loadDataView()
     }
     
+    
+    /// carga la data de la pelicula en la interfaz
     func loadDataView(){
         guard   let path = self.movie?.posterPath ,
                 let overview = self.movie?.overview ,
@@ -78,6 +80,11 @@ class MovieDetailViewController: UIViewController {
         self.scroll.contentSize.height = self.overviewLabel.frame.maxY + 10
     }
     
+    
+    /// genera el texto de los generos que se muestra en la interfaz
+    ///
+    /// - Parameter genreIds: ids de los generos de la pelicula
+    /// - Returns: texto a mostrar
     func generateGenreText(genreIds : [Int]) -> String{
         if Genre.genres.isEmpty{
             return ""
@@ -92,6 +99,10 @@ class MovieDetailViewController: UIViewController {
         return text
     }
 
+    
+    /// agrega la pelicula o la remueve de los favoritas dependiando del caso
+    ///
+    /// - Parameter sender: <#sender description#>
     @IBAction func tapHeart(_ sender: UIButton) {
         guard let id = movie?.id else {
             return

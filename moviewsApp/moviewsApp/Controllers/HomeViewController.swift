@@ -47,6 +47,8 @@ class homeViewController: UIViewController {
         self.moviesCollection.reloadData()
     }
     
+    
+    /// recarga la data del collection cuando se ejecuta el refresh
     @objc func refreshDataMovies(){
         self.refreshControl.beginRefreshing()
         self.cloud.isHidden = true
@@ -62,6 +64,8 @@ class homeViewController: UIViewController {
         self.moviesCollection.dataSource = self
     }
     
+    
+    /// carga la data del collection que trae del servicio
     func loadMoviesData(){
         if self.currentPage > self.numPages{
             return

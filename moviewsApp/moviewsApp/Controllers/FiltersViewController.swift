@@ -45,6 +45,10 @@ class FiltersViewController: UIViewController {
         self.title = ""
     }
     
+    
+    /// genera los anios que se van a mostrar en las opciones
+    ///
+    /// - Returns: array resultado con los anios
     func generateDatesArray() -> [String]{
         let date = Date()
         let calendar = Calendar.current
@@ -53,10 +57,14 @@ class FiltersViewController: UIViewController {
         return Array(MIN_YEAR...year).reversed().map({$0.description})
     }
     
+    
+    /// agrega contentInset a la tabla dependiendo si esta el boton de aplicar filtros o no
     func setupContentInset(){
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: self.level == 0 ? 60 : 0, right: 0)
     }
     
+    
+    /// modifica el navbar de la interfaz
     func setupNavBar(){
         
         navigationItem.hidesBackButton = true
@@ -65,6 +73,8 @@ class FiltersViewController: UIViewController {
         navigationItem.leftBarButtonItem = buttonBack
     }
     
+    
+    /// hace el regreso a la interfaz de favoritos o guarda el valor de filtro dependiendo del nivel que esta
     @objc func goBack(){
         if self.level == 0{
             self.navigationController?.popViewController(animated: true)
@@ -78,6 +88,10 @@ class FiltersViewController: UIViewController {
         }
     }
     
+    
+    /// cierra la interfaz y le indica a la interfaz de favoritos que hay filtros por aplicar
+    ///
+    /// - Parameter sender: boton que activa el metodo
     @IBAction func ApplyFilters(_ sender: UIButton) {
         
         let dictionary = ["date" : valuesFilter[0] , "genre" : valuesFilter[1]]

@@ -41,6 +41,13 @@ class API {
         alamoFireManager = Alamofire.SessionManager(configuration: configuration)
     }
     
+    
+    /// obtiene de la API las peliculas
+    ///
+    /// - Parameters:
+    ///   - page: numero de pagina
+    ///   - text: texto de filtrado. si es vacio trae las peliculas populares y si no el listado de las peliculas con el query
+    ///   - completion: resultado del callBack
     func getMovies(page : Int , text : String, completion:@escaping (Bool , [Movie]? , Int? , Int?) ->()) {
 
         let url: String = text.isEmpty ? "\(baseURLS.popularMovies.rawValue)?api_key=\(self.apiKey)&language=es&page=\(page)" :
@@ -74,6 +81,10 @@ class API {
         }
     }
     
+    
+    /// obtiene los generos de las peliculas de la API
+    ///
+    /// - Parameter completion: resultado del callBack
     func getGenres( completion:@escaping (Bool , [Genre]?) ->()) {
         let url: String = "\(baseURLS.genres.rawValue)?api_key=\(self.apiKey)&language=es"
         
@@ -101,36 +112,6 @@ class API {
                 return completion(false, nil)
             case .failure(_):
                 return completion(false, nil)
-            }
-        }
-        
-        func getMoviesSearch(page : Int  , completion:@escaping (Bool , [Movie]? , Int? , Int?) ->()) {
-            
-            let headers: HTTPHeaders = [
-                "Accept": "application/json",
-                "Content-Type":"application/json"
-            ]
-            
-            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON  { response in
-                
-                switch(response.result) {
-                case .success(_):
-                    if response.response?.statusCode == 200{
-                        let json = JSON(response.result.value as Any)
-                        guard let results = json["results"].array , let totalPages = json["total_pages"].int , let totalResult = json["total_results"].int else{
-                            return completion(false , nil, nil, nil)
-                        }
-                        var movies : [Movie] = []
-                        for item in results{
-                            let movie = Movie(jsonData: item)
-                            movies.append(movie)
-                        }
-                        return completion(true , movies, totalPages , totalResult)
-                    }
-                    return completion(false, nil, nil, nil)
-                case .failure(_):
-                    return completion(false, nil, nil, nil)
-                }
             }
         }
     }

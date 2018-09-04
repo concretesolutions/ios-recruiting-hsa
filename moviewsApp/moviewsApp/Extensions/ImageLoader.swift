@@ -15,6 +15,12 @@ class ImageLoader {
     
     private var imageCache = NSCache<NSString, UIImage>()
     
+    
+    /// obitiene la imagen de una URL , la guarda en cache
+    ///
+    /// - Parameters:
+    ///   - path: direccion donde esta la imagen
+    ///   - completion: respuesta del callBack
     func loadImage(path: String, completion: @escaping (Bool, UIImage?)->Void) {
         
         if let image = imageCache.object(forKey: path as NSString) {
@@ -41,10 +47,10 @@ class ImageLoader {
         }
     }
     
-    func cleanCache(){
-        self.imageCache.removeAllObjects()
-    }
     
+    /// para obtener imagen de la cache
+    ///
+    /// - Returns: resultado de la busqueda
     func getImageCache()->NSCache<NSString, UIImage>{
         return self.imageCache
     }
@@ -52,6 +58,10 @@ class ImageLoader {
 
 extension UIImageView {
     
+    
+    /// carga la imagen en el componente
+    ///
+    /// - Parameter path: direccion URL de la imagen
     func loadPicture(of path: String) {
         self.addIndicator()
         if let url = URL(string: path){
@@ -68,11 +78,15 @@ extension UIImageView {
         }
     }
     
+    
+    /// agrega un CustomIndicator en el componente mientras se agrega la imagen
     func addIndicator(){
         let indicator = CustomIndicator(frame: CGRect(x: self.frame.midX - 10, y: self.frame.midY - 10, width: 20, height: 20))
         self.addSubview(indicator)
     }
     
+    
+    /// elimina el CustomIndicator cuando ya esta la imagen 
     func removeIndicator(){
         for item in self.subviews{
             if item is CustomIndicator{

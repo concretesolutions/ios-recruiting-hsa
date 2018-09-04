@@ -96,6 +96,8 @@ class FilterTableViewCell: UITableViewCell {
         }
     }
     
+    
+    /// metodo que ejecuta el delegado que le indica a la vista que se dio tap a la flecha para abrir las opciones del filtro
     @objc func tapImage(){
         guard let tableView = self.superview as? UITableView else {
             return
