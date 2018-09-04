@@ -39,23 +39,20 @@ extension UIViewController{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func updateFavoritesMovies(){
-        guard let window = UIApplication.shared.keyWindow else {
-            return
-        }
-        if let tabBar = window.rootViewController as? UITabBarController{
-            if let viewControllers = tabBar.viewControllers{
-                if viewControllers.count > 1{
-                    if let nav = viewControllers[1] as? UINavigationController{
-                        if let vc = nav.viewControllers[0] as? FavoritesViewController{
-                            vc.applyFilters()
-                        }
-                    }
+    @objc func setupDelegates(){
+    }
+}
+
+extension UISearchBar {
+    func changeSearchBarColor(color : UIColor) {
+        for subView in self.subviews {
+            for subSubView in subView.subviews {
+                if subSubView is UITextField {
+                    let textField = subSubView as! UITextField
+                    textField.backgroundColor = color
+                    break
                 }
             }
         }
-    }
-    
-    @objc func setupDelegates(){
     }
 }

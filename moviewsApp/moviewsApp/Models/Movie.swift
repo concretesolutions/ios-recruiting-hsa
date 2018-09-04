@@ -100,6 +100,7 @@ class Movie{
             }
         } catch{
         }
+        PersistenceService.saveContext()
         loadFavoritesFromStore()
     }
 }

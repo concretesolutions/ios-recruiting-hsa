@@ -19,6 +19,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var removeFiltersButton: UIButton!
+    @IBOutlet weak var emptyMessage: UILabel!
     
     var moviesFiltered = Movie.favorites
     var filters : [String : String] = [:]
@@ -26,8 +27,10 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.search.changeSearchBarColor(color: UIColor(named: "orangeColor")!)
+        
         self.setupDelegates()
-        self.applyFilters()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +39,7 @@ class FavoritesViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.isTranslucent = false
         
+        self.applyFilters()
         self.setupHeightButton()
         self.title = "Favorites"
     }
@@ -139,7 +143,7 @@ extension FavoritesViewController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "UNFAVORITE") { (action, indexPath) in
-            Movie.favorites.remove(at: indexPath.row)
+            Movie.removeFavoriteMovie(withID: Int(self.moviesFiltered[indexPath.row].id))
             self.moviesFiltered.remove(at: indexPath.row)
             tableView.performBatchUpdates({
                 tableView.deleteRows(at: [indexPath], with: .fade)
@@ -160,6 +164,8 @@ extension FavoritesViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.emptyMessage.text = Movie.favorites.count == 0 ? "Do not have favorites movies" : "Empty results!"
+        self.emptyMessage.isHidden = !(moviesFiltered.count == 0)
         return moviesFiltered.count
     }
     

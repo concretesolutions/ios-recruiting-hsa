@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tHd-Tf-WFg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,13 +17,13 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="homeViewController" customModule="moviewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaR-Je-w5d">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-1b-xT5">
+                                    <searchBar contentMode="redraw" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-1b-xT5">
                                         <rect key="frame" x="0.0" y="2" width="375" height="56"/>
                                         <color key="barTintColor" name="principalColor"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -35,7 +39,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-Q0-ZXw">
-                                <rect key="frame" x="0.0" y="60" width="375" height="494"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="Uwd-4v-HPq">
                                     <size key="itemSize" width="173" height="235"/>
@@ -115,16 +119,35 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You dont have anny offline movies. Please swipe to get data of server" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cb4-Y2-fL0">
+                                <rect key="frame" x="85" y="299" width="205" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="MaK-fh-9q5">
+                                <rect key="frame" x="112.5" y="170" width="150" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="RQX-e7-9QG"/>
+                                    <constraint firstAttribute="width" constant="150" id="kaF-og-Qxe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Cb4-Y2-fL0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4cf-sV-6ef"/>
+                            <constraint firstItem="Cb4-Y2-fL0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="8Oe-qD-OIY"/>
+                            <constraint firstAttribute="trailing" secondItem="Cb4-Y2-fL0" secondAttribute="trailing" constant="85" id="8qy-FY-RYo"/>
                             <constraint firstAttribute="trailing" secondItem="yyv-Q0-ZXw" secondAttribute="trailing" id="Cgh-gU-CNq"/>
                             <constraint firstItem="yyv-Q0-ZXw" firstAttribute="top" secondItem="DaR-Je-w5d" secondAttribute="bottom" id="VWQ-F4-QO9"/>
+                            <constraint firstItem="MaK-fh-9q5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="Whr-QJ-H8V"/>
                             <constraint firstItem="DaR-Je-w5d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bqw-4e-oF6"/>
                             <constraint firstItem="DaR-Je-w5d" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ftv-X6-P3m"/>
                             <constraint firstItem="DaR-Je-w5d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gbh-uW-k9f"/>
+                            <constraint firstItem="MaK-fh-9q5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p5z-0z-fbt"/>
                             <constraint firstItem="yyv-Q0-ZXw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="paD-Hk-yj1"/>
                             <constraint firstAttribute="bottom" secondItem="yyv-Q0-ZXw" secondAttribute="bottom" id="wJz-ro-zsv"/>
+                            <constraint firstItem="Cb4-Y2-fL0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="50" id="xL3-eh-hgD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -132,6 +155,8 @@
                     <navigationItem key="navigationItem" id="4w0-Lw-JDj"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cloud" destination="MaK-fh-9q5" id="GH3-cZ-wAP"/>
+                        <outlet property="message" destination="Cb4-Y2-fL0" id="Vh1-pc-wcq"/>
                         <outlet property="moviesCollection" destination="yyv-Q0-ZXw" id="uwc-ZW-eaZ"/>
                         <outlet property="search" destination="ZNU-1b-xT5" id="nT8-Tu-aep"/>
                     </connections>
@@ -164,6 +189,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cloud" width="150" height="129"/>
         <image name="favorite" width="17" height="16"/>
         <image name="list" width="18" height="10"/>
         <image name="list-selected" width="20" height="20"/>

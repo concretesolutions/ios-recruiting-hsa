@@ -12,6 +12,8 @@ class homeViewController: UIViewController {
 
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var moviesCollection: UICollectionView!
+    @IBOutlet weak var cloud: UIImageView!
+    @IBOutlet weak var message: UILabel!
     
     lazy var refreshControl: UIRefreshControl = UIRefreshControl()
     
@@ -30,6 +32,8 @@ class homeViewController: UIViewController {
             self.moviesCollection.addSubview(self.refreshControl)
         }
         
+        self.search.changeSearchBarColor(color: UIColor(named: "orangeColor")!)
+        
         self.setupDelegates()
         self.loadMoviesData()
     }
@@ -45,6 +49,8 @@ class homeViewController: UIViewController {
     
     @objc func refreshDataMovies(){
         self.refreshControl.beginRefreshing()
+        self.cloud.isHidden = true
+        self.message.isHidden = true
         self.currentPage = 1
         self.numPages = 1
         self.loadMoviesData()
@@ -67,8 +73,10 @@ class homeViewController: UIViewController {
         }
         API.shared.getMovies(page: self.currentPage , text: self.currentTextSearch) { (success, movies, totalPages, totalResults) in
             if self.currentPage == 1{
-                self.hideIndicator()
-                self.refreshControl.endRefreshing()
+                DispatchQueue.main.async {
+                    self.hideIndicator()
+                    self.refreshControl.endRefreshing()
+                }
             }
             if success{
                 var indexpaths : [IndexPath] = []
@@ -84,7 +92,27 @@ class homeViewController: UIViewController {
                     for i in self.moviesCollection.numberOfItems(inSection: 0) ..< self.moviesData.count{
                         indexpaths.append(IndexPath(row: i, section: 0))
                     }
-                    self.moviesCollection.insertItems(at: indexpaths)
+                    
+                    DispatchQueue.main.async {
+                        self.moviesCollection.insertItems(at: indexpaths)
+                    }
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    self.view.makeToast("error Connection")
+                }
+                if self.moviesData.isEmpty != true{
+                    DispatchQueue.main.async {
+                        let indexpath = IndexPath(row: self.moviesCollection.numberOfItems(inSection: 0) - 2, section: 0)
+                        self.moviesCollection.scrollToItem(at: indexpath, at: .top, animated: true)
+                    }
+                }
+                else{
+                    DispatchQueue.main.async {
+                        self.cloud.isHidden = false
+                        self.message.isHidden = false
+                    }
                 }
             }
         }
@@ -185,7 +213,6 @@ extension homeViewController : MovieCollectionCellDelegate{
         else {
             self.moviesCollection.reloadData()
         }
-        self.updateFavoritesMovies()
     }
     
     func didremoveFavorites(indexPath: IndexPath) {
@@ -196,6 +223,5 @@ extension homeViewController : MovieCollectionCellDelegate{
         else {
             self.moviesCollection.reloadData()
         }
-        self.updateFavoritesMovies()
     }
 }

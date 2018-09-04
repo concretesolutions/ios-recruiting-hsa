@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufy-GS-KFC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="GaE-QC-P2s">
+                                    <searchBar contentMode="redraw" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaE-QC-P2s">
                                         <rect key="frame" x="0.0" y="2" width="375" height="56"/>
                                         <color key="barTintColor" name="principalColor"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -128,6 +128,12 @@
                                     <action selector="removeFilters:" destination="RjV-oy-OoR" eventType="touchUpInside" id="xH5-et-V8K"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not have favorites movies" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jj-IZ-D9E">
+                                <rect key="frame" x="85" y="271" width="205" height="62.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -138,8 +144,12 @@
                             <constraint firstItem="zKt-Mn-ncD" firstAttribute="leading" secondItem="kkj-w8-b0x" secondAttribute="leading" id="8uw-TM-dwL"/>
                             <constraint firstItem="Ufy-GS-KFC" firstAttribute="top" secondItem="lHf-ku-TJX" secondAttribute="top" id="Job-A4-iWc"/>
                             <constraint firstItem="Ufy-GS-KFC" firstAttribute="trailing" secondItem="lHf-ku-TJX" secondAttribute="trailing" id="S3q-6Z-Pcg"/>
+                            <constraint firstItem="8jj-IZ-D9E" firstAttribute="centerY" secondItem="lHf-ku-TJX" secondAttribute="centerY" id="UEd-gq-hcD"/>
                             <constraint firstItem="zKt-Mn-ncD" firstAttribute="bottom" secondItem="lHf-ku-TJX" secondAttribute="bottom" id="alG-UA-vZg"/>
+                            <constraint firstItem="8jj-IZ-D9E" firstAttribute="leading" secondItem="lHf-ku-TJX" secondAttribute="leading" constant="85" id="ekx-9Y-vLH"/>
+                            <constraint firstItem="8jj-IZ-D9E" firstAttribute="centerX" secondItem="lHf-ku-TJX" secondAttribute="centerX" id="f0h-w6-dpF"/>
                             <constraint firstItem="Ufy-GS-KFC" firstAttribute="leading" secondItem="lHf-ku-TJX" secondAttribute="leading" id="lP0-4E-CN1"/>
+                            <constraint firstItem="lHf-ku-TJX" firstAttribute="trailing" secondItem="8jj-IZ-D9E" secondAttribute="trailing" constant="85" id="rpD-Mq-hkg"/>
                             <constraint firstItem="U11-VN-zJm" firstAttribute="top" secondItem="Ufy-GS-KFC" secondAttribute="bottom" id="zst-mb-Yhz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lHf-ku-TJX"/>
@@ -152,6 +162,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyMessage" destination="8jj-IZ-D9E" id="1R1-In-ccc"/>
                         <outlet property="heightBUtton" destination="3LT-gE-fTg" id="Obs-En-LqQ"/>
                         <outlet property="removeFiltersButton" destination="U11-VN-zJm" id="RT1-15-CjS"/>
                         <outlet property="search" destination="GaE-QC-P2s" id="q8a-xA-w5z"/>
@@ -160,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ou-di-RaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186" y="498"/>
+            <point key="canvasLocation" x="2184.8000000000002" y="497.90104947526243"/>
         </scene>
         <!--Filters View Controller-->
         <scene sceneID="6tt-ik-J6V">
