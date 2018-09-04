@@ -1,0 +1,8 @@
+de los puntos faltante solo faltaron 2 el de los unitTest y pipeline automatizado por falta de tiempo , de mas estan todas las 
+funcionalidades solicitadas
+
+en plus de lo solicitado en la prueba agrege funcionalidad a al search de la interfaz que muestra las peliculas populares
+donde al haber texto no realiza un filtro en las peliculas cargadas sino que consume de un servicio de la API que devuelve
+peliculas dependiendo de un texto que se le envie
+
+gracias!
