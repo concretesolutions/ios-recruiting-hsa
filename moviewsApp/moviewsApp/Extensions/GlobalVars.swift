@@ -8,5 +8,5 @@
 
 import Foundation
 
-var FILTERS = ["Date" , "Genders"]
+var FILTERS = ["Date" , "Genres"]
 var MIN_YEAR : Int = 1930

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45104FF8213F18EB007B5E85 /* favoritesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45104FF7213F18EB007B5E85 /* favoritesTest.swift */; };
 		453D70F2212E254A00536E44 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D70F1212E254A00536E44 /* FiltersViewController.swift */; };
 		453D70F4213B639F00536E44 /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D70F3213B639F00536E44 /* GlobalVars.swift */; };
 		453D70FE213B6B3D00536E44 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D70FD213B6B3D00536E44 /* FilterTableViewCell.swift */; };
@@ -61,6 +62,7 @@
 		140824856B9DCCC7FECC305F /* Pods-moviewsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviewsAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moviewsAppUITests/Pods-moviewsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1F3BD8630836D473404093CF /* Pods-moviewsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moviewsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moviewsAppTests/Pods-moviewsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		322297B27A269105C771509F /* Pods_moviewsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moviewsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45104FF7213F18EB007B5E85 /* favoritesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesTest.swift; sourceTree = "<group>"; };
 		453D70F1212E254A00536E44 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		453D70F3213B639F00536E44 /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		453D70FD213B6B3D00536E44 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		458DB748213760FD005DD195 /* moviewsAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				45104FF7213F18EB007B5E85 /* favoritesTest.swift */,
 				458DB749213760FD005DD195 /* homeTest.swift */,
 				458DB74B213760FD005DD195 /* Info.plist */,
 			);
@@ -517,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				458DB74A213760FD005DD195 /* homeTest.swift in Sources */,
+				45104FF8213F18EB007B5E85 /* favoritesTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
