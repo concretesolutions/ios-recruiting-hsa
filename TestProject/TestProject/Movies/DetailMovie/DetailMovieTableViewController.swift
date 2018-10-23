@@ -113,11 +113,3 @@ extension DetailMovieTableViewController :DetailMovieEventResponse{
     
     
 }
-
-
-extension UIView{
-    func roundedCorners(cRadius:CGFloat){
-        self.layer.cornerRadius = cRadius
-        self.layer.masksToBounds = true
-    }
-}

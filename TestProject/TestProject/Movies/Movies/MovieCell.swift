@@ -65,11 +65,3 @@ class MovieCell: UICollectionViewCell {
 }
 
 
-extension UIButton{
-    func favoriteType(show:Bool){
-        self.setImage(show ? #imageLiteral(resourceName: "fav_on").withRenderingMode(.alwaysTemplate) : #imageLiteral(resourceName: "film-fav").withRenderingMode(.alwaysTemplate) , for: .normal)
-        self.tintColor = UIColor(named: ColorName.DarkYellow.rawValue)
-    }
-}
-
-
