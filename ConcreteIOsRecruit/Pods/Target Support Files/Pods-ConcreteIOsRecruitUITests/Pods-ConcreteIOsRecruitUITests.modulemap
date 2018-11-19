@@ -1,0 +1,6 @@
+framework module Pods_ConcreteIOsRecruitUITests {
+  umbrella header "Pods-ConcreteIOsRecruitUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

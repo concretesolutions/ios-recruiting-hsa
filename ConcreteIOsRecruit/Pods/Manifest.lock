@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Kingfisher (4.8.0)
+  - lottie-ios (2.5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - Kingfisher (~> 4.0)
+  - lottie-ios
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Kingfisher
+    - lottie-ios
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
+
+PODFILE CHECKSUM: 2cd21b8b60f247e9c556cdbe34f6b64ddcc4ccb4
+
+COCOAPODS: 1.5.3
