@@ -8,9 +8,7 @@
 
 import Foundation
 
-struct MoviesAPIResponse: Codable, Storable{
-    var key: String = "MoviesAPIResponse"
-    
+struct MoviesAPIResponse: Codable{
     let page: Int
     let totalResults: Int
     let totalPages: Int
@@ -24,10 +22,11 @@ struct MoviesAPIResponse: Codable, Storable{
     }
 }
 
-struct Movie: Codable {
+struct Movie: Codable, Equatable {
     
     //server properties
-    let voteCount, id: Int
+    let id : Int
+    let voteCount: Int
     let video: Bool
     let voteAverage: Double
     let title: String
@@ -46,9 +45,13 @@ struct Movie: Codable {
         return "\(posterOriginUrl)\(posterPath)"
     }
     
+    static func ==(lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case voteCount = "vote_count"
         case id
+        case voteCount = "vote_count"
         case video
         case voteAverage = "vote_average"
         case title

@@ -9,7 +9,6 @@
 import Foundation
 
 struct MoviesAPIManager{
-    
     //we can list all the other calls fot this type of object bellow and we will know which calls are being made within the app just by looking at this file
     
     func getPopularMovies(completition : @escaping([Movie]?, Error?) -> ()){

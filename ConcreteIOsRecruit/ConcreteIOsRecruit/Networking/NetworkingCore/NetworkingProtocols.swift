@@ -39,5 +39,5 @@ extension Endpoint{
 }
 
 protocol Storable{
-    var key : String{get}
+    var key : DataManager.StoringKey{get}
 }

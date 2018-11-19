@@ -22,14 +22,10 @@ struct NetworkingManager{
                         do{
                             let decodedData = try decoder.decode(T.self, from: data)
                             
-                            //save to local cache
-                            
-                            if decodedData is Storable{
-                                //let storingKey = (decodedData as! Storable).key
-                                //UserDefaults.standard.set(data, forKey: storingKey)
-                                DataManager().save(data: (decodedData as! Storable))
-                                
-                            }
+                            //save to local cache if we need to...
+                            /*if decodedData is Storable{
+                                DataManager().save(object: decodedData)
+                            }*/
                             
                             completionHandler(decodedData, nil)
                             return

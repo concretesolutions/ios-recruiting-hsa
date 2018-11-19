@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 protocol MovieCollectionViewCellDelegate{
-    func didTapFavIcon(cell: UICollectionViewCell)
+    func didTapFavIcon(cell: MovieCollectionViewCell)
 }
 
 class MovieCollectionViewCell: UICollectionViewCell {
@@ -25,7 +25,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             if let movie = movie{
                 self.title.text = movie.title
                 imageView.kf.setImage(with: URL(string: movie.fullImageUrl))
-                updateFavIcon()
+                updateFavIcon(favoriteIconIsOn: movie.isFavorite)
             }
         }
     }
@@ -36,24 +36,24 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func tapFavIcon(_ sender: Any) {
-        self.movie?.isFavorite = true
+        //if  self.movie
+        //self.movie?.isFavorite = true
         //add the movie to favorites
-        updateFavIcon()
+        //updateFavIcon()
         
         delegate?.didTapFavIcon(cell: self) //pass the action to the delegate in case we need to perform any other action
     }
     
-    func updateFavIcon(){
-        if let movie = movie{ //this state swap should be done using an indivisual component... but its not worth just for the sake of this example
-            if movie.isFavorite{
-                let favIconOff = UIImage(named: "favorite_full_icon")
-                
-                favButton.setImage(favIconOff, for: .normal)
-            }
-            else{
-                let favIconOn = UIImage(named: "favorite_gray_icon")
-                favButton.setImage(favIconOn, for: .normal)
-            }
+    func updateFavIcon(favoriteIconIsOn: Bool){
+        //if let movie = movie{ //this state swap should be done using an individual component... but its not worth just for the sake of this example
+        if favoriteIconIsOn{
+            let favIconOff = UIImage(named: "favorite_full_icon")
+            favButton.setImage(favIconOff, for: .normal)
         }
+        else{
+            let favIconOn = UIImage(named: "favorite_gray_icon")
+            favButton.setImage(favIconOn, for: .normal)
+        }
+        //}
     }
 }
