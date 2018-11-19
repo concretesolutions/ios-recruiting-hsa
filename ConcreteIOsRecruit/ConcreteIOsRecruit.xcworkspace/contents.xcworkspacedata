@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/MatiasContreras/Documents/Pega/Repos/ConcreteIOsRecruit/ios-recruiting-hsa/ConcreteIOsRecruit/ConcreteIOsRecruit/Views/MovieDetailsTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:ConcreteIOsRecruit.xcodeproj">
    </FileRef>
    <FileRef

@@ -55,9 +55,17 @@ extension PopularMoviesViewController {
         let originalMovies = self.movies
         if let searchString = searchController.searchBar.text, !searchString.isEmpty{
             let filteredMovies = originalMovies.filter({$0.originalTitle.contains(searchString)})
-            moviesCollectionView.movies = filteredMovies
+            if filteredMovies.count == 0{
+                self.moviesCollectionView.addMessageView(type: .noSearchResults)
+            }
+            else{
+                moviesCollectionView.movies = filteredMovies
+                self.moviesCollectionView.removeMessageView()
+            }
+            
         }
         else{
+            self.moviesCollectionView.removeMessageView()
             moviesCollectionView.movies = originalMovies
         }
     }

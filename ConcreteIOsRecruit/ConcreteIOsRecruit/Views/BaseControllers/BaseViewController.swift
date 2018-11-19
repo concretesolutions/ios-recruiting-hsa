@@ -11,6 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
 
     var searchController : UISearchController!
+    var message: MessageView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,12 @@ class BaseViewController: UIViewController {
     }
     
     func setUpSearchController(){
+        self.definesPresentationContext = true
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.delegate = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
     }
@@ -41,5 +45,6 @@ extension BaseViewController: UISearchControllerDelegate, UISearchResultsUpdatin
     func updateSearchResults(for searchController: UISearchController) {
         debugPrint("Be carefull! Managing searchResults on the BaseViewController")
     }
+    
 }
 

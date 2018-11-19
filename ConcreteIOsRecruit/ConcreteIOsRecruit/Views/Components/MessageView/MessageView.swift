@@ -25,11 +25,11 @@ enum MessageType{
         case .noConnection:
             return MessageData(message: "Sin conexión a internet", animationName: "no-connection")
         case .genericError:
-            return MessageData(message: "Ups.. Ocurrió un error inesperado", animationName: "broken_stick_error")
+            return MessageData(message: "Ups.. Ocurrió un error inesperado", animationName: "generic-error")
         case .emptyFavorites:
-            return MessageData(message: "Aquí encontrarás tus favoritos una vez que los agregues.", animationName: "no-connection")
+            return MessageData(message: "Aquí encontrarás tus favoritos una vez que los agregues.", animationName: "no-favorite")
         case .noSearchResults:
-            return MessageData(message: "No se encontraron resultados", animationName: "no-connection")
+            return MessageData(message: "No se encontraron resultados", animationName: "empty-results")
         }
     }
 }
@@ -56,15 +56,24 @@ class MessageView: UIView {
     
     private func commonInit(){
         fromNib()
+        self.messageType = .genericError
     }
     
     func addAnimation(named: String){
+        removeAllAnimationsFromCanvas()
         let animationView = LOTAnimationView(name: named)
         animationView.frame = animationCanvas.frame
         animationView.frame.origin = CGPoint.zero
+        animationView.contentMode = .scaleAspectFit
         animationCanvas.addSubview(animationView)
         animationView.layoutAttachAll(to: animationCanvas)
-        animationView.loopAnimation = true
+        animationView.loopAnimation = false
         animationView.play()
+    }
+    
+    func removeAllAnimationsFromCanvas(){
+        for view in animationCanvas.subviews{
+            view.removeFromSuperview()
+        }
     }
 }

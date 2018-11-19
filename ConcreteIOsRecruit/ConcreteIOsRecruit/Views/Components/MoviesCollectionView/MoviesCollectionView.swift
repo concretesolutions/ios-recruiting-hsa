@@ -43,7 +43,6 @@ class MoviesCollectionView: UIView {
         let cellNib = UINib(nibName: cellReuseId, bundle: nil)
         self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId)
     }
-
 }
 
 extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -89,7 +88,6 @@ extension MoviesCollectionView: MovieCollectionViewCellDelegate{
                 cell.updateFavIcon(favoriteIconIsOn: false)
             }
         }
-        
         //pass the tap acition to the delegate of this view in case we need to perform any other action
         delegate?.didTapFav(cell: cell)
     }

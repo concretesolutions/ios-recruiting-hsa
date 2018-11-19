@@ -21,12 +21,6 @@ struct NetworkingManager{
                         let decoder = JSONDecoder()
                         do{
                             let decodedData = try decoder.decode(T.self, from: data)
-                            
-                            //save to local cache if we need to...
-                            /*if decodedData is Storable{
-                                DataManager().save(object: decodedData)
-                            }*/
-                            
                             completionHandler(decodedData, nil)
                             return
                         }
