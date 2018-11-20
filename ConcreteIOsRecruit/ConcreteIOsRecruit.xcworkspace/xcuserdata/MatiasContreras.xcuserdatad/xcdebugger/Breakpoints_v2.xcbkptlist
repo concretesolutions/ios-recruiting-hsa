@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ConcreteIOsRecruit/Views/FavoritesViewController.swift"
-            timestampString = "564373376.205844"
+            filePath = "ConcreteIOsRecruit/Views/PopularMoviesViewController.swift"
+            timestampString = "564377737.559298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "updateSearchResults(for:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getMovies()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

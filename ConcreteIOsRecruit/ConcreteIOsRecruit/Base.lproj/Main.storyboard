@@ -333,11 +333,11 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.75892857142856"/>
         </scene>
-        <!--Favrites-->
+        <!--Favorites-->
         <scene sceneID="0ml-br-deG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="555-xg-MNZ" customClass="BaseNavigationController" customModule="ConcreteIOsRecruit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favrites" image="favorite_empty_icon" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite_empty_icon" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6pl-5L-Wx2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -12,11 +12,12 @@ struct DataManager{
     
     enum StoringKey: String, Codable{
         case favorites
+        case moviesAPIResponse
     }
     
     func save<T: Codable>(object: T) {
         guard let storableObject = object as? Storable else{
-            debugPrint("The object does not conform to protocol Storable")
+            debugPrint("The object <\(type(of: T.self))> does not conform to protocol Storable")
             return
         }
         

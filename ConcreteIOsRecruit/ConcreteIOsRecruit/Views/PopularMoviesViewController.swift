@@ -35,6 +35,7 @@ class PopularMoviesViewController: BaseViewController {
         MoviesAPIManager().getPopularMovies { (movies, error) in
             if let error = error{
                 debugPrint("There are no movies to display: \(error)")
+                self.moviesCollectionView.addMessageView(type: .noConnection)
                 return
             }
             if let movies = movies{
@@ -55,7 +56,6 @@ extension PopularMoviesViewController: MoviesCollectionViewDelegate{
 
 extension PopularMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
-        debugPrint("as")
         let originalMovies = self.movies
         if let searchString = searchController.searchBar.text, !searchString.isEmpty{
             let filteredMovies = originalMovies.filter({$0.originalTitle.contains(searchString)})

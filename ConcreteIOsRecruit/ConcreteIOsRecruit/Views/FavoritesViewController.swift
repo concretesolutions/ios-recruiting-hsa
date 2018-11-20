@@ -34,7 +34,7 @@ class FavoritesViewController: BaseViewController {
         addEmptyMessage()
     }
     
-    func addEmptyMessage(){
+    func sd(){
         if self.favoritesDataManager.favorites.movies.count == 0{
             self.moviesCollectionView.addMessageView(type: .emptyFavorites)
         }

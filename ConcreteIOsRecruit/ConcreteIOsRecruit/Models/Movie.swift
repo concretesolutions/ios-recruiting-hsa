@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct MoviesAPIResponse: Codable{
+struct MoviesAPIResponse: Codable, Storable{
+    var key: DataManager.StoringKey = .moviesAPIResponse
+    
     let page: Int
     let totalResults: Int
     let totalPages: Int

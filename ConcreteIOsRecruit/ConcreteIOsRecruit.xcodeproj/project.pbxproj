@@ -31,6 +31,7 @@
 		2CA0016C21A252AC004135FD /* NetworkingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0016B21A252AC004135FD /* NetworkingEnums.swift */; };
 		2CA0016E21A2536B004135FD /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0016D21A2536B004135FD /* NetworkingManager.swift */; };
 		2CA7BC9B21A3A0CF00B33BDB /* MovieRowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA7BC9721A39E7E00B33BDB /* MovieRowCollectionViewCell.xib */; };
+		2CA7BCA121A3B66F00B33BDB /* no-connection.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA7BCA021A3B66F00B33BDB /* no-connection.json */; };
 		2CFC22FE21A30C9E0025664E /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC22FD21A30C9D0025664E /* Favorites.swift */; };
 		2CFC230121A326380025664E /* FavoritesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC230021A326380025664E /* FavoritesDataManager.swift */; };
 		2CFC230321A335E20025664E /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC230221A335E20025664E /* BaseNavigationController.swift */; };
@@ -92,6 +93,7 @@
 		2CA0016B21A252AC004135FD /* NetworkingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
 		2CA0016D21A2536B004135FD /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		2CA7BC9721A39E7E00B33BDB /* MovieRowCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieRowCollectionViewCell.xib; sourceTree = "<group>"; };
+		2CA7BCA021A3B66F00B33BDB /* no-connection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "no-connection.json"; sourceTree = "<group>"; };
 		2CFC22FD21A30C9D0025664E /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		2CFC230021A326380025664E /* FavoritesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDataManager.swift; sourceTree = "<group>"; };
 		2CFC230221A335E20025664E /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				2C22CC5E21A369E3007927F8 /* no-favorite.json */,
 				2C22CC6021A36DF1007927F8 /* empty-results.json */,
+				2CA7BCA021A3B66F00B33BDB /* no-connection.json */,
 				2CFC231121A356D80025664E /* generic-error.json */,
 			);
 			path = LottieAnimations;
@@ -459,6 +462,7 @@
 				2C243C1121A0F80D005ECF7C /* Main.storyboard in Resources */,
 				2C22CC5F21A369E3007927F8 /* no-favorite.json in Resources */,
 				2C09A41C21A2670200D00B9F /* MoviesCollectionView.xib in Resources */,
+				2CA7BCA121A3B66F00B33BDB /* no-connection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = matiascontreras.ConcreteIOsRecruit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stationdomain.ConcreteIOsRecruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -782,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = matiascontreras.ConcreteIOsRecruit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stationdomain.ConcreteIOsRecruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
