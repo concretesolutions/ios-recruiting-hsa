@@ -19,13 +19,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var title: UILabel!
-
+    @IBOutlet weak var overview: UILabel!
+    
     var movie: Movie? = nil { //there is no need to create a movieViewModel for this as there is not much logic in here
         didSet{
             if let movie = movie{
                 self.title.text = movie.title
                 imageView.kf.setImage(with: movie.fullImageUrl)
                 updateFavIcon(favoriteIconIsOn: movie.isFavorite)
+                if let overview = overview{
+                    overview.text = movie.overview
+                }
             }
         }
     }

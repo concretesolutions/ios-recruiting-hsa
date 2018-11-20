@@ -20,7 +20,13 @@ protocol MoviesCollectionViewDelegate{
 
 class MoviesCollectionView: UIView {
     var delegate : MoviesCollectionViewDelegate? = nil
-    var cellReuseId : MoviesCollectionViewCellType = .MovieCollectionViewCell
+    var cellReuseId : MoviesCollectionViewCellType = .MovieCollectionViewCell {
+        didSet{
+            debugPrint(cellReuseId.rawValue)
+            let cellNib = UINib(nibName: cellReuseId.rawValue, bundle: nil)
+            self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId.rawValue)
+        }
+    }
     //let favorites = DataManager().retrieve(decodingType: Favorites.self, storingKey: Favorites().key)
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -45,8 +51,6 @@ class MoviesCollectionView: UIView {
     
     private func commonInit(){
         fromNib()
-        let cellNib = UINib(nibName: cellReuseId.rawValue, bundle: nil)
-        self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId.rawValue)
     }
 }
 
@@ -73,11 +77,10 @@ extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch self.cellReuseId {
-        
         case .MovieCollectionViewCell:
             return CGSize(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/3)
         case .MovieRowCollectionViewCell:
-            return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/4)
+            return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/5)
         }
         
     }

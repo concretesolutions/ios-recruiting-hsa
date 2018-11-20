@@ -16,6 +16,8 @@ class FavoritesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.moviesCollectionView.delegate = self
+        self.moviesCollectionView.cellReuseId = .MovieRowCollectionViewCell
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,8 +29,6 @@ class FavoritesViewController: BaseViewController {
         self.searchController.delegate = self
         self.searchController.searchResultsUpdater = self
         
-        self.moviesCollectionView.delegate = self
-        self.moviesCollectionView.cellReuseId = .MovieRowCollectionViewCell
         favoritesDataManager = FavoritesDataManger() //this triggers the fetch movies from local storage
         moviesCollectionView.movies = favoritesDataManager.favorites.movies
         addEmptyMessage()

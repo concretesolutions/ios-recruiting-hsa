@@ -23,6 +23,7 @@ class PopularMoviesViewController: BaseViewController {
         self.searchController.delegate = self
         self.searchController.searchResultsUpdater = self
         self.moviesCollectionView.delegate = self
+        self.moviesCollectionView.cellReuseId = .MovieCollectionViewCell
     }
     
     override func viewWillAppear(_ animated: Bool) {
