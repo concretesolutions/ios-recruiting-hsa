@@ -16,6 +16,7 @@ enum ApiVersion: Int{
 
 enum ServerObject: String{
     case movie
+    case genre = "genre/movie/list"
     //we can add more endpoint objects if needed
 }
 

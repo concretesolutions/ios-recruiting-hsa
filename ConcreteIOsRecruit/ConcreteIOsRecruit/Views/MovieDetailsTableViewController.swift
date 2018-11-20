@@ -39,6 +39,30 @@ class MovieDetailsTableViewController: UITableViewController {
             overviewLbl.text = movie.overview
         }
     }
+    
+    func getMovieGenres(){
+        
+        for var (i, movie) in response?.results.enumerated() ?? [].enumerated(){
+            var movieGenres = [Genre]()
+            for genreId in movie.genreIDS{
+                
+                for genre in genres ?? []{
+                    if genre.id == genreId{
+                        movieGenres.append(genre)
+                        //movie.genres.append(genre)
+                    }
+                }
+            }
+            debugPrint("the genres for the movie : \(movie.title)  should be \(movie.genreIDS.count) are: \(movieGenres.count): \(movieGenres)")
+            response?.results[i].genres = movieGenres
+            //for movie.
+            //movie.genres = genres.filter({$0.id in movie.genreIDS})
+        }
+        
+        for movie in response?.results ?? []{
+            debugPrint(movie.genres)
+        }
+    }
 
     func addFavButton(){
         let image : UIImage = UIImage(named: "favorite_empty_icon")!

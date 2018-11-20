@@ -15,6 +15,7 @@ struct NetworkingManager{
     //this request lets us eaily make any request with little effort. No casting required :)
     func request<T: Codable>(endpoint: Endpoint, completionHandler : @escaping (T?, Error?) -> ()){
         if let urlRequest = endpoint.urlRequest{
+            debugPrint(urlRequest.url)
             Alamofire.request(urlRequest).responseData { (response) in
                 switch response.result {
                 case .success:

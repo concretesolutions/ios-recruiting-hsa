@@ -22,8 +22,16 @@ struct DefaultServer: Server{
 
 struct PopularMoviesEndpoint: Endpoint{
     var server: Server = DefaultServer()
-    var apiVersion = ApiVersion.v3
+    var apiVersion: ApiVersion? = ApiVersion.v3
     var serverObject = ServerObject.movie
-    var objectSorting = ObjectSorting.popular
+    var objectSorting : ObjectSorting? = ObjectSorting.popular
+    var method = HTTPMethod.get
+}
+
+struct GenresEndpoint: Endpoint{
+    var server: Server = DefaultServer()
+    var apiVersion: ApiVersion? = ApiVersion.v3
+    var serverObject = ServerObject.genre
+    var objectSorting : ObjectSorting? = nil
     var method = HTTPMethod.get
 }

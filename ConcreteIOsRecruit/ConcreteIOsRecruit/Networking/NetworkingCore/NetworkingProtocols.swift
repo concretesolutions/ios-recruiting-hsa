@@ -17,15 +17,24 @@ protocol Server{
 
 protocol Endpoint {
     var server : Server{get}//URLComponents {get}
-    var apiVersion : ApiVersion {get}
+    var apiVersion : ApiVersion? {get}
     var serverObject : ServerObject {get}
-    var objectSorting: ObjectSorting{get}
+    var objectSorting: ObjectSorting? {get}
     var method : HTTPMethod {get}
 }
 
 extension Endpoint{
     var fullUrl: String{
-        return "\(server.baseUrl)/\(apiVersion.rawValue)/\(serverObject)/\(objectSorting)?api_key=\(server.apiKey)"
+        var url = "\(server.baseUrl)"
+        if let apiVersion = apiVersion{
+            url = "\(url)/\(apiVersion.rawValue)"
+        }
+        url = "\(url)/\(serverObject.rawValue)"
+        if let objectSorting = objectSorting{
+            url = "\(url)/\(objectSorting)"
+        }
+        url = "\(url)?api_key=\(server.apiKey)"
+        return url
     }
     var urlRequest : URLRequest?{
         if let fullUrl = URL(string: self.fullUrl){

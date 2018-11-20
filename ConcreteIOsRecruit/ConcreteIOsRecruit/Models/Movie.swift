@@ -47,6 +47,7 @@ struct Movie: Codable, Equatable {
     var fullImageUrl : URL {
         return URL(string: "\(posterOriginUrl)\(posterPath)")!
     }
+    var genres: [Genre] = [Genre]()
     
     static func ==(lhs: Movie, rhs: Movie) -> Bool {
         return lhs.id == rhs.id
