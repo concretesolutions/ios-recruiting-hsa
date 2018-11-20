@@ -40,16 +40,19 @@ class MoviesCollectionView: UIView {
     }
     
     override init(frame: CGRect) {
+        debugPrint("init del moviesCollectionView")
         super.init(frame: frame)
         commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
+        debugPrint("init?(coder aDecode")
         super.init(coder: aDecoder)
         commonInit()
     }
     
     private func commonInit(){
+        debugPrint("commonInit")
         fromNib()
     }
 }
@@ -60,6 +63,7 @@ extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        debugPrint("cellForItemAt")
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseId.rawValue, for: indexPath) as?  MovieCollectionViewCell {
             var movie = self.movies[indexPath.row]
             cell.delegate = self //sets the delegate so we are able to receive touch events from the cells
@@ -76,6 +80,7 @@ extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        debugPrint("collectionViewLayout")
         switch self.cellReuseId {
         case .MovieCollectionViewCell:
             return CGSize(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/3)

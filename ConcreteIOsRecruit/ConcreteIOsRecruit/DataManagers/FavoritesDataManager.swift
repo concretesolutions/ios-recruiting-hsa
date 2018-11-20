@@ -17,6 +17,7 @@ struct FavoritesDataManger{
     }
     
     init() {
+        debugPrint("entro al init del FavoritesDataManger")
         if let favorites = DataManager().retrieve(decodingType: Favorites.self, storingKey: Favorites().key){
             self.favorites = favorites
         }
@@ -26,6 +27,7 @@ struct FavoritesDataManger{
     }
     
     func isAlreadyInFavorites(movie: Movie) -> Bool{
+        debugPrint("entro")
         if favorites.movies.index(of: movie) != nil{
             return true
         }

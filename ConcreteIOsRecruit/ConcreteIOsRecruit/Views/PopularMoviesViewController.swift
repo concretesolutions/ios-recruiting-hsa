@@ -58,7 +58,12 @@ extension PopularMoviesViewController: UISearchControllerDelegate, UISearchResul
     func updateSearchResults(for searchController: UISearchController) {
         let originalMovies = self.movies
         if let searchString = searchController.searchBar.text, !searchString.isEmpty{
-            let filteredMovies = originalMovies.filter({$0.originalTitle.contains(searchString)})
+            
+            let filteredMovies = originalMovies.filter({
+                    $0.title.lowercased().contains(searchString.lowercased()) ||
+                    $0.originalTitle.lowercased().contains(searchString.lowercased())
+            })
+            
             if filteredMovies.count == 0{
                 self.moviesCollectionView.addMessageView(type: .noSearchResults)
             }

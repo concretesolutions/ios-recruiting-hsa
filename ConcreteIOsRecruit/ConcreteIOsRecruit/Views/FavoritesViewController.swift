@@ -15,17 +15,20 @@ class FavoritesViewController: BaseViewController {
     @IBOutlet weak var moviesCollectionView: MoviesCollectionView!
     
     override func viewDidLoad() {
+        debugPrint("viewDidLoad")
         super.viewDidLoad()
         self.moviesCollectionView.delegate = self
         self.moviesCollectionView.cellReuseId = .MovieRowCollectionViewCell
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        debugPrint("viewWillAppear")
         super.viewWillAppear(animated)
         self.configureView()
     }
     
     func configureView(){
+        debugPrint("configureView")
         self.searchController.delegate = self
         self.searchController.searchResultsUpdater = self
         
@@ -34,7 +37,8 @@ class FavoritesViewController: BaseViewController {
         addEmptyMessage()
     }
     
-    func sd(){
+    func addEmptyMessage(){
+        debugPrint("addEmptyMessage")
         if self.favoritesDataManager.favorites.movies.count == 0{
             self.moviesCollectionView.addMessageView(type: .emptyFavorites)
         }
@@ -46,11 +50,13 @@ class FavoritesViewController: BaseViewController {
 
 extension FavoritesViewController: MoviesCollectionViewDelegate{
     func didTap(cell: MovieCollectionViewCell) {
+        debugPrint("didTap")
         self.selectedMovie = cell.movie
         self.performSegue(withIdentifier: Segues.goToMovieDtails.rawValue, sender: self)
     }
     
     func didTapFav(cell: MovieCollectionViewCell) {
+        debugPrint("")
         //remove the item from favorites
         if let movie = cell.movie{
             _ = favoritesDataManager.addRemoveMovie(movie: movie)
@@ -63,7 +69,12 @@ extension FavoritesViewController: UISearchControllerDelegate, UISearchResultsUp
     func updateSearchResults(for searchController: UISearchController) {
         let originalMovies = favoritesDataManager.favorites.movies
         if let searchString = searchController.searchBar.text, !searchString.isEmpty{
-            let filteredMovies = originalMovies.filter({$0.originalTitle.contains(searchString)})
+            
+            let filteredMovies = originalMovies.filter({
+                $0.title.lowercased().contains(searchString.lowercased()) ||
+                $0.originalTitle.lowercased().contains(searchString.lowercased())
+            })
+            
             if filteredMovies.count == 0{
                 self.moviesCollectionView.addMessageView(type: .noSearchResults)
             }
