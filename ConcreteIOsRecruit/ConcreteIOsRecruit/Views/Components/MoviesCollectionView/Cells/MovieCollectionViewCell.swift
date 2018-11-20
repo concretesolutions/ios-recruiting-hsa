@@ -24,7 +24,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         didSet{
             if let movie = movie{
                 self.title.text = movie.title
-                imageView.kf.setImage(with: URL(string: movie.fullImageUrl))
+                imageView.kf.setImage(with: movie.fullImageUrl)
                 updateFavIcon(favoriteIconIsOn: movie.isFavorite)
             }
         }

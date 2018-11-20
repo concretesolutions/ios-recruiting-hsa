@@ -36,13 +36,14 @@ struct Movie: Codable, Equatable {
     let genreIDS: [Int]
     let backdropPath: String
     let adult: Bool
-    let overview, releaseDate: String
+    let overview: String
+    let releaseDate: String
     
     //custom defined properties
     let posterOriginUrl: String = "http://image.tmdb.org/t/p/w500"
     var isFavorite : Bool = false
-    var fullImageUrl : String {
-        return "\(posterOriginUrl)\(posterPath)"
+    var fullImageUrl : URL {
+        return URL(string: "\(posterOriginUrl)\(posterPath)")!
     }
     
     static func ==(lhs: Movie, rhs: Movie) -> Bool {
@@ -50,19 +51,19 @@ struct Movie: Codable, Equatable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id
-        case voteCount = "vote_count"
-        case video
-        case voteAverage = "vote_average"
-        case title
-        case popularity
-        case posterPath = "poster_path"
-        case originalTitle = "original_title"
-        case genreIDS = "genre_ids"
-        case backdropPath = "backdrop_path"
-        case adult
-        case overview
-        case releaseDate = "release_date"
+        case id =               "id"
+        case voteCount =        "vote_count"
+        case video =            "video"
+        case voteAverage =      "vote_average"
+        case title =            "title"
+        case popularity =       "popularity"
+        case posterPath =       "poster_path"
+        case originalTitle =    "original_title"
+        case genreIDS =         "genre_ids"
+        case backdropPath =     "backdrop_path"
+        case adult =            "adult"
+        case overview =         "overview"
+        case releaseDate =      "release_date"
     }
     
 }

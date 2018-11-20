@@ -12,30 +12,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="ConcreteIOsRecruit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="169" height="212"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="ConcreteIOsRecruit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="564" height="212"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="169" height="212"/>
+                <rect key="frame" x="0.0" y="0.0" width="564" height="212"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQ7-Ai-vdr">
-                        <rect key="frame" x="8" y="8" width="153" height="196"/>
+                        <rect key="frame" x="8" y="8" width="548" height="196"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="mep-Fw-iEz">
-                                <rect key="frame" x="4" y="4" width="145" height="140"/>
+                                <rect key="frame" x="4" y="4" width="164.5" height="188"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aJq-oX-lOI">
-                                <rect key="frame" x="4" y="148" width="145" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="oi2-kr-un3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAQ-GA-TVb">
-                                <rect key="frame" x="113" y="0.0" width="40" height="45"/>
+                                <rect key="frame" x="508" y="0.0" width="40" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="d1x-X1-nTv"/>
                                     <constraint firstAttribute="height" constant="45" id="hA5-oM-LDh"/>
@@ -45,19 +36,27 @@
                                     <action selector="tapFavIcon:" destination="gTV-IL-0wX" eventType="touchUpInside" id="1um-QB-Hqt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aJq-oX-lOI">
+                                <rect key="frame" x="176.5" y="8" width="323.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="oi2-kr-un3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mep-Fw-iEz" firstAttribute="leading" secondItem="XQ7-Ai-vdr" secondAttribute="leading" constant="4" id="6EP-gW-YJ7"/>
-                            <constraint firstItem="mep-Fw-iEz" firstAttribute="top" secondItem="XQ7-Ai-vdr" secondAttribute="top" constant="4" id="93V-OY-m0R"/>
-                            <constraint firstAttribute="trailing" secondItem="mep-Fw-iEz" secondAttribute="trailing" constant="4" id="9ly-a0-Df9"/>
-                            <constraint firstAttribute="trailing" secondItem="BAQ-GA-TVb" secondAttribute="trailing" id="JaK-3D-mjd"/>
-                            <constraint firstItem="BAQ-GA-TVb" firstAttribute="top" secondItem="XQ7-Ai-vdr" secondAttribute="top" id="MHb-M5-g2N"/>
-                            <constraint firstItem="aJq-oX-lOI" firstAttribute="leading" secondItem="XQ7-Ai-vdr" secondAttribute="leading" constant="4" id="O9d-E3-8f6"/>
-                            <constraint firstItem="aJq-oX-lOI" firstAttribute="top" secondItem="mep-Fw-iEz" secondAttribute="bottom" constant="4" id="ekU-tL-HIH"/>
-                            <constraint firstAttribute="trailing" secondItem="aJq-oX-lOI" secondAttribute="trailing" constant="4" id="hBj-ds-6xz"/>
-                            <constraint firstAttribute="bottom" secondItem="aJq-oX-lOI" secondAttribute="bottom" constant="8" id="hcO-Cf-baJ"/>
-                            <constraint firstItem="aJq-oX-lOI" firstAttribute="top" secondItem="mep-Fw-iEz" secondAttribute="bottom" constant="4" id="shf-FB-ucs"/>
+                            <constraint firstAttribute="trailing" secondItem="BAQ-GA-TVb" secondAttribute="trailing" id="8ny-24-IDD"/>
+                            <constraint firstItem="aJq-oX-lOI" firstAttribute="top" secondItem="XQ7-Ai-vdr" secondAttribute="top" constant="8" id="FJY-fj-NLU"/>
+                            <constraint firstAttribute="bottom" secondItem="mep-Fw-iEz" secondAttribute="bottom" constant="4" id="GVZ-aN-BMb"/>
+                            <constraint firstItem="aJq-oX-lOI" firstAttribute="leading" secondItem="mep-Fw-iEz" secondAttribute="trailing" constant="8" id="JaF-ZX-d83"/>
+                            <constraint firstItem="BAQ-GA-TVb" firstAttribute="top" secondItem="XQ7-Ai-vdr" secondAttribute="top" id="QTA-gM-A1j"/>
+                            <constraint firstItem="mep-Fw-iEz" firstAttribute="width" secondItem="XQ7-Ai-vdr" secondAttribute="width" multiplier="0.3" id="ZcZ-1G-Nhk"/>
+                            <constraint firstItem="mep-Fw-iEz" firstAttribute="top" secondItem="XQ7-Ai-vdr" secondAttribute="top" constant="4" id="bXq-wM-2Ng"/>
+                            <constraint firstItem="BAQ-GA-TVb" firstAttribute="leading" secondItem="aJq-oX-lOI" secondAttribute="trailing" constant="8" id="cQJ-oF-cbZ"/>
+                            <constraint firstItem="mep-Fw-iEz" firstAttribute="leading" secondItem="XQ7-Ai-vdr" secondAttribute="leading" constant="4" id="xd0-U7-nfY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -87,13 +86,13 @@
                 <constraint firstAttribute="bottom" secondItem="XQ7-Ai-vdr" secondAttribute="bottom" constant="8" id="oMb-iz-9UO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="169" height="212"/>
+            <size key="customSize" width="564" height="212"/>
             <connections>
                 <outlet property="favButton" destination="BAQ-GA-TVb" id="Lqq-Te-Rei"/>
                 <outlet property="imageView" destination="mep-Fw-iEz" id="pZC-8a-USl"/>
                 <outlet property="title" destination="aJq-oX-lOI" id="37r-He-E7B"/>
             </connections>
-            <point key="canvasLocation" x="228" y="304.04797601199402"/>
+            <point key="canvasLocation" x="544" y="304.04797601199402"/>
         </collectionViewCell>
     </objects>
     <resources>

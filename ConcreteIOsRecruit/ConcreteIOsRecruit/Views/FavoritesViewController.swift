@@ -11,21 +11,24 @@ import UIKit
 
 class FavoritesViewController: BaseViewController {
 
-    enum Segues: String{
-        case goToMovieDtails
-    }
-
     var favoritesDataManager = FavoritesDataManger()
     @IBOutlet weak var moviesCollectionView: MoviesCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        moviesCollectionView.delegate = self
+        self.configureView()
+    }
+    
+    func configureView(){
+        self.searchController.delegate = self
+        self.searchController.searchResultsUpdater = self
+        
+        self.moviesCollectionView.delegate = self
+        self.moviesCollectionView.cellReuseId = .MovieRowCollectionViewCell
         favoritesDataManager = FavoritesDataManger() //this triggers the fetch movies from local storage
         moviesCollectionView.movies = favoritesDataManager.favorites.movies
         addEmptyMessage()
@@ -43,7 +46,7 @@ class FavoritesViewController: BaseViewController {
 
 extension FavoritesViewController: MoviesCollectionViewDelegate{
     func didTap(cell: MovieCollectionViewCell) {
-        debugPrint("go")
+        self.selectedMovie = cell.movie
         self.performSegue(withIdentifier: Segues.goToMovieDtails.rawValue, sender: self)
     }
     
@@ -56,8 +59,8 @@ extension FavoritesViewController: MoviesCollectionViewDelegate{
     }
 }
 
-extension FavoritesViewController {
-    override func updateSearchResults(for searchController: UISearchController) {
+extension FavoritesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
         let originalMovies = favoritesDataManager.favorites.movies
         if let searchString = searchController.searchBar.text, !searchString.isEmpty{
             let filteredMovies = originalMovies.filter({$0.originalTitle.contains(searchString)})
@@ -68,11 +71,13 @@ extension FavoritesViewController {
                 moviesCollectionView.movies = filteredMovies
                 self.moviesCollectionView.removeMessageView()
             }
-            
         }
         else{
             self.moviesCollectionView.removeMessageView()
             moviesCollectionView.movies = originalMovies
+            if originalMovies.count == 0{
+                self.moviesCollectionView.addMessageView(type: .emptyFavorites)
+            }
         }
     }
 }

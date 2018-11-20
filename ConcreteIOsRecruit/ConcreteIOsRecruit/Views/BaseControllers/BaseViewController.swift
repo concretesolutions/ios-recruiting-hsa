@@ -10,8 +10,13 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    enum Segues: String{
+        case goToMovieDtails
+    }
+    
     var searchController : UISearchController!
     var message: MessageView? = nil
+    var selectedMovie: Movie? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +26,11 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = false
-        self.setUpSearchController()
     }
     
     func setUpSearchController(){
         self.definesPresentationContext = true
         searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         self.navigationItem.searchController = searchController
@@ -39,12 +41,10 @@ class BaseViewController: UIViewController {
         super.viewDidAppear(animated)
         self.navigationItem.hidesSearchBarWhenScrolling = true
     }
-}
-
-extension BaseViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
-    func updateSearchResults(for searchController: UISearchController) {
-        debugPrint("Be carefull! Managing searchResults on the BaseViewController")
-    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? MovieDetailsTableViewController{
+            destination.movie = self.selectedMovie
+        }
+    }
 }
-

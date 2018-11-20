@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum MoviesCollectionViewCellType : String{
+    case MovieCollectionViewCell
+    case MovieRowCollectionViewCell
+}
+
 protocol MoviesCollectionViewDelegate{
     func didTap(cell: MovieCollectionViewCell)
     func didTapFav(cell: MovieCollectionViewCell)
@@ -15,7 +20,7 @@ protocol MoviesCollectionViewDelegate{
 
 class MoviesCollectionView: UIView {
     var delegate : MoviesCollectionViewDelegate? = nil
-    let cellReuseId = "MovieCollectionViewCell"
+    var cellReuseId : MoviesCollectionViewCellType = .MovieCollectionViewCell
     //let favorites = DataManager().retrieve(decodingType: Favorites.self, storingKey: Favorites().key)
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -40,8 +45,8 @@ class MoviesCollectionView: UIView {
     
     private func commonInit(){
         fromNib()
-        let cellNib = UINib(nibName: cellReuseId, bundle: nil)
-        self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId)
+        let cellNib = UINib(nibName: cellReuseId.rawValue, bundle: nil)
+        self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId.rawValue)
     }
 }
 
@@ -51,7 +56,7 @@ extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseId, for: indexPath) as?  MovieCollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseId.rawValue, for: indexPath) as?  MovieCollectionViewCell {
             var movie = self.movies[indexPath.row]
             cell.delegate = self //sets the delegate so we are able to receive touch events from the cells
             
@@ -67,7 +72,14 @@ extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/3)
+        switch self.cellReuseId {
+        
+        case .MovieCollectionViewCell:
+            return CGSize(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/3)
+        case .MovieRowCollectionViewCell:
+            return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/4)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

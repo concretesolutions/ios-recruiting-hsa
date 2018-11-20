@@ -19,9 +19,10 @@ class PopularMoviesViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchController.delegate = self
-        self.moviesCollectionView.delegate = self
         self.getMovies()
+        self.searchController.delegate = self
+        self.searchController.searchResultsUpdater = self
+        self.moviesCollectionView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,12 +47,14 @@ extension PopularMoviesViewController: MoviesCollectionViewDelegate{
     func didTapFav(cell: MovieCollectionViewCell) {}
     
     func didTap(cell: MovieCollectionViewCell) {
-        debugPrint("Go to the movie details: \(cell)")
+        self.selectedMovie = cell.movie
+        self.performSegue(withIdentifier: Segues.goToMovieDtails.rawValue, sender: self)
     }
 }
 
-extension PopularMoviesViewController {
-    override func updateSearchResults(for searchController: UISearchController) {
+extension PopularMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
+    func updateSearchResults(for searchController: UISearchController) {
+        debugPrint("as")
         let originalMovies = self.movies
         if let searchString = searchController.searchBar.text, !searchString.isEmpty{
             let filteredMovies = originalMovies.filter({$0.originalTitle.contains(searchString)})
