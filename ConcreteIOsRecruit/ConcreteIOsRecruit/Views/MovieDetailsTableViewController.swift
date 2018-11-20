@@ -41,7 +41,7 @@ class MovieDetailsTableViewController: UITableViewController {
     }
     
     func getMovieGenres(){
-        
+        /*
         for var (i, movie) in response?.results.enumerated() ?? [].enumerated(){
             var movieGenres = [Genre]()
             for genreId in movie.genreIDS{
@@ -61,7 +61,7 @@ class MovieDetailsTableViewController: UITableViewController {
         
         for movie in response?.results ?? []{
             debugPrint(movie.genres)
-        }
+        }*/
     }
 
     func addFavButton(){
