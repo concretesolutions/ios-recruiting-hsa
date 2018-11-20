@@ -16,22 +16,33 @@ struct MoviesAPIManager{
         NetworkingManager().request(endpoint: endpoint) { (response: MoviesAPIResponse?, error) in
             
             //assign the genres to each movie
-            /*GenreAPIManager().getGenres(completition: { (genres, error) in
+            GenreAPIManager().getGenres(completition: { (genres, error) in
                 if let error = error{
                     debugPrint("Could not get the genres. Fail silently: \(error)")
+                    completition(nil, error)
                 }
                 else{
                     
-                    //if let movies = response?.results, let genres = genres{
+                    if var movies = response?.results, let genres = genres{
                     
-                    
-                    completition(response?.results, error)
-                    //}
+                        for (i, movie) in movies.enumerated() {
+                            var movieGenres = [Genre]()
+                            for genreId in movie.genreIDS{
+                                
+                                for genre in genres {
+                                    if genre.id == genreId{
+                                        movieGenres.append(genre)
+                                    }
+                                }
+                            }
+                            movies[i].genres = movieGenres
+                        }
+                        
+                    completition(movies, error)
+                    }
                     
                 }
-            })*/
-            completition(response?.results, error)
-            
+            })
         }
     }
 }
