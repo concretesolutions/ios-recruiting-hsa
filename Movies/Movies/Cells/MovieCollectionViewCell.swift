@@ -20,10 +20,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
         didSet{
             movieNameLabel.text = movie?.title
             if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie?.poster_path ?? "")" ){
-            
                 moviePosterImageView.af_setImage(withURL: url)
-                
             }
+            
         }
     }
     

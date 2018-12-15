@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C73699E21C44AA3000051B2 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C73699D21C44AA3000051B2 /* DefaultsManager.swift */; };
 		0CCA4A2821C2AF3B00CA5995 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA4A2721C2AF3B00CA5995 /* MovieCollectionViewCell.swift */; };
 		0CCA4A2A21C32A9B00CA5995 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA4A2921C32A9B00CA5995 /* MovieDetailViewController.swift */; };
 		0CF51C4B21C1C5E200AE78BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF51C4A21C1C5E200AE78BA /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		07EBD306760AB67E6B2DC72C /* Pods-MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesTests/Pods-MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
+		0C73699D21C44AA3000051B2 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		0CCA4A2721C2AF3B00CA5995 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		0CCA4A2921C32A9B00CA5995 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		0CF51C4721C1C5E200AE78BA /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C73699C21C44A46000051B2 /* FavoritesManager */ = {
+			isa = PBXGroup;
+			children = (
+				0C73699D21C44AA3000051B2 /* DefaultsManager.swift */,
+			);
+			path = FavoritesManager;
+			sourceTree = "<group>";
+		};
 		0CF51C3E21C1C5E100AE78BA = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		0CF51C4921C1C5E200AE78BA /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				0C73699C21C44A46000051B2 /* FavoritesManager */,
 				0CF51C7D21C1E72700AE78BA /* NetworkManager */,
 				0CF51C7921C1DF3E00AE78BA /* Cells */,
 				0CF51C7821C1DF2F00AE78BA /* ViewControllers */,
@@ -424,6 +435,7 @@
 				0CF51C4D21C1C5E200AE78BA /* MoviesViewController.swift in Sources */,
 				0CF51C7F21C1E74E00AE78BA /* NetworkAPIManager.swift in Sources */,
 				0CCA4A2821C2AF3B00CA5995 /* MovieCollectionViewCell.swift in Sources */,
+				0C73699E21C44AA3000051B2 /* DefaultsManager.swift in Sources */,
 				0CF51C7C21C1DFAA00AE78BA /* DataObjects.swift in Sources */,
 				0CCA4A2A21C32A9B00CA5995 /* MovieDetailViewController.swift in Sources */,
 				0CF51C4B21C1C5E200AE78BA /* AppDelegate.swift in Sources */,

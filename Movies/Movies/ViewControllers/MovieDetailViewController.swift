@@ -15,20 +15,21 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieReleaseYearLabel: UILabel!
     @IBOutlet weak var movieGenresLabel: UILabel!
     @IBOutlet weak var movieOverviewLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let movie = self.movie{
             title = movie.title
             movieTitleLabel.text = movie.title
-            movieReleaseYearLabel.text = movie.release_date
+            let calendar = Calendar(identifier: .gregorian)
+            movieReleaseYearLabel.text = "\(calendar.component(.year, from: movie.release_date ?? Date()))"
             movieOverviewLabel.text = movie.overview
-            
+            movieGenresLabel.text = movie.genresString
             if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.backdrop_path)" ){
-                
                 movieBackdropImageView.af_setImage(withURL: url)
-                
             }
+            favoriteButton.setImage((movie.isFavorite ?? false ) ? UIImage(named: "btnFavoriteFull"):UIImage(named: "btnFavoriteEmpty"), for: .normal)
         }
         // Do any additional setup after loading the view.
     }
@@ -40,7 +41,17 @@ class MovieDetailViewController: UIViewController {
         
     }
     
-
+    @IBAction func setFavoriteAction(_ sender: Any) {
+        if let button = sender as? UIButton {
+            movie?.setFavorite()
+            if movie?.isFavorite ?? false {
+                button.setImage(UIImage(named: "btnFavoriteEmpty"), for: .normal)
+            } else {
+                button.setImage(UIImage(named: "btnFavoriteFull"), for: .normal)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

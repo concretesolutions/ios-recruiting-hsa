@@ -212,6 +212,9 @@
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-ff-vkr">
                                                 <rect key="frame" x="284" y="0.0" width="71" height="22"/>
                                                 <state key="normal" image="btnFavoriteEmpty"/>
+                                                <connections>
+                                                    <action selector="setFavoriteAction:" destination="pvj-rk-xjS" eventType="touchUpInside" id="VmU-bJ-Js8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -235,7 +238,7 @@
                                         <rect key="frame" x="0.0" y="235" width="355" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4H-QE-9h7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4H-QE-9h7">
                                         <rect key="frame" x="0.0" y="256" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -280,6 +283,7 @@
                         <viewLayoutGuide key="safeArea" id="T57-jF-FER"/>
                     </view>
                     <connections>
+                        <outlet property="favoriteButton" destination="Xsv-ff-vkr" id="FqQ-Rd-ayT"/>
                         <outlet property="movieBackdropImageView" destination="0E6-SM-Z2t" id="6lR-ke-FVD"/>
                         <outlet property="movieGenresLabel" destination="Z4H-QE-9h7" id="Iip-ql-Kuz"/>
                         <outlet property="movieOverviewLabel" destination="HiV-lH-DX2" id="rcQ-nz-HvE"/>

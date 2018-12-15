@@ -11,6 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController {
 
     var moviesArray: [Movie] = []
+    var genres: [Genre] = []
     @IBOutlet weak var movieGridCollectionView: UICollectionView!{
         didSet{
             movieGridCollectionView.dataSource = self
@@ -25,12 +26,23 @@ class MoviesViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         title = "Movies"
         let network = NetworkAPIManager()
-        let params = ["api_key":network.apiKey,"page":1] as [String : Any]
-        network.request(urlString: "movie/popular", params: params){
-            response in
-            if let array = response?.results {
-                self.moviesArray = array
-                self.movieGridCollectionView.reloadData()
+        
+        let paramsGenres = ["api_key":network.apiKey] as [String : Any]
+        network.request(urlString: "genre/movie/list", params: paramsGenres){
+            (response: GenresResponse?) in
+            if let array = response?.genres {
+                self.genres = array
+                let params = ["api_key":network.apiKey,"page":1] as [String : Any]
+                network.request(urlString: "movie/popular", params: params){
+                    (response: GenericPagedMovieResponse?) in
+                    if let array = response?.results {
+                        self.moviesArray = array
+                        for (index, _) in self.moviesArray.enumerated(){
+                            self.moviesArray[index].setGenreString(self.genres)
+                        }
+                        self.movieGridCollectionView.reloadData()
+                    }
+                }
             }
         }
     }

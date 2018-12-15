@@ -19,15 +19,15 @@ public class NetworkAPIManager {
         
     }
     
-    func request(urlString: String, params: [String:Any], completionHandler:@escaping (GenericPagedMovieResponse?)-> Void){
+    func request<T:Codable>(urlString: String, params: [String:Any], completionHandler:@escaping (T?)-> Void){
         
         Alamofire.request(baseUrl + urlString, method: .get, parameters: params, encoding: URLEncoding.default).responseData { response in
             debugPrint("All Response Info: \(response)")
             
             if let data = response.result.value, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
-                let moviesResponse = try? JSONDecoder().decode(GenericPagedMovieResponse.self, from: data)
-                print("TotalPages: \(moviesResponse?.total_pages ?? -1)")
+                let moviesResponse = try? JSONDecoder().decode(T.self, from: data)
+                //print("TotalPages: \(moviesResponse?.total_pages ?? -1)")
                 completionHandler(moviesResponse)
                 
             }
