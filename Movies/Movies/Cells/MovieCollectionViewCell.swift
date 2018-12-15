@@ -22,7 +22,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie?.poster_path ?? "")" ){
                 moviePosterImageView.af_setImage(withURL: url)
             }
-            
+            movieFavoriteIndicatorImageView.image = (movie?.isFavorite ?? false ) ? UIImage(named: "btnFavoriteFull"):UIImage(named: "btnFavoriteEmpty")
         }
     }
     

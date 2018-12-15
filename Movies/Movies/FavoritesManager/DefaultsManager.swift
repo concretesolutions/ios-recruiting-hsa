@@ -10,42 +10,53 @@ import Foundation
 
 public class DefaultsManager {
     
-    public static var shared = DefaultsManager()
+    //public static var shared = DefaultsManager()
     
-    let userDefaults = UserDefaults.standard
+    //let userDefaults =
     
     let favoritesKey = "favoriteMovies"
     
-    var favoriteMovies: [Movie]? = []
+    var favoriteMovies: [Movie] = []
     
-    func getFavorites() -> [Movie]{
+    init(){
+        getFavorites()
+    }
+    
+    func getFavorites(){
         //userDefaults.
-        if let encodedObjectJsonString = userDefaults.string(forKey: favoritesKey){
+        if let encodedObjectJsonString = UserDefaults.standard.string(forKey: favoritesKey){
             if let jsonData = encodedObjectJsonString.data(using: .utf8){
-                favoriteMovies = try? JSONDecoder().decode([Movie].self, from: jsonData)
-                return favoriteMovies ?? []
+                if let favoriteMovies = try? JSONDecoder().decode([Movie].self, from: jsonData){
+                    self.favoriteMovies = favoriteMovies
+                } else {
+                    print("Error retrieving favorites")
+                }
             }
         }
-        return []
+    }
+    
+    func isMovieFavorite(_ movie: Movie) -> Bool {
+        getFavorites()
+        return favoriteMovies.contains(where: {$0.id == movie.id})
     }
     
     private func updateFavorites(){
         if let encodedObject = try? JSONEncoder().encode(favoriteMovies){
             if let encodedObjectJsonString = String(data: encodedObject, encoding: .utf8)
             {
-                userDefaults.set(encodedObjectJsonString, forKey: favoritesKey)
+                UserDefaults.standard.set(encodedObjectJsonString, forKey: favoritesKey)
             }
         }
     }
     
     func addFavorite(_ movie: Movie){
-        favoriteMovies?.append(movie)
+        favoriteMovies.append(movie)
         updateFavorites()
     }
     
     func removeFavorite(_ movie: Movie){
-        if let index = favoriteMovies?.firstIndex(where: {$0.id == movie.id}) {
-            favoriteMovies?.remove(at: index)
+        if let index = favoriteMovies.firstIndex(where: {$0.id == movie.id}) {
+            favoriteMovies.remove(at: index)
             updateFavorites()
         }
         

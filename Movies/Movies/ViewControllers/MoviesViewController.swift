@@ -20,6 +20,7 @@ class MoviesViewController: UIViewController {
     }
     
     let cellIdentifier = "MovieGridCollectionViewCell"
+    let detailSegueIdentifier = "ShowMovieDetail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,27 +33,40 @@ class MoviesViewController: UIViewController {
             (response: GenresResponse?) in
             if let array = response?.genres {
                 self.genres = array
+                if let favorites = self.tabBarController?.viewControllers?[1] as? FavoriteMoviesViewController{
+                    favorites.genres = array
+                }
                 let params = ["api_key":network.apiKey,"page":1] as [String : Any]
                 network.request(urlString: "movie/popular", params: params){
                     (response: GenericPagedMovieResponse?) in
                     if let array = response?.results {
                         self.moviesArray = array
-                        for (index, _) in self.moviesArray.enumerated(){
-                            self.moviesArray[index].setGenreString(self.genres)
-                        }
-                        self.movieGridCollectionView.reloadData()
+                        self.setUp()
                     }
                 }
             }
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUp()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowMovieDetail"{
+        if segue.identifier == detailSegueIdentifier{
             if let destination = segue.destination as? MovieDetailViewController {
                 destination.movie = sender as? Movie
             }
         }
+    }
+    
+    func setUp(){
+        for (index, _) in self.moviesArray.enumerated(){
+            self.moviesArray[index].setGenreString(self.genres)
+            self.moviesArray[index].isFavorite = DefaultsManager().isMovieFavorite(self.moviesArray[index])
+        }
+        self.movieGridCollectionView.reloadData()
     }
     
 }
@@ -70,7 +84,7 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowMovieDetail", sender: moviesArray[indexPath.item])
+        performSegue(withIdentifier: detailSegueIdentifier, sender: moviesArray[indexPath.item])
     }
     
 }

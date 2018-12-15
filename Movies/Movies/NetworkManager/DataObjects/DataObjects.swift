@@ -28,8 +28,22 @@ struct Movie: Codable {
     var isFavorite: Bool? = false
     var genresString: String?
     
+    enum MovieParameters: String, CodingKey {
+        case id
+        case title
+        case poster_path
+        case original_language
+        case original_title
+        case genre_ids
+        case backdrop_path
+        case overview
+        case release_date
+        case isFavorite
+        case genresString
+    }
+    
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let values = try decoder.container(keyedBy: MovieParameters.self)
         id = try values.decode(Int.self, forKey: .id)
         title = try values.decode(String.self, forKey: .title)
         poster_path = try values.decode(String.self, forKey: .poster_path)
@@ -42,8 +56,27 @@ struct Movie: Codable {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         release_date = dateFormatter.date(from: dateString)
-        isFavorite = false
         genresString = ""
+        isFavorite = false
+        print("\(title): \(isFavorite ?? false)")
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MovieParameters.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(poster_path, forKey: .poster_path)
+        try container.encode(original_language, forKey: .original_language)
+        try container.encode(original_title, forKey: .original_title)
+        try container.encode(genre_ids, forKey: .genre_ids)
+        try container.encode(backdrop_path, forKey: .backdrop_path)
+        try container.encode(original_title, forKey: .original_title)
+        try container.encode(genre_ids, forKey: .genre_ids)
+        try container.encode(overview, forKey: .overview)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: release_date ?? Date())
+        try container.encode(dateString, forKey: .release_date)
     }
     
     mutating func setGenreString(_ genreArray: [Genre]){
@@ -62,9 +95,9 @@ struct Movie: Codable {
     mutating func setFavorite(){
         isFavorite = !(isFavorite ?? false)
         if isFavorite ?? false {
-            DefaultsManager.shared.addFavorite(self)
+            DefaultsManager().addFavorite(self)
         } else {
-            
+            DefaultsManager().removeFavorite(self)
         }
     }
 }

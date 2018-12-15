@@ -45,9 +45,9 @@ class MovieDetailViewController: UIViewController {
         if let button = sender as? UIButton {
             movie?.setFavorite()
             if movie?.isFavorite ?? false {
-                button.setImage(UIImage(named: "btnFavoriteEmpty"), for: .normal)
-            } else {
                 button.setImage(UIImage(named: "btnFavoriteFull"), for: .normal)
+            } else {
+                button.setImage(UIImage(named: "btnFavoriteEmpty"), for: .normal)
             }
         }
     }
