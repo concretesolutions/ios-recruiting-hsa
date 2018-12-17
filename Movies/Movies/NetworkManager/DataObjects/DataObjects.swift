@@ -95,9 +95,9 @@ struct Movie: Codable {
     mutating func setFavorite(){
         isFavorite = !(isFavorite ?? false)
         if isFavorite ?? false {
-            DefaultsManager().addFavorite(self)
+            DefaultsManager.shared.addFavorite(self)
         } else {
-            DefaultsManager().removeFavorite(self)
+            DefaultsManager.shared.removeFavorite(self)
         }
     }
 }

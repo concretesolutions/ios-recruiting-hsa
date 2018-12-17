@@ -10,7 +10,7 @@ import Foundation
 
 public class DefaultsManager {
     
-    //public static var shared = DefaultsManager()
+    public static var shared = DefaultsManager()
     
     //let userDefaults =
     
@@ -36,7 +36,7 @@ public class DefaultsManager {
     }
     
     func isMovieFavorite(_ movie: Movie) -> Bool {
-        getFavorites()
+        //getFavorites()
         return favoriteMovies.contains(where: {$0.id == movie.id})
     }
     

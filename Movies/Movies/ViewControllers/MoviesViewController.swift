@@ -19,6 +19,9 @@ class MoviesViewController: UIViewController {
         }
     }
     
+    var currentPage: Int = 1
+    var currentLastIndex: Int = 0
+    
     let cellIdentifier = "MovieGridCollectionViewCell"
     let detailSegueIdentifier = "ShowMovieDetail"
     
@@ -36,12 +39,12 @@ class MoviesViewController: UIViewController {
                 if let favorites = self.tabBarController?.viewControllers?[1] as? FavoriteMoviesViewController{
                     favorites.genres = array
                 }
-                let params = ["api_key":network.apiKey,"page":1] as [String : Any]
+                let params = ["api_key":network.apiKey,"page":self.currentPage] as [String : Any]
                 network.request(urlString: "movie/popular", params: params){
                     (response: GenericPagedMovieResponse?) in
                     if let array = response?.results {
                         self.moviesArray = array
-                        self.setUp()
+                        self.setUpInitialMovies()
                     }
                 }
             }
@@ -50,7 +53,7 @@ class MoviesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUp()
+        setUpInitialMovies()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,14 +64,42 @@ class MoviesViewController: UIViewController {
         }
     }
     
-    func setUp(){
+    func setUpInitialMovies(){
         for (index, _) in self.moviesArray.enumerated(){
             self.moviesArray[index].setGenreString(self.genres)
-            self.moviesArray[index].isFavorite = DefaultsManager().isMovieFavorite(self.moviesArray[index])
+            self.moviesArray[index].isFavorite = DefaultsManager.shared.isMovieFavorite(self.moviesArray[index])
         }
         self.movieGridCollectionView.reloadData()
     }
     
+    func setUpNewBatchOfMovies(){
+        var newIndexes: [IndexPath] = []
+        for (index, _) in self.moviesArray.enumerated(){
+            self.moviesArray[index].setGenreString(self.genres)
+            self.moviesArray[index].isFavorite = DefaultsManager.shared.isMovieFavorite(self.moviesArray[index])
+            if index > currentLastIndex {
+                let newIndexPath = IndexPath(item: index, section: 0)
+                newIndexes.append(newIndexPath)
+            }
+        }
+        movieGridCollectionView.performBatchUpdates({
+            self.movieGridCollectionView.insertItems(at: newIndexes)
+        }, completion: nil)
+        //self.movieGridCollectionView.reloadData()
+    }
+    
+    func getNextPage(){
+        let network = NetworkAPIManager()
+        currentPage += 1
+        let params = ["api_key":network.apiKey,"page":currentPage] as [String : Any]
+        network.request(urlString: "movie/popular", params: params){
+            (response: GenericPagedMovieResponse?) in
+            if let array = response?.results {
+                self.moviesArray.append(contentsOf: array)
+                self.setUpNewBatchOfMovies()
+            }
+        }
+    }
 }
 extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,6 +116,13 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: detailSegueIdentifier, sender: moviesArray[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (moviesArray.endIndex - 1) == indexPath.item {
+            currentLastIndex = moviesArray.endIndex - 1
+            getNextPage()
+        }
     }
     
 }

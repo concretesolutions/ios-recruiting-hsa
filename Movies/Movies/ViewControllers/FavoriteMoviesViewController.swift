@@ -31,7 +31,7 @@ class FavoriteMoviesViewController: UIViewController {
         favoriteMoviesArray = DefaultsManager().favoriteMovies
         for (index, _) in self.favoriteMoviesArray.enumerated(){
             self.favoriteMoviesArray[index].setGenreString(self.genres)
-            self.favoriteMoviesArray[index].isFavorite = DefaultsManager().isMovieFavorite(self.favoriteMoviesArray[index])
+            self.favoriteMoviesArray[index].isFavorite = DefaultsManager.shared.isMovieFavorite(self.favoriteMoviesArray[index])
         }
         favoriteMoviesTableView.reloadData()
     }
