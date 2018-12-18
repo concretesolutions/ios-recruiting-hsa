@@ -130,7 +130,10 @@ extension FavoriteMoviesViewController: UISearchResultsUpdating, UISearchControl
             isSearching = true
             favoriteMoviesArray = originalArray.filter({
                 (movie: Movie) -> Bool in
-                movie.original_title.contains(searchString) || movie.title.contains(searchString)
+                let lowerCaseOriginalTitle = movie.original_title.lowercased()
+                let lowerCaseTitle = movie.title.lowercased()
+                let lowerCaseSearchString = searchString.lowercased()
+                return lowerCaseOriginalTitle.contains(lowerCaseSearchString) || lowerCaseTitle.contains(lowerCaseSearchString)
             })
             if favoriteMoviesArray.count <= 0 {
                 view.addSubview(emptySearchErrorView)

@@ -98,6 +98,7 @@ class MoviesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        popularSearchController.searchBar.autocapitalizationType = .none
         self.tabBarController?.navigationItem.searchController = popularSearchController
         self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = false
         self.tabBarController?.navigationItem.title = "Movies"
@@ -248,7 +249,10 @@ extension MoviesViewController: UISearchResultsUpdating, UISearchControllerDeleg
             isSearching = true
             moviesArray = originalArray.filter({
                 (movie: Movie) -> Bool in
-                movie.original_title.contains(searchString) || movie.title.contains(searchString)
+                let lowerCaseOriginalTitle = movie.original_title.lowercased()
+                let lowerCaseTitle = movie.title.lowercased()
+                let lowerCaseSearchString = searchString.lowercased()
+                return lowerCaseOriginalTitle.contains(lowerCaseSearchString) || lowerCaseTitle.contains(lowerCaseSearchString)
             })
             if moviesArray.count <= 0 {
                 view.addSubview(emptySearchErrorView)
