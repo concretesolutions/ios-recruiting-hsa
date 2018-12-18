@@ -1,0 +1,19 @@
+/* 
+  Strings.strings
+  Movies
+
+  Created by Consultor on 12/17/18.
+  Copyright © 2018 Mavzapps. All rights reserved.
+*/
+
+"title.Movies" = "Películas";
+"errors.network.general" = "Error conectando con el servidor";
+"errors.action.reload" = "Refrescar";
+"title.Favorites" = "Favoritos";
+"errors.favorites.save" = "No se pudo guardar la película";
+"errors.favorites.remove" = "No se pudo quitar la película";
+"errors.favorites.empty" = "No hay películas guardadas ";
+"errors.action.tryagain" = "Intentar otra vez";
+"errors.action.gohome" = "Ir a películas populares";
+"errors.generic" = "Ha ocurrido un error";
+"errors.search.noresults" = "No hay películas que coincidan con tu búsqueda";

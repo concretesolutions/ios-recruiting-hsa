@@ -15,11 +15,13 @@ public class NetworkAPIManager {
     
     let apiKey: String = "b3939aaddfa3bcb1138a5a5e6e2d0f1c"
     
+    let baseUrlImages: String = "https://image.tmdb.org/t/p/w500"
+    
     init(){
         
     }
     
-    func request<T:Codable>(urlString: String, params: [String:Any], completionHandler:@escaping (T?)-> Void){
+    func request<T:Codable>(urlString: String, params: [String:Any], completionHandler:@escaping (T?, ErrorTypes?)-> Void) {
         
         Alamofire.request(baseUrl + urlString, method: .get, parameters: params, encoding: URLEncoding.default).responseData { response in
             debugPrint("All Response Info: \(response)")
@@ -28,11 +30,11 @@ public class NetworkAPIManager {
                 print("Data: \(utf8Text)")
                 let moviesResponse = try? JSONDecoder().decode(T.self, from: data)
                 //print("TotalPages: \(moviesResponse?.total_pages ?? -1)")
-                completionHandler(moviesResponse)
-                
+                completionHandler(moviesResponse, nil)
+            } else {
+                completionHandler(nil,ErrorTypes.networkError)
             }
         }
     }
-    
     
 }

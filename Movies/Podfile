@@ -8,7 +8,8 @@ target 'Movies' do
   # Pods for Movies
   
 	pod 'Alamofire'
-	pod 'AlamofireImage'  
+	pod 'AlamofireImage'
+    pod 'lottie-ios'
   target 'MoviesTests' do
     inherit! :search_paths
     # Pods for testing

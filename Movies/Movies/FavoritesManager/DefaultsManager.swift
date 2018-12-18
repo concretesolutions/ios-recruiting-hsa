@@ -12,8 +12,6 @@ public class DefaultsManager {
     
     public static var shared = DefaultsManager()
     
-    //let userDefaults =
-    
     let favoritesKey = "favoriteMovies"
     
     var favoriteMovies: [Movie] = []

@@ -1,0 +1,33 @@
+
+/* Class = "UITabBarItem"; title = "Movies"; ObjectID = "EjW-vd-Q6f"; */
+"EjW-vd-Q6f.title" = "Movies";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FhH-UJ-RMI"; */
+"FhH-UJ-RMI.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "H3a-En-R3s"; */
+"H3a-En-R3s.text" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HiV-lH-DX2"; */
+"HiV-lH-DX2.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Pzu-98-QcW"; */
+"Pzu-98-QcW.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UOm-Yy-ZV1"; */
+"UOm-Yy-ZV1.text" = "Label";
+
+/* Class = "UIViewController"; title = "Movies"; ObjectID = "X97-eo-ZLE"; */
+"X97-eo-ZLE.title" = "Movies";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Z4H-QE-9h7"; */
+"Z4H-QE-9h7.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "aBc-wq-W8w"; */
+"aBc-wq-W8w.title" = "Favorites";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hjL-lk-GAH"; */
+"hjL-lk-GAH.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "izl-AK-jrw"; */
+"izl-AK-jrw.text" = "Label";

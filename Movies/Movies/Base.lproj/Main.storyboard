@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
+        <!--title.Favorites-->
         <scene sceneID="TEV-ZW-1ew">
             <objects>
-                <viewController id="7Z5-Sr-eAb" customClass="FavoriteMoviesViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="title.Favorites" id="7Z5-Sr-eAb" customClass="FavoriteMoviesViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXX-K3-U01">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="byW-sJ-BwC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="icFavorites" id="aBc-wq-W8w"/>
+                    <tabBarItem key="tabBarItem" title="title.Favorites" image="icFavorites" id="aBc-wq-W8w">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="title.Favorites"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="favoriteMoviesTableView" destination="h5s-Pi-Oo7" id="aw5-K6-oV3"/>
                         <segue destination="pvj-rk-xjS" kind="show" identifier="ShowFavoriteMovieDetail" id="3rm-hL-ZXv"/>
@@ -109,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="1202.4000000000001" y="350.37481259370315"/>
         </scene>
-        <!--Movies-->
+        <!--title.Movies-->
         <scene sceneID="80h-wn-UrM">
             <objects>
-                <viewController title="Movies" id="X97-eo-ZLE" customClass="MoviesViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="title.Movies" id="X97-eo-ZLE" customClass="MoviesViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tgy-ax-zZJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,7 +127,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kc9-aZ-d5P">
                                     <size key="itemSize" width="199" height="259"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -176,6 +180,25 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="loadingFooter" id="QjT-AQ-daQ" customClass="LoadingCollectionReusableView" customModule="Movies" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="259" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-hi-IpM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xzY-hi-IpM" firstAttribute="centerY" secondItem="QjT-AQ-daQ" secondAttribute="centerY" id="6VU-WY-qNc"/>
+                                        <constraint firstItem="xzY-hi-IpM" firstAttribute="width" secondItem="QjT-AQ-daQ" secondAttribute="width" id="KRj-yl-vCg"/>
+                                        <constraint firstItem="xzY-hi-IpM" firstAttribute="centerX" secondItem="QjT-AQ-daQ" secondAttribute="centerX" id="Kqz-Oj-tb9"/>
+                                        <constraint firstItem="xzY-hi-IpM" firstAttribute="height" secondItem="QjT-AQ-daQ" secondAttribute="height" id="uNa-r5-L9o"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="contentView" destination="xzY-hi-IpM" id="1NJ-tV-9Bi"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="X97-eo-ZLE" id="JEA-Gu-O4f"/>
                                     <outlet property="delegate" destination="X97-eo-ZLE" id="Gkb-BA-NCX"/>
@@ -191,7 +214,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cn2-yl-ek7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="icList" id="EjW-vd-Q6f"/>
+                    <tabBarItem key="tabBarItem" title="title.Movies" image="icList" id="EjW-vd-Q6f">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="title.Movies"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="movieGridCollectionView" destination="tKW-Of-Y56" id="INo-bM-Rbi"/>
                         <segue destination="pvj-rk-xjS" kind="show" identifier="ShowMovieDetail" id="neP-sP-VCb"/>
@@ -308,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23n-PW-vJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="-315"/>
+            <point key="canvasLocation" x="2036" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AOe-3l-gKu">
@@ -327,10 +354,10 @@
             </objects>
             <point key="canvasLocation" x="-537" y="18"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--title.Movies-->
         <scene sceneID="VzJ-kp-7WE">
             <objects>
-                <tabBarController id="U1c-y4-LOn" sceneMemberID="viewController">
+                <tabBarController title="title.Movies" id="U1c-y4-LOn" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bLO-sg-Klj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BN3-o4-fVC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -363,6 +390,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3rm-hL-ZXv"/>
+        <segue reference="neP-sP-VCb"/>
     </inferredMetricsTieBreakers>
 </document>

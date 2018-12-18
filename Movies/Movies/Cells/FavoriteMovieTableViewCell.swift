@@ -26,18 +26,32 @@ class FavoriteMovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    var movie: Movie? {
+    var viewModel = FavoriteViewModel(){
         didSet{
-            if let movie = self.movie{
-                movieTitleLabel.text = movie.title
-                movieOverviewLabel.text = movie.overview
-                let calendar = Calendar(identifier: .gregorian)
-                movieReleaseYearLabel.text = "\(calendar.component(.year, from: movie.release_date ?? Date()))"
-                if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path)" ){
-                    moviePosterImageView.af_setImage(withURL: url)
-                }
+            movieTitleLabel.text = viewModel.title
+            movieOverviewLabel.text = viewModel.overview
+            let calendar = Calendar(identifier: .gregorian)
+            movieReleaseYearLabel.text = "\(calendar.component(.year, from: viewModel.releaseDate))"
+            if let url = URL(string: NetworkAPIManager().baseUrlImages+"\(viewModel.imagePath)" ){
+                moviePosterImageView.af_setImage(withURL: url)
             }
         }
     }
 
+}
+extension FavoriteMovieTableViewCell {
+    struct FavoriteViewModel{
+        var title = ""
+        var overview = ""
+        var releaseDate = Date()
+        var imagePath = ""
+    }
+}
+extension FavoriteMovieTableViewCell.FavoriteViewModel{
+    init(_ movie: Movie){
+        title = movie.title
+        overview = movie.overview
+        releaseDate = movie.release_date ?? Date()
+        imagePath = movie.poster_path
+    }
 }

@@ -19,7 +19,7 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let movie = self.movie{
+        if let movie = self.movie {
             title = movie.title
             movieTitleLabel.text = movie.title
             let calendar = Calendar(identifier: .gregorian)

@@ -2,20 +2,24 @@ PODS:
   - Alamofire (4.7.3)
   - AlamofireImage (3.4.1):
     - Alamofire (~> 4.7)
+  - lottie-ios (2.5.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - lottie-ios
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireImage
+    - lottie-ios
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
 
-PODFILE CHECKSUM: 8b112a73f8d22d6020ee23103aab80c66514e233
+PODFILE CHECKSUM: e0491d2b76cac7cb4478ada0a80c09747063eeb4
 
 COCOAPODS: 1.5.0

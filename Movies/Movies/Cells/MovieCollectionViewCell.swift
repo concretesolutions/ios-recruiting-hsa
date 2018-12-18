@@ -16,14 +16,21 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var movieFavoriteIndicatorImageView: UIImageView!
     
-    var movie: Movie? = nil {
+    var viewModel = ViewModel(){
         didSet{
-            movieNameLabel.text = movie?.title
-            if let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie?.poster_path ?? "")" ){
+            movieNameLabel.text = viewModel.title
+            movieFavoriteIndicatorImageView.image = (viewModel.isFavorite) ? UIImage(named: "btnFavoriteFull"):UIImage(named: "btnFavoriteEmpty")
+            if let url = URL(string: NetworkAPIManager().baseUrlImages+"\(viewModel.imagePath)" ){
                 moviePosterImageView.af_setImage(withURL: url)
             }
-            movieFavoriteIndicatorImageView.image = (movie?.isFavorite ?? false ) ? UIImage(named: "btnFavoriteFull"):UIImage(named: "btnFavoriteEmpty")
         }
     }
-    
 }
+extension MovieCollectionViewCell {
+    struct ViewModel{
+        var title = ""
+        var imagePath = ""
+        var isFavorite = false
+    }
+}
+
