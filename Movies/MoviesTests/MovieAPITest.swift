@@ -26,7 +26,7 @@ class MovieAPITest: XCTestCase {
         let networkManager = NetworkAPIManager()
         let paramsGenres = ["api_key":networkManager.apiKey,"language":locale ?? "es-US"] as [String : Any]
         
-        networkManager.request(urlString: "genre/movie/list", params: paramsGenres){
+        networkManager.request(urlString: MoviesAPIUrl.genre, params: paramsGenres){
             (response: GenresResponse?, error: ErrorTypes?) in
             if error != nil {
                 XCTFail()
@@ -49,7 +49,7 @@ class MovieAPITest: XCTestCase {
         let networkManager = NetworkAPIManager()
         let paramsMovies = ["api_key":networkManager.apiKey,"page":1,"language":locale ?? "en-US"] as [String : Any]
         
-        networkManager.request(urlString: "movie/popular", params: paramsMovies){
+        networkManager.request(urlString: MoviesAPIUrl.popularMovies, params: paramsMovies){
             (response: GenericPagedMovieResponse?, error: ErrorTypes?) in
             if error != nil {
                 XCTFail()

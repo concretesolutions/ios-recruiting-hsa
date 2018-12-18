@@ -21,9 +21,9 @@ public class NetworkAPIManager {
         
     }
     
-    func request<T:Codable>(urlString: String, params: [String:Any], completionHandler:@escaping (T?, ErrorTypes?)-> Void) {
+    func request<T:Codable>(urlString: MoviesAPIUrl, params: [String:Any], completionHandler:@escaping (T?, ErrorTypes?)-> Void) {
         
-        Alamofire.request(baseUrl + urlString, method: .get, parameters: params, encoding: URLEncoding.default).responseData { response in
+        Alamofire.request(baseUrl + urlString.rawValue, method: .get, parameters: params, encoding: URLEncoding.default).responseData { response in
             debugPrint("All Response Info: \(response)")
             
             if let data = response.result.value, let utf8Text = String(data: data, encoding: .utf8) {
@@ -35,4 +35,9 @@ public class NetworkAPIManager {
             }
         }
     }
+}
+
+public enum MoviesAPIUrl: String{
+    case popularMovies = "movie/popular"
+    case genre = "genre/movie/list"
 }

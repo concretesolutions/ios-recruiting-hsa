@@ -59,7 +59,7 @@ class MoviesViewController: UIViewController {
         let network = NetworkAPIManager()
         let paramsGenres = ["api_key":network.apiKey,"language":locale ?? "es-US"] as [String : Any]
         view.addSubview(loadingView)
-        network.request(urlString: "genre/movie/list", params: paramsGenres){
+        network.request(urlString: MoviesAPIUrl.genre, params: paramsGenres){
             (response: GenresResponse?, error: ErrorTypes?) in
             if let genresError = error {
                 self.loadingView.hideAnimationView()
@@ -74,7 +74,7 @@ class MoviesViewController: UIViewController {
                     }
                     let params = ["api_key":network.apiKey,"page":self.currentPage,"language":self.locale ?? "en-US"] as [String : Any]
                     
-                    network.request(urlString: "movie/popular", params: params){
+                    network.request(urlString: MoviesAPIUrl.popularMovies, params: params){
                         (response: GenericPagedMovieResponse?, error: ErrorTypes?) in
                         self.loadingView.hideAnimationView()
                         if let movieError = error {
@@ -149,7 +149,7 @@ class MoviesViewController: UIViewController {
             isLoadingNextPage = true
             let network = NetworkAPIManager()
             let params = ["api_key":network.apiKey,"page":currentPage,"language":locale ?? "en-US"] as [String : Any]
-            network.request(urlString: "movie/popular", params: params){
+            network.request(urlString: MoviesAPIUrl.popularMovies, params: params){
                 (response: GenericPagedMovieResponse?, error: ErrorTypes?) in
                 if let error = error {
                     let alert = UIAlertController(title: NSLocalizedString("errors.generic", comment: ""), message: NSLocalizedString(error.message, comment: ""), preferredStyle: .alert)
