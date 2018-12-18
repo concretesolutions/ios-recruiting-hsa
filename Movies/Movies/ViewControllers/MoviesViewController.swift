@@ -57,7 +57,6 @@ class MoviesViewController: UIViewController {
     
     func loadGenresAndMovies(){
         let network = NetworkAPIManager()
-        
         let paramsGenres = ["api_key":network.apiKey,"language":locale ?? "es-US"] as [String : Any]
         view.addSubview(loadingView)
         network.request(urlString: "genre/movie/list", params: paramsGenres){

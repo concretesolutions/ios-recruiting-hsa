@@ -30,5 +30,11 @@ class MoviesTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testGetFavoriteMovies(){
+        DefaultsManager.shared.getFavorites()
+        let favoriteMoviesArray = DefaultsManager.shared.favoriteMovies
+        XCTAssert(favoriteMoviesArray.count > 0)
+    }
 
 }
