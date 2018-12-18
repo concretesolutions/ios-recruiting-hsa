@@ -17,6 +17,8 @@
 		0CC26A6521C8855E007DEEEC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC26A6421C8855E007DEEEC /* LoadingView.swift */; };
 		0CC26A6821C8867B007DEEEC /* movie_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC26A6721C8867B007DEEEC /* movie_loading.json */; };
 		0CC26A6A21C88BF8007DEEEC /* LoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC26A6921C88BF8007DEEEC /* LoadingCollectionReusableView.swift */; };
+		0CC26A6D21C91A1B007DEEEC /* LocalizableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC26A6C21C91A1B007DEEEC /* LocalizableProtocol.swift */; };
+		0CC26A6F21C98E61007DEEEC /* MovieAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC26A6E21C98E61007DEEEC /* MovieAPITest.swift */; };
 		0CCA4A2821C2AF3B00CA5995 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA4A2721C2AF3B00CA5995 /* MovieCollectionViewCell.swift */; };
 		0CCA4A2A21C32A9B00CA5995 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA4A2921C32A9B00CA5995 /* MovieDetailViewController.swift */; };
 		0CF51C4B21C1C5E200AE78BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF51C4A21C1C5E200AE78BA /* AppDelegate.swift */; };
@@ -65,6 +67,8 @@
 		0CC26A6421C8855E007DEEEC /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0CC26A6721C8867B007DEEEC /* movie_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie_loading.json; sourceTree = "<group>"; };
 		0CC26A6921C88BF8007DEEEC /* LoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		0CC26A6C21C91A1B007DEEEC /* LocalizableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableProtocol.swift; sourceTree = "<group>"; };
+		0CC26A6E21C98E61007DEEEC /* MovieAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPITest.swift; sourceTree = "<group>"; };
 		0CCA4A2721C2AF3B00CA5995 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		0CCA4A2921C32A9B00CA5995 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		0CF51C4721C1C5E200AE78BA /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +156,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0CC26A6B21C91A03007DEEEC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0CC26A6C21C91A1B007DEEEC /* LocalizableProtocol.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		0CF51C3E21C1C5E100AE78BA = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +189,7 @@
 		0CF51C4921C1C5E200AE78BA /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				0CC26A6B21C91A03007DEEEC /* Util */,
 				0CC26A6621C8866A007DEEEC /* Resources */,
 				0C73699C21C44A46000051B2 /* FavoritesManager */,
 				0CF51C7D21C1E72700AE78BA /* NetworkManager */,
@@ -195,6 +208,7 @@
 		0CF51C5E21C1C5E700AE78BA /* MoviesTests */ = {
 			isa = PBXGroup;
 			children = (
+				0CC26A6E21C98E61007DEEEC /* MovieAPITest.swift */,
 				0CF51C5F21C1C5E700AE78BA /* MoviesTests.swift */,
 				0CF51C6121C1C5E700AE78BA /* Info.plist */,
 			);
@@ -500,6 +514,7 @@
 				0CF51C7C21C1DFAA00AE78BA /* DataObjects.swift in Sources */,
 				0CCA4A2A21C32A9B00CA5995 /* MovieDetailViewController.swift in Sources */,
 				0CF51C4B21C1C5E200AE78BA /* AppDelegate.swift in Sources */,
+				0CC26A6D21C91A1B007DEEEC /* LocalizableProtocol.swift in Sources */,
 				0CC26A6A21C88BF8007DEEEC /* LoadingCollectionReusableView.swift in Sources */,
 				0C655AAC21C7E60A00210801 /* MoviesViewController.swift in Sources */,
 			);
@@ -510,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CF51C6021C1C5E700AE78BA /* MoviesTests.swift in Sources */,
+				0CC26A6F21C98E61007DEEEC /* MovieAPITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,12 +29,10 @@ public class NetworkAPIManager {
             if let data = response.result.value, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
                 let moviesResponse = try? JSONDecoder().decode(T.self, from: data)
-                //print("TotalPages: \(moviesResponse?.total_pages ?? -1)")
                 completionHandler(moviesResponse, nil)
             } else {
                 completionHandler(nil,ErrorTypes.networkError)
             }
         }
     }
-    
 }

@@ -24,19 +24,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sXg-nx-NXy">
-                    <rect key="frame" x="56.5" y="84" width="262.5" height="345"/>
+                    <rect key="frame" x="94" y="133.5" width="187.5" height="246.5"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="errorImage" translatesAutoresizingMaskIntoConstraints="NO" id="sLl-OX-fbm">
-                            <rect key="frame" x="0.0" y="0.0" width="262.5" height="247.5"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="errorImage" translatesAutoresizingMaskIntoConstraints="NO" id="sLl-OX-fbm">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="176.5"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="ErrorDescription" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnZ-T7-V3C">
-                            <rect key="frame" x="0.0" y="247.5" width="262.5" height="39.5"/>
+                            <rect key="frame" x="0.0" y="176.5" width="187.5" height="28.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evE-7m-wu3">
-                            <rect key="frame" x="0.0" y="287" width="262.5" height="58"/>
+                            <rect key="frame" x="0.0" y="205" width="187.5" height="41.5"/>
                             <state key="normal" title="ErrorAction">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -49,10 +49,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="sXg-nx-NXy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="8dP-Gq-bLS"/>
+                <constraint firstItem="sXg-nx-NXy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="8dP-Gq-bLS"/>
                 <constraint firstItem="sXg-nx-NXy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Wfm-hx-2Ki"/>
                 <constraint firstItem="sXg-nx-NXy" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="efb-aZ-S9X"/>
-                <constraint firstItem="sXg-nx-NXy" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.7" id="evQ-8G-VXE"/>
+                <constraint firstItem="sXg-nx-NXy" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="evQ-8G-VXE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

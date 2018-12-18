@@ -13,6 +13,7 @@
 "errors.favorites.save" = "No se pudo guardar la película";
 "errors.favorites.remove" = "No se pudo quitar la película";
 "errors.favorites.empty" = "No hay películas guardadas ";
+"title.action.delete" = "Eliminar";
 "errors.action.tryagain" = "Intentar otra vez";
 "errors.action.gohome" = "Ir a películas populares";
 "errors.generic" = "Ha ocurrido un error";

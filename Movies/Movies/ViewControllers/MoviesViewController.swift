@@ -11,6 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController {
     
     var moviesArray: [Movie] = []
+    var originalArray: [Movie] = []
     var genres: [Genre] = []
     @IBOutlet weak var movieGridCollectionView: UICollectionView!{
         didSet{
@@ -19,9 +20,13 @@ class MoviesViewController: UIViewController {
         }
     }
     
+    var popularSearchController: UISearchController!
+    
     var currentPage: Int = 1
     var maxPages: Int = 1
     var currentLastIndex: Int = 0
+    var isLoadingNextPage = false
+    var isSearching = false
     
     let cellIdentifier = "MovieGridCollectionViewCell"
     let footerIdentifier = "loadingFooter"
@@ -30,13 +35,24 @@ class MoviesViewController: UIViewController {
     let locale = NSLocale.current.languageCode
     
     let loadingView = LoadingView()
+    let emptySearchErrorView = ErrorView(error: ErrorTypes.emptyListError)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        title = "Movies"
+        //self.navigationController?.navigationBar.prefersLargeTitles = true
         loadGenresAndMovies()
-        print("Language: \(locale)")
+        popularSearchController = UISearchController(searchResultsController: nil)
+        popularSearchController.searchResultsUpdater = self
+        popularSearchController.delegate = self
+        popularSearchController.searchBar.delegate = self
+        self.tabBarController?.definesPresentationContext = true
+        popularSearchController.hidesNavigationBarDuringPresentation = false
+        
+        popularSearchController.dimsBackgroundDuringPresentation = false
+        popularSearchController.definesPresentationContext = true
+        popularSearchController.searchBar.tintColor = UIColor.darkGray
+        
     }
     
     func loadGenresAndMovies(){
@@ -69,6 +85,7 @@ class MoviesViewController: UIViewController {
                         } else {
                             if let array = response?.results {
                                 self.moviesArray = array
+                                self.originalArray = self.moviesArray
                                 self.maxPages = response?.total_pages ?? 1
                                 self.setUpInitialMovies()
                             }
@@ -82,7 +99,15 @@ class MoviesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.searchController = popularSearchController
+        self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = false
+        self.tabBarController?.navigationItem.title = "Movies"
         setUpInitialMovies()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,12 +139,14 @@ class MoviesViewController: UIViewController {
         movieGridCollectionView.performBatchUpdates({
             self.movieGridCollectionView.insertItems(at: newIndexes)
         }, completion: nil)
-        //self.movieGridCollectionView.reloadData()
+        isLoadingNextPage = false
+        //movieGridCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     func getNextPage(){
         currentPage += 1
         if currentPage <= maxPages {
+            isLoadingNextPage = true
             let network = NetworkAPIManager()
             let params = ["api_key":network.apiKey,"page":currentPage,"language":locale ?? "en-US"] as [String : Any]
             network.request(urlString: "movie/popular", params: params){
@@ -143,6 +170,7 @@ class MoviesViewController: UIViewController {
                 } else {
                     if let array = response?.results {
                         self.moviesArray.append(contentsOf: array)
+                        self.originalArray = self.moviesArray
                         self.setUpNewBatchOfMovies()
                     }
                 }
@@ -159,6 +187,7 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MovieCollectionViewCell {
             cell.viewModel = MovieCollectionViewCell.ViewModel(moviesArray[indexPath.item])
+            cell.delegate = self
             return cell
         }
         return UICollectionViewCell()
@@ -169,7 +198,7 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (moviesArray.endIndex - 1) == indexPath.item {
+        if (moviesArray.endIndex - 1) == indexPath.item && !isSearching{
             currentLastIndex = moviesArray.endIndex - 1
             getNextPage()
         }
@@ -182,12 +211,18 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
         return UICollectionReusableView()
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if isLoadingNextPage {
+            return CGSize(width: collectionView.frame.width, height: 50)
+        } else {
+            return CGSize.zero
+        }
     }
     
 }
 extension MovieCollectionViewCell.ViewModel{
     init(_ movie: Movie){
+        id = movie.id
         imagePath = movie.poster_path
         title = movie.title
         isFavorite = movie.isFavorite ?? false
@@ -199,22 +234,33 @@ extension MoviesViewController: ErrorViewDelegate{
         erroView.hideErrorView()
     }
 }
-protocol Localizable {
-    var localized: String { get }
-}
-extension String: Localizable {
-    var localized: String {
-        return NSLocalizedString(self, comment: "")
-    }
-}
-protocol XIBLocalizable {
-    var xibLocKey: String? { get set }
-}
-extension UITabBarItem: XIBLocalizable {
-    @IBInspectable var xibLocKey: String? {
-        get { return nil }
-        set(key) {
-            title = key?.localized
+extension MoviesViewController: MovieCollectionViewCellDelegate{
+    func favoriteAction(id: Int) {
+        if let movieIndex = moviesArray.firstIndex(where: {$0.id == id}){
+            moviesArray[movieIndex].setFavorite()
+            movieGridCollectionView.reloadItems(at: [IndexPath(item: movieIndex, section: 0)])
         }
+    }
+    
+}
+extension MoviesViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate{
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchString = searchController.searchBar.text, searchString != "" {
+            isSearching = true
+            moviesArray = originalArray.filter({
+                (movie: Movie) -> Bool in
+                movie.original_title.contains(searchString) || movie.title.contains(searchString)
+            })
+            if moviesArray.count <= 0 {
+                view.addSubview(emptySearchErrorView)
+            } else {
+                emptySearchErrorView.hideErrorView()
+            }
+        } else {
+            isSearching = false
+            moviesArray = originalArray
+            emptySearchErrorView.hideErrorView()
+        }
+        movieGridCollectionView.reloadData()
     }
 }

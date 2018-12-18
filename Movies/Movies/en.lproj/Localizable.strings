@@ -13,6 +13,7 @@
 "errors.favorites.save" = "Couln't save the movie";
 "errors.favorites.remove" = "Couln't remove the movie";
 "errors.favorites.empty" = "There are no saved movies";
+"title.action.delete" = "Delete";
 "errors.action.tryagain" = "Try again";
 "errors.action.gohome" = "Go to popular movies";
 "errors.generic" = "There has been an error";

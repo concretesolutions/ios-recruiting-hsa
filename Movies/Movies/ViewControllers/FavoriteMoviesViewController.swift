@@ -12,34 +12,63 @@ class FavoriteMoviesViewController: UIViewController {
     
     @IBOutlet weak var favoriteMoviesTableView: UITableView!
     
+    var favoritesSearchController: UISearchController!
+    
     var favoriteMoviesArray: [Movie] = []
     var genres: [Genre] = []
+    var originalArray: [Movie] = []
+    
+    var isSearching = false
     
     let cellIdentifier = "MovieTableViewCell"
     
     let detailSegueIdentifier = "ShowFavoriteMovieDetail"
+    let emptyErrorView = ErrorView(error: ErrorTypes.emptyFavoritesError)
+    let emptySearchErrorView = ErrorView(error: ErrorTypes.emptyListError)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //favoriteMoviesArray = DefaultsManager().favoriteMovies
         // Do any additional setup after loading the view.
+        emptyErrorView.delegate = self
+        emptySearchErrorView.delegate = self
         favoriteMoviesTableView.tableFooterView = UIView()
+        favoritesSearchController = UISearchController(searchResultsController: nil)
+        favoritesSearchController.searchResultsUpdater = self
+        favoritesSearchController.delegate = self
+        favoritesSearchController.searchBar.delegate = self
+        self.tabBarController?.definesPresentationContext = true
+        favoritesSearchController.hidesNavigationBarDuringPresentation = false
+        
+        favoritesSearchController.dimsBackgroundDuringPresentation = false
+        favoritesSearchController.definesPresentationContext = true
+        favoritesSearchController.searchBar.tintColor = UIColor.darkGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        favoriteMoviesArray = DefaultsManager.shared.favoriteMovies
-        if favoriteMoviesArray.count > 0 {
-            for (index, _) in self.favoriteMoviesArray.enumerated(){
-                self.favoriteMoviesArray[index].setGenreString(self.genres)
-                self.favoriteMoviesArray[index].isFavorite = DefaultsManager.shared.isMovieFavorite(self.favoriteMoviesArray[index])
+        self.tabBarController?.navigationItem.searchController = favoritesSearchController
+        self.tabBarController?.navigationItem.title = "Favorites"
+        if !isSearching{
+            favoriteMoviesArray = DefaultsManager.shared.favoriteMovies
+            if favoriteMoviesArray.count > 0 {
+                for (index, _) in self.favoriteMoviesArray.enumerated(){
+                    self.favoriteMoviesArray[index].setGenreString(self.genres)
+                    self.favoriteMoviesArray[index].isFavorite = DefaultsManager.shared.isMovieFavorite(self.favoriteMoviesArray[index])
+                }
+                originalArray = favoriteMoviesArray
+                favoriteMoviesTableView.reloadData()
+                favoriteMoviesTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+                emptyErrorView.hideErrorView()
+                self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = false
+            } else {
+                view.addSubview(emptyErrorView)
             }
-            favoriteMoviesTableView.reloadData()
-        } else {
-            let errorView = ErrorView(error: ErrorTypes.emptyFavoritesError)
-            errorView.delegate = self
-            view.addSubview(errorView)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     // MARK: - Navigation
@@ -75,10 +104,13 @@ extension FavoriteMoviesViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {(action, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: NSLocalizedString("title.action.delete", comment: ""), handler: {(action, indexPath) in
             DefaultsManager.shared.removeFavorite(self.favoriteMoviesArray[indexPath.item])
             self.favoriteMoviesArray.remove(at: indexPath.item)
             tableView.reloadData()
+            if self.favoriteMoviesArray.count <= 0 {
+                self.view.addSubview(self.emptyErrorView)
+            }
         })
         return [deleteAction]
     }
@@ -90,6 +122,27 @@ extension FavoriteMoviesViewController: ErrorViewDelegate{
             tabBarController.selectedIndex = 0
         }
         erroView.hideErrorView()
+    }
+}
+extension FavoriteMoviesViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate{
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchString = searchController.searchBar.text, searchString != "" {
+            isSearching = true
+            favoriteMoviesArray = originalArray.filter({
+                (movie: Movie) -> Bool in
+                movie.original_title.contains(searchString) || movie.title.contains(searchString)
+            })
+            if favoriteMoviesArray.count <= 0 {
+                view.addSubview(emptySearchErrorView)
+            } else {
+                emptySearchErrorView.hideErrorView()
+            }
+        } else {
+            isSearching = false
+            favoriteMoviesArray = originalArray
+            emptySearchErrorView.hideErrorView()
+        }
+        favoriteMoviesTableView.reloadData()
     }
 }
 
