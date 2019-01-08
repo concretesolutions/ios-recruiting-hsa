@@ -58,7 +58,6 @@ extension MoviesViewController {
         stateController?.delegates.add(self)
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         movieDetailsCoordinator?.configure(viewController: segue.destination)
         selectedMovie.map { segue.forward(movie: $0)}

@@ -67,9 +67,7 @@ extension MovieDetailsViewController: UITableViewDelegate {
                     (cell as? RowConfigurable)?.configure(with: dataSource.row(at: indexPath.row))
                 }, completion: nil)
             }
-            
         }
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

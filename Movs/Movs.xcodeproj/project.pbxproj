@@ -39,6 +39,8 @@
 		0C4D58B821E29380001328C0 /* UIStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D58B721E29380001328C0 /* UIStoryboardSegue.swift */; };
 		0C4D58BA21E2A177001328C0 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D58B921E2A177001328C0 /* ImageRequest.swift */; };
 		0C52D22C21E4CA02000268BE /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52D22B21E4CA02000268BE /* Genre.swift */; };
+		0C52D22E21E52C2D000268BE /* FavoritesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52D22D21E52C2D000268BE /* FavoritesTableViewDataSource.swift */; };
+		0C52D23021E537BF000268BE /* FavoriteMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52D22F21E537BF000268BE /* FavoriteMovieCell.swift */; };
 		0C53C0D021E3A03F00D20804 /* MovieDetailsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C0CF21E3A03F00D20804 /* MovieDetailsTableViewDataSource.swift */; };
 		0C53C0D221E3A7CE00D20804 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C0D121E3A7CE00D20804 /* PosterCell.swift */; };
 		0C53C0D421E3A8B600D20804 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C0D321E3A8B600D20804 /* DetailCell.swift */; };
@@ -99,6 +101,8 @@
 		0C4D58B721E29380001328C0 /* UIStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardSegue.swift; sourceTree = "<group>"; };
 		0C4D58B921E2A177001328C0 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		0C52D22B21E4CA02000268BE /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		0C52D22D21E52C2D000268BE /* FavoritesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewDataSource.swift; sourceTree = "<group>"; };
+		0C52D22F21E537BF000268BE /* FavoriteMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieCell.swift; sourceTree = "<group>"; };
 		0C53C0CF21E3A03F00D20804 /* MovieDetailsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTableViewDataSource.swift; sourceTree = "<group>"; };
 		0C53C0D121E3A7CE00D20804 /* PosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCell.swift; sourceTree = "<group>"; };
 		0C53C0D321E3A8B600D20804 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				0C4D588521E25946001328C0 /* FavoritesViewController.swift */,
+				0C52D22D21E52C2D000268BE /* FavoritesTableViewDataSource.swift */,
+				0C52D22F21E537BF000268BE /* FavoriteMovieCell.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				0C4D58AB21E25946001328C0 /* Movie.swift in Sources */,
 				0C4D58B621E28DB1001328C0 /* MovieDetailsFlowCoordinator.swift in Sources */,
 				0C53C0D421E3A8B600D20804 /* DetailCell.swift in Sources */,
+				0C52D22E21E52C2D000268BE /* FavoritesTableViewDataSource.swift in Sources */,
 				0C4D585821E2586E001328C0 /* AppDelegate.swift in Sources */,
 				0C4D58A121E25946001328C0 /* MoviesViewController.swift in Sources */,
 				0C4D58B121E25946001328C0 /* DateFormatter.swift in Sources */,
@@ -420,6 +427,7 @@
 				0C53C0D221E3A7CE00D20804 /* PosterCell.swift in Sources */,
 				0C52D22C21E4CA02000268BE /* Genre.swift in Sources */,
 				0C53C0D021E3A03F00D20804 /* MovieDetailsTableViewDataSource.swift in Sources */,
+				0C52D23021E537BF000268BE /* FavoriteMovieCell.swift in Sources */,
 				0C4D58A921E25946001328C0 /* NetworkError.swift in Sources */,
 				0CCB2DB621E4631600E0E02E /* Storage.swift in Sources */,
 				0C4D58B421E28B72001328C0 /* MovieDetailsViewController.swift in Sources */,
