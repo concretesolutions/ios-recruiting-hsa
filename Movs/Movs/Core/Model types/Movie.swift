@@ -16,13 +16,14 @@ struct Movie {
     let popularity: Float
     let posterPath, originalLanguage, originalTitle: String
     let genreIDS: [Int]
-    let backdropPath: String
+    let backdropPath: String?
     let adult: Bool
     let overview: String
     let releaseDate: Date
+    var isFavorite = false
 }
 
-extension Movie: Decodable {
+extension Movie: Codable {
     enum CodingKeys: String, CodingKey {
         case voteCount = "vote_count"
         case id, video

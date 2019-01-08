@@ -43,6 +43,7 @@
                                         <state key="normal" image="favorite_gray_icon"/>
                                         <state key="disabled" image="favorite_gray_icon"/>
                                         <state key="selected" image="favorite_full_icon"/>
+                                        <state key="highlighted" image="favorite_gray_icon"/>
                                         <connections>
                                             <action selector="favoriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="cQK-a1-kYn"/>
                                         </connections>

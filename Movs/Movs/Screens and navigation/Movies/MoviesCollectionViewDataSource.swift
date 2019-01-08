@@ -9,10 +9,26 @@
 import UIKit
 
 class MoviesCollectionViewDataSource: NSObject {
-    private let dataOrganizer: DataOrganizer
+    private var dataOrganizer: DataOrganizer
     
     init(movies: [Movie]) {
         self.dataOrganizer = DataOrganizer(movies: movies)
+    }
+    
+    func addMovies(_ movies:[Movie]) {
+        dataOrganizer.addMovies(movies)
+    }
+    
+    func toggleFavorite(at index: Int) {
+        dataOrganizer.toggleFavorite(at: index)
+    }
+    
+    func movie(at index: Int) -> Movie {
+        return dataOrganizer.movie(at: index)
+    }
+    
+    func setFavorite(at index: Int, isFavorite: Bool) {
+        dataOrganizer.setFavorite(at: index, isFavorite: isFavorite)
     }
 }
 
@@ -42,13 +58,27 @@ extension MoviesCollectionViewDataSource {
         }
         
         func movie(at index: Int) -> Movie {
-            return movies[index]
+            return self.movies[index]
+        }
+        
+        mutating func addMovies(_ movies: [Movie]) {
+            self.movies.append(contentsOf: movies)
+        }
+        
+        mutating func toggleFavorite(at index: Int) {
+            self.movies[index].isFavorite = !self.movies[index].isFavorite
+        }
+        
+        mutating func setFavorite(at index: Int, isFavorite: Bool) {
+            self.movies[index].isFavorite = isFavorite
         }
     }
 }
 
 extension MovieCollectionViewCell.ViewModel {
-    init(movie: Movie) {
+    init(movie: Movie, posterImage: UIImage = UIImage()) {
         title = movie.title
+        isFavorite = movie.isFavorite
+        self.posterImage = posterImage
     }
 }

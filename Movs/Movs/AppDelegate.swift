@@ -17,8 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let initialViewController = window?.rootViewController as? MainTabBarController {
             coordinator = MainFlowCoordinator(mainViewController: initialViewController)
+            
+            if Storage.fileExists(.movies, in: .documents) {
+                let movies = Storage.retrieve(.movies, from: .documents, as: [Int:Movie].self)
+                coordinator?.stateController.moviesDictionary = movies
+            }
         }
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        guard let stateController = coordinator?.stateController else {
+            return
+        }
+        Storage.store(stateController.moviesDictionary, to: Storage.Directory.documents, as: Storage.Files.movies)
     }
     
 }

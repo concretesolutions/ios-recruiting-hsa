@@ -9,13 +9,13 @@
 import UIKit
 
 protocol MovieCollectionViewCellDelegate: AnyObject {
-    func favoriteSelected()
+    func movieCell(_ cell: MovieCollectionViewCell)
 }
 
 class MovieCollectionViewCell: UICollectionViewCell {
-    @IBOutlet fileprivate weak var titleLabel: UILabel!
-    @IBOutlet fileprivate weak var posterImageView: UIImageView!
-    @IBOutlet fileprivate weak var favoriteButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     weak var delegate: MovieCollectionViewCellDelegate?
     
@@ -27,8 +27,20 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var posterImage = UIImage() {
+        didSet {
+            posterImageView.image = posterImage
+        }
+    }
+    
+    var isFavorite = false {
+        didSet {
+            favoriteButton.isSelected = isFavorite
+        }
+    }
+    
     @IBAction func favoriteAction(_ sender: Any) {
-        delegate?.favoriteSelected()
+        delegate?.movieCell(self)
     }
 }
 

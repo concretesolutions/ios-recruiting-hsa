@@ -30,7 +30,6 @@ extension APIRequest {
 }
 
 // MARK: - ListRequest
-
 class ListRequest<ModelType: Decodable>: APIRequest, JSONDataRequest {
     let url: URL
     let page: Int
@@ -54,4 +53,23 @@ extension ListRequest: NetworkRequest {
         return request
     }
 
+}
+
+// MARK: - FetchRequest
+class FetchRequest<ModelType: Decodable>: APIRequest, JSONDataRequest {
+    let url: URL
+    var task: URLSessionDataTask?
+    let session: URLSession
+    
+    init(url: URL, session: URLSession, page: Int = 1) {
+        self.url = url
+        self.session = session
+    }
+}
+
+extension FetchRequest: NetworkRequest {
+    var urlRequest: URLRequest {
+        let request = apiKeyURLRequest
+        return request
+    }
 }
