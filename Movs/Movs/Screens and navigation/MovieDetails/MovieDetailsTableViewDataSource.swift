@@ -22,6 +22,14 @@ class MovieDetailsTableViewDataSource: NSObject {
     var isFavorite: Bool {
         return dataOrganizer.isFavorite
     }
+    
+    func row(at index: Int) -> MovieDetailsViewController.Row {
+        return dataOrganizer.row(at: index)
+    }
+    
+    func setGenres(_ genres: [Genre], at index: Int) {
+        dataOrganizer.setGenres(genres, at: index)
+    }
 }
 
 extension MovieDetailsTableViewDataSource: UITableViewDataSource {
@@ -42,6 +50,7 @@ extension MovieDetailsTableViewDataSource: UITableViewDataSource {
 extension MovieDetailsTableViewDataSource {
     struct DataOrganizer {
         private(set) var rows: [MovieDetailsViewController.Row]
+        private var genresIDS = [Int]()
         
         var rowCount: Int {
             return rows.count
@@ -55,6 +64,7 @@ extension MovieDetailsTableViewDataSource {
                 .genres(""),
                 .overview("")]
             self.rows = rows.map { movie[$0] }
+            self.genresIDS = movie.genreIDS
         }
         
         func row(at index: Int) -> MovieDetailsViewController.Row {
@@ -76,6 +86,16 @@ extension MovieDetailsTableViewDataSource {
                 return ("", false)
             }()
             rows[index] = .titleFavorite(values.0, !values.1)
+        }
+        
+        mutating func setGenres(_ genres: [Genre], at index: Int) {
+            let textGenres = genres.filter { genresIDS.contains($0.id)}.compactMap {
+                return $0.name
+                }.joined(separator: ", ")
+            let row = rows[index]
+            if case .genres = row {
+                rows[index] = .genres(textGenres)
+            }
         }
     }
 }

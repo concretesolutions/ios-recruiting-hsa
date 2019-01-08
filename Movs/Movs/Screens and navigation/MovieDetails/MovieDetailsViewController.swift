@@ -22,7 +22,7 @@ extension MovieDetailsViewController {
         guard let movie = movie else {
             return
         }
-        self.dataSource = MovieDetailsTableViewDataSource(movie: movie)
+        dataSource = MovieDetailsTableViewDataSource(movie: movie)
         tableView.dataSource = dataSource
         tableView.reloadData()
     }
@@ -58,6 +58,18 @@ extension MovieDetailsViewController: UITableViewDelegate {
                 }
             })
         }
+        
+        if let dataSource = dataSource, case .genres = dataSource.row(at: indexPath.row) {
+            networkController?.fecth(url: TMDBEndpoint.genreMovieListURL) { [weak self] (result: Result<GenresList>) in
+                guard let genresList = try? result.get() else { return }
+                self?.dataSource?.setGenres(genresList.genres, at: indexPath.row)
+                tableView.performBatchUpdates({
+                    (cell as? RowConfigurable)?.configure(with: dataSource.row(at: indexPath.row))
+                }, completion: nil)
+            }
+            
+        }
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

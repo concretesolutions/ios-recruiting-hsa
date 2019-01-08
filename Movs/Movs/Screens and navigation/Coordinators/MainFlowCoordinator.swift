@@ -30,6 +30,7 @@ class MainFlowCoordinator: NSObject {
     let mainTabBarController: MainTabBarController
     let stateController = StateController()
     let movieDetailsFlowCoordinator = MovieDetailsFlowCoordinator()
+    let networkController = NetworkController()
     
     init(mainViewController: MainTabBarController) {
         self.mainTabBarController = mainViewController
@@ -42,7 +43,7 @@ class MainFlowCoordinator: NSObject {
 // MARK: Coordinator
 extension MainFlowCoordinator: Coordinator {
     func configure(viewController: UIViewController) {
-        (viewController as? Networked)?.networkController = NetworkController()
+        (viewController as? Networked)?.networkController = networkController
         (viewController as? MovieDetailsCoordinated)?.movieDetailsCoordinator = movieDetailsFlowCoordinator
         (viewController as? Stateful)?.stateController = stateController
 

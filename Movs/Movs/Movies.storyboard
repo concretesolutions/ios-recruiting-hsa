@@ -69,7 +69,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PosterCell" rowHeight="300" id="XaL-Ws-Sab" customClass="PosterCell" customModule="Movs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PosterCell" rowHeight="300" id="XaL-Ws-Sab" customClass="PosterCell" customModule="Movs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XaL-Ws-Sab" id="4Lb-N2-IVq">
@@ -94,7 +94,7 @@
                                             <outlet property="posterImageView" destination="EzF-Ts-d4I" id="wQ2-z4-XYT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleFavoriteCell" rowHeight="50" id="JYW-UQ-kPJ" customClass="TitleFavoriteCell" customModule="Movs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleFavoriteCell" rowHeight="50" id="JYW-UQ-kPJ" customClass="TitleFavoriteCell" customModule="Movs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="328" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JYW-UQ-kPJ" id="egr-MU-96e">
@@ -136,7 +136,7 @@
                                             <outlet property="titleLabel" destination="NVQ-7R-pBi" id="kUG-3H-4be"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" rowHeight="50" id="ADc-a1-ZtD" customClass="DetailCell" customModule="Movs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" rowHeight="50" id="ADc-a1-ZtD" customClass="DetailCell" customModule="Movs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="378" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ADc-a1-ZtD" id="rxB-rc-RcH">
@@ -161,7 +161,7 @@
                                             <outlet property="detailLabel" destination="dmF-0q-q0U" id="bag-cy-o3G"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OverviewCell" rowHeight="50" id="KhY-HT-iNj" customClass="OverviewCell" customModule="Movs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OverviewCell" rowHeight="50" id="KhY-HT-iNj" customClass="OverviewCell" customModule="Movs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="428" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KhY-HT-iNj" id="8ss-5J-jwe">

@@ -83,7 +83,9 @@ extension MoviesViewController {
     func addMoviesToDataSource(_ movies: [Movie]) {
         isScrollToFetch = movies.count > 0 ? true : false
         dataSource?.addMovies(movies)
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
