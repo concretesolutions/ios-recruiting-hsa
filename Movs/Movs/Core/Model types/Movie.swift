@@ -14,7 +14,9 @@ struct Movie {
     let voteAverage: Float
     let title: String
     let popularity: Float
-    let posterPath, originalLanguage, originalTitle: String
+    let posterPath: String?
+    let originalLanguage: String
+    let originalTitle: String
     let genreIDS: [Int]
     let backdropPath: String?
     let adult: Bool
