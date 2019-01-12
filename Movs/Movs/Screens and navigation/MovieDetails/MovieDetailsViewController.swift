@@ -49,14 +49,19 @@ extension MovieDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as? TitleFavoriteCell)?.delegate = self
         
-        if let posterCell = cell as? PosterCell, let movie = movie {
-            networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: movie.posterPath, withCompletion: { result in
-                (try? result.get()).map { image in
-                    DispatchQueue.main.async {
-                        posterCell.poster = image
+        if let posterCell = cell as? PosterCell, let posterPath = movie?.posterPath {
+            
+            if let posterImage = networkController?.getImageFromCache(imagePath: posterPath) {
+                posterCell.poster = posterImage
+            } else {
+                networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: posterPath, withCompletion: { result in
+                    (try? result.get()).map { image in
+                        tableView.performBatchUpdates({
+                            posterCell.poster = image
+                        })
                     }
-                }
-            })
+                })
+            }
         }
         
         if let dataSource = dataSource, case .genres = dataSource.row(at: indexPath.row) {
@@ -65,7 +70,7 @@ extension MovieDetailsViewController: UITableViewDelegate {
                 self?.dataSource?.setGenres(genresList.genres, at: indexPath.row)
                 tableView.performBatchUpdates({
                     (cell as? RowConfigurable)?.configure(with: dataSource.row(at: indexPath.row))
-                }, completion: nil)
+                })
             }
         }
     }

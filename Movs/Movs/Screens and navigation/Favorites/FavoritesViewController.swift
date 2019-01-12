@@ -36,7 +36,8 @@ extension FavoritesViewController: UITableViewDelegate {
         guard let dataSource = dataSource, let movieCell = cell as? FavoriteMovieCell else { return }
         let movie = dataSource.movie(at: indexPath.row)
         
-        networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: movie.posterPath, withCompletion: { result in
+        guard let posterPath = movie.posterPath else { return }
+        networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: posterPath, withCompletion: { result in
             (try? result.get()).map { image in
                 DispatchQueue.main.async {
                     movieCell.posterImage = image

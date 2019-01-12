@@ -82,9 +82,7 @@ extension MoviesViewController {
     func addMoviesToDataSource(_ movies: [Movie]) {
         isScrollToFetch = movies.count > 0 ? true : false
         dataSource?.addMovies(movies)
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        collectionView.reloadData()
     }
 }
 
@@ -100,13 +98,19 @@ extension MoviesViewController: UICollectionViewDelegate {
         dataSource.setFavorite(at: indexPath.row, isFavorite: isFavorite)
         movieCell.isFavorite = isFavorite
         
-        networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: movie.posterPath, withCompletion: { result in
-            (try? result.get()).map { image in
-                DispatchQueue.main.async {
-                    movieCell.posterImage = image
+        guard let posterPath = movie.posterPath else { return }
+        
+        if let posterImage = networkController?.getImageFromCache(imagePath: posterPath) {
+            movieCell.posterImage = posterImage
+        } else {
+            networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: posterPath, withCompletion: { result in
+                (try? result.get()).map { image in
+                    collectionView.performBatchUpdates({
+                        movieCell.posterImage = image
+                    })
                 }
-            }
-        })
+            })
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
