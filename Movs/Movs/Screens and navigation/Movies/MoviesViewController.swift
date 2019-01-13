@@ -16,6 +16,7 @@ class MoviesViewController: UIViewController, Networked, MovieDetailsCoordinated
     var dataSource: MoviesCollectionViewDataSource?
     var isScrollToFetch = true
     var selectedMovie: Movie?
+    var isLoading = false
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -25,6 +26,8 @@ class MoviesViewController: UIViewController, Networked, MovieDetailsCoordinated
 extension MoviesViewController {
     func setUpView() {
         collectionView.registerNib(forCellClass: MovieCollectionViewCell.self)
+        collectionView.registerNib(forViewClass: FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter)
+        
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.searchController = UISearchController(searchResultsController: FavoritesViewController())
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -35,6 +38,7 @@ extension MoviesViewController {
     func fetchMovies() {
         networkController?.fetchList(for: TMDBEndpoint.popularMoviesURL) { [weak self] (result: Result<List<Movie>>) in
             (try? result.get()).map {
+                self?.isLoading = false
                 self?.addMoviesToDataSource($0.results)
             }
         }
@@ -105,9 +109,11 @@ extension MoviesViewController: UICollectionViewDelegate {
         } else {
             networkController?.fecthImage(url: TMDBEndpoint.imageRootURL, imagePath: posterPath, withCompletion: { result in
                 (try? result.get()).map { image in
-                    collectionView.performBatchUpdates({
-                        movieCell.posterImage = image
-                    })
+                    if let updateCell = collectionView.cellForItem(at: indexPath) as? MovieCollectionViewCell {
+                        collectionView.performBatchUpdates({
+                            updateCell.posterImage = image
+                        })
+                    }
                 }
             })
         }
@@ -116,6 +122,13 @@ extension MoviesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedMovie = dataSource?.movie(at: indexPath.row)
         movieDetailsCoordinator?.moviesViewControllerDidSelectMovieDetails(self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if isLoading {
+            return CGSize(width: collectionView.frame.width, height: 40)
+        }
+        return CGSize.zero
     }
 }
 
@@ -139,6 +152,9 @@ extension MoviesViewController: UIScrollViewDelegate {
         let contentHeight = scrollView.contentSize.height
         if bottomEgde >= contentHeight && isScrollToFetch {
             isScrollToFetch = false
+            isLoading = true
+            let indexPaths = collectionView.indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionFooter)
+            collectionView.reloadItems(at: indexPaths)
             fetchMovies()
         }
     }

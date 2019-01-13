@@ -43,6 +43,13 @@ extension MoviesCollectionViewDataSource: UICollectionViewDataSource {
         cell.viewModel = MovieCollectionViewCell.ViewModel(movie: movie)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    
+        let footer = collectionView.dequeueReusableSupplementaryView(withClass: FooterView.self, kind: UICollectionView.elementKindSectionFooter, at: indexPath)
+        
+        return footer
+    }
 }
 
 extension MoviesCollectionViewDataSource {

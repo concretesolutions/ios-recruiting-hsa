@@ -19,4 +19,15 @@ extension UICollectionView {
         let identifier = String(describing: CellType.self)
         return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! CellType
     }
+    
+    func registerNib(forViewClass viewClass: UICollectionReusableView.Type, forSupplementaryViewOfKind kind: String) {
+        let className = String(describing: viewClass)
+        let nib = UINib(nibName: className, bundle: nil)
+        register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: className)
+    }
+    
+    func dequeueReusableSupplementaryView<ViewType: UICollectionReusableView>(withClass viewClass: ViewType.Type, kind: String, at indexPath: IndexPath) -> ViewType {
+        let className = String(describing: viewClass)
+        return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: className, for: indexPath) as! ViewType
+    }
 }
