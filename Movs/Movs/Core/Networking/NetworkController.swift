@@ -26,9 +26,6 @@ class NetworkController {
     }
     
     func fecthImage(url: URL, imagePath: String, withCompletion completion: @escaping (Result<UIImage>) -> Void) {
-//        if let image = (self.cache.object(forKey: imagePath as AnyObject)) as? UIImage {
-//            completion(Result<UIImage>.success(image))
-//        } else {
             let imageRequest = ImageRequest(url: url, imagePath: imagePath, session: session)
             requests[imageRequest.url] = imageRequest
             imageRequest.execute { [weak self] result in
@@ -39,7 +36,6 @@ class NetworkController {
                 self?.requests[imageRequest.url] = nil
                 completion(result)
             }
-//        }
     }
     
     func fecth<A: Decodable>(url: URL, withCompletion completion: @escaping (Result<A>) -> Void ) {

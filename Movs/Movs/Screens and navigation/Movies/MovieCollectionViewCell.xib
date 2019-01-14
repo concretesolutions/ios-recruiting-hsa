@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="184" width="188" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-xK-2Me">
-                                        <rect key="frame" x="44" y="4" width="100" height="42"/>
+                                        <rect key="frame" x="40" y="4" width="104" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="bottom" secondItem="aNc-xK-2Me" secondAttribute="bottom" constant="4" id="MsP-Mq-meD"/>
                                     <constraint firstAttribute="trailing" secondItem="Ykb-Q1-QI3" secondAttribute="trailing" constant="8" id="X7k-1H-o1r"/>
                                     <constraint firstItem="aNc-xK-2Me" firstAttribute="top" secondItem="6oc-JS-Uze" secondAttribute="top" constant="4" id="hFr-Cn-jqX"/>
-                                    <constraint firstItem="aNc-xK-2Me" firstAttribute="leading" secondItem="6oc-JS-Uze" secondAttribute="leading" constant="44" id="iCU-sX-A5a"/>
+                                    <constraint firstItem="aNc-xK-2Me" firstAttribute="leading" secondItem="6oc-JS-Uze" secondAttribute="leading" constant="40" id="iCU-sX-A5a"/>
                                     <constraint firstAttribute="height" constant="50" id="xMW-Gy-sfD"/>
                                 </constraints>
                             </view>
