@@ -22,12 +22,14 @@ class CustomTabBarController: UITabBarController {
         let movieImage = UIImage(named: "list_icon")?.withRenderingMode(.alwaysOriginal)
         let movieImageSelected = UIImage(named: "list_icon")?.withRenderingMode(.alwaysOriginal)
         tabBarItem = self.tabBar.items![0]
+        tabBarItem.title = "Movie"
         tabBarItem.image = movieImage
         tabBarItem.selectedImage = movieImageSelected
         
         let favoriteImage = UIImage(named: "favorite_empty_icon")?.withRenderingMode(.alwaysOriginal)
         let favoriteImageSelected = UIImage(named: "favorite_empty_icon")?.withRenderingMode(.alwaysOriginal)
         tabBarItem = self.tabBar.items![1]
+        tabBarItem.title = "Favorite"
         tabBarItem.image = favoriteImage
         tabBarItem.selectedImage = favoriteImageSelected
         

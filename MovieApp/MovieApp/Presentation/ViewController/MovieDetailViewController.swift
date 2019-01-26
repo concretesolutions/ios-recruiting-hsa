@@ -43,7 +43,11 @@ class MovieDetailViewController: UIViewController {
         movieDescriptionLabel.text = movieDetail.movieOverview
         Tools.sharedInstance.styleLabelForDetail(label: movieDescriptionLabel)
         movieDescriptionLabel.numberOfLines = 0
+        
         movieCategoryLabel.text = movieDetail.getGenresMovieString()
+        movieCategoryLabel.numberOfLines = 0
+        Tools.sharedInstance.styleLabelForDetail(label: movieCategoryLabel)
+        
         movieImageView.sd_setImage(with: URL(string: movieDetail.movieBackdropPath), placeholderImage: UIImage(named: ""))
     }
     
