@@ -21,6 +21,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     func loadCell (picture : String, title : String, isFavorite : Bool) {
         movieTitle.text = title
+        movieTitle.textColor = UIColor(red: 246.0/255.0, green: 206.0/255.0, blue: 91.0/255.0, alpha: 1.0)
+        movieTitle.numberOfLines = 0
         
         movieFavoriteButton .setImage(UIImage(named: "favorite_gray_icon"), for:.normal)
         movieFavoriteButton .setImage(UIImage(named: "favorite_full_icon"), for:.selected)

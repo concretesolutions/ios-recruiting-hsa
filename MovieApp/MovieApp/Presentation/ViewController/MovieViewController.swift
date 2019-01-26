@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MovieViewController: BaseViewController {
 
     @IBOutlet weak var movieCollectionView: UICollectionView!
     var searchController: UISearchController!
+    var candies = [Any]()
+    var pageMovie = 1
+    var list = [Movie]()
+    var movieSelected : Movie?
     
     // MARK: - Lifecycke
     override func viewDidLoad() {
@@ -24,7 +29,7 @@ class MovieViewController: BaseViewController {
         self.navigationController?.navigationBar.topItem?.title = "Movie"
         
         
-        
+        callMovieFromService(page: String(pageMovie))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +39,28 @@ class MovieViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("SEGUE!!")
+        let movieDetail = segue.destination as! MovieDetailViewController
+        movieDetail.movieID = movieSelected?.movieID
+        
+    }
+    
+    
+    func callMovieFromService(page : String) {
+        APIManager.sharedInstance.getPopularMovies(page: page, onSuccess: { json in
+            DispatchQueue.main.async {
+                print(String(describing: json));
+                let array = json["results"]
+                for (_,subJson):(String, JSON) in array {
+                    self.list.append(Movie(json: subJson))
+                }
+                self.movieCollectionView.reloadData()
+
+            }
+        }, onFailure: { error in
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.show(alert, sender: nil)
+        })
     }
     
 
@@ -49,25 +75,26 @@ extension MovieViewController: UISearchResultsUpdating {
 
 extension MovieViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //movieCellIdentifier
         let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCellIdentifier", for: indexPath) as! MovieCollectionViewCell
-        movieCell.loadCell(picture: "Imagen", title: "Load", isFavorite: false)
+        let movie = list[indexPath.row]
+        movieCell.loadCell(picture: movie.movieBackdropPath, title: movie.movieTitle, isFavorite: false)
         
         return movieCell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/2 - 20, height: 100)
+        return CGSize(width: collectionView.frame.size.width/2 , height: 100)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Item \(indexPath.row)")
-        
+        movieSelected = list[indexPath.row]
         self.performSegue(withIdentifier: "showDetailMovieSegue", sender: self)
         
         
