@@ -7,13 +7,26 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class BaseViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //#F6CE5B
-        navigationController?.navigationBar.barTintColor =  UIColor(red: 246.0/255.0, green: 206.0/255.0, blue: 91.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor =  Tools.sharedInstance.getYelloAppColor()
+        
+    }
+    
+    func showLoader() {
+        SVProgressHUD.setDefaultStyle(.light)
+        SVProgressHUD.setRingRadius(2)
+        SVProgressHUD.setBackgroundColor(UIColor.white)
+        SVProgressHUD.setForegroundColor(Tools.sharedInstance.getYelloAppColor())
+        SVProgressHUD.show()
+    }
+    
+    func hideLoader() {
+        SVProgressHUD.dismiss()
     }
     
 }

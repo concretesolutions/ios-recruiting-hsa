@@ -18,5 +18,9 @@ class Tools: NSObject {
     func styleLabelForDetail(label : UILabel) {
         label.font = UIFont(name: "helvetica", size: CGFloat(standarSize))
     }
+    
+    func getYelloAppColor()->UIColor {
+        return UIColor(red: 246.0/255.0, green: 206.0/255.0, blue: 91.0/255.0, alpha: 1.0)
+    }
 }
 

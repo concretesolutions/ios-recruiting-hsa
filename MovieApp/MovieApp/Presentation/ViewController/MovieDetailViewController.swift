@@ -11,7 +11,7 @@ import SwiftyJSON
 import SDWebImage
 
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: BaseViewController {
 
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -52,16 +52,19 @@ class MovieDetailViewController: UIViewController {
     }
     
     func callMovieFromServer(movieID : String) {
+        self.showLoader()
         APIManager.sharedInstance.getMovie(idMovie: movieID, onSuccess: { json in
             DispatchQueue.main.async {
                 self.movieDetail = MovieDetail(json: json)
                 self.setupViewWithMovie(movieDetail: self.movieDetail!)
+                self.hideLoader()
                 
             }
         }, onFailure: { error in
             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             self.show(alert, sender: nil)
+            self.hideLoader()
         })
     }
     

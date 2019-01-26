@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SVProgressHUD
 
 class MovieViewController: BaseViewController {
 
@@ -46,6 +47,7 @@ class MovieViewController: BaseViewController {
     
     
     func callMovieFromService(page : String) {
+        self.showLoader()
         APIManager.sharedInstance.getPopularMovies(page: page, onSuccess: { json in
             DispatchQueue.main.async {
                 print(String(describing: json));
@@ -54,6 +56,7 @@ class MovieViewController: BaseViewController {
                     self.list.append(Movie(json: subJson))
                 }
                 self.movieCollectionView.reloadData()
+                self.hideLoader()
 
             }
         }, onFailure: { error in
