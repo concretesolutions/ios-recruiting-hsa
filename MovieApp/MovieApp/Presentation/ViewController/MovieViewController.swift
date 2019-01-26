@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import SVProgressHUD
+import CoreData
 
 class MovieViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
@@ -22,7 +23,7 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
     var list = [Movie]()
     var dirtyList = [Movie]()
     var movieSelected : Movie?
-    var indexPathList = [IndexPath]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -98,7 +99,12 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         //movieCellIdentifier
         let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCellIdentifier", for: indexPath) as! MovieCollectionViewCell
         let movie = list[indexPath.row]
-        indexPathList.append(indexPath)
+        
+        movieCell.movieFavoriteButton.tag = indexPath.row
+        movieCell.movieFavoriteButton .addTarget(self, action: #selector(favoriteBtnPressed), for: .touchUpInside)
+        
+        
+        
         movieCell.loadCell(picture: movie.movieBackdropPath, title: movie.movieTitle, isFavorite: false)
         
         return movieCell
@@ -124,6 +130,25 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
             filterListBySearch(searchText : searchBar.text!)
         }
         movieCollectionView.reloadData()
+    }
+    
+    //MARK: - Action
+    @objc func favoriteBtnPressed(sender : UIButton!) {
+        let movie = list[sender.tag]
+        
+        let movieEntity = MovieEntity(context: context)
+        movieEntity.id = movie.movieID
+        movieEntity.title = movie.movieTitle
+        movieEntity.overview = movie.movieOverview
+        movieEntity.image = movie.moviePosterPath
+        movieEntity.year = movie.movieReleaseDate
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
+        
     }
     
 

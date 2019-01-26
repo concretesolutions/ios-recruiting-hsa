@@ -11,6 +11,7 @@
 		6BB01ECC842B214BEEE1FB3D /* Pods_MovieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D871DE9223EBC5007336049C /* Pods_MovieAppUITests.framework */; };
 		F1B6B39171A89417BB80F566 /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C5D2684C091DAE4807B4 /* Pods_MovieAppTests.framework */; };
 		FA0A30DF21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0A30DE21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift */; };
+		FA0A312521FD0AFE00112816 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA0A312321FD0AFE00112816 /* DataModel.xcdatamodeld */; };
 		FA0F9D4B21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F9D4A21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift */; };
 		FA0F9D4D21FAA60900A7F0D0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F9D4C21FAA60900A7F0D0 /* FavoriteViewController.swift */; };
 		FA0F9D4F21FAB22700A7F0D0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F9D4E21FAB22700A7F0D0 /* Movie.swift */; };
@@ -59,6 +60,7 @@
 		D871DE9223EBC5007336049C /* Pods_MovieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF192C2A9AFB45B5426989D8 /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0A30DE21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchBarCollectionReusableView.swift; sourceTree = "<group>"; };
+		FA0A312421FD0AFE00112816 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		FA0F9D4A21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieTableViewCell.swift; sourceTree = "<group>"; };
 		FA0F9D4C21FAA60900A7F0D0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		FA0F9D4E21FAB22700A7F0D0 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				FA0F9D4E21FAB22700A7F0D0 /* Movie.swift */,
 				FAF0A4B621FBF3A1008A7DDF /* MovieDetail.swift */,
 				FAF0A4B821FC1DE6008A7DDF /* GenreMovie.swift */,
+				FA0A312321FD0AFE00112816 /* DataModel.xcdatamodeld */,
 			);
 			name = Model;
 			path = Presentation/Model;
@@ -557,6 +560,7 @@
 				FA0F9D4F21FAB22700A7F0D0 /* Movie.swift in Sources */,
 				FAF0A4B921FC1DE7008A7DDF /* GenreMovie.swift in Sources */,
 				FA0F9D4D21FAA60900A7F0D0 /* FavoriteViewController.swift in Sources */,
+				FA0A312521FD0AFE00112816 /* DataModel.xcdatamodeld in Sources */,
 				FA0A30DF21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift in Sources */,
 				FA0F9D4B21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift in Sources */,
 				FA7D667521F80C2A002864EA /* MovieDetailViewController.swift in Sources */,
@@ -875,6 +879,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA0A312321FD0AFE00112816 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA0A312421FD0AFE00112816 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = FA0A312421FD0AFE00112816 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA7D661221F6AECD002864EA /* Project object */;
 }

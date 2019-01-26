@@ -20,6 +20,7 @@ class Movie: NSObject {
     var movieBackdropPath : String = ""
     var movieVoteAverage : Float = 0.0
     var movieVoteAccount : Int = 0
+    var moviePosterPath : String = ""
     
     override init() {
         
@@ -31,6 +32,8 @@ class Movie: NSObject {
         movieOverview = String(describing: json["overview"])
         movieTitle = String(describing: json["original_title"])
         movieBackdropPath = APIManager.pathImage + String(describing: json["backdrop_path"])
+        moviePosterPath = APIManager.pathImage + String(describing: json["poster_path"])
+        
     }
     
 

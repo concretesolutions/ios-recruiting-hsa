@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
-class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
 
     @IBOutlet weak var movieTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var list = [MovieEntity]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +26,28 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         movieTableView.dataSource = self
         movieTableView.delegate = self
+        
+        searchBar.delegate = self
+        searchBar.isTranslucent = true
+        searchBar.searchBarStyle = .minimal
+        searchBar.backgroundColor = Tools.sharedInstance.getYelloAppColor()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callMoviesFromDataBase()
     }
     
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieTableViewCell") as! FavoriteMovieTableViewCell
-        cell.setupMovieCell(imageUrl: "", title: "Movie", year: "2019", description: "bla vasda sdj asndk asjd askjd ahskjd as d")
+        
+        let movieEntity = list[indexPath.row]
+        cell.setupMovieCell(imageUrl: movieEntity.image!, title: movieEntity.title!, year: "2018", description: movieEntity.overview ?? "")
         return cell
     }
     
@@ -37,14 +55,48 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         return 150
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Private
+    func callMoviesFromDataBase() {
+        loadMovies()
     }
-    */
+    
+    func loadMovies(with request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()) {
+        do {
+            list = try context.fetch(request)
+        } catch {
+            print("Error fetching data \(error)")
+        }
+        movieTableView.reloadData()
+    }
+    
+    
+    //MARK: - SearchBar
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request : NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+        
+        if searchBar.text?.count == 0 {
+            loadMovies()
+            return
+        }
+        
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        request.predicate = predicate
+        
+        let sortDescription = NSSortDescriptor(key: "id", ascending: true)
+        request.sortDescriptors = [sortDescription]
+        
+        loadMovies(with: request)
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        
+        
+    }
+    
+    
 
 }
