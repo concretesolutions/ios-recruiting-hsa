@@ -10,6 +10,7 @@
 		695A93CD30B5B115B95A33AE /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9105CECCBC822B2C2A1B0C5F /* Pods_MovieApp.framework */; };
 		6BB01ECC842B214BEEE1FB3D /* Pods_MovieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D871DE9223EBC5007336049C /* Pods_MovieAppUITests.framework */; };
 		F1B6B39171A89417BB80F566 /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1169C5D2684C091DAE4807B4 /* Pods_MovieAppTests.framework */; };
+		FA0A30DF21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0A30DE21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift */; };
 		FA0F9D4B21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F9D4A21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift */; };
 		FA0F9D4D21FAA60900A7F0D0 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F9D4C21FAA60900A7F0D0 /* FavoriteViewController.swift */; };
 		FA0F9D4F21FAB22700A7F0D0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F9D4E21FAB22700A7F0D0 /* Movie.swift */; };
@@ -57,6 +58,7 @@
 		C0645B7CE27E4CB3F607E5A4 /* Pods-MovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieAppTests/Pods-MovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D871DE9223EBC5007336049C /* Pods_MovieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF192C2A9AFB45B5426989D8 /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA0A30DE21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchBarCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA0F9D4A21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieTableViewCell.swift; sourceTree = "<group>"; };
 		FA0F9D4C21FAA60900A7F0D0 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		FA0F9D4E21FAB22700A7F0D0 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -134,6 +136,14 @@
 				D871DE9223EBC5007336049C /* Pods_MovieAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA0A30DD21FC971F00112816 /* UICollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				FA0A30DE21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift */,
+			);
+			path = UICollectionReusableView;
 			sourceTree = "<group>";
 		};
 		FA0F9D4621FAA42100A7F0D0 /* UITableViewCell */ = {
@@ -230,6 +240,7 @@
 		FA7D664D21F6AFB7002864EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA0A30DD21FC971F00112816 /* UICollectionReusableView */,
 				FA0F9D4621FAA42100A7F0D0 /* UITableViewCell */,
 				FA7D666321F6BDBC002864EA /* TabBarViewController */,
 				FA7D666421F6BDBC002864EA /* UICollectionViewCell */,
@@ -546,6 +557,7 @@
 				FA0F9D4F21FAB22700A7F0D0 /* Movie.swift in Sources */,
 				FAF0A4B921FC1DE7008A7DDF /* GenreMovie.swift in Sources */,
 				FA0F9D4D21FAA60900A7F0D0 /* FavoriteViewController.swift in Sources */,
+				FA0A30DF21FC979A00112816 /* MovieSearchBarCollectionReusableView.swift in Sources */,
 				FA0F9D4B21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift in Sources */,
 				FA7D667521F80C2A002864EA /* MovieDetailViewController.swift in Sources */,
 				FAF0A4BD21FC2B7A008A7DDF /* Tools.swift in Sources */,

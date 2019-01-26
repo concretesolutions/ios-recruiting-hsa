@@ -10,25 +10,35 @@ import UIKit
 import SwiftyJSON
 import SVProgressHUD
 
-class MovieViewController: BaseViewController {
+class MovieViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var movieCollectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var resultView: UIView!
+    
     var searchController: UISearchController!
     var candies = [Any]()
     var pageMovie = 1
     var list = [Movie]()
+    var dirtyList = [Movie]()
     var movieSelected : Movie?
+    var indexPathList = [IndexPath]()
     
-    // MARK: - Lifecycke
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
+        
+        searchBar.delegate = self
+        searchBar.isTranslucent = true
+        searchBar.searchBarStyle = .minimal
+        searchBar.backgroundColor = Tools.sharedInstance.getYelloAppColor()
 
         // Do any additional setup after loading the view.
         
         self.navigationController?.navigationBar.topItem?.title = "Movie"
-        
+        resultView.isHidden = true
         
         callMovieFromService(page: String(pageMovie))
     }
@@ -38,14 +48,14 @@ class MovieViewController: BaseViewController {
         
         
     }
-    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let movieDetail = segue.destination as! MovieDetailViewController
         movieDetail.movieID = movieSelected?.movieID
         
     }
     
-    
+    //MARK: - Private
     func callMovieFromService(page : String) {
         self.showLoader()
         APIManager.sharedInstance.getPopularMovies(page: page, onSuccess: { json in
@@ -53,6 +63,7 @@ class MovieViewController: BaseViewController {
                 print(String(describing: json));
                 let array = json["results"]
                 for (_,subJson):(String, JSON) in array {
+                    self.dirtyList.append(Movie(json: subJson))
                     self.list.append(Movie(json: subJson))
                 }
                 self.movieCollectionView.reloadData()
@@ -66,17 +77,19 @@ class MovieViewController: BaseViewController {
         })
     }
     
-
-}
-
-extension MovieViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+    func filterListBySearch(searchText : String) {
+        var auxList = [Movie]()
+        
+        for item in dirtyList {
+            if item.movieTitle.lowercased().contains(searchText.lowercased()) {
+                auxList.append(item)
+            }
+        }
+        resultView.isHidden = !(auxList.count == 0)
+        list = auxList
     }
-}
-
-
-extension MovieViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    //MARK: - UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return list.count
     }
@@ -85,6 +98,7 @@ extension MovieViewController: UICollectionViewDataSource, UICollectionViewDeleg
         //movieCellIdentifier
         let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCellIdentifier", for: indexPath) as! MovieCollectionViewCell
         let movie = list[indexPath.row]
+        indexPathList.append(indexPath)
         movieCell.loadCell(picture: movie.movieBackdropPath, title: movie.movieTitle, isFavorite: false)
         
         return movieCell
@@ -100,6 +114,17 @@ extension MovieViewController: UICollectionViewDataSource, UICollectionViewDeleg
         movieSelected = list[indexPath.row]
         self.performSegue(withIdentifier: "showDetailMovieSegue", sender: self)
         
-        
     }
+    
+    //MARK: - SearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.isEmpty){
+            list = dirtyList
+        } else {
+            filterListBySearch(searchText : searchBar.text!)
+        }
+        movieCollectionView.reloadData()
+    }
+    
+
 }
