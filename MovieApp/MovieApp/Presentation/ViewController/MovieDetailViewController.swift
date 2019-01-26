@@ -8,6 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import SDWebImage
+
+
 class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var movieImageView: UIImageView!
@@ -17,30 +20,38 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieCategoryLabel: UILabel!
     @IBOutlet weak var movieDescriptionLabel: UILabel!
     
-    var movie : Movie?
+    var movieDetail : MovieDetail?
     var movieID : String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         callMovieFromServer(movieID: movieID!)
-        //setupViewWithMovie(movie: movie!)
     }
     
     
-    func setupViewWithMovie(movie : Movie){
-        movieTitleLabel.text = movie.movieTitle
-        movieYearLabel.text = movie.movieReleaseDate
-        movieDescriptionLabel.text = movie.movieOverview
+    func setupViewWithMovie(movieDetail : MovieDetail){
+        movieTitleLabel.text = movieDetail.movieTitle
+        movieTitleLabel.numberOfLines = 0
+        Tools.sharedInstance.styleLabelForDetail(label: movieTitleLabel)
+        //movieTitleLabel.font = UIFont(name: "helvetica", size: 15)
+        
+        movieYearLabel.text = movieDetail.getYearFromMovie()
+        Tools.sharedInstance.styleLabelForDetail(label: movieYearLabel)
+        
+        movieDescriptionLabel.text = movieDetail.movieOverview
+        Tools.sharedInstance.styleLabelForDetail(label: movieDescriptionLabel)
+        movieDescriptionLabel.numberOfLines = 0
+        movieCategoryLabel.text = movieDetail.getGenresMovieString()
+        movieImageView.sd_setImage(with: URL(string: movieDetail.movieBackdropPath), placeholderImage: UIImage(named: ""))
     }
     
     func callMovieFromServer(movieID : String) {
         APIManager.sharedInstance.getMovie(idMovie: movieID, onSuccess: { json in
             DispatchQueue.main.async {
-                //print(String(describing: json));
-                
+                self.movieDetail = MovieDetail(json: json)
+                self.setupViewWithMovie(movieDetail: self.movieDetail!)
                 
             }
         }, onFailure: { error in

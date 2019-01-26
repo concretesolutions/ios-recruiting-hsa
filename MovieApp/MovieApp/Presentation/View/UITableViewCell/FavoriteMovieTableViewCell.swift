@@ -28,11 +28,13 @@ class FavoriteMovieTableViewCell: UITableViewCell {
     func setupMovieCell(imageUrl : String, title : String, year : String, description : String) {
         
         movieTitleLabel.text = title
+        movieTitleLabel.font = UIFont(name: "helvetic", size: 11)
+        
         movieYearLabel.text = year
         movieDescriptionLabel.text = description
         
-        movieImageView.image = UIImage(named: "imageTest")
         movieImageView.contentMode = .scaleAspectFit
+        movieImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: ""))
     }
 
 }

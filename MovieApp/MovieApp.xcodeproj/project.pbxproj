@@ -27,6 +27,8 @@
 		FA7D667521F80C2A002864EA /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D667421F80C2A002864EA /* MovieDetailViewController.swift */; };
 		FA7D667721F81672002864EA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D667621F81672002864EA /* BaseViewController.swift */; };
 		FAF0A4B721FBF3A1008A7DDF /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0A4B621FBF3A1008A7DDF /* MovieDetail.swift */; };
+		FAF0A4B921FC1DE7008A7DDF /* GenreMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0A4B821FC1DE6008A7DDF /* GenreMovie.swift */; };
+		FAF0A4BD21FC2B7A008A7DDF /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0A4BC21FC2B7A008A7DDF /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		FA7D667421F80C2A002864EA /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		FA7D667621F81672002864EA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FAF0A4B621FBF3A1008A7DDF /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		FAF0A4B821FC1DE6008A7DDF /* GenreMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreMovie.swift; sourceTree = "<group>"; };
+		FAF0A4BC21FC2B7A008A7DDF /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		FC1779F34915E4F1A04D0434 /* Pods-MovieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieAppUITests/Pods-MovieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +177,7 @@
 		FA7D661C21F6AECD002864EA /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAF0A4BB21FC2B62008A7DDF /* Tools */,
 				FA0F9D5021FAB9E900A7F0D0 /* Manager */,
 				FA7D666721F6C002002864EA /* Model */,
 				FA7D665621F6B083002864EA /* Catogory */,
@@ -254,6 +259,7 @@
 		FA7D665621F6B083002864EA /* Catogory */ = {
 			isa = PBXGroup;
 			children = (
+				FAF0A4BA21FC2AB2008A7DDF /* UILabel */,
 			);
 			path = Catogory;
 			sourceTree = "<group>";
@@ -279,9 +285,25 @@
 			children = (
 				FA0F9D4E21FAB22700A7F0D0 /* Movie.swift */,
 				FAF0A4B621FBF3A1008A7DDF /* MovieDetail.swift */,
+				FAF0A4B821FC1DE6008A7DDF /* GenreMovie.swift */,
 			);
 			name = Model;
 			path = Presentation/Model;
+			sourceTree = "<group>";
+		};
+		FAF0A4BA21FC2AB2008A7DDF /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		FAF0A4BB21FC2B62008A7DDF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				FAF0A4BC21FC2B7A008A7DDF /* Tools.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,12 +469,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,9 +542,11 @@
 				FA7D666621F6BDD1002864EA /* CustomTabBarController.swift in Sources */,
 				FA0F9D5221FABA0400A7F0D0 /* APIManager.swift in Sources */,
 				FA0F9D4F21FAB22700A7F0D0 /* Movie.swift in Sources */,
+				FAF0A4B921FC1DE7008A7DDF /* GenreMovie.swift in Sources */,
 				FA0F9D4D21FAA60900A7F0D0 /* FavoriteViewController.swift in Sources */,
 				FA0F9D4B21FAA4AD00A7F0D0 /* FavoriteMovieTableViewCell.swift in Sources */,
 				FA7D667521F80C2A002864EA /* MovieDetailViewController.swift in Sources */,
+				FAF0A4BD21FC2B7A008A7DDF /* Tools.swift in Sources */,
 				FA7D667721F81672002864EA /* BaseViewController.swift in Sources */,
 				FA7D665C21F6B703002864EA /* MovieViewController.swift in Sources */,
 			);

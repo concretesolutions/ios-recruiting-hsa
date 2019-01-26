@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moviePictureImage: UIImageView!
@@ -30,6 +31,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         
         moviePictureImage.image = UIImage(named: "imageTest")
         moviePictureImage.contentMode = .scaleAspectFit
+        moviePictureImage.sd_setImage(with: URL(string: picture), placeholderImage: UIImage(named: ""))
         
         
     }
