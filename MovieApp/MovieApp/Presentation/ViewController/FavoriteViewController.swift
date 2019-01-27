@@ -122,6 +122,14 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        if searchBar.text?.count == 0 {
+            loadMovies()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
         
         
         

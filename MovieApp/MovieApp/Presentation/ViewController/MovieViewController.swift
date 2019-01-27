@@ -23,6 +23,7 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
     var list = [Movie]()
     var dirtyList = [Movie]()
     var movieSelected : Movie?
+    var movieBD : MovieEntity?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - Lifecycle
@@ -40,54 +41,19 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         
         self.navigationController?.navigationBar.topItem?.title = "Movie"
         resultView.isHidden = true
-        
-        callMovieFromService(page: String(pageMovie))
+        callMovieFromService(page: String(pageMovie))        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
+        movieCollectionView.reloadData()
     }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let movieDetail = segue.destination as! MovieDetailViewController
         movieDetail.movieID = movieSelected?.movieID
         
-    }
-    
-    //MARK: - Private
-    func callMovieFromService(page : String) {
-        self.showLoader()
-        APIManager.sharedInstance.getPopularMovies(page: page, onSuccess: { json in
-            DispatchQueue.main.async {
-                print(String(describing: json));
-                let array = json["results"]
-                for (_,subJson):(String, JSON) in array {
-                    self.dirtyList.append(Movie(json: subJson))
-                    self.list.append(Movie(json: subJson))
-                }
-                self.movieCollectionView.reloadData()
-                self.hideLoader()
-
-            }
-        }, onFailure: { error in
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            self.show(alert, sender: nil)
-        })
-    }
-    
-    func filterListBySearch(searchText : String) {
-        var auxList = [Movie]()
-        
-        for item in dirtyList {
-            if item.movieTitle.lowercased().contains(searchText.lowercased()) {
-                auxList.append(item)
-            }
-        }
-        resultView.isHidden = !(auxList.count == 0)
-        list = auxList
     }
     
     //MARK: - UICollectionView
@@ -103,9 +69,15 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         movieCell.movieFavoriteButton.tag = indexPath.row
         movieCell.movieFavoriteButton.addTarget(self, action: #selector(favoriteBtnPressed), for: .touchUpInside)
         
+        verifyMovieIsFavorite(movie : movie)
+        if movieBD != nil {
+            movie.movieIsFavorite = true
+        } else {
+            movie.movieIsFavorite = false
+        }
         
+        movieCell.loadCell(picture: movie.movieBackdropPath, title: movie.movieTitle, isFavorite: movie.movieIsFavorite)
         
-        movieCell.loadCell(picture: movie.movieBackdropPath, title: movie.movieTitle, isFavorite: false)
         
         return movieCell
     }
@@ -132,23 +104,94 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         movieCollectionView.reloadData()
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            list = dirtyList
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+    
     //MARK: - Action
     @objc func favoriteBtnPressed(sender : UIButton!) {
         let movie = list[sender.tag]
+        verifyMovieIsFavorite(movie: movie)
+        if let movieSaved = movieBD {
+            list[sender.tag].movieIsFavorite = false
+            context.delete(movieSaved)
+            saveMovie()
+        } else {
+            let movieEntity = MovieEntity(context: context)
+            movieEntity.id = movie.movieID
+            movieEntity.title = movie.movieTitle
+            movieEntity.overview = movie.movieOverview
+            movieEntity.image = movie.moviePosterPath
+            movieEntity.year = movie.movieReleaseDate
+            saveMovie()
+            list[sender.tag].movieIsFavorite = true
+        }
+       
+        movieCollectionView.reloadData()
+    }
+    
+    //MARK: - Private
+    func callMovieFromService(page : String) {
+        self.showLoader()
+        APIManager.sharedInstance.getPopularMovies(page: page, onSuccess: { json in
+            DispatchQueue.main.async {
+                print(String(describing: json));
+                let array = json["results"]
+                for (_,subJson):(String, JSON) in array {
+                    self.dirtyList.append(Movie(json: subJson))
+                    self.list.append(Movie(json: subJson))
+                }
+                self.movieCollectionView.reloadData()
+                self.hideLoader()
+                
+            }
+        }, onFailure: { error in
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.show(alert, sender: nil)
+        })
+    }
+    
+    func filterListBySearch(searchText : String) {
+        var auxList = [Movie]()
         
-        let movieEntity = MovieEntity(context: context)
-        movieEntity.id = movie.movieID
-        movieEntity.title = movie.movieTitle
-        movieEntity.overview = movie.movieOverview
-        movieEntity.image = movie.moviePosterPath
-        movieEntity.year = movie.movieReleaseDate
-        
+        for item in dirtyList {
+            if item.movieTitle.lowercased().contains(searchText.lowercased()) {
+                auxList.append(item)
+            }
+        }
+        resultView.isHidden = !(auxList.count == 0)
+        list = auxList
+    }
+    
+    func saveMovie() {
         do {
             try context.save()
         } catch {
             print("Error saving context \(error)")
         }
+    }
+    
+    
+    func verifyMovieIsFavorite(movie : Movie) {
+        let request : NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+        let predicate = NSPredicate(format: "id = %@", movie.movieID)
+        request.predicate = predicate
         
+        do {
+            let movies = try (context.fetch(request))
+            movieBD = movies.count > 0 ? movies[0] : nil
+    
+        } catch {
+            print("Error fetching data \(error)")
+        }
     }
     
 

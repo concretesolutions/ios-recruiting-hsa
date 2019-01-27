@@ -32,6 +32,7 @@ class MovieDetail: NSObject {
     var movieRuntime : Int = 0
     var movieProductionCountries : String?
     var movieIMDBID : String = ""
+    var movieIsFavorite : Bool = false
     
     
     override init() {
@@ -45,6 +46,7 @@ class MovieDetail: NSObject {
         movieTitle = String(describing: json["original_title"])
         movieBackdropPath = APIManager.pathImage + String(describing: json["backdrop_path"])
         movieReleaseDate = String(describing: json["release_date"])
+        moviePosterPath = APIManager.pathImage + String(describing: json["poster_path"])
         
         let genrerJson = json["genres"]
         for (_,subJson):(String, JSON) in genrerJson {

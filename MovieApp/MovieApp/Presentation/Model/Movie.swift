@@ -21,6 +21,7 @@ class Movie: NSObject {
     var movieVoteAverage : Float = 0.0
     var movieVoteAccount : Int = 0
     var moviePosterPath : String = ""
+    var movieIsFavorite : Bool = false
     
     override init() {
         

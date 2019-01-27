@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import SDWebImage
-
+import CoreData
 
 class MovieDetailViewController: BaseViewController {
 
@@ -19,15 +19,24 @@ class MovieDetailViewController: BaseViewController {
     @IBOutlet weak var movieYearLabel: UILabel!
     @IBOutlet weak var movieCategoryLabel: UILabel!
     @IBOutlet weak var movieDescriptionLabel: UILabel!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     var movieDetail : MovieDetail?
     var movieID : String?
+    var movieBD : MovieEntity?
+    var movieIsFavorite : Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         callMovieFromServer(movieID: movieID!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        verifyMovieIsFavorite(movieID: movieID!)
     }
     
     
@@ -48,7 +57,12 @@ class MovieDetailViewController: BaseViewController {
         movieCategoryLabel.numberOfLines = 0
         Tools.sharedInstance.styleLabelForDetail(label: movieCategoryLabel)
         
+        
+        realoadBtnFavorite()
+        
         movieImageView.sd_setImage(with: URL(string: movieDetail.movieBackdropPath), placeholderImage: UIImage(named: ""))
+        
+        
     }
     
     func callMovieFromServer(movieID : String) {
@@ -66,6 +80,54 @@ class MovieDetailViewController: BaseViewController {
             self.show(alert, sender: nil)
             self.hideLoader()
         })
+    }
+    
+    func realoadBtnFavorite() {
+        let nameImage = movieIsFavorite ? "favorite_full_icon" : "favorite_gray_icon"
+        movieIsFavoriteButton.setImage(UIImage(named: nameImage), for:.normal)
+        movieIsFavoriteButton.addTarget(self, action: #selector(favoriteBtnPressed), for: .touchUpInside)
+    }
+    
+    //MARK: - Action
+    @objc func favoriteBtnPressed(sender : UIButton!) {
+        if let movieSaved = movieBD {
+            movieIsFavorite = false
+            context.delete(movieSaved)
+        } else {
+            let movieEntity = MovieEntity(context: context)
+            movieEntity.id = movieDetail!.movieID
+            movieEntity.title = movieDetail!.movieTitle
+            movieEntity.overview = movieDetail!.movieOverview
+            movieEntity.image = movieDetail!.moviePosterPath
+            movieEntity.year = movieDetail!.movieReleaseDate
+            movieIsFavorite = true
+        }
+        saveMovie()
+        realoadBtnFavorite()
+        
+    }
+    
+    func saveMovie() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
+    }
+    
+    func verifyMovieIsFavorite(movieID : String) {
+        let request : NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+        let predicate = NSPredicate(format: "id = %@", movieID)
+        request.predicate = predicate
+        
+        do {
+            let movies = try (context.fetch(request))
+            movieBD = movies.count > 0 ? movies[0] : nil
+            movieIsFavorite = movies.count > 0
+            
+        } catch {
+            print("Error fetching data \(error)")
+        }
     }
     
 
