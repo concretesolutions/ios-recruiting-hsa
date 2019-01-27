@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import SwipeCellKit
 class FavoriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
@@ -59,6 +59,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let movieEntity = list[indexPath.row]
         cell.setupMovieCell(imageUrl: movieEntity.image!, title: movieEntity.title!, year: "2018", description: movieEntity.overview ?? "")
+        cell.delegate = self
         return cell
     }
     
@@ -131,10 +132,33 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }
         
+    }
+
+}
+
+extension FavoriteViewController : SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
         
+        let deleteAction = SwipeAction(style: .destructive, title: "Unfavorite") { action, indexPath in
+            // handle action by updating model with deletion
+            self.context.delete(self.list[indexPath.row])
+            self.list.remove(at: indexPath.row)
+            
+            do {
+                try self.context.save()
+                self.movieTableView.deleteRows(at: [indexPath], with: .fade)
+            } catch {
+                print("Error saving context \(error)")
+            }
+            
+        }
         
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        
+        return [deleteAction]
     }
     
-    
-
 }

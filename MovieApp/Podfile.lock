@@ -4,23 +4,27 @@ PODS:
   - SDWebImage/Core (4.4.3)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
+  - SwipeCellKit (2.5.1)
 
 DEPENDENCIES:
   - SDWebImage (~> 4.0)
   - SVProgressHUD
   - SwiftyJSON
+  - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SDWebImage
     - SVProgressHUD
     - SwiftyJSON
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwipeCellKit: 30fd6a4f8a8b8ac864ea389c8b4c8bac5ba5471a
 
-PODFILE CHECKSUM: 42dfa5d23cf3fc75d56242a3ac0ae8c9753022ad
+PODFILE CHECKSUM: b259b5965aaa56978e2a023d66f5475eef0a4050
 
 COCOAPODS: 1.5.3

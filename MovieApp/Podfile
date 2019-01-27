@@ -9,6 +9,7 @@ target 'MovieApp' do
   pod 'SwiftyJSON'
   pod 'SDWebImage', '~> 4.0'
   pod 'SVProgressHUD'
+  pod 'SwipeCellKit'
 
   target 'MovieAppTests' do
     inherit! :search_paths
