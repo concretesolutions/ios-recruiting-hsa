@@ -15,6 +15,8 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var movieTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var removeFilterButton: UIButton!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var list = [MovieEntity]()
     
@@ -32,9 +34,18 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         searchBar.searchBarStyle = .minimal
         searchBar.backgroundColor = Tools.sharedInstance.getYelloAppColor()
         
+        removeFilterButton.isHidden = true
+        removeFilterButton.titleLabel?.text = "Remove Filter"
+        removeFilterButton.setTitle("Remove Filter", for: .normal)
+        Tools.sharedInstance.styleButtonRemove(button: removeFilterButton)
+        removeFilterButton.addTarget(self, action: #selector(removeFilterPressed), for: .touchUpInside)
+        
+        self.navigationController?.navigationBar.topItem?.title = "Movies"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        hideRemoveFilterButton()
         callMoviesFromDataBase()
     }
     
@@ -69,6 +80,23 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         movieTableView.reloadData()
     }
     
+    func showRemoveFilterButton() {
+        self.heightConstraint.constant = 50
+        self.removeFilterButton.isHidden = false
+    }
+    
+    func hideRemoveFilterButton() {
+        heightConstraint.constant = 0
+        removeFilterButton.isHidden = true
+        searchBar.text = ""
+    }
+    
+    //MARK: - Actions
+    @objc func removeFilterPressed(sender : UIButton) {
+        searchBar.text = ""
+        loadMovies()
+    }
+    
     
     //MARK: - SearchBar
     
@@ -76,10 +104,12 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         let request : NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
         
         if searchBar.text?.count == 0 {
+            hideRemoveFilterButton()
             loadMovies()
             return
         }
         
+        showRemoveFilterButton()
         let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         request.predicate = predicate
         

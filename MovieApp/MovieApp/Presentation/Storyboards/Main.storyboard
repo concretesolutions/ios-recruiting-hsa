@@ -60,6 +60,13 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzx-aS-3Ds">
+                                <rect key="frame" x="0.0" y="120" width="375" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="dhj-yi-Kkk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H2m-ib-zMH">
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,10 +144,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fLv-c2-IId" firstAttribute="trailing" secondItem="Lzx-aS-3Ds" secondAttribute="trailing" id="1gd-ma-NyU"/>
+                            <constraint firstItem="H2m-ib-zMH" firstAttribute="top" secondItem="Lzx-aS-3Ds" secondAttribute="bottom" id="5HL-Ch-GSN"/>
                             <constraint firstItem="fLv-c2-IId" firstAttribute="trailing" secondItem="H2m-ib-zMH" secondAttribute="trailing" id="9K0-NS-l3I"/>
-                            <constraint firstItem="H2m-ib-zMH" firstAttribute="top" secondItem="OkO-Ab-SCd" secondAttribute="bottom" id="Rui-SF-dmc"/>
+                            <constraint firstItem="Lzx-aS-3Ds" firstAttribute="leading" secondItem="fLv-c2-IId" secondAttribute="leading" id="GDM-zo-rX4"/>
                             <constraint firstItem="OkO-Ab-SCd" firstAttribute="top" secondItem="fLv-c2-IId" secondAttribute="top" id="dd6-HB-NXa"/>
                             <constraint firstItem="fLv-c2-IId" firstAttribute="bottom" secondItem="H2m-ib-zMH" secondAttribute="bottom" id="e2c-ET-hga"/>
+                            <constraint firstItem="Lzx-aS-3Ds" firstAttribute="top" secondItem="OkO-Ab-SCd" secondAttribute="bottom" id="ebh-jy-1ML"/>
                             <constraint firstItem="OkO-Ab-SCd" firstAttribute="leading" secondItem="fLv-c2-IId" secondAttribute="leading" id="rCW-al-ygI"/>
                             <constraint firstItem="OkO-Ab-SCd" firstAttribute="trailing" secondItem="fLv-c2-IId" secondAttribute="trailing" id="teW-Rl-Z0z"/>
                             <constraint firstItem="H2m-ib-zMH" firstAttribute="leading" secondItem="fLv-c2-IId" secondAttribute="leading" id="ugR-08-hU5"/>
@@ -149,7 +159,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Yex-po-QI7"/>
                     <connections>
+                        <outlet property="heightConstraint" destination="dhj-yi-Kkk" id="9xd-c5-ngk"/>
                         <outlet property="movieTableView" destination="H2m-ib-zMH" id="Iyl-Zk-TG8"/>
+                        <outlet property="removeFilterButton" destination="Lzx-aS-3Ds" id="ljr-g0-Zxg"/>
                         <outlet property="searchBar" destination="OkO-Ab-SCd" id="cxI-gj-RCJ"/>
                     </connections>
                 </viewController>

@@ -101,7 +101,7 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         let movie = list[indexPath.row]
         
         movieCell.movieFavoriteButton.tag = indexPath.row
-        movieCell.movieFavoriteButton .addTarget(self, action: #selector(favoriteBtnPressed), for: .touchUpInside)
+        movieCell.movieFavoriteButton.addTarget(self, action: #selector(favoriteBtnPressed), for: .touchUpInside)
         
         
         
@@ -123,8 +123,8 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
     }
     
     //MARK: - SearchBar
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if(searchText.isEmpty){
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text?.count == 0 {
             list = dirtyList
         } else {
             filterListBySearch(searchText : searchBar.text!)
