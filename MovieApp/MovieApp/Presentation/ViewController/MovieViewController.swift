@@ -25,6 +25,7 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
     var movieSelected : Movie?
     var movieBD : MovieEntity?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var lastPageService = 0
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -94,6 +95,15 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+        if (indexPath.row == list.count - 1)  && (pageMovie <= lastPageService){
+            callMovieFromService(page: String(pageMovie))
+        }
+    
+        
+    }
+    
     //MARK: - SearchBar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text?.count == 0 {
@@ -148,6 +158,9 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
                 for (_,subJson):(String, JSON) in array {
                     self.dirtyList.append(Movie(json: subJson))
                     self.list.append(Movie(json: subJson))
+                    self.lastPageService = Int(json["total_pages"].description) ?? 0
+                    self.pageMovie += 1
+                
                 }
                 self.movieCollectionView.reloadData()
                 self.hideLoader()
@@ -191,7 +204,7 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
             movieBD = movies.count > 0 ? movies[0] : nil
     
         } catch {
-            print("Error fetching data \(error)")
+            
         }
     }
     
