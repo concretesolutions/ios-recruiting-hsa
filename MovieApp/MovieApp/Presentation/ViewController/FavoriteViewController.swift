@@ -41,6 +41,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         removeFilterButton.addTarget(self, action: #selector(removeFilterPressed), for: .touchUpInside)
         
         self.navigationController?.navigationBar.topItem?.title = "Movies"
+        self.navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
         
     }
     
@@ -95,6 +96,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - Actions
     @objc func removeFilterPressed(sender : UIButton) {
         searchBar.text = ""
+        hideRemoveFilterButton()
         loadMovies()
     }
     
@@ -110,6 +112,10 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
             return
         }
         
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+        
         showRemoveFilterButton()
         let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         request.predicate = predicate
@@ -118,6 +124,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         request.sortDescriptors = [sortDescription]
         
         loadMovies(with: request)
+        //searchBar.resignFirstResponder()
         
     }
     

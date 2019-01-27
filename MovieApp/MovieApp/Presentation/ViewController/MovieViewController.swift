@@ -101,6 +101,7 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         } else {
             filterListBySearch(searchText : searchBar.text!)
         }
+        searchBar.resignFirstResponder()
         movieCollectionView.reloadData()
     }
     
@@ -109,9 +110,9 @@ class MovieViewController: BaseViewController, UICollectionViewDataSource, UICol
         if searchBar.text?.count == 0 {
             list = dirtyList
             
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
+            //searchBar.resignFirstResponder()
+            movieCollectionView.reloadData()
+            
         }
     }
     
