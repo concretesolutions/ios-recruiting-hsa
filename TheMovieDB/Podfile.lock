@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.8.1)
+  - DZNEmptyDataSet (1.8.1)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - SVProgressHUD (2.2.5)
+  - SwiftLint (0.30.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8)
+  - DZNEmptyDataSet
+  - SDWebImage (~> 4.0)
+  - SVProgressHUD
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - DZNEmptyDataSet
+    - SDWebImage
+    - SVProgressHUD
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+
+PODFILE CHECKSUM: a10709822bde8283d286aa1c5bb7ee3501b11f0b
+
+COCOAPODS: 1.5.3

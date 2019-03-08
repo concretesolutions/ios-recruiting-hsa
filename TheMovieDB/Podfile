@@ -1,0 +1,23 @@
+platform :ios, '10.0'
+
+target 'TheMovieDB' do
+  use_frameworks!
+
+  # Pods for TheMovieDB
+  pod 'Alamofire', '~> 4.8'
+  pod 'DZNEmptyDataSet'
+  pod 'SDWebImage', '~> 4.0'
+  pod 'SVProgressHUD'
+  pod 'SwiftLint'
+
+  target 'TheMovieDBTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TheMovieDBUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
