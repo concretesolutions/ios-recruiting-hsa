@@ -4,6 +4,7 @@ enum ConfigurationsKeys: String {
     case movieDbApiKey = "MOVIEDB_APIKEY"
     case movieDbApiEndpoint = "MOVIEDB_ENDPOINT"
     case movieDbImgEndpoint = "MOVIEDB_IMG_ENDPOINT"
+    case movieDBLanguage = "MOVIEDB_LANGUAGE"
 }
 
 protocol ConfigurationsProtocol {

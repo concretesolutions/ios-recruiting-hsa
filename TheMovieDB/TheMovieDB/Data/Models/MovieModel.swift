@@ -20,7 +20,11 @@ struct MovieModel {
     }
 
     init?(entity: MovieEntity) {
-        guard let title = entity.title, let overview = entity.overview, let releaseDateString = entity.releaseDate, let posterPath = entity.posterPath, let voteAverage = entity.voteAverage else {
+        guard let title = entity.title,
+            let overview = entity.overview,
+            let releaseDateString = entity.releaseDate,
+            let posterPath = entity.posterPath,
+            let voteAverage = entity.voteAverage else {
             return nil
         }
         self.title = title
