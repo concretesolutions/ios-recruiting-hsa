@@ -1,0 +1,3 @@
+app_identifier("bastianx6.TheMovieDB") # The bundle identifier of your app
+apple_id("bastianx6@icloud.com") # Your Apple email address
+
