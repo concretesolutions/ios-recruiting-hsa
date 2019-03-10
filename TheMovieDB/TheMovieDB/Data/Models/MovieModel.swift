@@ -1,6 +1,6 @@
 import Foundation
 
-struct MovieModel {
+struct MovieModel: Equatable {
     let title: String
     let overview: String
     let releaseDate: Date

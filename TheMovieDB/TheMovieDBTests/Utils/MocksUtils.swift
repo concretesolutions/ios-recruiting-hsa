@@ -7,3 +7,11 @@ class MocksUtils {
         return data
     }
 }
+
+enum MockStatus {
+    case success, failure, nilValue
+}
+
+enum MockError: Error {
+    case nilValue
+}

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0315377522349D5B00BDE8C4 /* MocksUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315377422349D5B00BDE8C4 /* MocksUtils.swift */; };
+		03153779223555AC00BDE8C4 /* MovieDBCloudSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03153778223555AC00BDE8C4 /* MovieDBCloudSourceMock.swift */; };
+		0315377B22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315377A22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift */; };
 		03183D6522331A2600C1AC3F /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03183D6422331A2600C1AC3F /* Configurations.plist */; };
 		03183D6722331A8600C1AC3F /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03183D6622331A8600C1AC3F /* Configurations.swift */; };
 		034C1C0622346AC300F56333 /* GenreListReponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C1C0522346AC300F56333 /* GenreListReponseEntity.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		0315377422349D5B00BDE8C4 /* MocksUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksUtils.swift; sourceTree = "<group>"; };
+		03153778223555AC00BDE8C4 /* MovieDBCloudSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBCloudSourceMock.swift; sourceTree = "<group>"; };
+		0315377A22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBRepositoryTests.swift; sourceTree = "<group>"; };
 		03183D6422331A2600C1AC3F /* Configurations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		03183D6622331A8600C1AC3F /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		034C1C0522346AC300F56333 /* GenreListReponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListReponseEntity.swift; sourceTree = "<group>"; };
@@ -128,6 +132,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		031537762235555C00BDE8C4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				0315377A22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		031537772235556500BDE8C4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				03153778223555AC00BDE8C4 /* MovieDBCloudSourceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		03183D61223318DC00C1AC3F /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +181,8 @@
 		034C1C0C2234732900F56333 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				031537772235556500BDE8C4 /* Mocks */,
+				031537762235555C00BDE8C4 /* Repository */,
 				034C1C0D2234733400F56333 /* DataSource */,
 			);
 			path = Data;
@@ -597,6 +619,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0315377B22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift in Sources */,
+				03153779223555AC00BDE8C4 /* MovieDBCloudSourceMock.swift in Sources */,
 				034C1C122234747800F56333 /* MovieDBCloudSourceTests.swift in Sources */,
 				0315377522349D5B00BDE8C4 /* MocksUtils.swift in Sources */,
 			);

@@ -41,7 +41,13 @@ class MovieDBRepository: MovieDBRepositoryProtocol {
                                     let movies = results.compactMap({ MovieModel(entity: $0) })
                                     success(movies)
                                 },
-                                failure: failure)
+                                failure: { error in
+                                    if let errorEntity = error as? MovieDBErrorEntity {
+                                        failure(MovieDBErrorModel(entity: errorEntity))
+                                    } else {
+                                        failure(error)
+                                    }
+        })
     }
 
     func getGenreList(configurations: ConfigurationsProtocol,
@@ -65,7 +71,13 @@ class MovieDBRepository: MovieDBRepositoryProtocol {
                                     let genres = results.compactMap({ GenreModel(entity: $0) })
                                     success(genres)
                                 },
-                                failure: failure)
+                                failure: { error in
+                                    if let errorEntity = error as? MovieDBErrorEntity {
+                                        failure(MovieDBErrorModel(entity: errorEntity))
+                                    } else {
+                                        failure(error)
+                                    }
+        })
     }
 }
 

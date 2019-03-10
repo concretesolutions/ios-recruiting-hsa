@@ -1,6 +1,6 @@
 import Foundation
 
-struct GenreModel {
+struct GenreModel: Equatable {
     let id: Int
     let name: String
 
