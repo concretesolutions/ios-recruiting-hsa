@@ -1,6 +1,6 @@
 import Foundation
 
-struct GenreListReponseEntity: Codable {
+struct GenreListReponseEntity: Codable, Equatable {
     let genres: [GenreEntity]?
 
     private enum GenreListReponseEntityCodingKeys: String, CodingKey {

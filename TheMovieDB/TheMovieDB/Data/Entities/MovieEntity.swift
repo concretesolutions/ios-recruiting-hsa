@@ -1,6 +1,6 @@
 import Foundation
 
-struct MovieEntity: Codable {
+struct MovieEntity: Codable, Equatable {
     let voteCount: Int?
     let id: Int?
     let video: Bool?

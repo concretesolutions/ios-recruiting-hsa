@@ -1,6 +1,6 @@
 import Foundation
 
-struct MovieDBErrorEntity: Codable, Error {
+struct MovieDBErrorEntity: Codable, Error, Equatable {
     let statusMessage: String
     let statusCode: Int
 

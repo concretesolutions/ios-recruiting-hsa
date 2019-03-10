@@ -1,6 +1,6 @@
 import Foundation
 
-struct GenreEntity: Codable {
+struct GenreEntity: Codable, Equatable {
     let id: Int?
     let name: String?
 

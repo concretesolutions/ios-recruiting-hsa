@@ -1,6 +1,6 @@
 import Foundation
 
-struct PopularMoviesResponseEntity: Codable {
+struct PopularMoviesResponseEntity: Codable, Equatable {
     let page: Int?
     let totalResults: Int?
     let totalPages: Int?

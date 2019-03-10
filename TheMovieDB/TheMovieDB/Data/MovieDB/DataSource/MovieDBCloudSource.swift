@@ -42,7 +42,7 @@ class MovieDBCloudSource: MovieDBCloudSourceProtocol {
             parameters["language"] = language
         }
 
-        let request = Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        let request = Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate()
 
         request.responseData { response in
             switch response.result {
@@ -79,7 +79,7 @@ class MovieDBCloudSource: MovieDBCloudSourceProtocol {
             parameters["language"] = language
         }
 
-        let request = Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        let request = Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate()
         request.responseData { response in
             switch response.result {
             case let .success(data):

@@ -1,6 +1,19 @@
 PODS:
   - Alamofire (4.8.1)
   - DZNEmptyDataSet (1.8.1)
+  - OHHTTPStubs/Core (6.1.0)
+  - OHHTTPStubs/Default (6.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (6.1.0)
+  - OHHTTPStubs/Swift (6.1.0):
+    - OHHTTPStubs/Default
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -10,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8)
   - DZNEmptyDataSet
+  - OHHTTPStubs/Swift
   - SDWebImage (~> 4.0)
   - SVProgressHUD
   - SwiftLint
@@ -18,6 +32,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - DZNEmptyDataSet
+    - OHHTTPStubs
     - SDWebImage
     - SVProgressHUD
     - SwiftLint
@@ -25,10 +40,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: a10709822bde8283d286aa1c5bb7ee3501b11f0b
+PODFILE CHECKSUM: e18fba067d4bc11f9360bdc65343728aaf2ba35a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

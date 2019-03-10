@@ -15,7 +15,7 @@ opt_in_rules:
   - file_length
 included: 
  - TheMovieDB
- #- TheMovieDBTests
+ - TheMovieDBTests
  #- TheMovieDBUITests
 excluded:
   - Pods
