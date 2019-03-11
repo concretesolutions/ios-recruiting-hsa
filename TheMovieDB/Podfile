@@ -6,6 +6,7 @@ target 'TheMovieDB' do
   # Pods for TheMovieDB
   pod 'Alamofire', '~> 4.8'
   pod 'DZNEmptyDataSet'
+  pod 'RxSwift', '~> 4.0'
   pod 'SDWebImage', '~> 4.0'
   pod 'SVProgressHUD'
   pod 'SwiftLint'
@@ -13,6 +14,8 @@ target 'TheMovieDB' do
   target 'TheMovieDBTests' do
     inherit! :search_paths
     pod 'OHHTTPStubs/Swift'
+    pod 'RxBlocking', '~> 4.0'
+    pod 'RxTest', '~> 4.0'
   end
 
   target 'TheMovieDBUITests' do

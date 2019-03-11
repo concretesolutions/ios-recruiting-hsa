@@ -1,4 +1,4 @@
-import OHHTTPStubs
+import RxBlocking
 @testable import TheMovieDB
 import XCTest
 
@@ -28,22 +28,17 @@ class MovieDBRepositoryTests: XCTestCase {
             return
         }
 
-        let expect = expectation(description: "Array of movies must be equal")
         let dataSource = MovieDBCloudSourceMock(status: .success)
         let repository = MovieDBRepository(dataSource: dataSource)
+        let result = repository.getMovieList(configurations: configurations, page: nil).toBlocking().materialize()
 
-        repository.getMovieList(configurations: configurations,
-                                page: nil,
-                                success: { movieList in
-                                    XCTAssertEqual(movieList, movieArray)
-                                    expect.fulfill()
-                                },
-                                failure: { _ in
-                                    XCTFail("Repository return an error")
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case let .completed(elements):
+            let movieList = elements.first
+            XCTAssertEqual(movieList, movieArray)
+        case .failed:
+            XCTFail("Repository return an error")
+        }
     }
 
     func testGetMovieListFailure() {
@@ -53,50 +48,37 @@ class MovieDBRepositoryTests: XCTestCase {
             return
         }
         let errorModel = MovieDBErrorModel(entity: errorResponse)
-
-        let expect = expectation(description: "Repository must trigger a failure")
         let dataSource = MovieDBCloudSourceMock(status: .failure)
         let repository = MovieDBRepository(dataSource: dataSource)
+        let result = repository.getMovieList(configurations: configurations, page: nil).toBlocking().materialize()
 
-        repository.getMovieList(configurations: configurations,
-                                page: nil,
-                                success: { _ in
-                                    XCTFail("Repository return an array")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if let movieDBError = error as? MovieDBErrorModel {
-                                        XCTAssertEqual(movieDBError, errorModel)
-                                    } else {
-                                        XCTFail("Error is not an instance of MovieDBErrorModel")
-                                    }
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Repository return an array")
+        case let .failed(_, error):
+            if let movieDBError = error as? MovieDBErrorModel {
+                XCTAssertEqual(movieDBError, errorModel)
+            } else {
+                XCTFail("Error is not an instance of MovieDBErrorModel")
+            }
+        }
     }
 
     func testGetMovieListNilResult() {
-        let expect = expectation(description: "Repository must trigger a nil value failure")
         let dataSource = MovieDBCloudSourceMock(status: .nilValue)
         let repository = MovieDBRepository(dataSource: dataSource)
+        let result = repository.getMovieList(configurations: configurations, page: nil).toBlocking().materialize()
 
-        repository.getMovieList(configurations: configurations,
-                                page: nil,
-                                success: { _ in
-                                    XCTFail("Repository return an array")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if let movieDBRepositoryError = error as? MovieDBRepositoryError {
-                                        XCTAssertEqual(movieDBRepositoryError, MovieDBRepositoryError.nilValue)
-                                    } else {
-                                        XCTFail("Error is not an instance of MovieDBErrorModel")
-                                    }
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Repository return an array")
+        case let .failed(_, error):
+            if let movieDBRepositoryError = error as? MovieDBRepositoryError {
+                XCTAssertEqual(movieDBRepositoryError, MovieDBRepositoryError.nilValue)
+            } else {
+                XCTFail("Error is not an instance of MovieDBRepositoryError")
+            }
+        }
     }
 
     func testGetGenreListSuccess() {
@@ -107,21 +89,17 @@ class MovieDBRepositoryTests: XCTestCase {
             return
         }
 
-        let expect = expectation(description: "Array of genres must be equal")
         let dataSource = MovieDBCloudSourceMock(status: .success)
         let repository = MovieDBRepository(dataSource: dataSource)
+        let result = repository.getGenreList(configurations: configurations).toBlocking().materialize()
 
-        repository.getGenreList(configurations: configurations,
-                                success: { genres in
-                                    XCTAssertEqual(genres, genresArray)
-                                    expect.fulfill()
-                                },
-                                failure: { _ in
-                                    XCTFail("Repository return an error")
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case let .completed(elements):
+            let genres = elements.first
+            XCTAssertEqual(genres, genresArray)
+        case .failed:
+            XCTFail("Repository return an error")
+        }
     }
 
     func testGetGenreListFailure() {
@@ -131,47 +109,37 @@ class MovieDBRepositoryTests: XCTestCase {
             return
         }
         let errorModel = MovieDBErrorModel(entity: errorResponse)
-
-        let expect = expectation(description: "Repository must trigger a failure")
         let dataSource = MovieDBCloudSourceMock(status: .failure)
         let repository = MovieDBRepository(dataSource: dataSource)
 
-        repository.getGenreList(configurations: configurations,
-                                success: { _ in
-                                    XCTFail("Repository return an array")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if let movieDBError = error as? MovieDBErrorModel {
-                                        XCTAssertEqual(movieDBError, errorModel)
-                                    } else {
-                                        XCTFail("Error is not an instance of MovieDBErrorModel")
-                                    }
-                                    expect.fulfill()
-        })
+        let result = repository.getGenreList(configurations: configurations).toBlocking().materialize()
 
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Repository return an array")
+        case let .failed(_, error):
+            if let movieDBError = error as? MovieDBErrorModel {
+                XCTAssertEqual(movieDBError, errorModel)
+            } else {
+                XCTFail("Error is not an instance of MovieDBErrorModel")
+            }
+        }
     }
 
     func testGetGenreListNilResult() {
-        let expect = expectation(description: "Repository must trigger a nil value failure")
         let dataSource = MovieDBCloudSourceMock(status: .nilValue)
         let repository = MovieDBRepository(dataSource: dataSource)
+        let result = repository.getGenreList(configurations: configurations).toBlocking().materialize()
 
-        repository.getGenreList(configurations: configurations,
-                                success: { _ in
-                                    XCTFail("Repository return an array")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if let movieDBRepositoryError = error as? MovieDBRepositoryError {
-                                        XCTAssertEqual(movieDBRepositoryError, MovieDBRepositoryError.nilValue)
-                                    } else {
-                                        XCTFail("Error is not an instance of MovieDBErrorModel")
-                                    }
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Repository return an array")
+        case let .failed(_, error):
+            if let movieDBRepositoryError = error as? MovieDBRepositoryError {
+                XCTAssertEqual(movieDBRepositoryError, MovieDBRepositoryError.nilValue)
+            } else {
+                XCTFail("Error is not an instance of MovieDBRepositoryError")
+            }
+        }
     }
 }

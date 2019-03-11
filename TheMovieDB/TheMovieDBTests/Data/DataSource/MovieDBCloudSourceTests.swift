@@ -1,4 +1,5 @@
 import OHHTTPStubs
+import RxBlocking
 @testable import TheMovieDB
 import XCTest
 
@@ -49,23 +50,19 @@ class MovieDBCloudSourceTests: XCTestCase {
                                        headers: nil)
         }
 
-        let expect = expectation(description: "Request must parse data correctly")
         let dataSource = MovieDBCloudSource()
+        let result = dataSource.getMovieList(apiUrl: apiEndpoint,
+                                             apiKey: apiKey,
+                                             page: nil,
+                                             language: apiLanguage).toBlocking().materialize()
 
-        dataSource.getMovieList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                page: nil,
-                                language: apiLanguage,
-                                success: { response in
-                                    XCTAssertEqual(response, responseFromMock)
-                                    expect.fulfill()
-                                },
-                                failure: { _ in
-                                    XCTFail("Request return an error")
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case let .completed(elements):
+            let response = elements.first
+            XCTAssertEqual(response, responseFromMock)
+        case .failed:
+            XCTFail("Request return an error")
+        }
     }
 
     func testGetMovieListFailure() {
@@ -77,25 +74,21 @@ class MovieDBCloudSourceTests: XCTestCase {
                                        headers: nil)
         }
 
-        let expect = expectation(description: "Request must fail without data")
         let dataSource = MovieDBCloudSource()
 
-        dataSource.getMovieList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                page: nil,
-                                language: apiLanguage,
-                                success: { _ in
-                                    XCTFail("Request returned data")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if error is MovieDBErrorEntity {
-                                        XCTFail("Got an error entity")
-                                    }
-                                    expect.fulfill()
-        })
+        let result = dataSource.getMovieList(apiUrl: apiEndpoint,
+                                             apiKey: apiKey,
+                                             page: nil,
+                                             language: apiLanguage).toBlocking().materialize()
 
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Request returned data")
+        case let .failed(_, error):
+            if error is MovieDBErrorEntity {
+                XCTFail("Got an error entity")
+            }
+        }
     }
 
     func testGetMovieListFailureWithResponse() {
@@ -117,27 +110,22 @@ class MovieDBCloudSourceTests: XCTestCase {
                                        headers: nil)
         }
 
-        let expect = expectation(description: "Request must fail with error data")
         let dataSource = MovieDBCloudSource()
 
-        dataSource.getMovieList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                page: nil,
-                                language: apiLanguage,
-                                success: { _ in
-                                    XCTFail("Request returned data")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if let movieDBError = error as? MovieDBErrorEntity {
-                                        XCTAssertEqual(movieDBError, responseFromMock)
-                                    } else {
-                                        XCTFail("Request didn't return an MovieDBErrorEntity error")
-                                    }
-                                    expect.fulfill()
-        })
-
-        wait(for: [expect], timeout: 2.0)
+        let result = dataSource.getMovieList(apiUrl: apiEndpoint,
+                                             apiKey: apiKey,
+                                             page: nil,
+                                             language: apiLanguage).toBlocking().materialize()
+        switch result {
+        case .completed:
+            XCTFail("Request returned data")
+        case let .failed(_, error):
+            if let movieDBError = error as? MovieDBErrorEntity {
+                XCTAssertEqual(movieDBError, responseFromMock)
+            } else {
+                XCTFail("Request didn't return an MovieDBErrorEntity error")
+            }
+        }
     }
 
     // MARK: - Genre list tests
@@ -160,22 +148,19 @@ class MovieDBCloudSourceTests: XCTestCase {
                                        headers: nil)
         }
 
-        let expect = expectation(description: "Request must parse data correctly")
         let dataSource = MovieDBCloudSource()
 
-        dataSource.getGenreList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                language: apiLanguage,
-                                success: { response in
-                                    XCTAssertEqual(response, responseFromMock)
-                                    expect.fulfill()
-                                },
-                                failure: { _ in
-                                    XCTFail("Request return an error")
-                                    expect.fulfill()
-        })
+        let result = dataSource.getGenreList(apiUrl: apiEndpoint,
+                                             apiKey: apiKey,
+                                             language: apiLanguage).toBlocking().materialize()
 
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case let .completed(elements):
+            let response = elements.first
+            XCTAssertEqual(response, responseFromMock)
+        case .failed:
+            XCTFail("Request return an error")
+        }
     }
 
     func testGetGenreListFailure() {
@@ -187,24 +172,20 @@ class MovieDBCloudSourceTests: XCTestCase {
                                        headers: nil)
         }
 
-        let expect = expectation(description: "Request must fail without data")
         let dataSource = MovieDBCloudSource()
 
-        dataSource.getGenreList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                language: apiLanguage,
-                                success: { _ in
-                                    XCTFail("Request returned data")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if error is MovieDBErrorEntity {
-                                        XCTFail("Got an error entity")
-                                    }
-                                    expect.fulfill()
-        })
+        let result = dataSource.getGenreList(apiUrl: apiEndpoint,
+                                             apiKey: apiKey,
+                                             language: apiLanguage).toBlocking().materialize()
 
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Request returned data")
+        case let .failed(_, error):
+            if error is MovieDBErrorEntity {
+                XCTFail("Got an error entity")
+            }
+        }
     }
 
     func testGetGenreListFailureWithResponse() {
@@ -226,25 +207,21 @@ class MovieDBCloudSourceTests: XCTestCase {
                                        headers: nil)
         }
 
-        let expect = expectation(description: "Request must fail with error data")
         let dataSource = MovieDBCloudSource()
 
-        dataSource.getGenreList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                language: apiLanguage,
-                                success: { _ in
-                                    XCTFail("Request returned data")
-                                    expect.fulfill()
-                                },
-                                failure: { error in
-                                    if let movieDBError = error as? MovieDBErrorEntity {
-                                        XCTAssertEqual(movieDBError, responseFromMock)
-                                    } else {
-                                        XCTFail("Request didn't return an MovieDBErrorEntity error")
-                                    }
-                                    expect.fulfill()
-        })
+        let result = dataSource.getGenreList(apiUrl: apiEndpoint,
+                                             apiKey: apiKey,
+                                             language: apiLanguage).toBlocking().materialize()
 
-        wait(for: [expect], timeout: 2.0)
+        switch result {
+        case .completed:
+            XCTFail("Request returned data")
+        case let .failed(_, error):
+            if let movieDBError = error as? MovieDBErrorEntity {
+                XCTAssertEqual(movieDBError, responseFromMock)
+            } else {
+                XCTFail("Request didn't return an MovieDBErrorEntity error")
+            }
+        }
     }
 }

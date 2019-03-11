@@ -1,14 +1,10 @@
 import Foundation
+import RxSwift
 
 protocol MovieDBRepositoryProtocol {
-    func getMovieList(configurations: ConfigurationsProtocol,
-                      page: Int?,
-                      success: @escaping ([MovieModel]) -> Void,
-                      failure: @escaping (Error) -> Void)
+    func getMovieList(configurations: ConfigurationsProtocol, page: Int?) -> Single<[MovieModel]>
 
-    func getGenreList(configurations: ConfigurationsProtocol,
-                      success: @escaping ([GenreModel]) -> Void,
-                      failure: @escaping (Error) -> Void)
+    func getGenreList(configurations: ConfigurationsProtocol) -> Single<[GenreModel]>
 }
 
 class MovieDBRepository: MovieDBRepositoryProtocol {
@@ -18,66 +14,50 @@ class MovieDBRepository: MovieDBRepositoryProtocol {
         self.dataSource = dataSource
     }
 
-    func getMovieList(configurations: ConfigurationsProtocol,
-                      page: Int?,
-                      success: @escaping ([MovieModel]) -> Void,
-                      failure: @escaping (Error) -> Void) {
+    func getMovieList(configurations: ConfigurationsProtocol, page: Int?) -> Single<[MovieModel]> {
         guard let apiKey = configurations.string(for: .movieDbApiKey),
             let apiEndpoint = configurations.string(for: .movieDbApiEndpoint),
             let language = configurations.string(for: .movieDBLanguage) else {
-            failure(MovieDBRepositoryError.configurationsFail)
-            return
+            return .error(MovieDBRepositoryError.configurationsFail)
         }
 
-        dataSource.getMovieList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                page: page,
-                                language: language,
-                                success: { response in
-                                    guard let results = response.results else {
-                                        failure(MovieDBRepositoryError.nilValue)
-                                        return
-                                    }
-                                    let movies = results.compactMap({ MovieModel(entity: $0) })
-                                    success(movies)
-                                },
-                                failure: { error in
-                                    if let errorEntity = error as? MovieDBErrorEntity {
-                                        failure(MovieDBErrorModel(entity: errorEntity))
-                                    } else {
-                                        failure(error)
-                                    }
-        })
+        let result = dataSource.getMovieList(apiUrl: apiEndpoint, apiKey: apiKey, page: page, language: language).flatMap { (response) -> Single<[MovieModel]> in
+            guard let results = response.results else {
+                return .error(MovieDBRepositoryError.nilValue)
+            }
+            let movies = results.compactMap({ MovieModel(entity: $0) })
+            return .just(movies)
+        }.catchError { (error) -> Single<[MovieModel]> in
+            if let errorEntity = error as? MovieDBErrorEntity {
+                return .error(MovieDBErrorModel(entity: errorEntity))
+            } else {
+                return .error(error)
+            }
+        }
+        return result
     }
 
-    func getGenreList(configurations: ConfigurationsProtocol,
-                      success: @escaping ([GenreModel]) -> Void,
-                      failure: @escaping (Error) -> Void) {
+    func getGenreList(configurations: ConfigurationsProtocol) -> Single<[GenreModel]> {
         guard let apiKey = configurations.string(for: .movieDbApiKey),
             let apiEndpoint = configurations.string(for: .movieDbApiEndpoint),
             let language = configurations.string(for: .movieDBLanguage) else {
-            failure(MovieDBRepositoryError.configurationsFail)
-            return
+            return .error(MovieDBRepositoryError.configurationsFail)
         }
 
-        dataSource.getGenreList(apiUrl: apiEndpoint,
-                                apiKey: apiKey,
-                                language: language,
-                                success: { response in
-                                    guard let results = response.genres else {
-                                        failure(MovieDBRepositoryError.nilValue)
-                                        return
-                                    }
-                                    let genres = results.compactMap({ GenreModel(entity: $0) })
-                                    success(genres)
-                                },
-                                failure: { error in
-                                    if let errorEntity = error as? MovieDBErrorEntity {
-                                        failure(MovieDBErrorModel(entity: errorEntity))
-                                    } else {
-                                        failure(error)
-                                    }
-        })
+        let result = dataSource.getGenreList(apiUrl: apiEndpoint, apiKey: apiKey, language: language).flatMap { (response) -> Single<[GenreModel]> in
+            guard let results = response.genres else {
+                return .error(MovieDBRepositoryError.nilValue)
+            }
+            let genres = results.compactMap({ GenreModel(entity: $0) })
+            return .just(genres)
+        }.catchError { (error) -> Single<[GenreModel]> in
+            if let errorEntity = error as? MovieDBErrorEntity {
+                return .error(MovieDBErrorModel(entity: errorEntity))
+            } else {
+                return .error(error)
+            }
+        }
+        return result
     }
 }
 

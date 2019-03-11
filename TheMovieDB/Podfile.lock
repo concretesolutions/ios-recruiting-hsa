@@ -14,6 +14,15 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.1.0)
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
+  - RxAtomic (4.4.1)
+  - RxBlocking (4.4.1):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
+  - RxTest (4.4.1):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -24,6 +33,9 @@ DEPENDENCIES:
   - Alamofire (~> 4.8)
   - DZNEmptyDataSet
   - OHHTTPStubs/Swift
+  - RxBlocking (~> 4.0)
+  - RxSwift (~> 4.0)
+  - RxTest (~> 4.0)
   - SDWebImage (~> 4.0)
   - SVProgressHUD
   - SwiftLint
@@ -33,6 +45,10 @@ SPEC REPOS:
     - Alamofire
     - DZNEmptyDataSet
     - OHHTTPStubs
+    - RxAtomic
+    - RxBlocking
+    - RxSwift
+    - RxTest
     - SDWebImage
     - SVProgressHUD
     - SwiftLint
@@ -41,10 +57,14 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxBlocking: 5508e90d36ca2304632dc9378ece4e9b5d4bf656
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  RxTest: f8e548755ca3c7502dc41c7d3b28802c90115a38
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: e18fba067d4bc11f9360bdc65343728aaf2ba35a
+PODFILE CHECKSUM: ec0166f7bc859595aa3e08a650816a173ebfabff
 
 COCOAPODS: 1.6.1

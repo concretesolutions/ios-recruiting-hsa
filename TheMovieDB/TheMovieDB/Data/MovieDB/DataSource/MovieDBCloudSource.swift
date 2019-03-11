@@ -1,18 +1,15 @@
 import Alamofire
+import RxSwift
 
 protocol MovieDBCloudSourceProtocol {
     func getMovieList(apiUrl: String,
                       apiKey: String,
                       page: Int?,
-                      language: String?,
-                      success: @escaping (PopularMoviesResponseEntity) -> Void,
-                      failure: @escaping (Error) -> Void)
+                      language: String?) -> Single<PopularMoviesResponseEntity>
 
     func getGenreList(apiUrl: String,
                       apiKey: String,
-                      language: String?,
-                      success: @escaping (GenreListReponseEntity) -> Void,
-                      failure: @escaping (Error) -> Void)
+                      language: String?) -> Single<GenreListReponseEntity>
 }
 
 enum MovieDBCloudSourceSearchType: String {
@@ -24,12 +21,9 @@ class MovieDBCloudSource: MovieDBCloudSourceProtocol {
     func getMovieList(apiUrl: String,
                       apiKey: String,
                       page: Int?,
-                      language: String?,
-                      success: @escaping (PopularMoviesResponseEntity) -> Void,
-                      failure: @escaping (Error) -> Void) {
+                      language: String?) -> Single<PopularMoviesResponseEntity> {
         guard let url = URL(string: apiUrl + MovieDBCloudSourceSearchType.popularMovies.rawValue) else {
-            failure(MovieDBCloudSourceError.badURL)
-            return
+            return .error(MovieDBCloudSourceError.badURL)
         }
         var parameters: [String: Any] = [
             "api_key": apiKey
@@ -44,32 +38,32 @@ class MovieDBCloudSource: MovieDBCloudSourceProtocol {
 
         let request = Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate()
 
-        request.responseData { response in
-            switch response.result {
-            case let .success(data):
-                guard let responseCodable = try? JSONDecoder().decode(PopularMoviesResponseEntity.self, from: data) else {
-                    failure(MovieDBCloudSourceError.parseError)
-                    return
-                }
-                success(responseCodable)
-            case let .failure(error):
-                if let data = response.data, let errorCodable = try? JSONDecoder().decode(MovieDBErrorEntity.self, from: data) {
-                    failure(errorCodable)
-                } else {
-                    failure(error)
+        return Single.create { single in
+            request.responseData { response in
+                switch response.result {
+                case let .success(data):
+                    guard let responseCodable = try? JSONDecoder().decode(PopularMoviesResponseEntity.self, from: data) else {
+                        single(.error(MovieDBCloudSourceError.parseError))
+                        return
+                    }
+                    single(.success(responseCodable))
+                case let .failure(error):
+                    if let data = response.data, let errorCodable = try? JSONDecoder().decode(MovieDBErrorEntity.self, from: data) {
+                        single(.error(errorCodable))
+                    } else {
+                        single(.error(error))
+                    }
                 }
             }
+            return Disposables.create()
         }
     }
 
     func getGenreList(apiUrl: String,
                       apiKey: String,
-                      language: String?,
-                      success: @escaping (GenreListReponseEntity) -> Void,
-                      failure: @escaping (Error) -> Void) {
+                      language: String?) -> Single<GenreListReponseEntity> {
         guard let url = URL(string: apiUrl + MovieDBCloudSourceSearchType.genreList.rawValue) else {
-            failure(MovieDBCloudSourceError.badURL)
-            return
+            return .error(MovieDBCloudSourceError.badURL)
         }
         var parameters: [String: Any] = [
             "api_key": apiKey
@@ -80,21 +74,25 @@ class MovieDBCloudSource: MovieDBCloudSourceProtocol {
         }
 
         let request = Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate()
-        request.responseData { response in
-            switch response.result {
-            case let .success(data):
-                guard let responseCodable = try? JSONDecoder().decode(GenreListReponseEntity.self, from: data) else {
-                    failure(MovieDBCloudSourceError.parseError)
-                    return
-                }
-                success(responseCodable)
-            case let .failure(error):
-                if let data = response.data, let errorCodable = try? JSONDecoder().decode(MovieDBErrorEntity.self, from: data) {
-                    failure(errorCodable)
-                } else {
-                    failure(error)
+
+        return Single.create { single in
+            request.responseData { response in
+                switch response.result {
+                case let .success(data):
+                    guard let responseCodable = try? JSONDecoder().decode(GenreListReponseEntity.self, from: data) else {
+                        single(.error(MovieDBCloudSourceError.parseError))
+                        return
+                    }
+                    single(.success(responseCodable))
+                case let .failure(error):
+                    if let data = response.data, let errorCodable = try? JSONDecoder().decode(MovieDBErrorEntity.self, from: data) {
+                        single(.error(errorCodable))
+                    } else {
+                        single(.error(error))
+                    }
                 }
             }
+            return Disposables.create()
         }
     }
 }
