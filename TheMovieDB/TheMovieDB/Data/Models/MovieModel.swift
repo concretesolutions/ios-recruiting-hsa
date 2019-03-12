@@ -1,11 +1,13 @@
 import Foundation
 
 struct MovieModel: Equatable {
+    let id: Int
     let title: String
     let overview: String
     let releaseDate: Date
     let posterPath: String
     let voteAverage: Double
+    let genreIDS: [Int]
 
     var humanDate: String {
         let formatter = DateFormatter()
@@ -24,13 +26,17 @@ struct MovieModel: Equatable {
             let overview = entity.overview,
             let releaseDateString = entity.releaseDate,
             let posterPath = entity.posterPath,
-            let voteAverage = entity.voteAverage else {
+            let voteAverage = entity.voteAverage,
+            let id = entity.id,
+            let genreIDS = entity.genreIDS else {
             return nil
         }
         self.title = title
         self.overview = overview
         self.posterPath = posterPath
         self.voteAverage = voteAverage
+        self.id = id
+        self.genreIDS = genreIDS
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -40,5 +46,22 @@ struct MovieModel: Equatable {
         } else {
             releaseDate = Date()
         }
+    }
+
+    init?(savedMovie: SavedMovie) {
+        guard let title = savedMovie.title,
+            let overview = savedMovie.overview,
+            let posterPath = savedMovie.posterPath,
+            let genresIDS = savedMovie.genresId,
+            let releaseDate = savedMovie.releaseDate else {
+            return nil
+        }
+        self.title = title
+        self.overview = overview
+        self.posterPath = posterPath
+        voteAverage = savedMovie.voteAverage
+        id = Int(savedMovie.id)
+        genreIDS = genresIDS
+        self.releaseDate = releaseDate
     }
 }

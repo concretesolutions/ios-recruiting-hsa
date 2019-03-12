@@ -39,6 +39,7 @@
 		0359273F2233535000ACE7CF /* MovieDBErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359273E2233535000ACE7CF /* MovieDBErrorEntity.swift */; };
 		035927412233536700ACE7CF /* MovieDBErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035927402233536700ACE7CF /* MovieDBErrorModel.swift */; };
 		03716394223724170063CA38 /* SavedMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03716393223724170063CA38 /* SavedMoviesRepository.swift */; };
+		0388127122386D7A00A5F8A2 /* SavedMoviesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388127022386D7A00A5F8A2 /* SavedMoviesMapper.swift */; };
 		03A0285E2236EB6700028FC1 /* SavedMoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0285D2236EB6700028FC1 /* SavedMoviesDataSource.swift */; };
 		03A028612236EB8500028FC1 /* SavedMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A0285F2236EB8500028FC1 /* SavedMovies.xcdatamodeld */; };
 		03A028652236F04800028FC1 /* AppTasksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A028642236F04800028FC1 /* AppTasksProtocol.swift */; };
@@ -112,6 +113,7 @@
 		0359273E2233535000ACE7CF /* MovieDBErrorEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBErrorEntity.swift; sourceTree = "<group>"; };
 		035927402233536700ACE7CF /* MovieDBErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBErrorModel.swift; sourceTree = "<group>"; };
 		03716393223724170063CA38 /* SavedMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesRepository.swift; sourceTree = "<group>"; };
+		0388127022386D7A00A5F8A2 /* SavedMoviesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesMapper.swift; sourceTree = "<group>"; };
 		03A0285D2236EB6700028FC1 /* SavedMoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesDataSource.swift; sourceTree = "<group>"; };
 		03A028602236EB8500028FC1 /* SavedMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedMovies.xcdatamodel; sourceTree = "<group>"; };
 		03A028642236F04800028FC1 /* AppTasksProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTasksProtocol.swift; sourceTree = "<group>"; };
@@ -373,9 +375,18 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		0388126F22386D5D00A5F8A2 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				0388127022386D7A00A5F8A2 /* SavedMoviesMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		03A0285A2236EB1C00028FC1 /* SavedMovies */ = {
 			isa = PBXGroup;
 			children = (
+				0388126F22386D5D00A5F8A2 /* Mappers */,
 				03A0285C2236EB3800028FC1 /* DataSource */,
 				037163922237232B0063CA38 /* Repository */,
 			);
@@ -806,6 +817,7 @@
 				032D1ECC2237C05600DE86CB /* MovieDetailRouter.swift in Sources */,
 				0359273F2233535000ACE7CF /* MovieDBErrorEntity.swift in Sources */,
 				032D1EC92237C05600DE86CB /* MovieDetailViewController.swift in Sources */,
+				0388127122386D7A00A5F8A2 /* SavedMoviesMapper.swift in Sources */,
 				03AF395A22383481004F4365 /* MovieDetailViewController+UITableView.swift in Sources */,
 				03183D6722331A8600C1AC3F /* Configurations.swift in Sources */,
 			);

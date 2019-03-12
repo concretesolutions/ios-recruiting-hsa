@@ -3,9 +3,9 @@ import Foundation
 import RxSwift
 
 protocol SavedMoviesDataSourceProtocol {
-    func store(movieEntity: MovieEntity) -> Completable
-    func delete(savedMovie: SavedMovie) -> Completable
-    func getSavedMovie(id: Int) -> Single<SavedMovie>
+    func storeMovie(model: MovieModel) -> Completable
+    func deleteMovie(id: Int) -> Completable
+    func getMovie(id: Int) -> Single<SavedMovie>
     func getMovies() -> Single<[SavedMovie]>
     func getMoviesIds() -> Single<[Int]>
 }
@@ -18,24 +18,17 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         self.persistentContainer = persistentContainer
     }
 
-    func store(movieEntity: MovieEntity) -> Completable {
+    func storeMovie(model: MovieModel) -> Completable {
         return Completable.create { completable in
             self.persistentContainer.performBackgroundTask { privateManagedObjectContext in
                 let savedMovie = SavedMovie(context: privateManagedObjectContext)
-                savedMovie.voteCount = Int32(movieEntity.voteCount ?? 0)
-                savedMovie.id = Int32(movieEntity.id ?? 0)
-                savedMovie.video = movieEntity.video ?? false
-                savedMovie.voteAverage = movieEntity.voteAverage ?? 0
-                savedMovie.title = movieEntity.title
-                savedMovie.popularity = movieEntity.popularity ?? 0
-                savedMovie.posterPath = movieEntity.posterPath
-                savedMovie.originalLanguage = movieEntity.originalLanguage
-                savedMovie.originalTitle = movieEntity.originalTitle
-                savedMovie.genresId = movieEntity.genreIDS
-                savedMovie.backdropPath = movieEntity.backdropPath
-                savedMovie.adult = movieEntity.adult ?? false
-                savedMovie.overview = movieEntity.overview
-                savedMovie.releaseDate = movieEntity.releaseDate
+                savedMovie.id = Int32(model.id)
+                savedMovie.voteAverage = model.voteAverage
+                savedMovie.title = model.title
+                savedMovie.posterPath = model.posterPath
+                savedMovie.genresId = model.genreIDS
+                savedMovie.overview = model.overview
+                savedMovie.releaseDate = model.releaseDate
                 do {
                     try privateManagedObjectContext.save()
                     completable(.completed)
@@ -47,9 +40,17 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         }
     }
 
-    func delete(savedMovie: SavedMovie) -> Completable {
+    func deleteMovie(id: Int) -> Completable {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+
         return Completable.create { completable in
             self.persistentContainer.performBackgroundTask { privateManagedObjectContext in
+                guard let firstResult = try? privateManagedObjectContext.fetch(fetchRequest).first, let savedMovie = firstResult as? SavedMovie else {
+                    completable(.error(SavedAdsSourceError.noResults))
+                    return
+                }
                 do {
                     privateManagedObjectContext.delete(savedMovie)
                     try privateManagedObjectContext.save()
@@ -62,7 +63,7 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         }
     }
 
-    func getSavedMovie(id: Int) -> Single<SavedMovie> {
+    func getMovie(id: Int) -> Single<SavedMovie> {
         let privateManagedObjectContext = persistentContainer.newBackgroundContext()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.fetchLimit = 1
