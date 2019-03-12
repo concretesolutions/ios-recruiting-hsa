@@ -38,6 +38,7 @@
 		0359273922334F5C00ACE7CF /* MovieDBCloudSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359273822334F5C00ACE7CF /* MovieDBCloudSource.swift */; };
 		0359273F2233535000ACE7CF /* MovieDBErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359273E2233535000ACE7CF /* MovieDBErrorEntity.swift */; };
 		035927412233536700ACE7CF /* MovieDBErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035927402233536700ACE7CF /* MovieDBErrorModel.swift */; };
+		03716394223724170063CA38 /* SavedMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03716393223724170063CA38 /* SavedMoviesRepository.swift */; };
 		03A0285E2236EB6700028FC1 /* SavedMoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0285D2236EB6700028FC1 /* SavedMoviesDataSource.swift */; };
 		03A028612236EB8500028FC1 /* SavedMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03A0285F2236EB8500028FC1 /* SavedMovies.xcdatamodeld */; };
 		03A028652236F04800028FC1 /* AppTasksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A028642236F04800028FC1 /* AppTasksProtocol.swift */; };
@@ -110,6 +111,7 @@
 		0359273822334F5C00ACE7CF /* MovieDBCloudSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDBCloudSource.swift; sourceTree = "<group>"; };
 		0359273E2233535000ACE7CF /* MovieDBErrorEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBErrorEntity.swift; sourceTree = "<group>"; };
 		035927402233536700ACE7CF /* MovieDBErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBErrorModel.swift; sourceTree = "<group>"; };
+		03716393223724170063CA38 /* SavedMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesRepository.swift; sourceTree = "<group>"; };
 		03A0285D2236EB6700028FC1 /* SavedMoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesDataSource.swift; sourceTree = "<group>"; };
 		03A028602236EB8500028FC1 /* SavedMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedMovies.xcdatamodel; sourceTree = "<group>"; };
 		03A028642236F04800028FC1 /* AppTasksProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTasksProtocol.swift; sourceTree = "<group>"; };
@@ -363,20 +365,21 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		037163922237232B0063CA38 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				03716393223724170063CA38 /* SavedMoviesRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		03A0285A2236EB1C00028FC1 /* SavedMovies */ = {
 			isa = PBXGroup;
 			children = (
 				03A0285C2236EB3800028FC1 /* DataSource */,
-				03A0285B2236EB2B00028FC1 /* Repository */,
+				037163922237232B0063CA38 /* Repository */,
 			);
 			path = SavedMovies;
-			sourceTree = "<group>";
-		};
-		03A0285B2236EB2B00028FC1 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		03A0285C2236EB3800028FC1 /* DataSource */ = {
@@ -774,6 +777,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03716394223724170063CA38 /* SavedMoviesRepository.swift in Sources */,
 				03A028672236F0C700028FC1 /* AppTasks.swift in Sources */,
 				0359272C22334E8C00ACE7CF /* PopularMoviesResponseEntity.swift in Sources */,
 				03A0286F2236F24500028FC1 /* LogProvider.swift in Sources */,
