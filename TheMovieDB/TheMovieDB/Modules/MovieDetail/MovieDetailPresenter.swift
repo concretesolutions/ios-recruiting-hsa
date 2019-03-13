@@ -23,6 +23,10 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
         view?.showLoading()
         interactor?.fetchSavedStatus(movieId: movieId)
     }
+
+    func didTapCloseButton() {
+        router?.dismiss()
+    }
 }
 
 extension MovieDetailPresenter: MovieDetailInteractorDelegate {
@@ -33,7 +37,7 @@ extension MovieDetailPresenter: MovieDetailInteractorDelegate {
 
     func saveMovieFailure(error: Error) {
         view?.hideLoading()
-        router?.showErrorAlert(error: error)
+        router?.showErrorAlert(error: error, isSave: true)
     }
 
     func unsaveMovieSuccess() {
@@ -43,7 +47,7 @@ extension MovieDetailPresenter: MovieDetailInteractorDelegate {
 
     func unsaveMovieFailure(error: Error) {
         view?.hideLoading()
-        router?.showErrorAlert(error: error)
+        router?.showErrorAlert(error: error, isSave: false)
     }
 
     func savedMovieStatusFetched(saved: Bool) {

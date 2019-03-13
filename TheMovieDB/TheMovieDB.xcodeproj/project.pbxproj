@@ -12,6 +12,8 @@
 		0315377B22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315377A22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift */; };
 		03183D6522331A2600C1AC3F /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03183D6422331A2600C1AC3F /* Configurations.plist */; };
 		03183D6722331A8600C1AC3F /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03183D6622331A8600C1AC3F /* Configurations.swift */; };
+		0319AD61223925B000606255 /* HUDProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0319AD60223925B000606255 /* HUDProvider.swift */; };
+		0319AD632239260200606255 /* SVProgressHUDProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0319AD622239260200606255 /* SVProgressHUDProvider.swift */; };
 		032D1EC92237C05600DE86CB /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032D1EC22237C05600DE86CB /* MovieDetailViewController.swift */; };
 		032D1ECA2237C05600DE86CB /* MovieDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032D1EC32237C05600DE86CB /* MovieDetailWireframe.swift */; };
 		032D1ECB2237C05600DE86CB /* MovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032D1EC42237C05600DE86CB /* MovieDetailInteractor.swift */; };
@@ -84,6 +86,8 @@
 		0315377A22355A5A00BDE8C4 /* MovieDBRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBRepositoryTests.swift; sourceTree = "<group>"; };
 		03183D6422331A2600C1AC3F /* Configurations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		03183D6622331A8600C1AC3F /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		0319AD60223925B000606255 /* HUDProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDProvider.swift; sourceTree = "<group>"; };
+		0319AD622239260200606255 /* SVProgressHUDProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVProgressHUDProvider.swift; sourceTree = "<group>"; };
 		032D1EC22237C05600DE86CB /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		032D1EC32237C05600DE86CB /* MovieDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailWireframe.swift; sourceTree = "<group>"; };
 		032D1EC42237C05600DE86CB /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
@@ -217,6 +221,15 @@
 				03183D6622331A8600C1AC3F /* Configurations.swift */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		0319AD5F2239259900606255 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				0319AD60223925B000606255 /* HUDProvider.swift */,
+				0319AD622239260200606255 /* SVProgressHUDProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		032D1EBF2237C01900DE86CB /* Modules */ = {
@@ -414,6 +427,7 @@
 		03A028622236F01600028FC1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0319AD5F2239259900606255 /* Providers */,
 				03A0286D2236F23700028FC1 /* Logs */,
 				03A0286A2236F1CB00028FC1 /* CoreData */,
 				03A028632236F02A00028FC1 /* AppTasks */,
@@ -812,6 +826,7 @@
 				034C1C0822346BB000F56333 /* GenreEntity.swift in Sources */,
 				035927412233536700ACE7CF /* MovieDBErrorModel.swift in Sources */,
 				034C1C0622346AC300F56333 /* GenreListReponseEntity.swift in Sources */,
+				0319AD61223925B000606255 /* HUDProvider.swift in Sources */,
 				03A028652236F04800028FC1 /* AppTasksProtocol.swift in Sources */,
 				03881281223896ED00A5F8A2 /* MovieDetailLocalizer.swift in Sources */,
 				038812842238994300A5F8A2 /* MovieDetailTextCell.swift in Sources */,
@@ -819,6 +834,7 @@
 				0359273122334EEC00ACE7CF /* UIKitExtensions.swift in Sources */,
 				0359273622334F3E00ACE7CF /* MovieModel.swift in Sources */,
 				034C3F622233108700675EE0 /* ViewController.swift in Sources */,
+				0319AD632239260200606255 /* SVProgressHUDProvider.swift in Sources */,
 				03AF395222383017004F4365 /* MovieDetailImageCell.swift in Sources */,
 				03A0286C2236F1D800028FC1 /* CoreDataService.swift in Sources */,
 				034C3F602233108700675EE0 /* AppDelegate.swift in Sources */,

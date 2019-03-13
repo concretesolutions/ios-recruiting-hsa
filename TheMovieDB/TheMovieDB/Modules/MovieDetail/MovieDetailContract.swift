@@ -38,11 +38,12 @@ protocol MovieDetailPresenterProtocol: class {
 
     func viewDidLoad(movie: MovieModel?)
     func didTapSaveButton(movie: MovieModel, isDelete: Bool)
+    func didTapCloseButton()
 }
 
 protocol MovieDetailRouterProtocol: class {
     var viewController: UIViewController? { get set }
 
-    func showErrorAlert(error: Error)
+    func showErrorAlert(error: Error, isSave: Bool)
     func dismiss()
 }
