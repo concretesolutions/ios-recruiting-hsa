@@ -27,13 +27,14 @@ class CoreDataService {
         savedAdsPersistentContainer.persistentStoreDescriptions = [description]
     }
 
-    func loadPersistentStores() {
+    func loadPersistentStores(success: @escaping () -> Void) {
         savedAdsPersistentContainer.loadPersistentStores { description, error in
             if let error = error {
                 LogProvider.shared.log(message: "Error getting saved movies core data stores %@", type: .error, logCategory: self.logCategory, args: String(describing: error))
                 // LogProvider.shared.logNonFatal(error: error)
             } else {
                 LogProvider.shared.log(message: "Saved movies core data stack loaded: %@", type: .info, logCategory: self.logCategory, args: String(describing: description))
+                success()
             }
         }
     }

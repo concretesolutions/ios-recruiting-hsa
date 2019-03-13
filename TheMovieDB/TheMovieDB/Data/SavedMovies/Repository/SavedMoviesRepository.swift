@@ -6,6 +6,7 @@ protocol SavedMoviesRepositoryProtocol {
     func deleteMovie(with movieId: Int) -> Completable
     func getMovies() -> Single<[MovieModel]>
     func getMoviesIds() -> Single<[Int]>
+    func movieExists(movieId: Int) -> Completable
 }
 
 class SavedMoviesRepository: SavedMoviesRepositoryProtocol {
@@ -31,5 +32,13 @@ class SavedMoviesRepository: SavedMoviesRepositoryProtocol {
 
     func getMoviesIds() -> Single<[Int]> {
         return dataSource.getMoviesIds()
+    }
+
+    func movieExists(movieId: Int) -> Completable {
+        return dataSource.getMovie(id: movieId).flatMapCompletable({ (_) -> Completable in
+            .empty()
+        }).catchError({ (error) -> Completable in
+            .error(error)
+        })
     }
 }

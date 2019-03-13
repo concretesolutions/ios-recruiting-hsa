@@ -2,7 +2,7 @@ import UIKit
 
 class MovieDetailRouter: MovieDetailRouterProtocol {
 
-    var viewController: UIViewController?
+    weak var viewController: UIViewController?
 
     func showErrorAlert(error: Error) {}
     func dismiss() {}

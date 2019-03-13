@@ -18,9 +18,9 @@ extension MovieDetailViewController {
         case .image:
             return MovieDetailImageCell.defaultHeight
         case .overview:
-            return MovieDetailTextCell.defaultHeight
+            return MovieDetailMultilineCell.defaultHeight
         default:
-            return 70
+            return MovieDetailTextCell.defaultHeight
         }
     }
 
@@ -42,27 +42,27 @@ extension MovieDetailViewController {
 
         switch detailViewSection {
         case .title:
-            return getReusableCell(tableView: tableView, title: nil, detail: model?.title)
+            return getReusableCell(tableView: tableView, title: MovieDetailLocalizer.cellTitle.localizedString, detail: model?.title)
         case .average:
-            return UITableViewCell() // get average cell
+            let average = model?.voteAverage ?? 0
+            return getReusableCell(tableView: tableView, title: MovieDetailLocalizer.cellAverage.localizedString, detail: String(format: "%.1f", average))
         case .overview:
             return getOverviewCell(tableView: tableView, text: model?.overview)
         case .year:
-            return getReusableCell(tableView: tableView, title: nil, detail: model?.humanDate)
+            return getReusableCell(tableView: tableView, title: MovieDetailLocalizer.cellDate.localizedString, detail: model?.humanDate)
         case .image:
             return getImageCell(imgPath: model?.posterPath)
         }
     }
 
     private func getReusableCell(tableView: UITableView, title: String?, detail: String?) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellIdentifier) else { return UITableViewCell() }
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = detail
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailTextCell.reusableIdentifier) as? MovieDetailTextCell else { return UITableViewCell() }
+        cell.setupCell(title: title, detail: detail)
         return cell
     }
 
     private func getOverviewCell(tableView: UITableView, text: String?) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailTextCell.reusableIdentifier) as? MovieDetailTextCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailMultilineCell.reusableIdentifier) as? MovieDetailMultilineCell else { return UITableViewCell() }
         cell.setupCell(text: text)
         return cell
     }

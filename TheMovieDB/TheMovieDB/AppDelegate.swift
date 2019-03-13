@@ -5,9 +5,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private let appTasks: AppTasksProtocol = AppTasks()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        appTasks.application(application, didFinishLaunchingWithOptions: launchOptions)
+        // appTasks.application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        CoreDataService.shared.loadPersistentStores {
+            OperationQueue.main.addOperation {
+                let dataSource = SavedMoviesDataSource(persistentContainer: CoreDataService.shared.savedAdsPersistentContainer)
+                let repository = SavedMoviesRepository(dataSource: dataSource)
+
+                let movie = MovieModel(id: 1,
+                                       title: "Capitana Marvel",
+                                       overview: "La historia sigue a Carol Danvers mientras ella se convierte en uno de los héroes más poderosos del universo cuando la Tierra se encuentre atrapada en medio de una guerra galáctica entre dos razas alienígenas. Situada en los años 90, Captain Marvel es una historia nueva de un período de tiempo nunca antes visto en la historia del Universo Cinematográfico de Marvel.",
+                                       releaseDate: Date(), // 2019-03-06
+                                       posterPath: "/d3p5JuwN7dG0TvrN5h4ZY4tMOEX.jpg",
+                                       voteAverage: 7.3,
+                                       genreIDS: [
+                                        28,
+                                        12,
+                                        878
+                    ])
+
+                let viewController = MovieDetailWireframe.assemble(repository: repository, movie: movie)
+                self.window?.rootViewController = viewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+
         return true
     }
 

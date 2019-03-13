@@ -43,12 +43,12 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
     func deleteMovie(id: Int) -> Completable {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
 
         return Completable.create { completable in
             self.persistentContainer.performBackgroundTask { privateManagedObjectContext in
                 guard let firstResult = try? privateManagedObjectContext.fetch(fetchRequest).first, let savedMovie = firstResult as? SavedMovie else {
-                    completable(.error(SavedAdsSourceError.noResults))
+                    completable(.error(SavedMoviesSourceError.noResults))
                     return
                 }
                 do {
@@ -67,12 +67,12 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         let privateManagedObjectContext = persistentContainer.newBackgroundContext()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
 
         return Single.create { single in
             let asynchronousFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { asynchronousFetchResult in
                 guard let result = asynchronousFetchResult.finalResult as? [SavedMovie], let element = result.first else {
-                    single(.error(SavedAdsSourceError.noResults))
+                    single(.error(SavedMoviesSourceError.noResults))
                     return
                 }
                 single(.success(element))
@@ -93,7 +93,7 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         return Single.create { single in
             let asynchronousFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { asynchronousFetchResult in
                 guard let result = asynchronousFetchResult.finalResult as? [SavedMovie] else {
-                    single(.error(SavedAdsSourceError.noResults))
+                    single(.error(SavedMoviesSourceError.noResults))
                     return
                 }
                 single(.success(result))
@@ -115,6 +115,6 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
     }
 }
 
-enum SavedAdsSourceError: Error {
+enum SavedMoviesSourceError: Error {
     case noResults, notSafeObject
 }

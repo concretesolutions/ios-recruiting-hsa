@@ -64,4 +64,20 @@ struct MovieModel: Equatable {
         genreIDS = genresIDS
         self.releaseDate = releaseDate
     }
+
+    init(id: Int,
+         title: String,
+         overview: String,
+         releaseDate: Date,
+         posterPath: String,
+         voteAverage: Double,
+         genreIDS: [Int]) {
+        self.id = id
+        self.title = title
+        self.overview = overview
+        self.releaseDate = releaseDate
+        self.posterPath = posterPath
+        self.voteAverage = voteAverage
+        self.genreIDS = genreIDS
+    }
 }

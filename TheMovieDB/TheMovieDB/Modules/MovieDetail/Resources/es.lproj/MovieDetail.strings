@@ -1,0 +1,16 @@
+"MovieDetail.cell.title" = "Título";
+"MovieDetail.cell.average" = "Promedio";
+"MovieDetail.cell.overview" = "Sinopsis";
+"MovieDetail.cell.date" = "Fecha de estreno";
+
+"MovieDetail.saveMovie.success" = "Película agregada a favoritos";
+"MovieDetail.unsaveMovie.success" = "Película quitada de favoritos";
+
+"MovieDetail.errorAlert.saveMovie.message" =  "Ocurrió un error al agregar tu película a favoritos. Intenta nuevamente";
+"MovieDetail.errorAlert.unsaveMovie.message" =  "Ocurrió un error al quitar tu película de favoritos. Intenta nuevamente";
+
+"MovieDetail.errorAlert.title" = "Error";
+"MovieDetail.errorAlert.okButton" = "Aceptar";
+
+
+

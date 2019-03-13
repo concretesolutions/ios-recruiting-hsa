@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieDetailWireframeProtocol: class {
-    static func assemble() -> UIViewController
+    static func assemble(repository: SavedMoviesRepositoryProtocol, movie: MovieModel) -> UIViewController
 }
 
 protocol MovieDetailViewProtocol: class {
@@ -10,6 +10,7 @@ protocol MovieDetailViewProtocol: class {
 
     func showLoading()
     func hideLoading()
+    func updateSavedMovieStatus(saved: Bool)
 }
 
 protocol MovieDetailInteractorProtocol: class {
@@ -17,6 +18,7 @@ protocol MovieDetailInteractorProtocol: class {
 
     func saveMovie(_ movie: MovieModel)
     func unsaveMovie(_ movie: MovieModel)
+    func fetchSavedStatus(movieId: Int)
 }
 
 protocol MovieDetailInteractorDelegate: class {
@@ -24,7 +26,9 @@ protocol MovieDetailInteractorDelegate: class {
     func saveMovieFailure(error: Error)
 
     func unsaveMovieSuccess()
-    func unsaveMovieFailure()
+    func unsaveMovieFailure(error: Error)
+
+    func savedMovieStatusFetched(saved: Bool)
 }
 
 protocol MovieDetailPresenterProtocol: class {
@@ -32,6 +36,7 @@ protocol MovieDetailPresenterProtocol: class {
     var interactor: MovieDetailInteractorProtocol? { get set }
     var router: MovieDetailRouterProtocol? { get set }
 
+    func viewDidLoad(movie: MovieModel?)
     func didTapSaveButton(movie: MovieModel, isDelete: Bool)
 }
 

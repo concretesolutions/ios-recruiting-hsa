@@ -3,7 +3,7 @@ import UIKit
 
 class MovieDetailImageCell: UITableViewCell {
     @IBOutlet var imageViewMovie: UIImageView!
-    static let defaultHeight: CGFloat = 120
+    static let defaultHeight: CGFloat = 300
 
     override func awakeFromNib() {
         super.awakeFromNib()
