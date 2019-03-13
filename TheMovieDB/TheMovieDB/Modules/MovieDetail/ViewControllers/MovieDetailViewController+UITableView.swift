@@ -6,8 +6,14 @@ extension MovieDetailViewController {
         return MovieDetailViewControllerSections.allCases.count
     }
 
-    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 1
+    override func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let detailViewSection = MovieDetailViewControllerSections(rawValue: section) else { return 0 }
+        switch detailViewSection {
+        case .genres:
+            return genres.isEmpty ? 0 : 1
+        default:
+            return 1
+        }
     }
 
     override func tableView(_: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -47,11 +53,18 @@ extension MovieDetailViewController {
             let average = model?.voteAverage ?? 0
             return getReusableCell(tableView: tableView, title: MovieDetailLocalizer.cellAverage.localizedString, detail: String(format: "%.1f", average))
         case .overview:
-            return getOverviewCell(tableView: tableView, text: model?.overview)
-        case .year:
+            return getMultilineCell(tableView: tableView, title: MovieDetailLocalizer.cellOverview.localizedString, text: model?.overview)
+        case .date:
             return getReusableCell(tableView: tableView, title: MovieDetailLocalizer.cellDate.localizedString, detail: model?.humanDate)
         case .image:
             return getImageCell(imgPath: model?.posterPath)
+        case .genres:
+            var genreString = ""
+            for genre in genres {
+                genreString += "\(genre)\n"
+            }
+            genreString = String(genreString.dropLast())
+            return getMultilineCell(tableView: tableView, title: MovieDetailLocalizer.cellGenres.localizedString, text: genreString)
         }
     }
 
@@ -61,9 +74,9 @@ extension MovieDetailViewController {
         return cell
     }
 
-    private func getOverviewCell(tableView: UITableView, text: String?) -> UITableViewCell {
+    private func getMultilineCell(tableView: UITableView, title: String?, text: String?) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailMultilineCell.reusableIdentifier) as? MovieDetailMultilineCell else { return UITableViewCell() }
-        cell.setupCell(text: text)
+        cell.setupCell(title: title, text: text)
         return cell
     }
 

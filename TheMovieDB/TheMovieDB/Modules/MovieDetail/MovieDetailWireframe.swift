@@ -1,7 +1,8 @@
 import UIKit
 class MovieDetailWireframe: MovieDetailWireframeProtocol {
-    static func assemble(movie: MovieModel) -> UIViewController {
-        let repository = MovieDetailFactory().getRepository()
+    static func assemble(movie: MovieModel, genres: [String]) -> UIViewController {
+        let factory = MovieDetailFactory()
+        let repository = factory.getSavedMoviesRepository()
         let interactor = MovieDetailInteractor(repository: repository)
         let router = MovieDetailRouter()
         let presenter = MovieDetailPresenter(interactor: interactor, router: router)
@@ -10,6 +11,8 @@ class MovieDetailWireframe: MovieDetailWireframeProtocol {
 
         view.model = movie
         view.presenter = presenter
+        view.hudProvider = factory.getHUDProvider()
+        view.genres = genres
 
         interactor.delegate = presenter
         router.viewController = view

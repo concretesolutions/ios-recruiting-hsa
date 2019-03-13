@@ -478,9 +478,9 @@
 		03A028622236F01600028FC1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				03A0286B2236F1D800028FC1 /* CoreDataService.swift */,
 				0319AD5F2239259900606255 /* Providers */,
 				03A0286D2236F23700028FC1 /* Logs */,
-				03A0286A2236F1CB00028FC1 /* CoreData */,
 				03A028632236F02A00028FC1 /* AppTasks */,
 			);
 			path = Services;
@@ -494,14 +494,6 @@
 				03A028682236F19900028FC1 /* CoreDataTask.swift */,
 			);
 			path = AppTasks;
-			sourceTree = "<group>";
-		};
-		03A0286A2236F1CB00028FC1 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				03A0286B2236F1D800028FC1 /* CoreDataService.swift */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		03A0286D2236F23700028FC1 /* Logs */ = {

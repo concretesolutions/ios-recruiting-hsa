@@ -1,11 +1,14 @@
 import Foundation
 
 class MovieDetailFactory {
-
-    func getRepository() -> SavedMoviesRepositoryProtocol {
+    func getSavedMoviesRepository() -> SavedMoviesRepositoryProtocol {
         // Here I will return mocks repositories for unit / ui tests
-        let dataSource = SavedMoviesDataSource(persistentContainer: CoreDataService.shared.savedAdsPersistentContainer)
+        let dataSource = SavedMoviesDataSource(persistentContainer: CoreDataService.shared.savedMoviesPersistentContainer)
         let repository = SavedMoviesRepository(dataSource: dataSource)
         return repository
+    }
+
+    func getHUDProvider() -> HUDProvider {
+        return SVProgressHUDProvider()
     }
 }

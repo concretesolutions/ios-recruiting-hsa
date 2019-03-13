@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         878
                     ])
 
-                let viewController = MovieDetailWireframe.assemble(movie: movie)
-                self.window?.rootViewController = viewController
+                let viewController = MovieDetailWireframe.assemble(movie: movie, genres: ["Hola", "Que", "Hace"])
+                let navController = UINavigationController(rootViewController: viewController)
+                self.window?.rootViewController = navController
                 self.window?.makeKeyAndVisible()
             }
         }

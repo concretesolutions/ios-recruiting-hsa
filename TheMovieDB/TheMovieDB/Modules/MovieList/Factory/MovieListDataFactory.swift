@@ -2,7 +2,7 @@ import Foundation
 
 class MovieListDataFactory {
     func getSavedMoviesRepository() -> SavedMoviesRepositoryProtocol {
-        let dataSource = SavedMoviesDataSource(persistentContainer: CoreDataService.shared.savedAdsPersistentContainer)
+        let dataSource = SavedMoviesDataSource(persistentContainer: CoreDataService.shared.savedMoviesPersistentContainer)
         let repository = SavedMoviesRepository(dataSource: dataSource)
         return repository
     }

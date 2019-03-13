@@ -5,11 +5,11 @@ class CoreDataService {
     static let shared = CoreDataService()
     private let logCategory = "TheMovieDB-CoreData"
 
-    private(set) var savedAdsPersistentContainer: NSPersistentContainer
+    private(set) var savedMoviesPersistentContainer: NSPersistentContainer
     private let savedAdsDatabaseName = "SavedMovies"
 
     private init() {
-        savedAdsPersistentContainer = NSPersistentContainer(name: savedAdsDatabaseName)
+        savedMoviesPersistentContainer = NSPersistentContainer(name: savedAdsDatabaseName)
         initSavedAdsContainer()
     }
 
@@ -24,11 +24,11 @@ class CoreDataService {
         description.shouldInferMappingModelAutomatically = true
         description.type = NSBinaryStoreType
         description.url = savedAdsStoreUrl
-        savedAdsPersistentContainer.persistentStoreDescriptions = [description]
+        savedMoviesPersistentContainer.persistentStoreDescriptions = [description]
     }
 
     func loadPersistentStores(success: @escaping () -> Void) {
-        savedAdsPersistentContainer.loadPersistentStores { description, error in
+        savedMoviesPersistentContainer.loadPersistentStores { description, error in
             if let error = error {
                 LogProvider.shared.log(message: "Error getting saved movies core data stores %@", type: .error, logCategory: self.logCategory, args: String(describing: error))
                 // LogProvider.shared.logNonFatal(error: error)

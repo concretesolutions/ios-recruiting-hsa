@@ -5,6 +5,7 @@ class MovieDetailViewController: UITableViewController {
     var model: MovieModel?
     var hudProvider: HUDProvider?
     private var isSaved = false
+    var genres: [String] = []
 
     private let sections = 1
     internal let reusableCellIdentifier = "TextCell"
@@ -60,6 +61,10 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
         hudProvider?.hideLoading()
     }
 
+    func showMessage(_ message: String) {
+        hudProvider?.showSuccessMessage(message)
+    }
+
     func updateSavedMovieStatus(saved: Bool) {
         OperationQueue.main.addOperation {
             self.isSaved = saved
@@ -70,5 +75,5 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
 }
 
 enum MovieDetailViewControllerSections: Int, CaseIterable {
-    case image = 0, title, year, average, overview
+    case image = 0, title, date, genres, average, overview
 }

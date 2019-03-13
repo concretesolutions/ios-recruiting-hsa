@@ -5,7 +5,7 @@ class MovieListRouter: MovieListRouterProtocol {
     var viewController: UIViewController?
 
     func showMovieDetail(movie: MovieModel, isIpad: Bool) {
-        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie)
+        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie, genres: [])
 
         if isIpad {
             let navController = UINavigationController(rootViewController: movieDetailVC)

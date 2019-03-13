@@ -2,8 +2,16 @@ import Foundation
 import SVProgressHUD
 
 class SVProgressHUDProvider: HUDProvider {
-    func showMessage(_ message: String) {
+    init() {
+        SVProgressHUD.setMaximumDismissTimeInterval(2.0)
+    }
+
+    func shoInfowMessage(_ message: String) {
         SVProgressHUD.showInfo(withStatus: message)
+    }
+
+    func showSuccessMessage(_ message: String) {
+        SVProgressHUD.showSuccess(withStatus: message)
     }
 
     func showError(_ errorMessage: String) {

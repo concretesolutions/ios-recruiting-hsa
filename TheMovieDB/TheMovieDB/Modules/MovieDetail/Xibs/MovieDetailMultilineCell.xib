@@ -20,24 +20,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iar-hL-hWv">
-                        <rect key="frame" x="20" y="10" width="290" height="39.5"/>
+                        <rect key="frame" x="20" y="36" width="290" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mva-Ck-XZd">
+                        <rect key="frame" x="20" y="10" width="290" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="b60-eR-zSD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Iar-hL-hWv" secondAttribute="trailing" constant="10" id="6Ut-4n-DEA"/>
-                    <constraint firstItem="Iar-hL-hWv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="83E-3f-fqH"/>
+                    <constraint firstItem="mva-Ck-XZd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ct7-gB-v4X"/>
+                    <constraint firstItem="mva-Ck-XZd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="HV4-uD-X3v"/>
                     <constraint firstItem="Iar-hL-hWv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="gNe-Ul-3l0"/>
+                    <constraint firstItem="Iar-hL-hWv" firstAttribute="top" secondItem="mva-Ck-XZd" secondAttribute="bottom" constant="5" id="iEG-su-fcF"/>
+                    <constraint firstAttribute="trailing" secondItem="mva-Ck-XZd" secondAttribute="trailing" constant="10" id="iGP-Gk-xUV"/>
                     <constraint firstAttribute="bottom" secondItem="Iar-hL-hWv" secondAttribute="bottom" constant="10" id="t7e-uh-f20"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="labelTitle" destination="mva-Ck-XZd" id="B4y-aC-GW7"/>
                 <outlet property="multilineLabel" destination="Iar-hL-hWv" id="BLV-8B-8I5"/>
             </connections>
-            <point key="canvasLocation" x="129.59999999999999" y="161.01949025487258"/>
+            <point key="canvasLocation" x="129.59999999999999" y="170.01499250374815"/>
         </tableViewCell>
     </objects>
 </document>

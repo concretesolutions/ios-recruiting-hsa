@@ -2,6 +2,7 @@
 "MovieDetail.cell.average" = "Promedio";
 "MovieDetail.cell.overview" = "Sinopsis";
 "MovieDetail.cell.date" = "Fecha de estreno";
+"MovieDetail.cell.genres" = "Géneros";
 
 "MovieDetail.saveMovie.success" = "Película agregada a favoritos";
 "MovieDetail.unsaveMovie.success" = "Película quitada de favoritos";

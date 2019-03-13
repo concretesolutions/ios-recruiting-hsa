@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieDetailWireframeProtocol: class {
-    static func assemble(movie: MovieModel) -> UIViewController
+    static func assemble(movie: MovieModel, genres: [String]) -> UIViewController
 }
 
 protocol MovieDetailViewProtocol: class {
@@ -10,6 +10,7 @@ protocol MovieDetailViewProtocol: class {
 
     func showLoading()
     func hideLoading()
+    func showMessage(_ message: String)
     func updateSavedMovieStatus(saved: Bool)
 }
 

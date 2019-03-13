@@ -33,6 +33,7 @@ extension MovieDetailPresenter: MovieDetailInteractorDelegate {
     func saveMovieSuccess() {
         view?.hideLoading()
         view?.updateSavedMovieStatus(saved: true)
+        view?.showMessage(MovieDetailLocalizer.saveMovieSuccessMessage.localizedString)
     }
 
     func saveMovieFailure(error: Error) {
@@ -43,6 +44,7 @@ extension MovieDetailPresenter: MovieDetailInteractorDelegate {
     func unsaveMovieSuccess() {
         view?.hideLoading()
         view?.updateSavedMovieStatus(saved: false)
+        view?.showMessage(MovieDetailLocalizer.unsaveMovieSuccessMessage.localizedString)
     }
 
     func unsaveMovieFailure(error: Error) {
