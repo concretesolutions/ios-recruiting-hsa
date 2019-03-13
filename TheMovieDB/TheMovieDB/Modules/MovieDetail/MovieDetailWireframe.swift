@@ -9,12 +9,11 @@ class MovieDetailWireframe: MovieDetailWireframeProtocol {
 
         view.model = movie
         view.presenter = presenter
-        let navigation = UINavigationController(rootViewController: view)
 
         interactor.delegate = presenter
         router.viewController = view
         presenter.view = view
 
-        return navigation
+        return view
     }
 }
