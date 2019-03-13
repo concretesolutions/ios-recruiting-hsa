@@ -1,8 +1,9 @@
 import UIKit
 
 class MovieListWireframe: MovieListWireframeProtocol {
-    static func assemble(savedMoviesRepository: SavedMoviesRepositoryProtocol, movieDBRepository: MovieDBRepositoryProtocol, configurations: ConfigurationsProtocol) -> UIViewController {
-        let interactor = MovieListInteractor(savedMoviesRepository: savedMoviesRepository, movieDBRepository: movieDBRepository, configurations: configurations)
+    static func assemble() -> UIViewController {
+        let factory = MovieListDataFactory()
+        let interactor = MovieListInteractor(savedMoviesRepository: factory.getSavedMoviesRepository(), movieDBRepository: factory.getMovieDBRepository(), configurations: factory.getConfigurations())
         let router = MovieListRouter()
         let presenter = MovieListPresenter(interactor: interactor, router: router)
         let view = MovieListViewController(presenter: presenter)

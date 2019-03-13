@@ -11,9 +11,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         CoreDataService.shared.loadPersistentStores {
             OperationQueue.main.addOperation {
-                let dataSource = SavedMoviesDataSource(persistentContainer: CoreDataService.shared.savedAdsPersistentContainer)
-                let repository = SavedMoviesRepository(dataSource: dataSource)
-
                 let movie = MovieModel(id: 1,
                                        title: "Capitana Marvel",
                                        overview: "La historia sigue a Carol Danvers mientras ella se convierte en uno de los héroes más poderosos del universo cuando la Tierra se encuentre atrapada en medio de una guerra galáctica entre dos razas alienígenas. Situada en los años 90, Captain Marvel es una historia nueva de un período de tiempo nunca antes visto en la historia del Universo Cinematográfico de Marvel.",
@@ -26,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                         878
                     ])
 
-                let viewController = MovieDetailWireframe.assemble(repository: repository, movie: movie)
+                let viewController = MovieDetailWireframe.assemble(movie: movie)
                 self.window?.rootViewController = viewController
                 self.window?.makeKeyAndVisible()
             }

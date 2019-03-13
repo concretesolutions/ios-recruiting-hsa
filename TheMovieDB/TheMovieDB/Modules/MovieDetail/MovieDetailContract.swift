@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieDetailWireframeProtocol: class {
-    static func assemble(repository: SavedMoviesRepositoryProtocol, movie: MovieModel) -> UIViewController
+    static func assemble(movie: MovieModel) -> UIViewController
 }
 
 protocol MovieDetailViewProtocol: class {

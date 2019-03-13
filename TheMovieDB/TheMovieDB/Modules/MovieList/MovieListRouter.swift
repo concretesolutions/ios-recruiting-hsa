@@ -1,13 +1,11 @@
 import UIKit
 
 class MovieListRouter: MovieListRouterProtocol {
-    // TODO: Remove this variable
-    var repository: SavedMoviesRepositoryProtocol?
+
     var viewController: UIViewController?
 
     func showMovieDetail(movie: MovieModel, isIpad: Bool) {
-        // TODO: Remove repository variable. Replace by a factory object
-        let movieDetailVC = MovieDetailWireframe.assemble(repository: repository!, movie: movie)
+        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie)
 
         if isIpad {
             let navController = UINavigationController(rootViewController: movieDetailVC)
@@ -19,8 +17,8 @@ class MovieListRouter: MovieListRouterProtocol {
     }
 
     func showErrorAlert(error: Error) {
-        let alertTitle = MovieDetailLocalizer.errorAlertTitle.localizedString
-        let okButtonTitle = MovieDetailLocalizer.errorAlertOkButtonTitle.localizedString
+        let alertTitle = "" //MovieDetailLocalizer.errorAlertTitle.localizedString
+        let okButtonTitle = "" //MovieDetailLocalizer.errorAlertOkButtonTitle.localizedString
         let alertMessage = error.localizedDescription
 
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)

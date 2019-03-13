@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieListWireframeProtocol: class {
-    static func assemble(savedMoviesRepository: SavedMoviesRepositoryProtocol, movieDBRepository: MovieDBRepositoryProtocol, configurations: ConfigurationsProtocol) -> UIViewController
+    static func assemble() -> UIViewController
 }
 
 protocol MovieListViewProtocol: class {
