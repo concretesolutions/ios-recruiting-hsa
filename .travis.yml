@@ -5,8 +5,6 @@ cache:
   directories:
   - "$HOME/.vendor/bundle/"
   - Pods
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
 
 if: (branch = master AND type = push) OR (head_branch != master AND type = pull_request)
 
@@ -25,7 +23,7 @@ stages:
 jobs:
   include:
   - stage: run tests
-    script: "./scripts/run_unit_tests.sh unit"
-  - script: "./scripts/run_unit_tests.sh ui"
+    script: bundle exec fastlane unit_test
+  - script: bundle exec fastlane ui_test
   - stage: upload ipa to app store
     script: bundle exec fastlane beta
