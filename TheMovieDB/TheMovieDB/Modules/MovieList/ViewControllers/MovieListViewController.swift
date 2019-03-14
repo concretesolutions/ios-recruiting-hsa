@@ -4,6 +4,7 @@ class MovieListViewController: UICollectionViewController {
     var presenter: MovieListPresenterProtocol?
     internal var movies: [MovieModel] = []
     internal var moviesIds: [Int] = []
+    internal let refreshControl = UIRefreshControl()
     var configurations: ConfigurationsProtocol!
     var hudProvider: HUDProvider?
     var genres: [GenreModel] = []
@@ -15,6 +16,7 @@ class MovieListViewController: UICollectionViewController {
         presenter?.viewDidLoad()
         setupCollectionView()
         setupNavigationBar()
+        setupPullToRefresh()
     }
 
     private func setupCollectionView() {
@@ -26,6 +28,15 @@ class MovieListViewController: UICollectionViewController {
 
     private func setupNavigationBar() {
         navigationItem.title = MovieListLocalizer.movieListTitle.localizedString
+    }
+
+    private func setupPullToRefresh() {
+        refreshControl.addTarget(self, action: #selector(willRefreshList), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+
+    @objc func willRefreshList() {
+        presenter?.willLoadMovies(page: 1, append: false)
     }
 }
 
@@ -40,6 +51,7 @@ extension MovieListViewController: MovieListViewProtocol {
 
         OperationQueue.main.addOperation {
             self.collectionView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
 
@@ -65,5 +77,8 @@ extension MovieListViewController: MovieListViewProtocol {
 
     func hideLoading() {
         hudProvider?.hideLoading()
+        OperationQueue.main.addOperation {
+            self.refreshControl.endRefreshing()
+        }
     }
 }

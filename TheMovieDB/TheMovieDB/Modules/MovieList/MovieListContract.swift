@@ -40,7 +40,7 @@ protocol MovieListPresenterProtocol: class {
     var router: MovieListRouterProtocol? { get set }
 
     func viewDidLoad()
-    func willLoadMovies(page: Int)
+    func willLoadMovies(page: Int, append: Bool)
     func willLoadGenres()
     func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool)
 }

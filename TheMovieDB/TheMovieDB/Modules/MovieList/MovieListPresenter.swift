@@ -16,9 +16,9 @@ class MovieListPresenter: MovieListPresenterProtocol {
         interactor?.fetchSavedMoviesIds(append: false)
     }
 
-    func willLoadMovies(page: Int) {
+    func willLoadMovies(page: Int, append: Bool) {
         view?.showLoading()
-        interactor?.fetchMovies(page: page, append: true)
+        interactor?.fetchMovies(page: page, append: append)
     }
 
     func willLoadGenres() {
