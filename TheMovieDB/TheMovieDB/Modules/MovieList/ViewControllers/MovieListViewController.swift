@@ -4,7 +4,7 @@ import UIKit
 class MovieListViewController: UICollectionViewController {
     var presenter: MovieListPresenterProtocol?
     internal var movies: [MovieModel] = []
-    internal var moviesIds: [Int] = []
+    internal var moviesIds: Set<Int32> = []
     internal let refreshControl = UIRefreshControl()
     var configurations: ConfigurationsProtocol!
     var hudProvider: HUDProvider?
@@ -74,12 +74,12 @@ extension MovieListViewController: MovieListViewProtocol {
         }
     }
 
-    func setSavedMoviesIds(ids: [Int], append: Bool) {
-        if append {
-            moviesIds.append(contentsOf: ids)
-        } else {
+    func setSavedMoviesIds(ids: [Int32], append: Bool) {
+        if !append {
             moviesIds.removeAll()
-            moviesIds.append(contentsOf: ids)
+        }
+        for movieId in ids {
+            moviesIds.insert(movieId)
         }
         OperationQueue.main.addOperation {
             self.collectionView.reloadData()
@@ -99,6 +99,23 @@ extension MovieListViewController: MovieListViewProtocol {
         OperationQueue.main.addOperation {
             self.refreshControl.endRefreshing()
             self.collectionView.infiniteScrollingView?.stopAnimating()
+        }
+    }
+}
+
+extension MovieListViewController: MovieListSavedAdsUpdate {
+    func didUpdateSavedMovieState(movieId: Int32?, saved: Bool) {
+        guard let movieId = movieId, let movie = movies.first(where: { $0.id == movieId }),
+            let movieIndex = movies.index(of: movie) else { return }
+        if saved {
+            moviesIds.insert(movieId)
+        } else {
+            guard let movieIdIndex = moviesIds.index(of: movieId) else { return }
+            moviesIds.remove(at: movieIdIndex)
+        }
+
+        OperationQueue.main.addOperation {
+            self.collectionView.reloadItems(at: [IndexPath(item: movieIndex, section: 0)])
         }
     }
 }

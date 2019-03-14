@@ -1,7 +1,7 @@
 import Foundation
 
 struct MovieModel: Equatable {
-    let id: Int
+    let id: Int32
     let title: String
     let overview: String
     let releaseDate: Date
@@ -60,12 +60,12 @@ struct MovieModel: Equatable {
         self.overview = overview
         self.posterPath = posterPath
         voteAverage = savedMovie.voteAverage
-        id = Int(savedMovie.id)
+        id = savedMovie.id
         genreIDS = genresIDS
         self.releaseDate = releaseDate
     }
 
-    init(id: Int,
+    init(id: Int32,
          title: String,
          overview: String,
          releaseDate: Date,

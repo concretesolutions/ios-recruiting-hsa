@@ -34,6 +34,6 @@ extension MovieListViewController {
                 movieGenres.append(genre.name)
             }
         }
-        presenter?.didTapInMovieCell(movie: movie, genres: movieGenres, isIpad: UIDevice.current.userInterfaceIdiom == .pad)
+        presenter?.didTapInMovieCell(movie: movie, genres: movieGenres, isIpad: UIDevice.current.userInterfaceIdiom == .pad, savedAdsDelegate: self)
     }
 }

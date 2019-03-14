@@ -3,8 +3,8 @@ import UIKit
 class MovieListRouter: MovieListRouterProtocol {
     weak var viewController: UIViewController?
 
-    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool) {
-        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie, genres: genres)
+    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?) {
+        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie, genres: genres, savedAdsDelegate: savedAdsDelegate)
 
         if isIpad {
             let navController = UINavigationController(rootViewController: movieDetailVC)

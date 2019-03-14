@@ -8,7 +8,7 @@ protocol MovieListViewProtocol: class {
     var presenter: MovieListPresenterProtocol? { get set }
 
     func setMovies(movies: [MovieModel], append: Bool)
-    func setSavedMoviesIds(ids: [Int], append: Bool)
+    func setSavedMoviesIds(ids: [Int32], append: Bool)
     func setGenres(genres: [GenreModel])
 
     func showLoading()
@@ -30,7 +30,7 @@ protocol MovieListInteractorDelegate: class {
     func fetchGenresSuccess(genres: [GenreModel])
     func fetchGenresFail(error: Error)
 
-    func fetchSavedMoviesIdsSuccess(ids: [Int], append: Bool)
+    func fetchSavedMoviesIdsSuccess(ids: [Int32], append: Bool)
     func fetchSavedMoviesIdsFail(error: Error)
 }
 
@@ -42,12 +42,16 @@ protocol MovieListPresenterProtocol: class {
     func viewDidLoad()
     func willLoadMovies(page: Int, append: Bool)
     func willLoadGenres()
-    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool)
+    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?)
 }
 
 protocol MovieListRouterProtocol: class {
     var viewController: UIViewController? { get set }
 
-    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool)
+    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?)
     func showErrorAlert(error: Error)
+}
+
+protocol MovieListSavedAdsUpdate: class {
+    func didUpdateSavedMovieState(movieId: Int32?, saved: Bool)
 }

@@ -2,7 +2,7 @@ import Foundation
 
 struct MovieEntity: Codable, Equatable {
     let voteCount: Int?
-    let id: Int?
+    let id: Int32?
     let video: Bool?
     let voteAverage: Double?
     let title: String?
@@ -32,7 +32,7 @@ struct MovieEntity: Codable, Equatable {
         let container = try decoder.container(keyedBy: MovieEntityCodingKeys.self)
 
         voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)
-        id = try container.decodeIfPresent(Int.self, forKey: .id)
+        id = try container.decodeIfPresent(Int32.self, forKey: .id)
         video = try container.decodeIfPresent(Bool.self, forKey: .video)
         voteAverage = try container.decodeIfPresent(Double.self, forKey: .voteAverage)
         title = try container.decodeIfPresent(String.self, forKey: .title)

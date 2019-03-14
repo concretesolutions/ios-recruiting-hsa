@@ -4,10 +4,10 @@ import RxSwift
 
 protocol SavedMoviesDataSourceProtocol {
     func storeMovie(model: MovieModel) -> Completable
-    func deleteMovie(id: Int) -> Completable
-    func getMovie(id: Int) -> Single<SavedMovie>
+    func deleteMovie(id: Int32) -> Completable
+    func getMovie(id: Int32) -> Single<SavedMovie>
     func getMovies() -> Single<[SavedMovie]>
-    func getMoviesIds() -> Single<[Int]>
+    func getMoviesIds() -> Single<[Int32]>
 }
 
 class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
@@ -40,7 +40,7 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         }
     }
 
-    func deleteMovie(id: Int) -> Completable {
+    func deleteMovie(id: Int32) -> Completable {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "id == %i", id)
@@ -63,7 +63,7 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         }
     }
 
-    func getMovie(id: Int) -> Single<SavedMovie> {
+    func getMovie(id: Int32) -> Single<SavedMovie> {
         let privateManagedObjectContext = persistentContainer.newBackgroundContext()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.fetchLimit = 1
@@ -107,9 +107,9 @@ class SavedMoviesDataSource: SavedMoviesDataSourceProtocol {
         }
     }
 
-    func getMoviesIds() -> Single<[Int]> {
-        let result = getMovies().flatMap { (movies) -> Single<[Int]> in
-            return .just(movies.compactMap({ Int($0.id) }))
+    func getMoviesIds() -> Single<[Int32]> {
+        let result = getMovies().flatMap { (movies) -> Single<[Int32]> in
+            return .just(movies.compactMap({ $0.id }))
         }
         return result
     }

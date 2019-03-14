@@ -3,10 +3,10 @@ import RxSwift
 
 protocol SavedMoviesRepositoryProtocol {
     func storeMovie(model: MovieModel) -> Completable
-    func deleteMovie(with movieId: Int) -> Completable
+    func deleteMovie(with movieId: Int32) -> Completable
     func getMovies() -> Single<[MovieModel]>
-    func getMoviesIds() -> Single<[Int]>
-    func movieExists(movieId: Int) -> Completable
+    func getMoviesIds() -> Single<[Int32]>
+    func movieExists(movieId: Int32) -> Completable
 }
 
 class SavedMoviesRepository: SavedMoviesRepositoryProtocol {
@@ -20,7 +20,7 @@ class SavedMoviesRepository: SavedMoviesRepositoryProtocol {
         return dataSource.storeMovie(model: model)
     }
 
-    func deleteMovie(with movieId: Int) -> Completable {
+    func deleteMovie(with movieId: Int32) -> Completable {
         return dataSource.deleteMovie(id: movieId)
     }
 
@@ -30,11 +30,11 @@ class SavedMoviesRepository: SavedMoviesRepositoryProtocol {
         }
     }
 
-    func getMoviesIds() -> Single<[Int]> {
+    func getMoviesIds() -> Single<[Int32]> {
         return dataSource.getMoviesIds()
     }
 
-    func movieExists(movieId: Int) -> Completable {
+    func movieExists(movieId: Int32) -> Completable {
         return dataSource.getMovie(id: movieId).flatMapCompletable({ (_) -> Completable in
             .empty()
         }).catchError({ (error) -> Completable in

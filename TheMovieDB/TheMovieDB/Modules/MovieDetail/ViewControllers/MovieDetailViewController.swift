@@ -5,6 +5,7 @@ class MovieDetailViewController: UITableViewController {
     var model: MovieModel?
     var hudProvider: HUDProvider?
     var configurations: ConfigurationsProtocol!
+    weak var savedAdsDelegate: MovieListSavedAdsUpdate?
     private var isSaved = false
     var genres: [String] = []
 
@@ -65,6 +66,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
             self.isSaved = saved
             let imageName = self.isSaved ? "favoriteIcon.full" : "favoriteIcon.empty"
             self.favoriteBarButtonItem.image = UIImage(named: imageName)
+            self.savedAdsDelegate?.didUpdateSavedMovieState(movieId: self.model?.id, saved: saved)
         }
     }
 }

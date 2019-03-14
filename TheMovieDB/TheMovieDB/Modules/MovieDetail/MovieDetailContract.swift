@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MovieDetailWireframeProtocol: class {
-    static func assemble(movie: MovieModel, genres: [String]) -> UIViewController
+    static func assemble(movie: MovieModel, genres: [String], savedAdsDelegate: MovieListSavedAdsUpdate?) -> UIViewController
 }
 
 protocol MovieDetailViewProtocol: class {
@@ -19,7 +19,7 @@ protocol MovieDetailInteractorProtocol: class {
 
     func saveMovie(_ movie: MovieModel)
     func unsaveMovie(_ movie: MovieModel)
-    func fetchSavedStatus(movieId: Int)
+    func fetchSavedStatus(movieId: Int32)
 }
 
 protocol MovieDetailInteractorDelegate: class {

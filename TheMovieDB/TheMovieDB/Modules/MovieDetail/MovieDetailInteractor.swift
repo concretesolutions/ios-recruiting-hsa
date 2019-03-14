@@ -31,7 +31,7 @@ final class MovieDetailInteractor: MovieDetailInteractorProtocol {
         }.disposed(by: disposeBag)
     }
 
-    func fetchSavedStatus(movieId: Int) {
+    func fetchSavedStatus(movieId: Int32) {
         repository.movieExists(movieId: movieId).subscribe { event in
             switch event {
             case .completed:
