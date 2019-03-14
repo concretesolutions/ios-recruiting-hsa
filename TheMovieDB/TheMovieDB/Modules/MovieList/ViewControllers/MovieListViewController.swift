@@ -15,12 +15,12 @@ class MovieListViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
         setupCollectionView()
         setupNavigationBar()
         setupPullToRefresh()
         setupInfiniteScroll()
         setupTabBarItem()
+        presenter?.viewDidLoad()
     }
 
     private func setupCollectionView() {
@@ -47,7 +47,8 @@ class MovieListViewController: UICollectionViewController {
 
     private func setupTabBarItem() {
         let image = UIImage(named: "listIcon")
-        tabBarItem = UITabBarItem(title: MovieListLocalizer.tabBarItemTitle.localizedString, image: image, selectedImage: image)
+        let title = MovieListLocalizer.tabBarItemTitle.localizedString
+        tabBarItem = UITabBarItem(title: title, image: image, selectedImage: image)
     }
 
     @objc func willRefreshList() {

@@ -1,0 +1,5 @@
+"SavedMovies.title" = "Mis películas favoritas";
+"SavedMovies.tabbar.title" = "Favoritas";
+
+"SavedMovies.cell.delete" = "Quitar";
+"SavedMovies.unsaveAction.success" = "Película quitada de favoritos";

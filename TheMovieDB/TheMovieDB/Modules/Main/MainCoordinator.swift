@@ -4,7 +4,8 @@ import UIKit
 class MainCoordinator {
     static func assemble() -> UIViewController {
         let listViewNavController = MovieListWireframe.assemble()
-        let mainViewController = MainViewController(viewControllers: [listViewNavController])
+        let savedMoviesNavController = SavedMoviesWireframe.assemble()
+        let mainViewController = MainViewController(viewControllers: [listViewNavController, savedMoviesNavController])
         return mainViewController
     }
 }
