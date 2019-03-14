@@ -41,7 +41,7 @@
                             <constraint firstAttribute="bottom" secondItem="ljc-gw-qpO" secondAttribute="bottom" constant="5" id="zV1-Uk-Ben"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoriteIcon.empty" translatesAutoresizingMaskIntoConstraints="NO" id="Fe1-zD-F1s">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoriteIcon.gray" translatesAutoresizingMaskIntoConstraints="NO" id="Fe1-zD-F1s">
                         <rect key="frame" x="125" y="5" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="j4s-Va-4GY"/>
@@ -73,6 +73,6 @@
     </objects>
     <resources>
         <image name="coverPlaceholder" width="50" height="50"/>
-        <image name="favoriteIcon.empty" width="22" height="21"/>
+        <image name="favoriteIcon.gray" width="17" height="16"/>
     </resources>
 </document>

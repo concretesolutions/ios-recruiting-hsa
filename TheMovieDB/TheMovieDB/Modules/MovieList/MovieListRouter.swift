@@ -9,7 +9,7 @@ class MovieListRouter: MovieListRouterProtocol {
 
         if isIpad {
             let navController = UINavigationController(rootViewController: movieDetailVC)
-            movieDetailVC.modalPresentationStyle = .formSheet
+            navController.modalPresentationStyle = .formSheet
             viewController?.present(navController, animated: true, completion: nil)
         } else {
             movieDetailVC.hidesBottomBarWhenPushed = true

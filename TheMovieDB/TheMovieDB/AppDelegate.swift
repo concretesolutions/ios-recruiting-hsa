@@ -5,9 +5,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private let appTasks: AppTasksProtocol = AppTasks()
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        // appTasks.application(application, didFinishLaunchingWithOptions: launchOptions)
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        appTasks.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         CoreDataService.shared.loadPersistentStores {
             OperationQueue.main.addOperation {

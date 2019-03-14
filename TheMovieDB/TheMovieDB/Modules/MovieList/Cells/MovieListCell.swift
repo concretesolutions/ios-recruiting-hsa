@@ -13,7 +13,7 @@ class MovieListCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageViewSaved.image = UIImage(named: "favoriteIcon.empty")
+        imageViewSaved.image = UIImage(named: "favoriteIcon.gray")
         labelTitle.text = ""
         imageViewCover.image = placeholderImage
         imageViewCover.contentMode = .center
@@ -40,7 +40,7 @@ class MovieListCell: UICollectionViewCell {
         }
 
         labelTitle.text = title
-        let imageName = isSaved ? "favoriteIcon.full" : "favoriteIcon.empty"
+        let imageName = isSaved ? "favoriteIcon.full" : "favoriteIcon.gray"
         imageViewSaved.image = UIImage(named: imageName)
     }
 }
