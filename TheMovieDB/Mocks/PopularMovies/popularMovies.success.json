@@ -1,0 +1,408 @@
+{
+    "page": 1,
+    "total_results": 19800,
+    "total_pages": 990,
+    "results": [
+        {
+            "vote_count": 947,
+            "id": 299537,
+            "video": false,
+            "vote_average": 7.3,
+            "title": "Capitana Marvel",
+            "popularity": 594.009,
+            "poster_path": "/d3p5JuwN7dG0TvrN5h4ZY4tMOEX.jpg",
+            "original_language": "en",
+            "original_title": "Captain Marvel",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "backdrop_path": "/d1hQaeKeAW3FBc3v6tIP5utleU0.jpg",
+            "adult": false,
+            "overview": "La historia sigue a Carol Danvers mientras ella se convierte en uno de los héroes más poderosos del universo cuando la Tierra se encuentre atrapada en medio de una guerra galáctica entre dos razas alienígenas. Situada en los años 90, Captain Marvel es una historia nueva de un período de tiempo nunca antes visto en la historia del Universo Cinematográfico de Marvel.",
+            "release_date": "2019-03-06"
+        },
+        {
+            "vote_count": 1351,
+            "id": 399579,
+            "video": false,
+            "vote_average": 6.7,
+            "title": "Alita: Ángel de Combate",
+            "popularity": 288.924,
+            "poster_path": "/xyjNl0CJthVahJlJo3tRpvjJIRj.jpg",
+            "original_language": "en",
+            "original_title": "Alita: Battle Angel",
+            "genre_ids": [
+                28,
+                878,
+                53,
+                12
+            ],
+            "backdrop_path": "/aQXTw3wIWuFMy0beXRiZ1xVKtcf.jpg",
+            "adult": false,
+            "overview": "Ido, un compasivo médico de ciborgs, encuentra a Alita abandonada en el desguace de Iron City. Cuando Alita despierta, no sabe quién es, ni reconoce el mundo en el que se encuentra, todo es nuevo para ella. Ido intentará proteger a Alita de su misterioso pasado, mientras que su nuevo amigo Hugo le ayudará a despertar sus recuerdos. En ese momento, Alita descubre que posee habilidades de combate extraordinarias, que podría usar para salvar a su nueva familia y amigos. Decidida a descubrir la verdad tras sus orígenes, Alita comienza un viaje que le enfrentará a las injusticias de un mundo oscuro y corrupto, descubriendo que solo ella puede cambiar el mundo en el que vive.",
+            "release_date": "2019-01-31"
+        },
+        {
+            "vote_count": 4239,
+            "id": 297802,
+            "video": false,
+            "vote_average": 6.8,
+            "title": "Aquaman",
+            "popularity": 241.812,
+            "poster_path": "/z5gqW3fffzQ16Jv5vDScpypq1FA.jpg",
+            "original_language": "en",
+            "original_title": "Aquaman",
+            "genre_ids": [
+                28,
+                12,
+                14,
+                878
+            ],
+            "backdrop_path": "/5A2bMlLfJrAfX9bqAibOL2gCruF.jpg",
+            "adult": false,
+            "overview": "Un icono durante más de 70 años, Aquaman (Jason Momoa) es el Rey de los Siete Mares. Este reacio gobernante de Atlantis se encuentra atrapado entre los constantes estragos causados al mar por los habitantes de la superficie y los atlantes buscando rebelarse. Pese a todo está decidido a proteger el mundo entero.",
+            "release_date": "2018-12-07"
+        },
+        {
+            "vote_count": 2394,
+            "id": 324857,
+            "video": false,
+            "vote_average": 8.5,
+            "title": "Spider-Man: Un Nuevo Universo",
+            "popularity": 239.471,
+            "poster_path": "/xRMZikjAHNFebD1FLRqgDZeGV4a.jpg",
+            "original_language": "en",
+            "original_title": "Spider-Man: Into the Spider-Verse",
+            "genre_ids": [
+                28,
+                12,
+                16,
+                878,
+                35
+            ],
+            "backdrop_path": "/uUiId6cG32JSRI6RyBQSvQtLjz2.jpg",
+            "adult": false,
+            "overview": "En un universo paralelo donde Peter Parker ha muerto, un joven de secundaria llamado Miles Morales es el nuevo Spider-Man. Sin embargo, cuando el líder mafioso Wilson Fisk (a.k.a Kingpin) construye el \"Super Colisionador\" trae a una versión alternativa de Peter Parker que tratará de enseñarle a Miles como ser un mejor Spider-Man. Pero no será el único Spider Man en entrar a este universo, 4 versiones alternas de Spidey aparecerán y buscarán regresar a su universo antes de que toda la realidad colapse",
+            "release_date": "2018-12-07"
+        },
+        {
+            "vote_count": 924,
+            "id": 166428,
+            "video": false,
+            "vote_average": 7.9,
+            "title": "Cómo entrenar a tu dragón 3",
+            "popularity": 226.318,
+            "poster_path": "/rhnoAReqO3Xoe6GbJhT3409lnq8.jpg",
+            "original_language": "en",
+            "original_title": "How to Train Your Dragon: The Hidden World",
+            "genre_ids": [
+                16,
+                10751,
+                12
+            ],
+            "backdrop_path": "/h3KN24PrOheHVYs9ypuOIdFBEpX.jpg",
+            "adult": false,
+            "overview": "Mientras Hipo (Jay Baruchel) logra su sueño de lograr una utopía pacífica entre los dragones, la aparición de una pareja sin domar hace que Desdentao, el furia nocturna, se aleje. Cuando el peligro aumente en casa y el reinado de Hipo como líder sea puesto a prueba, ambos deberán tomar decisiones imposibles para salvar a los suyos.",
+            "release_date": "2019-01-03"
+        },
+        {
+            "vote_count": 3750,
+            "id": 338952,
+            "video": false,
+            "vote_average": 6.9,
+            "title": "Animales fantásticos: Los crímenes de Grindelwald",
+            "popularity": 191.048,
+            "poster_path": "/zs6LFuE4aB1I8crKjAhlPVTHAOS.jpg",
+            "original_language": "en",
+            "original_title": "Fantastic Beasts: The Crimes of Grindelwald",
+            "genre_ids": [
+                10751,
+                14,
+                12
+            ],
+            "backdrop_path": "/wDN3FIcQQ1HI7mz1OOKYHSQtaiE.jpg",
+            "adult": false,
+            "overview": "Cumpliendo con su amenaza, Grindelwald escapa de su custodia y ha comenzado a reunir seguidores, la mayoría de los cuales no sospechan sus verdaderas intenciones: alzar a los magos purasangre para reinar sobre todas las criaturas no mágicas. En un esfuerzo por frustrar los planes de Grindelwald, Albus Dumbledore (Jude Law) recluta a su antiguo estudiante Newt Scamander, quien accede a prestar su ayuda, sin conocer los peligros que aguardan. Las líneas quedan marcadas mientras el amor y la lealtad son puestos a prueba, incluso entre los amigos más cercanos y la familia, en un mundo mágico cada vez más dividido.",
+            "release_date": "2018-11-14"
+        },
+        {
+            "vote_count": 729,
+            "id": 449563,
+            "video": false,
+            "vote_average": 6.4,
+            "title": "¿No es romántico?",
+            "popularity": 175.977,
+            "poster_path": "/AvLtW2LPRYbyaXgoC0UA2RsK68T.jpg",
+            "original_language": "en",
+            "original_title": "Isn't It Romantic",
+            "genre_ids": [
+                35,
+                14,
+                10749
+            ],
+            "backdrop_path": "/fPwJmIg6CVNNXUJvL1wgeexzwEp.jpg",
+            "adult": false,
+            "overview": "Natalie (Rebel Wilson) es una arquitecta de Nueva York que se esfuerza por hacerse notar en su trabajo, pero es más probable que le pidan café y panecillos que diseñe el próximo rascacielos de la ciudad. Por si las cosas no son lo suficientemente malas, Natalie, una cínica de toda la vida cuando se trata del amor, tiene un encuentro con un asaltante que la deja inconsciente y, al despertar, descubre que su vida se ha convertido de repente en su peor pesadilla: está inmersa en una comedia romántica. Y es la protagonista...",
+            "release_date": "2019-02-13"
+        },
+        {
+            "vote_count": 2104,
+            "id": 490132,
+            "video": false,
+            "vote_average": 8.3,
+            "title": "Green Book",
+            "popularity": 163.276,
+            "poster_path": "/6yo3zLs8eGcdX8eS6DHcjC8U7eY.jpg",
+            "original_language": "en",
+            "original_title": "Green Book",
+            "genre_ids": [
+                18,
+                35,
+                10402
+            ],
+            "backdrop_path": "/Arxw3x7Y1jmkYryy0CodKce0Cms.jpg",
+            "adult": false,
+            "overview": "Años 60. Cuando Tony Lip (Viggo Mortensen), un rudo italoamericano del Bronx, es contratado como chófer del virtuoso pianista negro Don Shirley (Mahershala Ali), durante una gira de conciertos por el Sur de Estados Unidos, deberá confiar en \"El libro verde\", una guía de los pocos establecimientos seguros para los afroamericanos, para encontrar alojamiento. Son dos personas que tendrán que hacer frente al racismo y los prejuicios, pero a las que la bondad y el sentido del humor unirán, obligándoles a dejar de lado las diferencias para sobrevivir y prosperar en el viaje de su vida.",
+            "release_date": "2018-11-16"
+        },
+        {
+            "vote_count": 1664,
+            "id": 450465,
+            "video": false,
+            "vote_average": 6.6,
+            "title": "Glass (Cristal)",
+            "popularity": 160.868,
+            "poster_path": "/vYbLXENNUaNcHQl4Te94Msqn1oj.jpg",
+            "original_language": "en",
+            "original_title": "Glass",
+            "genre_ids": [
+                53,
+                9648,
+                18,
+                14
+            ],
+            "backdrop_path": "/lvjscO8wmpEbIfOEZi92Je8Ktlg.jpg",
+            "adult": false,
+            "overview": "Continuando desde donde lo dejó \"Múltiple\", \"Glass\" sigue los pasos de David Dunn (Bruce Willis) en su búsqueda de la figura superhumana de \"La Bestia\". En la sombra, Elijah Price (Samuel L. Jackson) parece emerger como una figura clave que conoce los secretos de ambos. Secuela de \"El protegido\" y \"Múltiple\", de M. Night Shyamalan.",
+            "release_date": "2019-01-16"
+        },
+        {
+            "vote_count": 55,
+            "id": 445629,
+            "video": false,
+            "vote_average": 6.7,
+            "title": "Fighting with My Family",
+            "popularity": 147.371,
+            "poster_path": "/3TZCBAdKQiz0cGKGEjZiyZUA01O.jpg",
+            "original_language": "en",
+            "original_title": "Fighting with My Family",
+            "genre_ids": [
+                35,
+                18
+            ],
+            "backdrop_path": "/mYKP6qcDUimVMAHQWLOuDHjO19S.jpg",
+            "adult": false,
+            "overview": "Un antiguo luchador de lucha libre y su familia se ganan la vida actuando a lo largo del país, pero sus hijos sueñan con poder vivir del Wrestling.",
+            "release_date": "2019-02-14"
+        },
+        {
+            "vote_count": 1632,
+            "id": 480530,
+            "video": false,
+            "vote_average": 6.6,
+            "title": "Creed II: La leyenda de Rocky",
+            "popularity": 143.602,
+            "poster_path": "/rButUxve80Y46abjc8qaKUWq6w8.jpg",
+            "original_language": "en",
+            "original_title": "Creed II",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/6JHYYbvoSuQ95ceGx8Oeg8zzAjg.jpg",
+            "adult": false,
+            "overview": "Secuela de Creed. La leyenda de Rocky que seguirá narrando la historia de Adonis Creed, el hijo de Apollo Creed que es entrenado por el ex campeón de los pesos pesados Rocky Balboa para conseguir el título de campeón que consiguió su padre en 1979.",
+            "release_date": "2018-11-21"
+        },
+        {
+            "vote_count": 923,
+            "id": 400650,
+            "video": false,
+            "vote_average": 6.8,
+            "title": "El Regreso de Mary Poppins",
+            "popularity": 143.304,
+            "poster_path": "/d9bLYgkgppdsyGaI4uSrZedBKpA.jpg",
+            "original_language": "en",
+            "original_title": "Mary Poppins Returns",
+            "genre_ids": [
+                14,
+                10751,
+                35
+            ],
+            "backdrop_path": "/cwiJQXezWz876K3jS57Sq56RYCZ.jpg",
+            "adult": false,
+            "overview": "En la era de la Depresión de Londres, un ahora crecidos Jane y Michael Banks, junto con los tres hijos de Michael, son visitados por la enigmática Mary Poppins después de la pérdida de un pariente. A través de sus habilidades mágicas únicas, y con la ayuda de su amigo Jack, ella ayuda a la familia a redescubrir la alegría y la maravilla que falta en sus vidas.",
+            "release_date": "2018-12-13"
+        },
+        {
+            "vote_count": 3324,
+            "id": 337167,
+            "video": false,
+            "vote_average": 6.1,
+            "title": "Cincuenta sombras liberadas",
+            "popularity": 143.085,
+            "poster_path": "/sM8hwgWZlmZf0h4aOkNopb3HBIo.jpg",
+            "original_language": "en",
+            "original_title": "Fifty Shades Freed",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "backdrop_path": "/9ywA15OAiwjSTvg3cBs9B7kOCBF.jpg",
+            "adult": false,
+            "overview": "Creyendo que han dejado atrás las sombras del pasado, Christian y Anastasia disfrutan de su relación y de su vida llena de lujos. Pero justo cuando Ana empieza a relajarse, aparecen nuevas amenazas que ponen en riesgo su felicidad.",
+            "release_date": "2018-01-17"
+        },
+        {
+            "vote_count": 62,
+            "id": 487297,
+            "video": false,
+            "vote_average": 6,
+            "title": "What Men Want",
+            "popularity": 142.915,
+            "poster_path": "/30IiwvIRqPGjUV0bxJkZfnSiCL.jpg",
+            "original_language": "en",
+            "original_title": "What Men Want",
+            "genre_ids": [
+                35,
+                14,
+                10749
+            ],
+            "backdrop_path": "/umecegsPpKr2ZXA62Da9CQBVoIO.jpg",
+            "adult": false,
+            "overview": "Una mujer que se dedica al mundo de las agencias deportivas se siente menospreciada por los hombres en un mundo que considera machista. Cuando un día adquiere la habilidad de escuchar sus pensamientos, descubre cómo manipularlos para beneficio propio.",
+            "release_date": "2019-02-08"
+        },
+        {
+            "vote_count": 306,
+            "id": 512196,
+            "video": false,
+            "vote_average": 6.2,
+            "title": "Feliz día de tu muerte 2",
+            "popularity": 139.345,
+            "poster_path": "/q6PSTBNlI9WtfuMlngz82yaudUg.jpg",
+            "original_language": "en",
+            "original_title": "Happy Death Day 2U",
+            "genre_ids": [
+                27,
+                9648,
+                53,
+                878,
+                35
+            ],
+            "backdrop_path": "/7trJGwprMUMKhvSx94lmsq6d985.jpg",
+            "adult": false,
+            "overview": "Dos años después de los eventos acaecidos en la primera película, Tree Gelbman vuelve a entrar en el bucle temporal para descubrir el motivo por el cual accedió a él en primer lugar. También debe hacer frente a Lori, que tras resucitar a causa del buble ha vuelto sedienta de venganza. Secuela de \"Happy Death Day\" (2017).",
+            "release_date": "2019-02-13"
+        },
+        {
+            "vote_count": 42,
+            "id": 450001,
+            "video": false,
+            "vote_average": 5.8,
+            "title": "葉問外傳：張天志",
+            "popularity": 138.198,
+            "poster_path": "/2WfjB6FUDTIBVI2y02UGbnHR82s.jpg",
+            "original_language": "cn",
+            "original_title": "葉問外傳：張天志",
+            "genre_ids": [
+                28
+            ],
+            "backdrop_path": "/nv4KsjnhcSIZtuw2mkT9IxoQ5oq.jpg",
+            "adult": false,
+            "overview": "",
+            "release_date": "2018-12-20"
+        },
+        {
+            "vote_count": 5987,
+            "id": 424694,
+            "video": false,
+            "vote_average": 8.1,
+            "title": "Bohemian Rhapsody",
+            "popularity": 131.906,
+            "poster_path": "/gk6IErM0acV6HJRwKZy8ecBoddc.jpg",
+            "original_language": "en",
+            "original_title": "Bohemian Rhapsody",
+            "genre_ids": [
+                18,
+                10402
+            ],
+            "backdrop_path": "/xcaSYLBhmDzJ6P14bcKe0KTh3QV.jpg",
+            "adult": false,
+            "overview": "Bohemian Rhapsody es una rotunda y sonora celebración de Queen, de su música y de su extraordinario cantante Freddie Mercury, que desafió estereotipos e hizo añicos tradiciones para convertirse en uno de los showmans más queridos del mundo. La película plasma el meteórico ascenso al olimpo de la música de la banda a través de sus icónicas canciones y su revolucionario sonido, su crisis cuando el estilo de vida de Mercury estuvo fuera de control, y su triunfal reunión en la víspera del Live Aid, en la que Mercury, mientras sufría una enfermedad que amenazaba su vida, lidera a la banda en uno de los conciertos de rock más grandes de la historia. Veremos cómo se cimentó el legado de una banda que siempre se pareció más a una familia, y que continúa inspirando a propios y extraños, soñadores y amantes de la música hasta nuestros días.",
+            "release_date": "2018-10-24"
+        },
+        {
+            "vote_count": 1097,
+            "id": 428078,
+            "video": false,
+            "vote_average": 5.9,
+            "title": "Maquinas mortales",
+            "popularity": 130.875,
+            "poster_path": "/iteUvQKCW0EqNQrIVzZGJntYq9s.jpg",
+            "original_language": "en",
+            "original_title": "Mortal Engines",
+            "genre_ids": [
+                878,
+                28,
+                12,
+                14,
+                53
+            ],
+            "backdrop_path": "/rm2oMykm5nX6SzXFr7TGHkO6r8Z.jpg",
+            "adult": false,
+            "overview": "En un futuro distópico, las ciudades son gigantes fortalezas en movimiento por el planeta que luchan entre sí por los escasos recursos que aún quedan. Miles de años después de que la civilización fuera destruida por un evento catastrófico, la humanidad se ha adaptado y evolucionado en una nueva forma de vida. Las gigantescas ciudades en movimiento atacan de manera despiadada a los pueblos más pequeños.  Tom Natsworthy y sus compañeros intentarán cambiar el trágico final al que parece que se aboca el planeta.",
+            "release_date": "2018-11-27"
+        },
+        {
+            "vote_count": 6996,
+            "id": 920,
+            "video": false,
+            "vote_average": 6.7,
+            "title": "Cars",
+            "popularity": 118.235,
+            "poster_path": "/u65NvVYfND8Ha66bljjdtJ16lgn.jpg",
+            "original_language": "en",
+            "original_title": "Cars",
+            "genre_ids": [
+                16,
+                12,
+                35,
+                10751
+            ],
+            "backdrop_path": "/a1MlbLBk5Sy6YvMbSuKfwGlDVlb.jpg",
+            "adult": false,
+            "overview": "El aspirante a campeón de carreras Rayo McQueen está sobre la vía rápida al éxito, la fama y todo lo que él había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado.",
+            "release_date": "2006-06-08"
+        },
+        {
+            "vote_count": 9,
+            "id": 490033,
+            "video": false,
+            "vote_average": 7,
+            "title": "Holiday",
+            "popularity": 110.68,
+            "poster_path": "/vlDRxVM3XCwq7ty9MmHoVeOcvWp.jpg",
+            "original_language": "en",
+            "original_title": "Holiday",
+            "genre_ids": [
+                18
+            ],
+            "backdrop_path": "/ou0QMbeDPVY3wDsf3vLNaT7Y5ac.jpg",
+            "adult": false,
+            "overview": "Ambientada en Bodrum (Turquía), presenta un triángulo amoroso en el que la novia-trofeo de un narcotraficante se ve atrapada en una red de lujo y violencia.",
+            "release_date": "2018-10-11"
+        }
+    ]
+}
