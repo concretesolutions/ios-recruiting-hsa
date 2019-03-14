@@ -9,6 +9,7 @@ protocol MovieListViewProtocol: class {
 
     func setMovies(movies: [MovieModel], append: Bool)
     func setSavedMoviesIds(ids: [Int], append: Bool)
+    func setGenres(genres: [GenreModel])
 
     func showLoading()
     func hideLoading()
@@ -18,7 +19,7 @@ protocol MovieListInteractorProtocol: class {
     var delegate: MovieListInteractorDelegate? { get set }
 
     func fetchMovies(page: Int, append: Bool)
-    func getGenres()
+    func fetchGenres()
     func fetchSavedMoviesIds(append: Bool)
 }
 
@@ -41,12 +42,12 @@ protocol MovieListPresenterProtocol: class {
     func viewDidLoad()
     func willLoadMovies(page: Int)
     func willLoadGenres()
-    func didTapInMovieCell(movie: MovieModel, isIpad: Bool)
+    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool)
 }
 
 protocol MovieListRouterProtocol: class {
     var viewController: UIViewController? { get set }
 
-    func showMovieDetail(movie: MovieModel, isIpad: Bool)
+    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool)
     func showErrorAlert(error: Error)
 }

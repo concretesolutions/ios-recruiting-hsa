@@ -25,7 +25,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
         }.disposed(by: disposeBag)
     }
 
-    func getGenres() {
+    func fetchGenres() {
         movieDBRepository.getGenreList(configurations: configurations).subscribe { event in
             switch event {
             case let .success(genres):

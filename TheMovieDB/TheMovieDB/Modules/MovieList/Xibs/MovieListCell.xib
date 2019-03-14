@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieListCell" customModule="TheMovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-92-VKR">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="150"/>
+                    </imageView>
+                    <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3H-gx-R4X">
+                        <rect key="frame" x="0.0" y="150" width="160" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label ldnlsdn sdlv slmv sf,mv sflvnsfv" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljc-gw-qpO">
+                                <rect key="frame" x="10" y="5" width="140" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ljc-gw-qpO" firstAttribute="leading" secondItem="s3H-gx-R4X" secondAttribute="leading" constant="10" id="GNz-Li-o3A"/>
+                            <constraint firstAttribute="trailing" secondItem="ljc-gw-qpO" secondAttribute="trailing" constant="10" id="cUG-GA-k9n"/>
+                            <constraint firstItem="ljc-gw-qpO" firstAttribute="top" secondItem="s3H-gx-R4X" secondAttribute="top" constant="5" id="hBY-Lc-F7h"/>
+                            <constraint firstAttribute="height" constant="40" id="yAE-dt-Lek"/>
+                            <constraint firstAttribute="bottom" secondItem="ljc-gw-qpO" secondAttribute="bottom" constant="5" id="zV1-Uk-Ben"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoriteIcon.empty" translatesAutoresizingMaskIntoConstraints="NO" id="Fe1-zD-F1s">
+                        <rect key="frame" x="125" y="5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="j4s-Va-4GY"/>
+                            <constraint firstAttribute="height" constant="30" id="kVB-RD-ghg"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="s3H-gx-R4X" firstAttribute="top" secondItem="WPi-92-VKR" secondAttribute="bottom" id="0dA-O4-9YI"/>
+                <constraint firstItem="s3H-gx-R4X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3ok-ve-fAU"/>
+                <constraint firstAttribute="trailing" secondItem="Fe1-zD-F1s" secondAttribute="trailing" constant="5" id="6ic-gj-dLT"/>
+                <constraint firstItem="Fe1-zD-F1s" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="CP4-Kw-KJu"/>
+                <constraint firstItem="WPi-92-VKR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DSV-IU-Wcx"/>
+                <constraint firstItem="WPi-92-VKR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ecG-dz-5ER"/>
+                <constraint firstAttribute="trailing" secondItem="WPi-92-VKR" secondAttribute="trailing" id="t7Q-xJ-Zji"/>
+                <constraint firstAttribute="bottom" secondItem="s3H-gx-R4X" secondAttribute="bottom" id="tfe-hN-zYH"/>
+                <constraint firstAttribute="trailing" secondItem="s3H-gx-R4X" secondAttribute="trailing" id="w64-yp-6iH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="imageViewCover" destination="WPi-92-VKR" id="1Qp-70-2l5"/>
+                <outlet property="imageViewSaved" destination="Fe1-zD-F1s" id="Z6t-a2-hiZ"/>
+                <outlet property="labelTitle" destination="ljc-gw-qpO" id="eXc-Q9-TCM"/>
+                <outlet property="viewTitle" destination="s3H-gx-R4X" id="xtR-z0-7te"/>
+            </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="154.72263868065968"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="coverPlaceholder" width="50" height="50"/>
+        <image name="favoriteIcon.empty" width="22" height="21"/>
+    </resources>
+</document>

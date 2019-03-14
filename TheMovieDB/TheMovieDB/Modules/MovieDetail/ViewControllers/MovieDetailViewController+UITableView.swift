@@ -82,7 +82,7 @@ extension MovieDetailViewController {
 
     private func getImageCell(imgPath: String?) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailImageCell.reusableIdentifier) as? MovieDetailImageCell else { return UITableViewCell() }
-        cell.setupCell(imgPath: imgPath, configurations: Configurations()!)
+        cell.setupCell(imgPath: imgPath, configurations: configurations)
         return cell
     }
 }

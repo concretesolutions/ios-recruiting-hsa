@@ -4,6 +4,7 @@ class MovieDetailViewController: UITableViewController {
     var presenter: MovieDetailPresenterProtocol?
     var model: MovieModel?
     var hudProvider: HUDProvider?
+    var configurations: ConfigurationsProtocol!
     private var isSaved = false
     var genres: [String] = []
 
@@ -11,13 +12,7 @@ class MovieDetailViewController: UITableViewController {
     internal let reusableCellIdentifier = "TextCell"
 
     @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
-
     private var closeBarButtonItem: UIBarButtonItem!
-
-    convenience init(presenter: MovieDetailPresenterProtocol) {
-        self.init(nibName: MovieDetailViewController.nameOfClass, bundle: nil)
-        self.presenter = presenter
-    }
 
     // MARK: UIViewController lifecycle
 

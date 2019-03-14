@@ -13,6 +13,7 @@ class MovieDetailWireframe: MovieDetailWireframeProtocol {
         view.presenter = presenter
         view.hudProvider = factory.getHUDProvider()
         view.genres = genres
+        view.configurations = factory.getConfigurations()
 
         interactor.delegate = presenter
         router.viewController = view

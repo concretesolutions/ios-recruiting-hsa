@@ -11,4 +11,11 @@ class MovieDetailFactory {
     func getHUDProvider() -> HUDProvider {
         return SVProgressHUDProvider()
     }
+
+    func getConfigurations() -> ConfigurationsProtocol {
+        guard let configurations = Configurations() else {
+            fatalError("Couldn't get app configurations")
+        }
+        return configurations
+    }
 }

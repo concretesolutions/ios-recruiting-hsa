@@ -1,5 +1,5 @@
 class MovieListPresenter: MovieListPresenterProtocol {
-    var view: MovieListViewProtocol?
+    weak var view: MovieListViewProtocol?
     var interactor: MovieListInteractorProtocol?
     var router: MovieListRouterProtocol?
 
@@ -12,6 +12,8 @@ class MovieListPresenter: MovieListPresenterProtocol {
     func viewDidLoad() {
         view?.showLoading()
         interactor?.fetchMovies(page: 1, append: false)
+        interactor?.fetchGenres()
+        interactor?.fetchSavedMoviesIds(append: false)
     }
 
     func willLoadMovies(page: Int) {
@@ -20,11 +22,11 @@ class MovieListPresenter: MovieListPresenterProtocol {
     }
 
     func willLoadGenres() {
-        interactor?.getGenres()
+        interactor?.fetchGenres()
     }
 
-    func didTapInMovieCell(movie: MovieModel, isIpad: Bool) {
-        router?.showMovieDetail(movie: movie, isIpad: isIpad)
+    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool) {
+        router?.showMovieDetail(movie: movie, genres: genres, isIpad: isIpad)
     }
 }
 
@@ -39,9 +41,11 @@ extension MovieListPresenter: MovieListInteractorDelegate {
         router?.showErrorAlert(error: error)
     }
 
-    func fetchGenresSuccess(genres _: [GenreModel]) {}
+    func fetchGenresSuccess(genres: [GenreModel]) {
+        view?.setGenres(genres: genres)
+    }
 
-    func fetchGenresFail(error _: Error) {}
+    func fetchGenresFail(error: Error) {}
 
     func fetchSavedMoviesIdsSuccess(ids: [Int], append: Bool) {
         view?.hideLoading()

@@ -18,14 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        posterPath: "/d3p5JuwN7dG0TvrN5h4ZY4tMOEX.jpg",
                                        voteAverage: 7.3,
                                        genreIDS: [
-                                        28,
-                                        12,
-                                        878
-                    ])
+                                           28,
+                                           12,
+                                           878
+                ])
 
-                let viewController = MovieDetailWireframe.assemble(movie: movie, genres: ["Hola", "Que", "Hace"])
-                let navController = UINavigationController(rootViewController: viewController)
-                self.window?.rootViewController = navController
+                let viewController = MovieListWireframe.assemble()
+                self.window?.rootViewController = viewController
                 self.window?.makeKeyAndVisible()
             }
         }

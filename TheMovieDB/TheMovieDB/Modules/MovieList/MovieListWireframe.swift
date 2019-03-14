@@ -6,12 +6,17 @@ class MovieListWireframe: MovieListWireframeProtocol {
         let interactor = MovieListInteractor(savedMoviesRepository: factory.getSavedMoviesRepository(), movieDBRepository: factory.getMovieDBRepository(), configurations: factory.getConfigurations())
         let router = MovieListRouter()
         let presenter = MovieListPresenter(interactor: interactor, router: router)
-        let view = MovieListViewController(presenter: presenter)
+        let storyboard = UIStoryboard(name: "MovieList", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "MovieListViewController") as! MovieListViewController
+        view.configurations = factory.getConfigurations()
+        view.presenter = presenter
+
+        let navigation = UINavigationController(rootViewController: view)
 
         interactor.delegate = presenter
-        router.viewController = view
+        router.viewController = navigation
         presenter.view = view
 
-        return view
+        return navigation
     }
 }

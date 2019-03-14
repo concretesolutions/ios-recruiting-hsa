@@ -1,11 +1,10 @@
 import UIKit
 
 class MovieListRouter: MovieListRouterProtocol {
+    weak var viewController: UIViewController?
 
-    var viewController: UIViewController?
-
-    func showMovieDetail(movie: MovieModel, isIpad: Bool) {
-        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie, genres: [])
+    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool) {
+        let movieDetailVC = MovieDetailWireframe.assemble(movie: movie, genres: genres)
 
         if isIpad {
             let navController = UINavigationController(rootViewController: movieDetailVC)
@@ -17,8 +16,8 @@ class MovieListRouter: MovieListRouterProtocol {
     }
 
     func showErrorAlert(error: Error) {
-        let alertTitle = "" //MovieDetailLocalizer.errorAlertTitle.localizedString
-        let okButtonTitle = "" //MovieDetailLocalizer.errorAlertOkButtonTitle.localizedString
+        let alertTitle = "" // MovieDetailLocalizer.errorAlertTitle.localizedString
+        let okButtonTitle = "" // MovieDetailLocalizer.errorAlertOkButtonTitle.localizedString
         let alertMessage = error.localizedDescription
 
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
