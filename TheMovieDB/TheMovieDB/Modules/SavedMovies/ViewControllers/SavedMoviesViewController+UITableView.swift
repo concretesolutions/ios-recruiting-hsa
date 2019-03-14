@@ -25,6 +25,21 @@ extension SavedMoviesViewController {
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row < movies.count, !movies.isEmpty else { return }
         let movie = movies[indexPath.row]
-        presenter?.didTapInMovieCell(movie: movie, genres: [], isIpad: UIDevice.current.userInterfaceIdiom == .pad, savedAdsDelegate: self.savedAdsDelegate)
+        presenter?.didTapInMovieCell(movie: movie, genres: [], isIpad: UIDevice.current.userInterfaceIdiom == .pad, savedAdsDelegate: savedAdsDelegate)
+    }
+
+    override func tableView(_: UITableView, canEditRowAt _: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard indexPath.row < movies.count, !movies.isEmpty else { return }
+        guard editingStyle == .delete else { return }
+        let movie = movies[indexPath.row]
+        presenter?.willDeleteMovie(movieId: movie.id)
+    }
+
+    override func tableView(_: UITableView, titleForDeleteConfirmationButtonForRowAt _: IndexPath) -> String? {
+        return SavedMoviesLocalizer.cellUnsave.localizedString
     }
 }

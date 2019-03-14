@@ -38,10 +38,11 @@ extension SavedMoviesPresenter: SavedMoviesInteractorDelegate {
         router?.showErrorAlert(error: error)
     }
 
-    func unsaveMovieSuccess() {
+    func unsaveMovieSuccess(movieId: Int32) {
         view?.hideLoading()
         let message = SavedMoviesLocalizer.unsaveSuccessfull.localizedString
         view?.showMessage(message)
+        view?.removeMovie(movieId: movieId)
     }
 
     func unsaveMovieFail(error: Error) {

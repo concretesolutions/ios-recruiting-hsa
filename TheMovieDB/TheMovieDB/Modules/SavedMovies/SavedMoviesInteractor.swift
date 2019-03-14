@@ -24,7 +24,7 @@ final class SavedMoviesInteractor: SavedMoviesInteractorProtocol {
         savedMoviesRepository.deleteMovie(with: movieId).subscribe { event in
             switch event {
             case .completed:
-                self.delegate?.unsaveMovieSuccess()
+                self.delegate?.unsaveMovieSuccess(movieId: movieId)
             case let .error(error):
                 self.delegate?.unsaveMovieFail(error: error)
             }

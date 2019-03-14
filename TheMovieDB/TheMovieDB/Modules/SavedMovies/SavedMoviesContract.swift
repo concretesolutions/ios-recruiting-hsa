@@ -7,6 +7,7 @@ protocol SavedMoviesWireframeProtocol: class {
 protocol SavedMoviesViewProtocol: class {
     var presenter: SavedMoviesPresenterProtocol? { get set }
 
+    func removeMovie(movieId: Int32)
     func showLoading()
     func hideLoading()
     func setMovies(_ movies: [MovieModel])
@@ -24,7 +25,7 @@ protocol SavedMoviesInteractorDelegate: class {
     func fetchSavedMoviesSuccess(savedMovies: [MovieModel])
     func fetchSavedMoviesFail(error: Error)
 
-    func unsaveMovieSuccess()
+    func unsaveMovieSuccess(movieId: Int32)
     func unsaveMovieFail(error: Error)
 }
 
