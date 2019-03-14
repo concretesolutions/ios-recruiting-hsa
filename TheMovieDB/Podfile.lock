@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.8.1)
   - DZNEmptyDataSet (1.8.1)
+  - ICSPullToRefresh (0.6)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
     - OHHTTPStubs/Core
@@ -32,6 +33,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.8)
   - DZNEmptyDataSet
+  - ICSPullToRefresh (~> 0.6)
   - OHHTTPStubs/Swift
   - RxBlocking (~> 4.0)
   - RxSwift (~> 4.0)
@@ -44,6 +46,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - DZNEmptyDataSet
+    - ICSPullToRefresh
     - OHHTTPStubs
     - RxAtomic
     - RxBlocking
@@ -56,6 +59,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  ICSPullToRefresh: a64f102c6558cc34270ea60e99df7c91d1f3d2c0
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxBlocking: 5508e90d36ca2304632dc9378ece4e9b5d4bf656
@@ -65,6 +69,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: ec0166f7bc859595aa3e08a650816a173ebfabff
+PODFILE CHECKSUM: 7a15122ba29df01fb95154335bfab73fb9ff8058
 
 COCOAPODS: 1.6.1
