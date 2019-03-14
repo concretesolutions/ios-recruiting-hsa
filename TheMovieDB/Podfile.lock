@@ -1,5 +1,13 @@
 PODS:
   - Alamofire (4.8.1)
+  - AppCenter (1.13.2):
+    - AppCenter/Analytics (= 1.13.2)
+    - AppCenter/Crashes (= 1.13.2)
+  - AppCenter/Analytics (1.13.2):
+    - AppCenter/Core
+  - AppCenter/Core (1.13.2)
+  - AppCenter/Crashes (1.13.2):
+    - AppCenter/Core
   - DZNEmptyDataSet (1.8.1)
   - ICSPullToRefresh (0.6)
   - OHHTTPStubs/Core (6.1.0)
@@ -32,6 +40,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
+  - AppCenter
   - DZNEmptyDataSet
   - ICSPullToRefresh (~> 0.6)
   - OHHTTPStubs/Swift
@@ -45,6 +54,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AppCenter
     - DZNEmptyDataSet
     - ICSPullToRefresh
     - OHHTTPStubs
@@ -58,6 +68,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AppCenter: bce7fe1098e8e8aeb70aaae1898600534069f549
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   ICSPullToRefresh: a64f102c6558cc34270ea60e99df7c91d1f3d2c0
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
@@ -69,6 +80,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 7a15122ba29df01fb95154335bfab73fb9ff8058
+PODFILE CHECKSUM: 94b2b1e30632bc1fb1e11c866bf93e8de5d3d731
 
 COCOAPODS: 1.6.1

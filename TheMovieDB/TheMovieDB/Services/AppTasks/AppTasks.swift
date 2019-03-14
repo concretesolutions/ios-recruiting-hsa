@@ -3,7 +3,8 @@ import UIKit
 
 class AppTasks: AppTasksProtocol {
     private let tasks: [AppTasksProtocol] = [
-        UIAppearanceTask()
+        UIAppearanceTask(),
+        AppCenterTask()
     ]
 
     @discardableResult func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -5,6 +5,7 @@ target 'TheMovieDB' do
 
   # Pods for TheMovieDB
   pod 'Alamofire', '~> 4.8'
+  pod 'AppCenter'
   pod 'DZNEmptyDataSet'
   pod 'ICSPullToRefresh', '~> 0.6'
   pod 'RxSwift', '~> 4.0'

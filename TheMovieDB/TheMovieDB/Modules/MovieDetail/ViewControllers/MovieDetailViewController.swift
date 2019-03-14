@@ -34,7 +34,7 @@ class MovieDetailViewController: UITableViewController {
     private func setupNavigationBar() {
         navigationItem.title = model?.title
         if UIDevice.current.userInterfaceIdiom == .pad {
-            closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(closeBarButtonItemTapped(_:)))
+            closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeBarButtonItemTapped(_:)))
             navigationItem.leftBarButtonItem = closeBarButtonItem
         }
     }
