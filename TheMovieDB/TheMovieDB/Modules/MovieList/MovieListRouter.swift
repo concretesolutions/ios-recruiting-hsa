@@ -16,8 +16,8 @@ class MovieListRouter: MovieListRouterProtocol {
     }
 
     func showErrorAlert(error: Error) {
-        let alertTitle = "" // MovieDetailLocalizer.errorAlertTitle.localizedString
-        let okButtonTitle = "" // MovieDetailLocalizer.errorAlertOkButtonTitle.localizedString
+        let alertTitle = MovieListLocalizer.errorAlertTitle.localizedString
+        let okButtonTitle = MovieListLocalizer.errorAlertOkButton.localizedString
         let alertMessage = error.localizedDescription
 
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)

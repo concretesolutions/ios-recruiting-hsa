@@ -14,6 +14,7 @@ class MovieListViewController: UICollectionViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         setupCollectionView()
+        setupNavigationBar()
     }
 
     private func setupCollectionView() {
@@ -21,6 +22,10 @@ class MovieListViewController: UICollectionViewController {
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .always
         }
+    }
+
+    private func setupNavigationBar() {
+        navigationItem.title = MovieListLocalizer.movieListTitle.localizedString
     }
 }
 

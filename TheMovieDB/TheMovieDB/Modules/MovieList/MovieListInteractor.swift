@@ -31,7 +31,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
             case let .success(genres):
                 self.delegate?.fetchGenresSuccess(genres: genres)
             case let .error(error):
-                self.delegate?.fetchMoviesFail(error: error)
+                self.delegate?.fetchGenresFail(error: error)
             }
         }.disposed(by: disposeBag)
     }
@@ -42,7 +42,7 @@ final class MovieListInteractor: MovieListInteractorProtocol {
             case let .success(ids):
                 self.delegate?.fetchSavedMoviesIdsSuccess(ids: ids, append: append)
             case let .error(error):
-                self.delegate?.fetchGenresFail(error: error)
+                self.delegate?.fetchSavedMoviesIdsFail(error: error)
             }
         }.disposed(by: disposeBag)
     }
