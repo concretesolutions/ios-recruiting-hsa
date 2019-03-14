@@ -25,6 +25,6 @@ extension SavedMoviesViewController {
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row < movies.count, !movies.isEmpty else { return }
         let movie = movies[indexPath.row]
-        presenter?.didTapInMovieCell(movie: movie, genres: [], isIpad: UIDevice.current.userInterfaceIdiom == .pad)
+        presenter?.didTapInMovieCell(movie: movie, genres: [], isIpad: UIDevice.current.userInterfaceIdiom == .pad, savedAdsDelegate: self.savedAdsDelegate)
     }
 }

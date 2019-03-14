@@ -5,6 +5,7 @@ class SavedMoviesViewController: UITableViewController {
     internal var hudProvider: HUDProvider?
     internal var movies: [MovieModel] = []
     internal var configurations: ConfigurationsProtocol!
+    weak var savedAdsDelegate: MovieListSavedAdsUpdate?
 
     // MARK: UIViewController lifecycle
 
@@ -13,6 +14,10 @@ class SavedMoviesViewController: UITableViewController {
         setupTableView()
         setupNavigationBar()
         setupTabBarItem()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter?.viewDidLoad()
     }
 
@@ -21,7 +26,7 @@ class SavedMoviesViewController: UITableViewController {
         tableView.register(SavedMovieCell.nib, forCellReuseIdentifier: SavedMovieCell.reusableIdentifier)
     }
 
-    private func setupTabBarItem() {
+    func setupTabBarItem() {
         let image = UIImage(named: "favoriteIcon.full")
         let title = SavedMoviesLocalizer.savedMoviesTabBarItemTitle.localizedString
         tabBarItem = UITabBarItem(title: title, image: image, selectedImage: image)

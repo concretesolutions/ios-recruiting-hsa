@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SavedMoviesWireframeProtocol: class {
-    static func assemble() -> UIViewController
+    static func assemble() -> UINavigationController
 }
 
 protocol SavedMoviesViewProtocol: class {
@@ -36,7 +36,7 @@ protocol SavedMoviesPresenterProtocol: class {
     func viewDidLoad()
     func willDeleteMovie(movieId: Int32)
     func filterButtonTapped()
-    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool)
+    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?)
 }
 
 protocol SavedMoviesRouterProtocol: class {
@@ -44,5 +44,5 @@ protocol SavedMoviesRouterProtocol: class {
 
     func showFilterView()
     func showErrorAlert(error: Error)
-    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool)
+    func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?)
 }

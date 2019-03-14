@@ -1,7 +1,7 @@
 import UIKit
 
 class MovieListWireframe: MovieListWireframeProtocol {
-    static func assemble() -> UIViewController {
+    static func assemble() -> UINavigationController {
         let factory = MovieListDataFactory()
         let interactor = MovieListInteractor(savedMoviesRepository: factory.getSavedMoviesRepository(), movieDBRepository: factory.getMovieDBRepository(), configurations: factory.getConfigurations())
         let router = MovieListRouter()

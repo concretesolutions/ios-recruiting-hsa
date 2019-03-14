@@ -1,7 +1,7 @@
 import UIKit
 
 class SavedMoviesWireframe: SavedMoviesWireframeProtocol {
-    static func assemble() -> UIViewController {
+    static func assemble() -> UINavigationController {
         let factory = SavedMoviesDataFactory()
         let interactor = SavedMoviesInteractor(savedMoviesRepository: factory.getSavedMoviesRepository())
         let router = SavedMoviesRouter()

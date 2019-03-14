@@ -12,6 +12,7 @@ class MovieListRouter: MovieListRouterProtocol {
             movieDetailVC.modalPresentationStyle = .formSheet
             viewController?.present(navController, animated: true, completion: nil)
         } else {
+            movieDetailVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }

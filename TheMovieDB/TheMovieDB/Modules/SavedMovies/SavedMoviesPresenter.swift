@@ -1,5 +1,5 @@
 class SavedMoviesPresenter: SavedMoviesPresenterProtocol {
-    var view: SavedMoviesViewProtocol?
+    weak var view: SavedMoviesViewProtocol?
     var interactor: SavedMoviesInteractorProtocol?
     var router: SavedMoviesRouterProtocol?
 
@@ -22,8 +22,8 @@ class SavedMoviesPresenter: SavedMoviesPresenterProtocol {
         router?.showFilterView()
     }
 
-    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool) {
-        router?.showMovieDetail(movie: movie, genres: genres, isIpad: isIpad)
+    func didTapInMovieCell(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?) {
+        router?.showMovieDetail(movie: movie, genres: genres, isIpad: isIpad, savedAdsDelegate: savedAdsDelegate)
     }
 }
 
