@@ -2,6 +2,7 @@ import UIKit
 
 class MovieListRouter: MovieListRouterProtocol {
     weak var viewController: UIViewController?
+    weak var navigationController: UINavigationController?
 
     func showMovieDetail(movie: MovieModel, genres: [String], isIpad: Bool, savedAdsDelegate: MovieListSavedAdsUpdate?) {
         let movieDetailVC = MovieDetailWireframe.assemble(movie: movie, genres: genres, savedAdsDelegate: savedAdsDelegate)
@@ -10,8 +11,8 @@ class MovieListRouter: MovieListRouterProtocol {
             let navController = UINavigationController(rootViewController: movieDetailVC)
             movieDetailVC.modalPresentationStyle = .formSheet
             viewController?.present(navController, animated: true, completion: nil)
-        } else if let navController = self.viewController as? UINavigationController {
-            navController.pushViewController(movieDetailVC, animated: true)
+        } else {
+            navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }
 

@@ -12,6 +12,10 @@ class MovieDetailMultilineCell: UITableViewCell {
 
     func setupCell(title: String?, text: String?) {
         labelTitle.text = title
-        multilineLabel.text = text
+        if let text = text, !text.isEmpty {
+            multilineLabel.text = text
+        } else {
+            multilineLabel.text = MovieDetailLocalizer.cellOverviewNoData.localizedString
+        }
     }
 }

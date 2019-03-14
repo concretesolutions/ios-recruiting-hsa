@@ -6,6 +6,7 @@ enum MovieDetailLocalizer: String {
     case cellOverview = "MovieDetail.cell.overview"
     case cellDate = "MovieDetail.cell.date"
     case cellGenres = "MovieDetail.cell.genres"
+    case cellOverviewNoData = "MovieDetail.cell.overview.noData"
 
     case saveMovieSuccessMessage = "MovieDetail.saveMovie.success"
     case unsaveMovieSuccessMessage = "MovieDetail.unsaveMovie.success"

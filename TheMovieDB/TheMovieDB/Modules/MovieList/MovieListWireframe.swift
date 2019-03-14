@@ -14,7 +14,8 @@ class MovieListWireframe: MovieListWireframeProtocol {
         let navigation = UINavigationController(rootViewController: view)
 
         interactor.delegate = presenter
-        router.viewController = navigation
+        router.viewController = view
+        router.navigationController = navigation
         presenter.view = view
 
         return navigation

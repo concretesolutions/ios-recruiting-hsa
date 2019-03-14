@@ -4,6 +4,8 @@
 "MovieDetail.cell.date" = "Fecha de estreno";
 "MovieDetail.cell.genres" = "Géneros";
 
+"MovieDetail.cell.overview.noData" = "Sin sinopsis";
+
 "MovieDetail.saveMovie.success" = "Película agregada a favoritos";
 "MovieDetail.unsaveMovie.success" = "Película quitada de favoritos";
 

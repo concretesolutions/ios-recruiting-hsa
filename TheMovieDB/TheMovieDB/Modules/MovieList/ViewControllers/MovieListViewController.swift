@@ -20,6 +20,7 @@ class MovieListViewController: UICollectionViewController {
         setupNavigationBar()
         setupPullToRefresh()
         setupInfiniteScroll()
+        setupTabBarItem()
     }
 
     private func setupCollectionView() {
@@ -42,6 +43,11 @@ class MovieListViewController: UICollectionViewController {
         collectionView.addInfiniteScrollingWithHandler {
             self.presenter?.willLoadMovies(page: self.page + 1, append: true)
         }
+    }
+
+    private func setupTabBarItem() {
+        let image = UIImage(named: "listIcon")
+        tabBarItem = UITabBarItem(title: MovieListLocalizer.tabBarItemTitle.localizedString, image: image, selectedImage: image)
     }
 
     @objc func willRefreshList() {
