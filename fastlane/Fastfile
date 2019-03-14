@@ -23,7 +23,6 @@ platform :ios do
       output_files: options[:scheme] + ".xml",
       buildlog_path: "build/rawlog/",
       skip_build: true,
-      formatter: "xcpretty-json-formatter",
       thread_sanitizer: false,
       xcargs: "-UseNewBuildSystem='YES' COMPILER_INDEX_STORE_ENABLE='NO' 2> build/rawlog/" + options[:scheme] + "-Error.log"
     )
@@ -32,7 +31,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
       build(testflight: true, type: "appstore", export_method: "app-store", configuration: "Release")
-      distribute(testflight: true)
+      pilot(skip_waiting_for_build_processing: true, changelog: ENV["TRAVIS_CHANGELOG_MESSAGE"])
   end
 
   lane :create_temporary_keychain do

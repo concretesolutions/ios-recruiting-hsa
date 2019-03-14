@@ -11,19 +11,17 @@ if: (branch = master AND type = push) OR (head_branch != master AND type = pull_
 before_install:
 - export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\"
 - export TRAVIS_CHANGELOG_MESSAGE=$(sed -n -e "1,/#/p" CHANGELOG.md | grep -v "^#")
+- gem update --system
+- gem install bundler
 
 install:
-- bundle install --jobs=3 --retry=3 --path=$HOME/.vendor/bundle/
-- bundle exec pod install --repo-update
+- bundle install --jobs=3 --retry=3
+- pod install --repo-update
 
 stages:
 - name: run tests
-- name: upload ipa to app store
 
 jobs:
   include:
   - stage: run tests
-    script: bundle exec fastlane unit_test
-  - script: bundle exec fastlane ui_test
-  - stage: upload ipa to app store
-    script: bundle exec fastlane beta
+    script: fastlane unit_test
