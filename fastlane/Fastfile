@@ -1,0 +1,68 @@
+default_platform :ios
+
+platform :ios do
+
+  desc "Runs all the unit tests"
+  lane :unit_test do
+    run_test(scheme: "TheMovieDBTests")
+  end
+
+  desc "Runs all the UI tests"
+  lane :ui_test do
+    run_test(scheme: "TheMovieDBUITests")
+  end
+
+  private_lane :run_test do |options|
+    ENV["FASTLANE_EXPLICIT_OPEN_SIMULATOR"] = "2"
+    scan(
+      workspace:"TheMovieDB.xcworkspace",
+      scheme: options[:scheme],
+      device: "iPhone SE (12.1)",
+      output_directory: "build/reports/tests/",
+      output_types: "junit",
+      output_files: options[:scheme] + ".xml",
+      buildlog_path: "build/rawlog/",
+      skip_build: true,
+      thread_sanitizer: false,
+      xcargs: "-UseNewBuildSystem='YES' COMPILER_INDEX_STORE_ENABLE='NO' 2> build/rawlog/" + options[:scheme] + "-Error.log"
+    )
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :beta do
+      build(testflight: true, type: "appstore", export_method: "app-store", configuration: "Release")
+      pilot(skip_waiting_for_build_processing: true, changelog: ENV["TRAVIS_CHANGELOG_MESSAGE"])
+  end
+
+  lane :create_temporary_keychain do
+    create_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      timeout: 3600,
+      default_keychain: true,
+      unlock: true,
+      verbose: true
+      )
+  end
+
+  desc "Build and generate ipa"
+  private_lane :build do |options|
+    increment_build_number(
+      build_number: Time.now.strftime("%Y%m%d%H%M")
+    )
+    create_temporary_keychain
+    match(
+      type: options[:type],
+      verbose: true,
+      force_for_new_devices: true,
+      readonly: true
+    )
+    gym(
+      scheme: "TheMovieDB",
+      configuration: options[:configuration],
+      export_method: options[:export_method],
+      include_symbols: true
+    )
+  end
+
+end

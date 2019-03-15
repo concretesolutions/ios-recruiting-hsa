@@ -1,0 +1,5 @@
+git_url("https://"+ENV["GITHUB_TOKEN"]+"@github.com/bastianX6/ios-recruiting-hsa-certificates.git")
+storage_mode("git")
+type("appstore")
+app_identifier(["bastianx6.TheMovieDB", "bastianx6.TheMovieDB.*"])
+username("bastianx6@icloud.com")
