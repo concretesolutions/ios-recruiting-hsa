@@ -17,7 +17,19 @@
                     <view key="view" contentMode="scaleToFill" id="sbD-4Q-6lK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE MOVIE DB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-3d-5eL">
+                                <rect key="frame" x="67" y="312.5" width="241" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" red="0.1764705882352941" green="0.18823529411764706" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.80392156859999997" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VfQ-3d-5eL" firstAttribute="centerY" secondItem="sbD-4Q-6lK" secondAttribute="centerY" id="VUf-lE-LHR"/>
+                            <constraint firstItem="VfQ-3d-5eL" firstAttribute="centerX" secondItem="sbD-4Q-6lK" secondAttribute="centerX" id="cO2-v1-YC5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dGx-pi-PhE"/>
                     </view>
                 </viewController>
