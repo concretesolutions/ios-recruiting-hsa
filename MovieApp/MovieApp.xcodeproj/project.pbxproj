@@ -14,6 +14,8 @@
 		4F19FCAC2256DE4D00CD7BFA /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCAA2256DE4D00CD7BFA /* MovieCollectionViewCell.swift */; };
 		4F19FCAD2256DE4D00CD7BFA /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F19FCAB2256DE4D00CD7BFA /* MovieCollectionViewCell.xib */; };
 		4F19FCAF2256E61700CD7BFA /* RemoteAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCAE2256E61700CD7BFA /* RemoteAPIRouter.swift */; };
+		4F19FCB32258222200CD7BFA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCB12258222200CD7BFA /* DetailViewController.swift */; };
+		4F19FCB42258222200CD7BFA /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F19FCB22258222200CD7BFA /* DetailViewController.xib */; };
 		4FCBF5942255875E00E95E78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF5932255875E00E95E78 /* AppDelegate.swift */; };
 		4FCBF5962255875E00E95E78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF5952255875E00E95E78 /* HomeViewController.swift */; };
 		4FCBF5992255875E00E95E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FCBF5972255875E00E95E78 /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		4F19FCAA2256DE4D00CD7BFA /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F19FCAB2256DE4D00CD7BFA /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F19FCAE2256E61700CD7BFA /* RemoteAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAPIRouter.swift; sourceTree = "<group>"; };
+		4F19FCB12258222200CD7BFA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4F19FCB22258222200CD7BFA /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		4FCBF5902255875E00E95E78 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCBF5932255875E00E95E78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FCBF5952255875E00E95E78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 			name = HomeView;
 			sourceTree = "<group>";
 		};
+		4F19FCB0225821EF00CD7BFA /* DetailMovie */ = {
+			isa = PBXGroup;
+			children = (
+				4F19FCB12258222200CD7BFA /* DetailViewController.swift */,
+				4F19FCB22258222200CD7BFA /* DetailViewController.xib */,
+			);
+			name = DetailMovie;
+			sourceTree = "<group>";
+		};
 		4FCBF5872255875E00E95E78 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		4FCBF5B722558AFD00E95E78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4F19FCB0225821EF00CD7BFA /* DetailMovie */,
 				4F19FCA92256C10800CD7BFA /* HomeView */,
 				4F19FCA82256C0EF00CD7BFA /* MoviesView */,
 			);
@@ -310,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F19FCAD2256DE4D00CD7BFA /* MovieCollectionViewCell.xib in Resources */,
+				4F19FCB42258222200CD7BFA /* DetailViewController.xib in Resources */,
 				4FCBF59E2255875F00E95E78 /* LaunchScreen.storyboard in Resources */,
 				4FCBF59B2255875F00E95E78 /* Assets.xcassets in Resources */,
 				4FCBF5992255875E00E95E78 /* Main.storyboard in Resources */,
@@ -405,6 +420,7 @@
 				4FCBF5BD2255922D00E95E78 /* MovieInteractor.swift in Sources */,
 				4FCBF5BF2255938F00E95E78 /* MoviePresenter.swift in Sources */,
 				4FCBF5C1225595EB00E95E78 /* MovieRouter.swift in Sources */,
+				4F19FCB32258222200CD7BFA /* DetailViewController.swift in Sources */,
 				4F19FCA32256B77900CD7BFA /* MovieAPIService.swift in Sources */,
 				4FCBF5962255875E00E95E78 /* HomeViewController.swift in Sources */,
 				4FCBF5942255875E00E95E78 /* AppDelegate.swift in Sources */,

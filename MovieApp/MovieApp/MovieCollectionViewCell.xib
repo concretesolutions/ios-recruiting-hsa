@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="138" width="148" height="46"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoX-AW-JBY">
-                                <rect key="frame" x="55.5" y="14" width="37.5" height="18"/>
+                                <rect key="frame" x="5" y="14" width="107" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,8 @@
                             <constraint firstItem="Ki1-Km-TT8" firstAttribute="centerY" secondItem="tDK-XK-A0x" secondAttribute="centerY" id="AkG-eo-ujh"/>
                             <constraint firstAttribute="trailing" secondItem="Ki1-Km-TT8" secondAttribute="trailing" constant="8" id="B9y-lE-NbL"/>
                             <constraint firstItem="Ki1-Km-TT8" firstAttribute="height" secondItem="tDK-XK-A0x" secondAttribute="height" multiplier="0.5" id="I6U-Ba-IpY"/>
-                            <constraint firstItem="FoX-AW-JBY" firstAttribute="centerX" secondItem="tDK-XK-A0x" secondAttribute="centerX" id="PU4-1C-khH"/>
+                            <constraint firstItem="FoX-AW-JBY" firstAttribute="leading" secondItem="tDK-XK-A0x" secondAttribute="leading" constant="5" id="LSk-pA-3bo"/>
+                            <constraint firstItem="Ki1-Km-TT8" firstAttribute="leading" secondItem="FoX-AW-JBY" secondAttribute="trailing" constant="5" id="jXN-l9-kcW"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8vV-QB-wIe">

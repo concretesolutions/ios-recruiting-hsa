@@ -29,9 +29,14 @@ class MovieInteractor : MovieInteractorProtocol {
                 let movies = try JSONDecoder().decode([Movie].self, from:dataJson)
                 self.presenter?.onFetchMovieSuccess(movies, shouldAppend: true)
             } catch let error {
-                print(error)
+                //CRASH ERROR
+                
             }
         }
+    }
+    
+    func getDetailMovie(id : Int){
+        
     }
     
 }
