@@ -8,39 +8,36 @@
 
 import Foundation
 
-protocol MoviePresenterProtocol {
-    func showMovies(_ completion: ([MovieViewModel]))
+protocol MoviePresenterProtocol: class {
+    func fetchMovies()
     func showMovieDetail(for viewModel: MovieViewModel)
 }
 
-class MoviePresenter : MoviePresenterProtocol{
+protocol MovieInteractorOutput: class {
+    func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool)
+    func fetchProductsFailure(message: String)
+}
+
+class MoviePresenter {
     
-    var movieView : MovieViewProtocol?
-    let interactor : MovieInteractorProtocol
-    let router : MovieRouterProtocol
+    weak var movieView : MoviesViewProtocol?
+    weak var interactor : MovieInteractorProtocol?
+    var router : MovieRouterProtocol
     
-    init(movieInteractor : MovieInteractorProtocol,movieRouter : MovieRouterProtocol){
-        
-         self.interactor = movieInteractor
-         self.router = movieRouter
+    init(movieInteractor : MovieInteractor,movieRouter : MovieRouterProtocol){
+        self.interactor = movieInteractor
+        self.router = movieRouter
+        interactor!.presenter = self
     }
     
-    func attachView(view :MovieViewProtocol ){
+    func attachView(view :MoviesViewProtocol ){
         self.movieView = view
     }
     
     func deAttach(){
         self.movieView = nil
     }
-    
-    func showMovies(_ completion: ([MovieViewModel])) {
-        
-    }
-    
-    func showMovieDetail(for viewModel: MovieViewModel) {
-        
-    }
-    
+
     private func createMovieViewModels(from movies: [Movie]) -> [MovieViewModel] {
         return movies.map({ (movie) -> MovieViewModel in
 
@@ -54,3 +51,29 @@ class MoviePresenter : MoviePresenterProtocol{
     }
     
 }
+
+extension MoviePresenter : MoviePresenterProtocol {
+    
+    func fetchMovies() {
+        interactor!.getMovies()
+    }
+    
+    func showMovieDetail(for viewModel: MovieViewModel) {
+        
+    }
+    
+}
+
+
+extension MoviePresenter : MovieInteractorOutput {
+    func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool) {
+        let movieViewModel = createMovieViewModels(from: movies!)
+        movieView?.showMovies(movies: movieViewModel)
+    }
+    
+    func fetchProductsFailure(message: String) {
+        
+    }
+}
+
+

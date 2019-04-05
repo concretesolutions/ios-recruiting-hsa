@@ -13,8 +13,6 @@ protocol MovieRouterProtocol{
     func showMovieDetail(for viewModel: MovieViewModel)
 }
 
-
-
 class MovieRouter  : MovieRouterProtocol{
     
     let presentingViewController: UIViewController
