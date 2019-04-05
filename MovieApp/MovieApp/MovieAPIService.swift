@@ -7,27 +7,60 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol MovieAPIServiceProtocol{
-    func getPopularMovies()
+    typealias SuccessHandler = (_ result:AnyObject)-> Void
+    typealias ErrorHandler = (_ error: String) -> Void
+    typealias TimeOutHandler = () -> Void
+    
+    
+ 
 }
 
-class MovieAPIService{
+class MovieAPIService : NSObject{
+    
+    let sessionManager : Alamofire.SessionManager!
+    static var shared = MovieAPIService()
+    
+    fileprivate override init(){
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 15.0 // seconds
+        configuration.timeoutIntervalForResource = 15.0
+        sessionManager = Alamofire.SessionManager(configuration: configuration)
+    }
     
     
-    
-    
-    
+    func responseHandler(response : DataResponse<Any>, success : @escaping SuccessHandler, fail: ErrorHandler, timeOut:TimeOutHandler){
+        switch response.result {
+        case let .success(value):
+            let jsonValue = value as! [String:AnyObject]
+            if let result = jsonValue["results"] {
+                success(result)
+            }
+        case let .failure(error):
+            fail(error.localizedDescription)
+        }
+    }
     
     
 }
 
 
 extension MovieAPIService : MovieAPIServiceProtocol{
-    
-    func getPopularMovies() {
-        
+    func getPopularMovies(success: @escaping (AnyObject) -> Void) {
+        sessionManager.request(RemoteAPIRouter.getPopularMovies(page: 1)).validate().responseJSON(completionHandler: { (dataResponse) in
+            self.responseHandler(response: dataResponse, success: { (data) in
+                success(data)
+            }, fail: { (error) in
+                
+            }, timeOut: {
+                
+            })
+        })
     }
+    
+
     
     
 }

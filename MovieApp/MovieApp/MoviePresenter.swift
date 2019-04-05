@@ -44,9 +44,9 @@ class MoviePresenter {
             let index = movie.releaseDate.index(movie.releaseDate.startIndex, offsetBy: 5)
             let year = movie.releaseDate[..<index]
             
-            let genreslist = movie.genres.compactMap { $0.name }
+//            let genreslist = movie.genres.compactMap { $0.name }
             
-            return MovieViewModel( title: movie.title, year: String(year), genres: genreslist, overview: movie.overview )
+            return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres: [Genre(id: 1, name: "DESCONOCIDO")], overview: movie.overview )
         })
     }
     

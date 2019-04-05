@@ -48,7 +48,7 @@ class MoviesViewController: UIViewController {
 extension MoviesViewController : MoviesViewProtocol {
     func showMovies(movies: [MovieViewModel]) {
         self.viewModels = movies
-      
+        self.collectionView.reloadData()
     }
 }
 
@@ -59,7 +59,7 @@ extension MoviesViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MOVIECOLLECTIONCELL", for: indexPath) as! MovieCollectionViewCell
-        cell.titleMovieLabel .text = viewModels[indexPath.row].title
+        cell.titleMovieLabel .text = viewModels[indexPath.row].title 
         return cell
     }
     

@@ -1,14 +1,12 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.0'
+use_frameworks!
 
 target 'MovieApp' do
-  use_frameworks!
+    pod 'Alamofire', '~> 4.7'
+end
 
-  pod 'Alamofire', '~> 4.0.0'
-
-  target 'MovieAppTests' do
+target 'MovieAppTests' do
     inherit! :search_paths
     # Pods for testing
-  end
-
 end
