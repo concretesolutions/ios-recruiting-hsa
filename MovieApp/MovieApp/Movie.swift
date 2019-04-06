@@ -14,13 +14,15 @@ struct Movie : Decodable{
     var releaseDate : String
     var genres : [Int]
     var overview: String
+    var imagePath : String
     
-    init(id: Int64, title:String, releaseDate: String, genres:[Int], overview: String) {
+    init(id: Int64, title:String, releaseDate: String, genres:[Int], overview: String, imagePath : String) {
         self.id = id
         self.title = title
         self.releaseDate = releaseDate
         self.genres = genres
         self.overview = overview
+        self.imagePath = imagePath
     }
     
     
@@ -31,6 +33,7 @@ struct Movie : Decodable{
         case releaseDate = "release_date"
         case genres = "genre_ids"
         case overview = "overview"
+        case imagePath = "poster_path"
     }
     
     init(from decoder:Decoder) throws{
@@ -40,8 +43,9 @@ struct Movie : Decodable{
         let release = try container.decode(String.self, forKey: .releaseDate)
         let genres = try container.decode([Int].self, forKey: .genres)
         let overview = try container.decode(String.self, forKey: .overview)
+        let imagePath = try container.decode(String.self, forKey: .imagePath)
         
-        self.init(id: id, title: title, releaseDate: release, genres: genres, overview: overview)
+        self.init(id: id, title: title, releaseDate: release, genres: genres, overview: overview,imagePath: imagePath)
         
     }
     
@@ -54,6 +58,6 @@ struct MovieViewModel {
     var year : String
     var genres : [Genre]
     var overview : String
-    
-    
+    var imagePath : String
+
 }

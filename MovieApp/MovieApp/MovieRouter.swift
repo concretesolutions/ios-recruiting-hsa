@@ -22,6 +22,10 @@ class MovieRouter  : MovieRouterProtocol{
     }
     
     func showMovieDetail(for viewModel: MovieViewModel) {
+        guard let navigation = presentingViewController.navigationController else{ return }
+        let dest  = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: nil)
+        dest.viewModel = viewModel
+        navigation.show(dest, sender: nil)
         
     }
     

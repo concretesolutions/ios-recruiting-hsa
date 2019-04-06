@@ -12,12 +12,13 @@ import Alamofire
 
 enum RemoteAPIRouter : URLRequestConvertible {
     
-    case getPopularMovies(page : Int)
+    case getPopularMovies(_ page: Int)
+    case getDetailMovie(_ id: Int)
     
     
     var method : HTTPMethod {
         switch self {
-        case .getPopularMovies:
+        case .getPopularMovies, .getDetailMovie:
             return .get
         }
     }
@@ -26,30 +27,23 @@ enum RemoteAPIRouter : URLRequestConvertible {
         switch self {
         case.getPopularMovies:
             return "popular"
+        case let .getDetailMovie(id):
+            return "movie/"+String(id)
         }
     }
     
-    
-//    var query : [String:String] {
-//        switch self {
-//        case let .getPopularMovies(page):
-//            return ["api_key":"6893e0b3a6030f46d850edf87283de46","page":String(page)]
-//        }
-//    }
-    
     var headers : HTTPHeaders{
         switch self {
-        case .getPopularMovies:
+        case .getPopularMovies,.getDetailMovie:
             return ["Content-Type":"application/x-www-form-urlencoded"]
         }
-        
     }
     
 
     var params : [String:Any] {
         var paramDict : [String:Any] = [:]
         switch self {
-        case .getPopularMovies:
+        case .getPopularMovies,.getDetailMovie:
             paramDict["api_key"] = "6893e0b3a6030f46d850edf87283de46"
             return paramDict
         }
@@ -58,7 +52,6 @@ enum RemoteAPIRouter : URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         let urlComponent = URLComponents(string: "https://api.themoviedb.org/3/movie/")!
         var urlRequest = URLRequest(url:urlComponent.url!.appendingPathComponent(path))
-//        urlComponent.queryItems = query.map{ URLQueryItem(name: $0.key, value: $0.value)  }
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = headers
         

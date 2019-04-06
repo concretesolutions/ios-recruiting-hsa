@@ -59,16 +59,17 @@ extension MoviesViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MOVIECOLLECTIONCELL", for: indexPath) as! MovieCollectionViewCell
-        cell.titleMovieLabel .text = viewModels[indexPath.row].title 
+        cell.viewModel = viewModels[indexPath.row]
+        cell.titleMovieLabel .text = viewModels[indexPath.row].title
+        cell.downloadImage()
         return cell
     }
-    
-    
 }
 
 extension MoviesViewController : UICollectionViewDelegate {
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        presenter.showMovieDetail(for: viewModels[indexPath.row])
+    }
 }
 
 extension MoviesViewController : UICollectionViewDelegateFlowLayout {

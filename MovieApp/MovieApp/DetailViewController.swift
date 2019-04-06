@@ -8,15 +8,20 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+protocol MovieDetailViewProtocol {
+    func showDetailMovie(movie : MovieViewModel)
+}
+
+class MovieDetailViewController: UIViewController {
+    
+    var presenter  : MovieDetailPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter = MovieDetailPresenter()
+        
+    
     }
-
-    
-    
-    
 
 
 

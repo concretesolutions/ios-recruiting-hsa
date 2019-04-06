@@ -9,16 +9,11 @@
 import Foundation
 import Alamofire
 
-protocol MovieAPIServiceProtocol{
+class MovieAPIService : NSObject{
+    
     typealias SuccessHandler = (_ result:AnyObject)-> Void
     typealias ErrorHandler = (_ error: String) -> Void
     typealias TimeOutHandler = () -> Void
-    
-    
- 
-}
-
-class MovieAPIService : NSObject{
     
     let sessionManager : Alamofire.SessionManager!
     static var shared = MovieAPIService()
@@ -43,13 +38,8 @@ class MovieAPIService : NSObject{
         }
     }
     
-    
-}
-
-
-extension MovieAPIService : MovieAPIServiceProtocol{
     func getPopularMovies(success: @escaping (AnyObject) -> Void) {
-        sessionManager.request(RemoteAPIRouter.getPopularMovies(page: 1)).validate().responseJSON(completionHandler: { (dataResponse) in
+        sessionManager.request(RemoteAPIRouter.getPopularMovies(1)).validate().responseJSON(completionHandler: { (dataResponse) in
             self.responseHandler(response: dataResponse, success: { (data) in
                 success(data)
             }, fail: { (error) in
@@ -60,7 +50,21 @@ extension MovieAPIService : MovieAPIServiceProtocol{
         })
     }
     
-
+    func getDetailMovie(id : Int, success: @escaping SuccessHandler){
+        sessionManager.request(RemoteAPIRouter.getDetailMovie(id)).validate().responseJSON { (dataResponse) in
+            self.responseHandler(response: dataResponse, success: { (data) in
+                success(data)
+            }, fail: { (error) in
+                
+            }, timeOut: {
+                
+            })
+        }
+    }
+    
     
     
 }
+
+
+

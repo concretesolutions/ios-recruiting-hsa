@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieCollectionViewCell: UICollectionViewCell {
     
@@ -22,12 +23,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.defaultCell()
+        
     }
-    
     
     func defaultCell(){
         self.titleMovieLabel.text = ""
         self.favoriteImage.image = UIImage(named: "favorite_gray_icon")
+    }
+    
+    func downloadImage(){
+        movieImage.sd_setShowActivityIndicatorView(true)
+        movieImage.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500"+viewModel!.imagePath), placeholderImage: nil)
     }
     
     
