@@ -47,7 +47,7 @@ class FavoritesMovieViewController: UIViewController {
 
 extension FavoritesMovieViewController : FavoritesMovieViewProtocol{
     func removeFavorite(movie: MovieViewModel) {
-        
+        presenter?.unFavoriteMovie(movie: movie)
     }
     
     func removeFilter() {
@@ -85,6 +85,16 @@ extension FavoritesMovieViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let unfavorite = UITableViewRowAction(style: .normal, title: "Unfavorite") { action, indexpath in
+            let movie = self.viewModels[indexpath.row]
+            self.removeFavorite(movie: movie)
+        }
+        unfavorite.backgroundColor = .red
+        
+        return [unfavorite]
     }
 
 }

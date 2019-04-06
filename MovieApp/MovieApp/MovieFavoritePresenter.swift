@@ -10,11 +10,14 @@ import Foundation
 
 protocol MovieFavoritePresenterProtocol {
     func fetchFavoriteMovies()
+    func unFavoriteMovie(movie: MovieViewModel)
+    
 }
 
 protocol MovieFavoriteOutputPresenterProtocol {
     func onFetchFavoriteMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool)
     func fetchProductsFailure(message: String)
+    func onDeleteMovieSuccess()
 }
 
 class MovieFavoritePresenter {
@@ -34,6 +37,10 @@ class MovieFavoritePresenter {
 }
 
 extension MovieFavoritePresenter : MovieFavoritePresenterProtocol{
+    func unFavoriteMovie(movie: MovieViewModel) {
+        interactor?.unFavoriteMovie(movieDelete: movie)
+    }
+    
     func fetchFavoriteMovies() {
         interactor?.fetchMovies()
     }
@@ -47,5 +54,9 @@ extension MovieFavoritePresenter : MovieFavoriteOutputPresenterProtocol {
     }
     func fetchProductsFailure(message: String){
         
+    }
+    
+    func onDeleteMovieSuccess(){
+        fetchFavoriteMovies()
     }
 }

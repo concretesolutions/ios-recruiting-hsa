@@ -42,8 +42,6 @@ extension MovieDetailPresenter : MovieDetailPresenterProtocol {
         for genre in movie.genres {
             genreid.append(genre.id)
         }
-        
         interactor?.saveMovie(movie: Movie(id: movie.id, title: movie.title, releaseDate: movie.year, genres: genreid, overview: movie.overview, imagePath: movie.imagePath))
-        
     } 
 }

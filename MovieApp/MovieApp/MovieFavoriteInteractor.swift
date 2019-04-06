@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol MovieFavoriteInteractorProtocol {
     func fetchMovies()
+    func unFavoriteMovie(movieDelete: MovieViewModel)
 }
 
 
@@ -22,6 +23,23 @@ class MovieFavoriteInteractor {
 }
 
 extension MovieFavoriteInteractor: MovieFavoriteInteractorProtocol {
+    func unFavoriteMovie(movieDelete: MovieViewModel) {
+        do{
+            let realm = try Realm()
+            let movies = realm.objects(Movie.self)
+            for movie in movies {
+                if movie.id == movieDelete.id{
+                    realm.beginWrite()
+                    realm.delete(movie)
+                    try realm.commitWrite()
+                }
+            }
+            presenter?.onDeleteMovieSuccess()
+        }catch let error {
+            //TODO - crash error
+        }
+    }
+    
     
     func fetchMovies() {
         do{
