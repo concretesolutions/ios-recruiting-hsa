@@ -37,18 +37,18 @@ class MoviePresenter {
     func deAttach(){
         self.movieView = nil
     }
-
-    private func createMovieViewModels(from movies: [Movie]) -> [MovieViewModel] {
-        return movies.map({ (movie) -> MovieViewModel in
-
-            let index = movie.releaseDate.index(movie.releaseDate.startIndex, offsetBy: 4)
-            let year = movie.releaseDate[..<index]
-            let imagePath = movie.imagePath
-//            let genreslist = movie.genres.compactMap { $0.name }
-            
-            return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres: [Genre(id: 1, name: "DESCONOCIDO")], overview: movie.overview, imagePath: imagePath )
-        })
-    }
+//
+//    private func createMovieViewModels(from movies: [Movie]) -> [MovieViewModel] {
+//        return movies.map({ (movie) -> MovieViewModel in
+//
+//            let index = movie.releaseDate.index(movie.releaseDate.startIndex, offsetBy: 4)
+//            let year = movie.releaseDate[..<index]
+//            let imagePath = movie.imagePath
+////            let genreslist = movie.genres.compactMap { $0.name }
+//            
+//            return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres: [Genre(id: 1, name: "DESCONOCIDO")], overview: movie.overview, imagePath: imagePath )
+//        })
+//    }
     
 }
 

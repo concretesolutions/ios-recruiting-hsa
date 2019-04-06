@@ -42,7 +42,7 @@ extension HomeViewController : HomeViewProtocol{
     }
     
     func createFavoritesViewController(){
-        favoritesViewController = UIViewController()
+        favoritesViewController = FavoritesMovieViewController(nibName: "FavoritesMovieViewController", bundle: nil)
         favoritesViewController.tabBarItem = UITabBarItem(title: "Favorities", image: UIImage(named: "favorite_empty_icon"), tag: 0)
     }
     
