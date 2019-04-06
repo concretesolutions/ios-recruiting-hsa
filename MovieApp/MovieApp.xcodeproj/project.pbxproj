@@ -19,6 +19,7 @@
 		4F19FCBA225829C600CD7BFA /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F19FCB8225829C600CD7BFA /* MovieDetailViewController.xib */; };
 		4F19FCBD22583F9100CD7BFA /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCBB22583F9100CD7BFA /* DetailTableViewCell.swift */; };
 		4F19FCBE22583F9100CD7BFA /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F19FCBC22583F9100CD7BFA /* DetailTableViewCell.xib */; };
+		4F19FCC02258670200CD7BFA /* MovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCBF2258670200CD7BFA /* MovieDetailInteractor.swift */; };
 		4FCBF5942255875E00E95E78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF5932255875E00E95E78 /* AppDelegate.swift */; };
 		4FCBF5962255875E00E95E78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF5952255875E00E95E78 /* HomeViewController.swift */; };
 		4FCBF5992255875E00E95E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FCBF5972255875E00E95E78 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		4F19FCB8225829C600CD7BFA /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		4F19FCBB22583F9100CD7BFA /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		4F19FCBC22583F9100CD7BFA /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		4F19FCBF2258670200CD7BFA /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
 		4FCBF5902255875E00E95E78 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCBF5932255875E00E95E78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FCBF5952255875E00E95E78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				4FCBF5BC2255922D00E95E78 /* MovieInteractor.swift */,
+				4F19FCBF2258670200CD7BFA /* MovieDetailInteractor.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -406,6 +409,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -413,6 +418,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +439,7 @@
 				4F19FCBD22583F9100CD7BFA /* DetailTableViewCell.swift in Sources */,
 				4FCBF5C1225595EB00E95E78 /* MovieRouter.swift in Sources */,
 				4F19FCB62258282900CD7BFA /* MovieDetailPresenter.swift in Sources */,
+				4F19FCC02258670200CD7BFA /* MovieDetailInteractor.swift in Sources */,
 				4F19FCB9225829C600CD7BFA /* MovieDetailViewController.swift in Sources */,
 				4F19FCA32256B77900CD7BFA /* MovieAPIService.swift in Sources */,
 				4FCBF5962255875E00E95E78 /* HomeViewController.swift in Sources */,

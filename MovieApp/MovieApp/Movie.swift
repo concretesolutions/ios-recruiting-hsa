@@ -7,24 +7,63 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-struct Movie : Decodable{
-    var id : Int64
-    var title : String
-    var releaseDate : String
-    var genres : [Int]
-    var overview: String
-    var imagePath : String
+class IntObject: Object {
+    @objc dynamic var value : Int = 0
     
-    init(id: Int64, title:String, releaseDate: String, genres:[Int], overview: String, imagePath : String) {
+    convenience init(_ newValue: Int) {
+        self.init()
+        value = newValue
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+}
+
+class Movie : Object, Decodable{
+    enum Property: String {
+        case id
+    }
+    
+    
+    @objc dynamic var id : Int = 0
+    @objc dynamic var title : String = ""
+    @objc dynamic var releaseDate : String = ""
+    dynamic var genres : List<IntObject> = List.init()
+    @objc dynamic var overview: String = ""
+    @objc dynamic var imagePath : String = ""
+    
+    convenience init(id: Int, title:String, releaseDate: String, genres:[Int], overview: String, imagePath : String) {
+        self.init()
         self.id = id
         self.title = title
         self.releaseDate = releaseDate
-        self.genres = genres
+        for id in genres {
+            self.genres.append(IntObject.init(id))
+        }
         self.overview = overview
         self.imagePath = imagePath
     }
     
+    required init() {
+        super.init()
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
     
     
     enum MovieKeys : String,CodingKey {
@@ -36,9 +75,9 @@ struct Movie : Decodable{
         case imagePath = "poster_path"
     }
     
-    init(from decoder:Decoder) throws{
+    required convenience init(from decoder:Decoder) throws{
         let container = try decoder.container(keyedBy: MovieKeys.self)
-        let id = try container.decode(Int64.self, forKey: .id)
+        let id = try container.decode(Int.self, forKey: .id)
         let title = try container.decode(String.self, forKey: .title)
         let release = try container.decode(String.self, forKey: .releaseDate)
         let genres = try container.decode([Int].self, forKey: .genres)
@@ -49,11 +88,19 @@ struct Movie : Decodable{
         
     }
     
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
     
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+
 }
 
 struct MovieViewModel {
-    var id : Int64
+    var id : Int
     var title : String
     var year : String
     var genres : [Genre]

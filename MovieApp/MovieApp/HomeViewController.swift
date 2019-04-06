@@ -24,6 +24,9 @@ class HomeViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBar.barTintColor = #colorLiteral(red: 0.01874381118, green: 0.2028939426, blue: 0.3979796767, alpha: 1)
+        UITabBar.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         createMoviesViewController()
         createFavoritesViewController()
         addViewsControllers()
@@ -40,7 +43,7 @@ extension HomeViewController : HomeViewProtocol{
     
     func createFavoritesViewController(){
         favoritesViewController = UIViewController()
-        favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        favoritesViewController.tabBarItem = UITabBarItem(title: "Favorities", image: UIImage(named: "favorite_empty_icon"), tag: 0)
     }
     
     func addViewsControllers() {

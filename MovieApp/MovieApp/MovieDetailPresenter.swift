@@ -11,13 +11,16 @@ import Foundation
 protocol MovieDetailPresenterProtocol{
     func showDetailMovie(movie : MovieViewModel)
     func addToFavoriteAction(movie : MovieViewModel)
-    func backAction()
 }
 
 class MovieDetailPresenter {
     
     weak private var movieDetailView : MovieDetailViewProtocol?
-    
+    var interactor : MovieDetailInteractorProtocol?
+   
+    init(interactor : MovieDetailInteractorProtocol){
+        self.interactor = interactor
+    }
     
     func attachView(view : MovieDetailViewProtocol){
         self.movieDetailView = view
@@ -34,10 +37,13 @@ extension MovieDetailPresenter : MovieDetailPresenterProtocol {
     }
     
     func addToFavoriteAction(movie: MovieViewModel) {
+        var genreid : [Int] = []
         
-    }
-    
-    func backAction() {
+        for genre in movie.genres {
+            genreid.append(genre.id)
+        }
         
-    }    
+        interactor?.saveMovie(movie: Movie(id: movie.id, title: movie.title, releaseDate: movie.year, genres: genreid, overview: movie.overview, imagePath: movie.imagePath))
+        
+    } 
 }

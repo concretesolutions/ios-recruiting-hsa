@@ -7,15 +7,19 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
+
+
 protocol MovieInteractorProtocol : class {
     
     var  presenter : MoviePresenter? { get set }
     func getMovies()
+
 }
 
 
 class MovieInteractor : MovieInteractorProtocol {
-    
     var presenter : MoviePresenter?
     
     func attachPresenter(presenter : MoviePresenter){
@@ -34,6 +38,11 @@ class MovieInteractor : MovieInteractorProtocol {
             }
         }
     }
+    
+
+    
+    
+    
 
     
 }

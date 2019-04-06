@@ -10,7 +10,7 @@ import Foundation
 
 struct Genre : Decodable {
     
-    var id : Int64
+    var id : Int
     var name : String
     
 }

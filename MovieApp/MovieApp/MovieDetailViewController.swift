@@ -16,7 +16,8 @@ protocol MovieDetailViewProtocol : class{
 class MovieDetailViewController: UIViewController {
     
     var viewModel : MovieViewModel?
-
+    var presenter : MovieDetailPresenterProtocol?
+    var interactor : MovieDetailInteractorProtocol?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageTableView: UIImageView!
@@ -24,7 +25,8 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Movie"
-
+        interactor = MovieDetailInteractor()
+        presenter = MovieDetailPresenter(interactor: interactor!)
         
         configTableView()
         tableView.reloadData()
@@ -44,7 +46,11 @@ class MovieDetailViewController: UIViewController {
 
 
 extension MovieDetailViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            presenter?.addToFavoriteAction(movie: viewModel!)
+        }
+    }
     
 }
 
