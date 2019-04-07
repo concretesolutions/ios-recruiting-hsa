@@ -22,13 +22,14 @@ protocol MovieInteractorOutput: class {
 class MoviePresenter {
     
     weak var movieView : MoviesViewProtocol?
-    weak var interactor : MovieInteractorProtocol?
+    weak var movieInteractor : MovieInteractorProtocol?
+    weak var genresInteractor : GenreInteractorProtocol?
     var router : MovieRouterProtocol
     
     init(movieInteractor : MovieInteractor,movieRouter : MovieRouterProtocol){
-        self.interactor = movieInteractor
+        self.movieInteractor = movieInteractor
         self.router = movieRouter
-        interactor!.presenter = self
+        movieInteractor.presenter = self
     }
     
     func attachView(view :MoviesViewProtocol ){
@@ -43,7 +44,7 @@ class MoviePresenter {
 
 extension MoviePresenter : MoviePresenterProtocol {
     func matchMovieWithFavorite(viewModels: [MovieViewModel]) -> [MovieViewModel]{
-        let localMovies = interactor?.getLocalMovies()
+        let localMovies = movieInteractor?.getLocalMovies()
         let ids = localMovies?.map{$0?.id}
         var mutable = viewModels
         
@@ -55,7 +56,15 @@ extension MoviePresenter : MoviePresenterProtocol {
     }
 
     func fetchMovies() {
-        interactor!.getAPIMovies()
+        GenreInteractor.shared.onfetchGenres(success: {
+            self.movieInteractor!.getAPIMovies()
+            
+        }, fail: {
+            
+        }) {
+            
+        }
+        
     }
     
     func showMovieDetail(for viewModel: MovieViewModel) {

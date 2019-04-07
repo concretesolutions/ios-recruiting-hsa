@@ -8,13 +8,41 @@
 
 import Foundation
 
-protocol GenreInteractorProtocol{
-    func onfetchGenres()
+protocol GenreInteractorProtocol : class{
+    func onfetchGenres(success:@escaping ()->Void , fail: @escaping ()->Void, timeout: @escaping ()->Void)
+    func findAGenre(id : Int) -> Genre?
 }
 
-class GenreInteractor {
+class GenreInteractor : GenreInteractorProtocol {
     
-    weak private var presenter : MoviePresenterProtocol?
+    var genresList : [Genre] = []
     
+    static var shared  = GenreInteractor()
+        
+    func findAGenre(id : Int) -> Genre?{
+        for genre in genresList {
+            if genre.id == id {
+                return genre
+            }
+        }
+        return nil
+    }
+    
+    func onfetchGenres(success:@escaping ()->Void , fail: @escaping ()->Void, timeout: @escaping ()->Void) {
+        GenreAPIService.shared.getGenres(success: { (data) in
+            do{
+                let jsondata = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+                let genres = try JSONDecoder().decode([Genre].self, from: jsondata)
+                self.genresList = genres
+                success()
+            }catch let error {
+                self.genresList = []
+            }
+        }, fail: { (code) in
+            fail()
+        }, timeOut: {
+            timeout()
+        })
+    }
     
 }

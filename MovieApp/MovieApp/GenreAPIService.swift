@@ -46,13 +46,13 @@ class GenreAPIService {
     }
     
     func getGenres(success: @escaping SuccessHandler,fail: @escaping ErrorHandler, timeOut: @escaping TimeOutHandler){
-        sessionManager.request(RemoteAPIRouter.getGenre).validate().responseJSON { (dataResponse) in
+        sessionManager.request(GenreAPIRouter.getGenre).validate().responseJSON { (dataResponse) in
             self.responseHandler(response: dataResponse, success: { (data) in
-                
+                success(data)
             }, fail: { (error) in
-                
+                fail(error)
             }, timeOut: {
-                
+                timeOut()
             })
         }
     }

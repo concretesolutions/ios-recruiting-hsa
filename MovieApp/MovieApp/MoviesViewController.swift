@@ -23,6 +23,7 @@ class MoviesViewController: UIViewController {
     var presenter : MoviePresenter!
     var interactor : MovieInteractor!
     var router : MovieRouter!
+    var genresInteractor : GenreInteractorProtocol!
     
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 50.0,left: 20.0,bottom: 50.0,right: 20.0)
@@ -30,6 +31,7 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interactor = MovieInteractor()
+        self.genresInteractor = GenreInteractor()
         self.router = MovieRouter(presentingViewController: self)
         self.presenter = MoviePresenter(movieInteractor: interactor, movieRouter: router)
         self.presenter.attachView(view: self)

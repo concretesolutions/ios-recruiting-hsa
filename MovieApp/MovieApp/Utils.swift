@@ -32,7 +32,12 @@ func createMovieViewModels(from movies: [Movie]) -> [MovieViewModel] {
         let imagePath = movie.imagePath
         let favorite = movie.favorite
         
-        return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres: [Genre(id: 1, name: "DESCONOCIDO")], overview: movie.overview, imagePath: imagePath, favorite: favorite)
+        var result : [Genre] = []
+        for idGenre in movie.genres {
+            result.append(GenreInteractor.shared.findAGenre(id:idGenre.value)!)
+        }
+        
+        return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres:result, overview: movie.overview, imagePath: imagePath, favorite: favorite)
     })
 }
 

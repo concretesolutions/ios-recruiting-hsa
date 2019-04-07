@@ -56,7 +56,7 @@ extension MovieDetailViewController : UITableViewDelegate {
 
 extension MovieDetailViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -75,12 +75,16 @@ extension MovieDetailViewController : UITableViewDataSource {
             cell.titleLabel.text = viewModel?.year
             cell.hideIconFavorite()
         case 2:
-            cell.titleLabel.text = viewModel?.overview
+            var genres = viewModel?.genres.map{$0.name}
+            let stringRepresentation = genres?.joined(separator: ",")
+            cell.titleLabel.text = stringRepresentation
             cell.hideIconFavorite()
-        default:
+        case 3:
             tableView.separatorStyle = .none
             cell.titleLabel.text = viewModel?.overview
             cell.hideIconFavorite()
+        default:
+            break;
         }
         
         return cell
