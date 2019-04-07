@@ -75,7 +75,7 @@ extension MovieDetailViewController : UITableViewDataSource {
             cell.titleLabel.text = viewModel?.year
             cell.hideIconFavorite()
         case 2:
-            var genres = viewModel?.genres.map{$0.name}
+            let genres = viewModel?.genres.map{$0.name}
             let stringRepresentation = genres?.joined(separator: ",")
             cell.titleLabel.text = stringRepresentation
             cell.hideIconFavorite()
