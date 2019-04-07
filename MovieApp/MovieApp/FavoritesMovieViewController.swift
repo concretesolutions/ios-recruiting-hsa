@@ -25,6 +25,7 @@ class FavoritesMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "FavoriteMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "CELLFAVORITE")

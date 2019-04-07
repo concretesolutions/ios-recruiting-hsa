@@ -15,7 +15,8 @@ protocol MoviePresenterProtocol: class {
 
 protocol MovieInteractorOutput: class {
     func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool)
-    func fetchProductsFailure(message: String)
+    func fetchMovieFailure(message: String)
+    func onFetchTimeOut()
 }
 
 class MoviePresenter {
@@ -41,9 +42,20 @@ class MoviePresenter {
 }
 
 extension MoviePresenter : MoviePresenterProtocol {
-    
+    func matchMovieWithFavorite(viewModels: [MovieViewModel]) -> [MovieViewModel]{
+        let localMovies = interactor?.getLocalMovies()
+        let ids = localMovies?.map{$0?.id}
+        var mutable = viewModels
+        
+        for index in mutable.indices {
+            mutable[index].favorite = (ids?.contains(viewModels[index].id))!
+        }
+        
+        return mutable
+    }
+
     func fetchMovies() {
-        interactor!.getMovies()
+        interactor!.getAPIMovies()
     }
     
     func showMovieDetail(for viewModel: MovieViewModel) {
@@ -53,13 +65,17 @@ extension MoviePresenter : MoviePresenterProtocol {
 }
 
 
-extension MoviePresenter : MovieInteractorOutput {    
+extension MoviePresenter : MovieInteractorOutput {
     func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool) {
         let movieViewModel = createMovieViewModels(from: movies!)
         movieView?.showMovies(movies: movieViewModel)
     }
     
-    func fetchProductsFailure(message: String) {
+    func fetchMovieFailure(message: String) {
+        
+    }
+    
+    func onFetchTimeOut() {
         
     }
 }

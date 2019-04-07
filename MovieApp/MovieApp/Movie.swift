@@ -44,6 +44,7 @@ class Movie : Object, Decodable{
     dynamic var genres : List<IntObject> = List.init()
     @objc dynamic var overview: String = ""
     @objc dynamic var imagePath : String = ""
+    @objc dynamic var favorite : Bool = false
     
     convenience init(id: Int, title:String, releaseDate: String, genres:[Int], overview: String, imagePath : String) {
         self.init()
@@ -106,5 +107,6 @@ struct MovieViewModel {
     var genres : [Genre]
     var overview : String
     var imagePath : String
+    var favorite : Bool 
 
 }

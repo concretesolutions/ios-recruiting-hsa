@@ -6,6 +6,9 @@ target 'MovieApp' do
     pod 'Alamofire', '~> 4.7'
     pod 'SDWebImage'
     pod 'RealmSwift'
+    
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
 
 target 'MovieAppTests' do

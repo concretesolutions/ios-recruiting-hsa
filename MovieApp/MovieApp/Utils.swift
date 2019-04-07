@@ -30,8 +30,15 @@ func createMovieViewModels(from movies: [Movie]) -> [MovieViewModel] {
         let index = movie.releaseDate.index(movie.releaseDate.startIndex, offsetBy: 4)
         let year = movie.releaseDate[..<index]
         let imagePath = movie.imagePath
+        let favorite = movie.favorite
         
-        
-        return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres: [Genre(id: 1, name: "DESCONOCIDO")], overview: movie.overview, imagePath: imagePath )
+        return MovieViewModel(id:movie.id, title: movie.title, year: String(year), genres: [Genre(id: 1, name: "DESCONOCIDO")], overview: movie.overview, imagePath: imagePath, favorite: favorite)
     })
+}
+
+extension Sequence where Iterator.Element: Hashable {
+    func unique() -> [Iterator.Element] {
+        var seen: [Iterator.Element: Bool] = [:]
+        return self.filter { seen.updateValue(true, forKey: $0) == nil }
+    }
 }

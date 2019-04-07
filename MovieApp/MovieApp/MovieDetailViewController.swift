@@ -69,6 +69,7 @@ extension MovieDetailViewController : UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.titleLabel.text = viewModel?.title
+            cell.favoriteImage.image = viewModel!.favorite ? UIImage(named: "favorite_full_icon") : UIImage(named: "favorite_gray_icon")
             cell.showIconFavorite()
         case 1:
             cell.titleLabel.text = viewModel?.year

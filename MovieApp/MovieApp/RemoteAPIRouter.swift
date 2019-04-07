@@ -14,11 +14,12 @@ enum RemoteAPIRouter : URLRequestConvertible {
     
     case getPopularMovies(_ page: Int)
     case getDetailMovie(_ id: Int)
+    case getGenre
     
     
     var method : HTTPMethod {
         switch self {
-        case .getPopularMovies, .getDetailMovie:
+        case .getPopularMovies, .getDetailMovie,.getGenre:
             return .get
         }
     }
@@ -29,12 +30,14 @@ enum RemoteAPIRouter : URLRequestConvertible {
             return "popular"
         case let .getDetailMovie(id):
             return "movie/"+String(id)
+        case .getGenre:
+            return "list"
         }
     }
     
     var headers : HTTPHeaders{
         switch self {
-        case .getPopularMovies,.getDetailMovie:
+        case .getPopularMovies,.getDetailMovie,.getGenre:
             return ["Content-Type":"application/x-www-form-urlencoded"]
         }
     }
@@ -43,7 +46,7 @@ enum RemoteAPIRouter : URLRequestConvertible {
     var params : [String:Any] {
         var paramDict : [String:Any] = [:]
         switch self {
-        case .getPopularMovies,.getDetailMovie:
+        case .getPopularMovies,.getDetailMovie,.getGenre:
             paramDict["api_key"] = "6893e0b3a6030f46d850edf87283de46"
             return paramDict
         }

@@ -13,7 +13,6 @@ protocol MovieDetailInteractorProtocol{
     func saveMovie(movie: Movie)
 }
 
-
 class MovieDetailInteractor{
     
    var presenter : MovieDetailPresenterProtocol?

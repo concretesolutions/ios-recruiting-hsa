@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class MovieAPIService : NSObject{
+class MovieAPIService {
     
     typealias SuccessHandler = (_ result:AnyObject)-> Void
     typealias ErrorHandler = (_ error: String) -> Void
@@ -18,10 +18,10 @@ class MovieAPIService : NSObject{
     let sessionManager : Alamofire.SessionManager!
     static var shared = MovieAPIService()
     
-    fileprivate override init(){
+    fileprivate init(){
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15.0 // seconds
-        configuration.timeoutIntervalForResource = 15.0
+        configuration.timeoutIntervalForRequest = 10 // seconds
+        configuration.timeoutIntervalForResource = 10
         sessionManager = Alamofire.SessionManager(configuration: configuration)
     }
     
@@ -34,30 +34,37 @@ class MovieAPIService : NSObject{
                 success(result)
             }
         case let .failure(error):
-            fail(error.localizedDescription)
+            switch  error._code{
+            case NSURLErrorTimedOut:
+                timeOut()
+            case NSURLErrorNotConnectedToInternet:
+                timeOut()
+            default:
+                fail(error.localizedDescription)
+            }
         }
     }
     
-    func getPopularMovies(success: @escaping (AnyObject) -> Void) {
+    func getPopularMovies(success: @escaping (AnyObject) -> Void, fail: @escaping ErrorHandler, timeout: @escaping TimeOutHandler) {
         sessionManager.request(RemoteAPIRouter.getPopularMovies(1)).validate().responseJSON(completionHandler: { (dataResponse) in
             self.responseHandler(response: dataResponse, success: { (data) in
                 success(data)
             }, fail: { (error) in
-                
+                fail(error)
             }, timeOut: {
-                
+                timeout()
             })
         })
     }
     
-    func getDetailMovie(id : Int, success: @escaping SuccessHandler){
+    func getDetailMovie(id : Int, success: @escaping SuccessHandler, fail: @escaping ErrorHandler, timeout: @escaping TimeOutHandler){
         sessionManager.request(RemoteAPIRouter.getDetailMovie(id)).validate().responseJSON { (dataResponse) in
             self.responseHandler(response: dataResponse, success: { (data) in
                 success(data)
             }, fail: { (error) in
-                
+                fail(error)
             }, timeOut: {
-                
+                timeout()
             })
         }
     }

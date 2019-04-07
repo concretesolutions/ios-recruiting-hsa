@@ -40,9 +40,15 @@ class MoviesViewController: UIViewController {
         collectionView.register(UINib(nibName:"MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MOVIECOLLECTIONCELL")
         
         presenter.fetchMovies()
+       
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModels = presenter.matchMovieWithFavorite(viewModels: viewModels)
+        collectionView.reloadData()
+    }
+    
 }
 
 extension MoviesViewController : MoviesViewProtocol {
@@ -61,6 +67,7 @@ extension MoviesViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MOVIECOLLECTIONCELL", for: indexPath) as! MovieCollectionViewCell
         cell.viewModel = viewModels[indexPath.row]
         cell.titleMovieLabel .text = viewModels[indexPath.row].title
+        cell.favoriteImage.image = viewModels[indexPath.row].favorite ? UIImage(named: "favorite_full_icon") : UIImage(named: "favorite_gray_icon")
         cell.downloadImage()
         return cell
     }

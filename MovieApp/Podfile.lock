@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.8.2)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
   - Realm (3.14.0):
     - Realm/Headers (= 3.14.0)
   - Realm/Headers (3.14.0)
@@ -11,22 +14,28 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Crashlytics
+  - Fabric
   - RealmSwift
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Crashlytics
+    - Fabric
     - Realm
     - RealmSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Realm: 221b25919bb5a010a3c597d707f8df3492dcd93a
   RealmSwift: 28f22dfa6a27b9a778cfb09471558b6afcf1022c
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: a8f967dbb2fb99995e78d3dcda3c1dc23c9adb54
+PODFILE CHECKSUM: 63b8be34184c21791026b92a42531a23a9f880a4
 
 COCOAPODS: 1.5.3
