@@ -18,10 +18,8 @@ protocol HomeViewProtocol {
 
 class HomeViewController: UITabBarController {
     
-    var moviesViewController : MoviesViewController!
-    var favoritesViewController : FavoritesMovieViewController!
-    let searchController = UISearchController(searchResultsController: nil)
-
+    var moviesNavigationViewController : UINavigationController!
+    var favoritesNavigationViewController : UINavigationController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,34 +29,26 @@ class HomeViewController: UITabBarController {
         createMoviesViewController()
         createFavoritesViewController()
         addViewsControllers()
-        addSearchViewController()
+        
     }
-    
-    func addSearchViewController(){
-        searchController.searchResultsUpdater = moviesViewController
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        self.navigationItem.searchController = searchController
-        definesPresentationContext = true
-    }
-    
 }
 
 extension HomeViewController : HomeViewProtocol{
     
     func createMoviesViewController(){
-        moviesViewController = MoviesViewController(nibName: "MoviesViewController", bundle: nil)
-        moviesViewController.searchBarHome = searchController
+        let moviesViewController = MoviesViewController(nibName: "MoviesViewController", bundle: nil)
+        self.moviesNavigationViewController = UINavigationController.init(rootViewController: moviesViewController)
         moviesViewController.tabBarItem = UITabBarItem(title: "Movies", image: UIImage(named: "list_icon"), tag: 0)
     }
     
     func createFavoritesViewController(){
-        favoritesViewController = FavoritesMovieViewController(nibName: "FavoritesMovieViewController", bundle: nil)
-        favoritesViewController.tabBarItem = UITabBarItem(title: "Favorities", image: UIImage(named: "favorite_empty_icon"), tag: 0)
+        let favoritesViewController = FavoritesMovieViewController(nibName: "FavoritesMovieViewController", bundle: nil)
+        self.favoritesNavigationViewController = UINavigationController.init(rootViewController: favoritesViewController)
+        favoritesViewController.tabBarItem = UITabBarItem(title: "Favorities", image: UIImage(named: "favorite_empty_icon"), tag: 1)
     }
     
     func addViewsControllers() {
-        viewControllers = [moviesViewController,favoritesViewController]
+        viewControllers = [moviesNavigationViewController,favoritesNavigationViewController]
     }
 }
 

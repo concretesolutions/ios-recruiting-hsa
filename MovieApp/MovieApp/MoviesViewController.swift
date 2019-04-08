@@ -29,6 +29,8 @@ class MoviesViewController: UIViewController {
     var router : MovieRouter!
     var genresInteractor : GenreInteractorProtocol!
     let hudLoading = JGProgressHUD(style: .dark)
+    let searchController = UISearchController(searchResultsController: nil)
+
     var searchBarHome : UISearchController! = nil
     
     private let itemsPerRow: CGFloat = 2
@@ -42,9 +44,9 @@ class MoviesViewController: UIViewController {
         self.presenter = MoviePresenter(movieInteractor: interactor, movieRouter: router)
         self.presenter.attachView(view: self)
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UINib(nibName:"MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MOVIECOLLECTIONCELL")
+        self.collectionViewConfig()
+        self.navigationBarStyle()
+        self.addSearchViewController()
         
         self.showLoading()
         presenter.fetchMovies()
@@ -57,6 +59,25 @@ class MoviesViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    func navigationBarStyle(){
+        self.title = "Popular Movies"
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9686772227, green: 0.8077141047, blue: 0.3574544787, alpha: 1)
+        self.navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    func collectionViewConfig(){
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName:"MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MOVIECOLLECTIONCELL")
+    }
+    
+    func addSearchViewController(){
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
     
     func showErrorViewBackground(imageName: String, errorText : String){
         let customViewError : ErrorView = ErrorView(frame: collectionView.bounds)
@@ -134,15 +155,14 @@ extension MoviesViewController : UICollectionViewDataSource {
 
 extension MoviesViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        presenter.showMovieDetail(for: viewModels[indexPath.row])
+        let viewmodelToShow = isFiltering() ? viewModelsFiltered[indexPath.row] : viewModels[indexPath.row]
+        presenter.showMovieDetail(for: viewmodelToShow)
     }
 }
 
 extension MoviesViewController : UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
@@ -151,31 +171,25 @@ extension MoviesViewController : UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
 }
 
 extension MoviesViewController: UISearchResultsUpdating {
     func isFiltering() -> Bool {
-        return searchBarHome.isActive && !searchBarHome.searchBar.text!.isEmpty
+        return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
    
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    func filterContentForSearchText(_ searchText: String) {        
+    func filterContentForSearchText(_ searchText: String) {
         viewModelsFiltered = viewModels.filter{ $0.title.lowercased().contains(searchText.lowercased())}
         collectionView.reloadData()
     }

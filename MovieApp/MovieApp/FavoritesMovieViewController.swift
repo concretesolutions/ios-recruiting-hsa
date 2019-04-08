@@ -35,6 +35,7 @@ class FavoritesMovieViewController: UIViewController {
         interactor = MovieFavoriteInteractor()
         presenter?.interactor = interactor
         interactor?.presenter = presenter
+        navigationBarStyle()
         
         presenter?.fetchFavoriteMovies()
     }
@@ -43,7 +44,20 @@ class FavoritesMovieViewController: UIViewController {
         super.viewWillAppear(animated)
         presenter?.fetchFavoriteMovies()
     }
-
+    
+    func navigationBarStyle(){
+        self.title = "Favorites Movies"
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9686772227, green: 0.8077141047, blue: 0.3574544787, alpha: 1)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = .black
+        let barItem = UIBarButtonItem(image: UIImage(named: "FilterIcon"), style: .done, target: self, action: #selector(filterButtonAction))
+        navigationItem.rightBarButtonItems=[barItem]
+    }
+    
+    @objc func filterButtonAction(){
+    
+    }
+    
 }
 
 extension FavoritesMovieViewController : FavoritesMovieViewProtocol{

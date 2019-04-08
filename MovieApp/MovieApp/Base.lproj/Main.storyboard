@@ -31,7 +31,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="We7-dt-LnW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Pxf-5D-daW">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Pxf-5D-daW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.96964579820632935" green="0.80934840440750122" blue="0.35800296068191528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

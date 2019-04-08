@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021CDACC225BCE7100296B8A /* FilterMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CDACA225BCE7100296B8A /* FilterMovieViewController.swift */; };
+		021CDACD225BCE7100296B8A /* FilterMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021CDACB225BCE7100296B8A /* FilterMovieViewController.xib */; };
 		4334365C644423EAC86EC45B /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB5B5EF4B75108A37DA4E89 /* Pods_MovieAppTests.framework */; };
 		4F19FCA32256B77900CD7BFA /* MovieAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCA22256B77900CD7BFA /* MovieAPIService.swift */; };
 		4F19FCA62256C0E700CD7BFA /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCA42256C0E700CD7BFA /* MoviesViewController.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021CDACA225BCE7100296B8A /* FilterMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMovieViewController.swift; sourceTree = "<group>"; };
+		021CDACB225BCE7100296B8A /* FilterMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterMovieViewController.xib; sourceTree = "<group>"; };
 		3CB5B5EF4B75108A37DA4E89 /* Pods_MovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F19FCA22256B77900CD7BFA /* MovieAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIService.swift; sourceTree = "<group>"; };
 		4F19FCA42256C0E700CD7BFA /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021CDABF225BB2FE00296B8A /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				021CDACA225BCE7100296B8A /* FilterMovieViewController.swift */,
+				021CDACB225BCE7100296B8A /* FilterMovieViewController.xib */,
+			);
+			name = FilterView;
+			sourceTree = "<group>";
+		};
 		4F19FCA12256B75D00CD7BFA /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +269,7 @@
 		4FCBF5B722558AFD00E95E78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				021CDABF225BB2FE00296B8A /* FilterView */,
 				4F2B5C602258E0290087C04E /* FavoriteMovie */,
 				4F19FCB0225821EF00CD7BFA /* DetailMovie */,
 				4F19FCA92256C10800CD7BFA /* HomeView */,
@@ -392,6 +406,7 @@
 				4F19FCAD2256DE4D00CD7BFA /* MovieCollectionViewCell.xib in Resources */,
 				4FCBF59E2255875F00E95E78 /* LaunchScreen.storyboard in Resources */,
 				4FCBF59B2255875F00E95E78 /* Assets.xcassets in Resources */,
+				021CDACD225BCE7100296B8A /* FilterMovieViewController.xib in Resources */,
 				4FCBF5992255875E00E95E78 /* Main.storyboard in Resources */,
 				4F19FCBE22583F9100CD7BFA /* DetailTableViewCell.xib in Resources */,
 				4F2B5C6F2258EAF00087C04E /* FavoriteMovieTableViewCell.xib in Resources */,
@@ -529,6 +544,7 @@
 				4F2B5C782259C97C0087C04E /* GenreAPIRouter.swift in Sources */,
 				4FCBF5B922558BD300E95E78 /* Movie.swift in Sources */,
 				4F19FCAC2256DE4D00CD7BFA /* MovieCollectionViewCell.swift in Sources */,
+				021CDACC225BCE7100296B8A /* FilterMovieViewController.swift in Sources */,
 				4FCBF5BB225591B900E95E78 /* Genre.swift in Sources */,
 				4F2B5C6B2258E8E80087C04E /* Utils.swift in Sources */,
 				4F2B5C742259B7990087C04E /* GenreInteractor.swift in Sources */,
