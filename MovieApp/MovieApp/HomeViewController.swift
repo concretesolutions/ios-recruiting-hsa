@@ -18,9 +18,10 @@ protocol HomeViewProtocol {
 
 class HomeViewController: UITabBarController {
     
-    var moviesViewController : UIViewController!
-    var favoritesViewController : UIViewController!
-    
+    var moviesViewController : MoviesViewController!
+    var favoritesViewController : FavoritesMovieViewController!
+    let searchController = UISearchController(searchResultsController: nil)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,15 @@ class HomeViewController: UITabBarController {
         createMoviesViewController()
         createFavoritesViewController()
         addViewsControllers()
+        addSearchViewController()
+    }
+    
+    func addSearchViewController(){
+        searchController.searchResultsUpdater = moviesViewController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        self.navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
 }
@@ -38,6 +48,7 @@ extension HomeViewController : HomeViewProtocol{
     
     func createMoviesViewController(){
         moviesViewController = MoviesViewController(nibName: "MoviesViewController", bundle: nil)
+        moviesViewController.searchBarHome = searchController
         moviesViewController.tabBarItem = UITabBarItem(title: "Movies", image: UIImage(named: "list_icon"), tag: 0)
     }
     
@@ -50,5 +61,7 @@ extension HomeViewController : HomeViewProtocol{
         viewControllers = [moviesViewController,favoritesViewController]
     }
 }
+
+
 
 

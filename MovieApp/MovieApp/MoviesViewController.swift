@@ -20,16 +20,16 @@ protocol MoviesViewProtocol : class {
 
 class MoviesViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var viewModels : [MovieViewModel] = []
+    var viewModelsFiltered : [MovieViewModel] = []
     var presenter : MoviePresenter!
     var interactor : MovieInteractor!
     var router : MovieRouter!
     var genresInteractor : GenreInteractorProtocol!
     let hudLoading = JGProgressHUD(style: .dark)
+    var searchBarHome : UISearchController! = nil
     
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 50.0,left: 20.0,bottom: 50.0,right: 20.0)
@@ -104,14 +104,22 @@ extension MoviesViewController : MoviesViewProtocol {
 
 extension MoviesViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModels.count
+        return isFiltering() ? viewModelsFiltered.count : viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MOVIECOLLECTIONCELL", for: indexPath) as! MovieCollectionViewCell
-        cell.viewModel = viewModels[indexPath.row]
-        cell.titleMovieLabel .text = viewModels[indexPath.row].title
-        cell.favoriteImage.image = viewModels[indexPath.row].favorite ? UIImage(named: "favorite_full_icon") : UIImage(named: "favorite_gray_icon")
+        if isFiltering(){
+            cell.viewModel = viewModelsFiltered[indexPath.row]
+            cell.titleMovieLabel .text = viewModelsFiltered[indexPath.row].title
+            cell.favoriteImage.image = viewModelsFiltered[indexPath.row].favorite ? UIImage(named: "favorite_full_icon") : UIImage(named: "favorite_gray_icon")
+            cell.downloadImage()
+        }else{
+            cell.viewModel = viewModels[indexPath.row]
+            cell.titleMovieLabel .text = viewModels[indexPath.row].title
+            cell.favoriteImage.image = viewModels[indexPath.row].favorite ? UIImage(named: "favorite_full_icon") : UIImage(named: "favorite_gray_icon")
+            
+        }
         cell.downloadImage()
         return cell
     }
@@ -155,6 +163,21 @@ extension MoviesViewController : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension MoviesViewController: UISearchResultsUpdating {
+    func isFiltering() -> Bool {
+        return searchBarHome.isActive && !searchBarHome.searchBar.text!.isEmpty
+    }
+   
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {        
+        viewModelsFiltered = viewModels.filter{ $0.title.lowercased().contains(searchText.lowercased())}
+        collectionView.reloadData()
     }
 }
 
