@@ -10,7 +10,7 @@ import UIKit
 import JGProgressHUD
 
 protocol MoviesViewProtocol : class {
-    func showMovies(movies: [MovieViewModel])
+    func showMovies(movies: [MovieViewModel],append : Bool)
     func showErrorFetch()
     func showLoading()
     func hideLoading()
@@ -91,10 +91,14 @@ extension MoviesViewController : MoviesViewProtocol {
         hudLoading.dismiss(afterDelay: 0.0)
     }
     
-    func showMovies(movies: [MovieViewModel]) {
-        self.hideLoading()
-        self.viewModels = movies
-        self.collectionView.reloadData()
+    func showMovies(movies: [MovieViewModel],append: Bool) {
+        hideLoading()
+        if append{
+            viewModels.append(contentsOf: movies)
+        }else{
+            viewModels = movies
+        }
+        collectionView.reloadData()
     }
 }
 
@@ -110,6 +114,13 @@ extension MoviesViewController : UICollectionViewDataSource {
         cell.favoriteImage.image = viewModels[indexPath.row].favorite ? UIImage(named: "favorite_full_icon") : UIImage(named: "favorite_gray_icon")
         cell.downloadImage()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let rowTotal = viewModels.count/2
+        if indexPath.row == rowTotal-3 {
+            presenter.fetchMovies()
+        }
     }
 }
 

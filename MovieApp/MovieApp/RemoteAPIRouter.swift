@@ -46,7 +46,13 @@ enum RemoteAPIRouter : URLRequestConvertible {
     var params : [String:Any] {
         var paramDict : [String:Any] = [:]
         switch self {
-        case .getPopularMovies,.getDetailMovie,.getGenre:
+        case let .getPopularMovies(page):
+            paramDict["api_key"] = "6893e0b3a6030f46d850edf87283de46"
+            paramDict["page"] = page
+            return paramDict
+            
+            
+        case .getDetailMovie,.getGenre:
             paramDict["api_key"] = "6893e0b3a6030f46d850edf87283de46"
             return paramDict
         }

@@ -26,6 +26,7 @@ class MoviePresenter {
     weak var movieInteractor : MovieInteractorProtocol?
     weak var genresInteractor : GenreInteractorProtocol?
     var router : MovieRouterProtocol
+    var page : Int = 1
     
     init(movieInteractor : MovieInteractor,movieRouter : MovieRouterProtocol){
         self.movieInteractor = movieInteractor
@@ -59,7 +60,11 @@ extension MoviePresenter : MoviePresenterProtocol {
     func fetchMovies() {
         GenreInteractor.shared.onfetchGenres(success: {
             self.movieInteractor!.getAPIMovies()
-        }, fail: {}) {}
+        }, fail: {
+            self.fetchMovieFailure(message: "Error en Generos")
+        }) {
+            self.onFetchTimeOut()
+        }
     }
     
     func showMovieDetail(for viewModel: MovieViewModel) {
@@ -76,7 +81,7 @@ extension MoviePresenter : MovieInteractorOutput {
     
     func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool) {
         let movieViewModel = createMovieViewModels(from: movies!)
-        movieView?.showMovies(movies: movieViewModel)
+        movieView?.showMovies(movies: movieViewModel,append:  shouldAppend)
     }
     
     func fetchMovieFailure(message: String) {

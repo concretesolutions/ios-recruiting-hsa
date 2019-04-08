@@ -45,8 +45,8 @@ class MovieAPIService {
         }
     }
     
-    func getPopularMovies(success: @escaping (AnyObject) -> Void, fail: @escaping ErrorHandler, timeout: @escaping TimeOutHandler) {
-        sessionManager.request(RemoteAPIRouter.getPopularMovies(1)).validate().responseJSON(completionHandler: { (dataResponse) in
+    func getPopularMovies(page : Int,success: @escaping (AnyObject) -> Void, fail: @escaping ErrorHandler, timeout: @escaping TimeOutHandler) {
+        sessionManager.request(RemoteAPIRouter.getPopularMovies(page)).validate().responseJSON(completionHandler: { (dataResponse) in
             self.responseHandler(response: dataResponse, success: { (data) in
                 success(data)
             }, fail: { (error) in
