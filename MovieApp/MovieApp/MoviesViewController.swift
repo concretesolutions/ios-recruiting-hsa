@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 protocol MoviesViewProtocol : class {
     func showMovies(movies: [MovieViewModel])
+    func showErrorFetch()
+    func showLoading()
+    func hideLoading()
+    func showTimeOut()
     
 }
 
@@ -24,6 +29,7 @@ class MoviesViewController: UIViewController {
     var interactor : MovieInteractor!
     var router : MovieRouter!
     var genresInteractor : GenreInteractorProtocol!
+    let hudLoading = JGProgressHUD(style: .dark)
     
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 50.0,left: 20.0,bottom: 50.0,right: 20.0)
@@ -35,12 +41,12 @@ class MoviesViewController: UIViewController {
         self.router = MovieRouter(presentingViewController: self)
         self.presenter = MoviePresenter(movieInteractor: interactor, movieRouter: router)
         self.presenter.attachView(view: self)
-        self.interactor.presenter = presenter
         
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName:"MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MOVIECOLLECTIONCELL")
         
+        self.showLoading()
         presenter.fetchMovies()
        
     }
@@ -51,10 +57,42 @@ class MoviesViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    
+    func showErrorViewBackground(imageName: String, errorText : String){
+        let customViewError : ErrorView = ErrorView(frame: collectionView.bounds)
+        customViewError.errorImageView.image = UIImage(named: imageName)
+        customViewError.errorLabel.text = errorText
+        collectionView.backgroundView = customViewError
+    }
+    
+    func hideViewError(){
+        self.collectionView.backgroundView = nil
+    }
+    
 }
 
 extension MoviesViewController : MoviesViewProtocol {
+    func showTimeOut() {
+        showErrorViewBackground(imageName:"timeout_collection" , errorText: "Ups! hemos tenido problemas de conexión")
+        hideLoading()
+    }
+    
+    func showErrorFetch() {
+        showErrorViewBackground(imageName:"error_collection" , errorText: "Ups! hemos tenido problemas cargando las peliculas")
+        hideLoading()
+    }
+    
+    func showLoading() {
+        hudLoading.textLabel.text = "Cargando..."
+        hudLoading.show(in: collectionView)
+    }
+    
+    func hideLoading() {
+        hudLoading.dismiss(afterDelay: 0.0)
+    }
+    
     func showMovies(movies: [MovieViewModel]) {
+        self.hideLoading()
         self.viewModels = movies
         self.collectionView.reloadData()
     }

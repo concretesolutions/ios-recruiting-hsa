@@ -3,10 +3,17 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'MovieApp' do
+    #UI
+    pod 'JGProgressHUD'
+    
+    #NETWORKING
     pod 'Alamofire', '~> 4.7'
     pod 'SDWebImage'
+    
+    #DATABASE
     pod 'RealmSwift'
     
+    #ANALITICS/EVENTS/CRASH
     pod 'Fabric'
     pod 'Crashlytics'
 end

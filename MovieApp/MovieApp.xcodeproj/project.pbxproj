@@ -30,6 +30,8 @@
 		4F2B5C722259B3D00087C04E /* GenreAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5C712259B3D00087C04E /* GenreAPIService.swift */; };
 		4F2B5C742259B7990087C04E /* GenreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5C732259B7990087C04E /* GenreInteractor.swift */; };
 		4F2B5C782259C97C0087C04E /* GenreAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5C772259C97C0087C04E /* GenreAPIRouter.swift */; };
+		4F2B5C82225AD2220087C04E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2B5C81225AD2220087C04E /* ErrorView.swift */; };
+		4F2B5C84225AD2310087C04E /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2B5C83225AD2310087C04E /* ErrorView.xib */; };
 		4FCBF5942255875E00E95E78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF5932255875E00E95E78 /* AppDelegate.swift */; };
 		4FCBF5962255875E00E95E78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCBF5952255875E00E95E78 /* HomeViewController.swift */; };
 		4FCBF5992255875E00E95E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FCBF5972255875E00E95E78 /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 		4F2B5C712259B3D00087C04E /* GenreAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIService.swift; sourceTree = "<group>"; };
 		4F2B5C732259B7990087C04E /* GenreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreInteractor.swift; sourceTree = "<group>"; };
 		4F2B5C772259C97C0087C04E /* GenreAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIRouter.swift; sourceTree = "<group>"; };
+		4F2B5C81225AD2220087C04E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		4F2B5C83225AD2310087C04E /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		4FCBF5902255875E00E95E78 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCBF5932255875E00E95E78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FCBF5952255875E00E95E78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				4F19FCA52256C0E700CD7BFA /* MoviesViewController.xib */,
 				4F19FCAA2256DE4D00CD7BFA /* MovieCollectionViewCell.swift */,
 				4F19FCAB2256DE4D00CD7BFA /* MovieCollectionViewCell.xib */,
+				4F2B5C81225AD2220087C04E /* ErrorView.swift */,
+				4F2B5C83225AD2310087C04E /* ErrorView.xib */,
 			);
 			name = MoviesView;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				4F2B5C6F2258EAF00087C04E /* FavoriteMovieTableViewCell.xib in Resources */,
 				4F2B5C642258E0D40087C04E /* FavoritesMovieViewController.xib in Resources */,
 				4F19FCA72256C0E700CD7BFA /* MoviesViewController.xib in Resources */,
+				4F2B5C84225AD2310087C04E /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +483,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -485,6 +493,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -508,6 +517,7 @@
 				4FCBF5C1225595EB00E95E78 /* MovieRouter.swift in Sources */,
 				4F19FCB62258282900CD7BFA /* MovieDetailPresenter.swift in Sources */,
 				4F19FCC02258670200CD7BFA /* MovieDetailInteractor.swift in Sources */,
+				4F2B5C82225AD2220087C04E /* ErrorView.swift in Sources */,
 				4F2B5C722259B3D00087C04E /* GenreAPIService.swift in Sources */,
 				4F19FCB9225829C600CD7BFA /* MovieDetailViewController.swift in Sources */,
 				4F19FCA32256B77900CD7BFA /* MovieAPIService.swift in Sources */,

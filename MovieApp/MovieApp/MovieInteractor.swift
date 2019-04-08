@@ -56,7 +56,7 @@ extension MovieInteractor : MovieInteractorProtocol {
         }, fail: { (error) in
             self.presenter?.fetchMovieFailure(message: error)
         }, timeout: {
-        
+            self.presenter?.fetchMovieTimeOut()
         })
     }
     

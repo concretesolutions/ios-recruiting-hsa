@@ -16,6 +16,7 @@ protocol MoviePresenterProtocol: class {
 protocol MovieInteractorOutput: class {
     func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool)
     func fetchMovieFailure(message: String)
+    func fetchMovieTimeOut()
     func onFetchTimeOut()
 }
 
@@ -58,13 +59,7 @@ extension MoviePresenter : MoviePresenterProtocol {
     func fetchMovies() {
         GenreInteractor.shared.onfetchGenres(success: {
             self.movieInteractor!.getAPIMovies()
-            
-        }, fail: {
-            
-        }) {
-            
-        }
-        
+        }, fail: {}) {}
     }
     
     func showMovieDetail(for viewModel: MovieViewModel) {
@@ -75,13 +70,17 @@ extension MoviePresenter : MoviePresenterProtocol {
 
 
 extension MoviePresenter : MovieInteractorOutput {
+    func fetchMovieTimeOut() {
+        movieView?.showTimeOut()
+    }
+    
     func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool) {
         let movieViewModel = createMovieViewModels(from: movies!)
         movieView?.showMovies(movies: movieViewModel)
     }
     
     func fetchMovieFailure(message: String) {
-        
+        movieView?.showErrorFetch()
     }
     
     func onFetchTimeOut() {
