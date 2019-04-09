@@ -12,7 +12,7 @@ import SDWebImage
 protocol FavoritesMovieViewProtocol : class {
     func showMovies(movies: [MovieViewModel])
     func removeFavorite(movie : MovieViewModel)
-    func removeFilter()
+    func filterData()
 }
 
 class FavoritesMovieViewController: UIViewController {
@@ -67,7 +67,7 @@ extension FavoritesMovieViewController : FavoritesMovieViewProtocol{
         presenter?.unFavoriteMovie(movie: movie)
     }
     
-    func removeFilter() {
+    func filterData() {
         
     }
     

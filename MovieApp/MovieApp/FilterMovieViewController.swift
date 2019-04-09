@@ -52,6 +52,12 @@ class FilterMovieViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.reloadData()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if let delegateAction = delegate {
+            delegateAction.filterSelected(filter: selectedData)
+        }
+    }
 
 }
 
