@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterMovieViewController" customModule="MovieApp" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="PAd-JC-VDe" id="n7T-zN-3FG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-JC-VDe" userLabel="TableView">
-                    <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="748"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="fYn-gf-X6i"/>
@@ -29,7 +30,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb0-az-HR3" userLabel="ApplyButton">
-                    <rect key="frame" x="103.5" y="822" width="207" height="40"/>
+                    <rect key="frame" x="103.5" y="802" width="207" height="40"/>
                     <color key="backgroundColor" red="0.96867722270000001" green="0.80771410470000005" blue="0.35745447870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Sx9-hs-Ma9"/>
@@ -45,7 +46,7 @@
             <constraints>
                 <constraint firstItem="jb0-az-HR3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0sy-7K-cZt"/>
                 <constraint firstItem="PAd-JC-VDe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="23A-2x-13X"/>
-                <constraint firstItem="jb0-az-HR3" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="CQ4-6O-KlL"/>
+                <constraint firstItem="jb0-az-HR3" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="CQ4-6O-KlL"/>
                 <constraint firstItem="jb0-az-HR3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="Ws7-G3-ek2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PAd-JC-VDe" secondAttribute="trailing" id="fti-jn-h47"/>
                 <constraint firstItem="PAd-JC-VDe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z99-2Z-frg"/>

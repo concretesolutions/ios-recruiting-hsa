@@ -11,7 +11,7 @@ import Foundation
 protocol MovieFavoritePresenterProtocol {
     func fetchFavoriteMovies()
     func unFavoriteMovie(movie: MovieViewModel)
-    
+    func showFilterView()
 }
 
 protocol MovieFavoriteOutputPresenterProtocol {
@@ -24,7 +24,7 @@ class MovieFavoritePresenter {
     
     weak private var movieFavoriteView : FavoritesMovieViewProtocol?
     var interactor : MovieFavoriteInteractor?
-    
+    var router : FavoritesRouterProtocol!
     
     func attachView(view : FavoritesMovieViewProtocol ){
         self.movieFavoriteView = view
@@ -37,6 +37,10 @@ class MovieFavoritePresenter {
 }
 
 extension MovieFavoritePresenter : MovieFavoritePresenterProtocol{
+    func showFilterView() {
+        router.showFavoriteFilter()
+    }
+    
     func unFavoriteMovie(movie: MovieViewModel) {
         interactor?.unFavoriteMovie(movieDelete: movie)
     }

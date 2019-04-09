@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		021CDACC225BCE7100296B8A /* FilterMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CDACA225BCE7100296B8A /* FilterMovieViewController.swift */; };
 		021CDACD225BCE7100296B8A /* FilterMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021CDACB225BCE7100296B8A /* FilterMovieViewController.xib */; };
+		02BC95FB225CE58600CAD779 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC95FA225CE58600CAD779 /* FavoritesRouter.swift */; };
+		02BC95FE225D1A2A00CAD779 /* SelectionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC95FC225D1A2A00CAD779 /* SelectionFilterTableViewController.swift */; };
+		02BC95FF225D1A2A00CAD779 /* SelectionFilterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BC95FD225D1A2A00CAD779 /* SelectionFilterTableViewController.xib */; };
 		4334365C644423EAC86EC45B /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB5B5EF4B75108A37DA4E89 /* Pods_MovieAppTests.framework */; };
 		4F19FCA32256B77900CD7BFA /* MovieAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCA22256B77900CD7BFA /* MovieAPIService.swift */; };
 		4F19FCA62256C0E700CD7BFA /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19FCA42256C0E700CD7BFA /* MoviesViewController.swift */; };
@@ -61,6 +64,9 @@
 /* Begin PBXFileReference section */
 		021CDACA225BCE7100296B8A /* FilterMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMovieViewController.swift; sourceTree = "<group>"; };
 		021CDACB225BCE7100296B8A /* FilterMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterMovieViewController.xib; sourceTree = "<group>"; };
+		02BC95FA225CE58600CAD779 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		02BC95FC225D1A2A00CAD779 /* SelectionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionFilterTableViewController.swift; sourceTree = "<group>"; };
+		02BC95FD225D1A2A00CAD779 /* SelectionFilterTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionFilterTableViewController.xib; sourceTree = "<group>"; };
 		3CB5B5EF4B75108A37DA4E89 /* Pods_MovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F19FCA22256B77900CD7BFA /* MovieAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIService.swift; sourceTree = "<group>"; };
 		4F19FCA42256C0E700CD7BFA /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 			children = (
 				021CDACA225BCE7100296B8A /* FilterMovieViewController.swift */,
 				021CDACB225BCE7100296B8A /* FilterMovieViewController.xib */,
+				02BC95FC225D1A2A00CAD779 /* SelectionFilterTableViewController.swift */,
+				02BC95FD225D1A2A00CAD779 /* SelectionFilterTableViewController.xib */,
 			);
 			name = FilterView;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				4FCBF5C0225595EB00E95E78 /* MovieRouter.swift */,
+				02BC95FA225CE58600CAD779 /* FavoritesRouter.swift */,
 			);
 			name = Router;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 				4F2B5C6F2258EAF00087C04E /* FavoriteMovieTableViewCell.xib in Resources */,
 				4F2B5C642258E0D40087C04E /* FavoritesMovieViewController.xib in Resources */,
 				4F19FCA72256C0E700CD7BFA /* MoviesViewController.xib in Resources */,
+				02BC95FF225D1A2A00CAD779 /* SelectionFilterTableViewController.xib in Resources */,
 				4F2B5C84225AD2310087C04E /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +543,7 @@
 				4FCBF5C1225595EB00E95E78 /* MovieRouter.swift in Sources */,
 				4F19FCB62258282900CD7BFA /* MovieDetailPresenter.swift in Sources */,
 				4F19FCC02258670200CD7BFA /* MovieDetailInteractor.swift in Sources */,
+				02BC95FE225D1A2A00CAD779 /* SelectionFilterTableViewController.swift in Sources */,
 				4F2B5C82225AD2220087C04E /* ErrorView.swift in Sources */,
 				4F2B5C722259B3D00087C04E /* GenreAPIService.swift in Sources */,
 				4F19FCB9225829C600CD7BFA /* MovieDetailViewController.swift in Sources */,
@@ -546,6 +557,7 @@
 				4F2B5C782259C97C0087C04E /* GenreAPIRouter.swift in Sources */,
 				4FCBF5B922558BD300E95E78 /* Movie.swift in Sources */,
 				4F19FCAC2256DE4D00CD7BFA /* MovieCollectionViewCell.swift in Sources */,
+				02BC95FB225CE58600CAD779 /* FavoritesRouter.swift in Sources */,
 				021CDACC225BCE7100296B8A /* FilterMovieViewController.swift in Sources */,
 				4FCBF5BB225591B900E95E78 /* Genre.swift in Sources */,
 				4F2B5C6B2258E8E80087C04E /* Utils.swift in Sources */,

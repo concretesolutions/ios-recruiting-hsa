@@ -20,6 +20,7 @@ class FavoritesMovieViewController: UIViewController {
     @IBOutlet weak var tableView : UITableView!
     
     var presenter : MovieFavoritePresenter?
+    var router : FavoritesRouterProtocol?
     var interactor : MovieFavoriteInteractor?
     var viewModels : [MovieViewModel] = []
     
@@ -29,12 +30,13 @@ class FavoritesMovieViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "FavoriteMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "CELLFAVORITE")
-        
+        router = FavoritesRouter(presenting: self)
         presenter = MovieFavoritePresenter()
         presenter!.attachView(view: self)
         interactor = MovieFavoriteInteractor()
         presenter?.interactor = interactor
         interactor?.presenter = presenter
+        presenter?.router = router
         navigationBarStyle()
         
         presenter?.fetchFavoriteMovies()
@@ -55,7 +57,7 @@ class FavoritesMovieViewController: UIViewController {
     }
     
     @objc func filterButtonAction(){
-    
+        presenter?.showFilterView()
     }
     
 }
