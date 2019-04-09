@@ -23,20 +23,21 @@ class FavoritesMovieViewController: UIViewController {
     var router : FavoritesRouterProtocol?
     var interactor : MovieFavoriteInteractor?
     var viewModels : [MovieViewModel] = []
+    var viewModelsFiltered : [MovieViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: .zero)
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.register(UINib(nibName: "FavoriteMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "CELLFAVORITE")
+        self.tableView.tableFooterView = UIView(frame: .zero) //REFACT
+        self.tableView.dataSource = self //REFACT
+        self.tableView.delegate = self //REFACT
+        self.tableView.register(UINib(nibName: "FavoriteMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "CELLFAVORITE") //REFACT
         router = FavoritesRouter(presenting: self)
         presenter = MovieFavoritePresenter()
         presenter!.attachView(view: self)
-        interactor = MovieFavoriteInteractor()
-        presenter?.interactor = interactor
-        interactor?.presenter = presenter
-        presenter?.router = router
+        interactor = MovieFavoriteInteractor()  //REFACT
+        presenter?.interactor = interactor //REFACT
+        interactor?.presenter = presenter //REFACT
+        presenter?.router = router //REFACT
         navigationBarStyle()
         
         presenter?.fetchFavoriteMovies()

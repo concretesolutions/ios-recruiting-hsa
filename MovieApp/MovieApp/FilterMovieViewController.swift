@@ -18,7 +18,6 @@ class FilterMovieViewController: UIViewController {
     
     @IBOutlet weak var tableView : UITableView!
     
-    
     var data : [String:[String]] = ["Genres":[],"Date":[]]
     var menu : [String]{
         get{
@@ -27,8 +26,6 @@ class FilterMovieViewController: UIViewController {
     }
     
     var selectedData : [String:String] = ["":""]
-  
-
     var delegate : FilterMovieViewDelegate?
     
     static let filterSelectedOptions = NSNotification.Name("filterSelectedOptions")
@@ -50,6 +47,11 @@ class FilterMovieViewController: UIViewController {
         }
 
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
@@ -78,7 +80,6 @@ extension FilterMovieViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
     
     @objc func dataFromSelectFilter(notification: Notification){
         let data = notification.userInfo as? [String:String]

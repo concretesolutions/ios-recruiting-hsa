@@ -43,9 +43,14 @@ class SelectionFilterTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selected = items[indexPath.row]
-        tableView.reloadRows(at: [indexPath], with: .none)
-        NotificationCenter.default.post(name:FilterMovieViewController.filterSelectedOptions, object: nil, userInfo: [key:selected])
+        if selected != items[indexPath.row]{
+            selected = items[indexPath.row]
+            tableView.reloadRows(at: [indexPath], with: .none)
+            NotificationCenter.default.post(name:FilterMovieViewController.filterSelectedOptions, object: nil, userInfo: [key:selected])
+        }else{
+            selected = ""
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
     }
     
 }

@@ -54,6 +54,11 @@ extension MovieFavoritePresenter : MovieFavoritePresenterProtocol{
 extension MovieFavoritePresenter : MovieFavoriteOutputPresenterProtocol {
     func onFetchFavoriteMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool){
         let viewModels = createMovieViewModels(from: movies!)
+        
+        
+        
+        
+        
         movieFavoriteView?.showMovies(movies: viewModels)
     }
     func fetchProductsFailure(message: String){
