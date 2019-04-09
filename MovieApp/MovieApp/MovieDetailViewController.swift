@@ -49,6 +49,8 @@ extension MovieDetailViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             presenter?.addToFavoriteAction(movie: viewModel!)
+            viewModel?.favorite = true
+            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }
     }
     
