@@ -12,6 +12,7 @@ PODS:
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
+  - UIScrollView-InfiniteScroll (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - RealmSwift
   - SDWebImage
+  - UIScrollView-InfiniteScroll (~> 1.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SDWebImage
+    - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -39,7 +42,8 @@ SPEC CHECKSUMS:
   Realm: 221b25919bb5a010a3c597d707f8df3492dcd93a
   RealmSwift: 28f22dfa6a27b9a778cfb09471558b6afcf1022c
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: d8f045c750ace807307e1205cece852fbd112bb7
+PODFILE CHECKSUM: db89cd93ca72a5c84b6dc11f0dbe14009ff62279
 
 COCOAPODS: 1.5.3

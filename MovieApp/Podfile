@@ -5,6 +5,7 @@ use_frameworks!
 target 'MovieApp' do
     #UI
     pod 'JGProgressHUD'
+    pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
     
     #NETWORKING
     pod 'Alamofire', '~> 4.7'

@@ -8,6 +8,7 @@
 
 import UIKit
 import JGProgressHUD
+import UIScrollView_InfiniteScroll
 
 protocol MoviesViewProtocol : class {
     func showMovies(movies: [MovieViewModel],append : Bool)
@@ -50,6 +51,14 @@ class MoviesViewController: UIViewController {
         
         self.showLoading()
         presenter.fetchMovies()
+        
+        collectionView.addInfiniteScroll { (collectionView) -> Void in
+            collectionView.performBatchUpdates({ () -> Void in
+                self.presenter.fetchMovies()
+            }, completion: { (finished) -> Void in
+                collectionView.finishInfiniteScroll()
+            });
+        }
        
     }
     
