@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesMovieViewController" customModule="MovieApp" customModuleProvider="target">
+            <connections>
+                <outlet property="alertFilterHeight" destination="cVK-mJ-fh7" id="j9d-s8-fQE"/>
+                <outlet property="buttonFilter" destination="8L8-Pc-vJD" id="Dh1-eG-vPb"/>
+                <outlet property="tableView" destination="ad3-vD-eSv" id="JBh-Vd-BT2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ad3-vD-eSv">
+                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="K7k-zK-63s"/>
+                        <outlet property="delegate" destination="-1" id="gme-O0-rSC"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8L8-Pc-vJD">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <color key="backgroundColor" red="0.17736682295799255" green="0.18651390075683594" blue="0.27721548080444336" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="cVK-mJ-fh7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                    <state key="normal" title="REMOVE FILTER">
+                        <color key="titleColor" red="0.98564344644546509" green="0.82186263799667358" blue="0.35741770267486572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="removeFilterAction:" destination="-1" eventType="touchUpInside" id="3OU-Pk-9Ba"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8L8-Pc-vJD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0hH-tA-WXr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ad3-vD-eSv" secondAttribute="trailing" id="CRY-QY-n93"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8L8-Pc-vJD" secondAttribute="trailing" id="Ica-RP-ihb"/>
+                <constraint firstItem="ad3-vD-eSv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JH5-Q4-JBd"/>
+                <constraint firstItem="8L8-Pc-vJD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LIw-kw-REj"/>
+                <constraint firstItem="ad3-vD-eSv" firstAttribute="top" secondItem="8L8-Pc-vJD" secondAttribute="bottom" id="XoV-pa-LwA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ad3-vD-eSv" secondAttribute="bottom" id="jgm-kQ-Kc4"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140.57971014492756" y="119.86607142857142"/>
+        </view>
+    </objects>
+</document>

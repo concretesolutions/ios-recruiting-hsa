@@ -8,24 +8,33 @@
 
 import Foundation
 
-protocol MoviePresenterProtocol {
-    func showMovies(_ completion: ([MovieViewModel]))
+protocol MoviePresenterProtocol: class {
+    func fetchMovies()
     func showMovieDetail(for viewModel: MovieViewModel)
 }
 
-class MoviePresenter : MoviePresenterProtocol{
+protocol MovieInteractorOutput: class {
+    func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool)
+    func fetchMovieFailure(message: String)
+    func fetchMovieTimeOut()
+    func onFetchTimeOut()
+}
+
+class MoviePresenter {
     
-    var movieView : MovieViewProtocol?
-    let interactor : MovieInteractorProtocol
-    let router : MovieRouterProtocol
+    weak var movieView : MoviesViewProtocol?
+    weak var movieInteractor : MovieInteractorProtocol?
+    weak var genresInteractor : GenreInteractorProtocol?
+    var router : MovieRouterProtocol
+    var page : Int = 1
     
-    init(movieInteractor : MovieInteractorProtocol,movieRouter : MovieRouterProtocol){
-        
-         self.interactor = movieInteractor
-         self.router = movieRouter
+    init(movieInteractor : MovieInteractor,movieRouter : MovieRouterProtocol){
+        self.movieInteractor = movieInteractor
+        self.router = movieRouter
+        movieInteractor.presenter = self
     }
     
-    func attachView(view :MovieViewProtocol ){
+    func attachView(view :MoviesViewProtocol ){
         self.movieView = view
     }
     
@@ -33,24 +42,55 @@ class MoviePresenter : MoviePresenterProtocol{
         self.movieView = nil
     }
     
-    func showMovies(_ completion: ([MovieViewModel])) {
+}
+
+extension MoviePresenter : MoviePresenterProtocol {
+    func matchMovieWithFavorite(viewModels: [MovieViewModel]) -> [MovieViewModel]{
+        let localMovies = movieInteractor?.getLocalMovies()
+        let ids = localMovies?.map{$0?.id}
+        var mutable = viewModels
         
+        for index in mutable.indices {
+            mutable[index].favorite = (ids?.contains(viewModels[index].id))!
+        }
+        
+        return mutable
+    }
+
+    func fetchMovies() {
+        GenreInteractor.shared.onfetchGenres(success: {
+            self.movieInteractor!.getAPIMovies()
+        }, fail: {
+            self.fetchMovieFailure(message: "Error en Generos")
+        }) {
+            self.onFetchTimeOut()
+        }
     }
     
     func showMovieDetail(for viewModel: MovieViewModel) {
-        
-    }
-    
-    private func createMovieViewModels(from movies: [Movie]) -> [MovieViewModel] {
-        return movies.map({ (movie) -> MovieViewModel in
-
-            let index = movie.releaseDate.index(movie.releaseDate.startIndex, offsetBy: 5)
-            let year = movie.releaseDate[..<index]
-            
-            let genreslist = movie.genres.compactMap { $0.name }
-            
-            return MovieViewModel( title: movie.title, year: String(year), genres: genreslist, overview: movie.overview )
-        })
+        router.showMovieDetail(for: viewModel)
     }
     
 }
+
+
+extension MoviePresenter : MovieInteractorOutput {
+    func fetchMovieTimeOut() {
+        movieView?.showTimeOut()
+    }
+    
+    func onFetchMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool) {
+        let movieViewModel = createMovieViewModels(from: movies!)
+        movieView?.showMovies(movies: movieViewModel,append:  shouldAppend)
+    }
+    
+    func fetchMovieFailure(message: String) {
+        movieView?.showErrorFetch()
+    }
+    
+    func onFetchTimeOut() {
+        
+    }
+}
+
+

@@ -13,21 +13,22 @@ protocol MovieRouterProtocol{
     func showMovieDetail(for viewModel: MovieViewModel)
 }
 
-
-
-class MovieRouter  : MovieRouterProtocol{
+class MovieRouter {
     
     let presentingViewController: UIViewController
     
     init(presentingViewController: UIViewController) {
         self.presentingViewController = presentingViewController
     }
+}
+
+extension MovieRouter: MovieRouterProtocol{
     
     func showMovieDetail(for viewModel: MovieViewModel) {
+        guard let navigation = presentingViewController.navigationController else{ return }
+        let dest  = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: nil)
+        dest.viewModel = viewModel
+        navigation.show(dest, sender: nil)
         
     }
-    
-    
-    
-    
 }

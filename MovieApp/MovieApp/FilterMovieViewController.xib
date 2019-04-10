@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterMovieViewController" customModule="MovieApp" customModuleProvider="target">
+            <connections>
+                <outlet property="applyButton" destination="jb0-az-HR3" id="zw7-tJ-thQ"/>
+                <outlet property="tableView" destination="PAd-JC-VDe" id="n7T-zN-3FG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-JC-VDe" userLabel="TableView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="748"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="fYn-gf-X6i"/>
+                        <outlet property="delegate" destination="-1" id="eIo-ka-Ofh"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb0-az-HR3" userLabel="ApplyButton">
+                    <rect key="frame" x="103.5" y="802" width="207" height="40"/>
+                    <color key="backgroundColor" red="0.96867722270000001" green="0.80771410470000005" blue="0.35745447870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Sx9-hs-Ma9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                    <color key="tintColor" red="0.96867722270000001" green="0.80771410470000005" blue="0.35745447870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Apply">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="apllyButtonAction:" destination="-1" eventType="touchUpInside" id="zoF-T7-GD3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jb0-az-HR3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0sy-7K-cZt"/>
+                <constraint firstItem="PAd-JC-VDe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="23A-2x-13X"/>
+                <constraint firstItem="jb0-az-HR3" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="CQ4-6O-KlL"/>
+                <constraint firstItem="jb0-az-HR3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="Ws7-G3-ek2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PAd-JC-VDe" secondAttribute="trailing" id="fti-jn-h47"/>
+                <constraint firstItem="PAd-JC-VDe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z99-2Z-frg"/>
+                <constraint firstItem="jb0-az-HR3" firstAttribute="top" secondItem="PAd-JC-VDe" secondAttribute="bottom" constant="10" id="zq8-9h-puG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+</document>
