@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Crashlytics
 
 
 protocol MovieFilterPresenterProcotol{
@@ -42,7 +43,7 @@ class MovieFilterPresenter {
             let dateList = realm.objects(Movie.self).toArray(ofType: Movie.self).map{$0.releaseDate}
             data["Date"] = dateList.unique()
         } catch let error  {
-            //TODO catch error
+            Crashlytics.sharedInstance().recordError(error)
             data["Date"] = []
         }
     }

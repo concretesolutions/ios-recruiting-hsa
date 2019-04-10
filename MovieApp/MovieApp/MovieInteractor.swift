@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 import Realm
+import Crashlytics
 
 
 protocol MovieInteractorProtocol : class {
@@ -47,7 +48,7 @@ extension MovieInteractor : MovieInteractorProtocol {
             let arrayMovies = farovites.toArray(ofType: Movie.self)
             return arrayMovies
         }catch let error {
-//           catch Error
+            Crashlytics.sharedInstance().recordError(error)
             return []
         }
     }
@@ -61,7 +62,7 @@ extension MovieInteractor : MovieInteractorProtocol {
                 self.presenter?.onFetchMovieSuccess(movies, shouldAppend: true)
                 self.page+=1
             } catch let error {
-                //TODO - crash error
+                Crashlytics.sharedInstance().recordError(error)
                 print(error)
             }
         }, fail: { (error) in

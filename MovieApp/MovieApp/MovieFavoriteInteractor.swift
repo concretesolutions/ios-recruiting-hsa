@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Crashlytics
 
 protocol MovieFavoriteInteractorProtocol {
     func fetchMovies()
@@ -36,7 +37,7 @@ extension MovieFavoriteInteractor: MovieFavoriteInteractorProtocol {
             }
             presenter?.onDeleteMovieSuccess()
         }catch let error {
-            //TODO - crash error
+            Crashlytics.sharedInstance().recordError(error)
         }
     }
     
@@ -47,7 +48,7 @@ extension MovieFavoriteInteractor: MovieFavoriteInteractorProtocol {
             let movies = realm.objects(Movie.self)
             presenter?.onFetchFavoriteMovieSuccess(movies.toArray(ofType: Movie.self), shouldAppend: true)
         }catch let error {
-            //TODO - crash error
+            Crashlytics.sharedInstance().recordError(error)
         }
        
     }

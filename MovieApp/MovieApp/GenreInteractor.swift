@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Crashlytics
 
 protocol GenreInteractorProtocol : class{
     func onfetchGenres(success:@escaping ()->Void , fail: @escaping ()->Void, timeout: @escaping ()->Void)
@@ -36,6 +37,7 @@ class GenreInteractor : GenreInteractorProtocol {
                 self.genresList = genres
                 success()
             }catch let error {
+                Crashlytics.sharedInstance().recordError(error)
                 self.genresList = []
             }
         }, fail: { (code) in
