@@ -47,7 +47,9 @@ class MovieFavoritePresenter {
 
 extension MovieFavoritePresenter : MovieFavoritePresenterProtocol{
     func removeFilter() {
-        self.dataFilter = nil
+        self.dataFilter = [:]
+        self.movieFavoriteView?.hideFilterAlert()
+        self.fetchFavoriteMovies()
     }
     
     func showFilterView() {
@@ -73,6 +75,7 @@ extension MovieFavoritePresenter : MovieFavoriteOutputPresenterProtocol {
             let filteredList = viewModels.filter{
                 $0.year == dataFilter!["Date"]
             }
+            movieFavoriteView?.showFilterAlert()
             movieFavoriteView?.showMovies(movies: filteredList)
         }
     }

@@ -12,18 +12,20 @@ import SDWebImage
 protocol FavoritesMovieViewProtocol : class {
     func showMovies(movies: [MovieViewModel])
     func removeFavorite(movie : MovieViewModel)
-    func filterData()
+    func showFilterAlert()
+    func hideFilterAlert()
 }
 
 class FavoritesMovieViewController: UIViewController {
 
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var alertFilterHeight: NSLayoutConstraint!
+    @IBOutlet weak var buttonFilter: UIButton!
     
     var presenter : MovieFavoritePresenter?
     var router : FavoritesRouterProtocol?
     var interactor : MovieFavoriteInteractor?
     var viewModels : [MovieViewModel] = []
-    var viewModelsFiltered : [MovieViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class FavoritesMovieViewController: UIViewController {
         presenter = MovieFavoritePresenter(router: router!)
         presenter!.attachView(view: self)
         
+        self.hideFilterAlert()
         tableViewConfig()
         navigationBarStyle()
         
@@ -38,6 +41,7 @@ class FavoritesMovieViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         presenter?.fetchFavoriteMovies()
     }
     
@@ -61,17 +65,29 @@ class FavoritesMovieViewController: UIViewController {
         presenter?.showFilterView()
     }
     
+    @IBAction func removeFilterAction(_ sender: Any) {
+        presenter?.removeFilter()
+    }
+    
 }
 
 extension FavoritesMovieViewController : FavoritesMovieViewProtocol{
+    func showFilterAlert() {
+        self.alertFilterHeight.constant = 60
+        self.buttonFilter.isHidden = false
+        self.view.layoutIfNeeded()
+    }
+    
+    func hideFilterAlert() {
+        self.alertFilterHeight.constant = 0
+        self.buttonFilter.isHidden = true
+        self.view.layoutIfNeeded()
+    }
+    
     func removeFavorite(movie: MovieViewModel) {
         presenter?.unFavoriteMovie(movie: movie)
     }
-    
-    func filterData() {
-        
-    }
-    
+
     func showMovies(movies: [MovieViewModel]) {
         self.viewModels = movies
         self.tableView.reloadData()
