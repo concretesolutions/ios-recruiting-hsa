@@ -34,10 +34,11 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ad3-vD-eSv" secondAttribute="trailing" id="CRY-QY-n93"/>
                 <constraint firstItem="ad3-vD-eSv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JH5-Q4-JBd"/>
-                <constraint firstItem="ad3-vD-eSv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="QeJ-ae-7Sm"/>
+                <constraint firstItem="ad3-vD-eSv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="V6R-wT-BTG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ad3-vD-eSv" secondAttribute="bottom" id="jgm-kQ-Kc4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140.57971014492756" y="119.86607142857142"/>
         </view>
     </objects>
 </document>

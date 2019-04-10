@@ -13,39 +13,37 @@ protocol FilterMovieViewDelegate {
     func filterSelected(filter : [String:String])
 }
 
+protocol FilterMovieViewProtocol{
+    func showDataFilter(data : [String:[String]])
+}
+
 
 class FilterMovieViewController: UIViewController {
     
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var applyButton: UIButton!
     
-    var data : [String:[String]] = ["Genres":[],"Date":[]]
+    var data : [String:[String]] = ["Date":[]]
     var menu : [String]{
         get{
            return Array(data.keys)
         }
     }
     
-    var selectedData : [String:String] = ["":""]
+    var selectedData : [String:String] = [:]
     var delegate : FilterMovieViewDelegate?
+    var presenter : MovieFilterPresenter?
     
     static let filterSelectedOptions = NSNotification.Name("filterSelectedOptions")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-    
-        data["Genres"] = GenreInteractor.shared.genresList.map{$0.name}
-        NotificationCenter.default.addObserver(self, selector: #selector(dataFromSelectFilter(notification:)), name: FilterMovieViewController.filterSelectedOptions, object: nil)
-        
-        do {
-            let realm = try Realm()
-            let dateList = realm.objects(Movie.self).toArray(ofType: Movie.self).map{$0.releaseDate}
-            data["Date"] = dateList.unique()
-        } catch let error  {
-            //TODO catch error
-        }
 
+        presenter = MovieFilterPresenter()
+        presenter?.attachView(view: self)
+        presenter?.fetchDataFilter()
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(dataFromSelectFilter(notification:)), name: FilterMovieViewController.filterSelectedOptions, object: nil)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.reloadData()
     }
@@ -55,12 +53,24 @@ class FilterMovieViewController: UIViewController {
         tableView.reloadData()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    func tableViewConfig(){
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    @IBAction func apllyButtonAction(_ sender: UIButton) {
         if let delegateAction = delegate {
             delegateAction.filterSelected(filter: selectedData)
         }
+        self.navigationController!.popViewController(animated: true)
     }
+}
 
+extension FilterMovieViewController : FilterMovieViewProtocol{
+    func showDataFilter(data : [String:[String]]){
+        self.data = data
+        self.tableView.reloadData()
+    }
 }
 
 extension FilterMovieViewController : UITableViewDataSource {
@@ -88,7 +98,6 @@ extension FilterMovieViewController : UITableViewDataSource {
         selectedData[key] = value
     }
 }
-
 
 extension FilterMovieViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

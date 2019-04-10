@@ -27,25 +27,25 @@ class FavoritesMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: .zero) //REFACT
-        self.tableView.dataSource = self //REFACT
-        self.tableView.delegate = self //REFACT
-        self.tableView.register(UINib(nibName: "FavoriteMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "CELLFAVORITE") //REFACT
         router = FavoritesRouter(presenting: self)
-        presenter = MovieFavoritePresenter()
+        presenter = MovieFavoritePresenter(router: router!)
         presenter!.attachView(view: self)
-        interactor = MovieFavoriteInteractor()  //REFACT
-        presenter?.interactor = interactor //REFACT
-        interactor?.presenter = presenter //REFACT
-        presenter?.router = router //REFACT
+        
+        tableViewConfig()
         navigationBarStyle()
         
-        presenter?.fetchFavoriteMovies()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.fetchFavoriteMovies()
+    }
+    
+    func tableViewConfig(){
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UINib(nibName: "FavoriteMovieTableViewCell", bundle: nil), forCellReuseIdentifier: "CELLFAVORITE") 
     }
     
     func navigationBarStyle(){

@@ -12,7 +12,7 @@ import UIKit
 protocol FavoritesRouterProtocol {
     var presentingViewController : UIViewController!{get set}
     
-    func showFavoriteFilter()
+    func showFavoriteFilter(delegateFilter : FilterMovieViewDelegate)
 }
 
 class FavoritesRouter {
@@ -24,8 +24,9 @@ class FavoritesRouter {
 }
 
 extension FavoritesRouter : FavoritesRouterProtocol {
-    func showFavoriteFilter() {
+    func showFavoriteFilter(delegateFilter : FilterMovieViewDelegate) {
         let dest = FilterMovieViewController(nibName: "FilterMovieViewController", bundle: nil)
+        dest.delegate = delegateFilter
         presentingViewController.show(dest, sender: nil)
     }
 }

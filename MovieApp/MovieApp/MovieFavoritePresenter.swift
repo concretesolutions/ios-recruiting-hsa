@@ -12,6 +12,7 @@ protocol MovieFavoritePresenterProtocol {
     func fetchFavoriteMovies()
     func unFavoriteMovie(movie: MovieViewModel)
     func showFilterView()
+    func removeFilter()
 }
 
 protocol MovieFavoriteOutputPresenterProtocol {
@@ -26,6 +27,14 @@ class MovieFavoritePresenter {
     var interactor : MovieFavoriteInteractor?
     var router : FavoritesRouterProtocol!
     
+    var dataFilter : [String:String]? = [:]
+    
+    init(router : FavoritesRouterProtocol){
+        self.interactor = MovieFavoriteInteractor() 
+        interactor?.presenter = self
+        self.router = router
+    }
+    
     func attachView(view : FavoritesMovieViewProtocol ){
         self.movieFavoriteView = view
     }
@@ -37,8 +46,12 @@ class MovieFavoritePresenter {
 }
 
 extension MovieFavoritePresenter : MovieFavoritePresenterProtocol{
+    func removeFilter() {
+        self.dataFilter = nil
+    }
+    
     func showFilterView() {
-        router.showFavoriteFilter()
+        router.showFavoriteFilter(delegateFilter: self)
     }
     
     func unFavoriteMovie(movie: MovieViewModel) {
@@ -54,12 +67,14 @@ extension MovieFavoritePresenter : MovieFavoritePresenterProtocol{
 extension MovieFavoritePresenter : MovieFavoriteOutputPresenterProtocol {
     func onFetchFavoriteMovieSuccess(_ movies: [Movie]?, shouldAppend: Bool){
         let viewModels = createMovieViewModels(from: movies!)
-        
-        
-        
-        
-        
-        movieFavoriteView?.showMovies(movies: viewModels)
+        if dataFilter!.count == 0{
+            movieFavoriteView?.showMovies(movies: viewModels)
+        }else{
+            let filteredList = viewModels.filter{
+                $0.year == dataFilter!["Date"]
+            }
+            movieFavoriteView?.showMovies(movies: filteredList)
+        }
     }
     func fetchProductsFailure(message: String){
         
@@ -69,3 +84,11 @@ extension MovieFavoritePresenter : MovieFavoriteOutputPresenterProtocol {
         fetchFavoriteMovies()
     }
 }
+
+extension MovieFavoritePresenter: FilterMovieViewDelegate {
+    func filterSelected(filter: [String : String]) {
+        self.dataFilter = filter
+    }
+    
+}
+
