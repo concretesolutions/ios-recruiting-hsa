@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "4.8.2"
+github "SnapKit/SnapKit" "4.2.0"
+github "SwiftyJSON/SwiftyJSON" "4.3.0"
+github "kishikawakatsumi/KeychainAccess" "v3.2.0"
+github "xmartlabs/Eureka" "5.0.0"
