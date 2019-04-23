@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CardTemplateView" customModule="recruiting" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="263"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7t-2i-8CI">
+                    <rect key="frame" x="110" y="46" width="250" height="117"/>
+                    <string key="text">was a South African anti-apartheid revolutionary, political leader, and philanthropist who served as President of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election. His government</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-ZP-KG1">
+                    <rect key="frame" x="15" y="183" width="285" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ss5-tl-KAk"/>
+                    </constraints>
+                    <state key="normal" title="Action">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="runAction" destination="iN0-l3-epB" eventType="touchUpInside" id="3bO-L4-0sa"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSi-lI-NIU">
+                    <rect key="frame" x="15" y="15" width="80" height="148"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Dlc-fh-XGA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhM-uY-gQj">
+                    <rect key="frame" x="110" y="15" width="250" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="OhP-wg-5mk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A81-2b-Vav">
+                    <rect key="frame" x="310" y="183" width="50" height="50"/>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.45882352939999999" blue="0.1176470588" alpha="0.81303510270000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="ROk-jB-pnE"/>
+                    </constraints>
+                    <state key="normal" title="&lt;3">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OBd-ZP-KG1" firstAttribute="top" secondItem="MSi-lI-NIU" secondAttribute="bottom" constant="20" id="AFt-5m-gTN"/>
+                <constraint firstItem="b7t-2i-8CI" firstAttribute="top" secondItem="QhM-uY-gQj" secondAttribute="bottom" constant="10" id="H6C-oE-Pc0"/>
+                <constraint firstItem="MSi-lI-NIU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Nsx-g2-WWo"/>
+                <constraint firstItem="QhM-uY-gQj" firstAttribute="leading" secondItem="MSi-lI-NIU" secondAttribute="trailing" constant="15" id="O9l-07-Dr2"/>
+                <constraint firstItem="OBd-ZP-KG1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="QeR-EZ-Gi6"/>
+                <constraint firstItem="OBd-ZP-KG1" firstAttribute="top" secondItem="b7t-2i-8CI" secondAttribute="bottom" constant="20" id="R0T-FB-m0E"/>
+                <constraint firstItem="A81-2b-Vav" firstAttribute="height" secondItem="OBd-ZP-KG1" secondAttribute="height" id="bQ7-Cp-6Lz"/>
+                <constraint firstItem="A81-2b-Vav" firstAttribute="leading" secondItem="OBd-ZP-KG1" secondAttribute="trailing" constant="10" id="bYS-qH-3wK"/>
+                <constraint firstItem="MSi-lI-NIU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="egI-7F-WTM"/>
+                <constraint firstItem="A81-2b-Vav" firstAttribute="top" secondItem="OBd-ZP-KG1" secondAttribute="top" id="lyq-py-KV4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b7t-2i-8CI" secondAttribute="trailing" constant="15" id="pDw-Ti-XMJ"/>
+                <constraint firstItem="b7t-2i-8CI" firstAttribute="leading" secondItem="MSi-lI-NIU" secondAttribute="trailing" constant="15" id="qCR-6o-x2f"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A81-2b-Vav" secondAttribute="trailing" constant="15" id="r05-pR-71s"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="A81-2b-Vav" secondAttribute="bottom" constant="30" id="soH-tZ-nmJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QhM-uY-gQj" secondAttribute="trailing" constant="15" id="tP3-j6-RAb"/>
+                <constraint firstItem="QhM-uY-gQj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="uZU-Ux-6h7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="actionButton" destination="OBd-ZP-KG1" id="Tq0-Og-2C4"/>
+                <outlet property="actionButtonHeight" destination="ss5-tl-KAk" id="sNo-Eb-Kmt"/>
+                <outlet property="subtitleLabel" destination="b7t-2i-8CI" id="vpF-ta-tGx"/>
+                <outlet property="titleLabel" destination="QhM-uY-gQj" id="QEn-l4-y0f"/>
+            </connections>
+            <point key="canvasLocation" x="32.799999999999997" y="-141.67916041979012"/>
+        </view>
+    </objects>
+</document>

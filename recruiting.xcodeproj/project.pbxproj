@@ -7,6 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F172E4FC226CFC9000E36DB5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F172E4F7226CFC9000E36DB5 /* Alamofire.framework */; };
+		F172E4FD226CFC9000E36DB5 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F172E4F8226CFC9000E36DB5 /* Eureka.framework */; };
+		F172E4FE226CFC9000E36DB5 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F172E4F9226CFC9000E36DB5 /* KeychainAccess.framework */; };
+		F172E4FF226CFC9000E36DB5 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F172E4FA226CFC9000E36DB5 /* SnapKit.framework */; };
+		F172E500226CFC9000E36DB5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F172E4FB226CFC9000E36DB5 /* SwiftyJSON.framework */; };
+		F172E526226CFEB300E36DB5 /* GenericScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F172E509226CFEB200E36DB5 /* GenericScreenViewController.xib */; };
+		F172E527226CFEB300E36DB5 /* GenericScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E50A226CFEB200E36DB5 /* GenericScreenViewController.swift */; };
+		F172E528226CFEB300E36DB5 /* GenericScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E50B226CFEB200E36DB5 /* GenericScreenPresenter.swift */; };
+		F172E529226CFEB300E36DB5 /* JSONBuildeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E50D226CFEB300E36DB5 /* JSONBuildeable.swift */; };
+		F172E52A226CFEB300E36DB5 /* BaseActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E50F226CFEB300E36DB5 /* BaseActionHandler.swift */; };
+		F172E52B226CFEB300E36DB5 /* ActionHandlerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E510226CFEB300E36DB5 /* ActionHandlerFactory.swift */; };
+		F172E52C226CFEB300E36DB5 /* NavigationActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E511226CFEB300E36DB5 /* NavigationActionHandler.swift */; };
+		F172E52D226CFEB300E36DB5 /* TemplateViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E514226CFEB300E36DB5 /* TemplateViewFactory.swift */; };
+		F172E52E226CFEB300E36DB5 /* CardTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E515226CFEB300E36DB5 /* CardTemplateView.swift */; };
+		F172E52F226CFEB300E36DB5 /* BaseTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E516226CFEB300E36DB5 /* BaseTemplateView.swift */; };
+		F172E530226CFEB300E36DB5 /* CardTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F172E517226CFEB300E36DB5 /* CardTemplateView.xib */; };
+		F172E531226CFEB300E36DB5 /* CardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E519226CFEB300E36DB5 /* CardTemplate.swift */; };
+		F172E532226CFEB300E36DB5 /* TemplateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51A226CFEB300E36DB5 /* TemplateFactory.swift */; };
+		F172E533226CFEB300E36DB5 /* BaseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51B226CFEB300E36DB5 /* BaseTemplate.swift */; };
+		F172E534226CFEB300E36DB5 /* ActionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51D226CFEB300E36DB5 /* ActionFactory.swift */; };
+		F172E535226CFEB300E36DB5 /* NavigationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51E226CFEB300E36DB5 /* NavigationAction.swift */; };
+		F172E536226CFEB300E36DB5 /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51F226CFEB300E36DB5 /* BaseAction.swift */; };
+		F172E537226CFEB300E36DB5 /* views.json in Resources */ = {isa = PBXBuildFile; fileRef = F172E521226CFEB300E36DB5 /* views.json */; };
+		F172E538226CFEB300E36DB5 /* GenericSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E522226CFEB300E36DB5 /* GenericSceneBuilder.swift */; };
+		F172E539226CFEB300E36DB5 /* views2.json in Resources */ = {isa = PBXBuildFile; fileRef = F172E523226CFEB300E36DB5 /* views2.json */; };
+		F172E53A226CFEB300E36DB5 /* ActionHandlerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E524226CFEB300E36DB5 /* ActionHandlerBuilder.swift */; };
+		F172E53B226CFEB300E36DB5 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E525226CFEB300E36DB5 /* Navigator.swift */; };
+		F172E53F226D293B00E36DB5 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E226D293B00E36DB5 /* FavoritesTableViewController.swift */; };
+		F172E541226D304000E36DB5 /* views3.json in Resources */ = {isa = PBXBuildFile; fileRef = F172E540226D303F00E36DB5 /* views3.json */; };
+		F172E543226D574400E36DB5 /* MovieTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E542226D574400E36DB5 /* MovieTemplateView.swift */; };
+		F172E545226D575600E36DB5 /* MovieTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E544226D575600E36DB5 /* MovieTemplate.swift */; };
+		F172E547226D5C5200E36DB5 /* MovieTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F172E546226D5C5200E36DB5 /* MovieTemplateView.xib */; };
 		F1D66F7D226B69C300B15F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D66F7C226B69C300B15F2C /* AppDelegate.swift */; };
 		F1D66F7F226B69C300B15F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D66F7E226B69C300B15F2C /* ViewController.swift */; };
 		F1D66F82226B69C300B15F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D66F80226B69C300B15F2C /* Main.storyboard */; };
@@ -26,6 +58,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F172E4F7226CFC9000E36DB5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		F172E4F8226CFC9000E36DB5 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		F172E4F9226CFC9000E36DB5 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		F172E4FA226CFC9000E36DB5 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		F172E4FB226CFC9000E36DB5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		F172E509226CFEB200E36DB5 /* GenericScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenericScreenViewController.xib; sourceTree = "<group>"; };
+		F172E50A226CFEB200E36DB5 /* GenericScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericScreenViewController.swift; sourceTree = "<group>"; };
+		F172E50B226CFEB200E36DB5 /* GenericScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericScreenPresenter.swift; sourceTree = "<group>"; };
+		F172E50D226CFEB300E36DB5 /* JSONBuildeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONBuildeable.swift; sourceTree = "<group>"; };
+		F172E50F226CFEB300E36DB5 /* BaseActionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseActionHandler.swift; sourceTree = "<group>"; };
+		F172E510226CFEB300E36DB5 /* ActionHandlerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionHandlerFactory.swift; sourceTree = "<group>"; };
+		F172E511226CFEB300E36DB5 /* NavigationActionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationActionHandler.swift; sourceTree = "<group>"; };
+		F172E514226CFEB300E36DB5 /* TemplateViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateViewFactory.swift; sourceTree = "<group>"; };
+		F172E515226CFEB300E36DB5 /* CardTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTemplateView.swift; sourceTree = "<group>"; };
+		F172E516226CFEB300E36DB5 /* BaseTemplateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTemplateView.swift; sourceTree = "<group>"; };
+		F172E517226CFEB300E36DB5 /* CardTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardTemplateView.xib; sourceTree = "<group>"; };
+		F172E519226CFEB300E36DB5 /* CardTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTemplate.swift; sourceTree = "<group>"; };
+		F172E51A226CFEB300E36DB5 /* TemplateFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateFactory.swift; sourceTree = "<group>"; };
+		F172E51B226CFEB300E36DB5 /* BaseTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTemplate.swift; sourceTree = "<group>"; };
+		F172E51D226CFEB300E36DB5 /* ActionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionFactory.swift; sourceTree = "<group>"; };
+		F172E51E226CFEB300E36DB5 /* NavigationAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAction.swift; sourceTree = "<group>"; };
+		F172E51F226CFEB300E36DB5 /* BaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
+		F172E521226CFEB300E36DB5 /* views.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = views.json; sourceTree = "<group>"; };
+		F172E522226CFEB300E36DB5 /* GenericSceneBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSceneBuilder.swift; sourceTree = "<group>"; };
+		F172E523226CFEB300E36DB5 /* views2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = views2.json; sourceTree = "<group>"; };
+		F172E524226CFEB300E36DB5 /* ActionHandlerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionHandlerBuilder.swift; sourceTree = "<group>"; };
+		F172E525226CFEB300E36DB5 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		F172E53E226D293B00E36DB5 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		F172E540226D303F00E36DB5 /* views3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = views3.json; sourceTree = "<group>"; };
+		F172E542226D574400E36DB5 /* MovieTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTemplateView.swift; sourceTree = "<group>"; };
+		F172E544226D575600E36DB5 /* MovieTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTemplate.swift; sourceTree = "<group>"; };
+		F172E546226D5C5200E36DB5 /* MovieTemplateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTemplateView.xib; sourceTree = "<group>"; };
 		F1D66F79226B69C300B15F2C /* recruiting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recruiting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D66F7C226B69C300B15F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1D66F7E226B69C300B15F2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +107,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F172E4FC226CFC9000E36DB5 /* Alamofire.framework in Frameworks */,
+				F172E4FD226CFC9000E36DB5 /* Eureka.framework in Frameworks */,
+				F172E4FE226CFC9000E36DB5 /* KeychainAccess.framework in Frameworks */,
+				F172E4FF226CFC9000E36DB5 /* SnapKit.framework in Frameworks */,
+				F172E500226CFC9000E36DB5 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +125,111 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F172E4F6226CFC9000E36DB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F172E4F7226CFC9000E36DB5 /* Alamofire.framework */,
+				F172E4F8226CFC9000E36DB5 /* Eureka.framework */,
+				F172E4F9226CFC9000E36DB5 /* KeychainAccess.framework */,
+				F172E4FA226CFC9000E36DB5 /* SnapKit.framework */,
+				F172E4FB226CFC9000E36DB5 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F172E508226CFEB200E36DB5 /* GenericScene */ = {
+			isa = PBXGroup;
+			children = (
+				F172E509226CFEB200E36DB5 /* GenericScreenViewController.xib */,
+				F172E50A226CFEB200E36DB5 /* GenericScreenViewController.swift */,
+				F172E50B226CFEB200E36DB5 /* GenericScreenPresenter.swift */,
+			);
+			path = GenericScene;
+			sourceTree = "<group>";
+		};
+		F172E50C226CFEB300E36DB5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F172E50D226CFEB300E36DB5 /* JSONBuildeable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F172E50E226CFEB300E36DB5 /* ActionHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				F172E50F226CFEB300E36DB5 /* BaseActionHandler.swift */,
+				F172E510226CFEB300E36DB5 /* ActionHandlerFactory.swift */,
+				F172E511226CFEB300E36DB5 /* NavigationActionHandler.swift */,
+			);
+			path = ActionHandlers;
+			sourceTree = "<group>";
+		};
+		F172E512226CFEB300E36DB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F172E513226CFEB300E36DB5 /* TemplateViews */,
+				F172E518226CFEB300E36DB5 /* Template */,
+				F172E51C226CFEB300E36DB5 /* Action */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F172E513226CFEB300E36DB5 /* TemplateViews */ = {
+			isa = PBXGroup;
+			children = (
+				F172E514226CFEB300E36DB5 /* TemplateViewFactory.swift */,
+				F172E515226CFEB300E36DB5 /* CardTemplateView.swift */,
+				F172E542226D574400E36DB5 /* MovieTemplateView.swift */,
+				F172E516226CFEB300E36DB5 /* BaseTemplateView.swift */,
+				F172E517226CFEB300E36DB5 /* CardTemplateView.xib */,
+				F172E546226D5C5200E36DB5 /* MovieTemplateView.xib */,
+			);
+			path = TemplateViews;
+			sourceTree = "<group>";
+		};
+		F172E518226CFEB300E36DB5 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				F172E519226CFEB300E36DB5 /* CardTemplate.swift */,
+				F172E544226D575600E36DB5 /* MovieTemplate.swift */,
+				F172E51A226CFEB300E36DB5 /* TemplateFactory.swift */,
+				F172E51B226CFEB300E36DB5 /* BaseTemplate.swift */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
+		F172E51C226CFEB300E36DB5 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				F172E51D226CFEB300E36DB5 /* ActionFactory.swift */,
+				F172E51E226CFEB300E36DB5 /* NavigationAction.swift */,
+				F172E51F226CFEB300E36DB5 /* BaseAction.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		F172E520226CFEB300E36DB5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F172E540226D303F00E36DB5 /* views3.json */,
+				F172E521226CFEB300E36DB5 /* views.json */,
+				F172E522226CFEB300E36DB5 /* GenericSceneBuilder.swift */,
+				F172E523226CFEB300E36DB5 /* views2.json */,
+				F172E524226CFEB300E36DB5 /* ActionHandlerBuilder.swift */,
+				F172E525226CFEB300E36DB5 /* Navigator.swift */,
+				F172E53E226D293B00E36DB5 /* FavoritesTableViewController.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F1D66F70226B69C300B15F2C = {
 			isa = PBXGroup;
 			children = (
 				F1D66F7B226B69C300B15F2C /* recruiting */,
 				F1D66F90226B69C500B15F2C /* recruitingTests */,
 				F1D66F7A226B69C300B15F2C /* Products */,
+				F172E4F6226CFC9000E36DB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +247,11 @@
 			children = (
 				F1D66F7C226B69C300B15F2C /* AppDelegate.swift */,
 				F1D66F7E226B69C300B15F2C /* ViewController.swift */,
+				F172E50E226CFEB300E36DB5 /* ActionHandlers */,
+				F172E508226CFEB200E36DB5 /* GenericScene */,
+				F172E512226CFEB300E36DB5 /* Model */,
+				F172E50C226CFEB300E36DB5 /* Protocols */,
+				F172E520226CFEB300E36DB5 /* Utils */,
 				F1D66F80226B69C300B15F2C /* Main.storyboard */,
 				F1D66F83226B69C500B15F2C /* Assets.xcassets */,
 				F1D66F85226B69C500B15F2C /* LaunchScreen.storyboard */,
@@ -103,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1D66F96226B69C500B15F2C /* Build configuration list for PBXNativeTarget "recruiting" */;
 			buildPhases = (
+				F172E501226CFCAC00E36DB5 /* ShellScript */,
 				F1D66F75226B69C300B15F2C /* Sources */,
 				F1D66F76226B69C300B15F2C /* Frameworks */,
 				F1D66F77226B69C300B15F2C /* Resources */,
@@ -177,9 +351,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F172E526226CFEB300E36DB5 /* GenericScreenViewController.xib in Resources */,
+				F172E547226D5C5200E36DB5 /* MovieTemplateView.xib in Resources */,
+				F172E530226CFEB300E36DB5 /* CardTemplateView.xib in Resources */,
+				F172E537226CFEB300E36DB5 /* views.json in Resources */,
 				F1D66F87226B69C500B15F2C /* LaunchScreen.storyboard in Resources */,
+				F172E541226D304000E36DB5 /* views3.json in Resources */,
 				F1D66F84226B69C500B15F2C /* Assets.xcassets in Resources */,
 				F1D66F82226B69C300B15F2C /* Main.storyboard in Resources */,
+				F172E539226CFEB300E36DB5 /* views2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +372,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F172E501226CFCAC00E36DB5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Eureka.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/KeychainAccess.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1D66F75226B69C300B15F2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F172E528226CFEB300E36DB5 /* GenericScreenPresenter.swift in Sources */,
+				F172E53B226CFEB300E36DB5 /* Navigator.swift in Sources */,
+				F172E532226CFEB300E36DB5 /* TemplateFactory.swift in Sources */,
+				F172E52A226CFEB300E36DB5 /* BaseActionHandler.swift in Sources */,
+				F172E52D226CFEB300E36DB5 /* TemplateViewFactory.swift in Sources */,
+				F172E533226CFEB300E36DB5 /* BaseTemplate.swift in Sources */,
+				F172E531226CFEB300E36DB5 /* CardTemplate.swift in Sources */,
+				F172E53A226CFEB300E36DB5 /* ActionHandlerBuilder.swift in Sources */,
+				F172E536226CFEB300E36DB5 /* BaseAction.swift in Sources */,
+				F172E534226CFEB300E36DB5 /* ActionFactory.swift in Sources */,
+				F172E538226CFEB300E36DB5 /* GenericSceneBuilder.swift in Sources */,
 				F1D66F7F226B69C300B15F2C /* ViewController.swift in Sources */,
+				F172E53F226D293B00E36DB5 /* FavoritesTableViewController.swift in Sources */,
+				F172E52B226CFEB300E36DB5 /* ActionHandlerFactory.swift in Sources */,
+				F172E52C226CFEB300E36DB5 /* NavigationActionHandler.swift in Sources */,
+				F172E543226D574400E36DB5 /* MovieTemplateView.swift in Sources */,
+				F172E527226CFEB300E36DB5 /* GenericScreenViewController.swift in Sources */,
 				F1D66F7D226B69C300B15F2C /* AppDelegate.swift in Sources */,
+				F172E52F226CFEB300E36DB5 /* BaseTemplateView.swift in Sources */,
+				F172E52E226CFEB300E36DB5 /* CardTemplateView.swift in Sources */,
+				F172E529226CFEB300E36DB5 /* JSONBuildeable.swift in Sources */,
+				F172E535226CFEB300E36DB5 /* NavigationAction.swift in Sources */,
+				F172E545226D575600E36DB5 /* MovieTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +593,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NB55ZD476N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = recruiting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -380,6 +615,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NB55ZD476N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = recruiting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
