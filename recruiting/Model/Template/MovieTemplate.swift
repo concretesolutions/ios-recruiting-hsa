@@ -16,8 +16,7 @@ class MovieTemplate: BaseTemplate {
     
     required init(json: JSON) {
         self.title = json["title"].stringValue
-        self.subtitle = json["subtitle"].stringValue
-        //self.subtitle = json["overview"].stringValue
+        self.subtitle = json["overview"].stringValue
         super.init(json: json)
     }
     

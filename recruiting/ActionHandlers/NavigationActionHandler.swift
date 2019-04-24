@@ -16,13 +16,10 @@ class NavigationActionHandler: BaseActionHandler{
         
         switch navData.flow {
         case .pop:
-            print("pop")
             self.presenter.navigator.pop()
         case .popRoot:
-            print("popRoot")
             self.presenter.navigator.popToRoot()
         case .push:
-            print("push")
             self.presenter.navigator.pushView(route: navData.route)
         }
     }

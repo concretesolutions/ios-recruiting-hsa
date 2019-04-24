@@ -16,13 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="263"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7t-2i-8CI">
-                    <rect key="frame" x="110" y="46" width="250" height="117"/>
-                    <string key="text">was a South African anti-apartheid revolutionary, political leader, and philanthropist who served as President of South Africa from 1994 to 1999. He was the country's first black head of state and the first elected in a fully representative democratic election. His government</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-ZP-KG1">
                     <rect key="frame" x="15" y="183" width="285" height="50"/>
                     <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +40,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="OhP-wg-5mk"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -61,21 +54,31 @@
                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JjR-79-o3r">
+                    <rect key="frame" x="110" y="46" width="250" height="127"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="130" id="v9b-D3-VDP"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="JjR-79-o3r" firstAttribute="leading" secondItem="MSi-lI-NIU" secondAttribute="trailing" constant="15" id="0PV-K8-nRn"/>
+                <constraint firstItem="OBd-ZP-KG1" firstAttribute="top" secondItem="JjR-79-o3r" secondAttribute="bottom" constant="10" id="1yK-MG-fu5"/>
                 <constraint firstItem="OBd-ZP-KG1" firstAttribute="top" secondItem="MSi-lI-NIU" secondAttribute="bottom" constant="20" id="AFt-5m-gTN"/>
-                <constraint firstItem="b7t-2i-8CI" firstAttribute="top" secondItem="QhM-uY-gQj" secondAttribute="bottom" constant="10" id="H6C-oE-Pc0"/>
                 <constraint firstItem="MSi-lI-NIU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Nsx-g2-WWo"/>
+                <constraint firstItem="JjR-79-o3r" firstAttribute="top" secondItem="QhM-uY-gQj" secondAttribute="bottom" constant="10" id="O1e-V8-nZa"/>
                 <constraint firstItem="QhM-uY-gQj" firstAttribute="leading" secondItem="MSi-lI-NIU" secondAttribute="trailing" constant="15" id="O9l-07-Dr2"/>
                 <constraint firstItem="OBd-ZP-KG1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="QeR-EZ-Gi6"/>
-                <constraint firstItem="OBd-ZP-KG1" firstAttribute="top" secondItem="b7t-2i-8CI" secondAttribute="bottom" constant="20" id="R0T-FB-m0E"/>
                 <constraint firstItem="A81-2b-Vav" firstAttribute="height" secondItem="OBd-ZP-KG1" secondAttribute="height" id="bQ7-Cp-6Lz"/>
                 <constraint firstItem="A81-2b-Vav" firstAttribute="leading" secondItem="OBd-ZP-KG1" secondAttribute="trailing" constant="10" id="bYS-qH-3wK"/>
                 <constraint firstItem="MSi-lI-NIU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="egI-7F-WTM"/>
                 <constraint firstItem="A81-2b-Vav" firstAttribute="top" secondItem="OBd-ZP-KG1" secondAttribute="top" id="lyq-py-KV4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b7t-2i-8CI" secondAttribute="trailing" constant="15" id="pDw-Ti-XMJ"/>
-                <constraint firstItem="b7t-2i-8CI" firstAttribute="leading" secondItem="MSi-lI-NIU" secondAttribute="trailing" constant="15" id="qCR-6o-x2f"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JjR-79-o3r" secondAttribute="trailing" constant="15" id="qCg-4I-HrT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A81-2b-Vav" secondAttribute="trailing" constant="15" id="r05-pR-71s"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="A81-2b-Vav" secondAttribute="bottom" constant="30" id="soH-tZ-nmJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QhM-uY-gQj" secondAttribute="trailing" constant="15" id="tP3-j6-RAb"/>
@@ -86,7 +89,8 @@
             <connections>
                 <outlet property="actionButton" destination="OBd-ZP-KG1" id="Tq0-Og-2C4"/>
                 <outlet property="actionButtonHeight" destination="ss5-tl-KAk" id="sNo-Eb-Kmt"/>
-                <outlet property="subtitleLabel" destination="b7t-2i-8CI" id="vpF-ta-tGx"/>
+                <outlet property="imageView" destination="MSi-lI-NIU" id="Qbl-WM-Mjv"/>
+                <outlet property="textView" destination="JjR-79-o3r" id="tmQ-Rh-kbW"/>
                 <outlet property="titleLabel" destination="QhM-uY-gQj" id="QEn-l4-y0f"/>
             </connections>
             <point key="canvasLocation" x="32.799999999999997" y="-141.67916041979012"/>

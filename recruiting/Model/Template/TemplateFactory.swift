@@ -15,10 +15,7 @@ final class TemplateFactory {
     static func templateFor(json: JSON, typeId: String) -> Template? {
         
         let dic: [String: Template.Type] = [typeId: CardTemplate.self]
-//        let typeId = json["id"].stringValue
-//        print(#function, dic, json)
         if let type = dic[typeId]{
-//            print(#function, typeId)
             return type.init(json: json)
         }
         return nil

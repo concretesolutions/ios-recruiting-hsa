@@ -25,8 +25,6 @@ class BaseTemplate: Template {
 
     required init(json: JSON) {
         self.id = "card"
-//        self.id = json["id"].stringValue
-//        print(json)
         let array = [
                 "id": "push_to_any_view",
                 "type": "navigation",
@@ -34,9 +32,6 @@ class BaseTemplate: Template {
                 "flow": "push"
             ]
         let action = JSON(arrayLiteral: array)
-//        self.action = ActionFactory.actionFor(json: action)
-//        print(#function, json["action"])
-//        print(#function, action[0])
         self.action = ActionFactory.actionFor(json: action[0])
     }
 }
@@ -48,8 +43,7 @@ class BaseRootTemplate: RootTemplate, JSONBuildeable {
 
     required init(json: JSON) {
         self.templates = json["results"].arrayValue.compactMap { TemplateFactory.templateFor(json: $0, typeId: "card") }
-//        self.templates = json["views"].arrayValue.compactMap { TemplateFactory.templateFor(json: $0) }
-    }
+   }
 }
 
 class BaseMovieTemplate: RootTemplate, JSONBuildeable {
@@ -57,7 +51,6 @@ class BaseMovieTemplate: RootTemplate, JSONBuildeable {
     
     required init(json: JSON) {
         self.templates = json["results"].arrayValue.compactMap { TemplateFactory.templateFor(json: $0, typeId: "movie") }
-        //        self.templates = json["views"].arrayValue.compactMap { TemplateFactory.templateFor(json: $0) }
     }
 }
 

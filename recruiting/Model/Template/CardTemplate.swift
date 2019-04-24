@@ -13,12 +13,13 @@ class CardTemplate: BaseTemplate {
     
     var title: String
     var subtitle: String
+    var poster_path: String
 
 
     required init(json: JSON) {
         self.title = json["title"].stringValue
-        self.subtitle = json["subtitle"].stringValue
-        //self.subtitle = json["overview"].stringValue
+        self.subtitle = json["overview"].stringValue
+        self.poster_path = json["poster_path"].stringValue
         super.init(json: json)
     }
     

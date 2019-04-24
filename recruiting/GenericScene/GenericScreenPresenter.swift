@@ -32,7 +32,6 @@ class GenericScreenPresenter : GenericScreenPresentation {
     func inflate() {
         guard let root = model else { return }
         let array = root.templates.compactMap { TemplateViewFactory.viewFor(data: $0)}
-//        print(#function, root, array)
         self.view.add(views: array)
     }
 }

@@ -29,9 +29,7 @@
 		F172E534226CFEB300E36DB5 /* ActionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51D226CFEB300E36DB5 /* ActionFactory.swift */; };
 		F172E535226CFEB300E36DB5 /* NavigationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51E226CFEB300E36DB5 /* NavigationAction.swift */; };
 		F172E536226CFEB300E36DB5 /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E51F226CFEB300E36DB5 /* BaseAction.swift */; };
-		F172E537226CFEB300E36DB5 /* views.json in Resources */ = {isa = PBXBuildFile; fileRef = F172E521226CFEB300E36DB5 /* views.json */; };
 		F172E538226CFEB300E36DB5 /* GenericSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E522226CFEB300E36DB5 /* GenericSceneBuilder.swift */; };
-		F172E539226CFEB300E36DB5 /* views2.json in Resources */ = {isa = PBXBuildFile; fileRef = F172E523226CFEB300E36DB5 /* views2.json */; };
 		F172E53A226CFEB300E36DB5 /* ActionHandlerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E524226CFEB300E36DB5 /* ActionHandlerBuilder.swift */; };
 		F172E53B226CFEB300E36DB5 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E525226CFEB300E36DB5 /* Navigator.swift */; };
 		F172E53F226D293B00E36DB5 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E226D293B00E36DB5 /* FavoritesTableViewController.swift */; };
@@ -80,9 +78,7 @@
 		F172E51D226CFEB300E36DB5 /* ActionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionFactory.swift; sourceTree = "<group>"; };
 		F172E51E226CFEB300E36DB5 /* NavigationAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAction.swift; sourceTree = "<group>"; };
 		F172E51F226CFEB300E36DB5 /* BaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
-		F172E521226CFEB300E36DB5 /* views.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = views.json; sourceTree = "<group>"; };
 		F172E522226CFEB300E36DB5 /* GenericSceneBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSceneBuilder.swift; sourceTree = "<group>"; };
-		F172E523226CFEB300E36DB5 /* views2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = views2.json; sourceTree = "<group>"; };
 		F172E524226CFEB300E36DB5 /* ActionHandlerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionHandlerBuilder.swift; sourceTree = "<group>"; };
 		F172E525226CFEB300E36DB5 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		F172E53E226D293B00E36DB5 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
@@ -213,9 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				F172E540226D303F00E36DB5 /* views3.json */,
-				F172E521226CFEB300E36DB5 /* views.json */,
 				F172E522226CFEB300E36DB5 /* GenericSceneBuilder.swift */,
-				F172E523226CFEB300E36DB5 /* views2.json */,
 				F172E524226CFEB300E36DB5 /* ActionHandlerBuilder.swift */,
 				F172E525226CFEB300E36DB5 /* Navigator.swift */,
 				F172E53E226D293B00E36DB5 /* FavoritesTableViewController.swift */,
@@ -354,12 +348,10 @@
 				F172E526226CFEB300E36DB5 /* GenericScreenViewController.xib in Resources */,
 				F172E547226D5C5200E36DB5 /* MovieTemplateView.xib in Resources */,
 				F172E530226CFEB300E36DB5 /* CardTemplateView.xib in Resources */,
-				F172E537226CFEB300E36DB5 /* views.json in Resources */,
 				F1D66F87226B69C500B15F2C /* LaunchScreen.storyboard in Resources */,
 				F172E541226D304000E36DB5 /* views3.json in Resources */,
 				F1D66F84226B69C500B15F2C /* Assets.xcassets in Resources */,
 				F1D66F82226B69C300B15F2C /* Main.storyboard in Resources */,
-				F172E539226CFEB300E36DB5 /* views2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
