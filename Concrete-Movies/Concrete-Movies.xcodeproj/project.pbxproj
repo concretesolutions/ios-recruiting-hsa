@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		638097012272345E00462382 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638097002272345E00462382 /* Mapper.swift */; };
+		638097082272398000462382 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638097072272398000462382 /* MovieEntity.swift */; };
 		63A7BD052271682C00E84C88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A7BD042271682C00E84C88 /* AppDelegate.swift */; };
 		63A7BD072271682C00E84C88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A7BD062271682C00E84C88 /* ViewController.swift */; };
 		63A7BD0A2271682C00E84C88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A7BD082271682C00E84C88 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		638097002272345E00462382 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		638097072272398000462382 /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
 		63A7BD012271682C00E84C88 /* Concrete-Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concrete-Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A7BD042271682C00E84C88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A7BD062271682C00E84C88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,102 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		638096F922722EB500462382 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				638097022272381E00462382 /* Network */,
+				638096FF2272344800462382 /* Mapper */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		638096FA22722EC100462382 /* PopularMovies */ = {
+			isa = PBXGroup;
+			children = (
+				638096FE22722F0F00462382 /* View */,
+				638096FD22722F0500462382 /* Domain */,
+				638096FC22722EFB00462382 /* DI */,
+				638096FB22722EF300462382 /* Data */,
+			);
+			path = PopularMovies;
+			sourceTree = "<group>";
+		};
+		638096FB22722EF300462382 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				638097062272394000462382 /* Mapper */,
+				638097052272392800462382 /* Network */,
+				638097042272391B00462382 /* Entity */,
+				638097032272391100462382 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		638096FC22722EFB00462382 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		638096FD22722F0500462382 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		638096FE22722F0F00462382 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		638096FF2272344800462382 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				638097002272345E00462382 /* Mapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		638097022272381E00462382 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		638097032272391100462382 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		638097042272391B00462382 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				638097072272398000462382 /* MovieEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		638097052272392800462382 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		638097062272394000462382 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 		63A7BCF82271682C00E84C88 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +197,8 @@
 		63A7BD032271682C00E84C88 /* Concrete-Movies */ = {
 			isa = PBXGroup;
 			children = (
+				638096FA22722EC100462382 /* PopularMovies */,
+				638096F922722EB500462382 /* Core */,
 				63A7BD042271682C00E84C88 /* AppDelegate.swift */,
 				63A7BD062271682C00E84C88 /* ViewController.swift */,
 				63A7BD082271682C00E84C88 /* Main.storyboard */,
@@ -257,6 +359,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63A7BD072271682C00E84C88 /* ViewController.swift in Sources */,
+				638097082272398000462382 /* MovieEntity.swift in Sources */,
+				638097012272345E00462382 /* Mapper.swift in Sources */,
 				63A7BD052271682C00E84C88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
