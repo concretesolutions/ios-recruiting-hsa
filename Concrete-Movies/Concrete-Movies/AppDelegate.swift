@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func generateTabBarController()->UITabBarController{
         let tabBarController = UITabBarController()
         
-        let favoritesVC = ViewController()
-        favoritesVC.title = "Favorites"
-        favoritesVC.view.backgroundColor = UIColor.orange
+        let popularMoviesVC = PopularMoviesViewController(datasource: PopularMoviesDataSource())
+        popularMoviesVC.title = "Favorites"
+        popularMoviesVC.view.backgroundColor = UIColor.orange
         let downloadsVC = ViewController()
         downloadsVC.title = "Downloads"
         downloadsVC.view.backgroundColor = UIColor.blue
@@ -40,11 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        button.addTarget(self, action: #selector(pushToNextVC), for: .touchUpInside)
 //        self.view.addSubview(button)
         
-        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        popularMoviesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         downloadsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
         historyVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
         
-        let controllers = [favoritesVC, downloadsVC, historyVC]
+        let controllers = [popularMoviesVC, downloadsVC, historyVC]
         tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
         
         return tabBarController
