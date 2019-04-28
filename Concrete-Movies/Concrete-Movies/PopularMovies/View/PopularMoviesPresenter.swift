@@ -16,4 +16,10 @@ class PopularMoviesPresenter{
     init(fetchPopularMoviesUseCase: FetchPopularMoviesUseCase) {
         self.fetchPopularMoviesUseCase = fetchPopularMoviesUseCase
     }
+    
+    func fetchMovies(){
+        fetchPopularMoviesUseCase.execute { (moviesModels, error) in
+            //popularMoviesView?.show(movies: <#T##[MovieViewModel]#>)
+        }
+    }
 }

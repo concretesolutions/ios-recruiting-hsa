@@ -13,39 +13,39 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="Concrete_Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQy-p5-7n8">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-OB-yHt">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="165"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="GtB-oL-Zlp"/>
+                                    <constraint firstAttribute="height" constant="165" id="GtB-oL-Zlp"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c37-MU-PH6">
-                                <rect key="frame" x="0.0" y="55" width="50" height="15"/>
+                                <rect key="frame" x="0.0" y="165" width="150" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh8-xt-jcg">
-                                        <rect key="frame" x="10" y="4" width="30" height="7"/>
+                                        <rect key="frame" x="30" y="12.5" width="90" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="79V-EW-HVz"/>
-                                            <constraint firstAttribute="height" constant="7" id="EOF-Tz-PkQ"/>
+                                            <constraint firstAttribute="width" constant="90" id="79V-EW-HVz"/>
+                                            <constraint firstAttribute="height" constant="20" id="EOF-Tz-PkQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_empty_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5gp-54-CsE">
-                                        <rect key="frame" x="42" y="5" width="5" height="5"/>
+                                        <rect key="frame" x="125" y="15" width="15" height="15"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="5" id="AML-aI-jOA"/>
-                                            <constraint firstAttribute="width" constant="5" id="HWz-yt-eOQ"/>
+                                            <constraint firstAttribute="height" constant="15" id="AML-aI-jOA"/>
+                                            <constraint firstAttribute="width" constant="15" id="HWz-yt-eOQ"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -53,9 +53,9 @@
                                 <constraints>
                                     <constraint firstItem="eh8-xt-jcg" firstAttribute="centerX" secondItem="c37-MU-PH6" secondAttribute="centerX" id="9LB-WG-dTI"/>
                                     <constraint firstItem="5gp-54-CsE" firstAttribute="centerY" secondItem="c37-MU-PH6" secondAttribute="centerY" id="LbX-6N-vrT"/>
-                                    <constraint firstAttribute="trailing" secondItem="5gp-54-CsE" secondAttribute="trailing" constant="3" id="O5f-ib-q7K"/>
+                                    <constraint firstAttribute="trailing" secondItem="5gp-54-CsE" secondAttribute="trailing" constant="10" id="O5f-ib-q7K"/>
                                     <constraint firstItem="eh8-xt-jcg" firstAttribute="centerY" secondItem="c37-MU-PH6" secondAttribute="centerY" id="fcb-fE-r5Y"/>
-                                    <constraint firstAttribute="height" constant="15" id="hiQ-sm-ZsH"/>
+                                    <constraint firstAttribute="height" constant="45" id="hiQ-sm-ZsH"/>
                                 </constraints>
                             </view>
                         </subviews>

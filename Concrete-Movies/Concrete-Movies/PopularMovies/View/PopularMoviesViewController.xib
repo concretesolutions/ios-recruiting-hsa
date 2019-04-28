@@ -33,10 +33,10 @@
                     <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E86-cY-IMC">
-                        <size key="itemSize" width="50" height="50"/>
+                        <size key="itemSize" width="150" height="210"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>

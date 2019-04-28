@@ -5,7 +5,7 @@
 //  Created by Audel Dugarte on 4/25/19.
 //  Copyright © 2019 Audel Dugarte. All rights reserved.
 //
-struct MovieEntity: Codable{
+struct SimpleMovieEntity: Codable{
     let posterPath: String
     let adult: Bool
     let overview: String

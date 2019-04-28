@@ -16,6 +16,7 @@ class PopularMoviesViewController: UIViewController {
     var searchActive : Bool = false
     
     private var datasource: PopularMoviesDataSource?
+    private var moviesList: [MovieViewModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,23 @@ class PopularMoviesViewController: UIViewController {
     private func prepare(){
         prepareCoplllectionView()
         prepareSearchBar()
+        
+        let restApi = MoviesAlamoFireRestApi()
+        restApi.popularMoviesEntity { (movies, error) in
+            if let movies = movies{
+                print(movies)
+            }else if let error = error{
+                print(error)
+            }
+        }
+        
+        restApi.movieDetailEntity { (movie, error) in
+            if let movie = movie{
+                print(movie)
+            }else if let error = error{
+                print(error)
+            }
+        }
     }
     
     private func prepareCoplllectionView(){
@@ -97,5 +115,14 @@ extension PopularMoviesViewController: UISearchBarDelegate{
 }
 
 extension PopularMoviesViewController: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected \(indexPath.row)")
+    }
+}
+
+extension PopularMoviesViewController: PopularMoviesViewProtocol{
+    func show(movies: [MovieViewModel]) {
+        self.moviesList = movies
+        moviesCollectionView.reloadData()
+    }
 }
