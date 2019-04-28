@@ -10,9 +10,15 @@ import Foundation
 
 struct FetchPopularMoviesUseCase {
     
-    //define repository and init with said repository
+    private let repository: MoviesRepository
     
-    func execute(completionHandles: ([Movie], Error)-> Void ){
-        //call repository
+    init(repository: MoviesRepository) {
+        self.repository = repository
+    }
+    
+    func execute(completionHandler: @escaping ([SimpleMovie]?, Error?)-> Void ){
+        repository.popularMovies { (movies, error) in
+            completionHandler(movies, error)
+        }
     }
 }

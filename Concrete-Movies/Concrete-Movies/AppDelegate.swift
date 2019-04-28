@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func generateTabBarController()->UITabBarController{
         let tabBarController = UITabBarController()
         
-        let popularMoviesVC = PopularMoviesViewController(datasource: PopularMoviesDataSource())
+        let popularMoviesVC = ViewControllerFactory.viewController(type: .popularMovies)
         popularMoviesVC.title = "Favorites"
         popularMoviesVC.view.backgroundColor = UIColor.orange
         let downloadsVC = ViewController()

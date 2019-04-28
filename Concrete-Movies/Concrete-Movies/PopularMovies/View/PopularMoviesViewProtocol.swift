@@ -7,5 +7,6 @@
 //
 
 protocol PopularMoviesViewProtocol{
-    func show(movies: [MovieViewModel])
+    func show(movies: [SimpleMovieViewModel])
+    func show(error: Error)
 }

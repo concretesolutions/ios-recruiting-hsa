@@ -16,7 +16,9 @@ class PopularMoviesViewController: UIViewController {
     var searchActive : Bool = false
     
     private var datasource: PopularMoviesDataSource?
-    private var moviesList: [MovieViewModel]?
+    var moviesList: [SimpleMovieViewModel]?
+    
+    private var popularMoviesPresenter: PopularMoviesPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +26,11 @@ class PopularMoviesViewController: UIViewController {
         prepare()
     }
     
-    convenience init(datasource: PopularMoviesDataSource) {
+    convenience init(datasource: PopularMoviesDataSource,
+                     presenter: PopularMoviesPresenter) {
         self.init()
+        presenter.popularMoviesView = self
+        self.popularMoviesPresenter = presenter
         datasource.viewController = self
         self.datasource = datasource
     }
@@ -34,7 +39,9 @@ class PopularMoviesViewController: UIViewController {
         prepareCoplllectionView()
         prepareSearchBar()
         
-        let restApi = MoviesAlamoFireRestApi()
+        popularMoviesPresenter?.fetchMovies()
+        
+        /*let restApi = MoviesAlamoFireRestApi()
         restApi.popularMoviesEntity { (movies, error) in
             if let movies = movies{
                 print(movies)
@@ -49,7 +56,7 @@ class PopularMoviesViewController: UIViewController {
             }else if let error = error{
                 print(error)
             }
-        }
+        }*/
     }
     
     private func prepareCoplllectionView(){
@@ -66,16 +73,6 @@ class PopularMoviesViewController: UIViewController {
         moviesSearchBar.backgroundColor = Colors.Primary.accent
         moviesSearchBar.delegate = self
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -121,7 +118,12 @@ extension PopularMoviesViewController: UICollectionViewDelegate{
 }
 
 extension PopularMoviesViewController: PopularMoviesViewProtocol{
-    func show(movies: [MovieViewModel]) {
+    func show(error: Error) {
+        print(error)
+    }
+    
+    func show(movies: [SimpleMovieViewModel]) {
+        print(movies)
         self.moviesList = movies
         moviesCollectionView.reloadData()
     }

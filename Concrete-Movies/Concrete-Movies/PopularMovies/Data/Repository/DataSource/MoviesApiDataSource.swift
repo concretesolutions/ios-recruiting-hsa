@@ -7,9 +7,15 @@
 //
 
 class MoviesApiDataSource: MoviesDataSource{
-    //private let moviesRestApi: MoviesRestApi
+    private let moviesRestApi: MoviesRestApi
     
-    func popularMoviesEntity(completionHandler: @escaping ([SimpleMovieEntity], Error) -> Void) {
-        //Call RestApi
+    init(moviesRestApi: MoviesRestApi) {
+        self.moviesRestApi = moviesRestApi
+    }
+    
+    func popularMoviesEntity(completionHandler: @escaping (PopularMoviesResultEntity?, Error?) -> Void) {
+        moviesRestApi.popularMoviesEntity { (popularMoviesEntity, error) in
+            completionHandler(popularMoviesEntity, error)
+        }
     }
 }

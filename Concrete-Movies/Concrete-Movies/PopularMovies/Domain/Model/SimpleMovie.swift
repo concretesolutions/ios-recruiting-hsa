@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Movie {
+struct SimpleMovie {
     let posterPath: String
     let adult: Bool
     let overview: String
     let releaseDate: String
-    let genres: [String]
+    let genres: [Int]
     let movieId: Int
     let originalTitle: String
     let originalLanguage: String

@@ -9,8 +9,26 @@
 import Foundation
 
 class MoviesApiRepository: MoviesRepository {
-    func popularMovies(completionHandler: @escaping ([Movie], Error) -> Void) {
-        //Call datasource and use mapper
+    private let moviesApiDataSource: MoviesDataSource
+    private let simpleMovieModelToEntityMapper: Mapper<SimpleMovie, SimpleMovieEntity>
+    
+    init(
+        moviesApiDataSource: MoviesDataSource,
+        simpleMovieModelToEntityMapper: Mapper<SimpleMovie, SimpleMovieEntity>
+        )
+    {
+        self.moviesApiDataSource = moviesApiDataSource
+        self.simpleMovieModelToEntityMapper = simpleMovieModelToEntityMapper
+    }
+    
+    func popularMovies(completionHandler: @escaping ([SimpleMovie]?, Error?) -> Void) {
+        moviesApiDataSource.popularMoviesEntity { (popularMoviesEntity, error) in
+            if let popularMoviesEntity = popularMoviesEntity{
+                completionHandler(self.simpleMovieModelToEntityMapper.reverseMap(values: popularMoviesEntity.results), nil)
+            }else{
+                completionHandler(nil, error)
+            }
+        }
     }
     
 }

@@ -7,5 +7,5 @@
 //
 
 protocol MoviesRepository{
-    func popularMovies(completionHandler: @escaping ([Movie], Error)->Void)
+    func popularMovies(completionHandler: @escaping ([SimpleMovie]?, Error?)->Void)
 }

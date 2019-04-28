@@ -12,14 +12,23 @@ class PopularMoviesPresenter{
     var popularMoviesView: PopularMoviesViewProtocol?
     
     private let fetchPopularMoviesUseCase: FetchPopularMoviesUseCase
+    private let simpleMovieViewModelToModelMapper: Mapper<SimpleMovieViewModel, SimpleMovie>
     
-    init(fetchPopularMoviesUseCase: FetchPopularMoviesUseCase) {
+    init(fetchPopularMoviesUseCase: FetchPopularMoviesUseCase,
+         simpleMovieViewModelToModelMapper: Mapper<SimpleMovieViewModel, SimpleMovie>
+        )
+    {
         self.fetchPopularMoviesUseCase = fetchPopularMoviesUseCase
+        self.simpleMovieViewModelToModelMapper = simpleMovieViewModelToModelMapper
     }
     
     func fetchMovies(){
         fetchPopularMoviesUseCase.execute { (moviesModels, error) in
-            //popularMoviesView?.show(movies: <#T##[MovieViewModel]#>)
+            if let moviesModel = moviesModels{
+                self.popularMoviesView?.show(movies: self.simpleMovieViewModelToModelMapper.reverseMap(values: moviesModel))
+            }else if let error = error{
+                self.popularMoviesView?.show(error: error)
+            }
         }
     }
 }

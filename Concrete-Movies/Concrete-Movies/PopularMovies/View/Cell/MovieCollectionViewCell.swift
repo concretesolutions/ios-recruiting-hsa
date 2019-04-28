@@ -32,7 +32,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         titleLabel.textColor = Colors.Primary.brand
     }
 
-    func setup(movie: MovieViewModel){
+    func setup(movie: SimpleMovieViewModel){
         titleLabel.text = movie.title
         if(movie.isFavorited){
             favoriteIcon.image = UIImage(named: "favorite_full_icon")

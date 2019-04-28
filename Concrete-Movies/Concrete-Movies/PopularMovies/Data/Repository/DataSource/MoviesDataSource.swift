@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MoviesDataSource {
-    func popularMoviesEntity(completionHandler: @escaping ([SimpleMovieEntity], Error)->Void)
+    func popularMoviesEntity(completionHandler: @escaping (PopularMoviesResultEntity?, Error?)->Void)
 }
