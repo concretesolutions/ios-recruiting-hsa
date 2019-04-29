@@ -3,6 +3,7 @@
 
 def common_pods
   pod 'Alamofire', '~> 4.5'
+  pod 'RealmSwift'
 end
 
 target 'Concrete-Movies' do
