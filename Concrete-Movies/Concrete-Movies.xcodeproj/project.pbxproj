@@ -179,11 +179,28 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		6304EC3F2276961A00F2B8D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6304EC312276932E00F2B8D3 /* MoviesRestApi.swift */,
+				6304EC332276936600F2B8D3 /* MoviesAlamoFireRestApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6304EC402276963700F2B8D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6304EC372276940E00F2B8D3 /* NetworkConstants.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		638096F922722EB500462382 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6304EC402276963700F2B8D3 /* Network */,
 				63E48F042276713500F4C2A9 /* Extensions */,
-				638097022272381E00462382 /* Network */,
 				638096FF2272344800462382 /* Mapper */,
 				632E93A222736E4100393AEB /* Colors.swift */,
 				63E48F0022765E7000F4C2A9 /* ViewControllerFactory.swift */,
@@ -205,8 +222,8 @@
 		638096FB22722EF300462382 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6304EC3F2276961A00F2B8D3 /* Network */,
 				6304EC3C227694F900F2B8D3 /* Mapper */,
-				638097052272392800462382 /* Network */,
 				638097042272391B00462382 /* Entity */,
 				638097032272391100462382 /* Repository */,
 			);
@@ -243,14 +260,6 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
-		638097022272381E00462382 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				6304EC372276940E00F2B8D3 /* NetworkConstants.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		638097032272391100462382 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,15 +282,6 @@
 				63B5B83522762FA0002957F6 /* PopularMoviesResultEntity.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		638097052272392800462382 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				6304EC312276932E00F2B8D3 /* MoviesRestApi.swift */,
-				6304EC332276936600F2B8D3 /* MoviesAlamoFireRestApi.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		63A7BCF82271682C00E84C88 = {
