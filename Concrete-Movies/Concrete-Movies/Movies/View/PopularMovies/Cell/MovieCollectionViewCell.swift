@@ -15,7 +15,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteIcon: UIImageView!
     @IBOutlet weak var textContainerView: UIView!
     
-
+    weak var delegate: PopularMovieSelectionDelagate?
+    private var movieId: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,6 +32,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
         backgroundColor = Colors.Primary.dark
         textContainerView.backgroundColor = Colors.Primary.dark
         titleLabel.textColor = Colors.Primary.brand
+        
+        posterImageView.isUserInteractionEnabled = true
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleImageTapped(sender:)))
+        posterImageView.addGestureRecognizer(imageTapGesture)
     }
 
     func setup(movie: SimpleMovieViewModel){
@@ -42,10 +48,21 @@ class MovieCollectionViewCell: UICollectionViewCell {
         
         //posterImageView.imageFromUrl(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
         posterImageView.imageFromUrlWithAlamofire(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
+        
+        movieId = String(movie.movieId)
     }
     
     @objc
     func handleTap(sender: Any){
-        print("tapped")
+        guard let movieId = movieId,
+            let delegate = delegate else {return}
+        delegate.favoriteIconTapped(movieId: movieId)
+    }
+    
+    @objc
+    func handleImageTapped(sender: Any){
+        guard let movieId = movieId,
+            let delegate = delegate else {return}
+        delegate.moviePosterTapped(movieId: movieId)
     }
 }

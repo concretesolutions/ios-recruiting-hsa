@@ -26,6 +26,7 @@ extension PopularMoviesDataSource: UICollectionViewDataSource{
         
         
         customCell.setup(movie: movies[indexPath.row])
+        customCell.delegate = viewController
         
         return customCell
     }

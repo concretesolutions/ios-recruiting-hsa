@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQy-p5-7n8">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="210"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-OB-yHt">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-OB-yHt">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="165"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="GtB-oL-Zlp"/>
@@ -41,7 +41,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_empty_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5gp-54-CsE">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_empty_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5gp-54-CsE">
                                         <rect key="frame" x="125" y="15" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="AML-aI-jOA"/>

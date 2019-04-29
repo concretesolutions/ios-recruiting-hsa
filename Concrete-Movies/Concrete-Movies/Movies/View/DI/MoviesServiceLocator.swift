@@ -18,6 +18,14 @@ class MoviesServiceLocator{
         return SimpleMovieViewModelToModelMapper()
     }
     
+    private var movieDetailModelToEntityMapper: Mapper<MovieDetails, MovieDetailEntity>{
+        return MovieDetailsModelToEntityMapper()
+    }
+    
+    var movieDetailViewModelToModelMapper: Mapper<MovieDetailsViewModel, MovieDetails>{
+        return MovieDetailsViewMoelToModelMapper()
+    }
+    
     private var moviesRestApi: MoviesRestApi{
         return MoviesAlamoFireRestApi()
     }
@@ -29,7 +37,8 @@ class MoviesServiceLocator{
     var moviesRepository: MoviesRepository{
         return MoviesApiRepository(
             moviesApiDataSource: moviesDataSource,
-            simpleMovieModelToEntityMapper: simpleMovieModelToEntityMapper
+            simpleMovieModelToEntityMapper: simpleMovieModelToEntityMapper,
+            movieDetailModelToEntityMapper: movieDetailModelToEntityMapper
         )
     }
     
@@ -37,5 +46,9 @@ class MoviesServiceLocator{
     
     var fetchPopularMoviesUseCase: FetchPopularMoviesUseCase{
         return FetchPopularMoviesUseCase(repository: moviesRepository)
+    }
+    
+    var fetchMovieDetailsUseCase: FetchMovieDetailsUseCase{
+        return FetchMovieDetailsUseCase(repository: moviesRepository)
     }
 }

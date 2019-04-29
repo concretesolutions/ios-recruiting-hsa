@@ -128,3 +128,19 @@ extension PopularMoviesViewController: PopularMoviesViewProtocol{
         moviesCollectionView.reloadData()
     }
 }
+
+extension PopularMoviesViewController: PopularMovieSelectionDelagate{
+    func favoriteIconTapped(movieId: String) {
+        print("tapped favorite \(movieId)")
+    }
+    
+    func moviePosterTapped(movieId: String) {
+        print("tapped poster \(movieId)")
+        guard let viewController = ViewControllerFactory.viewController(type: .movieDetail) as? MovieDetailsViewController else {return}
+        viewController.movieId = movieId
+        
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    
+}

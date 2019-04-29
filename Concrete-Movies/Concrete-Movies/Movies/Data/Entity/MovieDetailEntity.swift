@@ -9,7 +9,7 @@
 struct MovieDetailEntity: Codable {
     let adult: Bool
     let backDropPath: String
-    let belongsToColection: Bool?
+    let belongsToColection: MovieCollectionEntity?
     let budget: Double
     let genres: [GenreEntity]
     let homepage: String

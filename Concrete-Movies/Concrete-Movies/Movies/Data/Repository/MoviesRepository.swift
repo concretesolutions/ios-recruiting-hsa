@@ -8,4 +8,5 @@
 
 protocol MoviesRepository{
     func popularMovies(completionHandler: @escaping ([SimpleMovie]?, Error?)->Void)
+    func movieDetail(movieId: String, completionHandler: @escaping (MovieDetails?, Error?)->Void)
 }

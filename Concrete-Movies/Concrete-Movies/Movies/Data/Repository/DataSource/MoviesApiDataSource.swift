@@ -18,4 +18,10 @@ class MoviesApiDataSource: MoviesDataSource{
             completionHandler(popularMoviesEntity, error)
         }
     }
+    
+    func movieDetailEntity(movieId: String, completionHandler: @escaping (MovieDetailEntity?, Error?)->Void){
+        moviesRestApi.movieDetailEntity(movieId: movieId) { (movieDetailEntity, error) in
+            completionHandler(movieDetailEntity, error)
+        }
+    }
 }

@@ -24,7 +24,12 @@ class ViewControllerFactory {
             )
             return viewController
         case .movieDetail:
-            return ViewController()
+            let presenter = MovieDetailsPresenter(
+                fetchMovieDetailsUseCase: moviesServiceLocator.fetchMovieDetailsUseCase,
+                movieDetailViewModelToModelMapper: moviesServiceLocator.movieDetailViewModelToModelMapper)
+            let viewController = MovieDetailsViewController(presenter: presenter)
+            
+            return viewController
         case .favoriteMovies:
             return ViewController()
         }
