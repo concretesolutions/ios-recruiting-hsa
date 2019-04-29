@@ -40,7 +40,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
             favoriteIcon.image = UIImage(named: "favorite_gray_icon")
         }
         
-        
+        //posterImageView.imageFromUrl(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
+        posterImageView.imageFromUrlWithAlamofire(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
     }
     
     @objc

@@ -10,6 +10,7 @@ import Foundation
 
 enum NetworkConstants{
     static let baseUrl = "https://api.themoviedb.org/3/"
+    static let baseImagesUrl = "https://image.tmdb.org/t/p/w500"
     static let movieDetail = "movie/"
     static let popularMovies = "movie/popular"
     static let apiKey = "?api_key=f91ed12f4264eb4ed73ca88f569cbffa"
