@@ -33,6 +33,16 @@ class PopularMoviesViewController: UIViewController {
         self.popularMoviesPresenter = presenter
         datasource.viewController = self
         self.datasource = datasource
+        
+        //whatever
+        let localMoviesDS = LocalDBMoviesDataSource(localMoviesDB: LocalMoviesRealmDB())
+        localMoviesDS.favoritedMoviesEntity { (movies, error) in
+            if let movies = movies{
+                print(movies)
+            }else{
+                print("error fetcging local movies")
+            }
+        }
     }
 
     private func prepare(){
