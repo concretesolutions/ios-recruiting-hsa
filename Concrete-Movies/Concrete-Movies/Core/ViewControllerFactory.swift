@@ -31,7 +31,14 @@ class ViewControllerFactory {
             
             return viewController
         case .favoriteMovies:
-            return ViewController()
+            let presenter = FavoriteMoviesPresenter(
+                fetchFavoritedMoviesUseCase: moviesServiceLocator.fetchFavoritedMoviesUseCase,
+                favoriteMovieViewModelToModelMapper: moviesServiceLocator.favoriteMovieViewModelToModelMapper
+            )
+            let viewController = FavoriteMoviesViewController(datasource: FavoriteMoviesDataSource(),
+                                                              presenter: presenter)
+            
+            return viewController
         }
     }
 }

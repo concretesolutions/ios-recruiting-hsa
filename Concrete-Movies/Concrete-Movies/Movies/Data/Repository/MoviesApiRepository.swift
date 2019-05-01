@@ -34,7 +34,9 @@ class MoviesApiRepository: MoviesRepository {
     func popularMovies(completionHandler: @escaping ([SimpleMovie]?, Error?) -> Void) {
         moviesApiDataSource.popularMoviesEntity { (popularMoviesEntity, error) in
             if let popularMoviesEntity = popularMoviesEntity{
-                completionHandler(self.simpleMovieModelToEntityMapper.reverseMap(values: popularMoviesEntity.results), nil)
+                let moviesModel = self.simpleMovieModelToEntityMapper.reverseMap(values: popularMoviesEntity.results)
+                self.setFavoriteMovies(movies: moviesModel, favorited: [])
+                completionHandler(moviesModel, nil)
             }else{
                 completionHandler(nil, error)
             }
@@ -62,11 +64,51 @@ class MoviesApiRepository: MoviesRepository {
         }
     }
     
+    func saveFavorite(movie: FavoritedMovie) {
+        localDBMoviesDataSource.saveFavorited(movie: favoritedMovieModelToEntityMapper.map(value: movie))
+    }
+    
     private func setFavoriteMovies(movies: [SimpleMovie], favorited: [FavoritedMovie])->Void{
+        /*
         for movie in movies{
             if favorited.contains(where: { return $0.movieId == movie.movieId }){
-                //movie.isFavorited = true
+                movie.isFavorited = true
+            }
+            if(movie.movieId > 200){
+                movie.isFavorited = true
             }
         }
+         */
+        
+        let modifiedMovies = movies.map { (simpleMovie) -> SimpleMovie in
+            var realFav = false
+            if favorited.contains(where: { return $0.movieId == simpleMovie.movieId }){
+                realFav = true
+            }
+            if(simpleMovie.movieId == 491418){
+                realFav = true
+            }
+            
+            let movie = SimpleMovie(
+                posterPath: simpleMovie.posterPath,
+                adult: simpleMovie.adult,
+                overview: simpleMovie.overview,
+                releaseDate: simpleMovie.releaseDate,
+                genres: simpleMovie.genres,
+                movieId: simpleMovie.movieId,
+                originalTitle: simpleMovie.originalTitle,
+                originalLanguage: simpleMovie.originalLanguage,
+                title: simpleMovie.title,
+                backdropPath: simpleMovie.backdropPath,
+                popularity: simpleMovie.popularity,
+                voteCount: simpleMovie.voteCount,
+                video: simpleMovie.video,
+                voteAverage: simpleMovie.voteAverage,
+                isFavorited: realFav)
+            return movie
+        }
+        print("\n\n ##################################### \n\n")
+        print(modifiedMovies)
+        print("\n\n ##################################### \n\n")
     }
 }

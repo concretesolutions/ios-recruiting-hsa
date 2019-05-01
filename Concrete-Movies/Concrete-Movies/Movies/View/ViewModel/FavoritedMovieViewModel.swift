@@ -1,17 +1,17 @@
 //
-//  FavoritedMovie.swift
+//  FavoritedMovieViewModel.swift
 //  Concrete-Movies
 //
-//  Created by Audel Dugarte on 4/30/19.
+//  Created by Audel Dugarte on 5/1/19.
 //  Copyright © 2019 Audel Dugarte. All rights reserved.
 //
 
 import Foundation
 
-struct FavoritedMovie {
+struct FavoritedMovieViewModel {
     let name: String
     let movieId: Int
     let overview: String
     let posterPath: String
-    let relaaseDate: String
+    let releaseYear: String
 }

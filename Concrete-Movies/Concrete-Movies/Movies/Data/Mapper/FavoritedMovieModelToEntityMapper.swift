@@ -14,8 +14,22 @@ class FavoritedMovieModelToEntityMapper: Mapper<FavoritedMovie, FavoritedMovieEn
             name: value.name,
             movieId: value.movieId,
             overview: value.overview,
-            posterPath: value.posterPath
+            posterPath: value.posterPath,
+            relaaseDate: value.releaseDate
         )
         return movie
+    }
+    
+    override func map(value: FavoritedMovie) -> FavoritedMovieEntity {
+        let favoritedMovieEntity = FavoritedMovieEntity()
+        favoritedMovieEntity.movieId = value.movieId
+        favoritedMovieEntity.name = value.name
+        favoritedMovieEntity.overview = value.overview
+        favoritedMovieEntity.posterPath = value.posterPath
+        favoritedMovieEntity.releaseDate = value.relaaseDate
+        
+        print("about to send transformed favMovie entity \(favoritedMovieEntity)")
+        
+        return favoritedMovieEntity
     }
 }

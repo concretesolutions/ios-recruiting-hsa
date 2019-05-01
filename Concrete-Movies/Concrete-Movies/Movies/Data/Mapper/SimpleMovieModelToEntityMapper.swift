@@ -24,7 +24,8 @@ class SimpleMovieModelToEntityMapper: Mapper<SimpleMovie, SimpleMovieEntity> {
             popularity: value.popularity,
             voteCount: value.voteCount,
             video: value.video,
-            voteAverage: value.voteAverage
+            voteAverage: value.voteAverage,
+            isFavorited: false
         )
         return movie
     }

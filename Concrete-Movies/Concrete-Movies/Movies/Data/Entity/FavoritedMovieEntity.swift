@@ -14,4 +14,5 @@ class FavoritedMovieEntity: Object{
     @objc dynamic var movieId = 0
     @objc dynamic var overview = ""
     @objc dynamic var posterPath = ""
+    @objc dynamic var releaseDate = ""
 }

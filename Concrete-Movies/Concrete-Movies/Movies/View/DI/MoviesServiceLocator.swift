@@ -30,6 +30,10 @@ class MoviesServiceLocator{
         return FavoritedMovieModelToEntityMapper()
     }
     
+    var favoriteMovieViewModelToModelMapper: Mapper<FavoritedMovieViewModel, FavoritedMovie>{
+        return FavoritedMovieViewModelToModelMapper()
+    }
+    
     private var moviesRestApi: MoviesRestApi{
         return MoviesAlamoFireRestApi()
     }
@@ -64,5 +68,13 @@ class MoviesServiceLocator{
     
     var fetchMovieDetailsUseCase: FetchMovieDetailsUseCase{
         return FetchMovieDetailsUseCase(repository: moviesRepository)
+    }
+    
+    var fetchFavoritedMoviesUseCase: FetchFavoritedMoviesUseCase{
+        return FetchFavoritedMoviesUseCase(repository: moviesRepository)
+    }
+    
+    var saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase{
+        return SaveFavoriteMovieUseCase(repository: moviesRepository)
     }
 }

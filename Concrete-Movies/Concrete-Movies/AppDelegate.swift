@@ -25,26 +25,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         
         let popularMoviesVC = ViewControllerFactory.viewController(type: .popularMovies)
-        popularMoviesVC.title = "Favorites"
-        popularMoviesVC.view.backgroundColor = UIColor.orange
-        let downloadsVC = ViewController()
-        downloadsVC.title = "Downloads"
-        downloadsVC.view.backgroundColor = UIColor.blue
-        let historyVC = ViewController()
+        popularMoviesVC.title = "Movies"
+        popularMoviesVC.view.backgroundColor = Colors.Primary.brand
+        let favoritesVC = ViewControllerFactory.viewController(type: .favoriteMovies)
+        favoritesVC.title = "Favorites"
+        favoritesVC.view.backgroundColor = Colors.Primary.brand
+        /*
+         let historyVC = ViewController()
         historyVC.title = "History"
         historyVC.view.backgroundColor = UIColor.cyan
-        
+         */
         
 //        let button: UIButton = UIButton(frame: CGRect(x: view.bounds.width / 250, y: view.bounds.height / 2, width: 100, height: 50))
 //        button.backgroundColor = UIColor.black
 //        button.addTarget(self, action: #selector(pushToNextVC), for: .touchUpInside)
 //        self.view.addSubview(button)
         
+        /*
         popularMoviesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
-        downloadsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
+        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
         historyVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
+        */
         
-        let controllers = [popularMoviesVC, downloadsVC, historyVC]
+        popularMoviesVC.tabBarItem = UITabBarItem(title: "Movies", image: UIImage(named: "list_icon"), tag: 0)
+        favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "favorite_empty_icon"), tag: 1)
+        
+        let controllers = [popularMoviesVC, favoritesVC, /*historyVC*/]
         tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
         
         return tabBarController
