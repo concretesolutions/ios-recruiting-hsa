@@ -14,7 +14,10 @@ class PopularMoviesDataSource: NSObject{
 
 extension PopularMoviesDataSource: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewController?.moviesList?.count ?? 0
+        guard let viewController = viewController,
+            let moviesList = viewController.moviesList else {return 0}
+        
+        return viewController.searchActive ? viewController.filteredMoviesList.count : moviesList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -24,8 +27,11 @@ extension PopularMoviesDataSource: UICollectionViewDataSource{
             let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesConstants.movieCellIdentifier, for: indexPath) as? MovieCollectionViewCell
             else {return UICollectionViewCell()}
         
-        
-        customCell.setup(movie: movies[indexPath.row])
+        if(viewController.searchActive){
+            customCell.setup(movie: viewController.filteredMoviesList[indexPath.row])
+        }else{
+            customCell.setup(movie: movies[indexPath.row])
+        }
         customCell.delegate = viewController
         
         return customCell

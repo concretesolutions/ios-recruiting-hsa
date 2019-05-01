@@ -14,7 +14,10 @@ class FavoriteMoviesDataSource: NSObject {
 
 extension FavoriteMoviesDataSource: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewController?.moviesList?.count ?? 0
+        guard let viewController = viewController,
+            let moviesList = viewController.moviesList else {return 0}
+        
+        return viewController.searchActive ? viewController.filteredMoviesList.count : moviesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,7 +31,11 @@ extension FavoriteMoviesDataSource: UITableViewDataSource{
             return UITableViewCell()
         }
         
-        favMovieCell.setup(movie: movies[indexPath.row])
+        if(viewController.searchActive){
+            favMovieCell.setup(movie: viewController.filteredMoviesList[indexPath.row])
+        }else{
+            favMovieCell.setup(movie: movies[indexPath.row])
+        }
         
         return favMovieCell
     }

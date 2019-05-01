@@ -14,6 +14,7 @@ class FavoriteMoviesViewController: UIViewController {
     @IBOutlet weak var favoritesTableView: UITableView!
     
     var searchActive : Bool = false
+    var filteredMoviesList: [FavoritedMovieViewModel] = []
     
     private var datasource: FavoriteMoviesDataSource?
     var moviesList: [FavoritedMovieViewModel]?
@@ -79,19 +80,18 @@ extension FavoriteMoviesViewController: FavoriteMoviesViewProtocol{
 extension FavoriteMoviesViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        /*filtered = data.filter({ (text) -> Bool in
-         let tmp: NSString = text
-         let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-         return range.location != NSNotFound
-         })
-         if(filtered.count == 0){
-         searchActive = false;
-         } else {
-         searchActive = true;
-         }
-         self.tableView.reloadData()
-         */
+        guard let moviesList = moviesList else {return}
+        
+        let filtered = moviesList.filter({ (movie) -> Bool in
+            return movie.name.contains(searchText)
+        })
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.filteredMoviesList = filtered
+        self.favoritesTableView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

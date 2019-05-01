@@ -17,6 +17,7 @@ class PopularMoviesViewController: UIViewController {
     
     private var datasource: PopularMoviesDataSource?
     var moviesList: [SimpleMovieViewModel]?
+    var filteredMoviesList: [SimpleMovieViewModel] = []
     
     private var popularMoviesPresenter: PopularMoviesPresenter?
     
@@ -90,18 +91,22 @@ extension PopularMoviesViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
-        /*filtered = data.filter({ (text) -> Bool in
-            let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return range.location != NSNotFound
+        
+        guard let moviesList = moviesList else {return}
+        
+        let filtered = moviesList.filter({ (movie) -> Bool in
+            //let tmp: NSString = movie.title as NSString
+            //let range = tmp.range(of: searchText, options: .caseInsensitive)
+            //return range.location != NSNotFound
+            return movie.title.contains(searchText)
         })
         if(filtered.count == 0){
             searchActive = false;
         } else {
             searchActive = true;
         }
-        self.tableView.reloadData()
-         */
+        self.filteredMoviesList = filtered
+        self.moviesCollectionView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
