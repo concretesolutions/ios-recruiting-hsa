@@ -36,7 +36,8 @@ extension FavoriteMoviesDataSource: UITableViewDataSource{
         }else{
             favMovieCell.setup(movie: movies[indexPath.row])
         }
-        
+        favMovieCell.delegate = viewController
+        favMovieCell.selectionStyle = .none
         return favMovieCell
     }
     

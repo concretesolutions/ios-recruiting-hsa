@@ -17,7 +17,10 @@ class ViewControllerFactory {
             let fetchPopularMoviesUseCase = moviesServiceLocator.fetchPopularMoviesUseCase
             let presenter = PopularMoviesPresenter(
                 fetchPopularMoviesUseCase: fetchPopularMoviesUseCase,
-                simpleMovieViewModelToModelMapper: moviesServiceLocator.simpleMovieViewModelToModelMapper)
+                simpleMovieViewModelToModelMapper: moviesServiceLocator.simpleMovieViewModelToModelMapper,
+                saveFavoriteMovieUseCase: moviesServiceLocator.saveFavoriteMovieUseCase,
+                favoriteMovieViewModelToModelMapper: moviesServiceLocator.favoriteMovieViewModelToModelMapper
+            )
             let viewController = PopularMoviesViewController(
                 datasource: PopularMoviesDataSource(),
                 presenter: presenter

@@ -13,6 +13,7 @@ class LocalMoviesRealmDB: LocalMoviesDB{
     
     
     func favoritedMoviesEntity(completionHandler: @escaping ([FavoritedMovieEntity]?, Error?) -> Void) {
+        /*
         DispatchQueue(label: "background").async {
             autoreleasepool {
                 let realm = try! Realm()
@@ -20,6 +21,10 @@ class LocalMoviesRealmDB: LocalMoviesDB{
                 completionHandler(movies, nil)
             }
         }
+        */
+        let realm = try! Realm()
+        let movies: [FavoritedMovieEntity] = realm.objects(FavoritedMovieEntity.self).map({ $0 })
+        completionHandler(movies, nil)
     }
     
     func saveFavorited(movie: FavoritedMovieEntity) {

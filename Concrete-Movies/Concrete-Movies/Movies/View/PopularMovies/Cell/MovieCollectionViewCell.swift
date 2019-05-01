@@ -16,7 +16,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var textContainerView: UIView!
     
     weak var delegate: PopularMovieSelectionDelagate?
-    private var movieId: String?
+    private var movieId: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,7 +49,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         //posterImageView.imageFromUrl(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
         posterImageView.imageFromUrlWithAlamofire(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
         
-        movieId = String(movie.movieId)
+        movieId = movie.movieId
     }
     
     @objc
@@ -63,6 +63,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
     func handleImageTapped(sender: Any){
         guard let movieId = movieId,
             let delegate = delegate else {return}
-        delegate.moviePosterTapped(movieId: movieId)
+        delegate.moviePosterTapped(movieId: String(movieId))
     }
 }

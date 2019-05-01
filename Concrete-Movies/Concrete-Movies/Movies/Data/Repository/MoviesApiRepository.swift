@@ -85,9 +85,6 @@ class MoviesApiRepository: MoviesRepository {
             if favorited.contains(where: { return $0.movieId == simpleMovie.movieId }){
                 realFav = true
             }
-            if(simpleMovie.movieId == 491418){
-                realFav = true
-            }
             
             let movie = SimpleMovie(
                 posterPath: simpleMovie.posterPath,

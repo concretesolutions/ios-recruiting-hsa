@@ -16,6 +16,9 @@ class FavoriteMovieTableViewCell: UITableViewCell {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewtext: UITextView!
     
+    weak var delegate: FavoriteMovieSelectionDelagate?
+    
+    private var movieId: Int?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +28,13 @@ class FavoriteMovieTableViewCell: UITableViewCell {
     
     private func prepare(){
         containerView.backgroundColor = Colors.Primary.dark
+        overviewtext.backgroundColor = Colors.Primary.dark
+        
+        isUserInteractionEnabled = true
+        let cellTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCellTapped(sender:)))
+        addGestureRecognizer(cellTapGesture)
+        let textTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCellTapped(sender:)))
+        overviewtext.addGestureRecognizer(textTapGesture)
     }
     
     func setup(movie: FavoritedMovieViewModel){
@@ -33,6 +43,15 @@ class FavoriteMovieTableViewCell: UITableViewCell {
         titleLabel.text = movie.name
         releaseDateLabel.text = movie.releaseYear
         overviewtext.text = movie.overview
+        
+        movieId = movie.movieId
+    }
+    
+    @objc
+    private func handleCellTapped(sender: Any){
+        guard let movieId = movieId,
+            let delegate = delegate else {return}
+        delegate.movieCellTapped(movieId: String(movieId))
     }
     
 }

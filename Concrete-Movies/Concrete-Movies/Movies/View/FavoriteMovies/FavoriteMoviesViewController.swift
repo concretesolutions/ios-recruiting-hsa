@@ -24,8 +24,14 @@ class FavoriteMoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        prepare()
+        //prepare()
+        //favoriteMoviesPresenter?.fetchFavoriteMovies()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        prepare()
         favoriteMoviesPresenter?.fetchFavoriteMovies()
     }
     
@@ -37,6 +43,7 @@ class FavoriteMoviesViewController: UIViewController {
         datasource.viewController = self
         self.datasource = datasource
         
+        print("algo")
     }
 
     private func prepare(){
@@ -45,6 +52,8 @@ class FavoriteMoviesViewController: UIViewController {
     }
     
     private func prepareTableView(){
+        favoritesTableView.dataSource = datasource
+        
         favoritesTableView.register(UINib(nibName: FavoriteMoviesConstants.favMovieCellNibName, bundle: nil),
                                     forCellReuseIdentifier: FavoriteMoviesConstants.favMovieCellIdentifier)
     }
@@ -64,16 +73,30 @@ extension FavoriteMoviesViewController: UITableViewDelegate{
         
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
 }
 
 extension FavoriteMoviesViewController: FavoriteMoviesViewProtocol{
     func show(movies: [FavoritedMovieViewModel]) {
+        print("received from bd \(movies)")
         moviesList = movies
         favoritesTableView.reloadData()
     }
     
     func show(error: Error) {
         //display error dialog or view
+    }
+}
+
+extension FavoriteMoviesViewController: FavoriteMovieSelectionDelagate{
+    func movieCellTapped(movieId: String) {
+        guard let viewController = ViewControllerFactory.viewController(type: .movieDetail) as? MovieDetailsViewController else {return}
+        viewController.movieId = movieId
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

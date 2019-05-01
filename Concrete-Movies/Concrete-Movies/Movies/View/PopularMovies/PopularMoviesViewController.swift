@@ -36,6 +36,7 @@ class PopularMoviesViewController: UIViewController {
         self.datasource = datasource
         
         //whatever
+        /*
         let localMoviesDS = LocalDBMoviesDataSource(localMoviesDB: LocalMoviesRealmDB())
         localMoviesDS.favoritedMoviesEntity { (movies, error) in
             if let movies = movies{
@@ -44,6 +45,7 @@ class PopularMoviesViewController: UIViewController {
                 print("error fetcging local movies")
             }
         }
+         */
     }
 
     private func prepare(){
@@ -95,9 +97,6 @@ extension PopularMoviesViewController: UISearchBarDelegate{
         guard let moviesList = moviesList else {return}
         
         let filtered = moviesList.filter({ (movie) -> Bool in
-            //let tmp: NSString = movie.title as NSString
-            //let range = tmp.range(of: searchText, options: .caseInsensitive)
-            //return range.location != NSNotFound
             return movie.title.contains(searchText)
         })
         if(filtered.count == 0){
@@ -145,12 +144,25 @@ extension PopularMoviesViewController: PopularMoviesViewProtocol{
 }
 
 extension PopularMoviesViewController: PopularMovieSelectionDelagate{
-    func favoriteIconTapped(movieId: String) {
+    func favoriteIconTapped(movieId: Int) {
         print("tapped favorite \(movieId)")
+        
+        guard let moviesList = moviesList else {return}
+        
+        let selctdMovie = moviesList.first(where: { $0.movieId == movieId })
+        if let selctdMovie = selctdMovie{
+            let movieFavd = FavoritedMovieViewModel(
+                name: selctdMovie.title,
+                movieId: movieId,
+                overview: selctdMovie.overview,
+                posterPath: selctdMovie.posterPath,
+                releaseYear: selctdMovie.releaseDate)
+            popularMoviesPresenter?.saveFavorite(movie: movieFavd)
+        }
+        
     }
     
     func moviePosterTapped(movieId: String) {
-        print("tapped poster \(movieId)")
         guard let viewController = ViewControllerFactory.viewController(type: .movieDetail) as? MovieDetailsViewController else {return}
         viewController.movieId = movieId
         
