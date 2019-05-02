@@ -14,7 +14,7 @@ class SimpleMovieViewModelToModelMapper: Mapper<SimpleMovieViewModel,SimpleMovie
             posterPath: value.posterPath,
             adult: value.adult,
             overview: value.overview,
-            releaseDate: value.releaseDate,
+            releaseDate: value.releaseDate.components(separatedBy: "-").first ?? " ",
             genres: value.genres,
             movieId: value.movieId,
             originalTitle: value.originalTitle,

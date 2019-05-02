@@ -12,4 +12,5 @@ protocol LocalMoviesDB {
     func favoritedMoviesEntity(completionHandler: @escaping ([FavoritedMovieEntity]?, Error?)->Void)
     
     func saveFavorited(movie: FavoritedMovieEntity)
+    func deleteFavoriteMovie(with id: Int)
 }

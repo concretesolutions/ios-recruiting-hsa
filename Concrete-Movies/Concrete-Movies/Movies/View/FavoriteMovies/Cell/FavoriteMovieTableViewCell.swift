@@ -27,8 +27,8 @@ class FavoriteMovieTableViewCell: UITableViewCell {
     }
     
     private func prepare(){
-        containerView.backgroundColor = Colors.Primary.dark
-        overviewtext.backgroundColor = Colors.Primary.dark
+        containerView.backgroundColor = Colors.Primary.lightGray
+        overviewtext.backgroundColor = Colors.Primary.lightGray
         
         isUserInteractionEnabled = true
         let cellTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCellTapped(sender:)))

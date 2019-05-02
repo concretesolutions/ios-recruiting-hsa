@@ -9,6 +9,7 @@
 import Foundation
 
 class LocalDBMoviesDataSource: LocalMoviesDataSource{
+    
     private let localMoviesDB: LocalMoviesDB
     
     init(localMoviesDB: LocalMoviesDB) {
@@ -23,5 +24,9 @@ class LocalDBMoviesDataSource: LocalMoviesDataSource{
     
     func saveFavorited(movie: FavoritedMovieEntity) {
         localMoviesDB.saveFavorited(movie: movie)
+    }
+    
+    func deleteFavoriteMovie(with id: Int) {
+        localMoviesDB.deleteFavoriteMovie(with: id)
     }
 }

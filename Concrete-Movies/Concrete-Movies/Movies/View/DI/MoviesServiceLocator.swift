@@ -77,4 +77,8 @@ class MoviesServiceLocator{
     var saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase{
         return SaveFavoriteMovieUseCase(repository: moviesRepository)
     }
+    
+    var deleteFavortiteMovieUseCase: DeleteFavoriteMovieUseCase{
+        return DeleteFavoriteMovieUseCase(repository: moviesRepository)
+    }
 }

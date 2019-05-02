@@ -11,4 +11,5 @@ protocol MoviesRepository{
     func movieDetail(movieId: String, completionHandler: @escaping (MovieDetails?, Error?)->Void)
     func favoritedMovies(completionHandler: @escaping ([FavoritedMovie]?, Error?)->Void)
     func saveFavorite(movie: FavoritedMovie)
+    func deleteFavoriteMovie(with id: Int)
 }

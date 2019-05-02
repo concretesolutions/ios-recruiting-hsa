@@ -37,4 +37,14 @@ class LocalMoviesRealmDB: LocalMoviesDB{
             }
         }
     }
+    
+    func deleteFavoriteMovie(with id: Int) {
+        let realm = try! Realm()
+        guard let result = realm.objects(FavoritedMovieEntity.self).first(where: { return $0.movieId == id }) else {return}
+        try! realm.write {
+            //print("trying to delete \(result)")
+            realm.delete(result)
+        }
+        
+    }
 }

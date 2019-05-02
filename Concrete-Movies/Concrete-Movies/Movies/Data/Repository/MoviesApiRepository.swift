@@ -68,6 +68,10 @@ class MoviesApiRepository: MoviesRepository {
         localDBMoviesDataSource.saveFavorited(movie: favoritedMovieModelToEntityMapper.map(value: movie))
     }
     
+    func deleteFavoriteMovie(with id: Int) {
+        localDBMoviesDataSource.deleteFavoriteMovie(with: id)
+    }
+    
     private func setFavoriteMovies(movies: [SimpleMovie], favorited: [FavoritedMovie])->Void{
         /*
         for movie in movies{

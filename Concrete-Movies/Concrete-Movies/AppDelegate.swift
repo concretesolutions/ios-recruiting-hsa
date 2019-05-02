@@ -30,49 +30,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let favoritesVC = ViewControllerFactory.viewController(type: .favoriteMovies)
         favoritesVC.title = "Favorites"
         favoritesVC.view.backgroundColor = Colors.Primary.brand
-        /*
-         let historyVC = ViewController()
-        historyVC.title = "History"
-        historyVC.view.backgroundColor = UIColor.cyan
-         */
-        
-//        let button: UIButton = UIButton(frame: CGRect(x: view.bounds.width / 250, y: view.bounds.height / 2, width: 100, height: 50))
-//        button.backgroundColor = UIColor.black
-//        button.addTarget(self, action: #selector(pushToNextVC), for: .touchUpInside)
-//        self.view.addSubview(button)
-        
-        /*
-        popularMoviesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
-        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
-        historyVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
-        */
         
         popularMoviesVC.tabBarItem = UITabBarItem(title: "Movies", image: UIImage(named: "list_icon"), tag: 0)
         favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "favorite_empty_icon"), tag: 1)
         
-        let controllers = [popularMoviesVC, favoritesVC, /*historyVC*/]
+        let controllers = [popularMoviesVC, favoritesVC]
         tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
+        
+        tabBarController.tabBar.barTintColor = Colors.Primary.brand
+        tabBarController.tabBar.tintColor = .black
+        tabBarController.tabBar.isTranslucent = false
         
         return tabBarController
     }
-
-    func pushToNextVC() {
-        let newVC = UIViewController()
-        newVC.view.backgroundColor = UIColor.red
-//        self.navigationController?.pushViewController(newVC, animated:
-//            true)
+    
+    func setupNavigationBarAppearance(){
+        UINavigationBar.appearance().barTintColor = Colors.Primary.brand
+        UINavigationBar.appearance().tintColor = Colors.Primary.dark
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        UINavigationBar.appearance().isTranslucent = false
     }
 
     func prepareWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        //window?.rootViewController = BackingViewController(rootViewController: greetingsNavigationController)
         window?.rootViewController = generateTabBarController()
         window?.makeKeyAndVisible()
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         prepareWindow()
+        
+        setupNavigationBarAppearance()
+        
         return true
     }
 

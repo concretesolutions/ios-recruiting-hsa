@@ -36,7 +36,8 @@ class ViewControllerFactory {
         case .favoriteMovies:
             let presenter = FavoriteMoviesPresenter(
                 fetchFavoritedMoviesUseCase: moviesServiceLocator.fetchFavoritedMoviesUseCase,
-                favoriteMovieViewModelToModelMapper: moviesServiceLocator.favoriteMovieViewModelToModelMapper
+                favoriteMovieViewModelToModelMapper: moviesServiceLocator.favoriteMovieViewModelToModelMapper,
+                deleteFavoriteMoviesUseCase: moviesServiceLocator.deleteFavortiteMovieUseCase
             )
             let viewController = FavoriteMoviesViewController(datasource: FavoriteMoviesDataSource(),
                                                               presenter: presenter)

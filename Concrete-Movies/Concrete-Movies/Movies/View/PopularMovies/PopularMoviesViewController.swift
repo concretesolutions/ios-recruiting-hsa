@@ -35,17 +35,6 @@ class PopularMoviesViewController: UIViewController {
         datasource.viewController = self
         self.datasource = datasource
         
-        //whatever
-        /*
-        let localMoviesDS = LocalDBMoviesDataSource(localMoviesDB: LocalMoviesRealmDB())
-        localMoviesDS.favoritedMoviesEntity { (movies, error) in
-            if let movies = movies{
-                print(movies)
-            }else{
-                print("error fetcging local movies")
-            }
-        }
-         */
     }
 
     private func prepare(){
@@ -53,23 +42,6 @@ class PopularMoviesViewController: UIViewController {
         prepareSearchBar()
         
         popularMoviesPresenter?.fetchMovies()
-        
-        /*let restApi = MoviesAlamoFireRestApi()
-        restApi.popularMoviesEntity { (movies, error) in
-            if let movies = movies{
-                print(movies)
-            }else if let error = error{
-                print(error)
-            }
-        }
-        
-        restApi.movieDetailEntity { (movie, error) in
-            if let movie = movie{
-                print(movie)
-            }else if let error = error{
-                print(error)
-            }
-        }*/
     }
     
     private func prepareCoplllectionView(){
@@ -84,6 +56,8 @@ class PopularMoviesViewController: UIViewController {
     
     private func prepareSearchBar(){
         moviesSearchBar.backgroundColor = Colors.Primary.accent
+        moviesSearchBar.barTintColor = Colors.Primary.brand
+        moviesSearchBar.tintColor = Colors.Primary.brand
         moviesSearchBar.delegate = self
     }
 

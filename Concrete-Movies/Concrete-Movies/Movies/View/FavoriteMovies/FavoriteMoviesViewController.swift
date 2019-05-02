@@ -42,8 +42,6 @@ class FavoriteMoviesViewController: UIViewController {
         self.favoriteMoviesPresenter = presenter
         datasource.viewController = self
         self.datasource = datasource
-        
-        print("algo")
     }
 
     private func prepare(){
@@ -53,6 +51,7 @@ class FavoriteMoviesViewController: UIViewController {
     
     private func prepareTableView(){
         favoritesTableView.dataSource = datasource
+        favoritesTableView.delegate = self
         
         favoritesTableView.register(UINib(nibName: FavoriteMoviesConstants.favMovieCellNibName, bundle: nil),
                                     forCellReuseIdentifier: FavoriteMoviesConstants.favMovieCellIdentifier)
@@ -60,28 +59,48 @@ class FavoriteMoviesViewController: UIViewController {
     
     private func prepareSearchBar(){
         favoritesSearchBat.backgroundColor = Colors.Primary.accent
+        favoritesSearchBat.barTintColor = Colors.Primary.brand
+        favoritesSearchBat.tintColor = Colors.Primary.brand
         favoritesSearchBat.delegate = self
     }
 
 }
 
 extension FavoriteMoviesViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewController = ViewControllerFactory.viewController(type: .movieDetail) as? MovieDetailsViewController,
-        let moviesList = moviesList else {return}
-        viewController.movieId = String(moviesList[indexPath.row].movieId)
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        navigationController?.pushViewController(viewController, animated: true)
+        let delete = UITableViewRowAction(style: .destructive, title: "Unfavorite") { (action, indexPath) in
+            // delete item at indexPath
+            guard let moviesList = self.moviesList else {return}
+            
+            self.favoriteMoviesPresenter?.deleteFavoriteMovie(with: moviesList[indexPath.row].movieId)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            self.favoriteMoviesPresenter?.fetchFavoriteMovies()
+        }
+        
+        /*
+        let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
+            // share item at indexPath
+            //print("I want to share: \(self.tableArray[indexPath.row])")
+        }
+        share.backgroundColor = UIColor.lightGray
+         */
+        
+        return [delete]
+        
     }
     
+    /*
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+     */
 }
 
 extension FavoriteMoviesViewController: FavoriteMoviesViewProtocol{
     func show(movies: [FavoritedMovieViewModel]) {
-        print("received from bd \(movies)")
+        //print("received from bd \(movies)")
         moviesList = movies
         favoritesTableView.reloadData()
     }

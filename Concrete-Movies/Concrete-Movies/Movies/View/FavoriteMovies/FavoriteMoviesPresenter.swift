@@ -14,12 +14,16 @@ class FavoriteMoviesPresenter {
     private let fetchFavoritedMoviesUseCase: FetchFavoritedMoviesUseCase
     private let favoriteMovieViewModelToModelMapper: Mapper<FavoritedMovieViewModel, FavoritedMovie>
     
+    private let deleteFavoriteMoviesUseCase: DeleteFavoriteMovieUseCase
+    
     init(fetchFavoritedMoviesUseCase: FetchFavoritedMoviesUseCase,
-         favoriteMovieViewModelToModelMapper: Mapper<FavoritedMovieViewModel, FavoritedMovie>
+         favoriteMovieViewModelToModelMapper: Mapper<FavoritedMovieViewModel, FavoritedMovie>,
+         deleteFavoriteMoviesUseCase: DeleteFavoriteMovieUseCase
         )
     {
         self.fetchFavoritedMoviesUseCase = fetchFavoritedMoviesUseCase
         self.favoriteMovieViewModelToModelMapper = favoriteMovieViewModelToModelMapper
+        self.deleteFavoriteMoviesUseCase = deleteFavoriteMoviesUseCase
     }
     
     func fetchFavoriteMovies(){
@@ -30,5 +34,9 @@ class FavoriteMoviesPresenter {
                 self.favoriteMoviesView?.show(error: error!)
             }
         }
+    }
+    
+    func deleteFavoriteMovie(with movieId: Int){
+        deleteFavoriteMoviesUseCase.execute(movieId: movieId)
     }
 }
