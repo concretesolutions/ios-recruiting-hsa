@@ -25,7 +25,7 @@ class SimpleMovieViewModelToModelMapper: Mapper<SimpleMovieViewModel,SimpleMovie
             voteCount: value.voteCount,
             video: value.video,
             voteAverage: value.voteAverage,
-            isFavorited: false)
+            isFavorited: value.isFavorited)
         
         return viewModel
     }

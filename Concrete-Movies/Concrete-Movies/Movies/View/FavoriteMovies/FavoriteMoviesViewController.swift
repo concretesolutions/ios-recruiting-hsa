@@ -30,7 +30,6 @@ class FavoriteMoviesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //searchActive = false
         favoriteMoviesPresenter?.fetchFavoriteMovies()
     }
     
@@ -103,9 +102,9 @@ extension FavoriteMoviesViewController: UITableViewDelegate{
         guard let moviesList = moviesList else {return 200}
         
         if(searchActive){
-            return filteredMoviesList.isEmpty ? 500 : 90
+            return filteredMoviesList.isEmpty ? tableView.bounds.size.height : 90
         }else{
-            return moviesList.isEmpty ? 500 : 90
+            return moviesList.isEmpty ? tableView.bounds.size.height : 90
         }
     }
 }

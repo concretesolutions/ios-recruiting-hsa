@@ -46,7 +46,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
         if(movie.isFavorited){
             favoriteIcon.image = UIImage(named: "favorite_full_icon")
         }else{
-            favoriteIcon.image = UIImage(named: "favorite_gray_icon")
+            //favoriteIcon.image = UIImage(named: "favorite_gray_icon")
+            favoriteIcon.image = UIImage(named: "favorite_empty_icon")
         }
         
         posterImageView.imageFromUrlWithAlamofire(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)

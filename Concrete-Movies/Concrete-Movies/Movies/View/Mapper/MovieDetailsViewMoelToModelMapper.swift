@@ -27,7 +27,7 @@ class MovieDetailsViewMoelToModelMapper: Mapper<MovieDetailsViewModel, MovieDeta
             title: value.title,
             voteAverage: value.voteAverage,
             voteCount: value.voteCount,
-            isFavorited: false
+            isFavorited: value.isFavorited
         )
         
         return viewModel

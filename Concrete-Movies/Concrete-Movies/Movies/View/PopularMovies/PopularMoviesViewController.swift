@@ -27,6 +27,12 @@ class PopularMoviesViewController: UIViewController {
         prepare()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        moviesSearchBar.text = ""
+        moviesSearchBar.endEditing(true)
+        super.viewWillDisappear(animated)
+    }
+    
     convenience init(datasource: PopularMoviesDataSource,
                      presenter: PopularMoviesPresenter) {
         self.init()
@@ -66,24 +72,30 @@ class PopularMoviesViewController: UIViewController {
 extension PopularMoviesViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        
+        if searchText.isEmpty{
+            searchActive = false
+            self.moviesCollectionView.reloadData()
+            return
+        }else{
+            searchActive = true
+        }
         
         guard let moviesList = moviesList else {return}
         
         let filtered = moviesList.filter({ (movie) -> Bool in
             return movie.title.contains(searchText)
         })
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
         self.filteredMoviesList = filtered
         self.moviesCollectionView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
+        if searchBar.text?.isEmpty ?? false{
+            searchActive = false
+        }else{
+            searchActive = true;
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -99,10 +111,16 @@ extension PopularMoviesViewController: UISearchBarDelegate{
     }
 }
 
-extension PopularMoviesViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected \(indexPath.row)")
+extension PopularMoviesViewController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let totalwidth = collectionView.bounds.size.width;
+        let numberOfCellsPerRow = 2
+        let dimensions = CGFloat(Int(totalwidth) / numberOfCellsPerRow)
+        return CGSize.init(width: dimensions, height: dimensions / 2)
     }
+    
 }
 
 extension PopularMoviesViewController: PopularMoviesViewProtocol{

@@ -35,8 +35,17 @@ class MoviesApiRepository: MoviesRepository {
         moviesApiDataSource.popularMoviesEntity { (popularMoviesEntity, error) in
             if let popularMoviesEntity = popularMoviesEntity{
                 let moviesModel = self.simpleMovieModelToEntityMapper.reverseMap(values: popularMoviesEntity.results)
-                self.setFavoriteMovies(movies: moviesModel, favorited: [])
-                completionHandler(moviesModel, nil)
+                self.localDBMoviesDataSource.favoritedMoviesEntity(completionHandler: { (favMovies, error) in
+                    if let favMoviesEntity = favMovies{
+                        let favoritedMovies = self.favoritedMovieModelToEntityMapper.reverseMap(values: favMoviesEntity)
+                        completionHandler(
+                            self.setFavoriteMovies(movies: moviesModel, favorited: favoritedMovies),
+                            nil
+                        )
+                    }else{
+                        completionHandler(nil, error)
+                    }
+                })
             }else{
                 completionHandler(nil, error)
             }
@@ -46,7 +55,20 @@ class MoviesApiRepository: MoviesRepository {
     func movieDetail(movieId: String, completionHandler: @escaping (MovieDetails?, Error?)->Void){
         moviesApiDataSource.movieDetailEntity(movieId: movieId) { (movieDetailEntity, error) in
             if let movieDetailEntity = movieDetailEntity{
-                completionHandler(self.movieDetailModelToEntityMapper.reverseMap(value: movieDetailEntity), nil)
+                let movieModel = self.movieDetailModelToEntityMapper.reverseMap(value: movieDetailEntity)
+                self.localDBMoviesDataSource.favoritedMoviesEntity(completionHandler: { (favMovies, error) in
+                    if let favMovies = favMovies{
+                        completionHandler(
+                            self.setMovieDetailsFavorited(
+                                movie: movieModel,
+                                favorited: self.favoritedMovieModelToEntityMapper.reverseMap(values: favMovies)
+                            ),
+                            nil
+                        )
+                    }else{
+                        completionHandler(nil, error)
+                    }
+                })
             }else{
                 completionHandler(nil, error)
             }
@@ -72,17 +94,7 @@ class MoviesApiRepository: MoviesRepository {
         localDBMoviesDataSource.deleteFavoriteMovie(with: id)
     }
     
-    private func setFavoriteMovies(movies: [SimpleMovie], favorited: [FavoritedMovie])->Void{
-        /*
-        for movie in movies{
-            if favorited.contains(where: { return $0.movieId == movie.movieId }){
-                movie.isFavorited = true
-            }
-            if(movie.movieId > 200){
-                movie.isFavorited = true
-            }
-        }
-         */
+    private func setFavoriteMovies(movies: [SimpleMovie], favorited: [FavoritedMovie])->[SimpleMovie]{
         
         let modifiedMovies = movies.map { (simpleMovie) -> SimpleMovie in
             var realFav = false
@@ -108,8 +120,31 @@ class MoviesApiRepository: MoviesRepository {
                 isFavorited: realFav)
             return movie
         }
-        print("\n\n ##################################### \n\n")
-        print(modifiedMovies)
-        print("\n\n ##################################### \n\n")
+        
+        return modifiedMovies
+    }
+    
+    private func setMovieDetailsFavorited(movie: MovieDetails, favorited: [FavoritedMovie])->MovieDetails{
+        let movieMod = MovieDetails(
+            genres: movie.genres,
+            homepage: movie.homepage,
+            movieId: movie.movieId,
+            imdbId: movie.imdbId,
+            originalLanguage: movie.originalLanguage,
+            originalTitle: movie.originalTitle,
+            overview: movie.overview,
+            popularity: movie.popularity,
+            posterPath: movie.posterPath,
+            releaseDate: movie.releaseDate,
+            runtime: movie.runtime,
+            status: movie.status,
+            tagline: movie.tagline,
+            title: movie.title,
+            voteAverage: movie.voteAverage,
+            voteCount: movie.voteCount,
+            isFavorited: favorited.contains(where: { $0.movieId == movie.movieId })
+        )
+        
+        return movieMod
     }
 }
