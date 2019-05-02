@@ -18,6 +18,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var favoriteIndicatorIcon: UIImageView!
     
     var movieId: String?
+    var isMovieFavorited = false
     var movieDetails: MovieDetailsViewModel?
     
     private var movieDetailsPresenter: MovieDetailsPresenter?
@@ -38,6 +39,27 @@ class MovieDetailsViewController: UIViewController {
         if let movieId = movieId{
             movieDetailsPresenter?.fetchMovieDetails(movieId: movieId)
         }
+        
+        favoriteIndicatorIcon.isUserInteractionEnabled = true
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(favoriteIconTapped(sender:)))
+        favoriteIndicatorIcon.addGestureRecognizer(imageTapGesture)
+    }
+    
+    @objc
+    private func favoriteIconTapped(sender: Any){
+        guard let movieDetail = movieDetails else {return}
+        if !isMovieFavorited{
+            isMovieFavorited = true
+            favoriteIndicatorIcon.image = UIImage(named: "favorite_full_icon")
+            let favMovieVM = FavoritedMovieViewModel(
+                name: movieDetail.title,
+                movieId: movieDetail.movieId,
+                overview: movieDetail.overview,
+                posterPath: movieDetail.posterPath,
+                releaseYear: movieDetail.releaseDate
+            )
+            movieDetailsPresenter?.saveFavorite(movie: favMovieVM)
+        }
     }
 
 }
@@ -52,6 +74,13 @@ extension MovieDetailsViewController: MovieDetailsViewProtocol{
         releaseDateLabel.text = movieDetails?.releaseDate
         movieDescriptionLabel.text = movieDetails?.overview
         movieGenresLabel.text = movieDetails?.genres.joined(separator: ", ")
+        
+        isMovieFavorited = movie.isFavorited
+        if (movie.isFavorited){
+            favoriteIndicatorIcon.image = UIImage(named: "favorite_full_icon")
+        }else{
+            favoriteIndicatorIcon.image = UIImage(named: "favorite_gray_icon")
+        }
     }
     
     func show(error: Error) {

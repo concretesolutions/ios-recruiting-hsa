@@ -14,11 +14,19 @@ class MovieDetailsPresenter {
     private let fetchMovieDetailsUseCase: FetchMovieDetailsUseCase
     private let movieDetailViewModelToModelMapper: Mapper<MovieDetailsViewModel, MovieDetails>
     
-    init(fetchMovieDetailsUseCase: FetchMovieDetailsUseCase,movieDetailViewModelToModelMapper: Mapper<MovieDetailsViewModel, MovieDetails>
+    private let saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase
+    private let favoriteMovieViewModelToModelMapper: Mapper<FavoritedMovieViewModel, FavoritedMovie>
+    
+    init(fetchMovieDetailsUseCase: FetchMovieDetailsUseCase,
+         movieDetailViewModelToModelMapper: Mapper<MovieDetailsViewModel, MovieDetails>,
+         saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase,
+         favoriteMovieViewModelToModelMapper: Mapper<FavoritedMovieViewModel, FavoritedMovie>
         )
     {
         self.fetchMovieDetailsUseCase = fetchMovieDetailsUseCase
         self.movieDetailViewModelToModelMapper = movieDetailViewModelToModelMapper
+        self.saveFavoriteMovieUseCase = saveFavoriteMovieUseCase
+        self.favoriteMovieViewModelToModelMapper = favoriteMovieViewModelToModelMapper
     }
     
     func fetchMovieDetails(movieId: String){
@@ -32,5 +40,9 @@ class MovieDetailsPresenter {
                 //self.movieDetailsView?.show(error: GenericError())
             }
         }
+    }
+    
+    func saveFavorite(movie: FavoritedMovieViewModel){
+        saveFavoriteMovieUseCase.execute(favoriteMovie: favoriteMovieViewModelToModelMapper.map(value: movie))
     }
 }

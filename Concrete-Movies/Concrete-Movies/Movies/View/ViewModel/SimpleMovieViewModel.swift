@@ -24,6 +24,6 @@ struct SimpleMovieViewModel{
     let video: Bool
     let voteAverage: Double
     
-    let isFavorited: Bool
+    var isFavorited: Bool
 }
 

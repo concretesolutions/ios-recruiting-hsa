@@ -9,6 +9,6 @@
 import Foundation
 
 protocol PopularMovieSelectionDelagate: class {
-    func favoriteIconTapped(movieId: Int)
+    func favoriteIconTapped(movieId: Int, at indexPath: IndexPath)
     func moviePosterTapped(movieId: String)
 }

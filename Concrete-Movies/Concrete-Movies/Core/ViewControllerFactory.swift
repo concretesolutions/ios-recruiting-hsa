@@ -29,7 +29,9 @@ class ViewControllerFactory {
         case .movieDetail:
             let presenter = MovieDetailsPresenter(
                 fetchMovieDetailsUseCase: moviesServiceLocator.fetchMovieDetailsUseCase,
-                movieDetailViewModelToModelMapper: moviesServiceLocator.movieDetailViewModelToModelMapper)
+                movieDetailViewModelToModelMapper: moviesServiceLocator.movieDetailViewModelToModelMapper,
+                saveFavoriteMovieUseCase: moviesServiceLocator.saveFavoriteMovieUseCase,
+                favoriteMovieViewModelToModelMapper: moviesServiceLocator.favoriteMovieViewModelToModelMapper)
             let viewController = MovieDetailsViewController(presenter: presenter)
             
             return viewController

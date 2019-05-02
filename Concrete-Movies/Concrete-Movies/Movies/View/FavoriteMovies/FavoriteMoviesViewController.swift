@@ -24,15 +24,20 @@ class FavoriteMoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //prepare()
-        //favoriteMoviesPresenter?.fetchFavoriteMovies()
+        prepare()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        prepare()
+        //searchActive = false
         favoriteMoviesPresenter?.fetchFavoriteMovies()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        favoritesSearchBat.text = ""
+        favoritesSearchBat.endEditing(true)
+        super.viewWillDisappear(animated)
     }
     
     convenience init(datasource: FavoriteMoviesDataSource,
@@ -55,6 +60,8 @@ class FavoriteMoviesViewController: UIViewController {
         
         favoritesTableView.register(UINib(nibName: FavoriteMoviesConstants.favMovieCellNibName, bundle: nil),
                                     forCellReuseIdentifier: FavoriteMoviesConstants.favMovieCellIdentifier)
+        favoritesTableView.register(UINib(nibName: FavoriteMoviesConstants.emptyCellNibName, bundle: nil),
+                                    forCellReuseIdentifier: FavoriteMoviesConstants.emptyCellIdentifier)
     }
     
     private func prepareSearchBar(){
@@ -88,14 +95,19 @@ extension FavoriteMoviesViewController: UITableViewDelegate{
          */
         
         return [delete]
-        
     }
     
-    /*
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        
+        guard let moviesList = moviesList else {return 200}
+        
+        if(searchActive){
+            return filteredMoviesList.isEmpty ? 500 : 90
+        }else{
+            return moviesList.isEmpty ? 500 : 90
+        }
     }
-     */
 }
 
 extension FavoriteMoviesViewController: FavoriteMoviesViewProtocol{
@@ -122,22 +134,30 @@ extension FavoriteMoviesViewController: FavoriteMovieSelectionDelagate{
 extension FavoriteMoviesViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty{
+            searchActive = false
+            self.favoritesTableView.reloadData()
+            return
+        }else{
+            searchActive = true
+        }
+        
         guard let moviesList = moviesList else {return}
         
         let filtered = moviesList.filter({ (movie) -> Bool in
             return movie.name.contains(searchText)
         })
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
         self.filteredMoviesList = filtered
         self.favoritesTableView.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
+        if searchBar.text?.isEmpty ?? false{
+           searchActive = false
+        }else{
+            searchActive = true;
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

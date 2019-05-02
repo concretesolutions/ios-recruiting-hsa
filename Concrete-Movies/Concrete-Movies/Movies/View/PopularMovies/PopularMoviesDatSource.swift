@@ -28,9 +28,9 @@ extension PopularMoviesDataSource: UICollectionViewDataSource{
             else {return UICollectionViewCell()}
         
         if(viewController.searchActive){
-            customCell.setup(movie: viewController.filteredMoviesList[indexPath.row])
+            customCell.setup(movie: viewController.filteredMoviesList[indexPath.row], cellIndexPath: indexPath)
         }else{
-            customCell.setup(movie: movies[indexPath.row])
+            customCell.setup(movie: movies[indexPath.row], cellIndexPath: indexPath)
         }
         customCell.delegate = viewController
         

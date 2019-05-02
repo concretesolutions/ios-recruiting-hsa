@@ -19,7 +19,7 @@ class MovieDetailsViewMoelToModelMapper: Mapper<MovieDetailsViewModel, MovieDeta
             originalTitle: value.originalTitle,
             overview: value.overview,
             popularity: value.popularity,
-            posterPath: value.posterPath,
+            posterPath: value.posterPath ?? " ",
             releaseDate: value.releaseDate.components(separatedBy: "-").first ?? " ",
             runtime: value.runtime,
             status: value.status,

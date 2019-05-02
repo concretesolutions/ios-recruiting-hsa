@@ -118,10 +118,10 @@ extension PopularMoviesViewController: PopularMoviesViewProtocol{
 }
 
 extension PopularMoviesViewController: PopularMovieSelectionDelagate{
-    func favoriteIconTapped(movieId: Int) {
+    func favoriteIconTapped(movieId: Int, at indexPath: IndexPath) {
         print("tapped favorite \(movieId)")
         
-        guard let moviesList = moviesList else {return}
+        guard var moviesList = moviesList else {return}
         
         let selctdMovie = moviesList.first(where: { $0.movieId == movieId })
         if let selctdMovie = selctdMovie{
@@ -133,7 +133,13 @@ extension PopularMoviesViewController: PopularMovieSelectionDelagate{
                 releaseYear: selctdMovie.releaseDate)
             popularMoviesPresenter?.saveFavorite(movie: movieFavd)
         }
-        
+        var favMov = moviesList[indexPath.row]
+        favMov.isFavorited = true
+        let index = indexPath.row
+        moviesList.remove(at: index)
+        moviesList.insert(favMov, at: index)
+        self.moviesList = moviesList
+        moviesCollectionView.reloadData()
     }
     
     func moviePosterTapped(movieId: String) {

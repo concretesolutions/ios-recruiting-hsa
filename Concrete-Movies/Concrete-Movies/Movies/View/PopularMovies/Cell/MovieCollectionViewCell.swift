@@ -17,6 +17,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: PopularMovieSelectionDelagate?
     private var movieId: Int?
+    private var cellIndexPath: IndexPath?
+    private var alreadyFavorited = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,25 +40,31 @@ class MovieCollectionViewCell: UICollectionViewCell {
         posterImageView.addGestureRecognizer(imageTapGesture)
     }
 
-    func setup(movie: SimpleMovieViewModel){
+    func setup(movie: SimpleMovieViewModel, cellIndexPath: IndexPath){
         titleLabel.text = movie.title
+        alreadyFavorited = movie.isFavorited
         if(movie.isFavorited){
             favoriteIcon.image = UIImage(named: "favorite_full_icon")
         }else{
             favoriteIcon.image = UIImage(named: "favorite_gray_icon")
         }
         
-        //posterImageView.imageFromUrl(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
         posterImageView.imageFromUrlWithAlamofire(urlString: NetworkConstants.baseImagesUrl + movie.posterPath)
         
         movieId = movie.movieId
+        self.cellIndexPath = cellIndexPath
     }
     
     @objc
     func handleTap(sender: Any){
         guard let movieId = movieId,
+            let cellIndexPath = cellIndexPath,
             let delegate = delegate else {return}
-        delegate.favoriteIconTapped(movieId: movieId)
+        if(!alreadyFavorited){
+            alreadyFavorited = true
+            delegate.favoriteIconTapped(movieId: movieId, at: cellIndexPath)
+            favoriteIcon.image = UIImage(named: "favorite_full_icon")
+        }
     }
     
     @objc
@@ -64,5 +72,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         guard let movieId = movieId,
             let delegate = delegate else {return}
         delegate.moviePosterTapped(movieId: String(movieId))
+        
     }
 }

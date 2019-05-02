@@ -17,7 +17,7 @@ struct MovieDetailsViewModel{
     let originalTitle: String
     let overview: String
     let popularity: Float
-    let posterPath: String?
+    let posterPath: String
     let releaseDate: String
     let runtime: Int
     let status: String

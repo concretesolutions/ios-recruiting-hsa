@@ -11,4 +11,7 @@ import Foundation
 enum FavoriteMoviesConstants {
     static let favMovieCellIdentifier = "FavoriteMovieCellIdentifier"
     static let favMovieCellNibName = "FavoriteMovieTableViewCell"
+    
+    static let emptyCellIdentifier = "EmptyMoviesCellIdentifier"
+    static let emptyCellNibName = "EmptyMoviesListTableViewCell"
 }
