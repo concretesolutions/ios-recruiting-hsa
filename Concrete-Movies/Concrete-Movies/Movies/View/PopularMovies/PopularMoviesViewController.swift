@@ -48,6 +48,7 @@ class PopularMoviesViewController: UIViewController {
     private func prepare(){
         prepareCoplllectionView()
         prepareSearchBar()
+        prepareTapGesture()
         
         showActivityIndicator()
         popularMoviesPresenter?.fetchMovies()
@@ -77,6 +78,22 @@ class PopularMoviesViewController: UIViewController {
         view.addSubview(activityIndicator)
         activityIndicator.frame = view.bounds
         activityIndicator.startAnimating()
+    }
+    
+    private func prepareTapGesture(){
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    private func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 }
@@ -116,6 +133,7 @@ extension PopularMoviesViewController: UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+        dismissKeyboard()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
