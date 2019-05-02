@@ -12,36 +12,40 @@ import XCTest
 class PopularMoviesPresenterTests: XCTestCase {
     
     var sut: PopularMoviesPresenter!
+    
+    var view: PopularMoviesViewMock!
+    var repo: MoviesRepositoryMock!
 
     override func setUp() {
         super.setUp()
         
         let moviesServiceLocator = MoviesServiceLocator()
         
+        view = PopularMoviesViewMock()
+        repo = MoviesRepositoryMock()
+        
         sut = PopularMoviesPresenter(
-            fetchPopularMoviesUseCase: moviesServiceLocator.fetchPopularMoviesUseCase,
+            fetchPopularMoviesUseCase: FetchPopularMoviesUseCase(repository: repo),
             simpleMovieViewModelToModelMapper: moviesServiceLocator.simpleMovieViewModelToModelMapper,
-            saveFavoriteMovieUseCase: moviesServiceLocator.saveFavoriteMovieUseCase,
+            saveFavoriteMovieUseCase: SaveFavoriteMovieUseCase(repository: repo),
             favoriteMovieViewModelToModelMapper: moviesServiceLocator.favoriteMovieViewModelToModelMapper
         )
+        
+        sut.popularMoviesView = view
     }
 
     override func tearDown() {
         sut = nil
+        view = nil
+        repo = nil
         
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFetchMovies(){
+        repo.success = true
+        
+        sut.fetchMovies()
+        XCTAssertTrue(view.isCalled)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
