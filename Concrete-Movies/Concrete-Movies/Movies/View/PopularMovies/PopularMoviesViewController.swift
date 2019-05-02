@@ -21,6 +21,8 @@ class PopularMoviesViewController: UIViewController {
     
     private var popularMoviesPresenter: PopularMoviesPresenter?
     
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,7 @@ class PopularMoviesViewController: UIViewController {
         prepareCoplllectionView()
         prepareSearchBar()
         
+        showActivityIndicator()
         popularMoviesPresenter?.fetchMovies()
     }
     
@@ -65,6 +68,12 @@ class PopularMoviesViewController: UIViewController {
         moviesSearchBar.barTintColor = Colors.Primary.brand
         moviesSearchBar.tintColor = Colors.Primary.brand
         moviesSearchBar.delegate = self
+    }
+    
+    private func showActivityIndicator(){
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
+        activityIndicator.startAnimating()
     }
 
 }
@@ -125,11 +134,11 @@ extension PopularMoviesViewController: UICollectionViewDelegateFlowLayout{
 
 extension PopularMoviesViewController: PopularMoviesViewProtocol{
     func show(error: Error) {
-        print(error)
+        activityIndicator.removeFromSuperview()
     }
     
     func show(movies: [SimpleMovieViewModel]) {
-        print(movies)
+        activityIndicator.removeFromSuperview()
         self.moviesList = movies
         moviesCollectionView.reloadData()
     }
@@ -137,7 +146,6 @@ extension PopularMoviesViewController: PopularMoviesViewProtocol{
 
 extension PopularMoviesViewController: PopularMovieSelectionDelagate{
     func favoriteIconTapped(movieId: Int, at indexPath: IndexPath) {
-        print("tapped favorite \(movieId)")
         
         guard var moviesList = moviesList else {return}
         

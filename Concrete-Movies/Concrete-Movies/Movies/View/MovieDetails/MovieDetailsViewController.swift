@@ -23,6 +23,8 @@ class MovieDetailsViewController: UIViewController {
     
     private var movieDetailsPresenter: MovieDetailsPresenter?
     
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
+    
     convenience init(presenter: MovieDetailsPresenter){
         self.init()
         presenter.movieDetailsView = self
@@ -37,6 +39,7 @@ class MovieDetailsViewController: UIViewController {
 
     private func prepare(){
         if let movieId = movieId{
+            showActivityIndicator()
             movieDetailsPresenter?.fetchMovieDetails(movieId: movieId)
         }
         
@@ -62,10 +65,16 @@ class MovieDetailsViewController: UIViewController {
         }
     }
 
+    private func showActivityIndicator(){
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
+        activityIndicator.startAnimating()
+    }
 }
 
 extension MovieDetailsViewController: MovieDetailsViewProtocol{
     func show(movie: MovieDetailsViewModel) {
+        activityIndicator.removeFromSuperview()
         movieDetails = movie
         if let imagePath = movieDetails?.posterPath{
             posterImageView.imageFromUrlWithAlamofire(urlString: NetworkConstants.baseImagesUrl + imagePath)
@@ -84,7 +93,7 @@ extension MovieDetailsViewController: MovieDetailsViewProtocol{
     }
     
     func show(error: Error) {
-        //show error
+        activityIndicator.removeFromSuperview()
     }
     
     
