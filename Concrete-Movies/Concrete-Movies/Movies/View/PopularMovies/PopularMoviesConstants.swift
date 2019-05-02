@@ -11,4 +11,7 @@ import Foundation
 enum PopularMoviesConstants{
     static let movieCellIdentifier = "MovieViewCell"
     static let moviesCellNibName = "MovieCollectionViewCell"
+    
+    static let emptyCellIdentifier = "EmptyMoviesCollectionViewCellIdentifier"
+    static let emptyCellNibName = "EmptyMoviesCollectionViewCell"
 }

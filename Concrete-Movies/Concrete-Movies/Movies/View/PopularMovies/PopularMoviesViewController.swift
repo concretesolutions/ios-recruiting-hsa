@@ -61,6 +61,9 @@ class PopularMoviesViewController: UIViewController {
             UINib(nibName: PopularMoviesConstants.moviesCellNibName, bundle: nil),
             forCellWithReuseIdentifier: PopularMoviesConstants.movieCellIdentifier
         )
+        moviesCollectionView.register(
+            UINib(nibName: PopularMoviesConstants.emptyCellNibName, bundle: nil),
+            forCellWithReuseIdentifier: PopularMoviesConstants.emptyCellIdentifier)
     }
     
     private func prepareSearchBar(){
