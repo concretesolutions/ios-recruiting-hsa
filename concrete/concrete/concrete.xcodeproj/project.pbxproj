@@ -20,6 +20,9 @@
 		3C14797B2285081400806EE2 /* MTAHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479792285081400806EE2 /* MTAHome.swift */; };
 		3C14797C2285081400806EE2 /* MTAMovieDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14797A2285081400806EE2 /* MTAMovieDetailedViewController.swift */; };
 		3C14797E228508AB00806EE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14797D228508AB00806EE2 /* Constants.swift */; };
+		3C1479822285093A00806EE2 /* MTAMovieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14797F2285093A00806EE2 /* MTAMovieStorage.swift */; };
+		3C1479832285093A00806EE2 /* MTAReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479802285093A00806EE2 /* MTAReachability.swift */; };
+		3C1479842285093A00806EE2 /* MTAMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479812285093A00806EE2 /* MTAMovieLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		3C1479792285081400806EE2 /* MTAHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAHome.swift; sourceTree = "<group>"; };
 		3C14797A2285081400806EE2 /* MTAMovieDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieDetailedViewController.swift; sourceTree = "<group>"; };
 		3C14797D228508AB00806EE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3C14797F2285093A00806EE2 /* MTAMovieStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieStorage.swift; sourceTree = "<group>"; };
+		3C1479802285093A00806EE2 /* MTAReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAReachability.swift; sourceTree = "<group>"; };
+		3C1479812285093A00806EE2 /* MTAMovieLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,9 @@
 		3C14796C228506F400806EE2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3C1479812285093A00806EE2 /* MTAMovieLoader.swift */,
+				3C14797F2285093A00806EE2 /* MTAMovieStorage.swift */,
+				3C1479802285093A00806EE2 /* MTAReachability.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -263,10 +272,13 @@
 				3C1479752285075800806EE2 /* MTASearch.swift in Sources */,
 				3C14797B2285081400806EE2 /* MTAHome.swift in Sources */,
 				3C14797E228508AB00806EE2 /* Constants.swift in Sources */,
+				3C1479842285093A00806EE2 /* MTAMovieLoader.swift in Sources */,
 				3C1479492285060A00806EE2 /* AppDelegate.swift in Sources */,
+				3C1479822285093A00806EE2 /* MTAMovieStorage.swift in Sources */,
 				3C1479732285075800806EE2 /* MTAMovie.swift in Sources */,
 				3C1479762285075800806EE2 /* MTAVideo.swift in Sources */,
 				3C1479742285075800806EE2 /* MTAMedia.swift in Sources */,
+				3C1479832285093A00806EE2 /* MTAReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
