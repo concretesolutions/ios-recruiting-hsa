@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, DetailedMovieDelegate {
     
     private let cellId = "CustomMovieTableViewCell"
     
@@ -107,7 +107,10 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return vPanel
     }()
 
-    
+    func detailedMovieDelegateDidPressFavorite(childViewController:MTAMovieDetailedViewController){
+        tableView.reloadData()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,13 +125,29 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
         setupActions()
         
         fetchData(text: txtSearch.text!)
+        
+        
     }
     
     override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         self.tableView.reloadData()
     }
     
+    @objc func OnMenuClicked(){
+        print("filter")
+    }
+    
     func setupViews(){
+        
+        let rightButton = UIBarButtonItem(title: "F",
+                                          style: UIBarButtonItem.Style.plain ,
+                                          target: self, action: #selector(MTAHome.OnMenuClicked))
+        
+        rightButton.tintColor = .black
+        
+        self.navigationItem.rightBarButtonItem = rightButton
+        
+        disableFilter()
         
         var margins = view.layoutMarginsGuide
 
@@ -255,7 +274,15 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
-
+    func enableFilter(){
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
+    }
+    
+    func disableFilter(){
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.tintColor = .clear
+    }
     
     @objc func changeCategory(sender: UISegmentedControl) {
         let isConnected = MTAReachability.shared.isConnected()
@@ -263,16 +290,19 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.txtSearch.text = ""
         }
 
+        disableFilter()
+        
         txtSearch.resignFirstResponder()
         switch sender.selectedSegmentIndex {
             case 0:
-                self.category = 1;
+                self.category = 1
             case 1:
-                self.category = 2;
+                self.category = 2
             case 2:
-                self.category = 1;
+                self.category = 3
+                enableFilter()
             default:
-                    self.category = 1;
+                self.category = 1
         }
         page = 1
         fetchData(text:txtSearch.text!)
@@ -332,15 +362,31 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
             cell.imgMoviePoster.image = UIImage.init(named: "movieplaceholder")
         }
         
-        cell.btMoviePreview.tag = indexPath.row
-        cell.btMoviePreview.addTarget(self, action: #selector(self.openPreview(sender:)), for: .touchUpInside)
+        cell.btFavoriteMovie.tag = indexPath.row
+        
+        let image = isFavorite(movie: movie) ? UIImage(named: "heart") : UIImage(named: "unheart")
+        cell.btFavoriteMovie.setImage(image, for: .normal)
+        cell.btFavoriteMovie.addTarget(self, action: #selector(self.addToFavorite(sender:)), for: .touchUpInside)
 
         cell.lblMovieTitle.text = movie.title
         cell.lblMovieOverview.text = movie.overview
         return cell
     }
     
-    @objc func openPreview(sender: UIButton){
+    func isFavorite(movie: Movie) -> Bool {
+        let movieID = movie.id
+        let movieStorage = MTAMovieStorage.shared
+        movieStorage.loadDataFromFile()
+        let movies = movieStorage.retrieveArray(category: "favorites")
+        for mov in movies{
+            if mov.id == movieID{
+                return true
+            }
+        }
+        return false
+    }
+    
+    @objc func addToFavorite(sender: UIButton){
         vPreview.isHidden = false
         let movie = movies[sender.tag]
         
@@ -356,8 +402,7 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         
         lblTitle.text = movie.title
-        lblOverview.text = movie.overview
-        
+        lblOverview.text = "\(movie.title) was just selected and added to favorite list. From now on it's gonna be always on that list until is removed"
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -368,6 +413,7 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let movie = movies[indexPath.row]
         let targetController =  MTAMovieDetailedViewController()
         targetController.movie = movie
+        targetController.delegate = self
         self.navigationController?.pushViewController(targetController, animated: true)
     }
     

@@ -16,6 +16,7 @@ class MTAMovieStorage {
     
     private(set) var popularMovies: [Movie]
     private(set) var topRatedMovies: [Movie]
+    private(set) var favoriteMovies: [Movie]
     private let fileManager: FileManager
     private let documentsURL: URL
     
@@ -66,6 +67,25 @@ class MTAMovieStorage {
         else{
             try? fileManager.createDirectory(at: documentsURL.appendingPathComponent("topRated"), withIntermediateDirectories: false, attributes: nil)
         }
+
+        if directoryExistsAtPath(documentsURL.appendingPathComponent("favorites").path){
+            moviesFilesURLs = try! fileManager.contentsOfDirectory(at: documentsURL.appendingPathComponent("favorites"), includingPropertiesForKeys: nil)
+            
+            favoriteMovies = moviesFilesURLs.compactMap { url -> Movie? in
+                guard !url.absoluteString.contains(".DS_Store") else {
+                    return nil
+                }
+                guard let data = try? Data(contentsOf: url) else {
+                    return nil
+                }
+                return try? jsonDecoder.decode(Movie.self, from: data)
+                }.sorted(by: { ($0.voteAverage ?? 0) > ($1.voteAverage ?? 0) })
+        }
+        else{
+            try? fileManager.createDirectory(at: documentsURL.appendingPathComponent("favorites"), withIntermediateDirectories: false, attributes: nil)
+        }
+
+
     }
     
     init() {
@@ -75,6 +95,7 @@ class MTAMovieStorage {
         
         self.popularMovies = [Movie]()
         self.topRatedMovies = [Movie]()
+        self.favoriteMovies = [Movie]()
         
         loadDataFromFile()
         
@@ -115,8 +136,11 @@ class MTAMovieStorage {
         if (category == "popular"){
            return self.popularMovies
         }
-        else {
+        else if (category == "topRated") {
             return self.topRatedMovies
+        }
+        else {
+            return self.favoriteMovies
         }
     }
 }

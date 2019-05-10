@@ -11,9 +11,14 @@ import UIKit
 import SDWebImage
 import YouTubePlayer
 
+protocol DetailedMovieDelegate {
+    func detailedMovieDelegateDidPressFavorite(childViewController:MTAMovieDetailedViewController)
+}
 
 class MTAMovieDetailedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YouTubePlayerDelegate {
 
+    
+    var delegate:DetailedMovieDelegate?
     var movie: Movie?
     var videoURL: String?
     var aiLoader: UIActivityIndicatorView?
@@ -215,7 +220,7 @@ class MTAMovieDetailedViewController: UIViewController, UITableViewDataSource, U
             btBuyIt.layer.cornerRadius = 5
             btBuyIt.setTitle("Like", for: .normal)
             btBuyIt.backgroundColor = UIColor.red
-            btBuyIt.addTarget(self, action: #selector(self.doBuyIt(_:)), for: UIControl.Event.touchUpInside)
+            btBuyIt.addTarget(self, action: #selector(self.doAddToTheList(_:)), for: UIControl.Event.touchUpInside)
             cell.backgroundColor = UIColor.black
             cell.addSubview(btBuyIt)
         default:
@@ -225,12 +230,11 @@ class MTAMovieDetailedViewController: UIViewController, UITableViewDataSource, U
     }
     
     @objc func doAddToTheList(_ sender: UIButton){
-        
+        MTAMovieStorage.shared.saveMovieOnDisk(movie!, category: "favorites")
+        self.delegate?.detailedMovieDelegateDidPressFavorite(childViewController: self)
     }
     
-    @objc func doBuyIt(_ sender: UIButton){
-        
-    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

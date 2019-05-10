@@ -45,12 +45,11 @@ class MTACustomMovieTableCell: UITableViewCell {
         return label
     }()
     
-    let btMoviePreview : UIButton = {
+    let btFavoriteMovie : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
+        button.backgroundColor = .white
         button.contentMode = .scaleAspectFit
-        button.setTitle("Pre", for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 20
         return button
@@ -73,11 +72,11 @@ class MTACustomMovieTableCell: UITableViewCell {
         lblMovieOverview.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90).isActive = true
         lblMovieOverview.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -65).isActive = true
         
-        addSubview(btMoviePreview)
-        btMoviePreview.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
-        btMoviePreview.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8).isActive = true
-        btMoviePreview.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        btMoviePreview.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        addSubview(btFavoriteMovie)
+        btFavoriteMovie.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
+        btFavoriteMovie.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8).isActive = true
+        btFavoriteMovie.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        btFavoriteMovie.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     

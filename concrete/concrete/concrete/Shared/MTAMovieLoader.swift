@@ -65,16 +65,19 @@ class MTAMovieLoader {
         var category = "popular"
 
         switch kind {
-        case 2:
-            category = "top_rated"
-            movieCategoryPath = "topRated"
-        default:
-            category = "popular"
-            movieCategoryPath = "popular"
+            case 2:
+                category = "top_rated"
+                movieCategoryPath = "topRated"
+            case 3:
+                category = "favorites"
+                movieCategoryPath = "favorites"
+            default:
+                category = "popular"
+                movieCategoryPath = "popular"
         }
         
         
-        if isConnected
+        if isConnected && kind < 3
         {
 
             
