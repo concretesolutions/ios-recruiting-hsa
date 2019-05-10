@@ -73,6 +73,11 @@
 		3C1479472285060A00806EE2 /* concrete */ = {
 			isa = PBXGroup;
 			children = (
+				3C14796C228506F400806EE2 /* Shared */,
+				3C14796B228506EC00806EE2 /* Globals */,
+				3C14796A228506E400806EE2 /* Controllers */,
+				3C147969228506DD00806EE2 /* Views */,
+				3C147968228506D200806EE2 /* Models */,
 				3C1479482285060A00806EE2 /* AppDelegate.swift */,
 				3C14794F2285060B00806EE2 /* Assets.xcassets */,
 				3C1479512285060B00806EE2 /* LaunchScreen.storyboard */,
@@ -88,6 +93,41 @@
 				3C14795F2285060B00806EE2 /* Info.plist */,
 			);
 			path = concreteTests;
+			sourceTree = "<group>";
+		};
+		3C147968228506D200806EE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3C147969228506DD00806EE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3C14796A228506E400806EE2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3C14796B228506EC00806EE2 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
+		3C14796C228506F400806EE2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
