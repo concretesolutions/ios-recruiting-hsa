@@ -17,6 +17,8 @@
 		3C1479752285075800806EE2 /* MTASearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479702285075800806EE2 /* MTASearch.swift */; };
 		3C1479762285075800806EE2 /* MTAVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479712285075800806EE2 /* MTAVideo.swift */; };
 		3C147978228507D200806EE2 /* MTACustomMovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C147977228507D200806EE2 /* MTACustomMovieTableCell.swift */; };
+		3C14797B2285081400806EE2 /* MTAHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479792285081400806EE2 /* MTAHome.swift */; };
+		3C14797C2285081400806EE2 /* MTAMovieDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14797A2285081400806EE2 /* MTAMovieDetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		3C1479702285075800806EE2 /* MTASearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTASearch.swift; sourceTree = "<group>"; };
 		3C1479712285075800806EE2 /* MTAVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAVideo.swift; sourceTree = "<group>"; };
 		3C147977228507D200806EE2 /* MTACustomMovieTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTACustomMovieTableCell.swift; sourceTree = "<group>"; };
+		3C1479792285081400806EE2 /* MTAHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAHome.swift; sourceTree = "<group>"; };
+		3C14797A2285081400806EE2 /* MTAMovieDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieDetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 		3C14796A228506E400806EE2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C1479792285081400806EE2 /* MTAHome.swift */,
+				3C14797A2285081400806EE2 /* MTAMovieDetailedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 			files = (
 				3C147978228507D200806EE2 /* MTACustomMovieTableCell.swift in Sources */,
 				3C1479722285075800806EE2 /* MTADateRange.swift in Sources */,
+				3C14797C2285081400806EE2 /* MTAMovieDetailedViewController.swift in Sources */,
 				3C1479752285075800806EE2 /* MTASearch.swift in Sources */,
+				3C14797B2285081400806EE2 /* MTAHome.swift in Sources */,
 				3C1479492285060A00806EE2 /* AppDelegate.swift in Sources */,
 				3C1479732285075800806EE2 /* MTAMovie.swift in Sources */,
 				3C1479762285075800806EE2 /* MTAVideo.swift in Sources */,
