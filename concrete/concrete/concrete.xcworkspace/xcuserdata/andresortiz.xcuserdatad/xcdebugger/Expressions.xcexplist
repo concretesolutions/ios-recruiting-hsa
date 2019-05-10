@@ -10,5 +10,24 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "MTAHome.tableView(_:numberOfRowsInSection:):MTAHome.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.filteredMovies.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MTAHome.filterDelegateChageValue(childViewController:year:):MTAHome.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "movies">
+            </PersistentString>
+            <PersistentString
+               value = "filteredMovies">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

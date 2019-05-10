@@ -9,14 +9,17 @@
 
 import UIKit
 
-class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, DetailedMovieDelegate {
+class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, DetailedMovieDelegate, filterDelegate {
     
     private let cellId = "CustomMovieTableViewCell"
     
+    var filteringYear : Int?
+    var isFiltered: Bool?
     var isSearching: Bool?
     var isLoading: Bool?
     var page: Int?
     var movies = [Movie]()
+    var filteredMovies = [Movie]()
     var category : Int?
     let tableView: UITableView = UITableView()
     
@@ -111,10 +114,21 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
         tableView.reloadData()
     }
 
+    func filterDelegateChageValue(childViewController: MTAFilterViewController, year: Int) {
+        isFiltered = false
+        if year > 0 {
+          isFiltered = true
+          filteringYear = year
+            filteredMovies = movies.filter { ($0.releaseDate?.contains("\(year)-"))! }
+        }
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.filteringYear = 0
+        self.isFiltered = false
         self.isSearching = false
         self.isLoading = true
         self.page = 1
@@ -125,23 +139,23 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
         setupActions()
         
         fetchData(text: txtSearch.text!)
-        
-        
     }
     
     override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         self.tableView.reloadData()
     }
     
-    @objc func OnMenuClicked(){
-        print("filter")
+    @objc func onFilterClicked(){
+        let targetController =  MTAFilterViewController()
+        targetController.delegate = self
+        self.navigationController?.pushViewController(targetController, animated: true)
     }
     
     func setupViews(){
         
         let rightButton = UIBarButtonItem(title: "F",
                                           style: UIBarButtonItem.Style.plain ,
-                                          target: self, action: #selector(MTAHome.OnMenuClicked))
+                                          target: self, action: #selector(MTAHome.onFilterClicked))
         
         rightButton.tintColor = .black
         
@@ -265,6 +279,7 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
                     self.movies = result
                     self.tableView.reloadData()
                 }
+                self.isFiltered = false
             }
             self.loader.stopAnimating()
             self.loader.isHidden = true
@@ -296,8 +311,10 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
         switch sender.selectedSegmentIndex {
             case 0:
                 self.category = 1
+                self.isFiltered = false
             case 1:
                 self.category = 2
+                self.isFiltered = false
             case 2:
                 self.category = 3
                 enableFilter()
@@ -320,11 +337,12 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
     
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        var numOfSections: Int = 0
-        if self.movies.count > 0
+        var numberOfSections = isFiltered! ? self.filteredMovies.count : self.movies.count
+ 
+        if numberOfSections > 0
         {
+            numberOfSections = 1
             tableView.separatorStyle = .singleLine
-            numOfSections            = 1
             tableView.backgroundView = nil
         }
         else
@@ -336,11 +354,17 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
             tableView.backgroundView  = noDataLabel
             tableView.separatorStyle  = .none
         }
-        return numOfSections
+        return numberOfSections
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  self.movies.count
+        if isFiltered!{
+            return  self.filteredMovies.count
+        }
+        else{
+            return  self.movies.count
+        }
+       
     }
 
     
@@ -348,8 +372,7 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomMovieTableViewCell", for: indexPath) as! MTACustomMovieTableCell
 
-        let movie = movies[indexPath.row]
-        
+        let movie = isFiltered! ? filteredMovies[indexPath.row] : movies[indexPath.row]
         
         if  ((movie.posterPath) != nil){
             let url = URL(string: baseURL + movie.posterPath!)
@@ -366,7 +389,6 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
         
         let image = isFavorite(movie: movie) ? UIImage(named: "heart") : UIImage(named: "unheart")
         cell.btFavoriteMovie.setImage(image, for: .normal)
-        cell.btFavoriteMovie.addTarget(self, action: #selector(self.addToFavorite(sender:)), for: .touchUpInside)
 
         cell.lblMovieTitle.text = movie.title
         cell.lblMovieOverview.text = movie.overview
@@ -386,24 +408,6 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
         return false
     }
     
-    @objc func addToFavorite(sender: UIButton){
-        vPreview.isHidden = false
-        let movie = movies[sender.tag]
-        
-        
-        if  ((movie.posterPath) != nil){
-            let url = URL(string: baseURL + movie.posterPath!)
-            let placeholderImage = UIImage(named: "movieplaceholder")!
-            imgPoster.sd_imageTransition = .fade
-            imgPoster.sd_internalSetImage(with: url, placeholderImage: placeholderImage, operationKey: nil, setImageBlock: nil, progress: nil)
-        }
-        else{
-            imgPoster.image = UIImage.init(named: "movieplaceholder")
-        }
-        
-        lblTitle.text = movie.title
-        lblOverview.text = "\(movie.title) was just selected and added to favorite list. From now on it's gonna be always on that list until is removed"
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
