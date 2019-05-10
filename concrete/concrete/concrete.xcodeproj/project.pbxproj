@@ -23,6 +23,7 @@
 		3C1479822285093A00806EE2 /* MTAMovieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14797F2285093A00806EE2 /* MTAMovieStorage.swift */; };
 		3C1479832285093A00806EE2 /* MTAReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479802285093A00806EE2 /* MTAReachability.swift */; };
 		3C1479842285093A00806EE2 /* MTAMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479812285093A00806EE2 /* MTAMovieLoader.swift */; };
+		3C147986228509A800806EE2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3C147985228509A800806EE2 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		3C14797F2285093A00806EE2 /* MTAMovieStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieStorage.swift; sourceTree = "<group>"; };
 		3C1479802285093A00806EE2 /* MTAReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAReachability.swift; sourceTree = "<group>"; };
 		3C1479812285093A00806EE2 /* MTAMovieLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieLoader.swift; sourceTree = "<group>"; };
+		3C147985228509A800806EE2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		3C14793C2285060A00806EE2 = {
 			isa = PBXGroup;
 			children = (
+				3C147985228509A800806EE2 /* Podfile */,
 				3C1479472285060A00806EE2 /* concrete */,
 				3C14795C2285060B00806EE2 /* concreteTests */,
 				3C1479462285060A00806EE2 /* Products */,
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C147986228509A800806EE2 /* Podfile in Resources */,
 				3C1479532285060B00806EE2 /* LaunchScreen.storyboard in Resources */,
 				3C1479502285060B00806EE2 /* Assets.xcassets in Resources */,
 			);
