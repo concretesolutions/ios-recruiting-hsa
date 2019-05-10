@@ -119,6 +119,11 @@ class MTAMovieStorage {
         }
     }
     
+    func deleteFavoriteFromFile(id: String){
+        let fileURL = documentsURL.appendingPathComponent("favorites").appendingPathComponent("\(id).json")
+        try? fileManager.removeItem(at: fileURL)
+    }
+    
     func resetStorage() {
         var moviesFilesURLs = try! fileManager.contentsOfDirectory(at: documentsURL.appendingPathComponent("popular"), includingPropertiesForKeys: nil)
         for path in moviesFilesURLs {

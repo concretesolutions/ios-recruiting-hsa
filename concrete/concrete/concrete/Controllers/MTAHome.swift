@@ -432,6 +432,21 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate, Det
             }
 
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let movie = movies[indexPath.row]
+            MTAMovieStorage.shared.deleteFavoriteFromFile(id: "\(movie.id)")
+            movies.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.endUpdates()
+        }
+    }
 
 
 }

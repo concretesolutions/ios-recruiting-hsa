@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MTAHome.tableView(_:commit:forRowAt:):MTAHome.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "filteredMovies">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MTAHome.detailedMovieDelegateDidPressFavorite(childViewController:):MTAHome.swift">
          <PersistentStrings>
             <PersistentString
