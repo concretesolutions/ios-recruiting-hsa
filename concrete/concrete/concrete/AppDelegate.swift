@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  concrete
+//  MovieApp
 //
-//  Created by Andres Ortiz on 5/9/19.
+//  Created by Andres Ortiz on 4/17/19.
 //  Copyright © 2019 Andres. All rights reserved.
 //
 
@@ -16,7 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let viewControler = MTAHome()
+        let navigationController = UINavigationController(rootViewController: viewControler)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
