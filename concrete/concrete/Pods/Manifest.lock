@@ -1,5 +1,18 @@
 PODS:
   - Alamofire (4.8.1)
+  - OHHTTPStubs/Core (6.1.0)
+  - OHHTTPStubs/Default (6.1.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (6.1.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (6.1.0)
+  - OHHTTPStubs/Swift (6.1.0):
+    - OHHTTPStubs/Default
   - ReachabilitySwift (4.3.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
@@ -7,20 +20,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - OHHTTPStubs/Swift
   - ReachabilitySwift
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - OHHTTPStubs
     - ReachabilitySwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: 103555f710e3fe8e04638956e4fcc83268dcbde1
+PODFILE CHECKSUM: e0fa68f8fc361a323d8b010d74b3887e2bc8e762
 
 COCOAPODS: 1.5.3

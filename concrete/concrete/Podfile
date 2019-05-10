@@ -13,8 +13,8 @@ target 'concrete' do
     pod 'SDWebImage', '~> 4.0'
 
   target 'concreteTests' do
-    inherit! :search_paths
-    # Pods for testing
+      inherit! :search_paths
+      pod 'OHHTTPStubs/Swift'
   end
 
 end

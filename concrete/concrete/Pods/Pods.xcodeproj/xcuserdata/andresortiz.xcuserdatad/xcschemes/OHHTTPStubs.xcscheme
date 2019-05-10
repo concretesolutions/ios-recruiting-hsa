@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9E31016386B3805A9F58DE70B0462401"
-               BuildableName = "Pods_concreteTests.framework"
-               BlueprintName = "Pods-concreteTests"
+               BlueprintIdentifier = "748F1C7F61D88F3FB355A8E829489671"
+               BuildableName = "OHHTTPStubs.framework"
+               BlueprintName = "OHHTTPStubs"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9E31016386B3805A9F58DE70B0462401"
-            BuildableName = "Pods_concreteTests.framework"
-            BlueprintName = "Pods-concreteTests"
+            BlueprintIdentifier = "748F1C7F61D88F3FB355A8E829489671"
+            BuildableName = "OHHTTPStubs.framework"
+            BlueprintName = "OHHTTPStubs"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -28,6 +28,9 @@
 		3C14798A22850A9800806EE2 /* YouTubePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C14798922850A9800806EE2 /* YouTubePlayer.framework */; };
 		3C14798C22850AAB00806EE2 /* YouTubePlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C14798922850A9800806EE2 /* YouTubePlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3C189257228530C90085B2DE /* MTAFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C189256228530C90085B2DE /* MTAFilterViewController.swift */; };
+		3C7531172285BD0100721260 /* wsresponsepopular.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C7531142285BD0100721260 /* wsresponsepopular.json */; };
+		3C7531182285BD0100721260 /* wsresponseserach.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C7531152285BD0100721260 /* wsresponseserach.json */; };
+		3C7531192285BD0100721260 /* wsresponsetoprated.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C7531162285BD0100721260 /* wsresponsetoprated.json */; };
 		9E5DD921D47B1521D8D22870 /* Pods_concrete.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E0420B5F8021FD40F9A472 /* Pods_concrete.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,9 +83,12 @@
 		3C14797F2285093A00806EE2 /* MTAMovieStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieStorage.swift; sourceTree = "<group>"; };
 		3C1479802285093A00806EE2 /* MTAReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAReachability.swift; sourceTree = "<group>"; };
 		3C1479812285093A00806EE2 /* MTAMovieLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieLoader.swift; sourceTree = "<group>"; };
-		3C147985228509A800806EE2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		3C147985228509A800806EE2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3C14798922850A9800806EE2 /* YouTubePlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YouTubePlayer.framework; sourceTree = "<group>"; };
 		3C189256228530C90085B2DE /* MTAFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAFilterViewController.swift; sourceTree = "<group>"; };
+		3C7531142285BD0100721260 /* wsresponsepopular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wsresponsepopular.json; sourceTree = "<group>"; };
+		3C7531152285BD0100721260 /* wsresponseserach.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wsresponseserach.json; sourceTree = "<group>"; };
+		3C7531162285BD0100721260 /* wsresponsetoprated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wsresponsetoprated.json; sourceTree = "<group>"; };
 		5B7BE018B30B22AA28D8964D /* Pods-concreteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concreteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-concreteTests/Pods-concreteTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2D1C01B056F3CEEBF7B7D5D /* Pods-concrete.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concrete.release.xcconfig"; path = "Pods/Target Support Files/Pods-concrete/Pods-concrete.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +155,7 @@
 		3C14795C2285060B00806EE2 /* concreteTests */ = {
 			isa = PBXGroup;
 			children = (
+				3C7531132285BD0100721260 /* Data */,
 				3C14795D2285060B00806EE2 /* concreteTests.swift */,
 				3C14795F2285060B00806EE2 /* Info.plist */,
 			);
@@ -211,6 +218,16 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
+		3C7531132285BD0100721260 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3C7531142285BD0100721260 /* wsresponsepopular.json */,
+				3C7531152285BD0100721260 /* wsresponseserach.json */,
+				3C7531162285BD0100721260 /* wsresponsetoprated.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		C1E5E1388E40D0B9012A7871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +279,7 @@
 				3C1479552285060B00806EE2 /* Sources */,
 				3C1479562285060B00806EE2 /* Frameworks */,
 				3C1479572285060B00806EE2 /* Resources */,
+				C1AD78EFCCE4D0C369696BBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +344,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7531192285BD0100721260 /* wsresponsetoprated.json in Resources */,
+				3C7531182285BD0100721260 /* wsresponseserach.json in Resources */,
+				3C7531172285BD0100721260 /* wsresponsepopular.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +391,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1AD78EFCCE4D0C369696BBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-concreteTests/Pods-concreteTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-concreteTests/Pods-concreteTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E0DEC78C726C47B638D4CF /* [CP] Check Pods Manifest.lock */ = {
