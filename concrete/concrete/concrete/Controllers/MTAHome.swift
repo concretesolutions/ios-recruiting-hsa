@@ -29,7 +29,7 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }()
     
     let svCategory : UISegmentedControl = {
-        let items = ["Popular", "Top Rated"]
+        let items = ["Popular", "Top Rated", "Favorites"]
         let customSC = UISegmentedControl(items: items)
         customSC.selectedSegmentIndex = 0
         customSC.layer.cornerRadius = 5.0
@@ -269,8 +269,10 @@ class MTAHome: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.category = 1;
             case 1:
                 self.category = 2;
-            default:
+            case 2:
                 self.category = 1;
+            default:
+                    self.category = 1;
         }
         page = 1
         fetchData(text:txtSearch.text!)

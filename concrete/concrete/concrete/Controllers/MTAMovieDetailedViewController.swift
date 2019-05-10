@@ -213,7 +213,7 @@ class MTAMovieDetailedViewController: UIViewController, UITableViewDataSource, U
             btBuyIt.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 20, height:cell.frame.height)
             btBuyIt.layer.masksToBounds = true
             btBuyIt.layer.cornerRadius = 5
-            btBuyIt.setTitle("Buy It", for: .normal)
+            btBuyIt.setTitle("Like", for: .normal)
             btBuyIt.backgroundColor = UIColor.red
             btBuyIt.addTarget(self, action: #selector(self.doBuyIt(_:)), for: UIControl.Event.touchUpInside)
             cell.backgroundColor = UIColor.black
