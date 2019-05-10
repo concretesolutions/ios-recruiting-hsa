@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213577C4686BB9FC086BE7EF /* Pods_concreteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25446A79E45AFFD99C571205 /* Pods_concreteTests.framework */; };
 		3C1479492285060A00806EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479482285060A00806EE2 /* AppDelegate.swift */; };
 		3C1479502285060B00806EE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C14794F2285060B00806EE2 /* Assets.xcassets */; };
 		3C1479532285060B00806EE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C1479512285060B00806EE2 /* LaunchScreen.storyboard */; };
@@ -24,6 +25,9 @@
 		3C1479832285093A00806EE2 /* MTAReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479802285093A00806EE2 /* MTAReachability.swift */; };
 		3C1479842285093A00806EE2 /* MTAMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479812285093A00806EE2 /* MTAMovieLoader.swift */; };
 		3C147986228509A800806EE2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3C147985228509A800806EE2 /* Podfile */; };
+		3C14798A22850A9800806EE2 /* YouTubePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C14798922850A9800806EE2 /* YouTubePlayer.framework */; };
+		3C14798C22850AAB00806EE2 /* YouTubePlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C14798922850A9800806EE2 /* YouTubePlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E5DD921D47B1521D8D22870 /* Pods_concrete.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E0420B5F8021FD40F9A472 /* Pods_concrete.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3C14798D22850AAB00806EE2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3C14798C22850AAB00806EE2 /* YouTubePlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		15E0420B5F8021FD40F9A472 /* Pods_concrete.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_concrete.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25446A79E45AFFD99C571205 /* Pods_concreteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_concreteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26442D5E9D0F19D03D68F3F8 /* Pods-concrete.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concrete.debug.xcconfig"; path = "Pods/Target Support Files/Pods-concrete/Pods-concrete.debug.xcconfig"; sourceTree = "<group>"; };
+		266E4C09A52926A12CEBF44D /* Pods-concreteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concreteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-concreteTests/Pods-concreteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C1479452285060A00806EE2 /* concrete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concrete.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C1479482285060A00806EE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C14794F2285060B00806EE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +80,9 @@
 		3C1479802285093A00806EE2 /* MTAReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAReachability.swift; sourceTree = "<group>"; };
 		3C1479812285093A00806EE2 /* MTAMovieLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovieLoader.swift; sourceTree = "<group>"; };
 		3C147985228509A800806EE2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		3C14798922850A9800806EE2 /* YouTubePlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YouTubePlayer.framework; sourceTree = "<group>"; };
+		5B7BE018B30B22AA28D8964D /* Pods-concreteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concreteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-concreteTests/Pods-concreteTests.release.xcconfig"; sourceTree = "<group>"; };
+		B2D1C01B056F3CEEBF7B7D5D /* Pods-concrete.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concrete.release.xcconfig"; path = "Pods/Target Support Files/Pods-concrete/Pods-concrete.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5DD921D47B1521D8D22870 /* Pods_concrete.framework in Frameworks */,
+				3C14798A22850A9800806EE2 /* YouTubePlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213577C4686BB9FC086BE7EF /* Pods_concreteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +113,8 @@
 				3C1479472285060A00806EE2 /* concrete */,
 				3C14795C2285060B00806EE2 /* concreteTests */,
 				3C1479462285060A00806EE2 /* Products */,
+				E180AC53EFA162025746DE71 /* Pods */,
+				C1E5E1388E40D0B9012A7871 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +130,7 @@
 		3C1479472285060A00806EE2 /* concrete */ = {
 			isa = PBXGroup;
 			children = (
+				3C14798822850A7500806EE2 /* Framework */,
 				3C14796C228506F400806EE2 /* Shared */,
 				3C14796B228506EC00806EE2 /* Globals */,
 				3C14796A228506E400806EE2 /* Controllers */,
@@ -169,6 +200,34 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		3C14798822850A7500806EE2 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				3C14798922850A9800806EE2 /* YouTubePlayer.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		C1E5E1388E40D0B9012A7871 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15E0420B5F8021FD40F9A472 /* Pods_concrete.framework */,
+				25446A79E45AFFD99C571205 /* Pods_concreteTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E180AC53EFA162025746DE71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26442D5E9D0F19D03D68F3F8 /* Pods-concrete.debug.xcconfig */,
+				B2D1C01B056F3CEEBF7B7D5D /* Pods-concrete.release.xcconfig */,
+				266E4C09A52926A12CEBF44D /* Pods-concreteTests.debug.xcconfig */,
+				5B7BE018B30B22AA28D8964D /* Pods-concreteTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,9 +235,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C1479622285060B00806EE2 /* Build configuration list for PBXNativeTarget "concrete" */;
 			buildPhases = (
+				D9E0DEC78C726C47B638D4CF /* [CP] Check Pods Manifest.lock */,
 				3C1479412285060A00806EE2 /* Sources */,
 				3C1479422285060A00806EE2 /* Frameworks */,
 				3C1479432285060A00806EE2 /* Resources */,
+				0D1DDB3520A320ED73F0B01D /* [CP] Embed Pods Frameworks */,
+				3C14798D22850AAB00806EE2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C1479652285060B00806EE2 /* Build configuration list for PBXNativeTarget "concreteTests" */;
 			buildPhases = (
+				3C4A3216FC1B3FCBC621CE95 /* [CP] Check Pods Manifest.lock */,
 				3C1479552285060B00806EE2 /* Sources */,
 				3C1479562285060B00806EE2 /* Frameworks */,
 				3C1479572285060B00806EE2 /* Resources */,
@@ -264,6 +327,67 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D1DDB3520A320ED73F0B01D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-concrete/Pods-concrete-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-concrete/Pods-concrete-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C4A3216FC1B3FCBC621CE95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-concreteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E0DEC78C726C47B638D4CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-concrete-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C1479412285060A00806EE2 /* Sources */ = {
@@ -434,10 +558,15 @@
 		};
 		3C1479632285060B00806EE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26442D5E9D0F19D03D68F3F8 /* Pods-concrete.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZP89874C9W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/concrete/Framework",
+				);
 				INFOPLIST_FILE = concrete/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,10 +581,15 @@
 		};
 		3C1479642285060B00806EE2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2D1C01B056F3CEEBF7B7D5D /* Pods-concrete.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZP89874C9W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/concrete/Framework",
+				);
 				INFOPLIST_FILE = concrete/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,6 +604,7 @@
 		};
 		3C1479662285060B00806EE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 266E4C09A52926A12CEBF44D /* Pods-concreteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +626,7 @@
 		};
 		3C1479672285060B00806EE2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7BE018B30B22AA28D8964D /* Pods-concreteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
