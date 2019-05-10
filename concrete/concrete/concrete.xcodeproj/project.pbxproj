@@ -11,6 +11,11 @@
 		3C1479502285060B00806EE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C14794F2285060B00806EE2 /* Assets.xcassets */; };
 		3C1479532285060B00806EE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C1479512285060B00806EE2 /* LaunchScreen.storyboard */; };
 		3C14795E2285060B00806EE2 /* concreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14795D2285060B00806EE2 /* concreteTests.swift */; };
+		3C1479722285075800806EE2 /* MTADateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14796D2285075800806EE2 /* MTADateRange.swift */; };
+		3C1479732285075800806EE2 /* MTAMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14796E2285075800806EE2 /* MTAMovie.swift */; };
+		3C1479742285075800806EE2 /* MTAMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C14796F2285075800806EE2 /* MTAMedia.swift */; };
+		3C1479752285075800806EE2 /* MTASearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479702285075800806EE2 /* MTASearch.swift */; };
+		3C1479762285075800806EE2 /* MTAVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1479712285075800806EE2 /* MTAVideo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,11 @@
 		3C1479592285060B00806EE2 /* concreteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = concreteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C14795D2285060B00806EE2 /* concreteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = concreteTests.swift; sourceTree = "<group>"; };
 		3C14795F2285060B00806EE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C14796D2285075800806EE2 /* MTADateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTADateRange.swift; sourceTree = "<group>"; };
+		3C14796E2285075800806EE2 /* MTAMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMovie.swift; sourceTree = "<group>"; };
+		3C14796F2285075800806EE2 /* MTAMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAMedia.swift; sourceTree = "<group>"; };
+		3C1479702285075800806EE2 /* MTASearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTASearch.swift; sourceTree = "<group>"; };
+		3C1479712285075800806EE2 /* MTAVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,11 @@
 		3C147968228506D200806EE2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C14796D2285075800806EE2 /* MTADateRange.swift */,
+				3C14796F2285075800806EE2 /* MTAMedia.swift */,
+				3C14796E2285075800806EE2 /* MTAMovie.swift */,
+				3C1479702285075800806EE2 /* MTASearch.swift */,
+				3C1479712285075800806EE2 /* MTAVideo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,7 +245,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C1479722285075800806EE2 /* MTADateRange.swift in Sources */,
+				3C1479752285075800806EE2 /* MTASearch.swift in Sources */,
 				3C1479492285060A00806EE2 /* AppDelegate.swift in Sources */,
+				3C1479732285075800806EE2 /* MTAMovie.swift in Sources */,
+				3C1479762285075800806EE2 /* MTAVideo.swift in Sources */,
+				3C1479742285075800806EE2 /* MTAMedia.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
