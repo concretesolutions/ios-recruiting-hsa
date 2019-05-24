@@ -12,22 +12,15 @@ import Foundation
 typealias CompletionHandler = (_ Success: Bool, _ errorMessage :String?) -> ()
 
 // URL Constants
+let SEARCH_URL = "https://api.themoviedb.org/3/search/movie?api_key=d27ffb8c19b10c648282cde73175e74a&query="
 let BASE_URL = "https://api.themoviedb.org/3/movie/popular?api_key=d27ffb8c19b10c648282cde73175e74a&language=en-US&page=1"
-
-let BASE_URL_SEARCH = "https://api.themoviedb.org/3/search/multi?api_key=d27ffb8c19b10c648282cde73175e74a&language=en-US&query="
-let REST_URL_SEARCH = "&page=1&include_adult=false"
-
-let URL_VEHIClES = "\(BASE_URL)Vehicles?Page=1"
-let URL_MAKE = "\(BASE_URL)Make"
-let URL_MODEL = "\(BASE_URL)Model?MakeID=1"
-let URL_VERSION = "\(BASE_URL)Version?ModelID=1"
 let URL_IMG = "https://image.tmdb.org/t/p/w500"
 
 //Segues
-let TO_VIDEO = "toVideo"
-let TO_SELECTED_VIDEO = "toSelectedVideo"
+let TO_DETAIL = "toDetail"
+let TO_FAVORITES = "toFavorites"
 
-// User Defaults
+// Movies Defaults
 let TOKEN_KEY = "token"
 let TITLE = "title"
 let POSTER_PATH = "poster_path"

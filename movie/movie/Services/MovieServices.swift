@@ -98,7 +98,8 @@ class MovieServices {
     }//findAllSearchs
     
     func findSearchMovies(query: String, completion: @escaping CompletionHandler) {
-        Alamofire.request("\(BASE_URL_SEARCH)\(query)\(REST_URL_SEARCH)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+        //"\(BASE_URL_SEARCH)\(query)\(REST_URL_SEARCH)"
+        Alamofire.request("\(SEARCH_URL)\(query)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             print(response.result)
             if response.result.error == nil {
                 switch response.result{
@@ -175,5 +176,9 @@ class MovieServices {
             }
         }
     }
+    
+    func clearUser() {
+        movies.removeAll()
+    }//clearMovies
     
 }

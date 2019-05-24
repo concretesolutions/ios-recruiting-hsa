@@ -10,6 +10,9 @@ import UIKit
 
 class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var searchBtn: UIButton!
+    @IBOutlet weak var searchBoxText: UITextField!    
     @IBOutlet weak var movieCollection: UICollectionView!
     
     override func viewDidLoad() {
@@ -18,6 +21,10 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         movieCollection.delegate = self
         movieCollection.dataSource = self
+        
+        searchBtn.isHidden = true
+        
+        spinner.isHidden = true
         
         MovieServices.instance.findAllMovies { (success,errorMessage) in
             if success{
@@ -30,6 +37,8 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 self.EmptyTextField(text: "Pay Atention", message: message)
             }
         }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,8 +52,40 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             cell.configureCell(movie: movie)
             return cell
         }
-//
+        
         return MovieCell()
+    }
+    
+    
+    @IBAction func messageBoxEditing(_ sender: Any) {
+        if searchBoxText.text == "" {
+            searchBtn.isHidden = true
+        } else {searchBtn.isHidden = false }
+    }
+    
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        guard let searchTxt = searchBoxText.text , searchBoxText.text != "" else {
+            EmptyTextField(text: "Preencha o campo Search", message: "O campo de busca deve ser preenchido")
+            return }
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
+        MovieServices.instance.clearUser()
+        
+        MovieServices.instance.findSearchMovies(query: searchTxt) { (success,errorMessage) in
+            if success{
+                print ("Entrou no SearchBtn")
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+                self.movieCollection.reloadData()
+            }
+            else{
+                let message = errorMessage
+                print(message)
+                self.EmptyTextField(text: "Pay Atention", message: message)
+            }
+        }
     }
     
     
