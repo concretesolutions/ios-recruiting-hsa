@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -14,6 +15,8 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var searchBoxText: UITextField!    
     @IBOutlet weak var movieCollection: UICollectionView!
+    
+    var favoriteBtnisSelected: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,11 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         searchBtn.isHidden = true
         
         spinner.isHidden = true
+        
+        favoriteBtnisSelected = false
+        
+        let movie = MovieEntity()
+        
         
         MovieServices.instance.findAllMovies { (success,errorMessage) in
             if success{
@@ -61,6 +69,8 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         guard let detailMovieVC = storyboard?.instantiateViewController(withIdentifier: "DetailMovieVC") as? DetailMovieVC else { return }
         detailMovieVC.initData(title: movie.title, description: movie.overview, image: movie.poster_path, date: movie.release_date, geners: movie.genre_ids)
           presentDetail(detailMovieVC)
+        
+        
     }
     
     

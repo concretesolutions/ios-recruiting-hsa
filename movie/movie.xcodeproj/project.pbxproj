@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		58ECDBF0E6E0B147D696E1A0 /* Pods_movie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C087FEE084F8111AD9B0B88 /* Pods_movie.framework */; };
 		800D55582298C6FC006E6C00 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D55572298C6FC006E6C00 /* UIViewControllerExt.swift */; };
+		800D555B2298EB91006E6C00 /* movie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 800D55592298EB91006E6C00 /* movie.xcdatamodeld */; };
+		800D555D229909F6006E6C00 /* FavoriteMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D555C229909F6006E6C00 /* FavoriteMovieCell.swift */; };
 		804A93062296BC0F0094CD80 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A93052296BC0F0094CD80 /* Movies.swift */; };
 		804A93082296C1E70094CD80 /* DetailMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A93072296C1E70094CD80 /* DetailMovieVC.swift */; };
 		804A930A2296C3300094CD80 /* MovieServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A93092296C3300094CD80 /* MovieServices.swift */; };
@@ -45,6 +47,8 @@
 		6C087FEE084F8111AD9B0B88 /* Pods_movie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5E002DFFCDB81595D07BD1 /* Pods-movie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie.release.xcconfig"; path = "Pods/Target Support Files/Pods-movie/Pods-movie.release.xcconfig"; sourceTree = "<group>"; };
 		800D55572298C6FC006E6C00 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		800D555A2298EB91006E6C00 /* movie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = movie.xcdatamodel; sourceTree = "<group>"; };
+		800D555C229909F6006E6C00 /* FavoriteMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieCell.swift; sourceTree = "<group>"; };
 		804A93052296BC0F0094CD80 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		804A93072296C1E70094CD80 /* DetailMovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieVC.swift; sourceTree = "<group>"; };
 		804A93092296C3300094CD80 /* MovieServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServices.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				80B8227E2295713D00377E30 /* Assets.xcassets */,
 				80B822802295713D00377E30 /* LaunchScreen.storyboard */,
 				80B822832295713D00377E30 /* Info.plist */,
+				800D55592298EB91006E6C00 /* movie.xcdatamodeld */,
 			);
 			path = movie;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				80FD2A952296289200FB9512 /* MovieCell.swift */,
+				800D555C229909F6006E6C00 /* FavoriteMovieCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +406,8 @@
 				80B822782295713C00377E30 /* AppDelegate.swift in Sources */,
 				804A930D2296C5780094CD80 /* Constants.swift in Sources */,
 				804A93062296BC0F0094CD80 /* Movies.swift in Sources */,
+				800D555D229909F6006E6C00 /* FavoriteMovieCell.swift in Sources */,
+				800D555B2298EB91006E6C00 /* movie.xcdatamodeld in Sources */,
 				80FD2A962296289200FB9512 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,6 +743,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		800D55592298EB91006E6C00 /* movie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				800D555A2298EB91006E6C00 /* movie.xcdatamodel */,
+			);
+			currentVersion = 800D555A2298EB91006E6C00 /* movie.xcdatamodel */;
+			path = movie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 80B8226C2295713B00377E30 /* Project object */;
 }

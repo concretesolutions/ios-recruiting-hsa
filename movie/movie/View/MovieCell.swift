@@ -7,6 +7,7 @@
 //
 
 import UIKit
+ import CoreData
 
 class MovieCell: UICollectionViewCell {
     
@@ -14,13 +15,11 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var movieLbl: UILabel!
     @IBOutlet weak var favoriteBtn: UIButton!
     
+      var status = false
+    
     func configureCell(movie : Movies) {
         let MovieTitle = movie.title ?? ""
         movieLbl.text = MovieTitle
-        
-        print("Entrou")
-        
-        favoriteBtn.isHidden = false
         
         let pathImage = String(movie.poster_path) ?? ""
         let Image = "\(URL_IMG)\(pathImage)" ?? ""
@@ -30,23 +29,6 @@ class MovieCell: UICollectionViewCell {
         if let imageData = data {
             movieImage.image = UIImage(data: imageData)
         }
-        
-        /* code for date:
-        guard var isoDate = message.timeStamp else { return }
-        let end = isoDate.index(isoDate.endIndex, offsetBy: -5)
-        isoDate = isoDate.substring(to: end)
-        
-        let isoFormatter = ISO8601DateFormatter()
-        let chatDate = isoFormatter.date(from: isoDate.appending("Z"))
-        
-        let newFormatter = DateFormatter()
-        newFormatter.dateFormat = "MMM d, h:mm a"
-        
-        if let finalDate = chatDate {
-            let finalDate = newFormatter.string(from: finalDate)
-            timeStampLbl.text = finalDate
-        }*/
-        
         
     }//ConfigureCell
     

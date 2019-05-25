@@ -15,12 +15,15 @@ class DetailMovieVC: UIViewController {
     @IBOutlet weak var dateMovie: UILabel!
     @IBOutlet weak var genersTxt: UILabel!
     @IBOutlet weak var descriptionTxt: UITextView!
+    @IBOutlet weak var favoriteBtn: UIButton!
     
     var titulo: String!
     var descricao: String!
     var imagem: String!
     var dataMovie: String!
     var genero: String!
+    
+    var status: Bool!
     
     func initData(title: String, description: String, image: String, date: String, geners: String) {
         self.titulo = title
@@ -39,7 +42,7 @@ class DetailMovieVC: UIViewController {
         genersTxt.text = genero
         descriptionTxt.text = descricao
         
-        
+        status = false
         
         let pathImage = String(imagem) ?? ""
         let Image = "\(URL_IMG)\(pathImage)" ?? ""
@@ -51,6 +54,10 @@ class DetailMovieVC: UIViewController {
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func favoriteBtnPressed(_ sender: Any) {
+        favoriteBtn.isSelected = true
     }
     
     
