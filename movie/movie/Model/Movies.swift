@@ -9,7 +9,7 @@
 import Foundation
 
 struct Movies {
-    
+    static let instance = Movies()
     public private(set) var id: String!
     public private(set) var title: String!
     public private(set) var poster_path: String!

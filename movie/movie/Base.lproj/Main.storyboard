@@ -13,7 +13,7 @@
         <!--Search MovieVC-->
         <scene sceneID="irN-N4-fPb">
             <objects>
-                <viewController id="bPd-Ml-UOt" customClass="SearchMovieVC" customModule="movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchMovieVC" id="bPd-Ml-UOt" customClass="SearchMovieVC" customModule="movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fJd-He-aNq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,11 +76,18 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRS-EI-RXf">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="22"/>
-                                                <state key="normal" title=" Movies" image="list_icon"/>
+                                                <state key="normal" title=" Movies" image="list_icon">
+                                                    <color key="titleColor" red="0.1140083115" green="0.1140083115" blue="0.1140083115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAP-gi-DNy">
                                                 <rect key="frame" x="259" y="0.0" width="100" height="22"/>
-                                                <state key="normal" title=" Favorites" image="favorite_empty_icon"/>
+                                                <state key="normal" title=" Favorites" image="favorite_empty_icon">
+                                                    <color key="titleColor" red="0.1140083115" green="0.1140083115" blue="0.1140083115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="FavoritesBtnPressed:" destination="bPd-Ml-UOt" eventType="touchUpInside" id="0iR-RQ-vCe"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -184,7 +191,6 @@
                         <outlet property="searchBtn" destination="flt-dA-rUf" id="lqc-Pc-nPs"/>
                         <outlet property="spinner" destination="yDK-l3-ssy" id="JM4-4U-5gZ"/>
                         <segue destination="puZ-3Q-tRr" kind="show" identifier="toFavorites" id="cGE-eT-7oC"/>
-                        <segue destination="wNa-IC-U5i" kind="show" identifier="toDetail" id="TTI-p5-YmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBd-oc-4NN" sceneMemberID="firstResponder"/>
@@ -194,7 +200,7 @@
         <!--Detail MovieVC-->
         <scene sceneID="ggb-nd-oyb">
             <objects>
-                <viewController id="wNa-IC-U5i" customClass="DetailMovieVC" customModule="movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailMovieVC" id="wNa-IC-U5i" customClass="DetailMovieVC" customModule="movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5yd-ga-owQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,6 +218,9 @@
                                         <rect key="frame" x="24" y="35" width="34" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="wNa-IC-U5i" eventType="touchUpInside" id="vHs-Cm-VdM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.80784313730000001" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -311,6 +320,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rgd-mP-j2H"/>
                     </view>
+                    <connections>
+                        <outlet property="dateMovie" destination="OmW-JU-i86" id="HBb-RM-dto"/>
+                        <outlet property="descriptionTxt" destination="ipW-tU-laG" id="NnD-y8-hnL"/>
+                        <outlet property="genersTxt" destination="XTU-g8-tz1" id="Qeo-uj-Dsd"/>
+                        <outlet property="movieImage" destination="fep-Gj-a3F" id="svE-cF-vnZ"/>
+                        <outlet property="titleMovie" destination="Q0k-Uz-onC" id="PqT-eK-36v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cND-a5-Dcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,11 +390,18 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2F-RG-zNc">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="22"/>
-                                                <state key="normal" title=" Movies" image="list_icon"/>
+                                                <state key="normal" title=" Movies" image="list_icon">
+                                                    <color key="titleColor" red="0.1140083115" green="0.1140083115" blue="0.1140083115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="moviesBtnPressed:" destination="puZ-3Q-tRr" eventType="touchUpInside" id="SnQ-AU-gls"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiY-hm-n99">
                                                 <rect key="frame" x="259" y="0.0" width="100" height="22"/>
-                                                <state key="normal" title=" Favorites" image="favorite_empty_icon"/>
+                                                <state key="normal" title=" Favorites" image="favorite_empty_icon">
+                                                    <color key="titleColor" red="0.1140083115" green="0.1140083115" blue="0.1140083115" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>

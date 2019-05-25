@@ -28,7 +28,6 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         MovieServices.instance.findAllMovies { (success,errorMessage) in
             if success{
-                print("Puxou")
                 self.movieCollection.reloadData()
             }
             else{
@@ -37,7 +36,6 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 self.EmptyTextField(text: "Pay Atention", message: message)
             }
         }
-        
         
     }
     
@@ -54,6 +52,15 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
         
         return MovieCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = MovieServices.instance.movies[indexPath.row]
+        print("Clicou na cell")
+        print(movie)
+        guard let detailMovieVC = storyboard?.instantiateViewController(withIdentifier: "DetailMovieVC") as? DetailMovieVC else { return }
+        detailMovieVC.initData(title: movie.title, description: movie.overview, image: movie.poster_path, date: movie.release_date, geners: movie.genre_ids)
+          presentDetail(detailMovieVC)
     }
     
     
@@ -86,6 +93,10 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 self.EmptyTextField(text: "Pay Atention", message: message)
             }
         }
+    }
+    
+    @IBAction func FavoritesBtnPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: TO_FAVORITES, sender: nil)
     }
     
     

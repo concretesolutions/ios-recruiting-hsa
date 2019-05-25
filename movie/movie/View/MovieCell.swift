@@ -26,10 +26,10 @@ class MovieCell: UICollectionViewCell {
         let Image = "\(URL_IMG)\(pathImage)" ?? ""
         print (Image)
         let url = URL(string: Image)
-//        let data = try? Data(contentsOf: url!)
-//        if let imageData = data {
-//            movieImage.image = UIImage(data: imageData)
-//        }
+        let data = try? Data(contentsOf: url!)
+        if let imageData = data {
+            movieImage.image = UIImage(data: imageData)
+        }
         
         /* code for date:
         guard var isoDate = message.timeStamp else { return }

@@ -10,21 +10,52 @@ import UIKit
 
 class DetailMovieVC: UIViewController {
 
+    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var titleMovie: UILabel!
+    @IBOutlet weak var dateMovie: UILabel!
+    @IBOutlet weak var genersTxt: UILabel!
+    @IBOutlet weak var descriptionTxt: UITextView!
+    
+    var titulo: String!
+    var descricao: String!
+    var imagem: String!
+    var dataMovie: String!
+    var genero: String!
+    
+    func initData(title: String, description: String, image: String, date: String, geners: String) {
+        self.titulo = title
+        self.descricao = description
+        self.imagem = image
+        self.dataMovie = date
+        self.genero = geners
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleMovie.text = titulo
+        genersTxt.text = genero
+        dateMovie.text = dataMovie
+        genersTxt.text = genero
+        descriptionTxt.text = descricao
+        
+        
+        
+        let pathImage = String(imagem) ?? ""
+        let Image = "\(URL_IMG)\(pathImage)" ?? ""
+        print (Image)
+        let url = URL(string: Image)
+        let data = try? Data(contentsOf: url!)
+        if let imageData = data {
+            movieImage.image = UIImage(data: imageData)
+        }
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismissDetail()
     }
-    */
-
+    
 }
