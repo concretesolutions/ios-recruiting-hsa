@@ -9,7 +9,12 @@
 import UIKit
 
 class FavoriteMovieCell: UITableViewCell {
-
+    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +24,12 @@ class FavoriteMovieCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(movie: MovieEntity) {
+        self.titleLbl.text = movie.movieTitle
+        self.dateLbl.text = movie.movieDate
+        self.descriptionLbl.text = movie.movieDescription
     }
 
 }

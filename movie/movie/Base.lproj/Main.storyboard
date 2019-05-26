@@ -458,11 +458,17 @@
                                                 <constraint firstItem="zi8-Ta-3VI" firstAttribute="centerY" secondItem="27p-r6-cXA" secondAttribute="centerY" id="CMu-WC-j11"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Z0p-EI-JXP" secondAttribute="trailing" id="JcK-f9-8q0"/>
                                                 <constraint firstItem="27p-r6-cXA" firstAttribute="leading" secondItem="mPe-7j-YyC" secondAttribute="leadingMargin" constant="3" id="JpU-tN-6XM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Z0p-EI-JXP" secondAttribute="bottom" constant="10" id="UHV-va-lsW"/>
                                                 <constraint firstItem="Z0p-EI-JXP" firstAttribute="leading" secondItem="mPe-7j-YyC" secondAttribute="leadingMargin" id="jeD-GM-pQA"/>
                                                 <constraint firstItem="27p-r6-cXA" firstAttribute="top" secondItem="mPe-7j-YyC" secondAttribute="topMargin" constant="8" id="qI7-bB-0cw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dateLbl" destination="zi8-Ta-3VI" id="rUl-sE-noi"/>
+                                            <outlet property="descriptionLbl" destination="Z0p-EI-JXP" id="Zh2-cP-7BO"/>
+                                            <outlet property="titleLbl" destination="27p-r6-cXA" id="Pfl-nj-shY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -485,6 +491,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R5j-RG-hZm"/>
                     </view>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="UZz-d0-EJN" id="ONr-3W-xMy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKC-Ti-9gy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

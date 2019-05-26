@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class DetailMovieVC: UIViewController {
 
@@ -57,12 +59,42 @@ class DetailMovieVC: UIViewController {
     }
     
     @IBAction func favoriteBtnPressed(_ sender: Any) {
-        favoriteBtn.isSelected = true
+        
+        self.save { (complete) in
+            if complete {
+                favoriteBtn.isSelected = true
+                self.EmptyTextField(text: "Pay Atention", message: "Movie has been add to Favorite !")
+            }
+        }
     }
     
     
     @IBAction func backBtnPressed(_ sender: Any) {
         dismissDetail()
     }
+    
+    func save(completion: (_ finished: Bool) -> ()) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let movie = MovieEntity(context: managedContext)
+        
+        movie.movieDescription = descricao
+        movie.movieTitle = titulo
+        movie.movieDate = dataMovie
+        
+        do {
+            try managedContext.save()
+            print("Successfully saved data.")
+            completion(true)
+        } catch {
+            debugPrint("Could not save: \(error.localizedDescription)")
+             self.EmptyTextField(text: "Pay Atention", message: error.localizedDescription)
+            completion(false)
+        }
+    }
+    
+    func EmptyTextField(text: String, message: String?){
+        let alert = UIAlertController(title: text, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true) }
     
 }
