@@ -3,9 +3,10 @@
     <entity name="MovieEntity" representedClassName="MovieEntity" syncable="YES" codeGenerationType="class">
         <attribute name="movieDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="movieDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="movieImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="movieTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MovieEntity" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="MovieEntity" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

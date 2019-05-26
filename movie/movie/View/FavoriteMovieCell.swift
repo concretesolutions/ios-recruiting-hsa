@@ -12,8 +12,8 @@ class FavoriteMovieCell: UITableViewCell {
     
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
-    
+    @IBOutlet weak var descriptionLbl: UILabel!    
+    @IBOutlet weak var imageMovie: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +30,14 @@ class FavoriteMovieCell: UITableViewCell {
         self.titleLbl.text = movie.movieTitle
         self.dateLbl.text = movie.movieDate
         self.descriptionLbl.text = movie.movieDescription
+        
+        let pathImage = (movie.movieImage) ?? ""
+        let Image = "\(URL_IMG)\(pathImage)" ?? ""
+        let url = URL(string: Image)
+        let data = try? Data(contentsOf: url!)
+        if let imageData = data {
+            imageMovie.image = UIImage(data: imageData)
+        }
     }
 
 }

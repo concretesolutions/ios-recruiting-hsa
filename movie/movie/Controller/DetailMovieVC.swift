@@ -48,7 +48,6 @@ class DetailMovieVC: UIViewController {
         
         let pathImage = String(imagem) ?? ""
         let Image = "\(URL_IMG)\(pathImage)" ?? ""
-        print (Image)
         let url = URL(string: Image)
         let data = try? Data(contentsOf: url!)
         if let imageData = data {
@@ -82,6 +81,7 @@ class DetailMovieVC: UIViewController {
         movie.movieDescription = descricao
         movie.movieTitle = titulo
         movie.movieDate = dataMovie
+        movie.movieImage = imagem
         
         do {
             try managedContext.save()
