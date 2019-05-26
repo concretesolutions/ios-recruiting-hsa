@@ -21,7 +21,6 @@ let TO_DETAIL = "toDetail"
 let TO_FAVORITES = "toFavorites"
 
 // Movies Defaults
-let TOKEN_KEY = "token"
 let TITLE = "title"
 let POSTER_PATH = "poster_path"
 let RELEASE_DATE = "release_date"

@@ -23,6 +23,8 @@
 		80B822822295713D00377E30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B822802295713D00377E30 /* LaunchScreen.storyboard */; };
 		80B8228D2295713D00377E30 /* movieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B8228C2295713D00377E30 /* movieTests.swift */; };
 		80B822982295713D00377E30 /* movieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B822972295713D00377E30 /* movieUITests.swift */; };
+		80D825B4229A4DE3007F9B61 /* XibAddFavotireVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D825B2229A4DE3007F9B61 /* XibAddFavotireVC.swift */; };
+		80D825B5229A4DE3007F9B61 /* XibAddFavotireVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D825B3229A4DE3007F9B61 /* XibAddFavotireVC.xib */; };
 		80FD2A962296289200FB9512 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD2A952296289200FB9512 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		80B822932295713D00377E30 /* movieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B822972295713D00377E30 /* movieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieUITests.swift; sourceTree = "<group>"; };
 		80B822992295713D00377E30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80D825B2229A4DE3007F9B61 /* XibAddFavotireVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibAddFavotireVC.swift; sourceTree = "<group>"; };
+		80D825B3229A4DE3007F9B61 /* XibAddFavotireVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibAddFavotireVC.xib; sourceTree = "<group>"; };
 		80FD2A952296289200FB9512 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		84B264519ABCD8DA6E7683A6 /* Pods-movie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-movie/Pods-movie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,7 @@
 		80B822762295713C00377E30 /* movie */ = {
 			isa = PBXGroup;
 			children = (
+				80D825B6229A4DF6007F9B61 /* XIBs */,
 				800D55562298C6A5006E6C00 /* Extension */,
 				804A930B2296C55B0094CD80 /* Utilities */,
 				80FD2A942296284F00FB9512 /* Services */,
@@ -180,6 +185,14 @@
 			path = movieUITests;
 			sourceTree = "<group>";
 		};
+		80D825B6229A4DF6007F9B61 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				80D825B3229A4DE3007F9B61 /* XibAddFavotireVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		80FD2A912296281B00FB9512 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +216,7 @@
 				80B822792295713C00377E30 /* SearchMovieVC.swift */,
 				804A93072296C1E70094CD80 /* DetailMovieVC.swift */,
 				805FD5B0229810C200017C73 /* FavoriteMovieVC.swift */,
+				80D825B2229A4DE3007F9B61 /* XibAddFavotireVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -332,6 +346,7 @@
 			files = (
 				80B822822295713D00377E30 /* LaunchScreen.storyboard in Resources */,
 				80B8227F2295713D00377E30 /* Assets.xcassets in Resources */,
+				80D825B5229A4DE3007F9B61 /* XibAddFavotireVC.xib in Resources */,
 				80B8227D2295713C00377E30 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +419,7 @@
 				804A930A2296C3300094CD80 /* MovieServices.swift in Sources */,
 				80B8227A2295713C00377E30 /* SearchMovieVC.swift in Sources */,
 				80B822782295713C00377E30 /* AppDelegate.swift in Sources */,
+				80D825B4229A4DE3007F9B61 /* XibAddFavotireVC.swift in Sources */,
 				804A930D2296C5780094CD80 /* Constants.swift in Sources */,
 				804A93062296BC0F0094CD80 /* Movies.swift in Sources */,
 				800D555D229909F6006E6C00 /* FavoriteMovieCell.swift in Sources */,

@@ -50,7 +50,6 @@ class FavoriteMovieVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Tab Favorite")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteMovieCell") as? FavoriteMovieCell else { return UITableViewCell() }
         let movie = movies[indexPath.row]
         cell.configureCell(movie: movie)

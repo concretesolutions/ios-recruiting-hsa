@@ -33,7 +33,6 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         let movie = MovieEntity()
         
-        
         MovieServices.instance.findAllMovies { (success,errorMessage) in
             if success{
                 self.movieCollection.reloadData()
@@ -48,7 +47,6 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("rows",MovieServices.instance.movies.count)
         return MovieServices.instance.movies.count
     }
     
@@ -64,13 +62,9 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = MovieServices.instance.movies[indexPath.row]
-        print("Clicou na cell")
-        print(movie)
         guard let detailMovieVC = storyboard?.instantiateViewController(withIdentifier: "DetailMovieVC") as? DetailMovieVC else { return }
         detailMovieVC.initData(title: movie.title, description: movie.overview, image: movie.poster_path, date: movie.release_date, geners: movie.genre_ids)
           presentDetail(detailMovieVC)
-        
-        
     }
     
     
@@ -88,11 +82,10 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         spinner.isHidden = false
         spinner.startAnimating()
         
-        MovieServices.instance.clearUser()
+        MovieServices.instance.clearMovie()
         
         MovieServices.instance.findSearchMovies(query: searchTxt) { (success,errorMessage) in
             if success{
-                print ("Entrou no SearchBtn")
                 self.spinner.isHidden = true
                 self.spinner.stopAnimating()
                 self.movieCollection.reloadData()
@@ -114,7 +107,6 @@ class SearchMovieVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         let alert = UIAlertController(title: text, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true) }
-    
     
 }
 

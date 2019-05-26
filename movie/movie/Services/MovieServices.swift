@@ -72,11 +72,6 @@ class MovieServices {
                    
                         let movie = Movies(id: id, title: title, poster_path: poster_path, release_date: release_date, genre_ids: genre_ids, overview: overview)
                         self.movies.append(movie)
-                        print(title)
-                        print(genre_ids)
-                        print(poster_path)
-                        print(release_date)
-                        print(overview)
                     })
                     completion(true, "OK")
                 case .failure( _):
@@ -153,10 +148,6 @@ class MovieServices {
                         let movie = Movies(id: id, title: title, poster_path: poster_path, release_date: release_date, genre_ids: genre_ids, overview: overview)
                         self.movies.append(movie)
                         print(title)
-                        print(genre_ids)
-                        print(poster_path)
-                        print(release_date)
-                        print(overview)
                     })
                     completion(true, "OK")
                 case .failure( _):
@@ -177,8 +168,8 @@ class MovieServices {
         }
     }
     
-    func clearUser() {
+    func clearMovie() {
         movies.removeAll()
-    }//clearMovies
+    }
     
 }

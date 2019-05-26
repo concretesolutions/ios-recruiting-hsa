@@ -63,7 +63,9 @@ class DetailMovieVC: UIViewController {
         self.save { (complete) in
             if complete {
                 favoriteBtn.isSelected = true
-                self.EmptyTextField(text: "Pay Atention", message: "Movie has been add to Favorite !")
+                let xibAddFavoriteVC = XibAddFavotireVC()
+                xibAddFavoriteVC.modalPresentationStyle = .custom
+                present(xibAddFavoriteVC, animated: true, completion: nil)
             }
         }
     }
