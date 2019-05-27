@@ -1,0 +1,42 @@
+disabled_rules:
+  - closure_parameter_position
+
+included:
+  - Jumbo/Jumbo
+
+excluded:
+  - swiftlint.yml
+  - Jumbo/Pods
+  - Jumbo/Jumbo/*/Assets.xcassets
+  - Jumbo/Jumbo/*/AssetsWong.xcassets
+  - Jumbo/Jumbo/*/SharedAssets.xcassets
+
+opt_in_rules:
+  - collection_alignment
+  - explicit_init
+  - first_where
+  - last_where
+  - operator_usage_whitespace
+  - private_action
+  - private_outlet
+  - sorted_first_last
+  - vertical_parameter_alignment
+  - void_return
+
+trailing_comma:
+  mandatory_comma: true
+
+line_length: 100
+
+identifier_name:
+  min_length:
+    error: 3 
+  excluded: # excluded via string array
+    - id
+    - h
+    - i
+    - j
+    - k
+    - x
+    - y
+    - z
