@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CD6D47D229C655A00DA73A2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D47C229C655A00DA73A2 /* APIClient.swift */; };
+		0CD6D47F229C722900DA73A2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D47E229C722800DA73A2 /* Constant.swift */; };
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C920229BABB10035DF40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C91E229BABB10035DF40 /* Main.storyboard */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CD6D47C229C655A00DA73A2 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		0CD6D47E229C722800DA73A2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0CF9C917229BABB10035DF40 /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C91A229BABB10035DF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF9C91F229BABB10035DF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD6D47B229C653300DA73A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0CD6D47C229C655A00DA73A2 /* APIClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0CD6D480229C76D000DA73A2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0CD6D47E229C722800DA73A2 /* Constant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		0CD6D481229C76E000DA73A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0CF9C90E229BABB00035DF40 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +126,9 @@
 		0CF9C919229BABB10035DF40 /* ios-recruiting-hsa */ = {
 			isa = PBXGroup;
 			children = (
+				0CD6D481229C76E000DA73A2 /* Models */,
+				0CD6D480229C76D000DA73A2 /* Constants */,
+				0CD6D47B229C653300DA73A2 /* Services */,
 				0CF9C949229BB2B90035DF40 /* Coordinators */,
 				0CF9C948229BB2100035DF40 /* Modules */,
 				0CF9C91A229BABB10035DF40 /* AppDelegate.swift */,
@@ -277,7 +307,9 @@
 			files = (
 				0CF9C94B229BB2C90035DF40 /* Coordinators.swift in Sources */,
 				0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */,
+				0CD6D47F229C722900DA73A2 /* Constant.swift in Sources */,
 				0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */,
+				0CD6D47D229C655A00DA73A2 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
