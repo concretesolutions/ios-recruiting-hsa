@@ -13,6 +13,8 @@
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
 		0CF9C930229BABB60035DF40 /* ios_recruiting_hsaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C92F229BABB60035DF40 /* ios_recruiting_hsaTests.swift */; };
 		0CF9C93B229BABB60035DF40 /* ios_recruiting_hsaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C93A229BABB60035DF40 /* ios_recruiting_hsaUITests.swift */; };
+		0CF9C94B229BB2C90035DF40 /* Coordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C94A229BB2C90035DF40 /* Coordinators.swift */; };
+		0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C94C229BB2F10035DF40 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		0CF9C936229BABB60035DF40 /* ios-recruiting-hsaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-recruiting-hsaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C93A229BABB60035DF40 /* ios_recruiting_hsaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_recruiting_hsaUITests.swift; sourceTree = "<group>"; };
 		0CF9C93C229BABB60035DF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CF9C94A229BB2C90035DF40 /* Coordinators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators.swift; sourceTree = "<group>"; };
+		0CF9C94C229BB2F10035DF40 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 		0CF9C919229BABB10035DF40 /* ios-recruiting-hsa */ = {
 			isa = PBXGroup;
 			children = (
+				0CF9C949229BB2B90035DF40 /* Coordinators */,
+				0CF9C948229BB2100035DF40 /* Modules */,
 				0CF9C91A229BABB10035DF40 /* AppDelegate.swift */,
 				0CF9C91E229BABB10035DF40 /* Main.storyboard */,
 				0CF9C921229BABB60035DF40 /* Assets.xcassets */,
@@ -120,6 +126,22 @@
 				0CF9C93C229BABB60035DF40 /* Info.plist */,
 			);
 			path = "ios-recruiting-hsaUITests";
+			sourceTree = "<group>";
+		};
+		0CF9C948229BB2100035DF40 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0CF9C949229BB2B90035DF40 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0CF9C94A229BB2C90035DF40 /* Coordinators.swift */,
+				0CF9C94C229BB2F10035DF40 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +275,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF9C94B229BB2C90035DF40 /* Coordinators.swift in Sources */,
+				0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */,
 				0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
