@@ -73,7 +73,7 @@ extension ApiMovieImpl {
         urlComponents.path = path
 
         guard let url = urlComponents.url else {
-            callback(nil, .UrlError(host: host, path: path))
+            callback(nil, .urlError(host: host, path: path))
             return
         }
 
