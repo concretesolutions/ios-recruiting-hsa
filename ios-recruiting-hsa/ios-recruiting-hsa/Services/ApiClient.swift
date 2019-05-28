@@ -14,13 +14,13 @@ enum MovieEndpoint {
     case genres
 }
 
-enum MovieError {
+enum ApiError {
     case error(description: String?)
 }
 
-typealias Callback = (Data?, MovieError?) -> Void
+typealias Callback = (Data?, ApiError?) -> Void
 
-protocol MovieApi {
+protocol ApiClient {
     func request(endpoint: MovieEndpoint, callback: @escaping Callback)
 }
 
@@ -49,9 +49,9 @@ extension MovieEndpoint: TargetType {
     var headers: [String: String]? { return nil }
 }
 
-extension MovieApi {
+extension ApiClient {
 
-    var `default`: MovieApi {
+    var `default`: ApiClient {
         let endpointClosure = { (target: MovieEndpoint) -> Endpoint in
             var headers = target.headers
             headers?["lang"] = "en-US"
@@ -65,11 +65,11 @@ extension MovieApi {
             )
         }
         let provider = MoyaProvider<MovieEndpoint>(endpointClosure: endpointClosure)
-        return MovieApiImpl(provider: provider)
+        return ApiClientImpl(provider: provider)
     }
 }
 
-class MovieApiImpl {
+class ApiClientImpl {
 
     let provider: MoyaProvider<MovieEndpoint>
 
@@ -78,7 +78,7 @@ class MovieApiImpl {
     }
 }
 
-extension MovieApiImpl: MovieApi {
+extension ApiClientImpl: ApiClient {
 
     func request(endpoint: MovieEndpoint, callback: @escaping Callback) {
         provider.request(endpoint) { result in

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CD6D47D229C655A00DA73A2 /* MovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D47C229C655A00DA73A2 /* MovieApi.swift */; };
+		0CD6D47D229C655A00DA73A2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D47C229C655A00DA73A2 /* ApiClient.swift */; };
 		0CD6D47F229C722900DA73A2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D47E229C722800DA73A2 /* Constant.swift */; };
 		0CD6D483229C77DE00DA73A2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D482229C77DD00DA73A2 /* Movie.swift */; };
 		0CD6D485229C79DE00DA73A2 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6D484229C79DE00DA73A2 /* Genre.swift */; };
@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		045B57BD315E59776F402AC5 /* Pods-ios-recruiting-hsa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-recruiting-hsa.release.xcconfig"; path = "Target Support Files/Pods-ios-recruiting-hsa/Pods-ios-recruiting-hsa.release.xcconfig"; sourceTree = "<group>"; };
-		0CD6D47C229C655A00DA73A2 /* MovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApi.swift; sourceTree = "<group>"; };
+		0CD6D47C229C655A00DA73A2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		0CD6D47E229C722800DA73A2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0CD6D482229C77DD00DA73A2 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0CD6D484229C79DE00DA73A2 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		0CD6D47B229C653300DA73A2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0CD6D47C229C655A00DA73A2 /* MovieApi.swift */,
+				0CD6D47C229C655A00DA73A2 /* ApiClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -453,7 +453,7 @@
 				0CD6D483229C77DE00DA73A2 /* Movie.swift in Sources */,
 				0CD6D47F229C722900DA73A2 /* Constant.swift in Sources */,
 				0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */,
-				0CD6D47D229C655A00DA73A2 /* MovieApi.swift in Sources */,
+				0CD6D47D229C655A00DA73A2 /* ApiClient.swift in Sources */,
 				0CD6D485229C79DE00DA73A2 /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
