@@ -1,15 +1,10 @@
 disabled_rules:
   - closure_parameter_position
 
-included:
-  - Jumbo/Jumbo
-
 excluded:
   - swiftlint.yml
-  - Jumbo/Pods
-  - Jumbo/Jumbo/*/Assets.xcassets
-  - Jumbo/Jumbo/*/AssetsWong.xcassets
-  - Jumbo/Jumbo/*/SharedAssets.xcassets
+  - ios-recruiting-hsa/Pods
+  - ios-recruiting-hsa/ios-recruiting-hsa/Assets.xcassets
 
 opt_in_rules:
   - collection_alignment
