@@ -8,6 +8,7 @@ target 'ios-recruiting-hsa' do
   # Pods for ios-recruiting-hsa
 
   pod 'Moya', '~> 13.0'
+  pod 'Kingfisher', '~> 5.3'
 
   target 'ios-recruiting-hsaTests' do
     inherit! :search_paths
