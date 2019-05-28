@@ -19,8 +19,10 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let navigation = [UINavigationController(), UINavigationController()]
-
+        let listNavigator = UINavigationController()
+        let listController = ListMovieViewController(navigationBar: listNavigator.navigationBar)
+        listNavigator.setViewControllers([listController], animated: false)
+        let navigation = [listNavigator, UINavigationController()]
         tabbarController.setViewControllers(navigation, animated: false)
         window.rootViewController = tabbarController
         window.makeKeyAndVisible()

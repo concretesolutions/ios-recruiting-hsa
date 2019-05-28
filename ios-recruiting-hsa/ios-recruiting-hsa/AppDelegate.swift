@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        let navigationAppearance = UINavigationBar.appearance()
+        navigationAppearance.isTranslucent = false
+        navigationAppearance.barTintColor = .app
+
         let window = UIWindow()
         self.window = window
         self.coordinator = MainCoordinator(window: window)
