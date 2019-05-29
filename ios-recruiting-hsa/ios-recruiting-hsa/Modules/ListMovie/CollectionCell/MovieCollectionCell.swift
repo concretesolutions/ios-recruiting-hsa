@@ -31,6 +31,7 @@ class MovieCollectionCell: UICollectionViewCell {
 
     private func setPoster() {
         moviePosterImageView = UIImageView()
+        moviePosterImageView.contentMode = .scaleAspectFit
         addSubview(moviePosterImageView)
         moviePosterImageView.translatesAutoresizingMaskIntoConstraints = false
         moviePosterImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

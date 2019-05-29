@@ -12,7 +12,7 @@ import UIKit
 class ListMovieViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: CustomSearchBar!
 
     private weak var navigationBar: UINavigationBar?
 
@@ -30,7 +30,10 @@ class ListMovieViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        searchBar.barTintColor = .app
+        searchBar.backgroundColor = .app
+        searchBar.searchBackgroundColor = .darkApp
+        searchBar.placeholder = "Search"
+
         collectionView.register(
             MovieCollectionCell.self,
             forCellWithReuseIdentifier: movieCellIdentifier
@@ -41,6 +44,7 @@ class ListMovieViewController: UIViewController {
 
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
+        navigationBar?.topItem?.title = "Movie"
     }
 }
 
@@ -57,7 +61,7 @@ extension ListMovieViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = width - (edges + interspaceCell)
 
         let cellWidth = availableWidth / cellsPerRow
-        let cellHeight = 1.6 * cellWidth
+        let cellHeight = 1.4 * cellWidth
         return CGSize(width: cellWidth, height: cellHeight)
     }
 

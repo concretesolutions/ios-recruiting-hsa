@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListMovieViewController" customModule="ios_recruiting_hsa" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="DDO-NX-dF7" id="XKL-c0-ROv"/>
-                <outlet property="searchBar" destination="hep-iz-ZZR" id="lcZ-0Z-5f3"/>
+                <outlet property="searchBar" destination="WIB-ZW-IOf" id="TyX-t4-e0F"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Roj-0A-avs"/>
             </connections>
         </placeholder>
@@ -22,12 +22,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hep-iz-ZZR">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIB-ZW-IOf" customClass="CustomSearchBar" customModule="ios_recruiting_hsa" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="MKE-EV-Hlb"/>
+                    </constraints>
+                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DDO-NX-dF7">
-                    <rect key="frame" x="0.0" y="56" width="414" height="718"/>
+                    <rect key="frame" x="0.0" y="40" width="414" height="734"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A0l-2s-llw">
                         <size key="itemSize" width="50" height="50"/>
@@ -39,16 +42,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="hep-iz-ZZR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="DaL-W6-Bau"/>
+                <constraint firstItem="DDO-NX-dF7" firstAttribute="top" secondItem="WIB-ZW-IOf" secondAttribute="bottom" id="5Yi-nY-bge"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WIB-ZW-IOf" secondAttribute="trailing" id="L1k-PT-tYz"/>
                 <constraint firstItem="DDO-NX-dF7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MlC-Sp-ipp"/>
-                <constraint firstItem="DDO-NX-dF7" firstAttribute="top" secondItem="hep-iz-ZZR" secondAttribute="bottom" id="Xtb-RH-8FP"/>
+                <constraint firstItem="WIB-ZW-IOf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ThB-XP-vSr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DDO-NX-dF7" secondAttribute="bottom" id="cx8-aV-cDa"/>
-                <constraint firstItem="hep-iz-ZZR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="faL-uk-Qcg"/>
-                <constraint firstItem="hep-iz-ZZR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ntS-HI-mc8"/>
+                <constraint firstItem="WIB-ZW-IOf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lRH-6A-7QM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DDO-NX-dF7" secondAttribute="trailing" id="u1v-lK-ROu"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="47.826086956521742" y="48.883928571428569"/>
         </view>
     </objects>
 </document>

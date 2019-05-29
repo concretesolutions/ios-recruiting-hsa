@@ -17,6 +17,8 @@
 		0CE75EAB229DAE460099B277 /* MovieCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EAA229DAE460099B277 /* MovieCollectionCell.swift */; };
 		0CE75EAE229DB56F0099B277 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EAD229DB56F0099B277 /* UIColor+Extension.swift */; };
 		0CE75EB0229DBD800099B277 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EAF229DBD800099B277 /* UIImage+Extension.swift */; };
+		0CE75EB3229DF32D0099B277 /* FavoriteMovies.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE75EB2229DF32D0099B277 /* FavoriteMovies.xib */; };
+		0CE75EB6229E06B10099B277 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EB5229E06B10099B277 /* CustomSearchBar.swift */; };
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
@@ -58,6 +60,8 @@
 		0CE75EAA229DAE460099B277 /* MovieCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionCell.swift; sourceTree = "<group>"; };
 		0CE75EAD229DB56F0099B277 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0CE75EAF229DBD800099B277 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		0CE75EB2229DF32D0099B277 /* FavoriteMovies.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteMovies.xib; sourceTree = "<group>"; };
+		0CE75EB5229E06B10099B277 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		0CF9C917229BABB10035DF40 /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C91A229BABB10035DF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF9C921229BABB60035DF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +165,22 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		0CE75EB1229DF2FB0099B277 /* FavoriteMovies */ = {
+			isa = PBXGroup;
+			children = (
+				0CE75EB2229DF32D0099B277 /* FavoriteMovies.xib */,
+			);
+			path = FavoriteMovies;
+			sourceTree = "<group>";
+		};
+		0CE75EB4229E06510099B277 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0CE75EB5229E06B10099B277 /* CustomSearchBar.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		0CF9C90E229BABB00035DF40 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +212,7 @@
 				0CD6D47B229C653300DA73A2 /* Services */,
 				0CF9C949229BB2B90035DF40 /* Coordinators */,
 				0CF9C948229BB2100035DF40 /* Modules */,
+				0CE75EB4229E06510099B277 /* UI */,
 				0CF9C91A229BABB10035DF40 /* AppDelegate.swift */,
 				0CF9C921229BABB60035DF40 /* Assets.xcassets */,
 				0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */,
@@ -221,6 +242,7 @@
 		0CF9C948229BB2100035DF40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0CE75EB1229DF2FB0099B277 /* FavoriteMovies */,
 				0CE75DD8229CF88C0099B277 /* ListMovie */,
 			);
 			path = Modules;
@@ -369,6 +391,7 @@
 			files = (
 				0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */,
 				0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */,
+				0CE75EB3229DF32D0099B277 /* FavoriteMovies.xib in Resources */,
 				0CE75DDA229CF8D20099B277 /* ListMovie.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CF9C94B229BB2C90035DF40 /* Coordinators.swift in Sources */,
+				0CE75EB6229E06B10099B277 /* CustomSearchBar.swift in Sources */,
 				0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */,
 				0CE75DDC229CFA500099B277 /* ListMovieViewController.swift in Sources */,
 				0CE75EAE229DB56F0099B277 /* UIColor+Extension.swift in Sources */,
