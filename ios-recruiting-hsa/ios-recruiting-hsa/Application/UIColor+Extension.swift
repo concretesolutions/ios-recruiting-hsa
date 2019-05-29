@@ -20,4 +20,7 @@ extension UIColor {
     // 208 153 61
     static var darkApp: UIColor? { return UIColor(named: "DarkApp") }
 
+    // 216 216 216
+    static var darkCell: UIColor? { return UIColor(named: "DarkCell") }
+
 }

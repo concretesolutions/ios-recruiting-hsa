@@ -22,7 +22,13 @@ class MainCoordinator: Coordinator {
         let listNavigator = UINavigationController()
         let listController = ListMovieViewController(navigationBar: listNavigator.navigationBar)
         listNavigator.setViewControllers([listController], animated: false)
-        let navigation = [listNavigator, UINavigationController()]
+
+        let favoriteNavigator = UINavigationController()
+        let favoriteController = FavoriteMoviesViewController(
+            navigationBar: favoriteNavigator.navigationBar
+        )
+        favoriteNavigator.setViewControllers([favoriteController], animated: false)
+        let navigation = [listNavigator, favoriteNavigator]
         tabbarController.setViewControllers(navigation, animated: false)
         window.rootViewController = tabbarController
         window.makeKeyAndVisible()
