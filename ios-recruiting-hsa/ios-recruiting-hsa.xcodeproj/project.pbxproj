@@ -26,7 +26,7 @@
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
-		0CF9C930229BABB60035DF40 /* ios_recruiting_hsaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C92F229BABB60035DF40 /* ios_recruiting_hsaTests.swift */; };
+		0CF9C930229BABB60035DF40 /* ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C92F229BABB60035DF40 /* ServicesTests.swift */; };
 		0CF9C93B229BABB60035DF40 /* ios_recruiting_hsaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C93A229BABB60035DF40 /* ios_recruiting_hsaUITests.swift */; };
 		0CF9C94B229BB2C90035DF40 /* Coordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C94A229BB2C90035DF40 /* Coordinators.swift */; };
 		0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C94C229BB2F10035DF40 /* MainCoordinator.swift */; };
@@ -76,7 +76,7 @@
 		0CF9C924229BABB60035DF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CF9C926229BABB60035DF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CF9C92B229BABB60035DF40 /* ios-recruiting-hsaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-recruiting-hsaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CF9C92F229BABB60035DF40 /* ios_recruiting_hsaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_recruiting_hsaTests.swift; sourceTree = "<group>"; };
+		0CF9C92F229BABB60035DF40 /* ServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTests.swift; sourceTree = "<group>"; };
 		0CF9C931229BABB60035DF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CF9C936229BABB60035DF40 /* ios-recruiting-hsaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-recruiting-hsaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C93A229BABB60035DF40 /* ios_recruiting_hsaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_recruiting_hsaUITests.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		0CF9C92E229BABB60035DF40 /* ios-recruiting-hsaTests */ = {
 			isa = PBXGroup;
 			children = (
-				0CF9C92F229BABB60035DF40 /* ios_recruiting_hsaTests.swift */,
+				0CF9C92F229BABB60035DF40 /* ServicesTests.swift */,
 				0CF9C931229BABB60035DF40 /* Info.plist */,
 			);
 			path = "ios-recruiting-hsaTests";
@@ -558,7 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CF9C930229BABB60035DF40 /* ios_recruiting_hsaTests.swift in Sources */,
+				0CF9C930229BABB60035DF40 /* ServicesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
