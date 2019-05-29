@@ -82,3 +82,5 @@ fastlane/test_output
 iOSInjectionProject/
 
 ios-recruiting-hsa/ios-recruiting-hsa.xcodeproj/project.xcworkspace/xcuserdata/consultor.xcuserdatad/UserInterfaceState.xcuserstate
+
+ios-recruiting-hsa/ios-recruiting-hsa/Secret.plist

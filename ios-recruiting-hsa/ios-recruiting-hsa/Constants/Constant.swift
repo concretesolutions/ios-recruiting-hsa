@@ -10,6 +10,15 @@ import Foundation
 
 enum Constants {
 
-    static let apiKey = "euh1uo3213j2kn123"
+    static let apiKey: String = {
+        let adas = "adasasd"
+        guard let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),
+              let plist = NSDictionary(contentsOfFile: path),
+              let apiKey = plist["ApiKey"] as? String
+        else {
+            fatalError(#"File "Secret.plist" is not present in project"#)
+        }
+        return apiKey
+    }()
 
 }
