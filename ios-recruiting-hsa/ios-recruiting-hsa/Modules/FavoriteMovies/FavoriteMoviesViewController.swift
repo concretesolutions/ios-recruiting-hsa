@@ -28,13 +28,14 @@ class FavoriteMoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         tableView.register(FavoriteMovieTableCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.dataSource = self
         tableView.rowHeight = 100
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorColor = .white
         tableView.tableHeaderView = UIView()
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .darkCell
+        tableView.dataSource = self
+        tableView.delegate = self
 
         searchBar.backgroundColor = .app
         searchBar.searchBackgroundColor = .darkApp
@@ -63,5 +64,22 @@ extension FavoriteMoviesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         return cell
+    }
+}
+
+extension FavoriteMoviesViewController: UITableViewDelegate {
+
+    func tableView(
+        _ tableView: UITableView,
+        editActionsForRowAt indexPath: IndexPath
+    ) -> [UITableViewRowAction]? {
+        let title = "Unfavorite"
+        let unfavoriteAction = UITableViewRowAction(
+            style: .default,
+            title: title
+        ) { _, _ in
+
+        }
+        return [unfavoriteAction]
     }
 }
