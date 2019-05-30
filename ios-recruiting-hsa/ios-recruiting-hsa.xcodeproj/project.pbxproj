@@ -23,6 +23,8 @@
 		0CE75EBB229E163D0099B277 /* FavoriteMovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EBA229E163D0099B277 /* FavoriteMovieTableCell.swift */; };
 		0CE75EBD229E3B000099B277 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CE75EBC229E3AFF0099B277 /* Secret.plist */; };
 		0CE75EBF229E450A0099B277 /* MovieClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EBE229E450A0099B277 /* MovieClient.swift */; };
+		0CE75F03229F7AD30099B277 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F02229F7AD30099B277 /* Persistance.swift */; };
+		0CE75F0522A022BE0099B277 /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F0422A022BE0099B277 /* PersistenceTests.swift */; };
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
@@ -70,6 +72,8 @@
 		0CE75EBA229E163D0099B277 /* FavoriteMovieTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieTableCell.swift; sourceTree = "<group>"; };
 		0CE75EBC229E3AFF0099B277 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		0CE75EBE229E450A0099B277 /* MovieClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClient.swift; sourceTree = "<group>"; };
+		0CE75F02229F7AD30099B277 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		0CE75F0422A022BE0099B277 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
 		0CF9C917229BABB10035DF40 /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C91A229BABB10035DF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF9C921229BABB60035DF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			children = (
 				0CD6D47C229C655A00DA73A2 /* ApiClient.swift */,
 				0CE75EBE229E450A0099B277 /* MovieClient.swift */,
+				0CE75F02229F7AD30099B277 /* Persistance.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				0CF9C92F229BABB60035DF40 /* ServicesTests.swift */,
+				0CE75F0422A022BE0099B277 /* PersistenceTests.swift */,
 				0CF9C931229BABB60035DF40 /* Info.plist */,
 			);
 			path = "ios-recruiting-hsaTests";
@@ -541,6 +547,7 @@
 				0CE75DDC229CFA500099B277 /* ListMovieViewController.swift in Sources */,
 				0CE75EAE229DB56F0099B277 /* UIColor+Extension.swift in Sources */,
 				0CE75EB8229E14F80099B277 /* FavoriteMoviesViewController.swift in Sources */,
+				0CE75F03229F7AD30099B277 /* Persistance.swift in Sources */,
 				0CD6D483229C77DE00DA73A2 /* Movie.swift in Sources */,
 				0CD6D47F229C722900DA73A2 /* Constant.swift in Sources */,
 				0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */,
@@ -559,6 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CF9C930229BABB60035DF40 /* ServicesTests.swift in Sources */,
+				0CE75F0522A022BE0099B277 /* PersistenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,7 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XMP64DHBJ9;
+				DEVELOPMENT_TEAM = ZT8MGGN5XZ;
 				INFOPLIST_FILE = "ios-recruiting-hsa/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -738,7 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XMP64DHBJ9;
+				DEVELOPMENT_TEAM = ZT8MGGN5XZ;
 				INFOPLIST_FILE = "ios-recruiting-hsa/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,7 +766,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XMP64DHBJ9;
+				DEVELOPMENT_TEAM = ZT8MGGN5XZ;
 				INFOPLIST_FILE = "ios-recruiting-hsaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -780,7 +788,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XMP64DHBJ9;
+				DEVELOPMENT_TEAM = ZT8MGGN5XZ;
 				INFOPLIST_FILE = "ios-recruiting-hsaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
