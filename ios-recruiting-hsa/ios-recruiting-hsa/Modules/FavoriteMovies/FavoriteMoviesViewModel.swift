@@ -9,8 +9,11 @@
 import Foundation
 
 protocol FavoriteMoviesViewModel {
+    var removeAtIndex: (IndexPath) -> Void { get set }
+
     var title: String { get }
     var count: Int { get }
+    func remove(at indexPath: IndexPath)
     func select(indexPath: IndexPath)
     func cellViewModel(forIndex index: IndexPath) -> FavoriteMovieCellViewModel
 }
@@ -19,6 +22,7 @@ protocol FavoriteMoviesViewModel {
 
 class FavoriteMoviesViewModelImpl {
 
+    var removeAtIndex: (IndexPath) -> Void = { _ in }
     var onSelectMovie: (PopularMovie) -> Void = { _ in }
 
     private let favoritesManager: FavoritesManager
@@ -36,6 +40,12 @@ extension FavoriteMoviesViewModelImpl: FavoriteMoviesViewModel {
     func select(indexPath: IndexPath) {
         let movie = favoritesManager.getFavouritesMovies[indexPath.row]
         onSelectMovie(movie)
+    }
+
+    func remove(at indexPath: IndexPath) {
+        let movie = favoritesManager.getFavouritesMovies[indexPath.row]
+        favoritesManager.remove(movie: movie)
+        removeAtIndex(indexPath)
     }
 
     func cellViewModel(forIndex index: IndexPath) -> FavoriteMovieCellViewModel {

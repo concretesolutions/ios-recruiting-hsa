@@ -49,6 +49,10 @@ class FavoriteMoviesViewController: UIViewController {
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
         navigationBar?.topItem?.title = "Favorites"
+
+        viewModel.removeAtIndex = { [unowned self] _ in
+            self.tableView.reloadData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +65,7 @@ class FavoriteMoviesViewController: UIViewController {
 extension FavoriteMoviesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(viewModel.count)
         return viewModel.count
     }
 
@@ -85,8 +90,8 @@ extension FavoriteMoviesViewController: UITableViewDelegate {
         let unfavoriteAction = UITableViewRowAction(
             style: .default,
             title: title
-        ) { _, _ in
-
+        ) { [unowned self] _, indexPath in
+            self.viewModel.remove(at: indexPath)
         }
         return [unfavoriteAction]
     }
