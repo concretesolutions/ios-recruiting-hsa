@@ -25,6 +25,8 @@
 		0CE75EBF229E450A0099B277 /* MovieClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75EBE229E450A0099B277 /* MovieClient.swift */; };
 		0CE75F03229F7AD30099B277 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F02229F7AD30099B277 /* Persistance.swift */; };
 		0CE75F0522A022BE0099B277 /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F0422A022BE0099B277 /* PersistenceTests.swift */; };
+		0CE75F4922A0B4990099B277 /* PopularMoviesApiRepsonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F4822A0B4990099B277 /* PopularMoviesApiRepsonse.swift */; };
+		0CE75F4C22A0B69B0099B277 /* GenreApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F4B22A0B69B0099B277 /* GenreApiResponse.swift */; };
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
@@ -74,6 +76,8 @@
 		0CE75EBE229E450A0099B277 /* MovieClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClient.swift; sourceTree = "<group>"; };
 		0CE75F02229F7AD30099B277 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		0CE75F0422A022BE0099B277 /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
+		0CE75F4822A0B4990099B277 /* PopularMoviesApiRepsonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesApiRepsonse.swift; sourceTree = "<group>"; };
+		0CE75F4B22A0B69B0099B277 /* GenreApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreApiResponse.swift; sourceTree = "<group>"; };
 		0CF9C917229BABB10035DF40 /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C91A229BABB10035DF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF9C921229BABB60035DF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 		0CD6D481229C76E000DA73A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0CE75F4A22A0B4A30099B277 /* ApiResponse */,
 				0CD6D482229C77DD00DA73A2 /* Movie.swift */,
 				0CD6D484229C79DE00DA73A2 /* Genre.swift */,
 			);
@@ -203,6 +208,15 @@
 				0CE75EBA229E163D0099B277 /* FavoriteMovieTableCell.swift */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		0CE75F4A22A0B4A30099B277 /* ApiResponse */ = {
+			isa = PBXGroup;
+			children = (
+				0CE75F4822A0B4990099B277 /* PopularMoviesApiRepsonse.swift */,
+				0CE75F4B22A0B69B0099B277 /* GenreApiResponse.swift */,
+			);
+			path = ApiResponse;
 			sourceTree = "<group>";
 		};
 		0CF9C90E229BABB00035DF40 = {
@@ -545,12 +559,14 @@
 				0CE75EB6229E06B10099B277 /* CustomSearchBar.swift in Sources */,
 				0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */,
 				0CE75DDC229CFA500099B277 /* ListMovieViewController.swift in Sources */,
+				0CE75F4C22A0B69B0099B277 /* GenreApiResponse.swift in Sources */,
 				0CE75EAE229DB56F0099B277 /* UIColor+Extension.swift in Sources */,
 				0CE75EB8229E14F80099B277 /* FavoriteMoviesViewController.swift in Sources */,
 				0CE75F03229F7AD30099B277 /* Persistance.swift in Sources */,
 				0CD6D483229C77DE00DA73A2 /* Movie.swift in Sources */,
 				0CD6D47F229C722900DA73A2 /* Constant.swift in Sources */,
 				0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */,
+				0CE75F4922A0B4990099B277 /* PopularMoviesApiRepsonse.swift in Sources */,
 				0CE75EAB229DAE460099B277 /* MovieCollectionCell.swift in Sources */,
 				0CE75DD7229CF79A0099B277 /* MovieCoordinator.swift in Sources */,
 				0CE75EBF229E450A0099B277 /* MovieClient.swift in Sources */,

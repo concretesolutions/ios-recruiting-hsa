@@ -17,10 +17,10 @@ enum MovieClientError {
 protocol MovieClient {
     func popularMovies(
         forPage: Int,
-        onSuccess: (([PopularMovie]) -> Void)?,
+        onSuccess: ((PopularMoviesApiRepsonse) -> Void)?,
         onError: ((MovieClientError) -> Void)?
     )
-    func genres(onSuccess: (([Genre]) -> Void)?, onError: ((MovieClientError) -> Void)?)
+    func genres(onSuccess: ((GenreApiResponse) -> Void)?, onError: ((MovieClientError) -> Void)?)
 }
 
 // MARK: - Implementation
@@ -38,12 +38,12 @@ extension MovieClientImp: MovieClient {
 
     func popularMovies(
         forPage page: Int,
-        onSuccess: (([PopularMovie]) -> Void)? = nil,
+        onSuccess: ((PopularMoviesApiRepsonse) -> Void)? = nil,
         onError: ((MovieClientError) -> Void)? = nil
     ) {
         apiClient.request(endpoint: .popular(page: page)) { [weak self] data, error in
             self?.decode(
-                for: [PopularMovie].self,
+                for: PopularMoviesApiRepsonse.self,
                 withData: data,
                 onSuccess: onSuccess,
                 withError: error,
@@ -53,12 +53,12 @@ extension MovieClientImp: MovieClient {
     }
 
     func genres(
-        onSuccess: (([Genre]) -> Void)? = nil,
+        onSuccess: ((GenreApiResponse) -> Void)? = nil,
         onError: ((MovieClientError) -> Void)? = nil
     ) {
         apiClient.request(endpoint: .genres) { [weak self] data, error in
             self?.decode(
-                for: [Genre].self,
+                for: GenreApiResponse.self,
                 withData: data,
                 onSuccess: onSuccess,
                 withError: error,

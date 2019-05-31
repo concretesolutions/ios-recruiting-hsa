@@ -14,20 +14,16 @@ struct PopularMovie: Codable {
         case id
         case title
         case overview
-        case originalTitle = "original_title"
         case releaseDate = "release_date"
         case posterPath = "poster_path"
-        case genreIds = "genre_ids"
-        case originalLanguage = "original_Language"
+        case genreIds = "genre_ids  "
     }
 
     let id: Int?
     let title: String?
-    let originalTitle: String?
     let releaseDate: String?
     let overview: String?
     let posterPath: String?
     let genreIds: [Genre]?
-    let originalLanguage: String?
 
 }
