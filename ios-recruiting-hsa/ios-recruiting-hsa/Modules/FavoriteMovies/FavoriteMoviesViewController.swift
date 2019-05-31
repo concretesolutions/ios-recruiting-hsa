@@ -16,9 +16,10 @@ class FavoriteMoviesViewController: UIViewController {
     private weak var navigationBar: UINavigationBar?
 
     private var cellIdentifier = "CellIdentifier"
+    private var viewModel: FavoriteMoviesViewModel
 
-    init(navigationBar: UINavigationBar? = nil) {
-        self.navigationBar = navigationBar
+    init(viewModel: FavoriteMoviesViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: "FavoriteMovies", bundle: nil)
     }
 
@@ -27,6 +28,9 @@ class FavoriteMoviesViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        self.title = viewModel.title
+        navigationController?.tabBarItem.image = .favoriteEmpty
+
         tableView.register(FavoriteMovieTableCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 100
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

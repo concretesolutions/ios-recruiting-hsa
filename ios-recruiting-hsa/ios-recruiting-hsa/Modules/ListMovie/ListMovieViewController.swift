@@ -32,7 +32,8 @@ class ListMovieViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.title = "Movie"
+        self.title = viewModel.title
+        navigationController?.tabBarItem.image = .list
 
         searchBar.backgroundColor = .app
         searchBar.searchBackgroundColor = .darkApp

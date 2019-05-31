@@ -9,6 +9,7 @@
 import Foundation
 
 protocol DetailMovieViewModel {
+    var title: String { get }
     var isFavorite: Bool { get }
     var titleMovie: String { get }
     var yearMovie: String { get }
@@ -27,6 +28,7 @@ class DetailMovieViewModelImpl {
 }
 
 extension DetailMovieViewModelImpl: DetailMovieViewModel {
+    var title: String { return "Detail" }
     var isFavorite: Bool { return Bool.random() }
     var titleMovie: String { return movie.title ?? "" }
     var yearMovie: String { return movie.releaseDate ?? "" }

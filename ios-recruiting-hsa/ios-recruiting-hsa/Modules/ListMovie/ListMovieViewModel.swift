@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ListMovieViewModel {
+    var title: String { get }
 
     var onError: () -> Void { get set }
     var onFinishRetrieve: () -> Void { get set }
@@ -44,6 +45,8 @@ class ListMovieViewModelImpl {
 }
 
 extension ListMovieViewModelImpl: ListMovieViewModel {
+
+    var title: String { return "Movie" }
 
     var count: Int { return currentMovies.count }
     func load() {

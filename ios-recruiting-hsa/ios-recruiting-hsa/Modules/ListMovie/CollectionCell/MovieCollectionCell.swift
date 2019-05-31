@@ -70,7 +70,7 @@ class MovieCollectionCell: UICollectionViewCell {
 
         favoriteImageView = UIImageView()
         favoriteImageView.tintColor = UIColor.ListMovie.nonFavoriteMovie
-        favoriteImageView.image = UIImage.MovieList.favorite
+        favoriteImageView.image = .favorite
         footer.addSubview(favoriteImageView)
         favoriteImageView.translatesAutoresizingMaskIntoConstraints = false
 

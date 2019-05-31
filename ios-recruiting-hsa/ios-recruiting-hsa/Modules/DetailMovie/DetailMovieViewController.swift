@@ -31,7 +31,7 @@ class DetailMovieViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.title = "Detail"
+        self.title = viewModel.title
 
         titleLabel.text = viewModel.titleMovie
         yearLabel.text = viewModel.yearMovie

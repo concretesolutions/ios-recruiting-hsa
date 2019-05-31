@@ -12,6 +12,7 @@ class MainCoordinator: Coordinator {
 
     private let window: UIWindow
     private var movieCoordinator: MovieCoordinator!
+    private var favoriteCoordinator: FavoriteCoordinator!
 
     private lazy var modelManager: ModelManager = modelManagerDefault()
     private var tabbarController: UITabBarController!
@@ -30,10 +31,9 @@ class MainCoordinator: Coordinator {
         )
         movieCoordinator.start()
 
-        let favoriteController = FavoriteMoviesViewController(
-            navigationBar: controllers[1].navigationBar
-        )
-        controllers[1].setViewControllers([favoriteController], animated: false)
+        favoriteCoordinator = FavoriteCoordinator(navigationController: controllers[1])
+        favoriteCoordinator.start()
+
         tabbarController.setViewControllers(controllers, animated: false)
         window.rootViewController = tabbarController
         window.makeKeyAndVisible()

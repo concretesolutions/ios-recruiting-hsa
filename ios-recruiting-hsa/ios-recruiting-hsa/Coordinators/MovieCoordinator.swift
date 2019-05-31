@@ -26,6 +26,7 @@ class MovieCoordinator: Coordinator {
             modelManager: modelManager
         )
         navigationController.viewControllers = [controller]
+        _ = controller.view
     }
 }
 
@@ -38,5 +39,6 @@ extension MovieCoordinator: ListMovieViewDelegate {
             modelManager: modelManager
         )
         navigationController.pushViewController(controller, animated: true)
+        _ = controller.view
     }
 }

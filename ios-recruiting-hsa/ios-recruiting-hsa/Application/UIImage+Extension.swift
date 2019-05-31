@@ -11,7 +11,8 @@ import UIKit
 
 extension UIImage {
 
-    enum MovieList {
-        static var favorite: UIImage? { return UIImage(named: "favorite_full_icon") }
-    }
+    static var favorite: UIImage? { return UIImage(named: "favorite_full_icon") }
+    static var list: UIImage? { return UIImage(named: "list_icon") }
+    static var favoriteEmpty: UIImage? { return UIImage(named: "favorite_empty_icon") }
+
 }

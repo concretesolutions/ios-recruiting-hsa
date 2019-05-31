@@ -18,14 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let navigationAppearance = UINavigationBar.appearance()
-        navigationAppearance.isTranslucent = false
-        navigationAppearance.barTintColor = .app
-        navigationAppearance.tintColor = .black
-
-        let tabbarAppearance = UITabBar.appearance()
-        tabbarAppearance.isTranslucent = false
-        tabbarAppearance.barTintColor = .app
+        setupAppearance()
 
         let window = UIWindow()
         self.window = window
@@ -34,4 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+}
+
+private extension AppDelegate {
+
+    func setupAppearance() {
+        let navigationAppearance = UINavigationBar.appearance()
+        navigationAppearance.isTranslucent = false
+        navigationAppearance.barTintColor = .app
+        navigationAppearance.tintColor = .black
+
+        let tabbarAppearance = UITabBar.appearance()
+        tabbarAppearance.isTranslucent = false
+        tabbarAppearance.tintColor = .black
+        tabbarAppearance.barTintColor = .app
+    }
 }
