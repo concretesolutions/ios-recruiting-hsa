@@ -20,6 +20,8 @@ class MovieCollectionCellImpl: UICollectionViewCell {
     private var favoriteImageView: UIImageView!
     private var moviePosterImageView: UIImageView!
 
+    private var viewModel: MovieCollectionCellViewModel!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -73,8 +75,12 @@ class MovieCollectionCellImpl: UICollectionViewCell {
         movieTitleLabel.centerYAnchor.constraint(equalTo: footer.centerYAnchor).isActive = true
 
         favoriteImageView = UIImageView()
+        favoriteImageView.isUserInteractionEnabled = true
         favoriteImageView.tintColor = UIColor.ListMovie.nonFavoriteMovie
         favoriteImageView.image = .favorite
+        let favoriteTap = UITapGestureRecognizer(target: self, action: #selector(favoriteHandle))
+        favoriteImageView.addGestureRecognizer(favoriteTap)
+
         footer.addSubview(favoriteImageView)
         favoriteImageView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -101,6 +107,10 @@ class MovieCollectionCellImpl: UICollectionViewCell {
         minimumSpaceConstraint.isActive = true
     }
 
+    @objc private func favoriteHandle() {
+        viewModel.toggleFavorite()
+    }
+
     // Public methods
 
     override func prepareForReuse() {
@@ -111,12 +121,23 @@ class MovieCollectionCellImpl: UICollectionViewCell {
 extension MovieCollectionCellImpl: MovieCollectionCell {
 
     func configure(with viewModel: MovieCollectionCellViewModel) {
+        self.viewModel = viewModel
+
         let palette = UIColor.ListMovie.self
         let tintColor = viewModel.isFavorite ? palette.favoriteMovie : palette.nonFavoriteMovie
         movieTitleLabel.text = viewModel.title
         favoriteImageView.tintColor = tintColor
         if let posterURL = viewModel.posterURL {
             moviePosterImageView.kf.setImage(with: posterURL )
+        }
+
+        viewModel.onFavouriteChange = { [unowned self] isFavorite in
+            let duration = 0.3
+            let palette = UIColor.ListMovie.self
+            let color = isFavorite ? palette.favoriteMovie : palette.nonFavoriteMovie
+            UIView.animate(withDuration: duration) {
+                self.favoriteImageView.tintColor = color
+            }
         }
     }
 }

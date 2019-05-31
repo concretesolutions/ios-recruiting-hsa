@@ -42,7 +42,7 @@ class DetailMovieViewController: UIViewController {
 
         favoriteIcon.tintColor = favoriteColor(ifIs: viewModel.isFavorite)
 
-        viewModel.onFavouriteChange = { isFavorite in
+        viewModel.onFavouriteChange = { [unowned self] isFavorite in
             let duration = 0.3
             let halfDuration = duration / 2
             UIView.animateKeyframes(
