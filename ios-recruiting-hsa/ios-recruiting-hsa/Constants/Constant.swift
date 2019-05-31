@@ -12,6 +12,7 @@ enum Constants {
 
     enum PersistanceKeys {
         static let favoritesMovies = "FavoritesMovies"
+        static let genresMovies = "GenresMovies"
     }
 
     static let apiKey: String = {

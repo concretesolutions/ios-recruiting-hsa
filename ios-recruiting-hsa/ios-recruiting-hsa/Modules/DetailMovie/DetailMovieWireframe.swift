@@ -16,7 +16,8 @@ class DetailMovieWireframe {
     ) -> UIViewController {
         let viewModel = DetailMovieViewModelImpl(
             movie: movie,
-            favoritesManager: appDependencies.favoritesManager
+            favoritesManager: appDependencies.favoritesManager,
+            genreManager: appDependencies.genreManager
         )
         let controller = DetailMovieViewController(viewModel: viewModel)
         return controller

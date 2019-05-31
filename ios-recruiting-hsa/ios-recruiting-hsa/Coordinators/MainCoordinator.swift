@@ -53,8 +53,10 @@ private  extension MainCoordinator {
     func buildDependencies() -> AppDependencies {
         let dependencies = AppDependencies(
             favoritesManager: favoritesManagerDefault(),
-            modelManager: modelManagerDefault()
+            modelManager: modelManagerDefault(),
+            genreManager: genreManagerDefault()
         )
+        dependencies.genreManager.fetchGenres()
         return dependencies
     }
 }

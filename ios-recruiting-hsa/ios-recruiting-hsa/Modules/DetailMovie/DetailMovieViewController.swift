@@ -36,9 +36,11 @@ class DetailMovieViewController: UIViewController {
         titleLabel.text = viewModel.titleMovie
         yearLabel.text = viewModel.yearMovie
         descriptionLabel.text = viewModel.descriptionMovie
+        genresLabel.text = viewModel.genres
         if let posterPath = viewModel.posterURL {
             posterImageView.kf.setImage(with: posterPath)
         }
+        genresLabel.superview?.isHidden = genresLabel.text == ""
 
         favoriteIcon.tintColor = favoriteColor(ifIs: viewModel.isFavorite)
 

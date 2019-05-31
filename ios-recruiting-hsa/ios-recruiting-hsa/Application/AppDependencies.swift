@@ -11,4 +11,5 @@ import Foundation
 struct AppDependencies {
     let favoritesManager: FavoritesManager
     let modelManager: ModelManager
+    let genreManager: GenreManager
 }

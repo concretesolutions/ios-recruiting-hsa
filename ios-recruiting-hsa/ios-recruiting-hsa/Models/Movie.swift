@@ -16,7 +16,7 @@ struct PopularMovie: Codable {
         case overview
         case releaseDate = "release_date"
         case posterPath = "poster_path"
-        case genreIds = "genre_ids  "
+        case genreIds = "genre_ids"
     }
 
     let id: Int?
@@ -24,7 +24,7 @@ struct PopularMovie: Codable {
     let releaseDate: String?
     let overview: String?
     let posterPath: String?
-    let genreIds: [Genre]?
+    let genreIds: [Int]?
 
 }
 
