@@ -32,8 +32,8 @@ class ListMovieViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.title = viewModel.title
-        navigationController?.tabBarItem.image = .list
+        tabBarItem.title = viewModel.title
+        tabBarItem.image = .list
 
         searchBar.backgroundColor = .app
         searchBar.searchBackgroundColor = .darkApp
@@ -54,6 +54,10 @@ class ListMovieViewController: UIViewController {
         viewModel.onError = {}
         viewModel.onFinishRetrieve = { [unowned self] in self.collectionView.reloadData() }
         viewModel.load()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.title = viewModel.title
     }
 }
 

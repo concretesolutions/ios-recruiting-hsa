@@ -11,16 +11,15 @@ import UIKit
 
 class FavoriteCoordinator: Coordinator {
 
-    let navigationController: UINavigationController
+    var rootViewController: UIViewController!
+
+    private let navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        let controller = FavoriteMoviesWireframe.viewController()
-        navigationController.viewControllers = [controller]
-
-        _ = controller.view
+        rootViewController = FavoriteMoviesWireframe.viewController()
     }
 }

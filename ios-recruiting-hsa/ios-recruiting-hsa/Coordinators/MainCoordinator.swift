@@ -15,27 +15,31 @@ class MainCoordinator: Coordinator {
     private var favoriteCoordinator: FavoriteCoordinator!
 
     private lazy var modelManager: ModelManager = modelManagerDefault()
-    private var tabbarController: UITabBarController!
 
     init(window: UIWindow) {
         self.window = window
     }
 
     func start() {
-        self.tabbarController = UITabBarController()
-
-        let controllers = [UINavigationController(), UINavigationController()]
+        let navigation = UINavigationController()
         movieCoordinator = MovieCoordinator(
-            navigationController: controllers[0],
+            navigationController: navigation,
             modelManager: modelManager
         )
         movieCoordinator.start()
 
-        favoriteCoordinator = FavoriteCoordinator(navigationController: controllers[1])
+        favoriteCoordinator = FavoriteCoordinator(navigationController: navigation)
         favoriteCoordinator.start()
 
+        let controllers: [UIViewController] = [
+            movieCoordinator.rootViewController,
+            favoriteCoordinator.rootViewController,
+        ]
+        controllers.forEach { _ = $0.view }
+        let tabbarController = UITabBarController()
         tabbarController.setViewControllers(controllers, animated: false)
-        window.rootViewController = tabbarController
+        navigation.viewControllers = [tabbarController]
+        window.rootViewController = navigation
         window.makeKeyAndVisible()
     }
 }

@@ -28,8 +28,8 @@ class FavoriteMoviesViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        self.title = viewModel.title
-        navigationController?.tabBarItem.image = .favoriteEmpty
+        tabBarItem.title = viewModel.title
+        tabBarItem.image = .favoriteEmpty
 
         tableView.register(FavoriteMovieTableCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 100
@@ -49,6 +49,10 @@ class FavoriteMoviesViewController: UIViewController {
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
         navigationBar?.topItem?.title = "Favorites"
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.title = viewModel.title
     }
 }
 

@@ -11,6 +11,8 @@ import UIKit
 
 class MovieCoordinator: Coordinator {
 
+    var rootViewController: UIViewController!
+
     private let navigationController: UINavigationController
     private let modelManager: ModelManager
 
@@ -20,13 +22,11 @@ class MovieCoordinator: Coordinator {
     }
 
     func start() {
-        let controller = ListMovieWireframe.viewController(
+        rootViewController = ListMovieWireframe.viewController(
             withDelegate: self,
             navigationBar: navigationController.navigationBar,
             modelManager: modelManager
         )
-        navigationController.viewControllers = [controller]
-        _ = controller.view
     }
 }
 
