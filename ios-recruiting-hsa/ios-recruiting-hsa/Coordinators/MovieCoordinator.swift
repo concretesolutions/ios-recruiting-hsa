@@ -14,18 +14,18 @@ class MovieCoordinator: Coordinator {
     var rootViewController: UIViewController!
 
     private let navigationController: UINavigationController
-    private let modelManager: ModelManager
+    private let appDependencies: AppDependencies
 
-    init(navigationController: UINavigationController, modelManager: ModelManager) {
+    init(navigationController: UINavigationController, appDependencies: AppDependencies) {
         self.navigationController = navigationController
-        self.modelManager = modelManager
+        self.appDependencies = appDependencies
     }
 
     func start() {
         rootViewController = ListMovieWireframe.viewController(
             withDelegate: self,
             navigationBar: navigationController.navigationBar,
-            modelManager: modelManager
+            modelManager: appDependencies.modelManager
         )
     }
 }
@@ -36,7 +36,8 @@ extension MovieCoordinator: ListMovieViewDelegate {
         let controller = DetailMovieWireframe.viewController(
             movie: movie,
             navigationBar: navigationController.navigationBar,
-            modelManager: modelManager
+            modelManager: appDependencies.modelManager,
+            applicationManager: appDependencies.applicationManager
         )
         navigationController.pushViewController(controller, animated: true)
         _ = controller.view

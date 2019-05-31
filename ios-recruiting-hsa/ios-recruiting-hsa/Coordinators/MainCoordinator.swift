@@ -14,6 +14,7 @@ class MainCoordinator: Coordinator {
     private var movieCoordinator: MovieCoordinator!
     private var favoriteCoordinator: FavoriteCoordinator!
 
+    private lazy var appDependecies = buildDependencies()
     private lazy var modelManager: ModelManager = modelManagerDefault()
 
     init(window: UIWindow) {
@@ -24,11 +25,14 @@ class MainCoordinator: Coordinator {
         let navigation = UINavigationController()
         movieCoordinator = MovieCoordinator(
             navigationController: navigation,
-            modelManager: modelManager
+            appDependencies: appDependecies
         )
         movieCoordinator.start()
 
-        favoriteCoordinator = FavoriteCoordinator(navigationController: navigation)
+        favoriteCoordinator = FavoriteCoordinator(
+            navigationController: navigation,
+            appDependencies: appDependecies
+        )
         favoriteCoordinator.start()
 
         let controllers: [UIViewController] = [
@@ -41,5 +45,16 @@ class MainCoordinator: Coordinator {
         navigation.viewControllers = [tabbarController]
         window.rootViewController = navigation
         window.makeKeyAndVisible()
+    }
+}
+
+private  extension MainCoordinator {
+
+    func buildDependencies() -> AppDependencies {
+        let dependencies = AppDependencies(
+            applicationManager: applicationManagerDefault(),
+            modelManager: modelManagerDefault()
+        )
+        return dependencies
     }
 }

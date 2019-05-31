@@ -28,6 +28,17 @@ struct PopularMovie: Codable {
 
 }
 
+extension PopularMovie: Hashable {
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: PopularMovie, rhs: PopularMovie) -> Bool {
+        return  lhs.id == rhs.id
+    }
+}
+
 extension PopularMovie {
 
     var posterURL: URL? {

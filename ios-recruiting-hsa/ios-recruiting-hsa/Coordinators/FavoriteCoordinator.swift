@@ -14,9 +14,11 @@ class FavoriteCoordinator: Coordinator {
     var rootViewController: UIViewController!
 
     private let navigationController: UINavigationController
+    private let appDependencies: AppDependencies
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, appDependencies: AppDependencies) {
         self.navigationController = navigationController
+        self.appDependencies = appDependencies
     }
 
     func start() {

@@ -10,6 +10,10 @@ import Foundation
 
 enum Constants {
 
+    enum PersistanceKeys {
+        static let favoritesMovies = "FavoritesMovies"
+    }
+
     static let apiKey: String = {
         let adas = "adasasd"
         guard let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),

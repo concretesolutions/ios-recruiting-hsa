@@ -90,4 +90,8 @@ extension FavoriteMoviesViewController: UITableViewDelegate {
         }
         return [unfavoriteAction]
     }
+
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
