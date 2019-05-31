@@ -10,15 +10,18 @@ import Foundation
 
 protocol FavoritesManager: class {
 
-    var getFavouritesMovies: AnySequence<PopularMovie> { get }
+    var getFavouritesMovies: [PopularMovie] { get }
 
     /// This method adds a movie to the current application. It does nothing if the movie is already
     /// present
-    func addNewMovie(movie: PopularMovie)
+    func add(movie: PopularMovie)
 
     /// This method removes a movie to the current application. It does nothing if the movie is
     /// already present.
     func remove(movie: PopularMovie)
+
+    /// Check if the passed movie is favorited
+    func isFavorite(movie: PopularMovie) -> Bool
 }
 
 func favoritesManagerDefault() -> FavoritesManager {
@@ -32,7 +35,8 @@ class FavoritesManagerImpl {
     let persistance: Persistance
     let queue = DispatchQueue(label: "applicationManager", qos: .userInteractive)
 
-    private lazy var favoritesMovies: Set<PopularMovie> = {
+    private lazy var fastCheckfavoritesMovies: Set<PopularMovie> = Set(favoritesMovies)
+    private lazy var favoritesMovies: [PopularMovie] = {
         return (try? persistance.retreive(key: key)) ?? []
     }()
 
@@ -49,21 +53,28 @@ private extension FavoritesManagerImpl {
 
 extension FavoritesManagerImpl: FavoritesManager {
 
-    var getFavouritesMovies: AnySequence<PopularMovie> { return AnySequence(favoritesMovies) }
+    var getFavouritesMovies: [PopularMovie] { return favoritesMovies }
 
-    func addNewMovie(movie: PopularMovie) {
+    func add(movie: PopularMovie) {
         queue.sync {
-            self.favoritesMovies.insert(movie)
-            try? self.persistance.save(data: self.favoritesMovies, forKey: self.key)
+            let result = self.fastCheckfavoritesMovies.insert(movie)
+            if result.inserted {
+                self.favoritesMovies.append(movie)
+                try? self.persistance.save(data: self.favoritesMovies, forKey: self.key)
+            }
         }
     }
 
-    /// This method removes a movie to the current application. It does nothing if the movie is
-    /// already present.
     func remove(movie: PopularMovie) {
         queue.sync {
-            self.favoritesMovies.remove(movie)
-            try? self.persistance.save(data: self.favoritesMovies, forKey: self.key)
+            if let movie = self.fastCheckfavoritesMovies.remove(movie) {
+                self.favoritesMovies.removeAll { $0 == movie }
+                try? self.persistance.save(data: self.favoritesMovies, forKey: self.key)
+            }
         }
+    }
+
+    func isFavorite(movie: PopularMovie) -> Bool {
+        return fastCheckfavoritesMovies.contains(movie)
     }
 }

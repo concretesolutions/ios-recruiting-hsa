@@ -18,9 +18,12 @@ class ListMovieWireframe {
     static func viewController(
         withDelegate delegate: ListMovieViewDelegate,
         navigationBar: UINavigationBar,
-        modelManager: ModelManager
+        appDependencies: AppDependencies
     ) -> UIViewController {
-        let viewModel = ListMovieViewModelImpl(modelManager: modelManager)
+        let viewModel = ListMovieViewModelImpl(
+            modelManager: appDependencies.modelManager,
+            favoritesManager: appDependencies.favoritesManager
+        )
         let controller = ListMovieViewController(
             navigationBar: navigationBar,
             viewModel: viewModel

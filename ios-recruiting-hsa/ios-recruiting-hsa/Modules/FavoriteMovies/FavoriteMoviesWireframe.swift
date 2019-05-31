@@ -11,8 +11,10 @@ import UIKit
 
 class FavoriteMoviesWireframe {
 
-    static func viewController() -> UIViewController {
-        let viewModel = FavoriteMoviesViewModelImpl()
+    static func viewController(appDependencies: AppDependencies) -> UIViewController {
+        let viewModel = FavoriteMoviesViewModelImpl(
+            favoritesManager: appDependencies.favoritesManager
+        )
         let controller = FavoriteMoviesViewController(viewModel: viewModel)
         return controller
     }

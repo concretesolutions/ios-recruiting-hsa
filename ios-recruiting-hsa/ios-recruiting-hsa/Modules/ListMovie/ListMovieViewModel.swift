@@ -32,13 +32,15 @@ class ListMovieViewModelImpl {
     // Coordinator properties
     var onSelectedMovie: (PopularMovie) -> Void = { _ in }
 
+    private let favoritesManager: FavoritesManager
     private let modelManager: ModelManager
 
     private var currentMovies: [PopularMovie]
     private var currentPage: Int
 
-    init(modelManager: ModelManager) {
+    init(modelManager: ModelManager, favoritesManager: FavoritesManager) {
         self.modelManager = modelManager
+        self.favoritesManager = favoritesManager
         self.currentMovies = []
         self.currentPage = 0
     }
@@ -75,6 +77,6 @@ extension ListMovieViewModelImpl: ListMovieViewModel {
 
     func itemViewModel(at indexPath: IndexPath) -> MovieCollectionCellViewModel {
         let movie = currentMovies[indexPath.item]
-        return MovieCollectionCellViewModelImpl(movie: movie)
+        return MovieCollectionCellViewModelImpl(movie: movie, favoritesManager: favoritesManager)
     }
 }

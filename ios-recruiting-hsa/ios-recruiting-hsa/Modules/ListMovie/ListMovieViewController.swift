@@ -58,6 +58,8 @@ class ListMovieViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.title = viewModel.title
+
+        collectionView.reloadData()
     }
 }
 

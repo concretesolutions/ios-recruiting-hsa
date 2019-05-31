@@ -19,14 +19,16 @@ protocol MovieCollectionCellViewModel {
 class MovieCollectionCellViewModelImpl {
 
     let movie: PopularMovie
+    let favoritesManager: FavoritesManager
 
-    init(movie: PopularMovie) {
+    init(movie: PopularMovie, favoritesManager: FavoritesManager) {
         self.movie = movie
+        self.favoritesManager = favoritesManager
     }
 }
 
 extension MovieCollectionCellViewModelImpl: MovieCollectionCellViewModel {
     var title: String { return movie.title ?? "" }
-    var isFavorite: Bool { return false }
+    var isFavorite: Bool { return favoritesManager.isFavorite(movie: movie) }
     var posterURL: URL? { return movie.posterURL }
 }

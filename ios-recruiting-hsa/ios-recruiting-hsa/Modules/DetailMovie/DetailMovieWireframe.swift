@@ -13,10 +13,12 @@ class DetailMovieWireframe {
     static func viewController(
         movie: PopularMovie,
         navigationBar: UINavigationBar,
-        modelManager: ModelManager,
-        applicationManager: FavoritesManager
+        appDependencies: AppDependencies
     ) -> UIViewController {
-        let viewModel = DetailMovieViewModelImpl(movie: movie)
+        let viewModel = DetailMovieViewModelImpl(
+            movie: movie,
+            favoritesManager: appDependencies.favoritesManager
+        )
         let controller = DetailMovieViewController(viewModel: viewModel)
         return controller
     }

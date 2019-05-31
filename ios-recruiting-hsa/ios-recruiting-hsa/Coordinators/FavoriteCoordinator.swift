@@ -22,6 +22,8 @@ class FavoriteCoordinator: Coordinator {
     }
 
     func start() {
-        rootViewController = FavoriteMoviesWireframe.viewController()
+        rootViewController = FavoriteMoviesWireframe.viewController(
+            appDependencies: appDependencies
+        )
     }
 }

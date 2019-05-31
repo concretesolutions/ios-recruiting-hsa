@@ -39,12 +39,41 @@ class DetailMovieViewController: UIViewController {
         if let posterPath = viewModel.posterURL {
             posterImageView.kf.setImage(with: posterPath)
         }
+
+        favoriteIcon.tintColor = favoriteColor(ifIs: viewModel.isFavorite)
+
+        viewModel.onFavouriteChange = { isFavorite in
+            let duration = 0.3
+            let halfDuration = duration / 2
+            UIView.animateKeyframes(
+                withDuration: duration,
+                delay: 0,
+                options: [],
+                animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration) {
+                        self.favoriteIcon.tintColor = self.favoriteColor(ifIs: isFavorite)
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: halfDuration) {
+                        self.favoriteIcon.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
+                    }
+                    UIView.addKeyframe(
+                        withRelativeStartTime: halfDuration,
+                        relativeDuration: halfDuration
+                    ) {
+                        self.favoriteIcon.transform = .identity
+                    }
+                },
+                completion: nil
+            )
+        }
+    }
+
+    private func favoriteColor(ifIs favorite: Bool) -> UIColor? {
         let palette = UIColor.ListMovie.self
-        let favoriteColor = viewModel.isFavorite ? palette.favoriteMovie : palette.nonFavoriteMovie
-        favoriteIcon.tintColor = favoriteColor
+        return favorite ? palette.favoriteMovie : palette.nonFavoriteMovie
     }
 
     @IBAction private func favoriteTap(_ sender: Any) {
-        print("Favorite tap")
+        viewModel.toggleFavorite()
     }
 }

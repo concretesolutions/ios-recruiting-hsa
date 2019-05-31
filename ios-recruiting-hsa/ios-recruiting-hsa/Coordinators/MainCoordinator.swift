@@ -52,7 +52,7 @@ private  extension MainCoordinator {
 
     func buildDependencies() -> AppDependencies {
         let dependencies = AppDependencies(
-            applicationManager: applicationManagerDefault(),
+            favoritesManager: favoritesManagerDefault(),
             modelManager: modelManagerDefault()
         )
         return dependencies

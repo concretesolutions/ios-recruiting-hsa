@@ -31,7 +31,7 @@ class FavoriteMoviesViewController: UIViewController {
         tabBarItem.title = viewModel.title
         tabBarItem.image = .favoriteEmpty
 
-        tableView.register(FavoriteMovieTableCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(FavoriteMovieTableCellImpl.self, forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 100
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorColor = .white
@@ -53,17 +53,15 @@ class FavoriteMoviesViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.title = viewModel.title
+
+        tableView.reloadData()
     }
 }
 
 extension FavoriteMoviesViewController: UITableViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,6 +69,8 @@ extension FavoriteMoviesViewController: UITableViewDataSource {
         guard let cell = dequedCell as? FavoriteMovieTableCell else {
             return UITableViewCell()
         }
+        let cellViewModel = viewModel.cellViewModel(forIndex: indexPath)
+        cell.configure(viewModel: cellViewModel)
         return cell
     }
 }

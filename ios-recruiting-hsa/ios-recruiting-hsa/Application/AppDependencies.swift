@@ -9,6 +9,6 @@
 import Foundation
 
 struct AppDependencies {
-    let applicationManager: FavoritesManager
+    let favoritesManager: FavoritesManager
     let modelManager: ModelManager
 }

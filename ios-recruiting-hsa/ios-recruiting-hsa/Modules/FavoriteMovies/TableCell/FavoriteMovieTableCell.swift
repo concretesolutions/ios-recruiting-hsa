@@ -8,8 +8,13 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
-class FavoriteMovieTableCell: UITableViewCell {
+protocol FavoriteMovieTableCell: UITableViewCell {
+    func configure(viewModel: FavoriteMovieCellViewModel)
+}
+
+class FavoriteMovieTableCellImpl: UITableViewCell {
 
     private var posterImageView: UIImageView!
     private var titleLabel: UILabel!
@@ -52,7 +57,6 @@ class FavoriteMovieTableCell: UITableViewCell {
 
     private func setTitle() {
         titleLabel = UILabel()
-        titleLabel.text = "Very Long title Very Long title Very Long title Very Long title Very Long title" // swiftlint:disable:this line_length
         titleLabel.font = .systemFont(ofSize: 16, weight: .medium)
         titleLabel.numberOfLines = 2
 
@@ -93,7 +97,6 @@ class FavoriteMovieTableCell: UITableViewCell {
 
     private func setDescription() {
         descriptionLabel = UILabel()
-        descriptionLabel.text = "Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long Very Litle Long" // swiftlint:disable:this line_length
         descriptionLabel.font = .systemFont(ofSize: 12, weight: .regular)
         descriptionLabel.numberOfLines = 3
 
@@ -114,5 +117,21 @@ class FavoriteMovieTableCell: UITableViewCell {
         bottomConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
+    }
+
+    // MARK: - Public overrides
+
+    override func prepareForReuse() {
+        posterImageView.kf.cancelDownloadTask()
+    }
+}
+
+extension FavoriteMovieTableCellImpl: FavoriteMovieTableCell {
+
+    func configure(viewModel: FavoriteMovieCellViewModel) {
+        titleLabel.text = viewModel.title
+        yearLabel.text = viewModel.year
+        descriptionLabel.text = viewModel.description
+        posterImageView.kf.setImage(with: viewModel.posterURL)
     }
 }

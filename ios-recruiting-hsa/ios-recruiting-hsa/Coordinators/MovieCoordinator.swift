@@ -25,7 +25,7 @@ class MovieCoordinator: Coordinator {
         rootViewController = ListMovieWireframe.viewController(
             withDelegate: self,
             navigationBar: navigationController.navigationBar,
-            modelManager: appDependencies.modelManager
+            appDependencies: appDependencies
         )
     }
 }
@@ -36,8 +36,7 @@ extension MovieCoordinator: ListMovieViewDelegate {
         let controller = DetailMovieWireframe.viewController(
             movie: movie,
             navigationBar: navigationController.navigationBar,
-            modelManager: appDependencies.modelManager,
-            applicationManager: appDependencies.applicationManager
+            appDependencies: appDependencies
         )
         navigationController.pushViewController(controller, animated: true)
         _ = controller.view
