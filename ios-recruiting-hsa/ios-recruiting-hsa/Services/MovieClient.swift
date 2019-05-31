@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MovieClientError {
+enum MovieClientError: Error {
     case decoded(description: String)
     case underlying(error: Error)
     case apiError(error: ApiError)

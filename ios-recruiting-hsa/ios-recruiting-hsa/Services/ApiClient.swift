@@ -14,7 +14,7 @@ enum MovieEndpoint {
     case genres
 }
 
-enum ApiError {
+enum ApiError: Error {
     case statusCode(Int)
     case failedRequest(Error?)
     case unknown(Error)
