@@ -35,7 +35,6 @@ extension MovieCoordinator: ListMovieViewDelegate {
     func listMovieView(_ viewController: ListMovieViewController, didSelect movie: PopularMovie) {
         let controller = DetailMovieWireframe.viewController(
             movie: movie,
-            navigationBar: navigationController.navigationBar,
             appDependencies: appDependencies
         )
         navigationController.pushViewController(controller, animated: true)

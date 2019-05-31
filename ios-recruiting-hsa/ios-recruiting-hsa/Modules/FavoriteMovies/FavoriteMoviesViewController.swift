@@ -91,7 +91,8 @@ extension FavoriteMoviesViewController: UITableViewDelegate {
         return [unfavoriteAction]
     }
 
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.select(indexPath: indexPath)
     }
 }

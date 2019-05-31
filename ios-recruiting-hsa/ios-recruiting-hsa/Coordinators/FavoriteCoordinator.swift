@@ -23,7 +23,22 @@ class FavoriteCoordinator: Coordinator {
 
     func start() {
         rootViewController = FavoriteMoviesWireframe.viewController(
+            withDelegate: self,
             appDependencies: appDependencies
         )
+    }
+}
+
+extension FavoriteCoordinator: FavoriteMoviesViewDelegate {
+
+    func favoriteMovieView(
+        _ viewController: FavoriteMoviesViewController,
+        didSelect movie: PopularMovie
+    ) {
+        let controller = DetailMovieWireframe.viewController(
+            movie: movie,
+            appDependencies: appDependencies
+        )
+        navigationController.pushViewController(controller, animated: true)
     }
 }

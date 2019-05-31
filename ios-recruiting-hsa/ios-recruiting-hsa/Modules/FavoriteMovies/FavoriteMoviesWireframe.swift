@@ -9,13 +9,26 @@
 import Foundation
 import UIKit
 
+protocol FavoriteMoviesViewDelegate: class {
+    func favoriteMovieView(
+        _ viewController: FavoriteMoviesViewController,
+        didSelect movie: PopularMovie
+    )
+}
+
 class FavoriteMoviesWireframe {
 
-    static func viewController(appDependencies: AppDependencies) -> UIViewController {
+    static func viewController(
+        withDelegate delegate: FavoriteMoviesViewDelegate,
+        appDependencies: AppDependencies
+    ) -> UIViewController {
         let viewModel = FavoriteMoviesViewModelImpl(
             favoritesManager: appDependencies.favoritesManager
         )
         let controller = FavoriteMoviesViewController(viewModel: viewModel)
+        viewModel.onSelectMovie = { [weak delegate, unowned controller] movie in
+            delegate?.favoriteMovieView(controller, didSelect: movie)
+        }
         return controller
     }
 }

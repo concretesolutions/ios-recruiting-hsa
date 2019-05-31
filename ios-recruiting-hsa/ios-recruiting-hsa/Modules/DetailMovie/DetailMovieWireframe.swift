@@ -12,7 +12,6 @@ import UIKit
 class DetailMovieWireframe {
     static func viewController(
         movie: PopularMovie,
-        navigationBar: UINavigationBar,
         appDependencies: AppDependencies
     ) -> UIViewController {
         let viewModel = DetailMovieViewModelImpl(
