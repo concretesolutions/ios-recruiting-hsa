@@ -14,7 +14,7 @@ enum MovieEndpoint {
     case genres
 }
 
-enum ApiError: Error {
+enum ApiError {
     case statusCode(Int)
     case failedRequest(Error?)
     case unknown(Error)
@@ -28,15 +28,23 @@ protocol ApiClient {
 
 func apiClientDefault() -> ApiClient {
     let endpointClosure = { (target: MovieEndpoint) -> Endpoint in
-        var headers = target.headers
-        headers?["lang"] = "en-US"
-        headers?["api_key"] = Constants.apiKey
+        let task = target.task
+        let newTask: Task
+        if case .requestPlain = task {
+            let headers = [
+                "lang": "en-US",
+                "api_key": Constants.apiKey,
+            ]
+            newTask = .requestParameters(parameters: headers, encoding: URLEncoding.default)
+        } else {
+            fatalError("Not valid for this application")
+        }
         return Endpoint(
             url: URL(target: target).absoluteString,
             sampleResponseClosure: {.networkResponse(200, target.sampleData)},
             method: target.method,
-            task: target.task,
-            httpHeaderFields: headers
+            task: newTask,
+            httpHeaderFields: target.headers
         )
     }
     let provider = MoyaProvider<MovieEndpoint>(endpointClosure: endpointClosure)

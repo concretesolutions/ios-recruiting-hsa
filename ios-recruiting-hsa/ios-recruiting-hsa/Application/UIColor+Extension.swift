@@ -23,4 +23,15 @@ extension UIColor {
     // 216 216 216
     static var darkCell: UIColor? { return UIColor(named: "DarkCell") }
 
+    // 216 216 216
+    static var disabledApp: UIColor? { return UIColor(named: "DisabledApp") }
+}
+
+extension UIColor {
+
+    enum ListMovie {
+        static var favoriteMovie: UIColor? { return .app }
+        static var nonFavoriteMovie: UIColor? { return .disabledApp }
+    }
+
 }

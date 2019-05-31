@@ -66,7 +66,7 @@ class MovieCollectionCell: UICollectionViewCell {
         movieTitleLabel.centerYAnchor.constraint(equalTo: footer.centerYAnchor).isActive = true
 
         favoriteImageView = UIImageView()
-        favoriteImageView.tintColor = .app
+        favoriteImageView.tintColor = UIColor.ListMovie.nonFavoriteMovie
         favoriteImageView.image = UIImage.MovieList.favorite
         footer.addSubview(favoriteImageView)
         favoriteImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,10 +87,19 @@ class MovieCollectionCell: UICollectionViewCell {
         heightConstraint.isActive = true
         aspectRatio.isActive = true
 
-        let minimumSpaceConstraint = movieTitleLabel.trailingAnchor.constraint(
-            greaterThanOrEqualTo: favoriteImageView.leadingAnchor,
+        let minimumSpaceConstraint = favoriteImageView.leadingAnchor.constraint(
+            equalTo: movieTitleLabel.trailingAnchor,
             constant: 5
         )
         minimumSpaceConstraint.isActive = true
+    }
+
+    // Public methods
+
+    func configure(with viewModel: MovieCollectionCellViewModel) {
+        let palette = UIColor.ListMovie.self
+        let tintColor = viewModel.isFavorite ? palette.favoriteMovie : palette.nonFavoriteMovie
+        movieTitleLabel.text = viewModel.title
+        favoriteImageView.tintColor = tintColor
     }
 }

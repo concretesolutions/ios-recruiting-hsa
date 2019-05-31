@@ -105,15 +105,11 @@ extension ListMovieViewController: UICollectionViewDelegateFlowLayout {
 
 extension ListMovieViewController: UICollectionViewDataSource {
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 10
+        return viewModel.count
     }
 
     func collectionView(
@@ -127,6 +123,8 @@ extension ListMovieViewController: UICollectionViewDataSource {
         guard let cell = dequedCell as? MovieCollectionCell else {
             return UICollectionViewCell()
         }
+        let cellViewModel = viewModel.itemViewModel(at: indexPath)
+        cell.configure(with: cellViewModel)
         return cell
     }
 }

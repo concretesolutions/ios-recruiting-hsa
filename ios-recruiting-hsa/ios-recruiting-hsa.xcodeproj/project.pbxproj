@@ -30,6 +30,7 @@
 		0CE75F4E22A0B80E0099B277 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F4D22A0B80E0099B277 /* ModelManager.swift */; };
 		0CE75F5022A0C2280099B277 /* ListMovieWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F4F22A0C2280099B277 /* ListMovieWireframe.swift */; };
 		0CE75F5222A0C2F10099B277 /* ListMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F5122A0C2F00099B277 /* ListMovieViewModel.swift */; };
+		0CE75F5422A0D5040099B277 /* MovieCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75F5322A0D5040099B277 /* MovieCollectionCellViewModel.swift */; };
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		0CE75F4D22A0B80E0099B277 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		0CE75F4F22A0C2280099B277 /* ListMovieWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieWireframe.swift; sourceTree = "<group>"; };
 		0CE75F5122A0C2F00099B277 /* ListMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewModel.swift; sourceTree = "<group>"; };
+		0CE75F5322A0D5040099B277 /* MovieCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		0CF9C917229BABB10035DF40 /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C91A229BABB10035DF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF9C921229BABB60035DF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE75EAA229DAE460099B277 /* MovieCollectionCell.swift */,
+				0CE75F5322A0D5040099B277 /* MovieCollectionCellViewModel.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				0CF9C94D229BB2F10035DF40 /* MainCoordinator.swift in Sources */,
 				0CE75DDC229CFA500099B277 /* ListMovieViewController.swift in Sources */,
 				0CE75F4C22A0B69B0099B277 /* GenreApiResponse.swift in Sources */,
+				0CE75F5422A0D5040099B277 /* MovieCollectionCellViewModel.swift in Sources */,
 				0CE75F5022A0C2280099B277 /* ListMovieWireframe.swift in Sources */,
 				0CE75EAE229DB56F0099B277 /* UIColor+Extension.swift in Sources */,
 				0CE75EB8229E14F80099B277 /* FavoriteMoviesViewController.swift in Sources */,
