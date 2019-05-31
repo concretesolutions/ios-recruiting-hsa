@@ -38,6 +38,7 @@ class ListMovieViewController: UIViewController {
         searchBar.backgroundColor = .app
         searchBar.searchBackgroundColor = .darkApp
         searchBar.placeholder = "Search"
+        searchBar.delegate = self
 
         collectionView.register(
             MovieCollectionCellImpl.self,
@@ -52,7 +53,7 @@ class ListMovieViewController: UIViewController {
 
         viewModel.initialLoading = {}
         viewModel.onError = {}
-        viewModel.onFinishRetrieve = { [unowned self] in self.collectionView.reloadData() }
+        viewModel.onUpdate = { [unowned self] in self.collectionView.reloadData() }
         viewModel.load()
     }
 
@@ -138,5 +139,12 @@ extension ListMovieViewController: UICollectionViewDataSource {
         let cellViewModel = viewModel.itemViewModel(at: indexPath)
         cell.configure(with: cellViewModel)
         return cell
+    }
+}
+
+extension ListMovieViewController: CustomSearchBarDelegate {
+
+    func customSearchBar(_ customSearchBar: CustomSearchBar, currentText text: String) {
+        viewModel.setCurrent(filterText: text)
     }
 }

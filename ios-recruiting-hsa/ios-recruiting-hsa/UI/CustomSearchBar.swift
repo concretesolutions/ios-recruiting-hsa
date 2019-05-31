@@ -9,10 +9,16 @@
 import Foundation
 import UIKit
 
+protocol CustomSearchBarDelegate: class {
+    func customSearchBar(_ customSearchBar: CustomSearchBar, currentText text: String)
+}
+
 class CustomSearchBar: UIView {
 
     private var containerSearchView: UIView!
     private var filterSearch: UITextField!
+    private var cancelButton: UIButton!
+
     private let verticalInset: CGFloat = 3
     private let horizontalInset: CGFloat = 10
 
@@ -23,6 +29,7 @@ class CustomSearchBar: UIView {
     }
 
     var placeholder: String = ""
+    weak var delegate: CustomSearchBarDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +48,7 @@ class CustomSearchBar: UIView {
 
         setContainerView()
         setSearchView()
+        setCancelButton()
 
         updateFilterFillColor(with: searchBackgroundColor)
     }
@@ -99,6 +107,10 @@ class CustomSearchBar: UIView {
         filterSearch.delegate = self
     }
 
+    private func setCancelButton() {
+        cancelButton = UIButton()
+    }
+
     private func updateFilterFillColor(with color: UIColor?) {
         filterSearch.backgroundColor = color
         containerSearchView.backgroundColor = color
@@ -121,6 +133,23 @@ extension CustomSearchBar: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1) { self.updateFilterFillColor(with: .white) }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        if let text = textField.text {
+            let newString = NSString(string: text).replacingCharacters(in: range, with: string)
+            delegate?.customSearchBar(self, currentText: newString as String)
+        }
+        return true
     }
 
 }
