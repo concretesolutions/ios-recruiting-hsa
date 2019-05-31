@@ -16,11 +16,13 @@ class ListMovieViewController: UIViewController {
 
     private weak var navigationBar: UINavigationBar?
 
+    private var viewModel: ListMovieViewModel
     private let movieCellIdentifier = "MovieCellIdentifier"
     private let cellsPerRow: CGFloat = 2
     private let interspace: CGFloat = 5
 
-    init(navigationBar: UINavigationBar? = nil) {
+    init(navigationBar: UINavigationBar? = nil, viewModel: ListMovieViewModel) {
+        self.viewModel = viewModel
         self.navigationBar = navigationBar
         super.init(nibName: "ListMovie", bundle: nil)
     }
@@ -45,6 +47,11 @@ class ListMovieViewController: UIViewController {
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
         navigationBar?.topItem?.title = "Movie"
+
+        viewModel.initialLoading = {}
+        viewModel.onError = {}
+        viewModel.onFinishRetrieve = { [unowned self] in self.collectionView.reloadData() }
+        viewModel.load()
     }
 }
 

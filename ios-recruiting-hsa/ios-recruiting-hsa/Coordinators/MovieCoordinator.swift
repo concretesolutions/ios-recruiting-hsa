@@ -18,6 +18,8 @@ class MovieCoordinator: Coordinator {
     }
 
     func start() {
-
+        let navigationBar = navigationController.navigationBar
+        let listController = ListMovieViewController(navigationBar: navigationBar)
+        listNavigator.setViewControllers([listController], animated: false)
     }
 }

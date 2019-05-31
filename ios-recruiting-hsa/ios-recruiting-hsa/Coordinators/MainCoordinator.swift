@@ -19,9 +19,12 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
+
+        let controllers = [UINavigationController(), UINavigationController()]
+        let movieCoordinator = MovieCoordinator(navigationController: controllers[0])
+        movieCoordinator.start()
+
         let listNavigator = UINavigationController()
-        let listController = ListMovieViewController(navigationBar: listNavigator.navigationBar)
-        listNavigator.setViewControllers([listController], animated: false)
 
         let favoriteNavigator = UINavigationController()
         let favoriteController = FavoriteMoviesViewController(
