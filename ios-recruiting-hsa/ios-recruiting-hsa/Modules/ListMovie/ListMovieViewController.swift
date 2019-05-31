@@ -15,6 +15,7 @@ class ListMovieViewController: UIViewController {
     @IBOutlet private weak var searchBar: CustomSearchBar!
 
     private weak var navigationBar: UINavigationBar?
+    private var emptySearch = EmptySearch()
 
     private var viewModel: ListMovieViewModel
     private let movieCellIdentifier = "MovieCellIdentifier"
@@ -53,7 +54,15 @@ class ListMovieViewController: UIViewController {
 
         viewModel.initialLoading = {}
         viewModel.onError = {}
-        viewModel.onUpdate = { [unowned self] in self.collectionView.reloadData() }
+        viewModel.onUpdate = { [unowned self] in
+            if self.viewModel.count == 0 {
+                self.emptySearch.set(text: self.viewModel.filterTextEmptySearch)
+                self.collectionView.backgroundView = self.emptySearch
+            } else {
+                self.collectionView.backgroundView = nil
+            }
+            self.collectionView.reloadData()
+        }
         viewModel.load()
     }
 
@@ -122,7 +131,8 @@ extension ListMovieViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return viewModel.count
+        let count = viewModel.count
+        return count
     }
 
     func collectionView(

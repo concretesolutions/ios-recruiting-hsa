@@ -41,6 +41,8 @@
 		0CE75FA622A1A4610099B277 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75FA522A1A4610099B277 /* FavoritesManager.swift */; };
 		0CE75FA822A1AB390099B277 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75FA722A1AB390099B277 /* AppDependencies.swift */; };
 		0CE75FAA22A1B8D40099B277 /* FavoriteMovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75FA922A1B8D40099B277 /* FavoriteMovieCellViewModel.swift */; };
+		0CE75FAD22A1E46C0099B277 /* EmptySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE75FAC22A1E46C0099B277 /* EmptySearch.swift */; };
+		0CE75FAF22A1E6000099B277 /* EmptySearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE75FAE22A1E6000099B277 /* EmptySearch.xib */; };
 		0CF9C91B229BABB10035DF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9C91A229BABB10035DF40 /* AppDelegate.swift */; };
 		0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C921229BABB60035DF40 /* Assets.xcassets */; };
 		0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */; };
@@ -106,6 +108,8 @@
 		0CE75FA522A1A4610099B277 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		0CE75FA722A1AB390099B277 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		0CE75FA922A1B8D40099B277 /* FavoriteMovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieCellViewModel.swift; sourceTree = "<group>"; };
+		0CE75FAC22A1E46C0099B277 /* EmptySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearch.swift; sourceTree = "<group>"; };
+		0CE75FAE22A1E6000099B277 /* EmptySearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearch.xib; sourceTree = "<group>"; };
 		0CF9C917229BABB10035DF40 /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF9C91A229BABB10035DF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF9C921229BABB60035DF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -274,6 +278,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		0CE75FAB22A1E4560099B277 /* GenericUI */ = {
+			isa = PBXGroup;
+			children = (
+				0CE75FAC22A1E46C0099B277 /* EmptySearch.swift */,
+				0CE75FAE22A1E6000099B277 /* EmptySearch.xib */,
+			);
+			path = GenericUI;
+			sourceTree = "<group>";
+		};
 		0CF9C90E229BABB00035DF40 = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +320,7 @@
 				0CF9C949229BB2B90035DF40 /* Coordinators */,
 				0CF9C948229BB2100035DF40 /* Modules */,
 				0CE75EB4229E06510099B277 /* UI */,
+				0CE75FAB22A1E4560099B277 /* GenericUI */,
 				0CF9C91A229BABB10035DF40 /* AppDelegate.swift */,
 				0CF9C921229BABB60035DF40 /* Assets.xcassets */,
 				0CF9C923229BABB60035DF40 /* LaunchScreen.storyboard */,
@@ -489,6 +503,7 @@
 			files = (
 				0CF9C925229BABB60035DF40 /* LaunchScreen.storyboard in Resources */,
 				0CF9C922229BABB60035DF40 /* Assets.xcassets in Resources */,
+				0CE75FAF22A1E6000099B277 /* EmptySearch.xib in Resources */,
 				0CE75EB3229DF32D0099B277 /* FavoriteMovies.xib in Resources */,
 				0CE75EBD229E3B000099B277 /* Secret.plist in Resources */,
 				0CE75DDA229CF8D20099B277 /* ListMovie.xib in Resources */,
@@ -628,6 +643,7 @@
 				0CE75EAE229DB56F0099B277 /* UIColor+Extension.swift in Sources */,
 				0CE75FA622A1A4610099B277 /* FavoritesManager.swift in Sources */,
 				0CE75FA122A199FF0099B277 /* FavoriteMoviesViewModel.swift in Sources */,
+				0CE75FAD22A1E46C0099B277 /* EmptySearch.swift in Sources */,
 				0CE75FAA22A1B8D40099B277 /* FavoriteMovieCellViewModel.swift in Sources */,
 				0CE75F5B22A0F7260099B277 /* DetailMovieViewModel.swift in Sources */,
 				0CE75EB8229E14F80099B277 /* FavoriteMoviesViewController.swift in Sources */,

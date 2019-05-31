@@ -65,7 +65,6 @@ class FavoriteMoviesViewController: UIViewController {
 extension FavoriteMoviesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.count)
         return viewModel.count
     }
 

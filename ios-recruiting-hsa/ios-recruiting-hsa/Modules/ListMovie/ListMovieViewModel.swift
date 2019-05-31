@@ -16,6 +16,7 @@ protocol ListMovieViewModel {
     var initialLoading: () -> Void { get set }
 
     var count: Int { get }
+    var filterTextEmptySearch: String { get }
     func load()
     func fetchNextPage()
     func selectItem(atIndex index: IndexPath)
@@ -55,8 +56,10 @@ extension ListMovieViewModelImpl: ListMovieViewModel {
 
     var title: String { return "Movie" }
 
-    var count: Int {
-        return filteredMovies.count
+    var count: Int { return filteredMovies.count }
+
+    var filterTextEmptySearch: String {
+        return #"Su búsqueda por "\#(filterText)" no ha resultado en ningún resultado"#
     }
 
     func load() {
