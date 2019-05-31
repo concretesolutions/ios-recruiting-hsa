@@ -23,9 +23,13 @@ protocol MovieClient {
     func genres(onSuccess: ((GenreApiResponse) -> Void)?, onError: ((MovieClientError) -> Void)?)
 }
 
+func movieClientDefault() -> MovieClient {
+    return MovieClientImpl(apiClient: apiClientDefault())
+}
+
 // MARK: - Implementation
 
-class MovieClientImp {
+class MovieClientImpl {
 
     let apiClient: ApiClient
 
@@ -34,7 +38,7 @@ class MovieClientImp {
     }
 }
 
-extension MovieClientImp: MovieClient {
+extension MovieClientImpl: MovieClient {
 
     func popularMovies(
         forPage page: Int,

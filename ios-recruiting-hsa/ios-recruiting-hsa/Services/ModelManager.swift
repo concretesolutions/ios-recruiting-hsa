@@ -25,6 +25,10 @@ protocol ModelManager {
     func getGenres(onSuccess: (([Genre]) -> Void)?, onError: ((ModelManagerError) -> Void)?)
 }
 
+func modelManagerDefault() -> ModelManager {
+    return ModelManagerImpl(movieClient: movieClientDefault(), persitance: persistanceDefault())
+}
+
 // Implementation
 
 private enum ApiKeys {

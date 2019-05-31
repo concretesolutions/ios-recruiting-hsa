@@ -11,15 +11,19 @@ import UIKit
 
 class MovieCoordinator: Coordinator {
 
-    let navigationController: UINavigationController
+    private let navigationController: UINavigationController
+    private let modelManager: ModelManager
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, modelManager: ModelManager) {
         self.navigationController = navigationController
+        self.modelManager = modelManager
     }
 
     func start() {
-        let navigationBar = navigationController.navigationBar
-        let listController = ListMovieViewController(navigationBar: navigationBar)
-        listNavigator.setViewControllers([listController], animated: false)
+        let controller = ListMovieWireframe.viewController(
+            navigationBar: navigationController.navigationBar,
+            modelManager: modelManager
+        )
+        navigationController.viewControllers = [controller]
     }
 }

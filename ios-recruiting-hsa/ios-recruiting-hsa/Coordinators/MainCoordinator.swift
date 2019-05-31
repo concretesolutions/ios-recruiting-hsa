@@ -11,28 +11,28 @@ import UIKit
 class MainCoordinator: Coordinator {
 
     private let window: UIWindow
-    private let tabbarController: UITabBarController
+    private lazy var modelManager: ModelManager = modelManagerDefault()
+    private var tabbarController: UITabBarController!
 
     init(window: UIWindow) {
         self.window = window
-        self.tabbarController = UITabBarController()
     }
 
     func start() {
+        self.tabbarController = UITabBarController()
 
         let controllers = [UINavigationController(), UINavigationController()]
-        let movieCoordinator = MovieCoordinator(navigationController: controllers[0])
+        let movieCoordinator = MovieCoordinator(
+            navigationController: controllers[0],
+            modelManager: modelManager
+        )
         movieCoordinator.start()
 
-        let listNavigator = UINavigationController()
-
-        let favoriteNavigator = UINavigationController()
         let favoriteController = FavoriteMoviesViewController(
-            navigationBar: favoriteNavigator.navigationBar
+            navigationBar: controllers[1].navigationBar
         )
-        favoriteNavigator.setViewControllers([favoriteController], animated: false)
-        let navigation = [listNavigator, favoriteNavigator]
-        tabbarController.setViewControllers(navigation, animated: false)
+        controllers[1].setViewControllers([favoriteController], animated: false)
+        tabbarController.setViewControllers(controllers, animated: false)
         window.rootViewController = tabbarController
         window.makeKeyAndVisible()
     }
