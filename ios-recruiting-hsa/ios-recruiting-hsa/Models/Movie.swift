@@ -27,3 +27,13 @@ struct PopularMovie: Codable {
     let genreIds: [Genre]?
 
 }
+
+extension PopularMovie {
+
+    var posterURL: URL? {
+        var baseURL = URL(string: "https://image.tmdb.org/t/p/w500/")
+        guard let posterPath = self.posterPath else { return nil }
+        baseURL?.appendPathComponent(posterPath)
+        return baseURL
+    }
+}

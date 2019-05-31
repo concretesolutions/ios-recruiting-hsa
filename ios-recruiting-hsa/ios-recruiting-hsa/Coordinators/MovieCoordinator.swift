@@ -21,9 +21,22 @@ class MovieCoordinator: Coordinator {
 
     func start() {
         let controller = ListMovieWireframe.viewController(
+            withDelegate: self,
             navigationBar: navigationController.navigationBar,
             modelManager: modelManager
         )
         navigationController.viewControllers = [controller]
+    }
+}
+
+extension MovieCoordinator: ListMovieViewDelegate {
+
+    func listMovieView(_ viewController: ListMovieViewController, didSelect movie: PopularMovie) {
+        let controller = DetailMovieWireframe.viewController(
+            movie: movie,
+            navigationBar: navigationController.navigationBar,
+            modelManager: modelManager
+        )
+        navigationController.pushViewController(controller, animated: true)
     }
 }

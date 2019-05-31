@@ -32,6 +32,8 @@ class ListMovieViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        self.title = "Movie"
+
         searchBar.backgroundColor = .app
         searchBar.searchBackgroundColor = .darkApp
         searchBar.placeholder = "Search"
@@ -46,7 +48,6 @@ class ListMovieViewController: UIViewController {
 
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
-        navigationBar?.topItem?.title = "Movie"
 
         viewModel.initialLoading = {}
         viewModel.onError = {}
@@ -100,6 +101,10 @@ extension ListMovieViewController: UICollectionViewDelegateFlowLayout {
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
         return interspace
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectItem(atIndex: indexPath)
     }
 }
 

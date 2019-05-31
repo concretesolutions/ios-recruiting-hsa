@@ -11,6 +11,8 @@ import UIKit
 class MainCoordinator: Coordinator {
 
     private let window: UIWindow
+    private var movieCoordinator: MovieCoordinator!
+
     private lazy var modelManager: ModelManager = modelManagerDefault()
     private var tabbarController: UITabBarController!
 
@@ -22,7 +24,7 @@ class MainCoordinator: Coordinator {
         self.tabbarController = UITabBarController()
 
         let controllers = [UINavigationController(), UINavigationController()]
-        let movieCoordinator = MovieCoordinator(
+        movieCoordinator = MovieCoordinator(
             navigationController: controllers[0],
             modelManager: modelManager
         )

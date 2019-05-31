@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationAppearance = UINavigationBar.appearance()
         navigationAppearance.isTranslucent = false
         navigationAppearance.barTintColor = .app
+        navigationAppearance.tintColor = .black
 
         let tabbarAppearance = UITabBar.appearance()
         tabbarAppearance.isTranslucent = false
