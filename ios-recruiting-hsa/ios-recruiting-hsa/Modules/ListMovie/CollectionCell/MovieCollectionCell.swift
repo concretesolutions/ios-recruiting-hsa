@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class MovieCollectionCell: UICollectionViewCell {
 
@@ -27,11 +28,13 @@ class MovieCollectionCell: UICollectionViewCell {
     private func commonInit() {
         setPoster()
         setFooter()
+        moviePosterImageView.kf.indicatorType = .activity
     }
 
     private func setPoster() {
         moviePosterImageView = UIImageView()
         moviePosterImageView.contentMode = .scaleAspectFit
+        moviePosterImageView.backgroundColor = .black
         addSubview(moviePosterImageView)
         moviePosterImageView.translatesAutoresizingMaskIntoConstraints = false
         moviePosterImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -96,10 +99,17 @@ class MovieCollectionCell: UICollectionViewCell {
 
     // Public methods
 
+    override func prepareForReuse() {
+        moviePosterImageView.kf.cancelDownloadTask()
+    }
+
     func configure(with viewModel: MovieCollectionCellViewModel) {
         let palette = UIColor.ListMovie.self
         let tintColor = viewModel.isFavorite ? palette.favoriteMovie : palette.nonFavoriteMovie
         movieTitleLabel.text = viewModel.title
         favoriteImageView.tintColor = tintColor
+        if let posterURL = viewModel.posterURL {
+            moviePosterImageView.kf.setImage(with: posterURL )
+        }
     }
 }
