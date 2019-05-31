@@ -40,7 +40,7 @@ class ListMovieViewController: UIViewController {
         searchBar.placeholder = "Search"
 
         collectionView.register(
-            MovieCollectionCell.self,
+            MovieCollectionCellImpl.self,
             forCellWithReuseIdentifier: movieCellIdentifier
         )
 

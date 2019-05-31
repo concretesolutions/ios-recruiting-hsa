@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class MovieCollectionCell: UICollectionViewCell {
+protocol MovieCollectionCell: UICollectionViewCell {
+    func configure(with viewModel: MovieCollectionCellViewModel)
+}
+
+class MovieCollectionCellImpl: UICollectionViewCell {
 
     private var movieTitleLabel: UILabel!
     private var favoriteImageView: UIImageView!
@@ -102,6 +106,9 @@ class MovieCollectionCell: UICollectionViewCell {
     override func prepareForReuse() {
         moviePosterImageView.kf.cancelDownloadTask()
     }
+}
+
+extension MovieCollectionCellImpl: MovieCollectionCell {
 
     func configure(with viewModel: MovieCollectionCellViewModel) {
         let palette = UIColor.ListMovie.self
