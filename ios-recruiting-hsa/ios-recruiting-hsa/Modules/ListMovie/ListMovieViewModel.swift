@@ -73,8 +73,6 @@ extension ListMovieViewModelImpl: ListMovieViewModel {
             onSuccess: { [weak self] page, movies in
                 guard let self = self else { return }
                 let filteredMovies = self.filterMovies(text: self.filterText, movies: movies)
-                print(self.filterText)
-                print(filteredMovies)
                 self.currentMovies.append(contentsOf: movies)
                 self.filteredMovies.append(contentsOf: filteredMovies)
                 self.currentPage = page
