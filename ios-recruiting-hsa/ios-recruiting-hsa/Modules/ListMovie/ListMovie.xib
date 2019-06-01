@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListMovieViewController" customModule="ios_recruiting_hsa" customModuleProvider="target">
             <connections>
+                <outlet property="activity" destination="lmd-PZ-PsA" id="6ZE-tK-KVB"/>
                 <outlet property="collectionView" destination="DDO-NX-dF7" id="XKL-c0-ROv"/>
                 <outlet property="searchBar" destination="WIB-ZW-IOf" id="TyX-t4-e0F"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Roj-0A-avs"/>
@@ -39,6 +40,10 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lmd-PZ-PsA">
+                    <rect key="frame" x="188.5" y="388.5" width="37" height="37"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -46,7 +51,9 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WIB-ZW-IOf" secondAttribute="trailing" id="L1k-PT-tYz"/>
                 <constraint firstItem="DDO-NX-dF7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MlC-Sp-ipp"/>
                 <constraint firstItem="WIB-ZW-IOf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ThB-XP-vSr"/>
+                <constraint firstItem="lmd-PZ-PsA" firstAttribute="centerX" secondItem="DDO-NX-dF7" secondAttribute="centerX" id="Ubc-HZ-Caa"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DDO-NX-dF7" secondAttribute="bottom" id="cx8-aV-cDa"/>
+                <constraint firstItem="lmd-PZ-PsA" firstAttribute="centerY" secondItem="DDO-NX-dF7" secondAttribute="centerY" id="ifK-IH-dxJ"/>
                 <constraint firstItem="WIB-ZW-IOf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lRH-6A-7QM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DDO-NX-dF7" secondAttribute="trailing" id="u1v-lK-ROu"/>
             </constraints>

@@ -13,6 +13,7 @@ class ListMovieViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var searchBar: CustomSearchBar!
+    @IBOutlet private weak var activity: UIActivityIndicatorView!
 
     private weak var navigationBar: UINavigationBar?
     private var emptySearch = EmptySearch()
@@ -36,6 +37,9 @@ class ListMovieViewController: UIViewController {
         tabBarItem.title = viewModel.title
         tabBarItem.image = .list
 
+        activity.hidesWhenStopped = true
+        activity.stopAnimating()
+
         searchBar.backgroundColor = .app
         searchBar.searchBackgroundColor = .darkApp
         searchBar.placeholder = "Search"
@@ -52,7 +56,12 @@ class ListMovieViewController: UIViewController {
         navigationBar?.setBackgroundImage(UIImage(), for: .default)
         navigationBar?.shadowImage = UIImage()
 
-        viewModel.initialLoading = {}
+        viewModel.startLoading = { [weak self] in
+            self?.activity.startAnimating()
+        }
+        viewModel.stopLoading = { [weak self] in
+            self?.activity.stopAnimating()
+        }
         viewModel.onError = {}
         viewModel.onUpdate = { [unowned self] in
             if self.viewModel.count == 0 {

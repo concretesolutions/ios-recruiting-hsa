@@ -13,7 +13,8 @@ protocol ListMovieViewModel {
 
     var onError: () -> Void { get set }
     var onUpdate: () -> Void { get set }
-    var initialLoading: () -> Void { get set }
+    var startLoading: () -> Void { get set }
+    var stopLoading: () -> Void { get set }
 
     var count: Int { get }
     var filterTextEmptySearch: String { get }
@@ -29,7 +30,8 @@ class ListMovieViewModelImpl {
     // ListMovieViewModel Properties
     var onError: () -> Void = {}
     var onUpdate: () -> Void = {}
-    var initialLoading: () -> Void = {}
+    var startLoading: () -> Void = {}
+    var stopLoading: () -> Void = {}
 
     // Coordinator properties
     var onSelectedMovie: (PopularMovie) -> Void = { _ in }
@@ -63,11 +65,11 @@ extension ListMovieViewModelImpl: ListMovieViewModel {
     }
 
     func load() {
-        initialLoading()
         fetchNextPage()
     }
 
     func fetchNextPage() {
+        startLoading()
         modelManager.getPaginatedMovies(
             forPage: currentPage + 1,
             onSuccess: { [weak self] page, movies in
@@ -76,9 +78,11 @@ extension ListMovieViewModelImpl: ListMovieViewModel {
                 self.currentMovies.append(contentsOf: movies)
                 self.filteredMovies.append(contentsOf: filteredMovies)
                 self.currentPage = page
+                self.stopLoading()
                 self.onUpdate()
             },
             onError: { [weak self] _ in
+                self?.stopLoading()
                 self?.onError()
             }
         )
