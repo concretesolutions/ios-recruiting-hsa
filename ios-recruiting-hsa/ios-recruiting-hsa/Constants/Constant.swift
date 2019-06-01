@@ -16,7 +16,6 @@ enum Constants {
     }
 
     static let apiKey: String = {
-        let adas = "adasasd"
         guard let path = Bundle.main.path(forResource: "Secret", ofType: "plist"),
               let plist = NSDictionary(contentsOfFile: path),
               let apiKey = plist["ApiKey"] as? String
