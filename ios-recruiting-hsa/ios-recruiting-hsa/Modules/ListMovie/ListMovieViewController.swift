@@ -16,7 +16,8 @@ class ListMovieViewController: UIViewController {
     @IBOutlet private weak var activity: UIActivityIndicatorView!
 
     private weak var navigationBar: UINavigationBar?
-    private var emptySearch = EmptySearch()
+    private lazy var emptySearch = EmptySearch()
+    private lazy var errorSearch = ErrorSearch()
 
     private var viewModel: ListMovieViewModel
     private let movieCellIdentifier = "MovieCellIdentifier"
@@ -62,7 +63,9 @@ class ListMovieViewController: UIViewController {
         viewModel.stopLoading = { [weak self] in
             self?.activity.stopAnimating()
         }
-        viewModel.onError = {}
+        viewModel.onError = { [weak self] in
+            self?.collectionView.backgroundView = self?.errorSearch
+        }
         viewModel.onUpdate = { [unowned self] in
             if self.viewModel.count == 0 {
                 self.emptySearch.set(text: self.viewModel.filterTextEmptySearch)
