@@ -119,6 +119,8 @@ class FilterVC: UIViewController {
     //MARK: - Funcs
     
     @IBAction func genresButtonTapped(_ sender: Any) {
+        
+        if self.genres.isEmpty{return}
         self.dummyTextField.inputView = genrePickerView
         self.dummyTextField.becomeFirstResponder()
     }
