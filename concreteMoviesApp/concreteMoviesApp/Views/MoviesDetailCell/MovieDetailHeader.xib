@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ccf-SH-tBi">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ccf-SH-tBi">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
                 </imageView>
             </subviews>
@@ -37,7 +37,4 @@
             <point key="canvasLocation" x="53.623188405797109" y="188.50446428571428"/>
         </view>
     </objects>
-    <resources>
-        <image name="avatar" width="339" height="500"/>
-    </resources>
 </document>

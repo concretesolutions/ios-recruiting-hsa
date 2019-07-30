@@ -189,7 +189,15 @@ extension FavoriteMoviesVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let movie = favoritesMovies[indexPath.row]
+        
+        var movie = favoritesMovies[indexPath.row]
+        if filterActive{
+            movie = filteredMovies[indexPath.row]
+        
+        }else {
+            movie = favoritesMovies[indexPath.row]
+        }
+        
         let moviesDetailVC = MoviesDetailVC(movie: movie)
         self.navigationController?.pushViewController(moviesDetailVC, animated: true)
     }
