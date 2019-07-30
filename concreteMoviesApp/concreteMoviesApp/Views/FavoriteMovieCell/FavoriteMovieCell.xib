@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteMovieCell" rowHeight="166" id="fr0-06-BDM" customClass="FavoriteMovieCellVC" customModule="concreteMoviesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fr0-06-BDM" id="jZr-Lv-kKr">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="165.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="GQQ-b4-X0W">
+                        <rect key="frame" x="20" y="10" width="110" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="H5L-UF-pBT"/>
+                            <constraint firstAttribute="height" constant="140" id="LYX-rd-Bqr"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1z7-nR-6ZA">
+                        <rect key="frame" x="150" y="25" width="254" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXc-s3-Bbt">
+                        <rect key="frame" x="160" y="92.5" width="184" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxA-Lm-nAz">
+                        <rect key="frame" x="354" y="54" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="hxw-Rh-zPs"/>
+                            <constraint firstAttribute="height" constant="40" id="mha-Ng-nqX"/>
+                        </constraints>
+                        <state key="normal" image="like"/>
+                        <connections>
+                            <action selector="favoriteButtonTapped:" destination="fr0-06-BDM" eventType="touchUpInside" id="vvd-Wa-n0P"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odo-gT-RiX">
+                        <rect key="frame" x="160" y="65.5" width="184" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gXc-s3-Bbt" firstAttribute="top" secondItem="Odo-gT-RiX" secondAttribute="bottom" constant="10" id="42x-NG-K2s"/>
+                    <constraint firstAttribute="bottom" secondItem="GQQ-b4-X0W" secondAttribute="bottom" constant="10" id="8N8-8L-7nQ"/>
+                    <constraint firstItem="1z7-nR-6ZA" firstAttribute="top" secondItem="GQQ-b4-X0W" secondAttribute="top" constant="15" id="Gg8-Lj-ZxQ"/>
+                    <constraint firstAttribute="trailing" secondItem="1z7-nR-6ZA" secondAttribute="trailing" constant="10" id="HD0-hl-Rt8"/>
+                    <constraint firstItem="GQQ-b4-X0W" firstAttribute="leading" secondItem="jZr-Lv-kKr" secondAttribute="leading" constant="20" id="HNS-fI-lyJ"/>
+                    <constraint firstItem="Odo-gT-RiX" firstAttribute="top" secondItem="1z7-nR-6ZA" secondAttribute="bottom" constant="20" id="IGV-vP-RU7"/>
+                    <constraint firstItem="Odo-gT-RiX" firstAttribute="leading" secondItem="1z7-nR-6ZA" secondAttribute="leading" constant="10" id="KDt-iG-m3Y"/>
+                    <constraint firstItem="HxA-Lm-nAz" firstAttribute="centerY" secondItem="Odo-gT-RiX" secondAttribute="centerY" id="Mbo-Pg-sEy"/>
+                    <constraint firstItem="HxA-Lm-nAz" firstAttribute="leading" secondItem="Odo-gT-RiX" secondAttribute="trailing" constant="10" id="TbG-D7-GaW"/>
+                    <constraint firstItem="gXc-s3-Bbt" firstAttribute="trailing" secondItem="Odo-gT-RiX" secondAttribute="trailing" id="bf1-WO-1CG"/>
+                    <constraint firstAttribute="trailing" secondItem="HxA-Lm-nAz" secondAttribute="trailing" constant="20" id="iYY-ad-5vQ"/>
+                    <constraint firstItem="GQQ-b4-X0W" firstAttribute="top" secondItem="jZr-Lv-kKr" secondAttribute="top" constant="10" id="jyN-OK-T5A"/>
+                    <constraint firstItem="gXc-s3-Bbt" firstAttribute="leading" secondItem="Odo-gT-RiX" secondAttribute="leading" id="u5o-jB-czl"/>
+                    <constraint firstItem="1z7-nR-6ZA" firstAttribute="leading" secondItem="GQQ-b4-X0W" secondAttribute="trailing" constant="20" id="wxZ-y2-Vvn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="HxA-Lm-nAz" id="4mA-yC-Yyx"/>
+                <outlet property="movieDate" destination="gXc-s3-Bbt" id="KaJ-9c-Szo"/>
+                <outlet property="movieOverview" destination="Odo-gT-RiX" id="uzH-a0-tq4"/>
+                <outlet property="moviePoster" destination="GQQ-b4-X0W" id="Veo-xb-j8K"/>
+                <outlet property="movieTitle" destination="1z7-nR-6ZA" id="Jhn-BG-czz"/>
+            </connections>
+            <point key="canvasLocation" x="118.84057971014494" y="51.5625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avatar" width="339" height="500"/>
+        <image name="like" width="20" height="18"/>
+    </resources>
+</document>

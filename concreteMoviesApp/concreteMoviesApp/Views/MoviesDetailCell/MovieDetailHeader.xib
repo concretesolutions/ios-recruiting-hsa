@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IEg-gA-UJ1" customClass="MovieDetailHeaderView" customModule="concreteMoviesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ccf-SH-tBi">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Ccf-SH-tBi" secondAttribute="bottom" id="7ji-3c-wVe"/>
+                <constraint firstAttribute="trailing" secondItem="Ccf-SH-tBi" secondAttribute="trailing" id="IYF-g6-EVD"/>
+                <constraint firstItem="Ccf-SH-tBi" firstAttribute="top" secondItem="IEg-gA-UJ1" secondAttribute="top" id="k9D-Pb-ndd"/>
+                <constraint firstItem="Ccf-SH-tBi" firstAttribute="leading" secondItem="xhf-Kg-h1E" secondAttribute="leading" id="wi1-ic-OzS"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="xhf-Kg-h1E"/>
+            <connections>
+                <outlet property="moviePoster" destination="Ccf-SH-tBi" id="we8-sd-7hc"/>
+            </connections>
+            <point key="canvasLocation" x="53.623188405797109" y="188.50446428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="avatar" width="339" height="500"/>
+    </resources>
+</document>

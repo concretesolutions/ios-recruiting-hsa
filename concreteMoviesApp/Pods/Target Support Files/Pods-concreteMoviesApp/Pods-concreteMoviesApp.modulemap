@@ -1,0 +1,6 @@
+framework module Pods_concreteMoviesApp {
+  umbrella header "Pods-concreteMoviesApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
