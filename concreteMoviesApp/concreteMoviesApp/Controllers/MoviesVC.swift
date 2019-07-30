@@ -257,9 +257,21 @@ extension MoviesVC : UICollectionViewDelegate , UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let movie = movies[indexPath.item]
-        let moviesDetailVC = MoviesDetailVC(movie: movie)
-        self.navigationController?.pushViewController(moviesDetailVC, animated: true)
+        var movie = movies[indexPath.item]
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            movie = filteredMovies[indexPath.item]
+            
+            let moviesDetailVC = MoviesDetailVC(movie: movie)
+            self.navigationController?.pushViewController(moviesDetailVC, animated: true)
+            
+        } else {
+            movie = movies[indexPath.item]
+            
+            let moviesDetailVC = MoviesDetailVC(movie: movie)
+            self.navigationController?.pushViewController(moviesDetailVC, animated: true)
+        }
+       
     }
     
 }
