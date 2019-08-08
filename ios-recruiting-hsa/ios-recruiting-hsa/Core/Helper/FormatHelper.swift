@@ -20,7 +20,7 @@ class FormatHelper {
     
     class func stringDate(from date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy"
+        formatter.dateFormat = "yyyy-MM-dd"
         
         return formatter.string(from: date)
     }
