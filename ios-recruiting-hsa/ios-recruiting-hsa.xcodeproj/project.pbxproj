@@ -55,6 +55,7 @@
 		49741AA722FC71A500E488AD /* PartModelToEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49741AA622FC71A500E488AD /* PartModelToEntity.swift */; };
 		49741AA922FC82A900E488AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49741AA822FC82A900E488AD /* Constants.swift */; };
 		49741AAC22FC864A00E488AD /* MovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49741AAB22FC864A00E488AD /* MovieUseCase.swift */; };
+		49741AAF22FC9B3500E488AD /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49741AAE22FC9B3500E488AD /* ServiceLocator.swift */; };
 		F7A98C43D0B90758D0392FBF /* Pods_ios_recruiting_hsaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F72913E954CB5A321503CF /* Pods_ios_recruiting_hsaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		49741AA622FC71A500E488AD /* PartModelToEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartModelToEntity.swift; sourceTree = "<group>"; };
 		49741AA822FC82A900E488AD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		49741AAB22FC864A00E488AD /* MovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUseCase.swift; sourceTree = "<group>"; };
+		49741AAE22FC9B3500E488AD /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		AEE78738B2AB97B15C51DE72 /* Pods-ios-recruiting-hsa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-recruiting-hsa.release.xcconfig"; path = "Target Support Files/Pods-ios-recruiting-hsa/Pods-ios-recruiting-hsa.release.xcconfig"; sourceTree = "<group>"; };
 		BB4668A41B6B0B73B3DDDC21 /* Pods-ios-recruiting-hsaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-recruiting-hsaTests.release.xcconfig"; path = "Target Support Files/Pods-ios-recruiting-hsaTests/Pods-ios-recruiting-hsaTests.release.xcconfig"; sourceTree = "<group>"; };
 		E0F72913E954CB5A321503CF /* Pods_ios_recruiting_hsaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_recruiting_hsaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,8 +246,8 @@
 		494442D322FBD36A00889BF2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				49741AAA22FC85F900E488AD /* UseCase */,
 				494442D422FBD38E00889BF2 /* Model */,
+				49741AAA22FC85F900E488AD /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -293,6 +295,7 @@
 				4955B2DF22FBC7090042216F /* Application */,
 				4955B2E222FBC7680042216F /* Resources */,
 				4955B2E022FBC7370042216F /* Core */,
+				49741AAD22FC9AD200E488AD /* DI */,
 				494442B322FBCBB000889BF2 /* Data */,
 				494442D322FBD36A00889BF2 /* Domain */,
 				4955B2E322FBC7EF0042216F /* VIew */,
@@ -321,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				4955B2E122FBC74B0042216F /* Config */,
+				49741AB022FC9F8100E488AD /* Factory */,
 				4955B2EB22FBCAB80042216F /* Helper */,
 				4955B2E822FBCA480042216F /* Mapper */,
 			);
@@ -349,6 +353,7 @@
 		4955B2E322FBC7EF0042216F /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				49741AB322FCA40700E488AD /* Grid */,
 				4955B2C822FBBC090042216F /* LaunchScreen.storyboard */,
 			);
 			path = VIew;
@@ -377,6 +382,28 @@
 				49741AAB22FC864A00E488AD /* MovieUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		49741AAD22FC9AD200E488AD /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				49741AAE22FC9B3500E488AD /* ServiceLocator.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		49741AB022FC9F8100E488AD /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		49741AB322FCA40700E488AD /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Grid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,6 +609,7 @@
 				49741AA122FC708E00E488AD /* PartModel.swift in Sources */,
 				494442EA22FBDC3E00889BF2 /* ProductionCountryEntity.swift in Sources */,
 				494442DC22FBD58C00889BF2 /* GenreEntity.swift in Sources */,
+				49741AAF22FC9B3500E488AD /* ServiceLocator.swift in Sources */,
 				494442E422FBDA2100889BF2 /* ProductionCompanyEntity.swift in Sources */,
 				494442EE22FBDD1700889BF2 /* ProductionCountryModelToEntity copy.swift in Sources */,
 				49741AA522FC71A300E488AD /* CollectionModelToEntity.swift in Sources */,

@@ -16,10 +16,7 @@ class MovieRestApiImpl: MovieRestApi {
     
     func fetchMovies(page: Int, endpoint: Endpoints.Movies, completionHandler: @escaping (MovieResponseEntity?, ErrorEntity?) -> Void) {
         guard let url = URL(
-            string: MovieURL.Prod.url.rawValue +
-            endpoint.rawValue +
-            "\(page)" +
-            MovieURL.Prod.apiKey.rawValue
+            string: String(format: endpoint.rawValue, MovieURL.Prod.url.rawValue, page, MovieURL.Prod.apiKey.rawValue)
         ) else {
             completionHandler(nil, ErrorEntity(statusMessage: Constants.ErrorMessages.serverError, statusCode: 0))
             return
@@ -38,9 +35,7 @@ class MovieRestApiImpl: MovieRestApi {
     
     func fetchMovieDetail(id: Int, endpoint: Endpoints.Movies, completionHandler: @escaping (MovieDetailEntity?, ErrorEntity?) -> Void) {
         guard let url = URL(
-            string: MovieURL.Prod.url.rawValue +
-                String(format: endpoint.rawValue, id) +
-                MovieURL.Prod.apiKey.rawValue
+            string: String(format: endpoint.rawValue, MovieURL.Prod.url.rawValue, id, MovieURL.Prod.apiKey.rawValue)
             ) else {
                 completionHandler(nil, ErrorEntity(statusMessage: Constants.ErrorMessages.serverError, statusCode: 0))
                 return
