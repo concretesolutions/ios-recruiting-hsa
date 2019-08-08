@@ -6,5 +6,6 @@
 //
 
 struct ErrorModel {
-    let message: String
+    let statusMessage: String
+    let statusCode: Int
 }

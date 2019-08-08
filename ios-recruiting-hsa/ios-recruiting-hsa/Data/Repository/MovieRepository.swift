@@ -6,5 +6,7 @@
 //
 
 protocol MovieRepository {
-    func fetchPopular(page: Int, completionHandler: @escaping (MovieResponseModel?, ErrorModel?) -> Void)
+    func fetchMovies(page: Int, completionHandler: @escaping (MovieResponseModel?, ErrorModel?) -> Void)
+    
+    func fetchMovieDetail(id: Int, completionHandler: @escaping (MovieDetailModel?, ErrorModel?) -> Void)
 }

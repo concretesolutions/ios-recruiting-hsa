@@ -7,6 +7,6 @@
 
 class ErrorModelToEntity: Mapper<ErrorModel, ErrorEntity> {
     override func reverseMap(value: ErrorEntity) -> ErrorModel {
-        return ErrorModel(message: value.message)
+        return ErrorModel(statusMessage: value.statusMessage, statusCode: value.statusCode)
     }
 }

@@ -6,17 +6,17 @@
 //
 
 class MovieResponseModelToEntity: Mapper<MovieResponseModel, MovieResponseEntity> {
-    private let movieModelToEntityMapper: Mapper<MovieModel, MovieEntity>
+    private let movieModelToEntity: Mapper<MovieModel, MovieEntity>
     
-    init(movieModelToEntityMapper: Mapper<MovieModel, MovieEntity>) {
-        self.movieModelToEntityMapper = movieModelToEntityMapper
+    init(movieModelToEntity: Mapper<MovieModel, MovieEntity>) {
+        self.movieModelToEntity = movieModelToEntity
     }
     
     override func reverseMap(value: MovieResponseEntity) -> MovieResponseModel {
         return MovieResponseModel(page: value.page,
                                   totalResults: value.totalResults,
                                   totalPages: value.totalPages,
-                                  results: movieModelToEntityMapper.reverseMap(values: value.results)
+                                  results: movieModelToEntity.reverseMap(values: value.results)
         )
     }
 }

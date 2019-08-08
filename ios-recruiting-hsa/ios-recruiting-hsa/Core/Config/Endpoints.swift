@@ -7,7 +7,6 @@
 
 enum Endpoints {
     enum Movies: String {
-        case genres = "/genre/movie/list"
         case popular = "/popular?page="
         case movieDetail = "/movie/%d"
     }

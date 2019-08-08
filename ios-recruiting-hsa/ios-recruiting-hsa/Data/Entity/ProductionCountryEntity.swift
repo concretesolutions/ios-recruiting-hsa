@@ -2,8 +2,7 @@
 //  ProductionCountryEntity.swift
 //  ios-recruiting-hsa
 //
-//  Created by Freddy Miguel Vega Zárate on 08-08-19.
-//  Copyright © 2019 Freddy Miguel Vega Zárate. All rights reserved.
+//  Created on 08-08-19.
 //
 
 struct ProductionCountryEntity: Codable {
