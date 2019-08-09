@@ -8,7 +8,7 @@
 struct MovieDetailEntity: Codable {
     let isAdult: Bool
     let backdropPath: String?
-    let belongsToCollection: [CollectionEntity]?
+    let belongsToCollection: CollectionEntity?
     let budget: Int
     let genres: [GenreEntity]
     let homepage: String?

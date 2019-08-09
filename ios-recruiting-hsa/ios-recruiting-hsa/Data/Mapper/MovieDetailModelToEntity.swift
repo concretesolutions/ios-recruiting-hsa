@@ -26,9 +26,9 @@ class MovieDetailModelToEntity: Mapper<MovieDetailModel, MovieDetailEntity> {
     }
     
     override func reverseMap(value : MovieDetailEntity) -> MovieDetailModel {
-        var belongsToCollection: [CollectionModel]? = nil
+        var belongsToCollection: CollectionModel? = nil
         if let collection = value.belongsToCollection {
-            belongsToCollection = collectionModelToEntity.reverseMap(values: collection)
+            belongsToCollection = collectionModelToEntity.reverseMap(value: collection)
         }
         
         return MovieDetailModel(isAdult: value.isAdult,
@@ -46,7 +46,7 @@ class MovieDetailModelToEntity: Mapper<MovieDetailModel, MovieDetailEntity> {
                                 posterPath: value.posterPath,
                                 productionCompanies: productionCompanyModelToEntity.reverseMap(values: value.productionCompanies),
                                 productionCountries: productionCountryModelToEntity.reverseMap(values: value.productionCountries),
-                                releaseDate: value.releaseDate,
+                                releaseDate: FormatHelper.date(from: value.releaseDate),
                                 revenue: value.revenue,
                                 runtime: value.runtime,
                                 spokenLanguages: spokenLanguageModelToEntity.reverseMap(values: value.spokenLanguages),

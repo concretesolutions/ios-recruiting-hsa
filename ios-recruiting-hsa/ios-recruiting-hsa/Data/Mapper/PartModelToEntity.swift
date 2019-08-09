@@ -14,7 +14,7 @@ class PartModelToEntity: Mapper<PartModel, PartEntity> {
                          originalLanguage: value.originalLanguage,
                          originalTitle: value.originalTitle,
                          overview: value.overview,
-                         releaseDate: value.releaseDate,
+                         releaseDate: FormatHelper.date(from: value.releaseDate),
                          posterPath: value.posterPath,
                          popularity: value.popularity,
                          title: value.title,

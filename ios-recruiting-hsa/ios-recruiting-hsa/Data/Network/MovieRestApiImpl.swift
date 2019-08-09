@@ -8,9 +8,12 @@
 import Alamofire
 
 class MovieRestApiImpl: MovieRestApi {
+    private let sessionManager: SessionManager
     private let codableHelper: CodableHelper
     
-    init(codableHelper: CodableHelper) {
+    init(sessionManager: SessionManager = SessionManager.default,
+         codableHelper: CodableHelper) {
+        self.sessionManager = sessionManager
         self.codableHelper = codableHelper
     }
     
@@ -22,7 +25,7 @@ class MovieRestApiImpl: MovieRestApi {
             return
         }
         
-        Alamofire.request(url).responseData { (response) in
+        sessionManager.request(url).responseData { (response) in
             if let data = response.data, let entity: MovieResponseEntity = try? self.codableHelper.decodeNetworkObject(object: data) {
                 completionHandler(entity, nil)
             } else if let data = response.data, let error: ErrorEntity = try? self.codableHelper.decodeNetworkObject(object: data) {
@@ -41,7 +44,7 @@ class MovieRestApiImpl: MovieRestApi {
                 return
         }
         
-        Alamofire.request(url).responseData { (response) in
+        sessionManager.request(url).responseData { (response) in
             if let data = response.data, let entity: MovieDetailEntity = try? self.codableHelper.decodeNetworkObject(object: data) {
                 completionHandler(entity, nil)
             } else if let data = response.data, let error: ErrorEntity = try? self.codableHelper.decodeNetworkObject(object: data) {

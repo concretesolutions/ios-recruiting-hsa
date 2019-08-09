@@ -13,12 +13,16 @@ class CollectionModelToEntity: Mapper<CollectionModel, CollectionEntity> {
     }
     
     override func reverseMap(value : CollectionEntity) -> CollectionModel {
+        var parts: [PartModel]? = nil
+        if let values = value.parts {
+            parts = partModelToEntity.reverseMap(values: values)
+        }
         return CollectionModel(id: value.id,
                                name: value.name,
                                overview: value.overview,
                                posterPath: value.posterPath,
                                backdropPath: value.backdropPath,
-                               parts: partModelToEntity.reverseMap(values: value.parts)
+                               parts: parts
         )
     }
 }

@@ -5,10 +5,12 @@
 //  Created on 08-08-19.
 //
 
+import Foundation
+
 struct MovieDetailModel {
     let isAdult: Bool
     let backdropPath: String?
-    let belongsToCollection: [CollectionModel]?
+    let belongsToCollection: CollectionModel?
     let budget: Int
     let genres: [GenreModel]
     let homepage: String?
@@ -21,7 +23,7 @@ struct MovieDetailModel {
     let posterPath: String?
     let productionCompanies: [ProductionCompanyModel]
     let productionCountries: [ProductionCountryModel]
-    let releaseDate: String
+    let releaseDate: Date?
     let revenue: Int
     let runtime: Int?
     let spokenLanguages: [SpokenLanguageModel]

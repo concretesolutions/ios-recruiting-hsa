@@ -5,6 +5,8 @@
 //  Created on 8/8/19.
 //
 
+import Foundation
+
 struct PartModel {
     let isAdult: Bool
     let backdropPath: String?
@@ -13,7 +15,7 @@ struct PartModel {
     let originalLanguage: String
     let originalTitle: String
     let overview: String
-    let releaseDate: String
+    let releaseDate: Date?
     let posterPath: String
     let popularity: Double
     let title: String

@@ -8,10 +8,10 @@
 struct CollectionEntity: Codable {
     let id: Int
     let name: String
-    let overview: String
+    let overview: String?
     let posterPath: String?
     let backdropPath: String
-    let parts: [PartEntity]
+    let parts: [PartEntity]?
     
     private enum CodingKeys: String, CodingKey {
         case id

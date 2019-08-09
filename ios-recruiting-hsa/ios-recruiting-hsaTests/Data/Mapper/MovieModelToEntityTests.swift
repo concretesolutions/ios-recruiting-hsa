@@ -21,25 +21,25 @@ class MovieModelToEntityTests: XCTestCase {
     }
     
     func testReverseMap() {
-        guard let movieResponseEntity = try? MovieResponseEntity.mocked(testCase: self), let movieEntity = movieResponseEntity.results.first else {
+        guard let movieResponseEntity = try? MovieResponseEntity.mocked(testCase: self), let entity = movieResponseEntity.results.first else {
             XCTFail("Failed to create entity")
             return
         }
-        let movieModel = movieModelToEntity.reverseMap(value: movieEntity)
+        let model = movieModelToEntity.reverseMap(value: entity)
         
-        XCTAssertEqual(movieEntity.voteCount, movieModel.voteCount)
-        XCTAssertEqual(movieEntity.id, movieModel.id)
-        XCTAssertEqual(movieEntity.isVideo, movieModel.isVideo)
-        XCTAssertEqual(movieEntity.voteAverage, movieModel.voteAverage)
-        XCTAssertEqual(movieEntity.title, movieModel.title)
-        XCTAssertEqual(movieEntity.popularity, movieModel.popularity)
-        XCTAssertEqual(movieEntity.posterPath, movieModel.posterPath)
-        XCTAssertEqual(movieEntity.originalLanguage, movieModel.originalLanguage)
-        XCTAssertEqual(movieEntity.originalTitle, movieModel.originalTitle)
-        XCTAssertEqual(movieEntity.genreIds, movieModel.genreIds)
-        XCTAssertEqual(movieEntity.backdropPath, movieModel.backdropPath)
-        XCTAssertEqual(movieEntity.isAdult, movieModel.isAdult)
-        XCTAssertEqual(movieEntity.overview, movieModel.overview)
-        XCTAssertEqual(movieEntity.releaseDate, FormatHelper.stringDate(from: movieModel.releaseDate!))
+        XCTAssertEqual(entity.voteCount, model.voteCount)
+        XCTAssertEqual(entity.id, model.id)
+        XCTAssertEqual(entity.isVideo, model.isVideo)
+        XCTAssertEqual(entity.voteAverage, model.voteAverage)
+        XCTAssertEqual(entity.title, model.title)
+        XCTAssertEqual(entity.popularity, model.popularity)
+        XCTAssertEqual(entity.posterPath, model.posterPath)
+        XCTAssertEqual(entity.originalLanguage, model.originalLanguage)
+        XCTAssertEqual(entity.originalTitle, model.originalTitle)
+        XCTAssertEqual(entity.genreIds, model.genreIds)
+        XCTAssertEqual(entity.backdropPath, model.backdropPath)
+        XCTAssertEqual(entity.isAdult, model.isAdult)
+        XCTAssertEqual(entity.overview, model.overview)
+        XCTAssertEqual(entity.releaseDate, FormatHelper.stringDate(from: model.releaseDate!))
     }
 }

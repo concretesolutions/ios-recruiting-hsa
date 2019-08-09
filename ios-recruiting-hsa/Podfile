@@ -1,17 +1,19 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
 
-target 'ios-recruiting-hsa' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for ios-recruiting
+def common_pods
   pod 'Alamofire', '4.8.1'
   pod 'AlamofireImage', '3.5.0'
+end
 
-  target 'ios-recruiting-hsaTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+target 'ios-recruiting-hsa' do
+  # Pods for ios-recruiting
+  common_pods
+end
 
+target 'ios-recruiting-hsaTests' do
+  # Pods for testing
+  common_pods
 end
