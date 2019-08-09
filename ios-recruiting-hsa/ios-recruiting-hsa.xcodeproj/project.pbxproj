@@ -23,9 +23,6 @@
 		491588A222FD011500DACD9C /* CollectionModelToEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491588A122FD011500DACD9C /* CollectionModelToEntityTests.swift */; };
 		491588A422FD04D200DACD9C /* MovieDetailEntity+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491588A322FD04D200DACD9C /* MovieDetailEntity+Mock.swift */; };
 		491588A622FD050800DACD9C /* MovieDetailModelToEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491588A522FD050700DACD9C /* MovieDetailModelToEntityTests.swift */; };
-		491588AE22FD1F6500DACD9C /* GET_Popular_200.json in Resources */ = {isa = PBXBuildFile; fileRef = 491588AB22FD1F2200DACD9C /* GET_Popular_200.json */; };
-		491588AF22FD1F6500DACD9C /* GET_Popular_401.json in Resources */ = {isa = PBXBuildFile; fileRef = 491588A922FD1EC500DACD9C /* GET_Popular_401.json */; };
-		491588B022FD1F6500DACD9C /* GET_Popular_404.json in Resources */ = {isa = PBXBuildFile; fileRef = 491588AA22FD1EFE00DACD9C /* GET_Popular_404.json */; };
 		494442B922FBCD0500889BF2 /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494442B822FBCD0500889BF2 /* ErrorEntity.swift */; };
 		494442BC22FBCD1B00889BF2 /* MovieResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494442BA22FBCD1B00889BF2 /* MovieResponseEntity.swift */; };
 		494442BD22FBCD1B00889BF2 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494442BB22FBCD1B00889BF2 /* MovieEntity.swift */; };
@@ -116,9 +113,6 @@
 		491588A122FD011500DACD9C /* CollectionModelToEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModelToEntityTests.swift; sourceTree = "<group>"; };
 		491588A322FD04D200DACD9C /* MovieDetailEntity+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetailEntity+Mock.swift"; sourceTree = "<group>"; };
 		491588A522FD050700DACD9C /* MovieDetailModelToEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModelToEntityTests.swift; sourceTree = "<group>"; };
-		491588A922FD1EC500DACD9C /* GET_Popular_401.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GET_Popular_401.json; sourceTree = "<group>"; };
-		491588AA22FD1EFE00DACD9C /* GET_Popular_404.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GET_Popular_404.json; sourceTree = "<group>"; };
-		491588AB22FD1F2200DACD9C /* GET_Popular_200.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GET_Popular_200.json; sourceTree = "<group>"; };
 		4936FB1622FCF6B6003380D4 /* SpokenLanguageEntity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpokenLanguageEntity.json; sourceTree = "<group>"; };
 		494442B522FBCBD900889BF2 /* MovieRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRestApi.swift; sourceTree = "<group>"; };
 		494442B622FBCBD900889BF2 /* MovieRestApiImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRestApiImpl.swift; sourceTree = "<group>"; };
@@ -230,24 +224,6 @@
 				E0F72913E954CB5A321503CF /* Pods_ios_recruiting_hsaTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		491588A722FD1E8800DACD9C /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				491588A822FD1EA900DACD9C /* Json */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		491588A822FD1EA900DACD9C /* Json */ = {
-			isa = PBXGroup;
-			children = (
-				491588AB22FD1F2200DACD9C /* GET_Popular_200.json */,
-				491588A922FD1EC500DACD9C /* GET_Popular_401.json */,
-				491588AA22FD1EFE00DACD9C /* GET_Popular_404.json */,
-			);
-			path = Json;
 			sourceTree = "<group>";
 		};
 		491588B122FD20CF00DACD9C /* Extension */ = {
@@ -508,7 +484,6 @@
 			children = (
 				49741ABC22FCB9D600E488AD /* Entity */,
 				49741AB922FCB4A600E488AD /* Mapper */,
-				491588A722FD1E8800DACD9C /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -666,15 +641,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49741ABE22FCBDB600E488AD /* MovieDetailEntity.json in Resources */,
-				491588AE22FD1F6500DACD9C /* GET_Popular_200.json in Resources */,
 				4915889E22FD00E300DACD9C /* CollectionEntity.json in Resources */,
 				49DADB6322FCF477007D4E74 /* ErrorEntity.json in Resources */,
 				4963F9BD22FCF80F00443BB4 /* SpokenLanguageEntity.json in Resources */,
 				4915888F22FCFB1100DACD9C /* ProductionCompanyEntity.json in Resources */,
 				49741AC022FCBF8E00E488AD /* MovieResponseEntity.json in Resources */,
-				491588AF22FD1F6500DACD9C /* GET_Popular_401.json in Resources */,
 				4915889522FCFD9E00DACD9C /* PartEntity.json in Resources */,
-				491588B022FD1F6500DACD9C /* GET_Popular_404.json in Resources */,
 				4915889822FCFFD000DACD9C /* GenreEntity.json in Resources */,
 				4915888922FCF98F00DACD9C /* ProductionCountryEntity.json in Resources */,
 			);
