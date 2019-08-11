@@ -8,6 +8,7 @@
 class ServiceLocator {
     private let codableHelper = CodableHelper()
     
+    // Data
     private var movieRestApi: MovieRestApi {
         return MovieRestApiImpl(codableHelper: codableHelper)
     }
@@ -68,9 +69,24 @@ class ServiceLocator {
         )
     }
     
-    
-    
-    var movieUseCase: MovieUseCase {
+    // Domain
+    private var movieUseCase: MovieUseCase {
         return MovieUseCase(movieRepository: movieDataRepository)
+    }
+    
+    // View
+    private var movieViewToModel: Mapper<MovieView, MovieModel> {
+        return MovieViewToModel()
+    }
+    
+    private var errorViewToModel: Mapper<ErrorView, ErrorModel> {
+        return ErrorViewToModel()
+    }
+    
+    var gridPresenter: GridPresenter {
+        return GridPresenterImpl(movieUseCase: movieUseCase,
+                                 movieViewToModel: movieViewToModel,
+                                 errorViewToModel: errorViewToModel
+        )
     }
 }
