@@ -17,7 +17,12 @@ class GridViewDelegate: NSObject {
 
 extension GridViewDelegate: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let movieId = view?.movies[indexPath.row].id,
+            let viewController = ViewFactory.viewController(viewType: .detail) as? DetailViewController {
+            viewController.movieId = movieId
+            viewController.hidesBottomBarWhenPushed = true
+            view?.pushViewController(viewController: viewController)
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

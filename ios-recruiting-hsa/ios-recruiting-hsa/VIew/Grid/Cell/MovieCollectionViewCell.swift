@@ -21,7 +21,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private func prepareViews() {
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         containerView.backgroundColor = Constants.Colors.dark
         movieLabel.numberOfLines = Constants.Text.numberOfLines
         movieLabel.adjustsFontSizeToFitWidth = true

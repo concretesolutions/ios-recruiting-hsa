@@ -18,10 +18,16 @@ class MovieFactory {
         let viewController = UITabBarController()
         
         let gridController = gridViewController()
-        gridController.tabBarItem = UITabBarItem(title: Constants.Labels.gridTitle, image: UIImage(named: "list_icon"), tag: 0)
+        gridController.tabBarItem = UITabBarItem(title: Constants.Labels.gridTitle,
+                                                 image: UIImage(named: "list_icon"),
+                                                 tag: 0
+        )
         
         let favoritesController = favoritesViewController()
-        favoritesController.tabBarItem = UITabBarItem(title: Constants.Labels.favoritesTitle, image: UIImage(named: "favorite_empty_icon"), tag: 1)
+        favoritesController.tabBarItem = UITabBarItem(title: Constants.Labels.favoritesTitle,
+                                                      image: UIImage(named: "favorite_empty_icon"),
+                                                      tag: 1
+        )
         
         let controllers = [gridController, favoritesController]
         viewController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
@@ -32,7 +38,7 @@ class MovieFactory {
         return viewController
     }
     
-    func gridViewController() -> UIViewController {
+    private func gridViewController() -> UIViewController {
         let presenter = serviceLocator.gridPresenter
         let delegate = GridViewDelegate()
         let datasource = GridViewDataSource()
@@ -46,7 +52,7 @@ class MovieFactory {
         return viewController
     }
     
-    func favoritesViewController() -> UIViewController {
+    private func favoritesViewController() -> UIViewController {
         let presenter = serviceLocator.gridPresenter
         let delegate = GridViewDelegate()
         let datasource = GridViewDataSource()
@@ -61,11 +67,11 @@ class MovieFactory {
     }
     
     func detailViewController() -> UIViewController {
-        let presenter = serviceLocator.gridPresenter
-        let delegate = GridViewDelegate()
-        let datasource = GridViewDataSource()
+        let presenter = serviceLocator.detailPresenter
+        let delegate = DetailViewDelegate()
+        let datasource = DetailViewDataSource()
         
-        let viewController = GridViewController(
+        let viewController = DetailViewController(
             presenter: presenter,
             delegate: delegate,
             datasource: datasource

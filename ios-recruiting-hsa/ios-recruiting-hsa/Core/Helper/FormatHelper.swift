@@ -8,6 +8,9 @@
 import Foundation
 
 class FormatHelper {
+    enum DateFormatTypes {
+        case yyyyMMdd, yyyy
+    }
     class func date(from string: String?) -> Date? {
         guard let string = string else {
             return nil
@@ -18,9 +21,14 @@ class FormatHelper {
         return formatter.date(from: string)
     }
     
-    class func stringDate(from date: Date) -> String {
+    class func stringDate(from date: Date, dateFormatType: DateFormatTypes = .yyyyMMdd) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        switch dateFormatType {
+        case .yyyyMMdd:
+            formatter.dateFormat = "yyyy-MM-dd"
+        case .yyyy:
+            formatter.dateFormat = "yyyy"
+        }
         
         return formatter.string(from: date)
     }

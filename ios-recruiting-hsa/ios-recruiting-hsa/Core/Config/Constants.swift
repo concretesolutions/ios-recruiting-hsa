@@ -27,6 +27,7 @@ enum Constants {
     
     enum Labels {
         static let gridTitle = "Movies"
+        static let detailTitle = "Movie"
         static let favoritesTitle = "Favorites"
     }
     

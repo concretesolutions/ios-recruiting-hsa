@@ -5,10 +5,6 @@
 //  Created on 10-08-19.
 //
 
-protocol GridView: class {
-    func prepare()
-    func showLoading()
-    func hideLoading()
+protocol GridView: BaseView {
     func show(popular movies: [MovieView])
-    func show(error: ErrorView)
 }

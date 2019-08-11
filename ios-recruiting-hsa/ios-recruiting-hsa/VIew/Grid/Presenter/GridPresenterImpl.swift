@@ -30,9 +30,9 @@ extension GridPresenterImpl: GridPresenter {
     
     func popularMovies() {
         view?.showLoading()
-        movieUseCase.fetchMovies(page: popularPageNumber) { (movies, error) in
+        movieUseCase.fetchMovies(page: popularPageNumber) { (movieModels, error) in
             self.view?.hideLoading()
-            guard let movies = movies else {
+            guard let movieModels = movieModels else {
                 if let error = error {
                     self.view?.show(error: self.errorViewToModel.reverseMap(value: error))
                 } else {
@@ -41,8 +41,8 @@ extension GridPresenterImpl: GridPresenter {
                 return
             }
             
-            if movies.count > 0 {
-                self.view?.show(popular: self.movieViewToModel.reverseMap(values: movies))
+            if movieModels.count > 0 {
+                self.view?.show(popular: self.movieViewToModel.reverseMap(values: movieModels))
                 self.popularPageNumber += 1
             } else {
                 self.view?.show(error: ErrorView(statusMessage: "Ups! Something went wrong!", statusCode: 0))
