@@ -63,7 +63,8 @@ extension DetailViewDataSource: UITableViewDataSource {
         }
         
         cell?.configure(title: text,
-                        showSeparator: indexPath.row != DetailConstants.Cells.Indexes.title
+                        showSeparator: indexPath.row != DetailConstants.Cells.Indexes.title,
+                        showFavorite: indexPath.row == DetailConstants.Cells.Indexes.title
         )
         
         return cell ?? LabelTableViewCell()

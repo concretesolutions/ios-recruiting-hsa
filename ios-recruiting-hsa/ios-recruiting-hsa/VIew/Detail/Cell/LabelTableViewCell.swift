@@ -11,7 +11,11 @@ class LabelTableViewCell: UITableViewCell {
     @IBOutlet
     private weak var movieLabel: UILabel!
     private var separator: UIView!
-
+    @IBOutlet
+    private weak var favoriteButton: UIButton!
+    @IBOutlet
+    private weak var favoriteButtonWidth: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         prepareViews()
@@ -29,7 +33,9 @@ class LabelTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(title: String, showSeparator: Bool) {
+    func configure(title: String,
+                   showSeparator: Bool,
+                   showFavorite: Bool = false) {
         movieLabel.text = title
         
         if (showSeparator) {
@@ -37,6 +43,8 @@ class LabelTableViewCell: UITableViewCell {
             separator.backgroundColor = .lightGray
             contentView.addSubview(separator)
         }
+        
+        favoriteButtonWidth.constant = showFavorite ? DetailConstants.Cells.Label.width : 0
     }
     
     override func prepareForReuse() {

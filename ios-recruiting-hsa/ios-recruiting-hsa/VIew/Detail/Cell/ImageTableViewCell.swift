@@ -21,8 +21,10 @@ class ImageTableViewCell: UITableViewCell {
     }
     
     func configure(imageUrl: String?) {
-        if let imageUrl = imageUrl, let url = URL(string: imageUrl) {
+        if let imageUrl = imageUrl, !imageUrl.isEmpty, let url = URL(string: imageUrl) {
             movieImageView.af_setImage(withURL: url)
+        } else {
+            movieImageView.image = UIImage(named: "placeholder")
         }
     }
     

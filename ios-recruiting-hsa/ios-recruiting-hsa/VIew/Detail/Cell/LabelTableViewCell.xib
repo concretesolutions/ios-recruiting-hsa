@@ -20,24 +20,39 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJR-s0-ACD">
-                        <rect key="frame" x="10" y="15" width="365" height="73.5"/>
+                        <rect key="frame" x="10" y="15" width="315" height="73.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3Z-aD-BSb">
+                        <rect key="frame" x="325" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="S3Z-aD-BSb" secondAttribute="height" multiplier="1:1" id="7WJ-1s-ds3"/>
+                            <constraint firstAttribute="width" constant="50" id="aOT-lA-1Kl"/>
+                        </constraints>
+                        <state key="normal" image="favorite_gray_icon"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fJR-s0-ACD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4XC-yz-izN"/>
                     <constraint firstAttribute="bottom" secondItem="fJR-s0-ACD" secondAttribute="bottom" constant="15" id="Bic-Wg-aFa"/>
+                    <constraint firstAttribute="trailing" secondItem="S3Z-aD-BSb" secondAttribute="trailing" constant="10" id="D8s-pc-vGq"/>
+                    <constraint firstItem="S3Z-aD-BSb" firstAttribute="leading" secondItem="fJR-s0-ACD" secondAttribute="trailing" id="EP1-18-qgP"/>
                     <constraint firstItem="fJR-s0-ACD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="cLP-RH-S0I"/>
-                    <constraint firstAttribute="trailing" secondItem="fJR-s0-ACD" secondAttribute="trailing" constant="10" id="etf-p1-JOp"/>
+                    <constraint firstItem="S3Z-aD-BSb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xfm-6N-J7y"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="favoriteButton" destination="S3Z-aD-BSb" id="zXL-ff-khB"/>
+                <outlet property="favoriteButtonWidth" destination="aOT-lA-1Kl" id="U7d-TX-pLI"/>
                 <outlet property="movieLabel" destination="fJR-s0-ACD" id="dxZ-tI-3ze"/>
             </connections>
             <point key="canvasLocation" x="29.710144927536234" y="83.705357142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="favorite_gray_icon" width="17" height="16"/>
+    </resources>
 </document>
