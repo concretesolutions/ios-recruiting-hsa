@@ -72,6 +72,7 @@
 		494880092300C92C001BEE92 /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494880072300C92C001BEE92 /* OverviewTableViewCell.swift */; };
 		4948800A2300C92C001BEE92 /* OverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494880082300C92C001BEE92 /* OverviewTableViewCell.xib */; };
 		4948800C2300D3C9001BEE92 /* DetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948800B2300D3C9001BEE92 /* DetailViewDelegate.swift */; };
+		49488030230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4948802E230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodeld */; };
 		4955B2C022FBBC080042216F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955B2BF22FBBC080042216F /* AppDelegate.swift */; };
 		4955B2C722FBBC090042216F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4955B2C622FBBC090042216F /* Assets.xcassets */; };
 		4955B2CA22FBBC090042216F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4955B2C822FBBC090042216F /* LaunchScreen.storyboard */; };
@@ -200,6 +201,7 @@
 		494880072300C92C001BEE92 /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
 		494880082300C92C001BEE92 /* OverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverviewTableViewCell.xib; sourceTree = "<group>"; };
 		4948800B2300D3C9001BEE92 /* DetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDelegate.swift; sourceTree = "<group>"; };
+		4948802F230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ios-recruiting-hsa.xcdatamodel"; sourceTree = "<group>"; };
 		4955B2BC22FBBC080042216F /* ios-recruiting-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-recruiting-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4955B2BF22FBBC080042216F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4955B2C622FBBC090042216F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				4955B2C622FBBC090042216F /* Assets.xcassets */,
+				4948802E230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodeld */,
 				4955B2CB22FBBC090042216F /* Info.plist */,
 			);
 			path = Resources;
@@ -938,6 +941,7 @@
 				49741AA722FC71A500E488AD /* PartModelToEntity.swift in Sources */,
 				494442EC22FBDCDB00889BF2 /* ProductionCountryModel.swift in Sources */,
 				497B1DA222FF7BAF0009452A /* SpokenLanguageView.swift in Sources */,
+				49488030230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodeld in Sources */,
 				494442CD22FBD30100889BF2 /* MovieDataSource.swift in Sources */,
 				494442C822FBD30100889BF2 /* CodableHelper.swift in Sources */,
 				494442E622FBDB0300889BF2 /* ProductionCompanyModel.swift in Sources */,
@@ -1294,6 +1298,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4948802E230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4948802F230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodel */,
+			);
+			currentVersion = 4948802F230112EA001BEE92 /* ios-recruiting-hsa.xcdatamodel */;
+			path = "ios-recruiting-hsa.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4955B2B422FBBC080042216F /* Project object */;
 }

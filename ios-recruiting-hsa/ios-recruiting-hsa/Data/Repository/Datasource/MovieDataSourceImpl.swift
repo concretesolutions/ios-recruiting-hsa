@@ -5,7 +5,8 @@
 //  Created on 07-08-19.
 //
 
-class MovieDataSourceImpl: MovieDataSource {private let restApi: MovieRestApi
+class MovieDataSourceImpl: MovieDataSource {
+    private let restApi: MovieRestApi
     
     init(restApi: MovieRestApi) {
         self.restApi = restApi
