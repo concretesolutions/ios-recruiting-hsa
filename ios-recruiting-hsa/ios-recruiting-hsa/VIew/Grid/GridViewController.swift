@@ -10,9 +10,9 @@ import UIKit
 class GridViewController: BaseViewController {
     @IBOutlet
     weak var collectionView: UICollectionView!
-    private let presenter: GridPresenter?
-    private let delegate: GridViewDelegate?
-    private let datasource: GridViewDataSource?
+    private let presenter: GridPresenter
+    private let delegate: GridViewDelegate
+    private let datasource: GridViewDataSource
     var movies = [MovieView]() {
         didSet {
             collectionView.reloadData()
@@ -38,10 +38,10 @@ class GridViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.Labels.gridTitle
-        delegate?.attach(view: self)
-        datasource?.attach(view: self)
-        presenter?.attach(view: self)
-        presenter?.popularMovies()
+        delegate.attach(view: self)
+        datasource.attach(view: self)
+        presenter.attach(view: self)
+        presenter.popularMovies()
     }
     
     override func prepare() {
@@ -61,7 +61,7 @@ class GridViewController: BaseViewController {
     }
     
     func endOfCollectionReached() {
-        presenter?.popularMovies()
+        presenter.popularMovies()
     }
 }
 

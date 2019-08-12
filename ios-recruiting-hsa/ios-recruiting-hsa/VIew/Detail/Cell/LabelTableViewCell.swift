@@ -12,9 +12,9 @@ class LabelTableViewCell: UITableViewCell {
     private weak var movieLabel: UILabel!
     private var separator: UIView!
     @IBOutlet
-    private weak var favoriteButton: UIButton!
+    fileprivate weak var favoriteImageView: UIImageView!
     @IBOutlet
-    private weak var favoriteButtonWidth: NSLayoutConstraint!
+    private weak var favoriteImageViewWidth: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,7 @@ class LabelTableViewCell: UITableViewCell {
     }
     
     private func prepareViews() {
-        movieLabel.numberOfLines = Constants.Text.numberOfLines
+        movieLabel.numberOfLines = Constants.Text.noLinesLimit
         selectionStyle = .none
     }
     
@@ -35,7 +35,8 @@ class LabelTableViewCell: UITableViewCell {
     
     func configure(title: String,
                    showSeparator: Bool,
-                   showFavorite: Bool = false) {
+                   showFavorite: Bool = false
+    ) {
         movieLabel.text = title
         
         if (showSeparator) {
@@ -44,10 +45,16 @@ class LabelTableViewCell: UITableViewCell {
             contentView.addSubview(separator)
         }
         
-        favoriteButtonWidth.constant = showFavorite ? DetailConstants.Cells.Label.width : 0
+        favoriteImageViewWidth.constant = showFavorite ? DetailConstants.Cells.Label.width : 0
     }
     
     override func prepareForReuse() {
         movieLabel.text = nil
+    }
+}
+
+extension LabelTableViewCell: FavoriteDelegate {
+    func markFavorite() {
+        favoriteImageView.image = UIImage(named: "favorite_full_icon")
     }
 }

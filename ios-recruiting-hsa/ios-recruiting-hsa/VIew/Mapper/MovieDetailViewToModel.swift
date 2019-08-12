@@ -13,7 +13,7 @@ class MovieDetailViewToModel: Mapper<MovieDetailView, MovieDetailModel> {
         }
         return MovieDetailView(id: value.id,
                                title: value.title,
-                               overview: (value.overview != nil && !value.overview!.isEmpty) ? value.overview : DetailConstants.Messages.emptyOverview,
+                               overview: (value.overview != nil && !value.overview!.isEmpty) ? value.overview! : DetailConstants.Messages.emptyOverview,
                                posterPath: value.posterPath != nil ? MovieURL.imageUrl + value.posterPath! : "",
                                genres: value.genres.count > 0 ? value.genres.map({ $0.name }) : [DetailConstants.Messages.emptyGenres],
                                releaseDate: releaseDate

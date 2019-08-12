@@ -18,7 +18,7 @@ class OverviewTableViewCell: UITableViewCell {
     }
 
     private func prepareViews() {
-        movieLabel.numberOfLines = Constants.Text.numberOfLines
+        movieLabel.numberOfLines = Constants.Text.noLinesLimit
         movieLabel.font = UIFont.systemFont(ofSize: movieLabel.font.pointSize - 2)
         selectionStyle = .none
         separator = UIView()

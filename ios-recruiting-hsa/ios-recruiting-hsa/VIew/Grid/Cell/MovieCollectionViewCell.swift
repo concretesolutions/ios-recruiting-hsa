@@ -23,7 +23,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     private func prepareViews() {
         imageView.contentMode = .scaleToFill
         containerView.backgroundColor = Constants.Colors.dark
-        movieLabel.numberOfLines = Constants.Text.numberOfLines
+        movieLabel.numberOfLines = Constants.Text.noLinesLimit
         movieLabel.adjustsFontSizeToFitWidth = true
         movieLabel.minimumScaleFactor = Constants.Text.minimumScale
         movieLabel.textColor = Constants.Colors.accent

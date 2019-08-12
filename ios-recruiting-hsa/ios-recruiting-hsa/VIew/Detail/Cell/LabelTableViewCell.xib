@@ -20,33 +20,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJR-s0-ACD">
-                        <rect key="frame" x="10" y="15" width="315" height="73.5"/>
+                        <rect key="frame" x="10" y="15" width="335" height="73.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3Z-aD-BSb">
-                        <rect key="frame" x="325" y="0.0" width="50" height="50"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite_gray_icon" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-lk-n5M">
+                        <rect key="frame" x="350" y="15" width="30" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="S3Z-aD-BSb" secondAttribute="height" multiplier="1:1" id="7WJ-1s-ds3"/>
-                            <constraint firstAttribute="width" constant="50" id="aOT-lA-1Kl"/>
+                            <constraint firstAttribute="width" constant="30" id="gtq-cS-0wh"/>
                         </constraints>
-                        <state key="normal" image="favorite_gray_icon"/>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fJR-s0-ACD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4XC-yz-izN"/>
+                    <constraint firstAttribute="trailing" secondItem="U7z-lk-n5M" secondAttribute="trailing" constant="5" id="7JS-NM-xyH"/>
+                    <constraint firstItem="U7z-lk-n5M" firstAttribute="top" secondItem="fJR-s0-ACD" secondAttribute="top" id="BWD-lz-obW"/>
                     <constraint firstAttribute="bottom" secondItem="fJR-s0-ACD" secondAttribute="bottom" constant="15" id="Bic-Wg-aFa"/>
-                    <constraint firstAttribute="trailing" secondItem="S3Z-aD-BSb" secondAttribute="trailing" constant="10" id="D8s-pc-vGq"/>
-                    <constraint firstItem="S3Z-aD-BSb" firstAttribute="leading" secondItem="fJR-s0-ACD" secondAttribute="trailing" id="EP1-18-qgP"/>
+                    <constraint firstItem="U7z-lk-n5M" firstAttribute="leading" secondItem="fJR-s0-ACD" secondAttribute="trailing" constant="5" id="MdP-tH-7jc"/>
                     <constraint firstItem="fJR-s0-ACD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="cLP-RH-S0I"/>
-                    <constraint firstItem="S3Z-aD-BSb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xfm-6N-J7y"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="favoriteButton" destination="S3Z-aD-BSb" id="zXL-ff-khB"/>
-                <outlet property="favoriteButtonWidth" destination="aOT-lA-1Kl" id="U7d-TX-pLI"/>
+                <outlet property="favoriteImageView" destination="U7z-lk-n5M" id="6CI-cg-RgI"/>
+                <outlet property="favoriteImageViewWidth" destination="gtq-cS-0wh" id="xoY-wm-tRe"/>
                 <outlet property="movieLabel" destination="fJR-s0-ACD" id="dxZ-tI-3ze"/>
             </connections>
             <point key="canvasLocation" x="29.710144927536234" y="83.705357142857139"/>

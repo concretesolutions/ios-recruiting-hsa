@@ -24,7 +24,7 @@ enum DetailConstants {
         }
         
         enum Label {
-            static let width: CGFloat = 50
+            static let width: CGFloat = 30
         }
         
         static func separatorFrame(width: CGFloat) -> CGRect {

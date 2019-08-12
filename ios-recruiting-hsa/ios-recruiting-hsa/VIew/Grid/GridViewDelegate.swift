@@ -27,6 +27,7 @@ extension GridViewDelegate: UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let view = view {
+            print("\(view.collectionView.contentOffset.y) \(view.collectionView.contentSize.height - view.collectionView.frame.size.height)")
             if view.collectionView.contentOffset.y >= (view.collectionView.contentSize.height - view.collectionView.frame.size.height) {
                 view.endOfCollectionReached()
             }

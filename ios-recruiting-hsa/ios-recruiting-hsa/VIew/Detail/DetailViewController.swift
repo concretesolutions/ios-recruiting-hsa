@@ -10,18 +10,23 @@ import UIKit
 class DetailViewController: BaseViewController {
     @IBOutlet
     weak var tableView: UITableView!
-    private let presenter: DetailPresenter?
-    private let delegate: DetailViewDelegate?
-    private let datasource: DetailViewDataSource?
-    var movie: MovieDetailView? {
+    private let presenter: DetailPresenter
+    private let delegate: DetailViewDelegate
+    private let datasource: DetailViewDataSource
+    var movie: MovieDetailView! {
         didSet {
             tableView.reloadData()
         }
     }
     var movieId: Int = 0
+    var favoriteDelegate: FavoriteDelegate? {
+        didSet {
+            presenter.isFavorite(movieId: movieId)
+        }
+    }
     
-    init(presenter: DetailPresenter?,
-         delegate: DetailViewDelegate?,
+    init(presenter: DetailPresenter,
+         delegate: DetailViewDelegate,
          datasource: DetailViewDataSource
     ) {
         self.presenter = presenter
@@ -37,10 +42,10 @@ class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.Labels.detailTitle
-        delegate?.attach(view: self)
-        datasource?.attach(view: self)
-        presenter?.attach(view: self)
-        presenter?.movieDetail(id: movieId)
+        delegate.attach(view: self)
+        datasource.attach(view: self)
+        presenter.attach(view: self)
+        presenter.movieDetail(id: movieId)
     }
     
     override func prepare() {
@@ -60,10 +65,18 @@ class DetailViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
     }
+    
+    func makeFavorite() {
+        presenter.addFavorite(movie: movie)
+    }
 }
 
 extension DetailViewController: DetailView {
     func show(detail movie: MovieDetailView) {
         self.movie = movie
+    }
+    
+    func markFavorite() {
+        favoriteDelegate?.markFavorite()
     }
 }

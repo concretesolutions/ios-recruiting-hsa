@@ -7,4 +7,5 @@
 
 protocol DetailView: BaseView {
     func show(detail movie: MovieDetailView)
+    func markFavorite()
 }

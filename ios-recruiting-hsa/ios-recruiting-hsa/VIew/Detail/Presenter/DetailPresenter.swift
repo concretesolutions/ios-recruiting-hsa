@@ -8,4 +8,6 @@
 protocol DetailPresenter {
     func attach(view: DetailView)
     func movieDetail(id: Int)
+    func addFavorite(movie: MovieDetailView)
+    func isFavorite(movieId: Int)
 }

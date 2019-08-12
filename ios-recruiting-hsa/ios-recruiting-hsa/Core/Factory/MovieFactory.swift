@@ -53,11 +53,11 @@ class MovieFactory {
     }
     
     private func favoritesViewController() -> UIViewController {
-        let presenter = serviceLocator.gridPresenter
-        let delegate = GridViewDelegate()
-        let datasource = GridViewDataSource()
+        let presenter = serviceLocator.favoritePresenter
+        let delegate = FavoriteViewDelegate()
+        let datasource = FavoriteViewDataSource()
         
-        let viewController = GridViewController(
+        let viewController = FavoriteViewController(
             presenter: presenter,
             delegate: delegate,
             datasource: datasource

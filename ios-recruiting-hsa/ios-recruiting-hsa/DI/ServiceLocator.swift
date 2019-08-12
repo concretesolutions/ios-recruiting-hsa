@@ -14,8 +14,12 @@ class ServiceLocator {
         return MovieRestApiImpl(codableHelper: codableHelper)
     }
     
-    private var movieDataSource: MovieDataSource {
-        return MovieDataSourceImpl(restApi: movieRestApi)
+    private var movieLocalData: MovieLocalData {
+        return MovieLocalDataimpl()
+    }
+    
+    private var favoriteMovieModelToEntity: Mapper<FavoriteMovieModel, FavoriteMovieEntity> {
+        return FavoriteMovieModelToEntity()
     }
     
     private var movieModelToEntity: Mapper<MovieModel, MovieEntity> {
@@ -63,7 +67,9 @@ class ServiceLocator {
     }
     
     private var movieDataRepository: MovieRepository {
-        return MovieRepositoryImpl(datasource: movieDataSource,
+        return MovieRepositoryImpl(movieRestApi: movieRestApi,
+                                   movieLocalData: movieLocalData,
+                                   favoriteMovieModelToEntity: favoriteMovieModelToEntity,
                                    movieResponseModelToEntity: movieResponseModelToEntity,
                                    movieDetailModelToEntity: movieDetailModelToEntity,
                                    errorModelToEntity: errorModelToEntity
@@ -78,15 +84,27 @@ class ServiceLocator {
     
     // View
     
+    private var movieDetailViewToFavoriteMovieModel: Mapper<MovieDetailView, FavoriteMovieModel> {
+        return MovieDetailViewToFavoriteMovieModel()
+    }
+    
+    private var favoriteMovieViewToModel: Mapper<FavoriteMovieView, FavoriteMovieModel> {
+        return FavoriteMovieViewToModel()
+    }
+    
+    private var movieViewToModel: Mapper<MovieView, MovieModel> {
+        return MovieViewToModel()
+    }
+    
+    private var movieDetailViewToModel: Mapper<MovieDetailView, MovieDetailModel> {
+        return MovieDetailViewToModel()
+    }
+    
     private var errorViewToModel: Mapper<ErrorView, ErrorModel> {
         return ErrorViewToModel()
     }
     
     // Grid
-    private var movieViewToModel: Mapper<MovieView, MovieModel> {
-        return MovieViewToModel()
-    }
-    
     var gridPresenter: GridPresenter {
         return GridPresenterImpl(movieUseCase: movieUseCase,
                                  movieViewToModel: movieViewToModel,
@@ -95,14 +113,19 @@ class ServiceLocator {
     }
     
     // Detail
-    private var movieDetailViewToModel: Mapper<MovieDetailView, MovieDetailModel> {
-        return MovieDetailViewToModel()
-    }
-    
     var detailPresenter: DetailPresenter {
         return DetailPresenterImpl(movieUseCase: movieUseCase,
+                                   movieDetailViewToFavoriteMovieModel: movieDetailViewToFavoriteMovieModel,
                                    movieDetailViewToModel: movieDetailViewToModel,
                                    errorViewToModel: errorViewToModel
+        )
+    }
+    
+    // Favorites
+    var favoritePresenter: FavoritePresenter {
+        return FavoritePresenterImpl(movieUseCase: movieUseCase,
+                                     favoriteMovieViewToModel: favoriteMovieViewToModel,
+                                     errorViewToModel: errorViewToModel
         )
     }
 }

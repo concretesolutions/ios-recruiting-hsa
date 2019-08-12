@@ -23,4 +23,10 @@ extension DetailViewDelegate: UITableViewDelegate {
             return UITableView.automaticDimension
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == DetailConstants.Cells.Indexes.title {
+            view?.makeFavorite()
+        }
+    }
 }

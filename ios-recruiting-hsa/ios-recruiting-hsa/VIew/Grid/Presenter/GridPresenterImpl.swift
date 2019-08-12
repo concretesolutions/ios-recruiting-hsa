@@ -35,8 +35,6 @@ extension GridPresenterImpl: GridPresenter {
             guard let movieModels = movieModels else {
                 if let error = error {
                     self.view?.show(error: self.errorViewToModel.reverseMap(value: error))
-                } else {
-                    self.view?.show(error: ErrorView(statusMessage: "Ups! Something went wrong!", statusCode: 0))
                 }
                 return
             }
@@ -44,8 +42,6 @@ extension GridPresenterImpl: GridPresenter {
             if movieModels.count > 0 {
                 self.view?.show(popular: self.movieViewToModel.reverseMap(values: movieModels))
                 self.popularPageNumber += 1
-            } else {
-                self.view?.show(error: ErrorView(statusMessage: "Ups! Something went wrong!", statusCode: 0))
             }
         }
     }

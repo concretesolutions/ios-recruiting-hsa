@@ -62,10 +62,15 @@ extension DetailViewDataSource: UITableViewDataSource {
             cell = LabelTableViewCell(style: .default, reuseIdentifier: identifier)
         }
         
+        let showFavorite = indexPath.row == DetailConstants.Cells.Indexes.title
         cell?.configure(title: text,
                         showSeparator: indexPath.row != DetailConstants.Cells.Indexes.title,
-                        showFavorite: indexPath.row == DetailConstants.Cells.Indexes.title
+                        showFavorite: showFavorite
         )
+        
+        if (showFavorite) {
+            view?.favoriteDelegate = cell
+        }
         
         return cell ?? LabelTableViewCell()
     }

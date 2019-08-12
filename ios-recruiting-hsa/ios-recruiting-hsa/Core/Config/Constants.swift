@@ -10,6 +10,9 @@ import UIKit
 enum Constants {
     enum ErrorMessages {
         static let serverError = "Ups! Server error!"
+        static let saveError = "Ups! Couldn't save!"
+        static let fetchError = "Ups! Couldn't fetch!"
+        static let deleteError = "Ups! Couldn't delete!"
     }
     
     enum Colors {
@@ -22,7 +25,8 @@ enum Constants {
     
     enum Text {
         static let minimumScale: CGFloat = 0.5
-        static let numberOfLines = 0
+        static let noLinesLimit = 0
+        static let fiveLinesLimit = 5
     }
     
     enum Labels {
@@ -33,5 +37,20 @@ enum Constants {
     
     enum Images {
         static let gridMultiplier: CGFloat = 0.84
+    }
+    
+    enum LocalData {
+        enum Entity {
+            static let name = "MovieFavoriteEntity"
+            
+            enum Fields {
+                static let genres = "genres"
+                static let id = "id"
+                static let overview = "overview"
+                static let posterPath =  "posterPath"
+                static let releaseDate =  "releaseDate"
+                static let title = "title"
+            }
+        }
     }
 }

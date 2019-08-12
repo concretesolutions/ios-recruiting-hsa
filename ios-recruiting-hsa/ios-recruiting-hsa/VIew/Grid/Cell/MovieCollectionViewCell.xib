@@ -35,7 +35,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="c8o-rE-Lsk" firstAttribute="leading" secondItem="nGf-lI-M8k" secondAttribute="leading" constant="10" id="EZ7-6R-22S"/>
-                            <constraint firstAttribute="trailing" secondItem="c8o-rE-Lsk" secondAttribute="trailing" constant="10" id="TlX-gk-BXA"/>
+                            <constraint firstAttribute="trailing" secondItem="c8o-rE-Lsk" secondAttribute="trailing" constant="10" id="FCw-Qy-kCE"/>
                             <constraint firstItem="c8o-rE-Lsk" firstAttribute="top" secondItem="nGf-lI-M8k" secondAttribute="top" constant="10" id="kF2-BJ-xyB"/>
                             <constraint firstAttribute="bottom" secondItem="c8o-rE-Lsk" secondAttribute="bottom" constant="10" id="mQ7-Ji-67d"/>
                         </constraints>
