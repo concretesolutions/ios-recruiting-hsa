@@ -20,10 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         //self.window?.rootViewController = UIViewController.init()
-        self.window?.rootViewController = FavoritesTableViewController.init()
+        //self.window?.rootViewController = FavoritesTableViewController.init()
         
-        //let moviewNavigationViewController = MoviesNavigationViewController(rootViewController: MoviesNavigationViewController.init())
+        //let moviewNavigationViewController = MoviesNavigationViewController(rootViewController: MoviesViewController())
         //self.window?.rootViewController = moviewNavigationViewController
+        
+        
+        
+        let moviesViewController =  MoviesViewController()
+        moviesViewController.tabBarItem =  UITabBarItem(title: "movies" , image: UIImage(named: "list"), tag: 0)
+        
+  
+        
+        let favoritesViewController = FavoritesTableViewController()
+        favoritesViewController.tabBarItem = UITabBarItem(title: "favorites" , image: UIImage(named: "fav"), tag: 1)
+
+        
+        
+        let viewControllerListB = [ moviesViewController, favoritesViewController ]
+        
+        
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = viewControllerListB.map { UINavigationController(rootViewController: $0) }
+        self.window?.rootViewController = MoviesNavigationViewController(rootViewController:tabBarController)
+        
+        
         
         self.window?.makeKeyAndVisible()
         return true

@@ -37,7 +37,7 @@ class MoviesNavigationViewController: UINavigationController {
         let backBarButtonItem = UIBarButtonItem.init(customView: vi)
  
     
-        let navigationItem = UINavigationItem(title: "hola")
+        let navigationItem = UINavigationItem(title: "Movies")
         navigationItem.rightBarButtonItems = [add, play]
         navigationItem.leftBarButtonItem = backBarButtonItem
         navigationBar.setItems([navigationItem], animated: false)
