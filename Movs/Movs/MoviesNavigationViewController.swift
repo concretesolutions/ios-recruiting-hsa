@@ -14,7 +14,16 @@ class MoviesNavigationViewController: UINavigationController {
         super.viewDidLoad()
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = UIColor.amarillo
-        let navigationBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 50, width: self.view.frame.width, height: 44))
+        let navigationBar: UINavigationBar
+        
+        if UIScreen.main.bounds.size.height > 750 {
+            navigationBar  = UINavigationBar(frame: CGRect(x: 0, y: 43, width: view.frame.size.width, height: 44))
+        }
+        else{
+            navigationBar  = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.frame.size.width, height: 44))
+        }
+        
+        
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         let play = UIBarButtonItem(title: "Play", style: .plain, target: self, action: nil)
         //let back = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: nil)
