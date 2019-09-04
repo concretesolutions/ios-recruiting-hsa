@@ -41,6 +41,19 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("play")
+        let viewController = MovieViewController()
+        viewController.view.backgroundColor = .white
+        viewController.imageView.backgroundColor = .negro
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Movies"
+        backItem.tintColor = .negro
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
+        self.navigationController?.pushViewController(viewController, animated: true)
+     
+    }
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:

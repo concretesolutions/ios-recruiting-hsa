@@ -21,7 +21,7 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         self.tableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         let nib = UINib(nibName: "FavoriteTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -69,6 +69,10 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 

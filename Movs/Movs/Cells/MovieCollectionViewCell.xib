@@ -37,6 +37,7 @@
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="171" id="gt0-Fa-x6x"/>
+                            <constraint firstAttribute="width" secondItem="W8V-pT-wME" secondAttribute="height" multiplier="62:57" id="sI7-8C-8Bg"/>
                         </constraints>
                     </imageView>
                 </subviews>

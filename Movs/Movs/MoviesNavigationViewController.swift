@@ -49,5 +49,5 @@ class MoviesNavigationViewController: UINavigationController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
+  
 }
