@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="myCell" customModule="Movs" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="Movs" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="186" height="239"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -59,6 +59,7 @@
             <connections>
                 <outlet property="favButton" destination="CMb-yq-29d" id="HTh-an-5FQ"/>
                 <outlet property="movieImage" destination="W8V-pT-wME" id="26o-lv-yjv"/>
+                <outlet property="titulo" destination="Pba-Ut-rxU" id="6ji-7z-X7k"/>
             </connections>
             <point key="canvasLocation" x="236.23188405797103" y="215.95982142857142"/>
         </collectionViewCell>

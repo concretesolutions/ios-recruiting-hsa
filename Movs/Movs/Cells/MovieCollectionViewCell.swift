@@ -8,34 +8,35 @@
 
 import UIKit
 
-class myCell: UICollectionViewCell {
+class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var favButton: UIButton!
     var isFavorite = false
     @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var titulo: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        /*NSLayoutConstraint.activate([
-            movieImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            movieImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            movieImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 25),
-            movieImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
-            ])*/
-        
         movieImage.addConstraint(movieImage.widthAnchor.constraint(equalToConstant: self.bounds.width))
         movieImage.addConstraint(movieImage.heightAnchor.constraint(equalToConstant: self.bounds.height))
         
     }
 
+    func inicializarCelda(pelicula:Pelicula){
+        self.titulo.text = pelicula.titulo
+        self.isFavorite = pelicula.favorito
+        cambiaBoton()
+    }
     @IBAction func addToFavorites(_ sender: Any) {
+        cambiaBoton()
+        self.isFavorite =  !self.isFavorite
+    }
+    
+    func cambiaBoton(){
         if !isFavorite{
             favButton.setImage(UIImage(named: "b1"), for: .normal)
-            isFavorite=true
         }
         else{
             favButton.setImage(UIImage(named: "b2"), for: .normal)
-            isFavorite=false
         }
     }
 }

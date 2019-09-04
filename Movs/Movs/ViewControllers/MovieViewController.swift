@@ -12,6 +12,12 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
 
     let imageView = UIImageView()
     let tableView = UITableView()
+    
+    var titulo:String=""
+    var año:Int=2008
+    var genero:String=""
+    var comentario:String=""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,13 +60,13 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         switch indexPath.row {
         case 0:
-            cell?.textLabel?.text = "titulo"
+            cell?.textLabel?.text = self.titulo
         case 1:
-            cell?.textLabel?.text = "año"
+            cell?.textLabel?.text = "\(self.año)"
         case 2:
-            cell?.textLabel?.text = "genero"
+            cell?.textLabel?.text = self.genero
         case 3:
-            cell?.textLabel?.text = "comentario"
+            cell?.textLabel?.text = self.comentario
         default:
             print()
         }
