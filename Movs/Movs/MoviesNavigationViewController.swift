@@ -13,7 +13,7 @@ class MoviesNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = UIColor.amarillo
+        UINavigationBar.appearance().barTintColor = .amarillo
         let navigationBar: UINavigationBar
         
         if UIScreen.main.bounds.size.height > 750 {

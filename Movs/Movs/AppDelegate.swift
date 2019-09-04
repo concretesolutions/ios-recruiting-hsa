@@ -19,18 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        //self.window?.rootViewController = UIViewController.init()
-        //self.window?.rootViewController = FavoritesTableViewController.init()
-        
-        //let moviewNavigationViewController = MoviesNavigationViewController(rootViewController: MoviesViewController())
-        //self.window?.rootViewController = moviewNavigationViewController
-        
         
         
         let moviesViewController =  MoviesViewController()
         moviesViewController.tabBarItem =  UITabBarItem(title: "movies" , image: UIImage(named: "list"), tag: 0)
-        
-  
         
         let favoritesViewController = FavoritesTableViewController()
         favoritesViewController.tabBarItem = UITabBarItem(title: "favorites" , image: UIImage(named: "fav"), tag: 1)
@@ -43,6 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = viewControllerListB.map { UINavigationController(rootViewController: $0) }
+        
+        
+        tabBarController.tabBar.tintColor = .negro
+        //tabBarController.tabBar.unselectedItemTintColor = .cafe
+        
+        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.barTintColor = .amarillo
         self.window?.rootViewController = MoviesNavigationViewController(rootViewController:tabBarController)
         
         

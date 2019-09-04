@@ -88,6 +88,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82048A56231F36A100DE1B35 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				8210A1E9231DE9F200D60E30 /* FavoritesTableViewController.swift */,
+				8210A1E8231DE9F200D60E30 /* FavoritesTableViewController.xib */,
+				82048A46231E629B00DE1B35 /* MoviesViewController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		82048A57231F376300DE1B35 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				82048A48231E6B3D00DE1B35 /* MovieCollectionViewCell.xib */,
+				82048A49231E6B3D00DE1B35 /* MovieCollectionViewCell.swift */,
+				82048A52231EF1D500DE1B35 /* FavoriteTableViewCell.xib */,
+				82048A53231EF1D500DE1B35 /* FavoriteTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		82048A58231F37B700DE1B35 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82048A50231EC7F500DE1B35 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8210A1AA231DE7F800D60E30 = {
 			isa = PBXGroup;
 			children = (
@@ -111,16 +140,11 @@
 		8210A1B5231DE7F800D60E30 /* Movs */ = {
 			isa = PBXGroup;
 			children = (
-				8210A1E8231DE9F200D60E30 /* FavoritesTableViewController.xib */,
-				8210A1E9231DE9F200D60E30 /* FavoritesTableViewController.swift */,
-				82048A46231E629B00DE1B35 /* MoviesViewController.swift */,
-				82048A48231E6B3D00DE1B35 /* MovieCollectionViewCell.xib */,
-				82048A49231E6B3D00DE1B35 /* MovieCollectionViewCell.swift */,
+				82048A57231F376300DE1B35 /* Cells */,
 				8210A1B6231DE7F800D60E30 /* AppDelegate.swift */,
 				82048A4E231EA48F00DE1B35 /* MoviesNavigationViewController.swift */,
-				82048A52231EF1D500DE1B35 /* FavoriteTableViewCell.xib */,
-				82048A53231EF1D500DE1B35 /* FavoriteTableViewCell.swift */,
-				82048A50231EC7F500DE1B35 /* UIColor.swift */,
+				82048A56231F36A100DE1B35 /* Tabs */,
+				82048A58231F37B700DE1B35 /* Extensions */,
 				8210A1BF231DE7FA00D60E30 /* Assets.xcassets */,
 				8210A1C1231DE7FA00D60E30 /* LaunchScreen.storyboard */,
 				8210A1C4231DE7FA00D60E30 /* Info.plist */,

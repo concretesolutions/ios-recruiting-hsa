@@ -10,6 +10,10 @@ import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var resumen: UILabel!
+    @IBOutlet weak var año: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

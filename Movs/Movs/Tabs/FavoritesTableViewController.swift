@@ -20,6 +20,8 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        let nib = UINib(nibName: "FavoriteTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -27,16 +29,17 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! FavoriteTableViewCell?)!
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! FavoriteTableViewCell
         //cell.accessoryType = .disclosureIndicator
         //cell.addSubview(SwiftDisclosureIndicator.init())
-        let view = SwiftDisclosureIndicator.init()
+        /*let view = SwiftDisclosureIndicator.init()
         view.color = UIColor.negro
         view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         view.backgroundColor = UIColor.white
-        cell.accessoryView = view
+        cell.accessoryView = view*/
         
-        cell.textLabel?.text = self.tableData[indexPath.row]
+        cell.titulo.text = "titulo"
+        cell.año.text =  self.tableData[indexPath.row]
         
         return cell
     }
