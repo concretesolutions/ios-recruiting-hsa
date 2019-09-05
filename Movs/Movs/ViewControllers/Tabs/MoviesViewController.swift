@@ -14,17 +14,11 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var collectionview: UICollectionView!
     var cellId = "MovieCollectionViewCell"
     var peliculas: Array<Pelicula> = Array()
-   
+    let activityView = UIActivityIndicatorView(style: .gray)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let p2 = Pelicula()
-        let p3 = Pelicula()
-        let p1 = Pelicula()
-        p1.titulo = "hola1"
-        p1.favorito=true
-        peliculas = [p1,p2,p3]
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.itemSize = CGSize(width: view.frame.width, height: 700)
@@ -38,25 +32,17 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionview.backgroundColor = UIColor.white
         self.view.addSubview(collectionview)
         
-        let defaults = UserDefaults.standard
+        muestraActivityIndicator()
         
-        
-        
-        
-        do {
-            let encodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: peliculas, requiringSecureCoding: false)
-            defaults.set(encodedData, forKey: "pelis")
-            defaults.synchronize()
+        let l = ListaPelicula()
+        l.getPopulares(exito: {
+            self.peliculas = l.getLista()
             
-            
-            let decoded = defaults.data(forKey: "pelis")
-            print("result")
-            let savedArray = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(decoded!) as! [Pelicula]
-            let _ = savedArray.map({print($0.titulo)})
-            
-        } catch {
-            print("error")
-        }
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
+            self.collectionview.reloadData()
+            self.stopActivityIndicator()
+            self.guardar()
+        }, falla: nil)
 
         
         
@@ -73,16 +59,21 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewController = MovieViewController()
-        viewController.view.backgroundColor = .white
-        viewController.imageView.backgroundColor = .negro
+        let movie = MovieViewController()
+        movie.view.backgroundColor = .white
+        movie.imageView.backgroundColor = .negro
+        movie.setMovie(pelicula: peliculas[indexPath.row])
+        
+        peliculas[indexPath.row].getGenero(completion: { s in
+            movie.genero = s
+        })
         
         let backItem = UIBarButtonItem()
         backItem.title = "Movies"
         backItem.tintColor = .negro
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
         self.navigationController?.navigationBar.topItem?.title = "Movie"
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(movie, animated: true)
     }
     
 
@@ -101,4 +92,35 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return true
     }
     
+    func muestraActivityIndicator(){
+        
+        activityView.center = CGPoint(x: self.view.center.x, y: self.view.center.y - 200)
+        activityView.color = .negro
+        activityView.startAnimating()
+        activityView.hidesWhenStopped = true
+        self.view.addSubview(activityView)
+        
+    }
+    
+    func stopActivityIndicator(){
+        activityView.stopAnimating()
+    }
+    
+    func guardar(){
+        let defaults = UserDefaults.standard
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: peliculas, requiringSecureCoding: false)
+            defaults.set(encodedData, forKey: "pelis")
+            defaults.synchronize()
+    
+    
+            let decoded = defaults.data(forKey: "pelis")
+            print("guardado")
+            let savedArray = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(decoded!) as! [Pelicula]
+            let _ = savedArray.map({print($0.titulo)})
+    
+        } catch {
+            print("error")
+        }
+    }
 }

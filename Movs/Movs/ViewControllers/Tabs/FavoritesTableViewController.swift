@@ -10,7 +10,7 @@ import UIKit
 
 class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var tableData: [String] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"]
+    var tableData: [Pelicula] = [Pelicula(),Pelicula(),Pelicula()]
     
     let cellReuseIdentifier = "cell"
     
@@ -30,9 +30,11 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! FavoriteTableViewCell
+        let pelicula = self.tableData[indexPath.row]
+        cell.titulo.text = pelicula.titulo
+        cell.año.text = pelicula.getAño()
+        cell.imageView?.imageFromUrl(urlString: pelicula.getImage() )
         
-        cell.titulo.text = "titulo"
-        cell.año.text =  self.tableData[indexPath.row]
         
         return cell
     }

@@ -23,7 +23,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     func inicializarCelda(pelicula:Pelicula){
         self.titulo.text = pelicula.titulo
-        self.isFavorite = !pelicula.favorito
+        self.isFavorite = false//!pelicula.favorito
+        self.movieImage.imageFromUrl(urlString: pelicula.getImage())
         cambiaBoton()
         
     }
