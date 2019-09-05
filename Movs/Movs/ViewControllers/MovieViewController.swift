@@ -13,10 +13,10 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
     let imageView = UIImageView()
     let tableView = UITableView()
     
-    var titulo:String=""
-    var año:Int=2008
-    var genero:String=""
-    var comentario:String=""
+    var titulo:String = ""
+    var año:Int = 2008
+    var genero:String = ""
+    var comentario:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

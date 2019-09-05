@@ -81,8 +81,8 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         backItem.title = "Movies"
         backItem.tintColor = .negro
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.topItem?.title = "Movie"
         self.navigationController?.pushViewController(viewController, animated: true)
-     
     }
     
 

@@ -23,12 +23,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     func inicializarCelda(pelicula:Pelicula){
         self.titulo.text = pelicula.titulo
-        self.isFavorite = pelicula.favorito
+        self.isFavorite = !pelicula.favorito
         cambiaBoton()
+        
     }
     @IBAction func addToFavorites(_ sender: Any) {
         cambiaBoton()
-        self.isFavorite =  !self.isFavorite
+        
     }
     
     func cambiaBoton(){
@@ -38,5 +39,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         else{
             favButton.setImage(UIImage(named: "b2"), for: .normal)
         }
+        self.isFavorite =  !self.isFavorite
     }
 }

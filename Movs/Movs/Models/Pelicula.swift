@@ -53,4 +53,6 @@ class Pelicula: NSObject, NSCoding {
         aCoder.encode(urlImagen, forKey: "url")
     }
     
+    
+    
 }
