@@ -1,0 +1,6 @@
+framework module Pods_concreteMovieDataTests {
+  umbrella header "Pods-concreteMovieDataTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
