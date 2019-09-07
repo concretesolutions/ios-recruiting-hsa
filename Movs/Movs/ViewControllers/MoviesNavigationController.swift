@@ -1,5 +1,5 @@
 //
-//  MoviesNavigationViewController.swift
+//  MoviesNavigationController.swift
 //  Movs
 //
 //  Created by Jose Antonio Aravena on 9/3/19.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MoviesNavigationViewController: UINavigationController {
+class MoviesNavigationController: UINavigationController {
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +28,13 @@ class MoviesNavigationViewController: UINavigationController {
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         let play = UIBarButtonItem(title: "Play", style: .plain, target: self, action: nil)
-        //let back = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: nil)
         self.view.addSubview(navigationBar)
-        let vi = SwiftDisclosureIndicator.init()
+
         
-        vi.color = UIColor.negro
-        vi.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        vi.backgroundColor = UIColor.amarillo
-        
-        let backBarButtonItem = UIBarButtonItem.init(customView: vi)
- 
     
-        let navigationItem = UINavigationItem(title: "Movies")
+        let navigationItem = UINavigationItem(title: "hola")
         navigationItem.rightBarButtonItems = [add, play]
-        navigationItem.leftBarButtonItem = backBarButtonItem
-        navigationBar.setItems([navigationItem], animated: false)
+        navigationBar.setItems([navigationItem], animated: true)
         
         
        
