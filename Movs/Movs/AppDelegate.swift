@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.tabBar.barTintColor = .amarillo
         self.window?.rootViewController = MoviesNavigationViewController(rootViewController:tabBarController)
         
+        //self.window?.rootViewController = MoviesNavigationViewController(rootViewController:FilterViewController())
+        
         
         
         self.window?.makeKeyAndVisible()

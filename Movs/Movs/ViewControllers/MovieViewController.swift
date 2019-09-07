@@ -12,6 +12,13 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
 
     let imageView = UIImageView()
     let tableView = UITableView()
+    
+    var titulo:String = "thor"
+    var año:String = "2008"
+    var genero:String = "action"
+    var comentario:String = "test"
+    var favorite:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +49,13 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
     }
 
+    func setMovie(pelicula:Pelicula){
+        self.año = pelicula.getAño()
+        self.comentario = pelicula.resumen
+        self.favorite = pelicula.favorito
+        self.titulo = pelicula.titulo
+        self.imageView.imageFromUrl(urlString: pelicula.getImage())
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
@@ -54,15 +68,26 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         switch indexPath.row {
         case 0:
-            cell?.textLabel?.text = "titulo"
+            cell?.textLabel?.text = self.titulo
+            let button = UIButton(frame: CGRect(x: self.view.frame.width - 60, y: 10, width: 50, height: 50))
+            let image = (favorite) ? UIImage(named: "b1") : UIImage(named: "b2")
+            button.setImage(image, for: .normal)
+            
+            button.addTarget(self, action: #selector(addTofavorites), for: .touchUpInside)
+            cell?.contentView.addSubview(button)
         case 1:
-            cell?.textLabel?.text = "año"
+            cell?.textLabel?.text = "\(self.año)"
         case 2:
-            cell?.textLabel?.text = "genero"
+            cell?.textLabel?.text = self.genero
         case 3:
-            cell?.textLabel?.text = "comentario"
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width-10, height: 200))
+            label.text = self.comentario
+            label.numberOfLines=10
+            cell?.contentView.addSubview(label)
+            label.textAlignment = .natural
+            
         default:
-            print()
+            print("error")
         }
         
         return cell!
@@ -79,5 +104,9 @@ class MovieViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+    @objc func addTofavorites (){
+        
     }
 }

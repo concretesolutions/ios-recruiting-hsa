@@ -13,6 +13,8 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     var collectionview: UICollectionView!
     var cellId = "MovieCollectionViewCell"
+    var peliculas: Array<Pelicula> = Array()
+    let activityView = UIActivityIndicatorView(style: .gray)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,29 +32,48 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionview.backgroundColor = UIColor.white
         self.view.addSubview(collectionview)
         
+        muestraActivityIndicator()
+        
+        let l = ListaPelicula()
+        l.getPopulares(exito: {
+            self.peliculas = l.getLista()
+            
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
+            self.collectionview.reloadData()
+            self.stopActivityIndicator()
+            self.guardar()
+        }, falla: nil)
+
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return peliculas.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! myCell
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCollectionViewCell
+        cell.inicializarCelda(pelicula: peliculas[indexPath.row])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("play")
-        let viewController = MovieViewController()
-        viewController.view.backgroundColor = .white
-        viewController.imageView.backgroundColor = .negro
+        let movie = MovieViewController()
+        movie.view.backgroundColor = .white
+        movie.imageView.backgroundColor = .negro
+        movie.setMovie(pelicula: peliculas[indexPath.row])
+        
+        peliculas[indexPath.row].getGenero(completion: { s in
+            movie.genero = s
+        })
         
         let backItem = UIBarButtonItem()
         backItem.title = "Movies"
         backItem.tintColor = .negro
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
-        self.navigationController?.pushViewController(viewController, animated: true)
-     
+        self.navigationController?.navigationBar.topItem?.title = "Movie"
+        self.navigationController?.pushViewController(movie, animated: true)
     }
     
 
@@ -71,4 +92,35 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return true
     }
     
+    func muestraActivityIndicator(){
+        
+        activityView.center = CGPoint(x: self.view.center.x, y: self.view.center.y - 200)
+        activityView.color = .negro
+        activityView.startAnimating()
+        activityView.hidesWhenStopped = true
+        self.view.addSubview(activityView)
+        
+    }
+    
+    func stopActivityIndicator(){
+        activityView.stopAnimating()
+    }
+    
+    func guardar(){
+        let defaults = UserDefaults.standard
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: peliculas, requiringSecureCoding: false)
+            defaults.set(encodedData, forKey: "pelis")
+            defaults.synchronize()
+    
+    
+            let decoded = defaults.data(forKey: "pelis")
+            print("guardado")
+            let savedArray = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(decoded!) as! [Pelicula]
+            let _ = savedArray.map({print($0.titulo)})
+    
+        } catch {
+            print("error")
+        }
+    }
 }

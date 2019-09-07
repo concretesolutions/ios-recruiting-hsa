@@ -10,7 +10,7 @@ import UIKit
 
 class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var tableData: [String] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"]
+    var tableData: [Pelicula] = [Pelicula(),Pelicula(),Pelicula()]
     
     let cellReuseIdentifier = "cell"
     
@@ -30,16 +30,11 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! FavoriteTableViewCell
-        //cell.accessoryType = .disclosureIndicator
-        //cell.addSubview(SwiftDisclosureIndicator.init())
-        /*let view = SwiftDisclosureIndicator.init()
-        view.color = UIColor.negro
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        view.backgroundColor = UIColor.white
-        cell.accessoryView = view*/
+        let pelicula = self.tableData[indexPath.row]
+        cell.titulo.text = pelicula.titulo
+        cell.año.text = pelicula.getAño()
+        cell.imageView?.imageFromUrl(urlString: pelicula.getImage() )
         
-        cell.titulo.text = "titulo"
-        cell.año.text =  self.tableData[indexPath.row]
         
         return cell
     }
@@ -74,32 +69,4 @@ class FavoritesTableViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-}
-
-
-
-
-
-
-
-
-
-class SwiftDisclosureIndicator: UIView {
-    var color = UIColor.red
-    override func draw(_ rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        
-        let x = self.bounds.maxX - 2
-        let y = self.bounds.midY
-        let R = CGFloat(4.5)
-        context!.move(to: CGPoint(x: x - R, y: y - R))
-        context!.addLine(to: CGPoint(x: x, y: y))
-        context!.addLine(to:CGPoint(x: x - R, y: y + R))
-        context!.setLineCap(CGLineCap.square)
-        context!.setLineJoin(CGLineJoin.miter)
-        context!.setLineWidth(2)
-        color.setStroke()
-        context!.strokePath()
-    }
-    
 }
