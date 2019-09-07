@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="Movs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="186" height="239"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="186" height="239"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pba-Ut-rxU">
+                        <rect key="frame" x="0.0" y="198" width="144" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.80784313730000001" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W8V-pT-wME">
+                        <rect key="frame" x="0.0" y="0.0" width="186" height="171"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="171" id="gt0-Fa-x6x"/>
+                            <constraint firstAttribute="width" secondItem="W8V-pT-wME" secondAttribute="height" multiplier="62:57" id="sI7-8C-8Bg"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMb-yq-29d">
+                        <rect key="frame" x="141" y="194" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="QBf-bH-7e6"/>
+                            <constraint firstAttribute="width" constant="25" id="peM-yE-lM1"/>
+                        </constraints>
+                        <state key="normal" image="b2"/>
+                        <connections>
+                            <action selector="addToFavorites:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mNG-XV-TtJ"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.1764705882" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="W8V-pT-wME" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="54a-Un-VHn"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="W8V-pT-wME" secondAttribute="trailing" id="5QL-NM-cKm"/>
+                <constraint firstItem="Pba-Ut-rxU" firstAttribute="leading" secondItem="W8V-pT-wME" secondAttribute="leading" id="6kQ-Jy-Qaw"/>
+                <constraint firstItem="CMb-yq-29d" firstAttribute="top" secondItem="W8V-pT-wME" secondAttribute="bottom" constant="23" id="Ka5-I4-XOx"/>
+                <constraint firstItem="Pba-Ut-rxU" firstAttribute="top" secondItem="W8V-pT-wME" secondAttribute="bottom" constant="27" id="WdE-7r-FB0"/>
+                <constraint firstItem="Pba-Ut-rxU" firstAttribute="trailing" secondItem="W8V-pT-wME" secondAttribute="trailing" constant="-42" id="cky-Yu-F98"/>
+                <constraint firstItem="Pba-Ut-rxU" firstAttribute="bottom" secondItem="CMb-yq-29d" secondAttribute="bottom" id="lhO-1A-ABw"/>
+                <constraint firstAttribute="trailing" secondItem="CMb-yq-29d" secondAttribute="trailing" constant="20" id="uTC-ra-fuM"/>
+                <constraint firstItem="W8V-pT-wME" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="yjD-lr-T26"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="186" height="239"/>
+            <connections>
+                <outlet property="favButton" destination="CMb-yq-29d" id="HTh-an-5FQ"/>
+                <outlet property="movieImage" destination="W8V-pT-wME" id="26o-lv-yjv"/>
+                <outlet property="titulo" destination="Pba-Ut-rxU" id="6ji-7z-X7k"/>
+            </connections>
+            <point key="canvasLocation" x="236.23188405797103" y="215.95982142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="b2" width="17" height="16"/>
+    </resources>
+</document>
