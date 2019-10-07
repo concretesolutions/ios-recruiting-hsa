@@ -69,7 +69,10 @@ class FiltersViewController: UIViewController {
     }
 
     @IBAction func filterAction(_ sender: Any) {
-        
+        router.routeToList {
+            guard let interactor = interactor else { return }
+            delegate?.updateFilters(filterList: interactor.getFilters())
+        }
     }
 }
 

@@ -40,12 +40,12 @@ class FavoriteMoviesViewController: BaseSearchViewController {
         setup()
         setupTableView()
         setupSearchBar()
+        router.setupFilterButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor?.getMovies()
-        router.setupFilterButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,7 +87,7 @@ extension FavoriteMoviesViewController: FavoritesMoviesDisplayLogic{
 
 extension FavoriteMoviesViewController: FiltersSelectionDelegate{
     func updateFilters(filterList: [FilterModel]) {
-        
+        interactor?.updateFilters(filterList: filterList)
     }
 }
 

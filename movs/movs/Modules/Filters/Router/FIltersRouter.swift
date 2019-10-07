@@ -26,5 +26,10 @@ class FiltersRouter: Wireframe{
         navigation.pushViewController(viewController, animated: true)
     }
     
+    func routeToList(_ completion: ()->()){
+        navigation.popToRootViewController(animated: true)
+        completion()
+    }
+    
     
 }

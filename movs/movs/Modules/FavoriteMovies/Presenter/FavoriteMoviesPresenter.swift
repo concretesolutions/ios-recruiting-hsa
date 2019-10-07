@@ -29,11 +29,11 @@ class FavoriteMoviesPresenter: FavoriteMoviesPresentationLogic{
     func presentFilters(for movieList: [LocalMovieModel], genres: [MovieGenreModel]) {
         let years = movieList.map { (movie) -> FilterValue in
             let year = TimeHelper.getYearFromDate(dateString: movie.releaseDate) ?? ""
-            return FilterValue(isSelected: false, name: year)
+            return FilterValue(isSelected: false, name: year, coreDataId: movie.releaseDate)
         }
         
         let genres = genres.map { (genre) -> FilterValue in
-            return FilterValue.init(isSelected: false, name: genre.name)
+            return FilterValue.init(isSelected: false, name: genre.name, coreDataId: String(genre.id))
         }
         
         let yearFilter = FilterModel.init(title: "Date", type: .date, values: years)

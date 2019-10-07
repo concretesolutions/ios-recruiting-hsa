@@ -9,6 +9,7 @@
 import Foundation
 
 protocol FiltersBusinessLogic {
+    func getFilters()->[FilterModel]
     func prepareFilters()
     func didSelectFilter(type: FilterType)
     func didSelectSubFilter(name: String, type: FilterType)
@@ -26,6 +27,10 @@ class FilterInteractor: FiltersBusinessLogic{
     
     func prepareFilters(){
         presenter.presentFilters(filterList: filters)
+    }
+    
+    func getFilters() -> [FilterModel] {
+        return filters
     }
     
     func didSelectSubFilter(name: String, type: FilterType) {

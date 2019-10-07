@@ -17,9 +17,11 @@ enum FilterType{
 class FilterValue {
     var isSelected: Bool
     var name: String
+    var coreDataId: String
     
-    init(isSelected: Bool, name: String) {
+    init(isSelected: Bool, name: String, coreDataId: String) {
         self.isSelected = isSelected
+        self.coreDataId = coreDataId
         self.name = name
     }
 }

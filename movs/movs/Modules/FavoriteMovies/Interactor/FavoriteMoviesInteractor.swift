@@ -12,6 +12,7 @@ protocol FavoriteMoviesBusinessLogic {
     func getMovies()
     func filterMovies(filterQuery: String)
     func unFavMovie(movieId: Int)
+    func updateFilters(filterList: [FilterModel])
     func prepareFilters()
 }
 
@@ -25,13 +26,20 @@ class FavoriteMoviesInteractor: FavoriteMoviesBusinessLogic{
         }
     }
     
+    private var moviesFilters: [FilterModel] = []{
+        didSet{
+            self.getMovies()
+        }
+    }
+    
     init(presenter: FavoriteMoviesPresentationLogic, loader: GenreListLoader) {
         self.presenter = presenter
         self.loader = loader
     }
     
     func getMovies() {
-        favoriteMovies = CoreDataProvider.shared.queryCoreData(LocalMovieModel.self, search: nil)
+        let localMovies = CoreDataProvider.shared.queryCoreData(LocalMovieModel.self, search: nil)
+        favoriteMovies = filterList(with: localMovies)
     }
     
     func filterMovies(filterQuery: String) {
@@ -59,6 +67,10 @@ class FavoriteMoviesInteractor: FavoriteMoviesBusinessLogic{
         }
     }
     
+    func updateFilters(filterList: [FilterModel]) {
+        self.moviesFilters = filterList
+    }
+    
     private func getFilteredList(with query: String)->[LocalMovieModel]{
         guard query != "" else { return favoriteMovies }
         
@@ -67,5 +79,26 @@ class FavoriteMoviesInteractor: FavoriteMoviesBusinessLogic{
         }
         
         return filteredResults
+    }
+    
+    private func filterList(with originalList: [LocalMovieModel])->[LocalMovieModel]{
+        var mutableList = originalList
+       
+        let genreFilters = moviesFilters.first(where: {$0.type == .genre})?.values.filter{$0.isSelected}.map{$0.coreDataId}.compactMap({Int($0)}) ?? []
+        
+        if genreFilters.count > 0{
+            mutableList = originalList.filter { (movie) -> Bool in
+                genreFilters.contains(where: {movie.genreIds.contains($0) })
+            }
+        }
+        
+        let yearFilters = moviesFilters.first(where: {$0.type == .date})?.values.filter{$0.isSelected}.map{$0.coreDataId} ?? []
+        if yearFilters.count > 0 {
+            mutableList = originalList.filter { (movie) -> Bool in
+                yearFilters.contains(movie.releaseDate)
+            }
+        }
+        
+        return mutableList
     }
 }
