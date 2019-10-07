@@ -28,6 +28,7 @@ class FilterModel{
     var title: String
     var type: FilterType
     var values: [FilterValue]
+    var isSelected = false
     
     init(title: String, type: FilterType, values: [FilterValue]) {
         self.title = title

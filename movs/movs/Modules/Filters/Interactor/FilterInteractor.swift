@@ -37,6 +37,6 @@ class FilterInteractor: FiltersBusinessLogic{
     
     func didSelectFilter(type: FilterType){
         guard let filter = filters.first(where: {$0.type == type}) else { return }
-        presenter.presentValues(filterValue: filter.values, type: filter.type)
+        presenter.presentValues(filterValue: filters, type: filter.type)
     }
 }

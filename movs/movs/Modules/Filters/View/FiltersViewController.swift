@@ -89,25 +89,24 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.values.count ?? 0
+        return viewModel?.getFiltersCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
-        let value = viewModel.values[indexPath.row]
         if viewModel.isRoot{
-            interactor?.didSelectFilter(type: viewModel.type)
-        }else{
-            interactor?.didSelectSubFilter(name: value.name, type: viewModel.type)
+            let rootFilter = viewModel.values[indexPath.row]
+            interactor?.didSelectFilter(type: rootFilter.type)
+        }else if let filterName = viewModel.getFilterName(at: indexPath.row){
+            interactor?.didSelectSubFilter(name: filterName, type: viewModel.type)
         }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoSizeTitleTableCell.reuseIdentifier, for: indexPath)
-        if let cell = cell as? AutoSizeTitleTableCell, let viewModel = viewModel{
-            let currentValue = viewModel.values[indexPath.row]
-            cell.titleLabel.text = currentValue.name
+        if let cell = cell as? AutoSizeTitleTableCell, let filterName = viewModel?.getFilterName(at: indexPath.row){
+            cell.titleLabel.text = filterName
             cell.accessoryType = cellAccessory(at: indexPath.row)
         }
         return cell
@@ -115,10 +114,9 @@ extension FiltersViewController: UITableViewDataSource, UITableViewDelegate{
     
     private func cellAccessory(at index: Int)->UITableViewCell.AccessoryType{
         guard let viewModel = viewModel else { return .none }
-        let currentValue = viewModel.values[index]
         if viewModel.isRoot{
             return .disclosureIndicator
-        }else if currentValue.isSelected{
+        }else if let currentValue = viewModel.getFilter(at: index), currentValue.isSelected{
             return .checkmark
         }else{
             return .none
