@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  movs
+
+  Created by Andrés Alexis Rivas Solorzano on 10/2/19.
+  Copyright © 2019 Andrés Alexis Rivas Solorzano. All rights reserved.
+*/
+"MovieListTitle" = "Peliculas";
+"FavoriteMovies" = "Favoritas";
+"FiltersTitle" = "Filtros";
+"FilterAction" = "Aplicar";

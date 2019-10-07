@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-protocol Wireframe {
-    var navigation: UINavigationController { get }
-    init(navigation: UINavigationController)
+class Wireframe {
+    let navigation: UINavigationController
+    
+    init(navigation: UINavigationController) {
+        self.navigation = navigation
+    }
+    
+    func updateNavigationTitle(){}
 }

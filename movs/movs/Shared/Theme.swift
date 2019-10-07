@@ -20,8 +20,9 @@ class ThemeManager{
     
     private func setupNavigationBar(){
         UINavigationBar.appearance().barTintColor = .lightOrange
-        UINavigationBar.appearance().tintColor = .lightOrange
+        UINavigationBar.appearance().tintColor = .darkNavy
         UITabBar.appearance().barTintColor = .lightOrange
+        UITabBar.appearance().tintColor = .darkNavy
     }
 
 }

@@ -33,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
     }
+    
+    func setupInitialView(){
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.rootViewController = HomeViewController()
+        window?.makeKeyAndVisible()
+    }
 
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
@@ -68,14 +74,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    
-    func setupInitialView(){
-        let navigation = UINavigationController()
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigation
-        window?.makeKeyAndVisible()
-        let homeModule = HomeMovieModule(navigation: navigation)
-        homeModule.presentHome()
-    }
 }
 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieListCollectionViewCell" customModule="movs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="216" height="253"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="216" height="253"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Bd-Fi-2Yz">
+                        <rect key="frame" x="0.0" y="0.0" width="216" height="188"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPf-cL-GRC">
+                        <rect key="frame" x="0.0" y="188" width="216" height="65"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM6-OC-h8G">
+                                <rect key="frame" x="40" y="3" width="136" height="59"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-2u-lB4">
+                                <rect key="frame" x="181" y="17.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u2M-2u-lB4" secondAttribute="height" multiplier="1:1" id="siA-Qu-bmg"/>
+                                    <constraint firstAttribute="width" constant="30" id="x95-bK-n2R"/>
+                                </constraints>
+                                <state key="normal" image="favorite_gray_icon"/>
+                                <state key="selected" image="favorite_full_icon"/>
+                                <connections>
+                                    <action selector="favMovieAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Oac-4k-Lgj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lM6-OC-h8G" firstAttribute="top" secondItem="FPf-cL-GRC" secondAttribute="top" constant="3" id="3d1-yI-z3R"/>
+                            <constraint firstItem="u2M-2u-lB4" firstAttribute="centerY" secondItem="FPf-cL-GRC" secondAttribute="centerY" id="9Jt-kX-uT3"/>
+                            <constraint firstItem="lM6-OC-h8G" firstAttribute="leading" secondItem="FPf-cL-GRC" secondAttribute="leading" constant="40" id="AcE-KO-8K0"/>
+                            <constraint firstAttribute="height" constant="65" id="BQ7-XO-dPf"/>
+                            <constraint firstAttribute="bottom" secondItem="lM6-OC-h8G" secondAttribute="bottom" constant="3" id="PYh-AK-b4q"/>
+                            <constraint firstItem="u2M-2u-lB4" firstAttribute="leading" secondItem="lM6-OC-h8G" secondAttribute="trailing" constant="5" id="cAE-gs-Jy1"/>
+                            <constraint firstItem="lM6-OC-h8G" firstAttribute="centerX" secondItem="FPf-cL-GRC" secondAttribute="centerX" id="eru-b2-ZDe"/>
+                            <constraint firstAttribute="trailing" secondItem="u2M-2u-lB4" secondAttribute="trailing" constant="5" id="xYp-Zv-Mwj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="FPf-cL-GRC" secondAttribute="bottom" id="30U-KP-q5a"/>
+                <constraint firstItem="FPf-cL-GRC" firstAttribute="top" secondItem="0Bd-Fi-2Yz" secondAttribute="bottom" id="Hrk-Ud-XE0"/>
+                <constraint firstItem="FPf-cL-GRC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UQc-Vr-gGy"/>
+                <constraint firstAttribute="trailing" secondItem="FPf-cL-GRC" secondAttribute="trailing" id="aQ2-2n-WZh"/>
+                <constraint firstItem="0Bd-Fi-2Yz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="glC-G1-zd7"/>
+                <constraint firstAttribute="trailing" secondItem="0Bd-Fi-2Yz" secondAttribute="trailing" id="o41-N2-iwX"/>
+                <constraint firstItem="0Bd-Fi-2Yz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="unv-Yh-YhO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="216" height="253"/>
+            <connections>
+                <outlet property="favButton" destination="u2M-2u-lB4" id="rfn-it-REQ"/>
+                <outlet property="moviePoster" destination="0Bd-Fi-2Yz" id="Xit-Em-Hj8"/>
+                <outlet property="titleContainerView" destination="FPf-cL-GRC" id="pcO-Wb-un2"/>
+                <outlet property="titleLb" destination="lM6-OC-h8G" id="ebo-Ln-Sxp"/>
+            </connections>
+            <point key="canvasLocation" x="257.97101449275362" y="156.36160714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="favorite_full_icon" width="18" height="16"/>
+        <image name="favorite_gray_icon" width="17" height="16"/>
+    </resources>
+</document>
