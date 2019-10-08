@@ -17,7 +17,6 @@ class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic {
 
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var favButton: UIButton!
     
     private let router: MovieDetailRouter
     private var interactor: MovieDetailBusinessLogic?
@@ -76,11 +75,7 @@ class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic {
         self.viewModel = movieDetail
     }
 
-    @IBAction func favAction(_ sender: Any) {
-        
-    }
 }
-
 
 extension MovieDetailViewController: UITableViewDataSource{
     

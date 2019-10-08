@@ -14,4 +14,5 @@ enum LocalizableStrings: String, LocalizableDelegate {
     case favoriteMoviesTitle = "FavoriteMovies"
     case filtersTitle = "FiltersTitle"
     case filterAction = "FilterAction"
+    case removeFilter = "RemoveFilter"
 }

@@ -32,6 +32,10 @@ class FilterModel{
     var values: [FilterValue]
     var isSelected = false
     
+    var hasSelectedValue: Bool{
+        return values.contains(where: {$0.isSelected == true})
+    }
+    
     init(title: String, type: FilterType, values: [FilterValue]) {
         self.title = title
         self.type = type

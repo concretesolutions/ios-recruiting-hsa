@@ -49,6 +49,11 @@ class MovieListViewController: BaseSearchViewController {
         router.updateNavigationTitle()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
+    }
+    
     private func setup(searchQuery: String?){
         let movieListLoader = RemoteMovieListLoader(client: URLSessionHTTPClient())
         let presenter = MovieListPresenter(view: self)

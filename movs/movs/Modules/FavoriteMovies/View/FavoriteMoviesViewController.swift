@@ -15,7 +15,20 @@ protocol FavoritesMoviesDisplayLogic: class {
 
 class FavoriteMoviesViewController: BaseSearchViewController {
     
+    
+    @IBOutlet weak var removeFilterHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var removeFiltersView: UIView!{
+        didSet{
+             removeFiltersView.backgroundColor = .darkNavy
+        }
+    }
+    @IBOutlet weak var removeFilterButton: UIButton!{
+        didSet{
+            removeFilterButton.setTitleColor(.buttercup, for: .normal)
+            removeFilterButton.setTitle(LocalizableStrings.removeFilter.localized, for: .normal)
+        }
+    }
     let router: FavoriteMoviesRouter
     private var interactor: FavoriteMoviesInteractor?
     private var viewModel: LocalMovieListViewModel?{
@@ -60,7 +73,18 @@ class FavoriteMoviesViewController: BaseSearchViewController {
     }
     
     private func updateUI(){
+        updateActiveFiltersView()
         tableView.reloadData()
+    }
+    
+    private func updateActiveFiltersView(){
+        let activeFilters = interactor?.hasActiveFilters ?? false
+        removeFilterButton.isHidden = !activeFilters
+        let estimatedHeight: CGFloat = activeFilters ? 75.0 : 0.0
+        removeFilterHeight.constant = estimatedHeight
+        UIView.animate(withDuration: 0.17) {
+            self.removeFiltersView.layoutIfNeeded()
+        }
     }
     
     @objc func showFilters(){
@@ -70,6 +94,9 @@ class FavoriteMoviesViewController: BaseSearchViewController {
     override func updateSearchResults(for searchController: UISearchController) {
         guard let searchQuery = searchController.searchBar.text else { return }
         interactor?.filterMovies(filterQuery: searchQuery)
+    }
+    @IBAction func removeFilterAction(_ sender: Any) {
+        interactor?.removeFilters()
     }
 }
 

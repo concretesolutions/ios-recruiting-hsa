@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteMoviesViewController" customModule="movs" customModuleProvider="target">
             <connections>
+                <outlet property="removeFilterButton" destination="Ddh-bj-PIT" id="3U6-r8-fbg"/>
+                <outlet property="removeFilterHeight" destination="lGi-ix-vrH" id="Xqr-Eq-S8P"/>
+                <outlet property="removeFiltersView" destination="fC0-Bk-trk" id="7Dg-Gd-G9y"/>
                 <outlet property="tableView" destination="m7K-w9-LE3" id="60x-vw-F3Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,18 +25,43 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m7K-w9-LE3">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="45" width="414" height="817"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fC0-Bk-trk">
+                    <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddh-bj-PIT">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="removeFilterAction:" destination="-1" eventType="touchUpInside" id="pqU-1R-Qw5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Ddh-bj-PIT" firstAttribute="leading" secondItem="fC0-Bk-trk" secondAttribute="leading" id="0GY-LX-upD"/>
+                        <constraint firstItem="Ddh-bj-PIT" firstAttribute="top" secondItem="fC0-Bk-trk" secondAttribute="top" id="2P3-xP-B1c"/>
+                        <constraint firstAttribute="trailing" secondItem="Ddh-bj-PIT" secondAttribute="trailing" id="K9j-JM-xa0"/>
+                        <constraint firstAttribute="height" constant="1" id="lGi-ix-vrH"/>
+                        <constraint firstAttribute="bottom" secondItem="Ddh-bj-PIT" secondAttribute="bottom" id="rcX-2g-Rqu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="m7K-w9-LE3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="eBu-nj-lmD"/>
+                <constraint firstItem="m7K-w9-LE3" firstAttribute="top" secondItem="fC0-Bk-trk" secondAttribute="bottom" id="eAA-gv-f0r"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fC0-Bk-trk" secondAttribute="trailing" id="hVh-8I-OkR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="m7K-w9-LE3" secondAttribute="bottom" id="i7K-S4-9p8"/>
+                <constraint firstItem="fC0-Bk-trk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="l88-qr-gwh"/>
+                <constraint firstItem="fC0-Bk-trk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qB8-9L-bKW"/>
                 <constraint firstItem="m7K-w9-LE3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="t0z-BQ-cre"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m7K-w9-LE3" secondAttribute="trailing" id="xlI-wu-Ilc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="189.85507246376812" y="-125.22321428571428"/>
         </view>
     </objects>
 </document>

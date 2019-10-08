@@ -9,7 +9,9 @@
 import Foundation
 
 protocol FavoriteMoviesBusinessLogic {
+    var hasActiveFilters: Bool { get }
     func getMovies()
+    func removeFilters()
     func filterMovies(filterQuery: String)
     func unFavMovie(movieId: Int)
     func updateFilters(filterList: [FilterModel])
@@ -32,6 +34,10 @@ class FavoriteMoviesInteractor: FavoriteMoviesBusinessLogic{
         }
     }
     
+    var hasActiveFilters: Bool{
+        return moviesFilters.contains(where: {$0.hasSelectedValue == true})
+    }
+    
     init(presenter: FavoriteMoviesPresentationLogic, loader: GenreListLoader) {
         self.presenter = presenter
         self.loader = loader
@@ -44,6 +50,10 @@ class FavoriteMoviesInteractor: FavoriteMoviesBusinessLogic{
     
     func filterMovies(filterQuery: String) {
         presenter.presentMovies(movieList: getFilteredList(with: filterQuery))
+    }
+    
+    func removeFilters() {
+        moviesFilters = []
     }
     
     func unFavMovie(movieId: Int) {
