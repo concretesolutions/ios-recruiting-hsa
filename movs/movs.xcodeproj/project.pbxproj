@@ -120,6 +120,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1887B4D7234CB78B0067F619 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		18F9A9F82343E825008FE534 /* movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F9A9FB2343E825008FE534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F9A9FD2343E825008FE534 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +287,7 @@
 		18F9A9FA2343E825008FE534 /* movs */ = {
 			isa = PBXGroup;
 			children = (
+				1887B4D7234CB78B0067F619 /* README.md */,
 				18F9AA6F2344D6B3008FE534 /* Modules */,
 				18F9AA352344BB93008FE534 /* Network */,
 				18F9AA2E2343EC26008FE534 /* Resources */,
