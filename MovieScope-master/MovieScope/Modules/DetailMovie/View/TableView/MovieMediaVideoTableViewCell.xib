@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="219" id="KGk-i7-Jjw" customClass="MovieMediaVideoTableViewCell" customModule="MovieScope" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="219"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="218.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oph-1r-86a">
+                        <rect key="frame" x="180" y="21" width="156" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU4-BU-xVy">
+                        <rect key="frame" x="180" y="52.5" width="156" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="openPlayerAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sZw-WD-xF0"/>
+                        </connections>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sOW-8E-qmk">
+                        <rect key="frame" x="19" y="9" width="150" height="197.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="999" constant="130" id="arg-ZL-ecq"/>
+                            <constraint firstAttribute="width" constant="150" id="sLP-bM-cyU"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Oph-1r-86a" secondAttribute="trailing" constant="19" id="2Da-Iw-CGP"/>
+                    <constraint firstAttribute="bottom" secondItem="sOW-8E-qmk" secondAttribute="bottom" constant="12" id="2do-O7-ml0"/>
+                    <constraint firstItem="sOW-8E-qmk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Hmg-YJ-0s8"/>
+                    <constraint firstItem="sOW-8E-qmk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="MRA-jm-9cc"/>
+                    <constraint firstItem="CU4-BU-xVy" firstAttribute="top" secondItem="Oph-1r-86a" secondAttribute="bottom" constant="12" id="QLU-oX-peh"/>
+                    <constraint firstItem="CU4-BU-xVy" firstAttribute="leading" secondItem="Oph-1r-86a" secondAttribute="leading" id="SEb-zR-Q76"/>
+                    <constraint firstItem="Oph-1r-86a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="T2f-yD-bdO"/>
+                    <constraint firstItem="CU4-BU-xVy" firstAttribute="trailing" secondItem="Oph-1r-86a" secondAttribute="trailing" id="eis-aE-K1d"/>
+                    <constraint firstItem="Oph-1r-86a" firstAttribute="leading" secondItem="sOW-8E-qmk" secondAttribute="trailing" constant="11" id="s1U-Oc-wNA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgView" destination="sOW-8E-qmk" id="FB2-qb-qjW"/>
+                <outlet property="playerBt" destination="CU4-BU-xVy" id="ly8-m7-j7m"/>
+                <outlet property="titleLb" destination="Oph-1r-86a" id="eTw-6Q-sVB"/>
+            </connections>
+            <point key="canvasLocation" x="163.04347826086959" y="167.07589285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

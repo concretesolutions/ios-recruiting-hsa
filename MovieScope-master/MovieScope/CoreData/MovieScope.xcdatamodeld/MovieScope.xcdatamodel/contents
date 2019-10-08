@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MediaImageModel" representedClassName=".MediaImageModel" syncable="YES">
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MediaVideoModel" representedClassName=".MediaVideoModel" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MovieDetailModel" representedClassName=".MovieDetailModel" syncable="YES">
+        <attribute name="adult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="backdropPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="budget" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="genreList" optional="YES" attributeType="Transformable" customClassName="." syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="originalTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revenue" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="runtime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="video" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="voteAverage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="MovieGenreModel" representedClassName=".MovieGenreModel" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MovieImagesModel" representedClassName=".MovieImagesModel" syncable="YES">
+        <attribute name="backdrops" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="posters" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <entity name="MovieListModel" representedClassName=".MovieListModel" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="page" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="results" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="totalPages" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="totalResults" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="MovieModel" representedClassName=".MovieModel" syncable="YES">
+        <attribute name="adult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="backdropPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="genreIds" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="originalLanguage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="popularity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="poster" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="video" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="voteAverage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="voteCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="MovieVideoModel" representedClassName=".MovieVideoModel" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="videoList" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="MediaImageModel" positionX="45" positionY="207" width="128" height="60"/>
+        <element name="MediaVideoModel" positionX="27" positionY="198" width="128" height="105"/>
+        <element name="MovieDetailModel" positionX="131.046875" positionY="-138.3203125" width="128" height="270"/>
+        <element name="MovieGenreModel" positionX="295.01171875" positionY="23.1328125" width="128" height="73"/>
+        <element name="MovieImagesModel" positionX="9" positionY="162" width="128" height="90"/>
+        <element name="MovieListModel" positionX="-18" positionY="135" width="128" height="120"/>
+        <element name="MovieModel" positionX="-45" positionY="0" width="128" height="255"/>
+        <element name="MovieVideoModel" positionX="9" positionY="189" width="128" height="75"/>
+    </elements>
+</model>
