@@ -17,3 +17,7 @@ Movs utiliza el manager de dependencias cocapods para instalar las librerias.
 Primero se debe abrir un terminal en la carpeta contenedora del proyecto  y ejecutar el comando pod install.
 Una vez instaladas las pods, abrir el archivo Movs.xcworkspace
 Listo
+
+## Adjunto
+
+Se adjunta un proyecto adicional de prueba que forma parte de mi portafolio como extra. Este también se conecta a la api de TheMovieDB y da un enfoque distinto del problema planteado.
