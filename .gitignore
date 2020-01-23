@@ -21,3 +21,52 @@ DerivedData/
 ## Gcc Patch
 /*.gcno
 .DS_Store
+
+# General
+*.swp
+*.swo
+*.rbo
+*.gem
+.DS_Store
+.rbenv-version
+.rbx/
+xcuserdata
+project.xcworkspace
+DerivedData
+/concatenated.*
+
+# Yardoc
+.yardoc
+/doc
+
+# Specs
+spec/fixtures/banana-lib
+spec/fixtures/cache
+spec/fixtures/chameleon
+spec/fixtures/integration/Headers/
+spec/fixtures/snake
+spec/fixtures/vcr
+spec/fixtures/spec-repos/Spec_Lock
+tmp
+
+# Examples
+Podfile.lock
+Pods
+coverage/
+.coveralls.yml
+
+# IDEs
+*.xccheckout
+.idea/
+
+# RVM files
+/.rvmrc
+/.ruby-version
+/.ruby-gemset
+
+# Bundler files
+/.bundle
+
+# trunk source
+spec/fixtures/spec-repos/trunk/**/*.etag
+spec/fixtures/spec-repos/trunk/*.yml
