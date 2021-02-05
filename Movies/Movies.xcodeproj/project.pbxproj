@@ -34,6 +34,9 @@
 		0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66361F25CDB5A200E79E18 /* TabBarController.swift */; };
 		0C66362325CDCD5600E79E18 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362225CDCD5600E79E18 /* UIColor+hex.swift */; };
 		0C66362625CDD3A500E79E18 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362525CDD3A500E79E18 /* SearchController.swift */; };
+		0C66362925CDDEDC00E79E18 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362825CDDEDC00E79E18 /* Category.swift */; };
+		0C66362C25CDDF2F00E79E18 /* CategoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362B25CDDF2F00E79E18 /* CategoryStore.swift */; };
+		0C66362F25CDDFD400E79E18 /* CategoriesAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362E25CDDFD400E79E18 /* CategoriesAPIRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		0C66361F25CDB5A200E79E18 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0C66362225CDCD5600E79E18 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		0C66362525CDD3A500E79E18 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		0C66362825CDDEDC00E79E18 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		0C66362B25CDDF2F00E79E18 /* CategoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStore.swift; sourceTree = "<group>"; };
+		0C66362E25CDDFD400E79E18 /* CategoriesAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPIRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6635DA25CD79C300E79E18 /* MovieStore.swift */,
+				0C66362B25CDDF2F00E79E18 /* CategoryStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 			children = (
 				0C6635E025CD7ACE00E79E18 /* MoviesAPIRepository.swift */,
 				0C6635F725CD962E00E79E18 /* MoviesCoreDataRepository.swift */,
+				0C66362E25CDDFD400E79E18 /* CategoriesAPIRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -166,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6635EE25CD8E1600E79E18 /* Movie.swift */,
+				0C66362825CDDEDC00E79E18 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C66362325CDCD5600E79E18 /* UIColor+hex.swift in Sources */,
+				0C66362C25CDDF2F00E79E18 /* CategoryStore.swift in Sources */,
 				0C6635FE25CD995400E79E18 /* MoviesModuleProtocols.swift in Sources */,
 				0C6635E525CD7C0000E79E18 /* NetworkingUtil.swift in Sources */,
 				0C6635F825CD962E00E79E18 /* MoviesCoreDataRepository.swift in Sources */,
@@ -328,7 +338,9 @@
 				0C66360725CD9A9100E79E18 /* MoviesWorker.swift in Sources */,
 				0C6635EF25CD8E1600E79E18 /* Movie.swift in Sources */,
 				0C6635DB25CD79C300E79E18 /* MovieStore.swift in Sources */,
+				0C66362925CDDEDC00E79E18 /* Category.swift in Sources */,
 				0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */,
+				0C66362F25CDDFD400E79E18 /* CategoriesAPIRepository.swift in Sources */,
 				0C6635F525CD90B800E79E18 /* DecoderError.swift in Sources */,
 				0C66360B25CD9B4100E79E18 /* MoviesPresenter.swift in Sources */,
 				0C66361925CDA95800E79E18 /* MovieCollectionViewCell.swift in Sources */,

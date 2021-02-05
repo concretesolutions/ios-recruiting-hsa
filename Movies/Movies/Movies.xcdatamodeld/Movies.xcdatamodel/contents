@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName=".Category" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Movie" representedClassName=".Movie" syncable="YES" codeGenerationType="category">
         <attribute name="adult" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="backdrop_path" optional="YES" attributeType="String"/>
@@ -18,5 +22,6 @@
     </entity>
     <elements>
         <element name="Movie" positionX="-63" positionY="-18" width="128" height="253"/>
+        <element name="Category" positionX="-54" positionY="99" width="128" height="59"/>
     </elements>
 </model>
