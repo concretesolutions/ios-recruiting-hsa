@@ -19,12 +19,36 @@ class MovieDetailPresenter: ViewToPresenterMovieDetailProtocol {
     weak var view: PresenterToViewMovieDetailProtocol?
     var interactor: PresenterToInteractorMovieDetailProtocol?
     var router: PresenterToRouterMovieDetailProtocol?
+    var movieID: Int32?
     
+    //MARK: - Fetch Movie
+    
+    func fetchMovie() {
+        guard let id = movieID else { return }
+        interactor?.fetchMovie(id)
+    }
+    
+    //MARK: - Fetch Categories
+    
+    func fetchCategories() {
+        interactor?.fetchCategories()
+    }
 }
 
 
 //MARK: - Presentation Logic
 
 extension MovieDetailPresenter: InteractorToPresenterMovieDetailProtocol {
+    func fetchMovieSuccessfull(_ movie: Movie) {
+        view?.fetchMovieSuccessfull(movie)
+    }
+    
+    func fetchCategoriesSuccessfull(_ categories: [Category]) {
+        view?.fetchCategoriesSuccessfull(categories)
+    }
+    
+    func failure(_ error: Error) {
+        view?.failure(error)
+    }
     
 }
