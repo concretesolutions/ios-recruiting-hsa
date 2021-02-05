@@ -3,7 +3,7 @@
     <entity name="Movie" representedClassName=".Movie" syncable="YES" codeGenerationType="category">
         <attribute name="adult" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="backdrop_path" optional="YES" attributeType="String"/>
-        <attribute name="genre_ids" optional="YES" attributeType="Transformable"/>
+        <attribute name="genre_ids" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Int]"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="original_language" optional="YES" attributeType="String"/>
         <attribute name="original_title" optional="YES" attributeType="String"/>
@@ -13,10 +13,10 @@
         <attribute name="release_date" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="video" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="vote_average" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="vote_average" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="vote_count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Movie" positionX="-63" positionY="-18" width="128" height="239"/>
+        <element name="Movie" positionX="-63" positionY="-18" width="128" height="253"/>
     </elements>
 </model>

@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         window?.makeKeyAndVisible()
+        
+        window?.rootViewController = TabBarController(nibName: String(describing: TabBarController.self), bundle: Bundle(for: TabBarController.self))
+        
         return true
     }
     
@@ -30,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "CoreDataTest")
+        let container = NSPersistentContainer(name: "Movies")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

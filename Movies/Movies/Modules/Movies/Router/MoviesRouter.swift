@@ -23,6 +23,7 @@ class MoviesRouter: PresenterToRouterMoviesProtocol {
         presenter.view = vc
         vc.presenter = presenter as! MoviesPresenter
         presenter.interactor = interactor
+        interactor.presenter = presenter
         presenter.router = router
         vc.title = "Movies"
         let item = UITabBarItem(title: "Movies", image: UIImage(named: "ic_list"), tag: 9)

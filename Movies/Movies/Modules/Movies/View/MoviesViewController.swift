@@ -69,7 +69,9 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension MoviesViewController: PresenterToViewMoviesProtocol {
     func fetchMoviesSuccessfull(_ movies: [Movie]) {
         self.movies = movies
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func failure(_ error: Error) {

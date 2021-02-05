@@ -27,11 +27,15 @@ class MoviesAPIRepository: MovieStoreProtocol {
                     return
                 }
                 do {
+                    let json = try JSONSerialization.jsonObject(with: dataValue, options: []) as? [String : Any] ?? [:]
+                    let results = json["results"] as? [[String : Any]] ?? []
+                    let data2 = try JSONSerialization.data(withJSONObject: results, options: [])
                     let decoder = JSONDecoder()
-                    let movies = try decoder.decode([Movie].self, from: dataValue)
+                    let movies = try decoder.decode([Movie].self, from: data2)
                     try appDelegate.persistentContainer.viewContext.save()
                     completion(.success(movies))
                 }catch let error {
+                    print(error)
                     completion(.failure(error))
                 }
             }
