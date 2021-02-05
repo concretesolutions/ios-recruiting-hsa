@@ -45,7 +45,7 @@ class MoviesViewController: ViewController {
 
 //MARK: - Collection View
 
-extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -60,6 +60,10 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         cell.movie = self.movies[indexPath.row]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width / 2 - 10.0, height: 270.0)
     }
 }
 

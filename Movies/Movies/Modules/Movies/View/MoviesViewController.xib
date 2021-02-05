@@ -21,11 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cfb-tF-B0H">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="8" y="44" width="398" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UyN-5l-vN8">
                         <size key="itemSize" width="128" height="128"/>
-                        <size key="estimatedItemSize" width="128" height="200"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -36,9 +35,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Cfb-tF-B0H" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3lG-OH-ChR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cfb-tF-B0H" secondAttribute="trailing" id="9QL-ZA-3aI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cfb-tF-B0H" secondAttribute="trailing" constant="8" id="9QL-ZA-3aI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cfb-tF-B0H" secondAttribute="bottom" id="TyU-Nn-FJa"/>
-                <constraint firstItem="Cfb-tF-B0H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e6y-Hf-kRH"/>
+                <constraint firstItem="Cfb-tF-B0H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="e6y-Hf-kRH"/>
             </constraints>
             <point key="canvasLocation" x="20" y="104"/>
         </view>
