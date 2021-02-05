@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="341"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="341"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nhf-eR-5xh">
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="341"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ywI-nf-RN6">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="291"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-8L-TKg">
+                                <rect key="frame" x="0.0" y="291" width="230" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snu-BU-10g">
+                                        <rect key="frame" x="8" y="8" width="214" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLQ-0S-yD6">
+                                                <rect key="frame" x="0.0" y="0.0" width="184" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvw-Ju-SaR">
+                                                <rect key="frame" x="184" y="0.0" width="30" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="J3W-eZ-Prz"/>
+                                                </constraints>
+                                                <state key="normal" image="ic_star_on"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1764705882" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="snu-BU-10g" secondAttribute="trailing" constant="8" id="1o3-sq-ehc"/>
+                                    <constraint firstAttribute="bottom" secondItem="snu-BU-10g" secondAttribute="bottom" constant="8" id="4CU-yA-2nv"/>
+                                    <constraint firstItem="snu-BU-10g" firstAttribute="leading" secondItem="Wl5-8L-TKg" secondAttribute="leading" constant="8" id="6R0-DM-wga"/>
+                                    <constraint firstAttribute="height" constant="50" id="J10-pe-ucx"/>
+                                    <constraint firstItem="snu-BU-10g" firstAttribute="top" secondItem="Wl5-8L-TKg" secondAttribute="top" constant="8" id="rWK-VV-DVr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="nhf-eR-5xh" secondAttribute="trailing" id="45a-zd-58R"/>
+                <constraint firstAttribute="bottom" secondItem="nhf-eR-5xh" secondAttribute="bottom" id="K0t-uM-nmF"/>
+                <constraint firstItem="nhf-eR-5xh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aav-pT-Ndc"/>
+                <constraint firstItem="nhf-eR-5xh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fcG-fl-quu"/>
+            </constraints>
+            <size key="customSize" width="230" height="341"/>
+            <connections>
+                <outlet property="nameLabel" destination="fLQ-0S-yD6" id="20s-Fb-lM5"/>
+                <outlet property="starButton" destination="Xvw-Ju-SaR" id="6uU-jW-w2b"/>
+                <outlet property="thumb" destination="ywI-nf-RN6" id="Zem-f2-BNE"/>
+            </connections>
+            <point key="canvasLocation" x="109" y="122"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_star_on" width="22" height="21"/>
+    </resources>
+</document>
