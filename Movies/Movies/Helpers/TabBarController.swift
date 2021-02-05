@@ -12,8 +12,10 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.viewControllers = [MoviesRouter.createModule()]
+        
+        self.tabBar.tintColor = .black
+        self.tabBar.barTintColor = Constants.mainColor
+        self.viewControllers = [UINavigationController(rootViewController: MoviesRouter.createModule())]
         // Do any additional setup after loading the view.
     }
 
