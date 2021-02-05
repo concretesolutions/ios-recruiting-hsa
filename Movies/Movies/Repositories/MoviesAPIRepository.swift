@@ -53,4 +53,36 @@ class MoviesAPIRepository: MovieStoreProtocol {
         completion(.success([]))
     }
     
+    //MARK: - Fetch Movie
+    
+    func fetchMovie(_ id: Int32, completion: @escaping FetchMovieCompletion) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let urlSession = URLSession(configuration: .default)
+        do {
+            let request = try ManagedURLRequest.fetchMovie(id, [:]).asURLRequest()
+            let dataTask = urlSession.dataTask(with: request) { (data, response, error) in
+                guard error == nil else {
+                    completion(.failure(error!))
+                    return
+                }
+                guard let dataValue = data else {
+                    completion(.failure(NSError(domain: "Movies", code: 400, userInfo: [NSLocalizedDescriptionKey: "No data found"])))
+                    return
+                }
+                do {
+                    let decoder = JSONDecoder()
+                    let movie = try decoder.decode(Movie.self, from: dataValue)
+                    try appDelegate.persistentContainer.viewContext.save()
+                    completion(.success(movie))
+                }catch let error {
+                    print(error)
+                    completion(.failure(error))
+                }
+            }
+            dataTask.resume()
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
 }

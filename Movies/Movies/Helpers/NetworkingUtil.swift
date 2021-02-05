@@ -12,6 +12,7 @@ enum ManagedURLRequest {
     //MARK: - Endpoints
     
     case fetchMovies(_ params: [String : Any])
+    case fetchMovie(_ id: Int32, _ params: [String : Any])
     
     //MARK: - Base URL
     
@@ -25,6 +26,8 @@ enum ManagedURLRequest {
         switch self {
         case .fetchMovies(_):
             return "GET"
+        case .fetchMovie:
+            return "GET"
         }
     }
     
@@ -35,6 +38,8 @@ enum ManagedURLRequest {
         switch self {
         case .fetchMovies:
             return "/movie/popular"
+        case .fetchMovie(let id,_):
+            return "/movie/\(id)"
         }
     }
     
@@ -49,6 +54,11 @@ enum ManagedURLRequest {
         
         switch self {
         case .fetchMovies(let params):
+            for key in params.keys {
+                queryItems.append(URLQueryItem(name: key, value: params[key] as? String))
+            }
+            break
+        case .fetchMovie(_, let params):
             for key in params.keys {
                 queryItems.append(URLQueryItem(name: key, value: params[key] as? String))
             }

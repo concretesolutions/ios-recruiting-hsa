@@ -46,4 +46,25 @@ class MoviesCoreDataRepository: MovieStoreProtocol {
         }
     }
     
+    //MARK: - Fetch Movie
+    
+    func fetchMovie(_ id: Int32, completion: @escaping FetchMovieCompletion) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        
+        do {
+            guard let movie = try managedContext.fetch(fetchRequest).first else {
+                completion(.failure(NSError(domain: "Movies", code: 400, userInfo: [NSLocalizedDescriptionKey: "No Movie Found"])))
+                return
+            }
+            completion(.success(movie))
+        } catch let error {
+            print(error)
+            completion(.failure(error))
+        }
+    }
+    
 }
