@@ -18,12 +18,13 @@ class MoviesViewController: ViewController {
     //MARK: - Variables
     
     var presenter: MoviesPresenter = MoviesPresenter()
+    var movies: [Movie] = []
     
     //MARK: - App lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.presenter.fetchMovies()
         // Do any additional setup after loading the view.
     }
 
@@ -33,5 +34,13 @@ class MoviesViewController: ViewController {
 //MARK: - Display Logic
 
 extension MoviesViewController: PresenterToViewMoviesProtocol {
+    func fetchMoviesSuccessfull(_ movies: [Movie]) {
+        self.movies = movies
+    }
     
+    func failure(_ error: Error) {
+        let alert = UIAlertController(title: "ATENCION!", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

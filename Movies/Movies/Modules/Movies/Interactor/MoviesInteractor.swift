@@ -17,4 +17,20 @@ class MoviesInteractor: PresenterToInteractorMoviesProtocol {
     //MARK: - Variables
     
     weak var presenter: InteractorToPresenterMoviesProtocol?
+    private var worker: MoviesWorker = MoviesWorker(MoviesAPIRepository())
+    
+    //MARK: - Fetch Movies
+    
+    func fetchMovies() {
+        worker.fetchMovies { (result) in
+            self.worker = MoviesWorker(MoviesCoreDataRepository())
+            switch result {
+            case .failure(let error):
+                self.presenter?.failure(error)
+                break
+            case .success(let movies):
+                self.presenter?.fetchMoviesSuccessfull(movies)
+            }
+        }
+    }
 }

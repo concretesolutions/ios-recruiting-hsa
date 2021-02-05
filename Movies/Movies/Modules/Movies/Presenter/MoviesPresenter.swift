@@ -21,12 +21,22 @@ class MoviesPresenter: ViewToPresenterMoviesProtocol {
     var interactor: PresenterToInteractorMoviesProtocol?
     var router: PresenterToRouterMoviesProtocol?
     
+    //MARK: - Fetch Movies
     
+    func fetchMovies() {
+        interactor?.fetchMovies()
+    }
 }
 
 
 //MARK: - Presentation Logic
 
 extension MoviesPresenter: InteractorToPresenterMoviesProtocol {
+    func fetchMoviesSuccessfull(_ movies: [Movie]) {
+        view?.fetchMoviesSuccessfull(movies)
+    }
     
+    func failure(_ error: Error) {
+        view?.failure(error)
+    }
 }

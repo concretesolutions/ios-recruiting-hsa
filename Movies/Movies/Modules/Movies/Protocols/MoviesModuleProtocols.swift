@@ -13,12 +13,15 @@ protocol ViewToPresenterMoviesProtocol: class {
     var view: PresenterToViewMoviesProtocol? {get set}
     var interactor: PresenterToInteractorMoviesProtocol? {get set}
     var router: PresenterToRouterMoviesProtocol? {get set}
+    
+    func fetchMovies()
 }
 
 //MARK: - Display Logic
 
 protocol PresenterToViewMoviesProtocol: class {
-    
+    func fetchMoviesSuccessfull(_ movies: [Movie])
+    func failure(_ error: Error)
 }
 
 //MARK: - Routing Logic
@@ -31,10 +34,13 @@ protocol PresenterToRouterMoviesProtocol: class {
 
 protocol PresenterToInteractorMoviesProtocol: class {
     var presenter: InteractorToPresenterMoviesProtocol? {get set}
+    
+    func fetchMovies()
 }
 
 //MARK: - Presentation Logic
 
 protocol InteractorToPresenterMoviesProtocol: class {
-    
+    func fetchMoviesSuccessfull(_ movies: [Movie])
+    func failure(_ error: Error)
 }
