@@ -33,6 +33,7 @@
 		0C66361D25CDABD700E79E18 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66361C25CDABD700E79E18 /* UIImageView+URL.swift */; };
 		0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66361F25CDB5A200E79E18 /* TabBarController.swift */; };
 		0C66362325CDCD5600E79E18 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362225CDCD5600E79E18 /* UIColor+hex.swift */; };
+		0C66362625CDD3A500E79E18 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66362525CDD3A500E79E18 /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		0C66361C25CDABD700E79E18 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		0C66361F25CDB5A200E79E18 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0C66362225CDCD5600E79E18 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		0C66362525CDD3A500E79E18 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		0C6635E325CD7BED00E79E18 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0C66362525CDD3A500E79E18 /* SearchController.swift */,
 				0C66361F25CDB5A200E79E18 /* TabBarController.swift */,
 				0C6635E425CD7C0000E79E18 /* NetworkingUtil.swift */,
 				0C6635F425CD90B800E79E18 /* DecoderError.swift */,
@@ -330,6 +333,7 @@
 				0C66360B25CD9B4100E79E18 /* MoviesPresenter.swift in Sources */,
 				0C66361925CDA95800E79E18 /* MovieCollectionViewCell.swift in Sources */,
 				0C66360F25CD9BAE00E79E18 /* MoviesInteractor.swift in Sources */,
+				0C66362625CDD3A500E79E18 /* SearchController.swift in Sources */,
 				0C66361D25CDABD700E79E18 /* UIImageView+URL.swift in Sources */,
 				0C66361425CD9C9800E79E18 /* MoviesViewController.swift in Sources */,
 			);

@@ -24,6 +24,7 @@ class MoviesViewController: ViewController {
     var presenter: MoviesPresenter = MoviesPresenter()
     var movies: [Movie] = []
     var refreshControl: UIRefreshControl = UIRefreshControl()
+    var search: SearchController!
     
     //MARK: - App lifecycle
 
@@ -38,12 +39,29 @@ class MoviesViewController: ViewController {
     
     func setupUI() {
         self.collectionView.refreshControl = refreshControl
+        self.collectionView.backgroundColor = .white
         self.refreshControl.beginRefreshing()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: String(describing: MovieCollectionViewCell.self), bundle: Bundle(for: MovieCollectionViewCell.self)), forCellWithReuseIdentifier: "movieIdentifier")
+        search = SearchController(searchResultsController: nil)
+        search.awakeFromNib()
+        search.searchResultsUpdater = self
+        self.navigationItem.searchController = search
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        
     }
 
+}
+
+//MARK: - Search Result Updating
+
+extension MoviesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text ?? ""
+        //TODO
+    }
+    
 }
 
 //MARK: - Collection View
