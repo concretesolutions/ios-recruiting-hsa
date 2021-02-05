@@ -31,6 +31,7 @@
 		0C66361925CDA95800E79E18 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66361725CDA95800E79E18 /* MovieCollectionViewCell.swift */; };
 		0C66361A25CDA95800E79E18 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66361825CDA95800E79E18 /* MovieCollectionViewCell.xib */; };
 		0C66361D25CDABD700E79E18 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66361C25CDABD700E79E18 /* UIImageView+URL.swift */; };
+		0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66361F25CDB5A200E79E18 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		0C66361725CDA95800E79E18 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C66361825CDA95800E79E18 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		0C66361C25CDABD700E79E18 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
+		0C66361F25CDB5A200E79E18 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		0C6635E325CD7BED00E79E18 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0C66361F25CDB5A200E79E18 /* TabBarController.swift */,
 				0C6635E425CD7C0000E79E18 /* NetworkingUtil.swift */,
 				0C6635F425CD90B800E79E18 /* DecoderError.swift */,
 			);
@@ -318,6 +321,7 @@
 				0C66360725CD9A9100E79E18 /* MoviesWorker.swift in Sources */,
 				0C6635EF25CD8E1600E79E18 /* Movie.swift in Sources */,
 				0C6635DB25CD79C300E79E18 /* MovieStore.swift in Sources */,
+				0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */,
 				0C6635F525CD90B800E79E18 /* DecoderError.swift in Sources */,
 				0C66360B25CD9B4100E79E18 /* MoviesPresenter.swift in Sources */,
 				0C66361925CDA95800E79E18 /* MovieCollectionViewCell.swift in Sources */,

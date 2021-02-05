@@ -27,7 +27,7 @@ protocol PresenterToViewMoviesProtocol: class {
 //MARK: - Routing Logic
 
 protocol PresenterToRouterMoviesProtocol: class {
-    
+    static func createModule() -> MoviesViewController
 }
 
 //MARK: - Business Logic
