@@ -23,6 +23,7 @@ class MoviesViewController: ViewController {
     
     var presenter: MoviesPresenter = MoviesPresenter()
     var movies: [Movie] = []
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     //MARK: - App lifecycle
 
@@ -36,6 +37,8 @@ class MoviesViewController: ViewController {
     //MARK: - Functions
     
     func setupUI() {
+        self.collectionView.refreshControl = refreshControl
+        self.refreshControl.beginRefreshing()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: String(describing: MovieCollectionViewCell.self), bundle: Bundle(for: MovieCollectionViewCell.self)), forCellWithReuseIdentifier: "movieIdentifier")
@@ -74,6 +77,7 @@ extension MoviesViewController: PresenterToViewMoviesProtocol {
     func fetchMoviesSuccessfull(_ movies: [Movie]) {
         self.movies = movies
         DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
             self.collectionView.reloadData()
         }
     }
@@ -82,5 +86,6 @@ extension MoviesViewController: PresenterToViewMoviesProtocol {
         let alert = UIAlertController(title: "ATENCION!", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        self.refreshControl.endRefreshing()
     }
 }
