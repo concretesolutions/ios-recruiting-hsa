@@ -59,7 +59,12 @@ class MoviesViewController: ViewController {
 extension MoviesViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let text = searchController.searchBar.text ?? ""
-        //TODO
+        self.refreshControl.beginRefreshing()
+        if text == "" {
+            self.presenter.fetchMovies()
+            return
+        }
+        self.presenter.fetchMovies(with: text)
     }
     
 }

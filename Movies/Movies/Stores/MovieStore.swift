@@ -15,16 +15,26 @@ protocol MovieStoreProtocol: class {
     
     func fetchPopularMovies(completion: @escaping FetchPopularMoviesCompletion)
     
+    //Search Popular movies use case
+    
+    func searchPopularMovies(_ text: String, completion: @escaping SearchPopularMoviesCompletion)
+    
 }
 
 
 //MARK: - Typealias
 
 typealias FetchPopularMoviesCompletion = (FetchPopularMoviesResult) -> Void
+typealias SearchPopularMoviesCompletion = (SearchPopularMoviesResult) -> Void
 
 //MARK: - Use Cases
 
 enum FetchPopularMoviesResult {
+    case success(_ movies: [Movie])
+    case failure(_ error: Error)
+}
+
+enum SearchPopularMoviesResult {
     case success(_ movies: [Movie])
     case failure(_ error: Error)
 }

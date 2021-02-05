@@ -30,6 +30,21 @@ class MoviesInteractor: PresenterToInteractorMoviesProtocol {
                 break
             case .success(let movies):
                 self.presenter?.fetchMoviesSuccessfull(movies)
+                break
+            }
+        }
+    }
+    
+    func fetchMovies(with text: String) {
+        worker = MoviesWorker(MoviesCoreDataRepository())
+        worker.searchMovies(text: text) { (result) in
+            switch result {
+            case .failure(let error):
+                self.presenter?.failure(error)
+                break
+            case .success(let movies):
+                self.presenter?.fetchMoviesSuccessfull(movies)
+                break
             }
         }
     }

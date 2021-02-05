@@ -26,6 +26,10 @@ class MoviesPresenter: ViewToPresenterMoviesProtocol {
     func fetchMovies() {
         interactor?.fetchMovies()
     }
+    
+    func fetchMovies(with text: String) {
+        interactor?.fetchMovies(with: text)
+    }
 }
 
 

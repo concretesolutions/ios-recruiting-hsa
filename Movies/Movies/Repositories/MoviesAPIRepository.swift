@@ -46,4 +46,11 @@ class MoviesAPIRepository: MovieStoreProtocol {
         
     }
     
+    //MARK: - Search Popular Movies
+    
+    func searchPopularMovies(_ text: String, completion: @escaping SearchPopularMoviesCompletion) {
+        //TODO: Si existiera un servicio de buscar, implementarlo. Para el ejercicio solo se solicita de manera local
+        completion(.success([]))
+    }
+    
 }

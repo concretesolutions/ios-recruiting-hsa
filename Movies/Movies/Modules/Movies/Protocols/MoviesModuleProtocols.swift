@@ -15,6 +15,7 @@ protocol ViewToPresenterMoviesProtocol: class {
     var router: PresenterToRouterMoviesProtocol? {get set}
     
     func fetchMovies()
+    func fetchMovies(with text: String)
 }
 
 //MARK: - Display Logic
@@ -36,6 +37,7 @@ protocol PresenterToInteractorMoviesProtocol: class {
     var presenter: InteractorToPresenterMoviesProtocol? {get set}
     
     func fetchMovies()
+    func fetchMovies(with text: String)
 }
 
 //MARK: - Presentation Logic

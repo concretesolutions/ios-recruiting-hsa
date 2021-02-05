@@ -31,4 +31,10 @@ class MoviesWorker {
         self.repo.fetchPopularMovies(completion: completion)
     }
     
+    //MARK: - search movies
+    
+    func searchMovies(text: String,_ completion: @escaping SearchPopularMoviesCompletion) {
+        self.repo.searchPopularMovies(text, completion: completion)
+    }
+    
 }
