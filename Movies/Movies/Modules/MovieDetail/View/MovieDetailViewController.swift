@@ -84,13 +84,15 @@ extension MovieDetailViewController: PresenterToViewMovieDetailProtocol {
     }
     
     func fetchCategoriesSuccessfull(_ categories: [Category]) {
-        self.activityIndicator.stopAnimating()
-        self.activityIndicator.isHidden = true
         let arr = categories.filter { (cat) -> Bool in
             return (self.movie.genre_ids?.contains(where: { $0 == cat.id })) ?? false
         }.compactMap({ $0.name })
         let str = arr.joined(separator: ",")
-        self.genreLabel.text = str
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            self.genreLabel.text = str
+        }
     }
     
     func failure(_ error: Error) {

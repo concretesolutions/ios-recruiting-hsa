@@ -53,7 +53,7 @@ class MoviesCoreDataRepository: MovieStoreProtocol {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
         
         do {
             guard let movie = try managedContext.fetch(fetchRequest).first else {
