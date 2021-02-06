@@ -88,6 +88,12 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = self.movies[indexPath.row]
+        let vc = MovieDetailRouter.createModule(movie.id)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10.0, height: 270.0)
     }
