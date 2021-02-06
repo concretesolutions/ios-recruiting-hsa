@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class CategoriesAPIRepository: CategoryStoreProtocol {
     
@@ -32,7 +33,15 @@ class CategoriesAPIRepository: CategoryStoreProtocol {
                     let data2 = try JSONSerialization.data(withJSONObject: results, options: [])
                     let decoder = JSONDecoder()
                     let categories = try decoder.decode([Category].self, from: data2)
-                    try appDelegate.persistentContainer.viewContext.save()
+                    
+                    let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+                    let categoriesFetched = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+                    
+                    for c in categories {
+                        if !categoriesFetched.contains(where: { $0.id == c.id }) {
+                            appDelegate.persistentContainer.viewContext.insert(c)
+                        }
+                    }                    
                     completion(.success(categories))
                 }catch let error {
                     print(error)

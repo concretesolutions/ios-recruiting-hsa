@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class MoviesAPIRepository: MovieStoreProtocol {
     
@@ -32,7 +33,15 @@ class MoviesAPIRepository: MovieStoreProtocol {
                     let data2 = try JSONSerialization.data(withJSONObject: results, options: [])
                     let decoder = JSONDecoder()
                     let movies = try decoder.decode([Movie].self, from: data2)
-                    try appDelegate.persistentContainer.viewContext.save()
+                    
+                    let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
+                    let moviesFetched = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+                    
+                    for m in movies {
+                        if !moviesFetched.contains(where: { $0.id == m.id }) {
+                            appDelegate.persistentContainer.viewContext.insert(m)
+                        }
+                    }
                     completion(.success(movies))
                 }catch let error {
                     print(error)
