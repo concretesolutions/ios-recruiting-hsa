@@ -24,6 +24,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
                 thumb.load(url: url)
             }
             self.nameLabel.text = value.title
+            self.starButton.setImage(value.starred ? UIImage(named: "ic_star_fill") : UIImage(named: "ic_star_on"), for: .normal)
         }
     }
     
@@ -31,7 +32,22 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.starButton.addTarget(self, action: #selector(star), for: .touchUpInside)
         // Initialization code
+    }
+    
+    //MARK: - Selectors
+    
+    @objc func star() {
+        let flag = !(movie?.starred ?? false)
+        self.starButton.setImage(flag ? UIImage(named: "ic_star_fill") : UIImage(named: "ic_star_on"), for: .normal)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        do {
+            movie?.starred = flag
+            try appDelegate.persistentContainer.viewContext.save()
+        } catch let error {
+            print(error)
+        }
     }
 
 }
