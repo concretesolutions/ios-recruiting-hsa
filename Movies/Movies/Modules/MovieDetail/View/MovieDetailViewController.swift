@@ -50,6 +50,12 @@ class MovieDetailViewController: ViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    //MARK: - Selectors
+    
+    @objc func star() {
+        
+    }
+    
     //MARK: - Functions
     
     func setupUI() {
@@ -65,6 +71,7 @@ class MovieDetailViewController: ViewController {
         genreLabel.font = UIFont.systemFont(ofSize: 16.0)
         summaryLabel.textColor = .lightGray
         summaryLabel.font = UIFont.systemFont(ofSize: 16.0)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(named: "ic_star_on"), style: .plain, target: self, action: #selector(star)), animated: true)
     }
 
 }
