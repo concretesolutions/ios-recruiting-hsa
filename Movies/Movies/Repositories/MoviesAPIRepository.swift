@@ -102,4 +102,12 @@ class MoviesAPIRepository: MovieStoreProtocol {
         completion(.success(true))
     }
     
+    //MARK: - Fetch Starred Movies
+    
+    //TODO: Si por alguna razon la API soportara un usuario se puede utilizar un servicio web
+    
+    func fetchStarredMovies(_ completion: @escaping FetchStarredMoviesCompletion) {
+        completion(.success([]))
+    }
+    
 }
