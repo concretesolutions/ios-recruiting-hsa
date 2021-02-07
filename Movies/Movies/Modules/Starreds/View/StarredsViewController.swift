@@ -33,6 +33,10 @@ class StarredsViewController: ViewController {
         // Do any additional setup after loading the view.
     }
     
+    @objc func goToFilter() {
+        //TODO
+    }
+    
     //MARK: - Functions
     
     func setupUI() {
@@ -41,6 +45,7 @@ class StarredsViewController: ViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(named: "ic_filter"), style: .plain, target: self, action: #selector(goToFilter)), animated: true)
     }
 
 }
