@@ -75,10 +75,29 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = indexPath.row == 0 ? FilterContent.years : FilterContent.genres
         let vc = FilterContentRouter.createModule(type)
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+//MARK: - Filter Content Delegate
+
+extension FiltersViewController: FilterContentViewControllerDelegate {
+    func didSelectFilterCriteria(_ type: FilterContent, _ value: String) {
+        guard self.filters.count > 0 else { return }
+        switch type {
+        case .genres:
+            self.filters[1].value = value
+            break
+        case .years:
+            self.filters[0].value = value
+            break
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
 
 //MARK: - Display Logic
 

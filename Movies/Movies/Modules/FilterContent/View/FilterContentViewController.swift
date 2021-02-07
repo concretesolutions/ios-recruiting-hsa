@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FilterContentViewControllerDelegate: class {
+    func didSelectFilterCriteria(_ type: FilterContent, _ value: String)
+}
+
 class FilterContentViewController: ViewController {
     
     //MARK: - IBOutlets
@@ -23,6 +27,7 @@ class FilterContentViewController: ViewController {
     
     var presenter: FilterContentPresenter = FilterContentPresenter()
     var content: [String] = []
+    weak var delegate: FilterContentViewControllerDelegate?
     
     //MARK: - App lifecycle
 
@@ -70,13 +75,21 @@ extension FilterContentViewController: UITableViewDelegate, UITableViewDataSourc
         cell.textLabel?.text = self.content[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let value = self.content[indexPath.row]
+        delegate?.didSelectFilterCriteria(self.presenter.filterType, value)
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 //MARK: - Display Logic
 extension FilterContentViewController: PresenterToViewFilterContentProtocol {
     func fetchContentSuccessfull(_ content: [String]) {
         self.content = content
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func failure(_ error: Error) {
