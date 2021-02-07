@@ -30,6 +30,10 @@ protocol MovieStoreProtocol: class {
     //Fetch starred movies
     
     func fetchStarredMovies(_ completion: @escaping FetchStarredMoviesCompletion)
+    
+    //Fetch movie years
+    
+    func fetchMovieYears(_ completion: @escaping FetchMovieYearsCompletion)
 }
 
 
@@ -40,6 +44,7 @@ typealias SearchPopularMoviesCompletion = (SearchPopularMoviesResult) -> Void
 typealias FetchMovieCompletion = (FetchMovieResult) -> Void
 typealias StarMovieCompletion = (StarMovieResult) -> Void
 typealias FetchStarredMoviesCompletion = (FetchStarredMoviesResult) -> Void
+typealias FetchMovieYearsCompletion = (FetchMovieYearsResult) -> Void
 
 //MARK: - Use Cases
 
@@ -65,5 +70,10 @@ enum StarMovieResult {
 
 enum FetchStarredMoviesResult {
     case success(_ movies: [Movie])
+    case failure(_ error: Error)
+}
+
+enum FetchMovieYearsResult {
+    case success(_ years: [String])
     case failure(_ error: Error)
 }

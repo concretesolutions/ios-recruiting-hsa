@@ -111,4 +111,28 @@ class MoviesCoreDataRepository: MovieStoreProtocol {
         }
     }
     
+    //MARK: - Fetch Movie Years
+    
+    func fetchMovieYears(_ completion: @escaping FetchMovieYearsCompletion) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
+        var years: Set<String> = []
+        
+        do {
+            let movies = try managedContext.fetch(fetchRequest)
+            var year: String = ""
+            for m in movies {
+                year = String(m.release_date?.split(separator: "-").first ?? "")
+                if !years.contains(year) {
+                    years.insert(year)
+                }
+            }
+            completion(.success(Array(years)))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
 }

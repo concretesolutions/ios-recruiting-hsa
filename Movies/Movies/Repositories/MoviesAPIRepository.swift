@@ -111,4 +111,12 @@ class MoviesAPIRepository: MovieStoreProtocol {
         completion(.success([]))
     }
     
+    //MARK: - Fetch Movie Years
+    
+    //TODO: No existe un servicio en la API
+    
+    func fetchMovieYears(_ completion: @escaping FetchMovieYearsCompletion) {
+        completion(.success([]))
+    }
+    
 }

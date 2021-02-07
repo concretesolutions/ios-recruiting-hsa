@@ -34,6 +34,8 @@ class FilterContentWorker {
     }
     
     //MARK: - Fetch Movie Years
-    //TODO
+    func fetchYears(_ completion: @escaping FetchMovieYearsCompletion) {
+        self.movieRepo.fetchMovieYears(completion)
+    }
     
 }
