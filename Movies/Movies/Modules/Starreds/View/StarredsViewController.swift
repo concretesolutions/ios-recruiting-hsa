@@ -35,6 +35,7 @@ class StarredsViewController: ViewController {
     
     @objc func goToFilter() {
         let vc = FiltersRouter.createModule()
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -49,6 +50,14 @@ class StarredsViewController: ViewController {
         self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(named: "ic_filter"), style: .plain, target: self, action: #selector(goToFilter)), animated: true)
     }
 
+}
+
+//MARK: - Filters Delegate
+
+extension StarredsViewController: FiltersViewControllerDelegate {
+    func didFilter(with criteria: [Filter<String>]) {
+        self.presenter.filterMovies(criteria)
+    }
 }
 
 //MARK: - UITableView Delegate & Data Source
@@ -86,6 +95,13 @@ extension StarredsViewController: PresenterToViewStarredsProtocol {
     func fetchStarredsMoviesSuccessfull(_ movies: [Movie]) {
         self.movies = movies
         self.tableView.reloadData()
+    }
+    
+    func fetchFilteredMoviesSuccessfull(_ movies: [Movie]) {
+        self.movies = movies
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func unstarMovieSuccessfull() {

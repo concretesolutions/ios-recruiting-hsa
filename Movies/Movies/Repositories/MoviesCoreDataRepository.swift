@@ -135,4 +135,49 @@ class MoviesCoreDataRepository: MovieStoreProtocol {
         }
     }
     
+    //MARK: - Fetch Filtered Movies
+    
+    func fetchFilteredMovies(_ criteria: [Filter<String>], _ completion: @escaping FetchPopularMoviesCompletion) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
+        
+        var predicateStr: String = "starred == true"
+        for i in criteria {
+            if i.name == "Date" && (i.value ?? "") != "" {
+                if predicateStr != "" {
+                    predicateStr.append(" AND ")
+                }
+                predicateStr.append("release_date CONTAINS[cd] \(i.value ?? "")")
+            }else if i.name == "Genre" && (i.value ?? "") != "" {
+                let genreFetchRequest = NSFetchRequest<Category>(entityName: "Category")
+                genreFetchRequest.predicate = NSPredicate(format: "name == %@", i.value ?? "")
+                
+                do {
+                    guard let fetchedGenres = try managedContext.fetch(genreFetchRequest).first else {
+                        completion(.failure(NSError(domain: "Movies", code: 400, userInfo: [NSLocalizedDescriptionKey: "No fetched Category"])))
+                        return
+                    }
+                    if predicateStr != "" {
+                        predicateStr.append(" AND ")
+                    }
+                    predicateStr.append("ANY genre_ids == \(fetchedGenres.id)")
+                } catch let error {
+                    completion(.failure(error))
+                }
+            }
+        }
+        fetchRequest.predicate = NSPredicate(format: predicateStr)
+        
+        do {
+            let movies = try managedContext.fetch(fetchRequest)
+            completion(.success(movies))
+        } catch let error {
+            print(error)
+            completion(.failure(error))
+        }
+        
+    }
+    
 }

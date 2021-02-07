@@ -37,4 +37,10 @@ class StarredsWorker {
         self.repo.starMovie(id, completion: completion)
     }
     
+    //MARK: - Filter Movies
+    
+    func filterMovies(_ filters: [Filter<String>], _ completion: @escaping FetchPopularMoviesCompletion) {
+        self.repo.fetchFilteredMovies(filters, completion)
+    }
+    
 }

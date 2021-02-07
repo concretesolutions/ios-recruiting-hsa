@@ -31,6 +31,12 @@ class StarredsPresenter: ViewToPresenterStarredsProtocol {
     func unstarMovie(_ id: Int32) {
         interactor?.unstarMovie(id)
     }
+    
+    //MARK: - Filter Movies
+    
+    func filterMovies(_ filters: [Filter<String>]) {
+        interactor?.filterMovies(filters)
+    }
 }
 
 //MARK: - Presentation Logic
@@ -46,5 +52,9 @@ extension StarredsPresenter: InteractorToPresenterStarredsProtocol {
     
     func failure(_ error: Error) {
         view?.failure(error)
+    }
+    
+    func fetchFilteredMoviesSuccessfull(_ movies: [Movie]) {
+        view?.fetchFilteredMoviesSuccessfull(movies)
     }
 }

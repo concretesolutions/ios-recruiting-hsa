@@ -34,6 +34,10 @@ protocol MovieStoreProtocol: class {
     //Fetch movie years
     
     func fetchMovieYears(_ completion: @escaping FetchMovieYearsCompletion)
+    
+    //Fetch Filtered Movies
+    
+    func fetchFilteredMovies(_ criteria: [Filter<String>], _ completion: @escaping FetchPopularMoviesCompletion)
 }
 
 

@@ -119,4 +119,12 @@ class MoviesAPIRepository: MovieStoreProtocol {
         completion(.success([]))
     }
     
+    //MARK: - Fetch Filtered Movies
+    
+    //TODO: No existe un servicio en la API
+    
+    func fetchFilteredMovies(_ criteria: [Filter<String>], _ completion: @escaping FetchPopularMoviesCompletion) {
+        completion(.success([]))
+    }
+    
 }

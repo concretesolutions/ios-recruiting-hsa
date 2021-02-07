@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FiltersViewControllerDelegate: class {
+    func didFilter(with criteria: [Filter<String>])
+}
+
 class FiltersViewController: ViewController {
     
     //MARK: - IBOutlets
@@ -23,6 +27,7 @@ class FiltersViewController: ViewController {
     
     var presenter: FiltersPresenter = FiltersPresenter()
     var filters: [Filter<String>] = []
+    weak var delegate: FiltersViewControllerDelegate?
     
     //MARK: - App lifecycle
 
@@ -42,6 +47,11 @@ class FiltersViewController: ViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+    @objc func apply() {
+        delegate?.didFilter(with: self.filters)
+        self.navigationController?.popViewController(animated: true)
+    }
 
     //MARK: - Functions
     
@@ -50,6 +60,7 @@ class FiltersViewController: ViewController {
         self.tableView.backgroundColor = .white
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(apply)), animated: true)
     }
 }
 

@@ -49,4 +49,19 @@ class StarredsInteractor: PresenterToInteractorStarredsProtocol {
             }
         }
     }
+    
+    //MARK: - Filter Movies
+    
+    func filterMovies(_ filters: [Filter<String>]) {
+        worker.filterMovies(filters) { [weak self] (result) in
+            switch result {
+            case .success(let movies):
+                self?.presenter?.fetchFilteredMoviesSuccessfull(movies)
+                break
+            case .failure(let error):
+                self?.presenter?.failure(error)
+                break
+            }
+        }
+    }
 }

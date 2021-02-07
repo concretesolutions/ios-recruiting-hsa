@@ -16,11 +16,13 @@ protocol ViewToPresenterStarredsProtocol: class {
     
     func fetchStarredsMovies()
     func unstarMovie(_ id: Int32)
+    func filterMovies(_ filters: [Filter<String>])
 }
 
 //MARK: - Display Logic
 
 protocol PresenterToViewStarredsProtocol: class {
+    func fetchFilteredMoviesSuccessfull(_ movies: [Movie])
     func unstarMovieSuccessfull()
     func fetchStarredsMoviesSuccessfull(_ movies: [Movie])
     func failure(_ error: Error)
@@ -38,6 +40,7 @@ protocol PresenterToInteractorStarredsProtocol: class {
     var presenter: InteractorToPresenterStarredsProtocol? {get set}
     func fetchStarredsMovies()
     func unstarMovie(_ id: Int32)
+    func filterMovies(_ filters: [Filter<String>])
 }
 
 //MARK: - Presentation Logic
@@ -46,4 +49,5 @@ protocol InteractorToPresenterStarredsProtocol: class {
     func unstarMovieSuccessfull()
     func fetchStarredsMoviesSuccessfull(_ movies: [Movie])
     func failure(_ error: Error)
+    func fetchFilteredMoviesSuccessfull(_ movies: [Movie])
 }
