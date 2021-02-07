@@ -44,6 +44,13 @@
 		0C66364425CDE80200E79E18 /* MovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66364325CDE80200E79E18 /* MovieDetailInteractor.swift */; };
 		0C66364A25CDE85600E79E18 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66364825CDE85600E79E18 /* MovieDetailViewController.swift */; };
 		0C66364B25CDE85600E79E18 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66364925CDE85600E79E18 /* MovieDetailViewController.xib */; };
+		0C66365225D03C4200E79E18 /* StarredsModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66365125D03C4200E79E18 /* StarredsModuleProtocols.swift */; };
+		0C66365625D03D9700E79E18 /* StarredsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66365525D03D9700E79E18 /* StarredsRouter.swift */; };
+		0C66365B25D03DE700E79E18 /* StarredsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66365A25D03DE700E79E18 /* StarredsWorker.swift */; };
+		0C66365F25D03E9E00E79E18 /* StarredsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66365E25D03E9E00E79E18 /* StarredsPresenter.swift */; };
+		0C66366425D03F0100E79E18 /* StarredsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66366325D03F0100E79E18 /* StarredsInteractor.swift */; };
+		0C66366A25D03F8B00E79E18 /* StarredsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66366825D03F8B00E79E18 /* StarredsViewController.swift */; };
+		0C66366B25D03F8B00E79E18 /* StarredsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66366925D03F8B00E79E18 /* StarredsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +93,13 @@
 		0C66364325CDE80200E79E18 /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
 		0C66364825CDE85600E79E18 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		0C66364925CDE85600E79E18 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		0C66365125D03C4200E79E18 /* StarredsModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredsModuleProtocols.swift; sourceTree = "<group>"; };
+		0C66365525D03D9700E79E18 /* StarredsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredsRouter.swift; sourceTree = "<group>"; };
+		0C66365A25D03DE700E79E18 /* StarredsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredsWorker.swift; sourceTree = "<group>"; };
+		0C66365E25D03E9E00E79E18 /* StarredsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredsPresenter.swift; sourceTree = "<group>"; };
+		0C66366325D03F0100E79E18 /* StarredsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredsInteractor.swift; sourceTree = "<group>"; };
+		0C66366825D03F8B00E79E18 /* StarredsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredsViewController.swift; sourceTree = "<group>"; };
+		0C66366925D03F8B00E79E18 /* StarredsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarredsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +210,7 @@
 		0C6635FA25CD98BD00E79E18 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0C66364F25D03C2300E79E18 /* Starreds */,
 				0C66363125CDE26600E79E18 /* MovieDetail */,
 				0C6635FB25CD993900E79E18 /* Movies */,
 			);
@@ -328,6 +343,68 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0C66364F25D03C2300E79E18 /* Starreds */ = {
+			isa = PBXGroup;
+			children = (
+				0C66366725D03F6F00E79E18 /* View */,
+				0C66366225D03EF300E79E18 /* Interactor */,
+				0C66365D25D03E8A00E79E18 /* Presenter */,
+				0C66365925D03DC500E79E18 /* Worker */,
+				0C66365425D03D8500E79E18 /* Router */,
+				0C66365025D03C2C00E79E18 /* Protocols */,
+			);
+			path = Starreds;
+			sourceTree = "<group>";
+		};
+		0C66365025D03C2C00E79E18 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0C66365125D03C4200E79E18 /* StarredsModuleProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0C66365425D03D8500E79E18 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0C66365525D03D9700E79E18 /* StarredsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0C66365925D03DC500E79E18 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				0C66365A25D03DE700E79E18 /* StarredsWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		0C66365D25D03E8A00E79E18 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0C66365E25D03E9E00E79E18 /* StarredsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0C66366225D03EF300E79E18 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0C66366325D03F0100E79E18 /* StarredsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0C66366725D03F6F00E79E18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C66366825D03F8B00E79E18 /* StarredsViewController.swift */,
+				0C66366925D03F8B00E79E18 /* StarredsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,6 +466,7 @@
 				0C66361A25CDA95800E79E18 /* MovieCollectionViewCell.xib in Resources */,
 				0C6635C725CD73FC00E79E18 /* LaunchScreen.storyboard in Resources */,
 				0C6635C425CD73FC00E79E18 /* Assets.xcassets in Resources */,
+				0C66366B25D03F8B00E79E18 /* StarredsViewController.xib in Resources */,
 				0C6635C225CD73FA00E79E18 /* Main.storyboard in Resources */,
 				0C66361525CD9C9800E79E18 /* MoviesViewController.xib in Resources */,
 			);
@@ -412,15 +490,21 @@
 				0C6635E125CD7ACE00E79E18 /* MoviesAPIRepository.swift in Sources */,
 				0C6635D325CD75F600E79E18 /* Movies.xcdatamodeld in Sources */,
 				0C6635BB25CD73FA00E79E18 /* AppDelegate.swift in Sources */,
+				0C66365225D03C4200E79E18 /* StarredsModuleProtocols.swift in Sources */,
 				0C6635F225CD902600E79E18 /* CodingUserInfoKey+ManagedObjectContext.swift in Sources */,
 				0C66360325CD9A3600E79E18 /* MoviesRouter.swift in Sources */,
+				0C66366425D03F0100E79E18 /* StarredsInteractor.swift in Sources */,
 				0C6635D725CD770700E79E18 /* Constants.swift in Sources */,
 				0C66360725CD9A9100E79E18 /* MoviesWorker.swift in Sources */,
 				0C6635EF25CD8E1600E79E18 /* Movie.swift in Sources */,
+				0C66366A25D03F8B00E79E18 /* StarredsViewController.swift in Sources */,
 				0C6635DB25CD79C300E79E18 /* MovieStore.swift in Sources */,
 				0C66362925CDDEDC00E79E18 /* Category.swift in Sources */,
 				0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */,
 				0C66364A25CDE85600E79E18 /* MovieDetailViewController.swift in Sources */,
+				0C66365F25D03E9E00E79E18 /* StarredsPresenter.swift in Sources */,
+				0C66365B25D03DE700E79E18 /* StarredsWorker.swift in Sources */,
+				0C66365625D03D9700E79E18 /* StarredsRouter.swift in Sources */,
 				0C66363825CDE35500E79E18 /* MovieDetailRouter.swift in Sources */,
 				0C66364425CDE80200E79E18 /* MovieDetailInteractor.swift in Sources */,
 				0C66362F25CDDFD400E79E18 /* CategoriesAPIRepository.swift in Sources */,
