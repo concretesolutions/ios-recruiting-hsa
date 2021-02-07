@@ -13,12 +13,15 @@ protocol ViewToPresenterFiltersProtocol: class {
     var view: PresenterToViewFiltersProtocol? {get set}
     var interactor: PresenterToInteractorFiltersProtocol? {get set}
     var router: PresenterToRouterFiltersProtocol? {get set}
+    
+    func fetchFilters()
 }
 
 //MARK: - Display Logic
 
 protocol PresenterToViewFiltersProtocol: class {
-    
+    func fetchFiltersSuccessfull(_ filters: [Filter<String>])
+    func failure(_ error: Error)
 }
 
 //MARK: - Routing Logic
@@ -31,10 +34,12 @@ protocol PresenterToRouterFiltersProtocol: class {
 
 protocol PresenterToInteractorFiltersProtocol: class {
     var presenter: InteractorToPresenterFiltersProtocol? {get set}
+    func fetchFilters()
 }
 
 //MARK: - Presentation Logic
 
 protocol InteractorToPresenterFiltersProtocol: class {
-    
+    func fetchFiltersSuccessfull(_ filters: [Filter<String>])
+    func failure(_ error: Error)
 }

@@ -20,10 +20,22 @@ class FiltersPresenter: ViewToPresenterFiltersProtocol {
     var interactor: PresenterToInteractorFiltersProtocol?
     var router: PresenterToRouterFiltersProtocol?
     
+    
+    //MARK: - Fetch Filters
+    
+    func fetchFilters() {
+        interactor?.fetchFilters()
+    }
 }
 
 //MARK: - Presentation Logic
 
 extension FiltersPresenter: InteractorToPresenterFiltersProtocol {
+    func fetchFiltersSuccessfull(_ filters: [Filter<String>]) {
+        view?.fetchFiltersSuccessfull(filters)
+    }
     
+    func failure(_ error: Error) {
+        view?.failure(error)
+    }
 }

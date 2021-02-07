@@ -17,4 +17,12 @@ class FiltersInteractor: PresenterToInteractorFiltersProtocol {
     //MARK: - Variables
     
     weak var presenter: InteractorToPresenterFiltersProtocol?
+    fileprivate var worker: FiltersWorker = FiltersWorker()
+    
+    //MARK: - Fetch Filters
+    
+    func fetchFilters() {
+        let filters = worker.retrieveFilters()
+        self.presenter?.fetchFiltersSuccessfull(filters)
+    }
 }

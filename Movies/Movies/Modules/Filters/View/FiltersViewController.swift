@@ -33,5 +33,13 @@ class FiltersViewController: ViewController {
 //MARK: - Display Logic
 
 extension FiltersViewController: PresenterToViewFiltersProtocol {
+    func fetchFiltersSuccessfull(_ filters: [Filter<String>]) {
+        //TODO
+    }
     
+    func failure(_ error: Error) {
+        let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
