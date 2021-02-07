@@ -71,6 +71,12 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
         cell.filter = self.filters[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = indexPath.row == 0 ? FilterContent.years : FilterContent.genres
+        let vc = FilterContentRouter.createModule(type)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 
