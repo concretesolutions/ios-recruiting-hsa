@@ -61,6 +61,8 @@
 		0C66368825D075BE00E79E18 /* FiltersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66368725D075BE00E79E18 /* FiltersInteractor.swift */; };
 		0C66368D25D0760B00E79E18 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66368B25D0760B00E79E18 /* FiltersViewController.swift */; };
 		0C66368E25D0760B00E79E18 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66368C25D0760B00E79E18 /* FiltersViewController.xib */; };
+		0C66369225D078CE00E79E18 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66369025D078CE00E79E18 /* FilterTableViewCell.swift */; };
+		0C66369325D078CE00E79E18 /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C66369125D078CE00E79E18 /* FilterTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +122,8 @@
 		0C66368725D075BE00E79E18 /* FiltersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersInteractor.swift; sourceTree = "<group>"; };
 		0C66368B25D0760B00E79E18 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		0C66368C25D0760B00E79E18 /* FiltersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
+		0C66369025D078CE00E79E18 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		0C66369125D078CE00E79E18 /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,6 +491,8 @@
 			children = (
 				0C66368B25D0760B00E79E18 /* FiltersViewController.swift */,
 				0C66368C25D0760B00E79E18 /* FiltersViewController.xib */,
+				0C66369025D078CE00E79E18 /* FilterTableViewCell.swift */,
+				0C66369125D078CE00E79E18 /* FilterTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				0C66364B25CDE85600E79E18 /* MovieDetailViewController.xib in Resources */,
 				0C66368E25D0760B00E79E18 /* FiltersViewController.xib in Resources */,
 				0C66361A25CDA95800E79E18 /* MovieCollectionViewCell.xib in Resources */,
+				0C66369325D078CE00E79E18 /* FilterTableViewCell.xib in Resources */,
 				0C6635C725CD73FC00E79E18 /* LaunchScreen.storyboard in Resources */,
 				0C6635C425CD73FC00E79E18 /* Assets.xcassets in Resources */,
 				0C66366B25D03F8B00E79E18 /* StarredsViewController.xib in Resources */,
@@ -590,6 +597,7 @@
 				0C66366A25D03F8B00E79E18 /* StarredsViewController.swift in Sources */,
 				0C6635DB25CD79C300E79E18 /* MovieStore.swift in Sources */,
 				0C66362925CDDEDC00E79E18 /* Category.swift in Sources */,
+				0C66369225D078CE00E79E18 /* FilterTableViewCell.swift in Sources */,
 				0C66362025CDB5A200E79E18 /* TabBarController.swift in Sources */,
 				0C66368425D0757000E79E18 /* FiltersPresenter.swift in Sources */,
 				0C66367525D0737100E79E18 /* FiltersModuleProtocols.swift in Sources */,
