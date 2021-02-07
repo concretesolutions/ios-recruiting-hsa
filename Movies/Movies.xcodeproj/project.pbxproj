@@ -70,6 +70,7 @@
 		0C6636A925D07F7400E79E18 /* FilterContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6636A825D07F7400E79E18 /* FilterContentInteractor.swift */; };
 		0C6636AF25D07FB800E79E18 /* FilterContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6636AD25D07FB800E79E18 /* FilterContentViewController.swift */; };
 		0C6636B025D07FB800E79E18 /* FilterContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6636AE25D07FB800E79E18 /* FilterContentViewController.xib */; };
+		0C6636B425D082A400E79E18 /* FilterContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6636B325D082A400E79E18 /* FilterContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		0C6636A825D07F7400E79E18 /* FilterContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterContentInteractor.swift; sourceTree = "<group>"; };
 		0C6636AD25D07FB800E79E18 /* FilterContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterContentViewController.swift; sourceTree = "<group>"; };
 		0C6636AE25D07FB800E79E18 /* FilterContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterContentViewController.xib; sourceTree = "<group>"; };
+		0C6636B325D082A400E79E18 /* FilterContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				0C66361F25CDB5A200E79E18 /* TabBarController.swift */,
 				0C6635E425CD7C0000E79E18 /* NetworkingUtil.swift */,
 				0C6635F425CD90B800E79E18 /* DecoderError.swift */,
+				0C6636B325D082A400E79E18 /* FilterContent.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				0C66362325CDCD5600E79E18 /* UIColor+hex.swift in Sources */,
 				0C66364025CDE4CA00E79E18 /* MovieDetailPresenter.swift in Sources */,
 				0C66362C25CDDF2F00E79E18 /* CategoryStore.swift in Sources */,
+				0C6636B425D082A400E79E18 /* FilterContent.swift in Sources */,
 				0C6635FE25CD995400E79E18 /* MoviesModuleProtocols.swift in Sources */,
 				0C66369825D07D1200E79E18 /* FilterContentModuleProtocols.swift in Sources */,
 				0C66369C25D07DED00E79E18 /* FilterContentRouter.swift in Sources */,

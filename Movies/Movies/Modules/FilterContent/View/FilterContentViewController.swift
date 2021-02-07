@@ -31,5 +31,13 @@ class FilterContentViewController: ViewController {
 
 //MARK: - Display Logic
 extension FilterContentViewController: PresenterToViewFilterContentProtocol {
+    func fetchContentSuccessfull(_ content: [String]) {
+        
+    }
     
+    func failure(_ error: Error) {
+        let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
