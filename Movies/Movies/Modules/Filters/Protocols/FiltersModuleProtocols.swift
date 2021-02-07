@@ -27,7 +27,7 @@ protocol PresenterToViewFiltersProtocol: class {
 //MARK: - Routing Logic
 
 protocol PresenterToRouterFiltersProtocol: class {
-    
+    static func createModule() -> FiltersViewController
 }
 
 //MARK: - Business Logic

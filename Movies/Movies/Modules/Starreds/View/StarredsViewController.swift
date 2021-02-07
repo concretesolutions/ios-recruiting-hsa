@@ -34,7 +34,8 @@ class StarredsViewController: ViewController {
     }
     
     @objc func goToFilter() {
-        //TODO
+        let vc = FiltersRouter.createModule()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Functions
