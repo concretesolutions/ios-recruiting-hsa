@@ -29,7 +29,7 @@ protocol PresenterToViewStarredsProtocol: class {
 //MARK: - Routing Logic
 
 protocol PresenterToRouterStarredsProtocol: class {
-    
+    static func createModule() -> StarredsViewController
 }
 
 //MARK: - Business Logic

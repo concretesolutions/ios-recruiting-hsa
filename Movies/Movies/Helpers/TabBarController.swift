@@ -15,7 +15,7 @@ class TabBarController: UITabBarController {
         
         self.tabBar.tintColor = .black
         self.tabBar.barTintColor = Constants.mainColor
-        self.viewControllers = [UINavigationController(rootViewController: MoviesRouter.createModule())]
+        self.viewControllers = [UINavigationController(rootViewController: MoviesRouter.createModule()), UINavigationController(rootViewController: StarredsRouter.createModule())]
         // Do any additional setup after loading the view.
     }
 
