@@ -29,6 +29,7 @@ class MovieDetailViewController: ViewController {
     
     var presenter: MovieDetailPresenter = MovieDetailPresenter()
     var movie: Movie = Movie()
+    var flag: Bool = true
 
     //MARK: - App lifecycle
     
@@ -53,7 +54,9 @@ class MovieDetailViewController: ViewController {
     //MARK: - Selectors
     
     @objc func star() {
-        
+        self.flag.toggle()
+        self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(named: flag ? "ic_star_fill" : "ic_star_on"), style: .plain, target: self, action: #selector(star)), animated: true)
+        self.presenter.starMovie()
     }
     
     //MARK: - Functions
@@ -80,6 +83,8 @@ class MovieDetailViewController: ViewController {
 
 extension MovieDetailViewController: PresenterToViewMovieDetailProtocol {
     func fetchMovieSuccessfull(_ movie: Movie) {
+        self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(named: movie.starred ? "ic_star_fill" : "ic_star_on"), style: .plain, target: self, action: #selector(star)), animated: true)
+        flag = movie.starred
         self.movie = movie
         self.nameLabel.text = movie.title
         if let url = URL(string: Constants.mediaURL + "/original/\(movie.poster_path ?? "")") {
@@ -106,5 +111,9 @@ extension MovieDetailViewController: PresenterToViewMovieDetailProtocol {
         let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func starMovieSuccessfull() {
+        //TODO: Something
     }
 }

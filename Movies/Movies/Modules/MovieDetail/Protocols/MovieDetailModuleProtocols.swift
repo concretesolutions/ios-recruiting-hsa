@@ -17,11 +17,13 @@ protocol ViewToPresenterMovieDetailProtocol: class {
     
     func fetchMovie()
     func fetchCategories()
+    func starMovie()
 }
 
 //MARK: - Display Logic
 
 protocol PresenterToViewMovieDetailProtocol: class {
+    func starMovieSuccessfull()
     func fetchMovieSuccessfull(_ movie: Movie)
     func fetchCategoriesSuccessfull(_ categories: [Category])
     func failure(_ error: Error)
@@ -39,6 +41,7 @@ protocol PresenterToInteractorMovieDetailProtocol: class {
     var presenter: InteractorToPresenterMovieDetailProtocol? {get set}
     func fetchMovie(_ id: Int32)
     func fetchCategories()
+    func starMovie(_ id: Int32)
 }
 
 //MARK: - Presentation Logic
@@ -47,4 +50,5 @@ protocol InteractorToPresenterMovieDetailProtocol: class {
     func fetchMovieSuccessfull(_ movie: Movie)
     func fetchCategoriesSuccessfull(_ categories: [Category])
     func failure(_ error: Error)
+    func starMovieSuccessfull()
 }

@@ -37,4 +37,10 @@ class MovieDetailWorker {
     func fetchCategories(completion: @escaping FetchCategoriesCompletion) {
         self.genreRepo.fetchCategories(completion: completion)
     }
+    
+    //MARK: - Star Movie
+    
+    func starMovie(by id: Int32, completion: @escaping StarMovieCompletion) {
+        self.movieRepo.starMovie(id, completion: completion)
+    }
 }

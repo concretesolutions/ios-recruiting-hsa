@@ -33,6 +33,13 @@ class MovieDetailPresenter: ViewToPresenterMovieDetailProtocol {
     func fetchCategories() {
         interactor?.fetchCategories()
     }
+    
+    //MARK: - Star Movie
+    
+    func starMovie() {
+        guard let id = movieID else { return }
+        interactor?.starMovie(id)
+    }
 }
 
 
@@ -49,6 +56,10 @@ extension MovieDetailPresenter: InteractorToPresenterMovieDetailProtocol {
     
     func failure(_ error: Error) {
         view?.failure(error)
+    }
+    
+    func starMovieSuccessfull() {
+        view?.starMovieSuccessfull()
     }
     
 }
