@@ -162,7 +162,7 @@ class MoviesCoreDataRepository: MovieStoreProtocol {
                     if predicateStr != "" {
                         predicateStr.append(" AND ")
                     }
-                    predicateStr.append("ANY genre_ids == \(fetchedGenres.id)")
+                    predicateStr.append(String(format: "ANY genre_ids == %i", fetchedGenres.id))
                 } catch let error {
                     completion(.failure(error))
                 }
