@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MovieCollectionViewCellDelegate: class {
+    func didStarMovie(_ movie: Movie)
+}
+
 class MovieCollectionViewCell: UICollectionViewCell {
 
     //MARK: - IBOutlets
@@ -27,6 +31,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             self.starButton.setImage(value.starred ? UIImage(named: "ic_star_fill") : UIImage(named: "ic_star_on"), for: .normal)
         }
     }
+    weak var delegate: MovieCollectionViewCellDelegate?
     
     //MARK: - Awake From Nib
     
@@ -41,12 +46,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @objc func star() {
         let flag = !(movie?.starred ?? false)
         self.starButton.setImage(flag ? UIImage(named: "ic_star_fill") : UIImage(named: "ic_star_on"), for: .normal)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        do {
-            movie?.starred = flag
-            try appDelegate.persistentContainer.viewContext.save()
-        } catch let error {
-            print(error)
+        if let delegate = self.delegate, let movie = movie {
+            delegate.didStarMovie(movie)
         }
     }
 

@@ -22,14 +22,14 @@ class MoviesInteractor: PresenterToInteractorMoviesProtocol {
     //MARK: - Fetch Movies
     
     func fetchMovies() {
-        worker.fetchMovies { (result) in
-            self.worker = MoviesWorker(MoviesCoreDataRepository())
+        worker.fetchMovies { [weak self] (result) in
+            self?.worker = MoviesWorker(MoviesCoreDataRepository())
             switch result {
             case .failure(let error):
-                self.presenter?.failure(error)
+                self?.presenter?.failure(error)
                 break
             case .success(let movies):
-                self.presenter?.fetchMoviesSuccessfull(movies)
+                self?.presenter?.fetchMoviesSuccessfull(movies)
                 break
             }
         }
@@ -37,13 +37,30 @@ class MoviesInteractor: PresenterToInteractorMoviesProtocol {
     
     func fetchMovies(with text: String) {
         worker = MoviesWorker(MoviesCoreDataRepository())
-        worker.searchMovies(text: text) { (result) in
+        worker.searchMovies(text: text) { [weak self] (result) in
             switch result {
             case .failure(let error):
-                self.presenter?.failure(error)
+                self?.presenter?.failure(error)
                 break
             case .success(let movies):
-                self.presenter?.fetchMoviesSuccessfull(movies)
+                self?.presenter?.fetchMoviesSuccessfull(movies)
+                break
+            }
+        }
+    }
+    
+    //MARK: - Star Movie
+    
+    func starMovie(_ id: Int32) {
+        worker = MoviesWorker(MoviesCoreDataRepository())
+        worker.starMovie(id: id) { [weak self] (result) in
+            switch result {
+            case .success(let resolve):
+                print(resolve)
+                self?.presenter?.starMovieSuccessfull()
+                break
+            case .failure(let error):
+                self?.presenter?.failure(error)
                 break
             }
         }

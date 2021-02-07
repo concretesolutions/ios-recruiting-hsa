@@ -30,6 +30,12 @@ class MoviesPresenter: ViewToPresenterMoviesProtocol {
     func fetchMovies(with text: String) {
         interactor?.fetchMovies(with: text)
     }
+    
+    //MARK: - Star Movie
+    
+    func starMovie(_ id: Int32) {
+        interactor?.starMovie(id)
+    }
 }
 
 
@@ -38,6 +44,10 @@ class MoviesPresenter: ViewToPresenterMoviesProtocol {
 extension MoviesPresenter: InteractorToPresenterMoviesProtocol {
     func fetchMoviesSuccessfull(_ movies: [Movie]) {
         view?.fetchMoviesSuccessfull(movies)
+    }
+    
+    func starMovieSuccessfull() {
+        view?.starMovieSuccessfull()
     }
     
     func failure(_ error: Error) {

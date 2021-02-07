@@ -94,4 +94,12 @@ class MoviesAPIRepository: MovieStoreProtocol {
         }
     }
     
+    //MARK: - Star Movie
+    
+    //TODO: Si por alguna razon la API soportara un usuario se puede utilizar un servicio web
+    
+    func starMovie(_ id: Int32, completion: @escaping StarMovieCompletion) {
+        completion(.success(true))
+    }
+    
 }

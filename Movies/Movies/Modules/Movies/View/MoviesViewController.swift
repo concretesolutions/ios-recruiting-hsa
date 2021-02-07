@@ -85,6 +85,7 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         cell.movie = self.movies[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -96,6 +97,14 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2 - 10.0, height: 270.0)
+    }
+}
+
+//MARK: - Movie Collection View Delegate
+
+extension MoviesViewController: MovieCollectionViewCellDelegate {
+    func didStarMovie(_ movie: Movie) {
+        self.presenter.starMovie(movie.id)
     }
 }
 
@@ -116,5 +125,9 @@ extension MoviesViewController: PresenterToViewMoviesProtocol {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         self.refreshControl.endRefreshing()
+    }
+    
+    func starMovieSuccessfull() {
+        //TODO: Something
     }
 }

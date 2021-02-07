@@ -37,4 +37,10 @@ class MoviesWorker {
         self.repo.searchPopularMovies(text, completion: completion)
     }
     
+    //MARK: - Star Movie
+    
+    func starMovie(id: Int32, _ completion: @escaping StarMovieCompletion) {
+        self.repo.starMovie(id, completion: completion)
+    }
+    
 }

@@ -16,11 +16,13 @@ protocol ViewToPresenterMoviesProtocol: class {
     
     func fetchMovies()
     func fetchMovies(with text: String)
+    func starMovie(_ id: Int32)
 }
 
 //MARK: - Display Logic
 
 protocol PresenterToViewMoviesProtocol: class {
+    func starMovieSuccessfull()
     func fetchMoviesSuccessfull(_ movies: [Movie])
     func failure(_ error: Error)
 }
@@ -38,11 +40,13 @@ protocol PresenterToInteractorMoviesProtocol: class {
     
     func fetchMovies()
     func fetchMovies(with text: String)
+    func starMovie(_ id: Int32)
 }
 
 //MARK: - Presentation Logic
 
 protocol InteractorToPresenterMoviesProtocol: class {
+    func starMovieSuccessfull()
     func fetchMoviesSuccessfull(_ movies: [Movie])
     func failure(_ error: Error)
 }
