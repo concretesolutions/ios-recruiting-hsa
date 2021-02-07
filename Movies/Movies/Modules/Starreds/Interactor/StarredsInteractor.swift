@@ -17,4 +17,20 @@ class StarredsInteractor: PresenterToInteractorStarredsProtocol {
     //MARK: - Variables
     
     weak var presenter: InteractorToPresenterStarredsProtocol?
+    fileprivate var worker: StarredsWorker = StarredsWorker(MoviesCoreDataRepository())
+    
+    //MARK: - Fetch Starreds Movies
+    
+    func fetchStarredsMovies() {
+        worker.fetchStarredsMovies { [weak self] (result) in
+            switch result {
+            case .success(let movies):
+                self?.presenter?.fetchStarredsMoviesSuccessfull(movies)
+                break
+            case .failure(let error):
+                self?.presenter?.failure(error)
+                break
+            }
+        }
+    }
 }

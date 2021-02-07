@@ -19,10 +19,22 @@ class StarredsPresenter: ViewToPresenterStarredsProtocol {
     weak var view: PresenterToViewStarredsProtocol?
     var interactor: PresenterToInteractorStarredsProtocol?
     var router: PresenterToRouterStarredsProtocol?
+    
+    //MARK: - Fetch Starreds Movies
+    
+    func fetchStarredsMovies() {
+        interactor?.fetchStarredsMovies()
+    }
 }
 
 //MARK: - Presentation Logic
 
 extension StarredsPresenter: InteractorToPresenterStarredsProtocol {
+    func fetchStarredsMoviesSuccessfull(_ movies: [Movie]) {
+        view?.fetchStarredsMoviesSuccessfull(movies)
+    }
     
+    func failure(_ error: Error) {
+        view?.failure(error)
+    }
 }

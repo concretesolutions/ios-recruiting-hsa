@@ -33,5 +33,13 @@ class StarredsViewController: ViewController {
 //MARK: - Display Logic
 
 extension StarredsViewController: PresenterToViewStarredsProtocol {
+    func fetchStarredsMoviesSuccessfull(_ movies: [Movie]) {
+        
+    }
     
+    func failure(_ error: Error) {
+        let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
