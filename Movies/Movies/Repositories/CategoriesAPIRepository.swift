@@ -35,7 +35,7 @@ class CategoriesAPIRepository: CategoryStoreProtocol {
                     let categories = try decoder.decode([Category].self, from: data2)
                     
                     let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
-                    let categoriesFetched = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+                    let categoriesFetched = Set(try appDelegate.persistentContainer.viewContext.fetch(fetchRequest))
                     
                     for c in categories {
                         if !categoriesFetched.contains(where: { $0.id == c.id }) {

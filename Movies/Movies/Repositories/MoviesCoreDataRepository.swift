@@ -84,7 +84,7 @@ class MoviesCoreDataRepository: MovieStoreProtocol {
             
             movie.starred = !movie.starred
             
-            try managedContext.save()
+            appDelegate.saveContext()
             
             completion(.success(true))
         } catch let error {

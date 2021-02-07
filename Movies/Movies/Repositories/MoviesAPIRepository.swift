@@ -28,20 +28,21 @@ class MoviesAPIRepository: MovieStoreProtocol {
                     return
                 }
                 do {
-                    let json = try JSONSerialization.jsonObject(with: dataValue, options: []) as? [String : Any] ?? [:]
-                    let results = json["results"] as? [[String : Any]] ?? []
-                    let data2 = try JSONSerialization.data(withJSONObject: results, options: [])
-                    let decoder = JSONDecoder()
-                    let movies = try decoder.decode([Movie].self, from: data2)
                     
                     let fetchRequest = NSFetchRequest<Movie>(entityName: "Movie")
-                    let moviesFetched = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+                    let moviesFetched = Set(try appDelegate.persistentContainer.viewContext.fetch(fetchRequest))
                     
-                    for m in movies {
-                        if !moviesFetched.contains(where: { $0.id == m.id }) {
-                            appDelegate.persistentContainer.viewContext.insert(m)
-                        }
+                    let json = try JSONSerialization.jsonObject(with: dataValue, options: []) as? [String : Any] ?? [:]
+                    let results = (json["results"] as? [[String : Any]] ?? []).filter { (dict) -> Bool in
+                        return !moviesFetched.contains(where: { $0.id == (dict["id"] as? Int32 ?? 0) })
                     }
+                    let data2 = try JSONSerialization.data(withJSONObject: results, options: [])
+                    let decoder = JSONDecoder()
+                    var movies = try decoder.decode([Movie].self, from: data2)
+                    
+                    movies.append(contentsOf: Array(moviesFetched))
+                    
+                    appDelegate.saveContext()
                     completion(.success(movies))
                 }catch let error {
                     print(error)
