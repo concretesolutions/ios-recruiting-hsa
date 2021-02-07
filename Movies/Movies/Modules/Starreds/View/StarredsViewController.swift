@@ -37,6 +37,10 @@ extension StarredsViewController: PresenterToViewStarredsProtocol {
         
     }
     
+    func unstarMovieSuccessfull() {
+        self.presenter.fetchStarredsMovies()
+    }
+    
     func failure(_ error: Error) {
         let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

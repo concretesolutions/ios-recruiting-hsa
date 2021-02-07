@@ -31,4 +31,10 @@ class StarredsWorker {
         self.repo.fetchStarredMovies(completion)
     }
     
+    //MARK: - Unstar movie
+    
+    func unstarMovie(_ id: Int32, _ completion: @escaping StarMovieCompletion) {
+        self.repo.starMovie(id, completion: completion)
+    }
+    
 }

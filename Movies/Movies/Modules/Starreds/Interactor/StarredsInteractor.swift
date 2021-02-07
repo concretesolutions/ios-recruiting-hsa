@@ -33,4 +33,20 @@ class StarredsInteractor: PresenterToInteractorStarredsProtocol {
             }
         }
     }
+    
+    //MARK: - Unstar Movie
+    
+    func unstarMovie(_ id: Int32) {
+        worker.unstarMovie(id) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                self?.presenter?.failure(error)
+                break
+            case .success(let resolve):
+                print(resolve)
+                self?.presenter?.unstarMovieSuccessfull()
+                break
+            }
+        }
+    }
 }

@@ -15,11 +15,13 @@ protocol ViewToPresenterStarredsProtocol: class {
     var router: PresenterToRouterStarredsProtocol? {get set}
     
     func fetchStarredsMovies()
+    func unstarMovie(_ id: Int32)
 }
 
 //MARK: - Display Logic
 
 protocol PresenterToViewStarredsProtocol: class {
+    func unstarMovieSuccessfull()
     func fetchStarredsMoviesSuccessfull(_ movies: [Movie])
     func failure(_ error: Error)
 }
@@ -35,11 +37,13 @@ protocol PresenterToRouterStarredsProtocol: class {
 protocol PresenterToInteractorStarredsProtocol: class {
     var presenter: InteractorToPresenterStarredsProtocol? {get set}
     func fetchStarredsMovies()
+    func unstarMovie(_ id: Int32)
 }
 
 //MARK: - Presentation Logic
 
 protocol InteractorToPresenterStarredsProtocol: class {
+    func unstarMovieSuccessfull()
     func fetchStarredsMoviesSuccessfull(_ movies: [Movie])
     func failure(_ error: Error)
 }
