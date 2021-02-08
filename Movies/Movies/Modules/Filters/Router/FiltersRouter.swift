@@ -14,6 +14,8 @@ class FiltersRouter: PresenterToRouterFiltersProtocol {
         print("filters router dealloc")
     }
     
+    //MARK: - Create Module
+    
     static func createModule() -> FiltersViewController {
         let vc = FiltersViewController(nibName: String(describing: FiltersViewController.self), bundle: Bundle(for: FiltersViewController.self))
         let presenter: ViewToPresenterFiltersProtocol & InteractorToPresenterFiltersProtocol = FiltersPresenter()

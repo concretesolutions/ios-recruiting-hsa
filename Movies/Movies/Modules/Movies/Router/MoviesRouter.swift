@@ -15,6 +15,8 @@ class MoviesRouter: PresenterToRouterMoviesProtocol {
         print("Movies Router Dealloc")
     }
     
+    //MARK: - Create Module
+    
     static func createModule() -> MoviesViewController {
         let vc = MoviesViewController(nibName: String(describing: MoviesViewController.self), bundle: Bundle(for: MoviesViewController.self))
         let presenter: ViewToPresenterMoviesProtocol & InteractorToPresenterMoviesProtocol = MoviesPresenter()

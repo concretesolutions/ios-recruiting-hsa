@@ -35,6 +35,8 @@ class MoviesInteractor: PresenterToInteractorMoviesProtocol {
         }
     }
     
+    //MARK: - Fetch Movies with text (search)
+    
     func fetchMovies(with text: String) {
         worker = MoviesWorker(MoviesCoreDataRepository())
         worker.searchMovies(text: text) { [weak self] (result) in

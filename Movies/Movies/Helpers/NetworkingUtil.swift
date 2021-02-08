@@ -51,17 +51,29 @@ enum ManagedURLRequest {
     //MARK: - As URLRequest
     
     func asURLRequest() throws -> URLRequest {
+        
+        //Setear los componentes en base al endpoint y url base
+        
         guard var urlComponents = URLComponents(string: self.baseURL + self.path) else {
             throw NSError(domain: "Movies", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
         }
+        
+        //Inicializar los query items
+        
         var queryItems: [URLQueryItem] = [URLQueryItem(name: "api_key", value: Constants.apiKey)]
         
+        
+        //MARK: - Set Params
+        
+        //setear los parametros
         
         func setParams(_ params: [String : Any], _ queryItems: inout [URLQueryItem]) {
             for key in params.keys {
                 queryItems.append(URLQueryItem(name: key, value: params[key] as? String))
             }
         }
+        
+        //setear parametros
         
         switch self {
         case .fetchMovies(let params):
@@ -75,12 +87,16 @@ enum ManagedURLRequest {
             break
         }
         
+        //asignar query items
+        
         urlComponents.queryItems = queryItems
         
         guard let url = urlComponents.url else {
             throw NSError(domain: "Movies", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
 
         }
+        
+        //retornar una url request
         
         return URLRequest(url: url)
     }

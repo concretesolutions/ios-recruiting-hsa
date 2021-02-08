@@ -112,6 +112,8 @@ extension MoviesViewController: MovieCollectionViewCellDelegate {
 //MARK: - Display Logic
 
 extension MoviesViewController: PresenterToViewMoviesProtocol {
+    
+    //Al obtener las peliculas renderizar la grilla
     func fetchMoviesSuccessfull(_ movies: [Movie]) {
         self.movies = movies
         DispatchQueue.main.async {
@@ -120,6 +122,7 @@ extension MoviesViewController: PresenterToViewMoviesProtocol {
         }
     }
     
+    //Al obtener error levantar una alerta
     func failure(_ error: Error) {
         let alert = UIAlertController(title: "ATENCION!", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

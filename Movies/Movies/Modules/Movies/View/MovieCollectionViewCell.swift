@@ -43,6 +43,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Selectors
     
+    //Agregar / Quitar de favoritos
     @objc func star() {
         let flag = !(movie?.starred ?? false)
         self.starButton.setImage(flag ? UIImage(named: "ic_star_fill") : UIImage(named: "ic_star_on"), for: .normal)

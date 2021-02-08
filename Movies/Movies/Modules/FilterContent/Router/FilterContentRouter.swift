@@ -14,6 +14,8 @@ class FilterContentRouter: PresenterToRouterFilterContentProtocol {
         print("filter content router dealloc")
     }
     
+    //MARK: - Create Module
+    
     static func createModule(_ contentType: FilterContent) -> FilterContentViewController {
         let vc = FilterContentViewController(nibName: String(describing: FilterContentViewController.self), bundle: Bundle(for: FilterContentViewController.self))
         let presenter: ViewToPresenterFilterContentProtocol & InteractorToPresenterFilterContentProtocol = FilterContentPresenter()

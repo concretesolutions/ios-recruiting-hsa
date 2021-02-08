@@ -85,12 +85,17 @@ extension FilterContentViewController: UITableViewDelegate, UITableViewDataSourc
 
 //MARK: - Display Logic
 extension FilterContentViewController: PresenterToViewFilterContentProtocol {
+    
+    //Obtencion de contenido
+    
     func fetchContentSuccessfull(_ content: [String]) {
         self.content = content
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
+    
+    // En caso de fallar levantar una alerta
     
     func failure(_ error: Error) {
         let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)

@@ -22,6 +22,7 @@ class StarredsInteractor: PresenterToInteractorStarredsProtocol {
     //MARK: - Fetch Starreds Movies
     
     func fetchStarredsMovies() {
+        //Obtener las peliculas favoritas desde core data
         worker.fetchStarredsMovies { [weak self] (result) in
             switch result {
             case .success(let movies):
@@ -37,6 +38,7 @@ class StarredsInteractor: PresenterToInteractorStarredsProtocol {
     //MARK: - Unstar Movie
     
     func unstarMovie(_ id: Int32) {
+        //Sacar una pelicula de favoritos
         worker.unstarMovie(id) { [weak self] (result) in
             switch result {
             case .failure(let error):
@@ -53,6 +55,7 @@ class StarredsInteractor: PresenterToInteractorStarredsProtocol {
     //MARK: - Filter Movies
     
     func filterMovies(_ filters: [Filter<String>]) {
+        //Filtrar las peliculas
         worker.filterMovies(filters) { [weak self] (result) in
             switch result {
             case .success(let movies):

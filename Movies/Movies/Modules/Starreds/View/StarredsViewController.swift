@@ -33,6 +33,10 @@ class StarredsViewController: ViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - Selectors
+    
+    //Ir a los filtros
+    
     @objc func goToFilter() {
         let vc = FiltersRouter.createModule()
         vc.delegate = self
@@ -56,6 +60,7 @@ class StarredsViewController: ViewController {
 
 extension StarredsViewController: FiltersViewControllerDelegate {
     func didFilter(with criteria: [Filter<String>]) {
+        //Filtrar peliculas
         self.presenter.filterMovies(criteria)
     }
 }
@@ -80,6 +85,7 @@ extension StarredsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //Accion para sacar peliculas de favoritos
         let action = UITableViewRowAction(style: .destructive, title: "Eliminar") { [weak self] (action, indexPath) in
             guard let movie = self?.movies[indexPath.row] else { return }
             self?.presenter.unstarMovie(movie.id)
@@ -92,10 +98,15 @@ extension StarredsViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - Display Logic
 
 extension StarredsViewController: PresenterToViewStarredsProtocol {
+    
+    //Al obtener las peliculas actualizar la tabla
+    
     func fetchStarredsMoviesSuccessfull(_ movies: [Movie]) {
         self.movies = movies
         self.tableView.reloadData()
     }
+    
+    //Al obtener las peliculas actualizar la tabla
     
     func fetchFilteredMoviesSuccessfull(_ movies: [Movie]) {
         self.movies = movies
@@ -104,9 +115,13 @@ extension StarredsViewController: PresenterToViewStarredsProtocol {
         }
     }
     
+    //AL sacar de favoritos obtener nuevamente las peliculas desde local
+    
     func unstarMovieSuccessfull() {
         self.presenter.fetchStarredsMovies()
     }
+    
+    //En caso de error levantar una alerta
     
     func failure(_ error: Error) {
         let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)

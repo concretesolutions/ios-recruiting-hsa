@@ -82,6 +82,8 @@ class MovieDetailViewController: ViewController {
 //MARK: - Display Logic
 
 extension MovieDetailViewController: PresenterToViewMovieDetailProtocol {
+    
+    //Al obtener la pelicula, renderizar
     func fetchMovieSuccessfull(_ movie: Movie) {
         self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(named: movie.starred ? "ic_star_fill" : "ic_star_on"), style: .plain, target: self, action: #selector(star)), animated: true)
         flag = movie.starred
@@ -95,6 +97,7 @@ extension MovieDetailViewController: PresenterToViewMovieDetailProtocol {
         self.presenter.fetchCategories()
     }
     
+    //Al obtener las categorias, renderizar la seccion de generos
     func fetchCategoriesSuccessfull(_ categories: [Category]) {
         let arr = categories.filter { (cat) -> Bool in
             return (self.movie.genre_ids?.contains(where: { $0 == cat.id })) ?? false
@@ -107,6 +110,7 @@ extension MovieDetailViewController: PresenterToViewMovieDetailProtocol {
         }
     }
     
+    //Al obtener un error levantar una alerta
     func failure(_ error: Error) {
         let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

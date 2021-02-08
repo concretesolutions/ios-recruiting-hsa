@@ -49,6 +49,8 @@ class MovieDetailInteractor: PresenterToInteractorMovieDetailProtocol {
         }
     }
     
+    //MARK: - Star Movie
+    
     func starMovie(_ id: Int32) {
         worker.starMovie(by: id) { [weak self] (result) in
             switch result {

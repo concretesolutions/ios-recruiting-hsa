@@ -48,7 +48,12 @@ class FiltersViewController: ViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    //MARK: - Selectors
+    
     @objc func apply() {
+        
+        //Si se aplican los filtros utilizar el patron delegate para efectuar los cambios respectivos
+        
         delegate?.didFilter(with: self.filters)
         self.navigationController?.popViewController(animated: true)
     }
@@ -97,9 +102,11 @@ extension FiltersViewController: FilterContentViewControllerDelegate {
     func didSelectFilterCriteria(_ type: FilterContent, _ value: String) {
         guard self.filters.count > 0 else { return }
         switch type {
+        //Si es de tipo genero actualizar el segundo valor
         case .genres:
             self.filters[1].value = value
             break
+        //Si es de tipo de años, actualizar el año valor
         case .years:
             self.filters[0].value = value
             break
@@ -113,10 +120,15 @@ extension FiltersViewController: FilterContentViewControllerDelegate {
 //MARK: - Display Logic
 
 extension FiltersViewController: PresenterToViewFiltersProtocol {
+    
+    //Al obtener los filtros actualizar la data table view
+    
     func fetchFiltersSuccessfull(_ filters: [Filter<String>]) {
         self.filters = filters
         self.tableView.reloadData()
     }
+    
+    //En caso de fallar levantar una alerta
     
     func failure(_ error: Error) {
         let alert = UIAlertController(title: "ATENCION", message: error.localizedDescription, preferredStyle: .alert)

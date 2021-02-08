@@ -15,6 +15,8 @@ class StarredsRouter: PresenterToRouterStarredsProtocol {
         print("starreds router dealloc")
     }
     
+    //MARK: - Create Module
+    
     static func createModule() -> StarredsViewController {
         let vc = StarredsViewController(nibName: String(describing: StarredsViewController.self), bundle: Bundle(for: StarredsViewController.self))
         let presenter: ViewToPresenterStarredsProtocol & InteractorToPresenterStarredsProtocol = StarredsPresenter()
