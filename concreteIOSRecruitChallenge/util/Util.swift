@@ -73,3 +73,39 @@ extension UIImageView {
         }
     }
 }
+class KeyedUnarchiver : NSKeyedUnarchiver {
+    open override class func unarchiveObject(with data: Data) -> Any? {
+        do {
+            let object = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+            return object
+        }
+        catch let error {
+            Swift.print("unarchiveObject(with:) \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    open override class func unarchiveObject(withFile path: String) -> Any? {
+        do {
+            let data = try Data(contentsOf: URL.init(fileURLWithPath: path))
+            let object = try unarchivedObject(ofClasses: [NSObject.self], from: data)
+            return object
+        }
+        catch let error {
+            Swift.print("unarchiveObject(withFile:) \(error.localizedDescription)")
+            return nil
+        }
+    }
+}
+
+class KeyedArchiver : NSKeyedArchiver {
+    open class func archivedData(_ data: AnyObject, forKey: String) {
+        do{
+            let defaults = UserDefaults.standard
+            let dataToSave = try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false)
+            defaults.set(dataToSave, forKey: forKey)
+        } catch let error {
+            Swift.print("archiveObject(with:) \(error.localizedDescription)")
+        }
+    }
+}

@@ -10,22 +10,23 @@ import Foundation
 class URLConnection: NSObject{
     
     var delegate: ConnectionProtocol?
+    var urlRequest = ""
     
     init(_ delegate: ConnectionProtocol) {
         self.delegate = delegate
     }
     
     func connect(_ URL: String,method: String, json: String?, params: [String : String]?, headers: [String : String]?){
-        var urlRequest = URL
+        self.urlRequest = URL
         if(params != nil){
             var paramsString = ""
             for (key, value) in params! {
                 paramsString = "\(paramsString == "" ? "?" : "\(paramsString)&")\(key)=\(value)"
             }
-            urlRequest = "\(urlRequest)\(paramsString)"
+            self.urlRequest = "\(self.urlRequest)\(paramsString)"
         }
         
-        let encodedString = urlRequest.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
+        let encodedString = self.urlRequest.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)
         let url = Foundation.URL(string: encodedString!.replacingOccurrences(of: " ", with: "+", options: NSString.CompareOptions.literal, range: nil))
         URLCache.shared.removeAllCachedResponses()
         
@@ -77,15 +78,15 @@ class URLConnection: NSObject{
     
     func returnData(_ data: String){
         let dic = Util.stringJsonToDictionary(data)
-        dic.count > 0 ? delegate?.setFromData(dic) : delegate?.errorFromRequest(Util.stringJsonToDictionary(data))
+        dic.count > 0 ? delegate?.setFromData(dic, self.urlRequest) : delegate?.errorFromRequest(self.urlRequest)
     }
     
     func errorData(_ data: String){
-        delegate?.errorFromRequest(Util.stringJsonToDictionary(data))
+        delegate?.errorFromRequest(self.urlRequest)
     }
 }
 
 protocol ConnectionProtocol: class{
-    func setFromData(_ json:[String:AnyObject])
-    func errorFromRequest(_ json:[String:AnyObject])
+    func setFromData(_ json:[String:AnyObject], _ url: String)
+    func errorFromRequest(_ url: String)
 }

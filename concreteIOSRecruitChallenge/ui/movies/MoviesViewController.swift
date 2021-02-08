@@ -23,12 +23,12 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = MoviesViewModel(viewDelegate: self)
+        self.viewModel?.getData()
         
         let nib = UINib(nibName: "MovieCollectionViewCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "MovieCollectionViewCell")
         
         self.onLoading(self.collectionView)
-        self.viewModel?.getData()
     }
     
     //MARK: Collection Management
@@ -54,7 +54,7 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
             self.collectionView.reloadData()
         }
     }
-    func error(_ json: [String : AnyObject]) {
+    func error() {
         OperationQueue.main.addOperation {
             self.onFailure(self.collectionView)
         }

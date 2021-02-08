@@ -7,32 +7,34 @@
 
 import UIKit
 
-class MoviesViewModel: NSObject, ConnectionProtocol {
+class MoviesViewModel: NSObject, RepositoryProtocol {
     
     //MARK: Global Variables
     
     var delegate: MovieViewModelProtocol?
+    var movieRepository: MovieRepository?
     
     //MARK: Custom init
     
     init(viewDelegate: MovieViewModelProtocol) {
         self.delegate = viewDelegate
     }
-    
-    //MARK: Connection Management
-    
     func getData(){
-        URLConnection.init(self).connect("\(Constants.endpoint)/3/movie/popular", method: "GET", json: nil, params: ["api_key":Constants.api_key], headers: nil)
+        self.movieRepository = MovieRepository(delegate: self)
+        self.movieRepository?.getData()
     }
-    func setFromData(_ json: [String : AnyObject]) {
+    
+    //MARK: Repository Management
+    
+    func success(_ json: [String : AnyObject]) {
         self.delegate?.success(GeneralHeaderEntry<MovieEntry>.arrayFromJson(json))
     }
-    func errorFromRequest(_ json: [String : AnyObject]) {
-        self.delegate?.error(json)
+    func error() {
+        self.delegate?.error()
     }
 }
 protocol MovieViewModelProtocol: class{
     func success(_ json: GeneralHeaderEntry<MovieEntry>?)
-    func error(_ json: [String:AnyObject])
+    func error()
 }
 
