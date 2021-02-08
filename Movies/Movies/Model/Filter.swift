@@ -9,9 +9,13 @@ import Foundation
 
 class Filter<T> {
     
+    // Properties
+    
     var id: UUID = UUID()
     var name: String
-    var value: T?
+    var value: T? // T corresponde al tipo de data que va a contener el filtro (ej: String, Int, Data, etc)
+    
+    //Constructor
     
     init(_ name: String) {
         self.name = name
