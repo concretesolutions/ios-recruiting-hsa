@@ -23,6 +23,7 @@ class StarredsViewController: ViewController {
     
     var presenter: StarredsPresenter = StarredsPresenter()
     var movies: [Movie] = []
+    var isFiltering: Bool = false
     
     //MARK: - App lifecycle
 
@@ -43,6 +44,11 @@ class StarredsViewController: ViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func removeFilter() {
+        self.isFiltering = false
+        self.presenter.fetchStarredsMovies()
+    }
+    
     //MARK: - Functions
     
     func setupUI() {
@@ -61,6 +67,7 @@ class StarredsViewController: ViewController {
 extension StarredsViewController: FiltersViewControllerDelegate {
     func didFilter(with criteria: [Filter<String>]) {
         //Filtrar peliculas
+        self.isFiltering = true
         self.presenter.filterMovies(criteria)
     }
 }
@@ -91,6 +98,19 @@ extension StarredsViewController: UITableViewDelegate, UITableViewDataSource {
             self?.presenter.unstarMovie(movie.id)
         }
         return [action]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return isFiltering ? 50.0 : 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 50.0))
+        button.setTitle("Remove Filters", for: .normal)
+        button.backgroundColor = Constants.mainColor
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(removeFilter), for: .touchUpInside)
+        return button
     }
 }
 
