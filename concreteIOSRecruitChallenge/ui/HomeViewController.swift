@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addViewTabs()
+        
+        self.title = "Movies"
     }
     
     //MARK: Views Inits

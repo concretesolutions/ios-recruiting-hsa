@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesViewController: CustomViewController, UICollectionViewDataSource, UICollectionViewDelegate, ViewModelProtocol {
+class MoviesViewController: CustomViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MovieViewModelProtocol {
     
     //MARK: Outlets
 
@@ -16,7 +16,7 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
     //MARK: Global Variables
     
     private var viewModel: MoviesViewModel?
-    private var dataList: [String : AnyObject]?
+    private var dataList: [MovieEntry]?
     
     //MARK: View Lifecycle
 
@@ -38,15 +38,19 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
+        cell.loadCellView(movieEntry: dataList?[indexPath.row])
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width*0.49, height: self.view.frame.width*0.70)
     }
     
     //MARK: ViewModel Management
     
-    func success(_ json: [String : AnyObject]) {
+    func success(_ json: GeneralHeaderEntry<MovieEntry>?) {
         OperationQueue.main.addOperation {
-            json.count > 0 ? self.onSuccess(self.collectionView) : self.onNoData(self.collectionView)
-            self.dataList = json
+            json?.results?.count ?? 0 > 0 ? self.onSuccess(self.collectionView) : self.onNoData(self.collectionView)
+            self.dataList = json?.results
             self.collectionView.reloadData()
         }
     }
