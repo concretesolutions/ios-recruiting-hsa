@@ -19,9 +19,9 @@ class MoviesViewModel: NSObject, RepositoryProtocol {
     init(viewDelegate: MovieViewModelProtocol) {
         self.delegate = viewDelegate
     }
-    func getData(){
+    func getData(params: [String : String]){
         self.movieRepository = MovieRepository(delegate: self)
-        self.movieRepository?.getData()
+        self.movieRepository?.getData(params: params)
     }
     
     //MARK: Repository Management

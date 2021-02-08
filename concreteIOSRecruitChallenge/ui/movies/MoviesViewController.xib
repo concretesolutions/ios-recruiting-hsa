@@ -68,6 +68,9 @@
                             <state key="normal" title="Reload">
                                 <color key="titleColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="reloadData" destination="-1" eventType="touchUpInside" id="hXb-t6-pUO"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -89,7 +92,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="RpM-Mz-xSi" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="0X1-aD-Eok"/>
                 <constraint firstItem="AYd-sL-dpK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="62u-Od-6KM"/>
@@ -109,9 +112,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

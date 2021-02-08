@@ -21,8 +21,10 @@ class MovieRepository: NSObject, ConnectionProtocol {
     
     //MARK: Connection Management
     
-    func getData(){
-        URLConnection.init(self).connect("\(Constants.endpoint)/3/movie/popular", method: "GET", json: nil, params: ["api_key":Constants.api_key], headers: nil)
+    func getData(params: [String : String]?){
+        var mutableParams = params ?? [String : String]()
+        mutableParams["api_key"] = Constants.api_key
+        URLConnection.init(self).connect("\(Constants.endpoint)/3/movie/popular", method: "GET", json: nil, params: mutableParams, headers: nil)
     }
     func setFromData(_ json: [String : AnyObject], _ url: String) {
         do{

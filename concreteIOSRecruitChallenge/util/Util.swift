@@ -23,6 +23,30 @@ class Util: NSObject {
         }
         return [:]
     }
+    
+    static func stringToDate(date: String, format: String) -> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "es")
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        guard let date = dateFormatter.date(from: date) else {
+            return nil
+        }
+        return date
+    }
+    
+    static func dateToString(date: Date?, format: String) -> String{
+        if let dateMemory = date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = format
+            dateFormatter.locale = Locale(identifier: "es")
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            let timeStamp = dateFormatter.string(from: dateMemory)
+            return timeStamp
+        }else{
+            return "No release date"
+        }
+    }
 }
 extension UIImageView {
     func loadFromUrl(url: String, activityIndicator: UIActivityIndicatorView?, errorImage: UIImage?) {

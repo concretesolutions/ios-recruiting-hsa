@@ -16,6 +16,8 @@
 		383BB82125D1B63400ABAB44 /* GeneralHeaderEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BB82025D1B63400ABAB44 /* GeneralHeaderEntry.swift */; };
 		383BB82A25D1D85300ABAB44 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BB82925D1D85300ABAB44 /* MovieRepository.swift */; };
 		383BB82E25D1E1C900ABAB44 /* Jenkinsfile in Resources */ = {isa = PBXBuildFile; fileRef = 383BB82D25D1E1C900ABAB44 /* Jenkinsfile */; };
+		383BB83225D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BB83025D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.swift */; };
+		383BB83325D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383BB83125D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.xib */; };
 		38CD0ED725CCCC7A00A654FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0ED625CCCC7A00A654FE /* AppDelegate.swift */; };
 		38CD0EE025CCCC7D00A654FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CD0EDF25CCCC7D00A654FE /* Assets.xcassets */; };
 		38CD0EE325CCCC7D00A654FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38CD0EE125CCCC7D00A654FE /* LaunchScreen.storyboard */; };
@@ -44,6 +46,8 @@
 		383BB82025D1B63400ABAB44 /* GeneralHeaderEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHeaderEntry.swift; sourceTree = "<group>"; };
 		383BB82925D1D85300ABAB44 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		383BB82D25D1E1C900ABAB44 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
+		383BB83025D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralLoadMoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		383BB83125D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralLoadMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		38CD0ED325CCCC7A00A654FE /* concreteIOSRecruitChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concreteIOSRecruitChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CD0ED625CCCC7A00A654FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38CD0EDF25CCCC7D00A654FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 			children = (
 				383BB81525D1AD5500ABAB44 /* MovieCollectionViewCell.swift */,
 				383BB81625D1AD5500ABAB44 /* MovieCollectionViewCell.xib */,
+				383BB83025D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.swift */,
+				383BB83125D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.xib */,
 			);
 			path = tableCells;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383BB83325D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.xib in Resources */,
 				38CD0F1125CCD7C500A654FE /* MovieDetailViewController.xib in Resources */,
 				38CD0F2625CCE1EB00A654FE /* DeveloperNotes in Resources */,
 				38CD0EE325CCCC7D00A654FE /* LaunchScreen.storyboard in Resources */,
@@ -339,6 +346,7 @@
 				383BB82A25D1D85300ABAB44 /* MovieRepository.swift in Sources */,
 				383BB80F25D1757700ABAB44 /* Util.swift in Sources */,
 				383BB81725D1AD5500ABAB44 /* MovieCollectionViewCell.swift in Sources */,
+				383BB83225D1EB2300ABAB44 /* GeneralLoadMoreCollectionViewCell.swift in Sources */,
 				38CD0F1825CCD82500A654FE /* FavoritesViewModel.swift in Sources */,
 				383BB81D25D1B61700ABAB44 /* MovieEntry.swift in Sources */,
 				38CD0ED725CCCC7A00A654FE /* AppDelegate.swift in Sources */,

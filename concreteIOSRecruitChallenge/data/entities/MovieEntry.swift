@@ -16,13 +16,17 @@ struct MovieEntry {
     var overview: String?
     var popularity: Int?
     var poster_path: String?
-    var release_date: String?
+    var release_date: Date?
     var title: String?
     var video: Bool?
     var vote_average: Int?
     var vote_count: Int?
     
-    init(id: Int?, adult: Bool?, backdrop_path: String?, original_language: String?, original_title: String?, overview: String?, popularity: Int?, poster_path: String?, release_date: String?, title: String?, video: Bool?, vote_average: Int?, vote_count: Int?){
+    func getYear() -> String{
+        return Util.dateToString(date: self.release_date, format: "yyyy")
+    }
+    
+    init(id: Int?, adult: Bool?, backdrop_path: String?, original_language: String?, original_title: String?, overview: String?, popularity: Int?, poster_path: String?, release_date: Date?, title: String?, video: Bool?, vote_average: Int?, vote_count: Int?){
         self.id = id
         self.adult = adult
         self.backdrop_path = backdrop_path
@@ -47,7 +51,7 @@ struct MovieEntry {
         if let data = json["overview"] as? String{ self.overview = data }
         if let data = json["popularity"] as? Int{ self.popularity = data }
         if let data = json["poster_path"] as? String{ self.poster_path = data }
-        if let data = json["release_date"] as? String{ self.release_date = data }
+        if let data = json["release_date"] as? String{ self.release_date = Util.stringToDate(date: data, format: "yyyy-MM-dd") }
         if let data = json["title"] as? String{ self.title = data }
         if let data = json["video"] as? Bool{ self.video = data }
         if let data = json["vote_average"] as? Int{ self.vote_average = data }
