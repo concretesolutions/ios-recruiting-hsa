@@ -1,0 +1,13 @@
+Archivo de notas:
+
+ - Este archivo busca entregar al evaluador el razonamiento detras de las decisiones tomadas:
+ - En un principio se decidió por la arquitectura de MVVM, no se decidió por MVC por ser muy básico y no por algo más elaborado como clean debido al alcance tan grande que tiene el proyecto y a las horas que cuento libres para realizar dicha tareas y también estar al tanto con mis deberes laborales y otras pruebas y/o entrevistas.
+ - Yo siempre parto el proyecto realizando los commits iniciales para luego armar a groso modo la arquitectura que voy a utilizar, en este caso como voy a utilizar la arquitectura MVVM básica dividi el proyecto en data, domain, view model y ui... además de ficheros necesarios para el orden como el de util y el de configuraciones.
+ - Debido al alcance del proyecto y al tiempo no implementare mecanismos de seguridad para las claves de la API... pero es un hecho que deberían estar
+ - Las vistas las desarrolle en .xib debido a que la experiencia me ha enseñado que los storyboards son bonitos, pero al momento de abrirlos son demasiado pesados, y existe algun conflicto a la hora de hacer un merge son una tortura
+ 
+
+
+OPORTUNIDADES DE MEJORA:
+ - Arquitectura más ordenada y modular
+ - Cifrado de credenciales

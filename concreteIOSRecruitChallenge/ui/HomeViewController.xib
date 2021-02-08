@@ -17,12 +17,52 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hge-6V-V0b">
+                    <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem title="Movies" image="list_icon" selectedImage="list_icon" id="kQS-qD-gqF"/>
+                        <tabBarItem title="Favorites" image="favorite_empty_icon" selectedImage="favorite_empty_icon" id="VH9-ey-rKk"/>
+                    </items>
+                </tabBar>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-40-vXb">
+                    <rect key="frame" x="0.0" y="44" width="414" height="735"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzw-EO-FSZ">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="735"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="bzw-EO-FSZ" firstAttribute="leading" secondItem="Jk9-40-vXb" secondAttribute="leading" id="CzC-Xp-yGP"/>
+                        <constraint firstAttribute="trailing" secondItem="bzw-EO-FSZ" secondAttribute="trailing" id="FtQ-tr-A4c"/>
+                        <constraint firstItem="bzw-EO-FSZ" firstAttribute="centerX" secondItem="Jk9-40-vXb" secondAttribute="centerX" id="MjQ-Xw-JdN"/>
+                        <constraint firstItem="bzw-EO-FSZ" firstAttribute="top" secondItem="Jk9-40-vXb" secondAttribute="top" id="baX-Qf-0Zp"/>
+                        <constraint firstAttribute="bottom" secondItem="bzw-EO-FSZ" secondAttribute="bottom" id="dsm-DU-gsX"/>
+                        <constraint firstItem="bzw-EO-FSZ" firstAttribute="bottom" secondItem="gan-H8-RIK" secondAttribute="bottom" id="yId-Ce-0OX"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="BEC-ve-5ak"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="gan-H8-RIK"/>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="141" y="95"/>
+            <constraints>
+                <constraint firstItem="hge-6V-V0b" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4qX-HU-0I0"/>
+                <constraint firstItem="Jk9-40-vXb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="BBk-gt-bJ4"/>
+                <constraint firstItem="hge-6V-V0b" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="HyU-9P-dZD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hge-6V-V0b" secondAttribute="bottom" id="IYQ-mb-52C"/>
+                <constraint firstItem="hge-6V-V0b" firstAttribute="top" secondItem="Jk9-40-vXb" secondAttribute="bottom" id="LDJ-Ev-zy5"/>
+                <constraint firstItem="Jk9-40-vXb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="eY6-ZH-Fln"/>
+                <constraint firstItem="Jk9-40-vXb" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="oSu-BE-HJh"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="94.419642857142847"/>
         </view>
     </objects>
     <resources>
+        <image name="favorite_empty_icon" width="22" height="21"/>
+        <image name="list_icon" width="18" height="10"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

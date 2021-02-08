@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383BB80C25D1752E00ABAB44 /* URLConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BB80B25D1752D00ABAB44 /* URLConnection.swift */; };
+		383BB80F25D1757700ABAB44 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BB80E25D1757700ABAB44 /* Util.swift */; };
 		38CD0ED725CCCC7A00A654FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0ED625CCCC7A00A654FE /* AppDelegate.swift */; };
 		38CD0EE025CCCC7D00A654FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CD0EDF25CCCC7D00A654FE /* Assets.xcassets */; };
 		38CD0EE325CCCC7D00A654FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38CD0EE125CCCC7D00A654FE /* LaunchScreen.storyboard */; };
@@ -22,9 +24,12 @@
 		38CD0F1C25CCD84D00A654FE /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0F1B25CCD84D00A654FE /* MovieDetailViewModel.swift */; };
 		38CD0F1F25CCD86300A654FE /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0F1E25CCD86300A654FE /* MoviesViewModel.swift */; };
 		38CD0F2325CCE0DD00A654FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0F2225CCE0DD00A654FE /* Constants.swift */; };
+		38CD0F2625CCE1EB00A654FE /* DeveloperNotes in Resources */ = {isa = PBXBuildFile; fileRef = 38CD0F2525CCE1EB00A654FE /* DeveloperNotes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		383BB80B25D1752D00ABAB44 /* URLConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConnection.swift; sourceTree = "<group>"; };
+		383BB80E25D1757700ABAB44 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		38CD0ED325CCCC7A00A654FE /* concreteIOSRecruitChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concreteIOSRecruitChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CD0ED625CCCC7A00A654FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38CD0EDF25CCCC7D00A654FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		38CD0F1B25CCD84D00A654FE /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		38CD0F1E25CCD86300A654FE /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		38CD0F2225CCE0DD00A654FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		38CD0F2525CCE1EB00A654FE /* DeveloperNotes */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeveloperNotes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				38CD0EF025CCD57300A654FE /* domain */,
 				38CD0EF225CCD59A00A654FE /* viewModel */,
 				38CD0EF125CCD57E00A654FE /* ui */,
+				38CD0F2525CCE1EB00A654FE /* DeveloperNotes */,
 			);
 			path = concreteIOSRecruitChallenge;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 		38CD0EF325CCD5D800A654FE /* util */ = {
 			isa = PBXGroup;
 			children = (
+				383BB80B25D1752D00ABAB44 /* URLConnection.swift */,
+				383BB80E25D1757700ABAB44 /* Util.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -264,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38CD0F1125CCD7C500A654FE /* MovieDetailViewController.xib in Resources */,
+				38CD0F2625CCE1EB00A654FE /* DeveloperNotes in Resources */,
 				38CD0EE325CCCC7D00A654FE /* LaunchScreen.storyboard in Resources */,
 				38CD0EE025CCCC7D00A654FE /* Assets.xcassets in Resources */,
 				38CD0EFE25CCD76300A654FE /* HomeViewController.xib in Resources */,
@@ -279,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383BB80F25D1757700ABAB44 /* Util.swift in Sources */,
 				38CD0F1825CCD82500A654FE /* FavoritesViewModel.swift in Sources */,
 				38CD0ED725CCCC7A00A654FE /* AppDelegate.swift in Sources */,
 				38CD0F1025CCD7C500A654FE /* MovieDetailViewController.swift in Sources */,
@@ -286,6 +297,7 @@
 				38CD0F0B25CCD7AC00A654FE /* FavoritesViewController.swift in Sources */,
 				38CD0F1C25CCD84D00A654FE /* MovieDetailViewModel.swift in Sources */,
 				38CD0F0525CCD79B00A654FE /* MoviesViewController.swift in Sources */,
+				383BB80C25D1752E00ABAB44 /* URLConnection.swift in Sources */,
 				38CD0F1F25CCD86300A654FE /* MoviesViewModel.swift in Sources */,
 				38CD0F2325CCE0DD00A654FE /* Constants.swift in Sources */,
 			);
