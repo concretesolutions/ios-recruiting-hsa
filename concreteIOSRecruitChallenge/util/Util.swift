@@ -24,3 +24,7 @@ class Util: NSObject {
         return [:]
     }
 }
+protocol ViewModelProtocol: class{
+    func success(_ json: [String:AnyObject])
+    func error(_ json: [String:AnyObject])
+}

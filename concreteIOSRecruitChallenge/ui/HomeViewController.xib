@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="concreteIOSRecruitChallenge" customModuleProvider="target">
             <connections>
+                <outlet property="lateralScrollView" destination="Jk9-40-vXb" id="BJq-rB-7dS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hge-6V-V0b">
-                    <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                    <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
                         <tabBarItem title="Movies" image="list_icon" selectedImage="list_icon" id="kQS-qD-gqF"/>
@@ -27,10 +28,10 @@
                     </items>
                 </tabBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-40-vXb">
-                    <rect key="frame" x="0.0" y="44" width="414" height="735"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzw-EO-FSZ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="735"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </subviews>
