@@ -72,6 +72,7 @@
 		0C6636B025D07FB800E79E18 /* FilterContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6636AE25D07FB800E79E18 /* FilterContentViewController.xib */; };
 		0C6636B425D082A400E79E18 /* FilterContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6636B325D082A400E79E18 /* FilterContent.swift */; };
 		0C6636BD25D1990300E79E18 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6636BC25D1990300E79E18 /* MoviesTests.swift */; };
+		0C6636C725D1A53A00E79E18 /* GenreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6636C625D1A53A00E79E18 /* GenreTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,7 @@
 		0C6636BA25D1990300E79E18 /* MoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6636BC25D1990300E79E18 /* MoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTests.swift; sourceTree = "<group>"; };
 		0C6636BE25D1990300E79E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C6636C625D1A53A00E79E18 /* GenreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6636BC25D1990300E79E18 /* MoviesTests.swift */,
+				0C6636C625D1A53A00E79E18 /* GenreTest.swift */,
 				0C6636BE25D1990300E79E18 /* Info.plist */,
 			);
 			path = MoviesTests;
@@ -778,6 +781,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6636BD25D1990300E79E18 /* MoviesTests.swift in Sources */,
+				0C6636C725D1A53A00E79E18 /* GenreTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
