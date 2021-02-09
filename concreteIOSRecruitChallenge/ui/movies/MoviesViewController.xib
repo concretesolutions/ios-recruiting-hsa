@@ -17,6 +17,7 @@
                 <outlet property="netErrorLabel" destination="cHy-0Z-Vvl" id="nvB-3x-PZ7"/>
                 <outlet property="noDataLabel" destination="KzF-Ah-9v0" id="sfB-K1-7pV"/>
                 <outlet property="reloadButton" destination="ct6-2e-TPi" id="wpK-to-Sru"/>
+                <outlet property="seachBar" destination="0RY-iL-SC1" id="WsG-1h-d9s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,7 +33,7 @@
                             <rect key="frame" x="188.5" y="432" width="37" height="37"/>
                             <color key="color" name="darker_main_color"/>
                         </activityIndicatorView>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The movie list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-Ah-9v0">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no movie with that name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-Ah-9v0">
                             <rect key="frame" x="32.5" y="-2.5" width="349" height="901"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
@@ -79,13 +80,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDb-Zg-Jve">
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <subviews>
-                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0RY-iL-SC1">
+                        <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="0RY-iL-SC1">
                             <rect key="frame" x="0.0" y="-2" width="414" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Ven-lM-Ukz"/>
                             </constraints>
                             <color key="barTintColor" name="main_color"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="rhB-yC-ZXd"/>
+                            </connections>
                         </searchBar>
                     </subviews>
                     <color key="backgroundColor" name="main_color"/>

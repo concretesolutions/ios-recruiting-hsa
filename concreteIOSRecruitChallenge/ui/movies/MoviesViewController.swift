@@ -7,11 +7,12 @@
 
 import UIKit
 
-class MoviesViewController: CustomViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MovieViewModelProtocol {
+class MoviesViewController: CustomViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MovieViewModelProtocol, UISearchBarDelegate {
     
     //MARK: Outlets
 
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView?
+    @IBOutlet var seachBar: UISearchBar!
     
     //MARK: Global Variables
     
@@ -28,12 +29,15 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
         self.viewModel = MoviesViewModel(viewDelegate: self)
         self.loadMoreData()
         
-        let nib = UINib(nibName: "MovieCollectionViewCell", bundle: nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: "MovieCollectionViewCell")
-        let nib2 = UINib(nibName: "GeneralLoadMoreCollectionViewCell", bundle: nil)
-        self.collectionView.register(nib2, forCellWithReuseIdentifier: "GeneralLoadMoreCollectionViewCell")
-        
-        self.onLoading(self.collectionView)    }
+        if let collection = self.collectionView{
+            let nib = UINib(nibName: "MovieCollectionViewCell", bundle: nil)
+                collection.register(nib, forCellWithReuseIdentifier: "MovieCollectionViewCell")
+            let nib2 = UINib(nibName: "GeneralLoadMoreCollectionViewCell", bundle: nil)
+                collection.register(nib2, forCellWithReuseIdentifier: "GeneralLoadMoreCollectionViewCell")
+            
+            self.onLoading(collection)
+        }
+    }
     
     //MARK: Collection Management
     
@@ -72,6 +76,7 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
         self.viewModel?.getData(params: ["page": self.page.description])
     }
     @IBAction func reloadData(){
+        self.seachBar.text = ""
         self.page -= 1
         self.loadMoreData()
     }
@@ -80,17 +85,42 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
     
     func success(_ json: GeneralHeaderEntry<MovieEntry>?) {
         OperationQueue.main.addOperation {
-            json?.success == true ? json?.results?.count ?? 0 > 0 ? self.onSuccess(self.collectionView) : self.onNoData(self.collectionView) : self.onFailure(self.collectionView)
-            self.dataList = self.dataList.filter { $0 != nil }
-            self.dataList.append(contentsOf: json?.results ?? [])
-            if(json?.total_pages ?? 0 > self.page) { self.dataList.append(nil) }
-            self.filterList = self.dataList
-            self.collectionView.reloadData()
+            if let collection = self.collectionView{
+                json?.success == true ? json?.results?.count ?? 0 > 0 ? self.onSuccess(collection) : self.onNoData(collection) : self.onFailure(collection)
+                self.dataList = self.dataList.filter { $0 != nil }
+                self.dataList.append(contentsOf: json?.results ?? [])
+                if(json?.total_pages ?? 0 > self.page) { self.dataList.append(nil) }
+                self.filterList = self.dataList
+                collection.reloadData()
+            }
         }
     }
     func error() {
         OperationQueue.main.addOperation {
-            self.onFailure(self.collectionView)
+            if let collection = self.collectionView{ self.onFailure(collection) }
+        }
+    }
+    
+    //MARK: SearchBar Management
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        if let seachText = searchBar.text{
+            if(searchBar.text != ""){
+                self.filterList = self.dataList.filter { $0 != nil }
+                self.filterList = self.filterList.filter {($0!.title!.lowercased().contains(seachText.lowercased()))}
+                
+            }else{
+                self.filterList = self.dataList
+            }
+            if let collection = self.collectionView{
+                if (self.filterList.count > 0){
+                    self.onSuccess(collection)
+                }else{
+                    self.onNoData(collection)
+                    self.reloadButton?.isHidden = true
+                }
+                collection.reloadData()
+            }
         }
     }
 }

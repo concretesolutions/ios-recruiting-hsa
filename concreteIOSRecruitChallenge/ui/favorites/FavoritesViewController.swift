@@ -11,7 +11,7 @@ class FavoritesViewController: CustomViewController, UITableViewDelegate, UITabl
     
     //MARK: Outlets
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView?
     
     //MARK: Global Variables
     
@@ -24,15 +24,18 @@ class FavoritesViewController: CustomViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
         let nib = UINib(nibName: "FavoriteTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "FavoriteTableViewCell")
+        if let table = self.tableView { table.register(nib, forCellReuseIdentifier: "FavoriteTableViewCell") }
         self.viewModel = FavoritesViewModel()
         self.loadData()
     }
     
     func loadData(){
         self.dataList = self.viewModel?.listFavorites() ?? []
-        self.dataList.count > 0 ? self.onSuccess(self.tableView) : self.onNoData(self.tableView)
-        self.tableView.reloadData()
+        if let table = self.tableView {
+            self.dataList.count > 0 ? self.onSuccess(table) : self.onNoData(table)
+            table.reloadData()
+            
+        }
     }
     
     //MARK: TableView Management
@@ -42,7 +45,7 @@ class FavoritesViewController: CustomViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: FavoriteTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
+        let cell: FavoriteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
         cell.loadCellView(movieEntry: self.dataList[indexPath.row])
         
         return cell

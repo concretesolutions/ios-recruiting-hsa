@@ -27,6 +27,12 @@ class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControll
         self.title = "Movies"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.favoritesViewController.loadData()
+        self.moviesViewController.collectionView?.reloadData()
+    }
+    
     //MARK: Views Inits
     
     func addViewTabs(){
