@@ -20,6 +20,7 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
     private var dataList: [MovieEntry?] = []
     private var filterList: [MovieEntry?] = []
     private var page = 0
+    var genreList: [GenreEntry]?
     var delegate: MoviesViewControllerProtocol?
     
     //MARK: View Lifecycle
@@ -64,6 +65,7 @@ class MoviesViewController: CustomViewController, UICollectionViewDataSource, UI
         OperationQueue.main.addOperation {
             let viewController = MovieDetailViewController()
             viewController.data = self.filterList[indexPath.row]
+            viewController.genreList = self.genreList
             
             self.navigationController!.pushViewController(viewController, animated: true)
         }

@@ -23,6 +23,7 @@ class MovieDetailViewController: UIViewController {
     
     private var viewModel: MovieDetailViewModel?
     var data: MovieEntry?
+    var genreList: [GenreEntry]?
     
     //MARK: View Lifecycle
 
@@ -35,7 +36,18 @@ class MovieDetailViewController: UIViewController {
     private func loadViews(){
         self.titleLabel.text = self.data?.title ?? "No title"
         self.yearLabel.text = self.data?.getYear()
-        self.genresLabel.text = "Loading..."
+        
+        var genreString = ""
+        if let genreListMemory = self.genreList, let movieGenres = self.data?.genre_ids{
+            for genre in genreListMemory{
+                for genreId in movieGenres{
+                    if (genreId == genre.id) {
+                        if(genreString != "") { genreString = "\(genreString), \(genre.name ?? "")" } else { genreString = "\(genre.name ?? "")" }
+                    }
+                }
+            }
+        }
+        self.genresLabel.text = genreString
         
         if let movieId = self.data?.id {
             if(self.viewModel?.isFavorite(id: movieId) == true) {

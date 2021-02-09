@@ -15,6 +15,7 @@ struct MovieEntry {
     var original_title: String?
     var overview: String?
     var popularity: Int?
+    var genre_ids: [Int]?
     var poster_path: String?
     var release_date: Date?
     var title: String?
@@ -59,6 +60,7 @@ struct MovieEntry {
         if let data = json["video"] as? Bool{ self.video = data }
         if let data = json["vote_average"] as? Int{ self.vote_average = data }
         if let data = json["vote_count"] as? Int{ self.vote_count = data }
+        if let data = json["genre_ids"] as? [Int]{ self.genre_ids = data }
     }
     func toJsonArray() -> [String:AnyObject]{
         var json = [String:AnyObject]()
@@ -75,6 +77,7 @@ struct MovieEntry {
         json["video"] = self.video as AnyObject?
         json["vote_average"] = self.vote_average as AnyObject?
         json["vote_count"] = self.vote_count as AnyObject?
+        json["genre_ids"] = self.genre_ids as AnyObject?
         
         return json
     }

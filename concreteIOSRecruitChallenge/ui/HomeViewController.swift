@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControllerProtocol {
+class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControllerProtocol, GenreProtocol {
     
     //MARK: Outlets
     
@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControll
     
     //MARK: Global Variables
     
+    private var viewModel: HomeViewModel?
     var moviesViewController: MoviesViewController = MoviesViewController()
     var favoritesViewController: FavoritesViewController = FavoritesViewController()
     
@@ -29,6 +30,8 @@ class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControll
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.viewModel = HomeViewModel(viewDelegate: self)
+        self.viewModel?.getData()
         self.favoritesViewController.loadData()
         self.moviesViewController.collectionView?.reloadData()
     }
@@ -44,7 +47,6 @@ class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControll
         self.moviesViewController.delegate = self
         self.lateralScrollView.addSubview(self.moviesViewController.view)
         tabsAdded += 1
-        print(self.view.frame.width)
         
         self.favoritesViewController.view.frame = CGRect(x: self.view.frame.width * tabsAdded, y: 0, width: self.view.frame.width, height: self.lateralScrollView.frame.height)
         self.addChild(self.favoritesViewController)
@@ -61,4 +63,11 @@ class HomeViewController: UIViewController, UITabBarDelegate, MoviesViewControll
     func reloadFavoriteList() {
         self.favoritesViewController.loadData()
     }
+    
+    //MARK: GenreProtocol Management
+    
+    func success(_ json: [GenreEntry]?) {
+        self.moviesViewController.genreList = json
+    }
+    func error() {}
 }
