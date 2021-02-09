@@ -18,7 +18,7 @@ class GenreTest: XCTestCase {
         super.tearDown()
     }
     
-    //MARK: - Fetch Genres
+    //MARK: - 1er test: Obtener los generos
     
     func testFetchGenres() {
         let promise = expectation(description: "200 OK")
