@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="concreteIOSRecruitChallenge" customModuleProvider="target">
             <connections>
                 <outlet property="lateralScrollView" destination="Jk9-40-vXb" id="BJq-rB-7dS"/>
+                <outlet property="tabBar" destination="hge-6V-V0b" id="26w-bT-c22"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,11 +24,14 @@
                     <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
-                        <tabBarItem title="Movies" image="list_icon" selectedImage="list_icon" id="kQS-qD-gqF"/>
-                        <tabBarItem title="Favorites" image="favorite_empty_icon" selectedImage="favorite_empty_icon" id="VH9-ey-rKk"/>
+                        <tabBarItem tag="1" title="Movies" image="list_icon" selectedImage="list_icon" id="kQS-qD-gqF"/>
+                        <tabBarItem tag="2" title="Favorites" image="favorite_empty_icon" selectedImage="favorite_empty_icon" id="VH9-ey-rKk"/>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="OGR-D4-xSS"/>
+                    </connections>
                 </tabBar>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-40-vXb">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-40-vXb">
                     <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzw-EO-FSZ">

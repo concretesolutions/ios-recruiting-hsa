@@ -32,6 +32,18 @@ class MoviesViewModel: NSObject, RepositoryProtocol {
     func error() {
         self.delegate?.error()
     }
+    
+    //MARK: Favorites Management
+    
+    func addFavorite(movie: MovieEntry){
+        self.movieRepository?.addFavorite(movie: movie)
+    }
+    func removeFavorite(id: Int) -> Bool{
+        return self.movieRepository?.removeFavorite(id: id) ?? false
+    }
+    func isFavorite(id: Int) -> Bool{
+        return self.movieRepository?.isFavorite(id: id) ?? false
+    }
 }
 protocol MovieViewModelProtocol: class{
     func success(_ json: GeneralHeaderEntry<MovieEntry>?)

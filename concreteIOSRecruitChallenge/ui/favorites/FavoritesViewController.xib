@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController" customModule="concreteIOSRecruitChallenge" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="gty-H3-3QU" id="pBl-rb-pEq"/>
+                <outlet property="loadingView" destination="Il7-kk-y8E" id="VCN-JN-bqJ"/>
+                <outlet property="noDataLabel" destination="prX-f5-bpM" id="Arh-9c-tg9"/>
+                <outlet property="tableView" destination="YLV-b0-1sV" id="GDu-dt-wIq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,10 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YLV-b0-1sV">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YLV-b0-1sV">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="aCS-rC-0sS"/>
+                        <outlet property="delegate" destination="-1" id="B1x-on-j0g"/>
+                    </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il7-kk-y8E">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -37,23 +45,9 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-bm-xYl">
-                            <rect key="frame" x="96.5" y="782" width="221" height="50"/>
-                            <color key="backgroundColor" name="darker_main_color"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Rzl-wa-fr8"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Reload">
-                                <color key="titleColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="KA8-bm-xYl" secondAttribute="bottom" constant="64" id="1M4-rE-k5A"/>
-                        <constraint firstItem="KA8-bm-xYl" firstAttribute="width" secondItem="Il7-kk-y8E" secondAttribute="width" multiplier="0.533816" id="2cZ-Qu-Jy9"/>
-                        <constraint firstItem="KA8-bm-xYl" firstAttribute="centerX" secondItem="Il7-kk-y8E" secondAttribute="centerX" id="AsL-59-6QK"/>
                         <constraint firstItem="gty-H3-3QU" firstAttribute="centerY" secondItem="Il7-kk-y8E" secondAttribute="centerY" constant="2.5" id="D4B-AI-TBD"/>
                         <constraint firstItem="prX-f5-bpM" firstAttribute="height" secondItem="Il7-kk-y8E" secondAttribute="height" multiplier="1.00558" id="Gvt-EL-kuU"/>
                         <constraint firstItem="prX-f5-bpM" firstAttribute="width" secondItem="Il7-kk-y8E" secondAttribute="width" multiplier="0.842995" id="Rvt-wU-TCn"/>

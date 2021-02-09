@@ -14,10 +14,13 @@ class MovieRepository: NSObject, ConnectionProtocol {
     init (delegate: RepositoryProtocol){
         self.delegate = delegate
     }
+    override init (){
+    }
     
     //MARK: Global Variables
     
     var delegate: RepositoryProtocol?
+    let defaults = UserDefaults.standard
     
     //MARK: Connection Management
     
@@ -36,12 +39,56 @@ class MovieRepository: NSObject, ConnectionProtocol {
         self.delegate?.success(json)
     }
     func errorFromRequest(_ url: String) {
-        let defaults = UserDefaults.standard
-        if let data = defaults.object(forKey: url) as? Data {
+        if let data = self.defaults.object(forKey: url) as? Data {
             self.delegate?.success(KeyedUnarchiver.unarchiveObject(with: data) as? [String:AnyObject] ?? [String:AnyObject]())
         }else{
             self.delegate?.error()
         }
+    }
+    
+    func addFavorite(movie: MovieEntry){
+        do{
+            if let movieId = movie.id {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: (movie.toJsonArray() as AnyObject), requiringSecureCoding: false)
+                UserDefaults.standard.set(data, forKey: "favorite:\(movieId)")
+                print("favorite:\(movieId) added")
+                
+                if let data = self.defaults.object(forKey: "favorites") as? Data {
+                    var favorites = KeyedUnarchiver.unarchiveObject(with: data) as? [Int] ?? [Int]()
+                    favorites = favorites.filter { $0 != movieId }
+                    favorites.append(movieId)
+                    
+                    let data = try NSKeyedArchiver.archivedData(withRootObject: (favorites as AnyObject), requiringSecureCoding: false)
+                    UserDefaults.standard.set(data, forKey: "favorites")
+                } else {
+                    let data = try NSKeyedArchiver.archivedData(withRootObject: ([movieId] as AnyObject), requiringSecureCoding: false)
+                    UserDefaults.standard.set(data, forKey: "favorites")
+                }
+            }
+        }catch let error{
+            print(error.localizedDescription)
+        }
+    }
+    func removeFavorite(id: Int) -> Bool{
+        print("favorite:\(id) removed")
+        self.defaults.removeObject(forKey: "favorite:\(id)")
+        return true
+    }
+    func isFavorite(id: Int) -> Bool{
+        return self.defaults.object(forKey: "favorite:\(id)") as? Data != nil ? true: false
+    }
+    func listFavorites() -> [MovieEntry?]{
+        var array: [MovieEntry?] = []
+        if let data = self.defaults.object(forKey: "favorites") as? Data {
+            let json = KeyedUnarchiver.unarchiveObject(with: data) as? [Int] ?? [Int]()
+            for movieId in json{
+                if let dataMovie = self.defaults.object(forKey: "favorite:\(movieId)") as? Data {
+                    let movieJson = KeyedUnarchiver.unarchiveObject(with: dataMovie) as? [String:AnyObject] ?? [String:AnyObject]()
+                    array.append(MovieEntry(movieJson))
+                }
+            }
+        }
+        return array
     }
 }
 protocol RepositoryProtocol: class{

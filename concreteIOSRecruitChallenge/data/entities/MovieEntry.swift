@@ -25,6 +25,9 @@ struct MovieEntry {
     func getYear() -> String{
         return Util.dateToString(date: self.release_date, format: "yyyy")
     }
+    func toJsonFormat() -> String{
+        return Util.dateToString(date: self.release_date, format: "yyyy-MM-dd")
+    }
     
     init(id: Int?, adult: Bool?, backdrop_path: String?, original_language: String?, original_title: String?, overview: String?, popularity: Int?, poster_path: String?, release_date: Date?, title: String?, video: Bool?, vote_average: Int?, vote_count: Int?){
         self.id = id
@@ -57,8 +60,26 @@ struct MovieEntry {
         if let data = json["vote_average"] as? Int{ self.vote_average = data }
         if let data = json["vote_count"] as? Int{ self.vote_count = data }
     }
+    func toJsonArray() -> [String:AnyObject]{
+        var json = [String:AnyObject]()
+        json["id"] = self.id as AnyObject?
+        json["adult"] = self.adult as AnyObject?
+        json["backdrop_path"] = self.backdrop_path as AnyObject?
+        json["original_language"] = self.original_language as AnyObject?
+        json["original_title"] = self.original_title as AnyObject?
+        json["overview"] = self.overview as AnyObject?
+        json["popularity"] = self.popularity as AnyObject?
+        json["poster_path"] = self.poster_path as AnyObject?
+        json["release_date"] = self.toJsonFormat() as AnyObject?
+        json["title"] = self.title as AnyObject?
+        json["video"] = self.video as AnyObject?
+        json["vote_average"] = self.vote_average as AnyObject?
+        json["vote_count"] = self.vote_count as AnyObject?
+        
+        return json
+    }
     
-    static func arrayFromJson(_ json: [Dictionary<String,AnyObject>]?) -> Any? {
+    static func arrayFromJson(_ json: [Dictionary<String,AnyObject>]?) -> [MovieEntry]? {
         if(json == nil){
             return nil
         }

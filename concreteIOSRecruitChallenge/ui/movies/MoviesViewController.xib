@@ -25,20 +25,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AYd-sL-dpK">
-                    <rect key="frame" x="0.0" y="5" width="414" height="896"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="2y3-GC-1RN">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="zTv-tx-tmN"/>
-                        <outlet property="delegate" destination="-1" id="XRv-nW-9cc"/>
-                    </connections>
-                </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-Mz-xSi">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
@@ -52,7 +38,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is an error with the network connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHy-0Z-Vvl">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is an error with the network connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHy-0Z-Vvl">
                             <rect key="frame" x="32.5" y="-2.5" width="349" height="901"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
@@ -90,18 +76,55 @@
                         <constraint firstItem="cHy-0Z-Vvl" firstAttribute="width" secondItem="RpM-Mz-xSi" secondAttribute="width" multiplier="0.842995" id="w1S-a1-3j1"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDb-Zg-Jve">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0RY-iL-SC1">
+                            <rect key="frame" x="0.0" y="-2" width="414" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Ven-lM-Ukz"/>
+                            </constraints>
+                            <color key="barTintColor" name="main_color"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" name="main_color"/>
+                    <constraints>
+                        <constraint firstItem="0RY-iL-SC1" firstAttribute="centerX" secondItem="lDb-Zg-Jve" secondAttribute="centerX" id="68W-kE-Wtr"/>
+                        <constraint firstItem="0RY-iL-SC1" firstAttribute="width" secondItem="lDb-Zg-Jve" secondAttribute="width" id="6wt-za-EHh"/>
+                        <constraint firstItem="0RY-iL-SC1" firstAttribute="top" secondItem="lDb-Zg-Jve" secondAttribute="top" constant="-2" id="HNR-oH-B65"/>
+                        <constraint firstAttribute="height" constant="44" id="ib2-ez-bch"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AYd-sL-dpK">
+                    <rect key="frame" x="0.0" y="85" width="414" height="781"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="2y3-GC-1RN">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zTv-tx-tmN"/>
+                        <outlet property="delegate" destination="-1" id="XRv-nW-9cc"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="RpM-Mz-xSi" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="0X1-aD-Eok"/>
-                <constraint firstItem="AYd-sL-dpK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="62u-Od-6KM"/>
+                <constraint firstItem="lDb-Zg-Jve" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="84f-BV-Wbh"/>
                 <constraint firstItem="AYd-sL-dpK" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="86g-vR-dsC"/>
+                <constraint firstItem="lDb-Zg-Jve" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="O9k-3b-jpD"/>
                 <constraint firstItem="RpM-Mz-xSi" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.00558" constant="-5" id="Ovx-vv-LSi"/>
                 <constraint firstItem="RpM-Mz-xSi" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="-5" id="d76-hy-taX"/>
+                <constraint firstItem="AYd-sL-dpK" firstAttribute="top" secondItem="lDb-Zg-Jve" secondAttribute="bottom" constant="-3" id="dpf-RI-AOE"/>
                 <constraint firstItem="RpM-Mz-xSi" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="fJu-oH-W0C"/>
                 <constraint firstItem="AYd-sL-dpK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fua-o2-3wi"/>
-                <constraint firstItem="AYd-sL-dpK" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="ra3-Pz-y7K"/>
+                <constraint firstItem="AYd-sL-dpK" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="4" id="kzc-1E-Sv7"/>
+                <constraint firstItem="lDb-Zg-Jve" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="uXO-R1-rWM"/>
             </constraints>
             <point key="canvasLocation" x="124.6376811594203" y="168.75"/>
         </view>
@@ -109,6 +132,9 @@
     <resources>
         <namedColor name="darker_main_color">
             <color red="0.85100001096725464" green="0.59200000762939453" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main_color">
+            <color red="0.96799999475479126" green="0.80900001525878906" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
