@@ -8,28 +8,29 @@
 import Foundation
 
 protocol FavoritesListHandlerProtocol: class {
-    func gotMovie(movie: Movie)
-    func gotSavedFavoriteSuccessfull()
+    func loadFavorites(movies: [Movie])
+    func gotDeleteFavoriteSuccessfull()
 }
 
 class FavoritesListHandler {
 
-    weak var dataSourceProtocol: DetailMovieHandlerProtocol?
+    weak var dataSourceProtocol: FavoritesListHandlerProtocol?
     var favoritesAPI = FavoritesAPI()
 
-    init(dataSource: DetailMovieHandlerProtocol) {
+    init(dataSource: FavoritesListHandlerProtocol) {
         self.dataSourceProtocol = dataSource
     }
 
-    func loadFullMovie(movie: Movie) -> Movie {
-        movie.genresString = GenresHandler.getGenresById(genresId: movie.genreIDS)
-        movie.isFavorited = favoritesAPI.existsFavoriteInStorage(movie: movie)
-        return movie
+    func loadFavorites() {
+        let favorites = favoritesAPI.loadFavorites()
+        dataSourceProtocol?.loadFavorites(movies: favorites ?? [])
     }
 
-    func saveMovieInFavorite(movie: Movie) {
-        favoritesAPI.saveSingleFavorite(movie: movie)
-        dataSourceProtocol?.gotSavedFavoriteSuccessfull()
+    func deleteFavoriteMovie(movie: Movie){
+        favoritesAPI.deleteFavoriteMovie(movieId: movie.id)
+        dataSourceProtocol?.gotDeleteFavoriteSuccessfull()
     }
+
+
 
 }

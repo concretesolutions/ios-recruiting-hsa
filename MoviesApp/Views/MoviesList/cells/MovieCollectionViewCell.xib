@@ -49,11 +49,11 @@ asda</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhG-dK-NYY">
-                                <rect key="frame" x="311" y="10" width="30" height="30"/>
+                                <rect key="frame" x="317" y="4" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="JJ5-5B-crU"/>
                                     <constraint firstAttribute="height" constant="30" id="unS-la-U5d"/>
+                                    <constraint firstAttribute="width" constant="30" id="yev-LG-2dZ"/>
                                 </constraints>
                                 <state key="selected" image="favorite_full_icon"/>
                                 <userDefinedRuntimeAttributes>
@@ -70,11 +70,11 @@ asda</string>
                             <constraint firstAttribute="trailing" secondItem="WcU-pA-kkI" secondAttribute="trailing" id="FdC-bK-C51"/>
                             <constraint firstItem="WcU-pA-kkI" firstAttribute="top" secondItem="zSr-1k-rxp" secondAttribute="top" id="H8F-EB-33r"/>
                             <constraint firstItem="hGh-n9-8gF" firstAttribute="top" secondItem="WcU-pA-kkI" secondAttribute="bottom" id="Mq9-YI-UhC"/>
-                            <constraint firstItem="LhG-dK-NYY" firstAttribute="top" secondItem="WcU-pA-kkI" secondAttribute="top" constant="10" id="QfH-l4-WEC"/>
+                            <constraint firstItem="LhG-dK-NYY" firstAttribute="top" secondItem="WcU-pA-kkI" secondAttribute="top" constant="4" id="QfH-l4-WEC"/>
                             <constraint firstAttribute="bottom" secondItem="hGh-n9-8gF" secondAttribute="bottom" id="VBs-xF-0W6"/>
                             <constraint firstItem="hGh-n9-8gF" firstAttribute="top" secondItem="WcU-pA-kkI" secondAttribute="bottom" id="X8R-1R-Tkr"/>
                             <constraint firstItem="hGh-n9-8gF" firstAttribute="leading" secondItem="zSr-1k-rxp" secondAttribute="leading" id="b7D-sk-K3b"/>
-                            <constraint firstItem="LhG-dK-NYY" firstAttribute="trailing" secondItem="WcU-pA-kkI" secondAttribute="trailing" constant="-10" id="hiB-Cr-e6h"/>
+                            <constraint firstItem="LhG-dK-NYY" firstAttribute="trailing" secondItem="WcU-pA-kkI" secondAttribute="trailing" constant="-4" id="hiB-Cr-e6h"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

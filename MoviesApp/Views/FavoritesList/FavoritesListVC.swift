@@ -13,11 +13,12 @@ class FavoritesListVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     lazy var favoritesArray: [Movie] = []
     lazy var filteredFavoritesArray: [Movie] = []
-    let favoritesAPI = FavoritesAPI()
     lazy var inSearchMode = false
+    var presenter: FavoritesListPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = FavoritesListPresenter(dataSource: self)
         setupTableView()
         setupSeacher()
     }
@@ -27,10 +28,7 @@ class FavoritesListVC: UIViewController {
     }
 
     private func loadFavorites(){
-        if let favorites = favoritesAPI.loadFavorites() {
-            favoritesArray = favorites
-            tableView.reloadData()
-        }
+        presenter?.loadFavorites()
     }
 
     private func setupTableView() {
@@ -85,14 +83,14 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130.0
+        return MovieTableViewCell.height
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Eliminar") { [weak self] (contextualAction, view, boolValue) in
             guard let strongSelf = self else { return }
             let movie = strongSelf.inSearchMode ? strongSelf.filteredFavoritesArray[indexPath.row] : strongSelf.favoritesArray[indexPath.row]
-            strongSelf.favoritesAPI.deleteFavoriteMovie(movieId: movie.id ?? -1)
+            strongSelf.presenter?.deleteMovieFromFavorites(movie: movie)
             strongSelf.loadFavorites()
             strongSelf.tableView.reloadData()
             NotificationCenter.default.post(name: Notification.Name("updateMoviesInList"),
@@ -103,5 +101,23 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
         return swipeActions
   }
+
+}
+
+extension FavoritesListVC: FavoritesListPresenterProtocol {
+    
+    func loadMoviesFavorites(items: [Movie]) {
+        self.favoritesArray = items
+        textFieldDidChange(searchTextField)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+    func gotDeleteMovieSuccessfully() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 
 }

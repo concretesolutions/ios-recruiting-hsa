@@ -29,6 +29,6 @@ class MovieTableViewCell: UITableViewCell {
 
     static let identifier = "MovieTableViewCell"
     static let nib = UINib(nibName: identifier, bundle: nil)
-
+    static let height: CGFloat = 130.0
     
 }
