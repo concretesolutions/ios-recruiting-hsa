@@ -16,19 +16,19 @@ class FavoritesAPI {
             var aux = favoriesArray
             aux.append(movie)
             if let encoded = try? encoder.encode(aux) {
-                defaults.set(encoded, forKey: "FavoritesArrayCache")
+                defaults.set(encoded, forKey: UserDefaultsKeys.favoritesArrayCache)
             }
         } else if !existsFavoriteInStorage(movie: movie)  {
             var moviesArray: [Movie] = []
             moviesArray.append(movie)
             if let encoded = try? encoder.encode(moviesArray) {
-                defaults.set(encoded, forKey: "FavoritesArrayCache")
+                defaults.set(encoded, forKey: UserDefaultsKeys.favoritesArrayCache)
             }
         }
     }
 
     func loadFavorites() -> [Movie]? {
-        if let savedFavorites = UserDefaults.standard.object(forKey: "FavoritesArrayCache") as? Data {
+        if let savedFavorites = UserDefaults.standard.object(forKey: UserDefaultsKeys.favoritesArrayCache) as? Data {
             let decoder = JSONDecoder()
             if let loadedFavorites = try? decoder.decode([Movie].self, from: savedFavorites) {
                 return loadedFavorites
@@ -53,7 +53,7 @@ class FavoritesAPI {
         let encoder = JSONEncoder()
         let favoritesClean = favoritesArray.filter({$0.id != movieId})
         if let encoded = try? encoder.encode(favoritesClean) {
-            UserDefaults.standard.set(encoded, forKey: "FavoritesArrayCache")
+            UserDefaults.standard.set(encoded, forKey: UserDefaultsKeys.favoritesArrayCache)
         }
     }
 }

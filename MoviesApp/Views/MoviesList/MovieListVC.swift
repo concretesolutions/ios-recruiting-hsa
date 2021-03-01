@@ -28,7 +28,7 @@ class MovieListVC: UIViewController {
         setupSeacher()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateMoviesArrays),
-                                               name: Notification.Name("updateMoviesInList"),
+                                               name: NotificationNames.updateMoviesInList,
                                                object: nil)
     }
 

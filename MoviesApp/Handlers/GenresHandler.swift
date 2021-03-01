@@ -38,12 +38,12 @@ class GenresHandler {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(items) {
             let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "GenresArrayCache")
+            defaults.set(encoded, forKey: UserDefaultsKeys.genresArrayCache)
         }
     }
 
     static func loadGenresFromCache() -> [Genre]? {
-        if let savedGenres = UserDefaults.standard.object(forKey: "GenresArrayCache") as? Data {
+        if let savedGenres = UserDefaults.standard.object(forKey: UserDefaultsKeys.genresArrayCache) as? Data {
             let decoder = JSONDecoder()
             if let loadedGenres = try? decoder.decode([Genre].self, from: savedGenres) {
                 return loadedGenres

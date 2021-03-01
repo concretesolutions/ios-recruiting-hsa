@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct UserDefaultsKeys {
+    static let favoritesArrayCache = "FavoritesArrayCache"
+    static let genresArrayCache = "GenresArrayCache"
+}
+

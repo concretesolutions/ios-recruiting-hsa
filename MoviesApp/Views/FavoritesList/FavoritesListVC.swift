@@ -98,7 +98,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
             strongSelf.presenter?.deleteMovieFromFavorites(movie: movie)
             strongSelf.loadFavorites()
             strongSelf.tableView.reloadData()
-            NotificationCenter.default.post(name: Notification.Name("updateMoviesInList"),
+            NotificationCenter.default.post(name: NotificationNames.updateMoviesInList,
                                             object: nil,
                                             userInfo: nil)
         }
