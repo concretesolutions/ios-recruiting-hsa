@@ -65,7 +65,7 @@ class MovieListVC: UIViewController {
         searchTextField.addTarget(self,
                                   action: #selector(self.textFieldDidChange(_:)),
                                   for: UIControl.Event.editingChanged)
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "Buscar..",
+        searchTextField.attributedPlaceholder = NSAttributedString(string: Localizables.searchPlaceholder,
                                                                    attributes: [NSAttributedString.Key.foregroundColor:
                                                                                     UIColor.white])
     }
@@ -88,7 +88,7 @@ class MovieListVC: UIViewController {
     }
 
     private func updateMessageNoFoundLabel(){
-        noItemsLabel.text = inSearchMode ? "No se encontraron coincidencias." : "Ocurrió un error al intentar conectar con el servidor, por favor intenta de nuevo."
+        noItemsLabel.text = inSearchMode ? Localizables.searchingNotFoundMessage : Localizables.errorMessage
         noItemsLabel.isHidden = inSearchMode ? !filteredItemsArray.isEmpty : !items.isEmpty
     }
 

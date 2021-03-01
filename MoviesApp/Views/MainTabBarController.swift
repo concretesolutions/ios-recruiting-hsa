@@ -25,11 +25,10 @@ class MainTabBarController: UITabBarController {
         let vc = MovieListVC()
         let nav = UINavigationController(rootViewController: vc)
         nav.navigationBar.isHidden = true
-        nav.title = "Peliculas"
         nav.navigationBar.barTintColor = .white
-        vc.tabBarItem = UITabBarItem(title: "Películas", image: #imageLiteral(resourceName: "list_icon"), selectedImage: #imageLiteral(resourceName: "list_icon"))
+        vc.tabBarItem = UITabBarItem(title: Localizables.moviesTitle, image: #imageLiteral(resourceName: "list_icon"), selectedImage: #imageLiteral(resourceName: "list_icon"))
         let vc2 = FavoritesListVC()
-        vc2.tabBarItem = UITabBarItem(title: "Favoritos", image: #imageLiteral(resourceName: "favorite_empty_icon") , selectedImage: #imageLiteral(resourceName: "favorite_empty_icon"))
+        vc2.tabBarItem = UITabBarItem(title: Localizables.favoritesTitle, image: #imageLiteral(resourceName: "favorite_empty_icon") , selectedImage: #imageLiteral(resourceName: "favorite_empty_icon"))
         let controllers = [vc,vc2]
         self.viewControllers = controllers
     }

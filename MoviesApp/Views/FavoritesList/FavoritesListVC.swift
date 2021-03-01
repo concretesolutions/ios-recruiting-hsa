@@ -44,7 +44,7 @@ class FavoritesListVC: UIViewController {
         searchTextField.addTarget(self,
                                   action: #selector(self.textFieldDidChange(_:)),
                                   for: UIControl.Event.editingChanged)
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "Buscar..",
+        searchTextField.attributedPlaceholder = NSAttributedString(string: Localizables.searchPlaceholder,
                                                                    attributes: [NSAttributedString.Key.foregroundColor:
                                                                                     UIColor.white])
     }
@@ -68,7 +68,7 @@ class FavoritesListVC: UIViewController {
 
     private func updateMessageNoFoundLabel(){
         noItemsLabel.isHidden = inSearchMode ? !filteredFavoritesArray.isEmpty : !favoritesArray.isEmpty
-        noItemsLabel.text = inSearchMode ? "No se encontraron coincidencias." : "No tienes favoritos registrados"
+        noItemsLabel.text = inSearchMode ? Localizables.searchingNotFoundMessage : Localizables.noFavoritesMessage
     }
 
 }
@@ -92,7 +92,8 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Eliminar") { [weak self] (contextualAction, view, boolValue) in
+        let contextItem = UIContextualAction(style: .destructive, title: Localizables.deleteTitle) {
+            [weak self] (contextualAction, view, boolValue) in
             guard let strongSelf = self else { return }
             let movie = strongSelf.inSearchMode ? strongSelf.filteredFavoritesArray[indexPath.row] : strongSelf.favoritesArray[indexPath.row]
             strongSelf.presenter?.deleteMovieFromFavorites(movie: movie)
