@@ -61,7 +61,6 @@ class MovieListVC: UIViewController {
     }
 
     func setupSeacher(){
-        searchTextField.returnKeyType = .done
         searchTextField.addTarget(self,
                                   action: #selector(self.textFieldDidChange(_:)),
                                   for: UIControl.Event.editingChanged)
