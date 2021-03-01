@@ -17,6 +17,8 @@
 		A923130D25EB518F0076F30C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923130C25EB518F0076F30C /* Constants.swift */; };
 		A923131225EB63D00076F30C /* DetailMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923131125EB63D00076F30C /* DetailMoviePresenter.swift */; };
 		A923131725EB65240076F30C /* FavoritesServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923131625EB65240076F30C /* FavoritesServices.swift */; };
+		A931145325ED0ED000560840 /* Localizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931145225ED0ED000560840 /* Localizables.swift */; };
+		A931145825ED0EDE00560840 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931145725ED0EDE00560840 /* NotificationNames.swift */; };
 		A96A399F25EACB6200A043D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A399E25EACB6200A043D7 /* AppDelegate.swift */; };
 		A96A39A125EACB6200A043D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A39A025EACB6200A043D7 /* SceneDelegate.swift */; };
 		A96A39A325EACB6200A043D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A39A225EACB6200A043D7 /* ViewController.swift */; };
@@ -99,6 +101,8 @@
 		A923130C25EB518F0076F30C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A923131125EB63D00076F30C /* DetailMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMoviePresenter.swift; sourceTree = "<group>"; };
 		A923131625EB65240076F30C /* FavoritesServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesServices.swift; sourceTree = "<group>"; };
+		A931145225ED0ED000560840 /* Localizables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizables.swift; sourceTree = "<group>"; };
+		A931145725ED0EDE00560840 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		A96A399B25EACB6200A043D7 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96A399E25EACB6200A043D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A96A39A025EACB6200A043D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -290,7 +294,6 @@
 				A9BBED9625EB26F700893D36 /* Resources */,
 				A9BBED0125EAE00F00893D36 /* General */,
 				A9BBECAC25EAD41500893D36 /* Extension */,
-				A9BBEC6F25EACE0A00893D36 /* Modules */,
 				A96A399E25EACB6200A043D7 /* AppDelegate.swift */,
 				A96A39A025EACB6200A043D7 /* SceneDelegate.swift */,
 				A96A39A225EACB6200A043D7 /* ViewController.swift */,
@@ -339,13 +342,6 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
-		A9BBEC6F25EACE0A00893D36 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
 		A9BBEC7A25EACF1800893D36 /* MoviesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +375,8 @@
 			children = (
 				A9BBED0225EAE01D00893D36 /* API.swift */,
 				A923130C25EB518F0076F30C /* Constants.swift */,
+				A931145225ED0ED000560840 /* Localizables.swift */,
+				A931145725ED0EDE00560840 /* NotificationNames.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -717,6 +715,7 @@
 				A9BBECBB25EAD41500893D36 /* UIViewExt.swift in Sources */,
 				A923130325EB4DD50076F30C /* Genre.swift in Sources */,
 				A9BBEC8225EACF1800893D36 /* MovieCollectionViewCell.swift in Sources */,
+				A931145825ED0EDE00560840 /* NotificationNames.swift in Sources */,
 				A99B72E025EC0D6300BB9A6B /* FavoritesListVC.swift in Sources */,
 				A9BBECD825EAD68F00893D36 /* MovieListHandler.swift in Sources */,
 				A9BBECDD25EAD6A400893D36 /* MovieListService.swift in Sources */,
@@ -724,6 +723,7 @@
 				A96A399F25EACB6200A043D7 /* AppDelegate.swift in Sources */,
 				A96A39A125EACB6200A043D7 /* SceneDelegate.swift in Sources */,
 				A99B72D925EBFD3600BB9A6B /* DetailMovieHandler.swift in Sources */,
+				A931145325ED0ED000560840 /* Localizables.swift in Sources */,
 				A9BBED0325EAE01D00893D36 /* API.swift in Sources */,
 				A9BBECBF25EAD41500893D36 /* CollectionExt.swift in Sources */,
 				A923130D25EB518F0076F30C /* Constants.swift in Sources */,

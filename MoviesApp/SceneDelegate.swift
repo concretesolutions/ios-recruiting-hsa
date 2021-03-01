@@ -17,15 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        let vc = MainTabBarController()
         let nav = UINavigationController(rootViewController: MainTabBarController())
-        GenresHandler()
+        _ = GenresHandler()
         nav.navigationBar.isHidden = true
-        nav.navigationBar.topItem?.title = "Peliculas"
-        nav.navigationBar.barTintColor = .black
-        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        nav.hidesBottomBarWhenPushed = true
-        //let tabBar = MainTabBarController()
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
