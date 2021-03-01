@@ -12,6 +12,7 @@ class MovieListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var noItemsLabel: UILabel!
     private let refreshControl = UIRefreshControl()
     var page: Int = 1
     var presenter: MovieListPresenter?
@@ -19,7 +20,6 @@ class MovieListVC: UIViewController {
     lazy var items: [Movie] = []
     lazy var isLastPageReach: Bool = false
     lazy var inSearchMode = false
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +51,12 @@ class MovieListVC: UIViewController {
     }
 
     @objc private func refreshTableView() {
+        noItemsLabel.isHidden = true
         page = 1
         inSearchMode = false
         isLastPageReach = false
         refreshControl.endRefreshing()
+        searchTextField.text = nil
         presenter?.getMovies(page: page)
     }
 
@@ -85,11 +87,17 @@ class MovieListVC: UIViewController {
         }
     }
 
+    private func updateMessageNoFoundLabel(){
+        noItemsLabel.text = inSearchMode ? "No se encontraron coincidencias." : "Ocurrió un error al intentar conectar con el servidor, por favor intenta de nuevo."
+        noItemsLabel.isHidden = inSearchMode ? !filteredItemsArray.isEmpty : !items.isEmpty
+    }
+
 }
 
 extension MovieListVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        updateMessageNoFoundLabel()
         return inSearchMode ? filteredItemsArray.count : items.count
     }
 
@@ -144,12 +152,15 @@ extension MovieListVC: MovieListPresenterProtocol {
         if page == 1 { self.items = items }
         else { self.items += items }
         if items.count == 0 { isLastPageReach = true }
-        //noItemsLabel.isHidden = !self.items.isEmpty
+        noItemsLabel.isHidden = !self.items.isEmpty
         collectionView.reloadData()
     }
 
     func gotError() {
-        //
+        items.removeAll()
+        filteredItemsArray.removeAll()
+        collectionView.reloadData()
+        noItemsLabel.isHidden = !self.items.isEmpty
     }
 
     func startAnimating() {

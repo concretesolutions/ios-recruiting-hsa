@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesListVC" customModule="MoviesApp" customModuleProvider="target">
             <connections>
+                <outlet property="noItemsLabel" destination="G1V-0q-auP" id="NkO-vs-M8m"/>
                 <outlet property="searchTextField" destination="Cki-Ep-zgm" id="ENG-jF-jg6"/>
                 <outlet property="tableView" destination="l4p-tb-qjr" id="djK-kz-Qey"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -104,15 +105,27 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1V-0q-auP">
+                    <rect key="frame" x="8" y="430.5" width="398" height="45"/>
+                    <string key="text">No tienes favoritos agregados 
+:(</string>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="G1V-0q-auP" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="2F2-ex-dFx"/>
                 <constraint firstItem="P12-4R-dYW" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="D8E-zl-KzR"/>
                 <constraint firstItem="y2B-22-Sg4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="GWt-fT-OL7"/>
                 <constraint firstItem="y2B-22-Sg4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kcm-NP-Xtb"/>
                 <constraint firstItem="y2B-22-Sg4" firstAttribute="top" secondItem="P12-4R-dYW" secondAttribute="bottom" constant="8" id="PQ7-5A-o9K"/>
                 <constraint firstItem="l4p-tb-qjr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TYE-Su-HGx"/>
+                <constraint firstItem="G1V-0q-auP" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Vua-0X-eiH"/>
+                <constraint firstItem="G1V-0q-auP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="cwp-aI-bMK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="G1V-0q-auP" secondAttribute="trailing" constant="8" id="hCD-aS-vf3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l4p-tb-qjr" secondAttribute="bottom" id="j8s-7I-P9O"/>
                 <constraint firstItem="P12-4R-dYW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="v1W-eA-e41"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l4p-tb-qjr" secondAttribute="trailing" id="wFu-mv-fN2"/>

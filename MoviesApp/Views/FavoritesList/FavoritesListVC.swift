@@ -11,6 +11,7 @@ class FavoritesListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var noItemsLabel: UILabel!
     lazy var favoritesArray: [Movie] = []
     lazy var filteredFavoritesArray: [Movie] = []
     lazy var inSearchMode = false
@@ -28,6 +29,7 @@ class FavoritesListVC: UIViewController {
     }
 
     private func loadFavorites(){
+        noItemsLabel.isHidden = true
         presenter?.loadFavorites()
     }
 
@@ -64,22 +66,25 @@ class FavoritesListVC: UIViewController {
         }
     }
 
+    private func updateMessageNoFoundLabel(){
+        noItemsLabel.isHidden = inSearchMode ? !filteredFavoritesArray.isEmpty : !favoritesArray.isEmpty
+        noItemsLabel.text = inSearchMode ? "No se encontraron coincidencias." : "No tienes favoritos registrados"
+    }
+
 }
 
 extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        updateMessageNoFoundLabel()
         return inSearchMode ? filteredFavoritesArray.count : favoritesArray.count
     }
 
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell
         else { return UITableViewCell()}
         let movie = inSearchMode ? filteredFavoritesArray[indexPath.row] : favoritesArray[indexPath.row]
         cell.setup(movie: movie)
         return cell
-
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

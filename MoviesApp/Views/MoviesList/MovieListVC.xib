@@ -20,6 +20,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="ARz-Ue-atb" id="EmV-g3-Nuf"/>
                 <outlet property="collectionView" destination="SPt-GR-JhP" id="WwX-ys-ZeI"/>
+                <outlet property="noItemsLabel" destination="h0M-J2-N8f" id="LCx-HU-4sE"/>
                 <outlet property="searchTextField" destination="K55-7H-rdo" id="LYM-FB-xV8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -39,6 +40,12 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No se encontraron coincidencias..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0M-J2-N8f">
+                    <rect key="frame" x="8" y="437" width="398" height="22.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ARz-Ue-atb">
                     <rect key="frame" x="197" y="438" width="20" height="20"/>
                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -119,11 +126,15 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4aB-N8-XwK" secondAttribute="trailing" id="57m-1P-SmD"/>
+                <constraint firstItem="h0M-J2-N8f" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="8JM-Yp-wuI"/>
                 <constraint firstItem="ARz-Ue-atb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DPd-fz-Ekl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h0M-J2-N8f" secondAttribute="trailing" constant="8" id="Ef5-pn-naO"/>
                 <constraint firstItem="SPt-GR-JhP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PbL-lf-qDm"/>
                 <constraint firstItem="2Y5-Tz-w5L" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="UH8-mZ-Qxi"/>
                 <constraint firstItem="ARz-Ue-atb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="VHc-kh-Juo"/>
+                <constraint firstItem="h0M-J2-N8f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Vat-yN-Z6v"/>
                 <constraint firstItem="4aB-N8-XwK" firstAttribute="top" secondItem="2Y5-Tz-w5L" secondAttribute="bottom" constant="8" id="Vhg-3s-89e"/>
+                <constraint firstItem="h0M-J2-N8f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wgh-23-0PT"/>
                 <constraint firstItem="4aB-N8-XwK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ezG-ex-c5s"/>
                 <constraint firstItem="SPt-GR-JhP" firstAttribute="top" secondItem="4aB-N8-XwK" secondAttribute="bottom" constant="8" id="gjm-yI-CAw"/>
                 <constraint firstItem="SPt-GR-JhP" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ixo-FY-7ev"/>
