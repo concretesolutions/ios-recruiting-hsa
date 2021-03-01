@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="MovieTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njx-Gg-ZDW">
+                        <rect key="frame" x="8" y="4" width="304" height="136"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mjx-Aa-zT1">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="MJ9-Qc-jC1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEW-Px-pF4">
+                                <rect key="frame" x="108" y="8" width="140" height="42.5"/>
+                                <string key="text">Thor
+Thor</string>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2008" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmg-mq-Mws">
+                                <rect key="frame" x="256" y="8" width="40" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="dcQ-95-mjf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z96-ph-jdc">
+                                <rect key="frame" x="108" y="58.5" width="188" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.094102360309999994" green="0.094126455489999997" blue="0.09410081059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mjx-Aa-zT1" secondAttribute="bottom" id="0br-bn-zyb"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z96-ph-jdc" secondAttribute="bottom" constant="8" id="1L7-XV-L0y"/>
+                            <constraint firstItem="mmg-mq-Mws" firstAttribute="top" secondItem="Njx-Gg-ZDW" secondAttribute="top" constant="8" id="A67-mT-ldD"/>
+                            <constraint firstItem="mjx-Aa-zT1" firstAttribute="top" secondItem="Njx-Gg-ZDW" secondAttribute="top" id="AHk-J4-szn"/>
+                            <constraint firstItem="Z96-ph-jdc" firstAttribute="top" secondItem="AEW-Px-pF4" secondAttribute="bottom" constant="8" id="Kfb-o4-av4"/>
+                            <constraint firstAttribute="trailing" secondItem="mmg-mq-Mws" secondAttribute="trailing" constant="8" id="NDn-MQ-bjq"/>
+                            <constraint firstItem="AEW-Px-pF4" firstAttribute="top" secondItem="Njx-Gg-ZDW" secondAttribute="top" constant="8" id="TON-du-J32"/>
+                            <constraint firstItem="AEW-Px-pF4" firstAttribute="leading" secondItem="mjx-Aa-zT1" secondAttribute="trailing" constant="8" id="fUp-H8-888"/>
+                            <constraint firstAttribute="trailing" secondItem="Z96-ph-jdc" secondAttribute="trailing" constant="8" id="nTB-2l-z6e"/>
+                            <constraint firstItem="mjx-Aa-zT1" firstAttribute="leading" secondItem="Njx-Gg-ZDW" secondAttribute="leading" id="srM-rf-r9b"/>
+                            <constraint firstItem="mmg-mq-Mws" firstAttribute="leading" secondItem="AEW-Px-pF4" secondAttribute="trailing" constant="8" id="v92-2e-v7Q"/>
+                            <constraint firstItem="Z96-ph-jdc" firstAttribute="leading" secondItem="mjx-Aa-zT1" secondAttribute="trailing" constant="8" id="zej-Bi-fbH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Njx-Gg-ZDW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="5Ss-Dj-naw"/>
+                    <constraint firstAttribute="bottom" secondItem="Njx-Gg-ZDW" secondAttribute="bottom" constant="4" id="Mb1-kR-HFh"/>
+                    <constraint firstAttribute="trailing" secondItem="Njx-Gg-ZDW" secondAttribute="trailing" constant="8" id="YkJ-xf-tzV"/>
+                    <constraint firstItem="Njx-Gg-ZDW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="n5h-Es-voi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bannerImageView" destination="mjx-Aa-zT1" id="mgs-28-IbX"/>
+                <outlet property="overviewLabel" destination="Z96-ph-jdc" id="K2V-5a-YoF"/>
+                <outlet property="titleLabel" destination="AEW-Px-pF4" id="p0y-Jn-KCn"/>
+                <outlet property="yearLabel" destination="mmg-mq-Mws" id="hFx-PU-JBa"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="170.75892857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
