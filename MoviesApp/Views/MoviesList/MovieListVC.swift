@@ -26,7 +26,19 @@ class MovieListVC: UIViewController {
         presenter = MovieListPresenter(dataSource: self)
         setCollectionView()
         setupSeacher()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateMoviesArrays),
+                                               name: Notification.Name("updateMoviesInList"),
+                                               object: nil)
     }
+
+    @objc func updateMoviesArrays(){
+        guard let presenter = presenter else { return }
+        items = presenter.refreshingFavorites(movies: items)
+        filteredItemsArray = presenter.refreshingFavorites(movies: filteredItemsArray)
+        collectionView.reloadData()
+    }
+
 
     func setCollectionView() {
         collectionView.delegate = self

@@ -40,6 +40,9 @@ class DetailMovieVC: UIViewController {
 
     @IBAction func favButtonTapped(_ sender: Any) {
         presenter?.saveMovieInFavorites()
+        NotificationCenter.default.post(name: Notification.Name("updateMoviesInList"),
+                                        object: nil,
+                                        userInfo: nil)
     }
 }
 

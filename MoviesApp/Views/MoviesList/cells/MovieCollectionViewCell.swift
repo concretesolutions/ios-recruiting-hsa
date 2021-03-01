@@ -22,6 +22,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     func setup(movie: Movie){
         titleLabel.text = movie.title
         bannerImageView.sd_setImage(with: movie.bannerURL)
+        favoriteButton.isSelected = movie.isFavorited
     }
 
     static let identifier = "MovieCollectionViewCell"

@@ -17,7 +17,7 @@ protocol MovieListPresenterProtocol: class {
 class MovieListPresenter {
 
     weak var dataSourcePresenterProtocol: MovieListPresenterProtocol?
-    var movieListHandler: MovieListHandler?
+    var movieListHandler: MovieListHandler!
 
     init(dataSource: MovieListPresenterProtocol) {
         dataSourcePresenterProtocol = dataSource
@@ -27,7 +27,11 @@ class MovieListPresenter {
 
     func getMovies(page: Int) {
         dataSourcePresenterProtocol?.startAnimating()
-        movieListHandler?.getMovies(page: page)
+        movieListHandler.getMovies(page: page)
+    }
+
+    func refreshingFavorites(movies: [Movie]) -> [Movie] {
+        return movieListHandler.checkFavoritesMovies(movies: movies)
     }
 
 }
