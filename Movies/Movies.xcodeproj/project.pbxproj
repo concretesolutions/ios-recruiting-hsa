@@ -3,14 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6F7C6A8525EFE6AC00287802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */; };
-		6F7C6A8725EFE6AC00287802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8625EFE6AC00287802 /* SceneDelegate.swift */; };
 		6F7C6A8925EFE6AC00287802 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8825EFE6AC00287802 /* ViewController.swift */; };
-		6F7C6A8C25EFE6AC00287802 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8A25EFE6AC00287802 /* Main.storyboard */; };
 		6F7C6A8E25EFE6AD00287802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8D25EFE6AD00287802 /* Assets.xcassets */; };
 		6F7C6A9125EFE6AD00287802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8F25EFE6AD00287802 /* LaunchScreen.storyboard */; };
 		815FF78B98C9CB069EF7593C /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14433469EBF86AEC17CCF5A6 /* Pods_Movies.framework */; };
@@ -22,9 +20,7 @@
 		3CA683FCF696483B39840243 /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
 		6F7C6A8125EFE6AC00287802 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F7C6A8625EFE6AC00287802 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6F7C6A8825EFE6AC00287802 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6F7C6A8B25EFE6AC00287802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F7C6A8D25EFE6AD00287802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F7C6A9025EFE6AD00287802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F7C6A9225EFE6AD00287802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +44,6 @@
 				15FB45A32754D81931D90329 /* Pods-Movies.debug.xcconfig */,
 				3CA683FCF696483B39840243 /* Pods-Movies.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -58,6 +53,24 @@
 				14433469EBF86AEC17CCF5A6 /* Pods_Movies.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F4BC49825EFEBAE00E06A87 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6F4BC4B825EFF3BE00E06A87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6F7C6A8D25EFE6AD00287802 /* Assets.xcassets */,
+				6F7C6A8F25EFE6AD00287802 /* LaunchScreen.storyboard */,
+				6F7C6A9225EFE6AD00287802 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		6F7C6A7825EFE6AC00287802 = {
@@ -81,13 +94,9 @@
 		6F7C6A8325EFE6AC00287802 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */,
-				6F7C6A8625EFE6AC00287802 /* SceneDelegate.swift */,
+				6F4BC4B825EFF3BE00E06A87 /* Resources */,
+				6F4BC49825EFEBAE00E06A87 /* App */,
 				6F7C6A8825EFE6AC00287802 /* ViewController.swift */,
-				6F7C6A8A25EFE6AC00287802 /* Main.storyboard */,
-				6F7C6A8D25EFE6AD00287802 /* Assets.xcassets */,
-				6F7C6A8F25EFE6AD00287802 /* LaunchScreen.storyboard */,
-				6F7C6A9225EFE6AD00287802 /* Info.plist */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -153,7 +162,6 @@
 			files = (
 				6F7C6A9125EFE6AD00287802 /* LaunchScreen.storyboard in Resources */,
 				6F7C6A8E25EFE6AD00287802 /* Assets.xcassets in Resources */,
-				6F7C6A8C25EFE6AC00287802 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,21 +216,12 @@
 			files = (
 				6F7C6A8925EFE6AC00287802 /* ViewController.swift in Sources */,
 				6F7C6A8525EFE6AC00287802 /* AppDelegate.swift in Sources */,
-				6F7C6A8725EFE6AC00287802 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6F7C6A8A25EFE6AC00287802 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6F7C6A8B25EFE6AC00287802 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6F7C6A8F25EFE6AD00287802 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -285,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -340,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -358,7 +357,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PAWHNJXG7;
-				INFOPLIST_FILE = Movies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Movies/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +378,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PAWHNJXG7;
-				INFOPLIST_FILE = Movies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Movies/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
