@@ -21,6 +21,8 @@
 		6F4BC50A25F0322C00E06A87 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC50925F0322C00E06A87 /* TabBarPage.swift */; };
 		6F4BC51D25F03A5C00E06A87 /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC51C25F03A5C00E06A87 /* MovieCoordinator.swift */; };
 		6F4BC53D25F040E700E06A87 /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC53C25F040E700E06A87 /* FavoriteCoordinator.swift */; };
+		6F4BC56C25F12B0600E06A87 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC56B25F12B0600E06A87 /* AppConfiguration.swift */; };
+		6F4BC57025F130B700E06A87 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC56F25F130B700E06A87 /* ApiEndpoints.swift */; };
 		6F7C6A8525EFE6AC00287802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */; };
 		6F7C6A8E25EFE6AD00287802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8D25EFE6AD00287802 /* Assets.xcassets */; };
 		6F7C6A9125EFE6AD00287802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C6A8F25EFE6AD00287802 /* LaunchScreen.storyboard */; };
@@ -45,6 +47,8 @@
 		6F4BC50925F0322C00E06A87 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		6F4BC51C25F03A5C00E06A87 /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
 		6F4BC53C25F040E700E06A87 /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
+		6F4BC56B25F12B0600E06A87 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		6F4BC56F25F130B700E06A87 /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 		6F7C6A8125EFE6AC00287802 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F7C6A8D25EFE6AD00287802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				6F7C6A8425EFE6AC00287802 /* AppDelegate.swift */,
+				6F4BC56B25F12B0600E06A87 /* AppConfiguration.swift */,
 				6F4BC4CD25EFF9A700E06A87 /* Coordinator */,
 			);
 			path = App;
@@ -207,6 +212,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6F4BC56E25F1309800E06A87 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6F4BC56F25F130B700E06A87 /* ApiEndpoints.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		6F7C6A7825EFE6AC00287802 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +245,7 @@
 				6F4BC49825EFEBAE00E06A87 /* App */,
 				6F4BC4CC25EFF7FC00E06A87 /* Presentation */,
 				6F4BC4B825EFF3BE00E06A87 /* Resources */,
+				6F4BC56E25F1309800E06A87 /* Network */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -359,9 +373,11 @@
 				6F4BC53D25F040E700E06A87 /* FavoriteCoordinator.swift in Sources */,
 				6F4BC50625F030B800E06A87 /* TabCoordinator.swift in Sources */,
 				6F4BC4DF25EFFD9800E06A87 /* MovieListController.swift in Sources */,
+				6F4BC56C25F12B0600E06A87 /* AppConfiguration.swift in Sources */,
 				6F4BC50125F027F500E06A87 /* MainTabBarController.swift in Sources */,
 				6F4BC50A25F0322C00E06A87 /* TabBarPage.swift in Sources */,
 				6F4BC4F725F0174700E06A87 /* MovieDetailController.swift in Sources */,
+				6F4BC57025F130B700E06A87 /* ApiEndpoints.swift in Sources */,
 				6F7C6A8525EFE6AC00287802 /* AppDelegate.swift in Sources */,
 				6F4BC4EF25F0131900E06A87 /* FavoritesController.swift in Sources */,
 			);
@@ -501,10 +517,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15FB45A32754D81931D90329 /* Pods-Movies.debug.xcconfig */;
 			buildSettings = {
+				API_BASE_URL = "http://api.themoviedb.org";
+				API_KEY = 7d4ea21dd2ab4bad670a9e826b37025b;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PAWHNJXG7;
+				IMAGE_BASE_URL = "http://image.tmdb.org";
 				INFOPLIST_FILE = "$(SRCROOT)/Movies/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,10 +541,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3CA683FCF696483B39840243 /* Pods-Movies.release.xcconfig */;
 			buildSettings = {
+				API_BASE_URL = "http://api.themoviedb.org";
+				API_KEY = 7d4ea21dd2ab4bad670a9e826b37025b;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PAWHNJXG7;
+				IMAGE_BASE_URL = "http://image.tmdb.org";
 				INFOPLIST_FILE = "$(SRCROOT)/Movies/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
