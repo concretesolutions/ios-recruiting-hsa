@@ -140,8 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				6F4BC51C25F03A5C00E06A87 /* MovieCoordinator.swift */,
-				6F4BC4DD25EFFD9800E06A87 /* MovieListController.swift */,
-				6F4BC4DE25EFFD9800E06A87 /* MovieListController.xib */,
+				6F4BC54025F11F4400E06A87 /* View */,
 			);
 			path = MoviesList;
 			sourceTree = "<group>";
@@ -150,8 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				6F4BC53C25F040E700E06A87 /* FavoriteCoordinator.swift */,
-				6F4BC4ED25F0131900E06A87 /* FavoritesController.swift */,
-				6F4BC4EE25F0131900E06A87 /* FavoritesController.xib */,
+				6F4BC54125F11F5000E06A87 /* View */,
 			);
 			path = FavoritesList;
 			sourceTree = "<group>";
@@ -159,8 +157,7 @@
 		6F4BC4F325F016FF00E06A87 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				6F4BC4F525F0174700E06A87 /* MovieDetailController.swift */,
-				6F4BC4F625F0174700E06A87 /* MovieDetailController.xib */,
+				6F4BC54225F11F6200E06A87 /* View */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -181,6 +178,33 @@
 				6F4BC50525F030B800E06A87 /* TabCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6F4BC54025F11F4400E06A87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F4BC4DD25EFFD9800E06A87 /* MovieListController.swift */,
+				6F4BC4DE25EFFD9800E06A87 /* MovieListController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F4BC54125F11F5000E06A87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F4BC4ED25F0131900E06A87 /* FavoritesController.swift */,
+				6F4BC4EE25F0131900E06A87 /* FavoritesController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6F4BC54225F11F6200E06A87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F4BC4F525F0174700E06A87 /* MovieDetailController.swift */,
+				6F4BC4F625F0174700E06A87 /* MovieDetailController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6F7C6A7825EFE6AC00287802 = {
