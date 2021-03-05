@@ -22,6 +22,7 @@ class MovieListController: UIViewController {
 
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var lblMessage: UILabel!
 
     var coordinator: MovieCoordinator?
     var presenter: MovieListPresenter!
@@ -42,6 +43,7 @@ class MovieListController: UIViewController {
         return refreshControl
     }()
 
+    // MARK: Lyfecylce
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,6 +59,14 @@ class MovieListController: UIViewController {
 
         collection.reloadData()
 
+    }
+
+    // MARK: Functions
+
+    func checkData() {
+        collection.isHidden = searching ? filterItems.isEmpty : items.isEmpty
+        lblMessage.isHidden = searching ? !filterItems.isEmpty : !items.isEmpty
+        lblMessage.text = searching ? NSLocalizedString("NoResult", comment: "") : NSLocalizedString("ErrorService", comment: "")
     }
 
     func setCollection() {
@@ -75,18 +85,24 @@ class MovieListController: UIViewController {
 
     }
 
-    func update(with movie: Movie) {
-        guard let selectedMovie = dataSource.selected else { return }
-        items[selectedMovie] = movie
-        self.collection.reloadData()
+    func searchBy(with txt: String) -> [Movie]? {
+        let textoABuscar = txt.folding(options: .diacriticInsensitive, locale: .current)
+            .lowercased()
+        let filtrado = items
+            .filter {
+                ($0.title?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+                    .localizedCaseInsensitiveContains(textoABuscar))!
+            }
+
+        return filtrado
     }
+
     
 }
 
 extension MovieListController: MovieListView {
     func showError() {
-        collection.isHidden = true
-
+        lblMessage.text = NSLocalizedString("ErrorService", comment: "")
     }
 
     func showMovies(movies: [Movie]?) {
@@ -117,4 +133,56 @@ extension MovieListController {
     @objc func handleRefresh(_: UIRefreshControl) {
         collection.reloadData()
     }
+}
+
+// MARK: UISearchBarDelegate
+extension MovieListController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let str = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if !str.isEmpty {
+            let temp = searchBy(with: str)
+            searching = true
+            filterItems = temp!
+            collection.reloadData()
+
+        } else {
+            searching = false
+            collection.reloadData()
+            searchBar.resignFirstResponder()
+        }
+
+
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let str = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+            if str.count > 0 {
+                if let temp = searchBy(with: str) {
+                    searching = true
+                    filterItems = temp
+                } else {
+                    searching = false
+
+                }
+                collection.reloadData()
+            }
+        }
+        searchBar.resignFirstResponder()
+    }
+
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+
+        collection.reloadData()
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
+
 }

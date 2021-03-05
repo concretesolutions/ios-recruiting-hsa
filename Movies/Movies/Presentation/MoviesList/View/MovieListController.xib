@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListController" customModule="Movies" customModuleProvider="target">
             <connections>
                 <outlet property="collection" destination="qp0-Sj-RAC" id="Ezj-2S-Z8K"/>
+                <outlet property="lblMessage" destination="nsl-vT-b39" id="Mdd-U4-Ckk"/>
+                <outlet property="search" destination="QfP-ls-Fqp" id="gv4-IT-JcE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qp0-Sj-RAC">
-                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <rect key="frame" x="0.0" y="129.5" width="414" height="732.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mbY-Oc-Eog">
                         <size key="itemSize" width="200" height="200"/>
@@ -28,23 +30,41 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ls-Fqp">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Buscar peliculas" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ls-Fqp">
+                    <rect key="frame" x="0.0" y="85.5" width="414" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="IOh-1V-Uig"/>
+                        <constraint firstAttribute="height" constant="44" id="Dfr-Cc-ahJ"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peliculas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p96-LA-awj">
+                    <rect key="frame" x="160" y="51" width="94.5" height="26.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                    <color key="textColor" red="0.1764705882" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No se han encontrado peliculas." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-vT-b39">
+                    <rect key="frame" x="44.5" y="412" width="325" height="72"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                    <color key="textColor" red="0.1764705882" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="QfP-ls-Fqp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MLs-at-RA5"/>
-                <constraint firstItem="QfP-ls-Fqp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="Mha-Pv-oFT"/>
-                <constraint firstItem="QfP-ls-Fqp" firstAttribute="trailing" secondItem="qp0-Sj-RAC" secondAttribute="trailing" id="OPV-7K-b0k"/>
-                <constraint firstItem="QfP-ls-Fqp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RGo-5x-nK5"/>
-                <constraint firstItem="qp0-Sj-RAC" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="UwA-dt-LC5"/>
-                <constraint firstItem="QfP-ls-Fqp" firstAttribute="leading" secondItem="qp0-Sj-RAC" secondAttribute="leading" id="XF4-Df-bVe"/>
-                <constraint firstItem="qp0-Sj-RAC" firstAttribute="top" secondItem="QfP-ls-Fqp" secondAttribute="bottom" id="jkk-JD-Q1f"/>
+                <constraint firstItem="qp0-Sj-RAC" firstAttribute="top" secondItem="QfP-ls-Fqp" secondAttribute="bottom" id="ATB-fH-uv5"/>
+                <constraint firstItem="qp0-Sj-RAC" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="CcQ-qX-Tpn"/>
+                <constraint firstItem="p96-LA-awj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="F4k-Vc-leW"/>
+                <constraint firstItem="p96-LA-awj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ojb-9I-Kyz"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="top" secondItem="p96-LA-awj" secondAttribute="bottom" constant="8" id="Syn-7u-aKp"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="leading" secondItem="qp0-Sj-RAC" secondAttribute="leading" id="bgR-QE-6ko"/>
+                <constraint firstItem="nsl-vT-b39" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gJz-L0-vjz"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="trailing" secondItem="qp0-Sj-RAC" secondAttribute="trailing" id="h84-R2-cby"/>
+                <constraint firstItem="nsl-vT-b39" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="m3h-I7-Rem"/>
+                <constraint firstItem="p96-LA-awj" firstAttribute="centerX" secondItem="QfP-ls-Fqp" secondAttribute="centerX" id="nQs-6H-2h7"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wad-rV-ef9"/>
+                <constraint firstItem="nsl-vT-b39" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yF5-8n-Qag"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nsl-vT-b39" secondAttribute="trailing" constant="24" id="yue-p8-YFt"/>
             </constraints>
             <point key="canvasLocation" x="143.47826086956522" y="137.94642857142856"/>
         </view>
