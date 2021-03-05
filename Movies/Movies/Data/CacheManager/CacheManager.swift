@@ -64,4 +64,38 @@ class CacheManager {
             UserDefaults.standard.set(encoded, forKey: favoritesKey)
         }
     }
+
+
+    // MARK: Genres
+
+    func saveGenre(items: [Genre]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(items) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: genresKey)
+        }
+    }
+
+    func loadGenreCache() -> [Genre]? {
+        if let genre = UserDefaults.standard.object(forKey: genresKey) as? Data {
+            let decoder = JSONDecoder()
+            if let temp = try? decoder.decode([Genre].self, from: genre) {
+                return temp
+            }
+        }
+        return nil
+    }
+
+    func genreByID(id: [Int]) -> String {
+        var concatenate: String = ""
+        if let genresArray = loadGenreCache() {
+            for genre in id {
+                if let name = genresArray.first(where: {$0.id == genre})?.name {
+                    concatenate += "\(name), "
+                }
+            }
+        }
+
+        return concatenate
+    }
 }

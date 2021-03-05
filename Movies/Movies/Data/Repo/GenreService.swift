@@ -8,7 +8,7 @@ import Foundation
 import Alamofire
 
 class GenreServices: GenreInterface {
-    func fetchGenres(_ page: Int, _ completion: @escaping ([Genre]?) -> (), errorCompletion: @escaping () -> ()) {
+    func fetchGenres(_ completion: @escaping ([Genre]?) -> (), errorCompletion: @escaping () -> ()) {
         let path = API.genresPath()
         AF.request(path).responseJSON { response in
 

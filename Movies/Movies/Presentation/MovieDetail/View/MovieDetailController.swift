@@ -25,6 +25,7 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
 
     weak var coordinator: MainCoordinator?
     weak var home: MovieListRefresh?
+    var cache: CacheManager!
 
     var presenter: MovieDetailPresenter?
     var movie: Movie!
@@ -46,12 +47,13 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
     // MARK: Protocol
 
     func fill(_ movie: Movie) {
+        cache = CacheManager()
         self.movie = movie
         imgMovie.sd_setImage(with: movie.imgURL)
         navBar.title = movie.title
         lblTitle.text = movie.title
         lblRelease.text =  NSLocalizedString("Fecha", comment: "").replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
-        //        lblGenres.text = movie.genreIDS
+        lblGenres.text = cache.genreByID(id: movie.genreIDS)
         lblDesc.text = movie.overview
         setupFavorite()
     }
