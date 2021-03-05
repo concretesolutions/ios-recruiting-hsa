@@ -17,7 +17,7 @@ class API {
         return path
     }
 
-    static func genresPath(with page: Int) -> String {
+    static func genresPath() -> String {
         let appConfiguration = AppConfiguration()
         let base = appConfiguration.apiBaseURL
         let key = appConfiguration.apiKey

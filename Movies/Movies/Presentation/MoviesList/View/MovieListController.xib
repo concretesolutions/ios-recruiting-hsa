@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListController" customModule="Movies" customModuleProvider="target">
             <connections>
+                <outlet property="collection" destination="qp0-Sj-RAC" id="Ezj-2S-Z8K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,41 +18,35 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="Buscar" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-C3-pm4">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="o2U-PE-rHg"/>
-                    </constraints>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TBz-iH-3D4">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qp0-Sj-RAC">
                     <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6mf-A1-15q">
-                        <size key="itemSize" width="128" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mbY-Oc-Eog">
+                        <size key="itemSize" width="200" height="200"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ls-Fqp">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="IOh-1V-Uig"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="TBz-iH-3D4" firstAttribute="top" secondItem="5NQ-C3-pm4" secondAttribute="bottom" id="1fK-dv-wpX"/>
-                <constraint firstItem="TBz-iH-3D4" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="8YK-Sa-46S"/>
-                <constraint firstItem="5NQ-C3-pm4" firstAttribute="leading" secondItem="TBz-iH-3D4" secondAttribute="leading" id="AH2-G0-Hde"/>
-                <constraint firstItem="5NQ-C3-pm4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rfk-QA-gR6"/>
-                <constraint firstItem="5NQ-C3-pm4" firstAttribute="trailing" secondItem="TBz-iH-3D4" secondAttribute="trailing" id="URo-7Z-NbZ"/>
-                <constraint firstItem="5NQ-C3-pm4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rJV-Kg-iAt"/>
-                <constraint firstItem="5NQ-C3-pm4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="y6S-9U-SZf"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MLs-at-RA5"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="Mha-Pv-oFT"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="trailing" secondItem="qp0-Sj-RAC" secondAttribute="trailing" id="OPV-7K-b0k"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RGo-5x-nK5"/>
+                <constraint firstItem="qp0-Sj-RAC" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="UwA-dt-LC5"/>
+                <constraint firstItem="QfP-ls-Fqp" firstAttribute="leading" secondItem="qp0-Sj-RAC" secondAttribute="leading" id="XF4-Df-bVe"/>
+                <constraint firstItem="qp0-Sj-RAC" firstAttribute="top" secondItem="QfP-ls-Fqp" secondAttribute="bottom" id="jkk-JD-Q1f"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+            <point key="canvasLocation" x="143.47826086956522" y="137.94642857142856"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

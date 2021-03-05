@@ -17,10 +17,27 @@ class MovieCoordinator: Coordinator {
     }
 
     func start() {
-        let moviewVC = MovieListController()
-        moviewVC.coordinator = self
-        navigationController.pushViewController(moviewVC, animated: false)
+        showMovieScene()
     }
 
+}
 
+extension MovieCoordinator {
+
+    func showMovieScene() {
+        let movieScene = MoviesFactory.makeMovieScene(delegate: self, coordinator: self)
+        navigationController.pushViewController(movieScene, animated: false)
+    }
+
+    func showMovieDetail(with movie: Movie) {
+        let detail = MoviesFactory.makeDetailScene(movie)
+        navigationController.present(detail, animated: true, completion: nil)
+    }
+
+}
+
+extension MovieCoordinator: MovieListProtocol {
+    func didSelect(_ movie: Movie) {
+        showMovieDetail(with: movie)
+    }
 }

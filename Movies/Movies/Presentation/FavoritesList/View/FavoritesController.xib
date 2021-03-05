@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesController" customModule="Movies" customModuleProvider="target">
             <connections>
+                <outlet property="search" destination="AJm-zw-GaV" id="En7-3Q-GjP"/>
+                <outlet property="table" destination="Sy7-qp-9hh" id="h1o-8u-CEC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,17 +20,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dzE-u3-2Zm">
-                    <rect key="frame" x="197" y="438" width="20" height="20"/>
-                </activityIndicatorView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AJm-zw-GaV">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="rpZ-Pi-k7g"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sy7-qp-9hh">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="8cc-mD-rEh"/>
+                        <outlet property="delegate" destination="-1" id="C1N-94-uNi"/>
+                    </connections>
+                </tableView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="dzE-u3-2Zm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ChA-ii-iLE"/>
-                <constraint firstItem="dzE-u3-2Zm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Rqx-FB-LVN"/>
+                <constraint firstItem="AJm-zw-GaV" firstAttribute="trailing" secondItem="Sy7-qp-9hh" secondAttribute="trailing" id="Aeo-Mn-2V0"/>
+                <constraint firstItem="AJm-zw-GaV" firstAttribute="leading" secondItem="Sy7-qp-9hh" secondAttribute="leading" id="B4f-3F-SkF"/>
+                <constraint firstItem="AJm-zw-GaV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bDM-46-WxJ"/>
+                <constraint firstItem="Sy7-qp-9hh" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="bo8-0R-KJd"/>
+                <constraint firstItem="AJm-zw-GaV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="j9F-sE-wBb"/>
+                <constraint firstItem="AJm-zw-GaV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t9X-RG-NGn"/>
+                <constraint firstItem="Sy7-qp-9hh" firstAttribute="top" secondItem="AJm-zw-GaV" secondAttribute="bottom" id="z19-Em-qJD"/>
             </constraints>
-            <point key="canvasLocation" x="86" y="96"/>
+            <point key="canvasLocation" x="85.507246376811594" y="95.758928571428569"/>
         </view>
     </objects>
     <resources>

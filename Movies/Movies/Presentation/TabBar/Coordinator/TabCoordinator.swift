@@ -27,7 +27,6 @@ class TabCoordinator: NSObject, Coordinator {
 
     func start() {
         let pages: [TabBarPage] = [.movies, .favorites]
-
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
 
         prepareTabBarController(withTabControllers: controllers)

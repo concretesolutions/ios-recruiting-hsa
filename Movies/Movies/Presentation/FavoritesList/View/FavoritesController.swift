@@ -7,14 +7,25 @@
 
 import UIKit
 
-class FavoritesController: UIViewController {
+class FavoritesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var search: UISearchBar!
+    @IBOutlet weak var table: UITableView!
+    
     weak var coordinator: MainCoordinator?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 
 }
