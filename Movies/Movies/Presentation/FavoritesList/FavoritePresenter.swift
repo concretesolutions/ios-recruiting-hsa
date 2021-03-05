@@ -10,6 +10,8 @@ import Foundation
 class FavoritePresenter {
 
     weak var favoriteController: FavoriteProtocol!
+    weak var delegate: MovieListRefresh?
+
     let favoriteMng: FavoriteManager!
 
     init(favoriteController: FavoriteProtocol) {
@@ -25,6 +27,20 @@ class FavoritePresenter {
     func deleteFavorite(movie: Movie) {
         movie.isFavorite = false
         favoriteMng.delete(by: movie.id)
+    }
+
+    func searchBy(with txt: String) -> [Movie]? {
+        guard let movies = favoriteMng.getFavorites() else { return nil }
+
+        let textoABuscar = txt.folding(options: .diacriticInsensitive, locale: .current)
+            .lowercased()
+        let filtrado = movies
+            .filter {
+                ($0.title?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+                    .localizedCaseInsensitiveContains(textoABuscar))!
+            }
+
+        return filtrado
     }
 
 }

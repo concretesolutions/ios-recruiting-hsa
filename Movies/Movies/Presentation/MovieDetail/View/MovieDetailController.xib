@@ -48,15 +48,18 @@
                                             </barButtonItem>
                                             <barButtonItem key="rightBarButtonItem" image="favorite_empty_icon" id="aTQ-vC-aj3">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="setFavorite:" destination="-1" id="nMs-kO-eNf"/>
+                                                </connections>
                                             </barButtonItem>
                                         </navigationItem>
                                     </items>
                                 </navigationBar>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e53-JS-o2w" userLabel="imgMovie">
-                                    <rect key="frame" x="0.0" y="46" width="414" height="269"/>
+                                    <rect key="frame" x="0.0" y="46" width="414" height="224"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lyG-eg-dhj">
-                                    <rect key="frame" x="8" y="323" width="398" height="104"/>
+                                    <rect key="frame" x="8" y="278" width="398" height="104"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{title}" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGp-dW-0Lk">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="20"/>
@@ -126,7 +129,7 @@
                 <constraint firstItem="XKk-Vs-nyw" firstAttribute="trailing" secondItem="KMG-ef-xdN" secondAttribute="trailing" id="MTD-Cr-kbm"/>
                 <constraint firstItem="KMG-ef-xdN" firstAttribute="top" secondItem="XKk-Vs-nyw" secondAttribute="top" id="Psa-LN-55h"/>
                 <constraint firstItem="XKk-Vs-nyw" firstAttribute="bottom" secondItem="KMG-ef-xdN" secondAttribute="bottom" id="Rs9-is-IB8"/>
-                <constraint firstItem="e53-JS-o2w" firstAttribute="height" secondItem="96g-Bk-jvg" secondAttribute="height" multiplier="0.3" id="lt3-Qq-kT1"/>
+                <constraint firstItem="e53-JS-o2w" firstAttribute="height" secondItem="96g-Bk-jvg" secondAttribute="height" multiplier="0.25" id="lt3-Qq-kT1"/>
                 <constraint firstItem="KMG-ef-xdN" firstAttribute="leading" secondItem="XKk-Vs-nyw" secondAttribute="leading" id="t4z-Mp-xuj"/>
             </constraints>
             <point key="canvasLocation" x="-223.18840579710147" y="103.79464285714285"/>

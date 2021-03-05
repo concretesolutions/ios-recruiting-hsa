@@ -18,16 +18,19 @@ struct MoviesFactory {
         return viewController
     }
 
-    static func makeDetailScene(_ movie: Movie) -> MovieDetailController {
+    static func makeDetailScene(_ movie: Movie, home: MovieListRefresh) -> MovieDetailController {
         let viewController = MovieDetailController()
+        viewController.home = home
         viewController.presenter = MovieDetailPresenter(movie: movie, movieDetail: viewController)
         viewController.modalPresentationStyle = .fullScreen
 
         return viewController
     }
 
-    static func makeFavoriteScene() -> FavoritesController {
+    static func makeFavoriteScene(delegate: MovieCoordinator) -> FavoritesController {
+        
         let viewController = FavoritesController()
+        viewController.coordinator = delegate
         viewController.presenter = FavoritePresenter(favoriteController: viewController)
         viewController.modalPresentationStyle = .fullScreen
 

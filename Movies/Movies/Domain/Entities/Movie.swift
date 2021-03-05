@@ -8,7 +8,6 @@
 import Foundation
 
 class Movie: Identifiable, Codable {
-
     typealias Identifier = String
 
     let id: Identifier
@@ -25,7 +24,7 @@ class Movie: Identifiable, Codable {
         return nil
     }
     
-    init(id: Movie.Identifier, title: String?, genreIDS: [Int], posterPath: String?, overview: String?, releaseDate: Date?, isFavorite: Bool = false) {
+    internal init(id: Movie.Identifier, title: String?, genreIDS: [Int], posterPath: String?, overview: String?, releaseDate: Date?, isFavorite: Bool = false) {
         self.id = id
         self.title = title
         self.genreIDS = genreIDS

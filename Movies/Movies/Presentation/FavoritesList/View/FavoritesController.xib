@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesController" customModule="Movies" customModuleProvider="target">
             <connections>
+                <outlet property="lblMessage" destination="yYG-CV-kls" id="JvY-cr-sem"/>
                 <outlet property="search" destination="AJm-zw-GaV" id="En7-3Q-GjP"/>
                 <outlet property="table" destination="Sy7-qp-9hh" id="h1o-8u-CEC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,26 +21,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AJm-zw-GaV">
+                <searchBar contentMode="redraw" placeholder="Buscar pelicula favorita" translatesAutoresizingMaskIntoConstraints="NO" id="AJm-zw-GaV">
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="rpZ-Pi-k7g"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="PtU-3Y-Mu2"/>
+                    </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sy7-qp-9hh">
                     <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="8cc-mD-rEh"/>
-                        <outlet property="delegate" destination="-1" id="C1N-94-uNi"/>
-                    </connections>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYG-CV-kls">
+                    <rect key="frame" x="167" y="427.5" width="80" height="41"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="AJm-zw-GaV" firstAttribute="trailing" secondItem="Sy7-qp-9hh" secondAttribute="trailing" id="Aeo-Mn-2V0"/>
                 <constraint firstItem="AJm-zw-GaV" firstAttribute="leading" secondItem="Sy7-qp-9hh" secondAttribute="leading" id="B4f-3F-SkF"/>
+                <constraint firstItem="yYG-CV-kls" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="K89-wr-kdx"/>
+                <constraint firstItem="yYG-CV-kls" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PBc-ID-Uqr"/>
                 <constraint firstItem="AJm-zw-GaV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bDM-46-WxJ"/>
                 <constraint firstItem="Sy7-qp-9hh" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="bo8-0R-KJd"/>
                 <constraint firstItem="AJm-zw-GaV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="j9F-sE-wBb"/>

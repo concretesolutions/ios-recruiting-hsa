@@ -27,8 +27,10 @@ class MovieListController: UIViewController {
     var presenter: MovieListPresenter!
     var dataSource: CollectionDelegateData!
 
-    let items: Observable<[Movie]> = Observable([])
-
+    var searching: Bool = false
+    var items: [Movie] = []
+    var filterItems: [Movie] = []
+    
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(
@@ -44,12 +46,22 @@ class MovieListController: UIViewController {
         super.viewDidLoad()
 
         setCollection()
-        items.observe(on: self) { [weak self] _ in self?.refresh() }
         presenter?.getMovies(with: dataSource.currentPage)
     }
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        guard let presenter = presenter else { return }
+        items = presenter.validFavorites(movies: items)
+        filterItems = presenter.validFavorites(movies: items)
+
+        collection.reloadData()
+
+    }
+
     func setCollection() {
-        dataSource = CollectionDelegateData(withDelegate: self, items.value)
+        dataSource = CollectionDelegateData(withDelegate: self, items)
+
         collection.delegate = dataSource
         collection.dataSource = dataSource
         collection.refreshControl = refreshControl
@@ -63,7 +75,12 @@ class MovieListController: UIViewController {
 
     }
 
-
+    func update(with movie: Movie) {
+        guard let selectedMovie = dataSource.selected else { return }
+        items[selectedMovie] = movie
+        self.collection.reloadData()
+    }
+    
 }
 
 extension MovieListController: MovieListView {
@@ -73,10 +90,10 @@ extension MovieListController: MovieListView {
     }
 
     func showMovies(movies: [Movie]?) {
-        if dataSource.currentPage == 1 { self.items.value = movies! }
-        else { self.items.value += movies! }
+        if dataSource.currentPage == 1 { self.items = movies! }
+        else { self.items += movies! }
 
-        dataSource.movies = items.value
+        dataSource.movies = items
         self.collection.reloadData()
     }
 
@@ -85,7 +102,7 @@ extension MovieListController: MovieListView {
     }
 
     func showDetailMovie(movie: Movie) {
-        coordinator?.showMovieDetail(with: movie)
+        coordinator?.showMovieDetail(with: movie, delegate: self)
     }
 }
 

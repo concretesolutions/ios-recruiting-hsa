@@ -52,17 +52,16 @@ class TabCoordinator: NSObject, Coordinator {
                                                      image: page.icon(),
                                                      tag: page.order())
 
+        let movieCoordinator = MovieCoordinator(navigationController: navController)
         switch page {
         case .movies:
-            let movieCoordinator = MovieCoordinator(navigationController: navController)
-            childCoordinators.append(movieCoordinator)
             movieCoordinator.start()
 
         case .favorites:
-            let favoritesCoordinator = FavoriteCoordinator(navigationController: navController)
-            childCoordinators.append(favoritesCoordinator)
-            favoritesCoordinator.start()
+            movieCoordinator.showFavorites()
         }
+
+        childCoordinators.append(movieCoordinator)
 
         return navController
     }

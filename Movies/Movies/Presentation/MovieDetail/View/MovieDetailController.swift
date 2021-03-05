@@ -24,6 +24,8 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
     @IBOutlet weak var lblDesc: UILabel!
 
     weak var coordinator: MainCoordinator?
+    weak var home: MovieListRefresh?
+
     var presenter: MovieDetailPresenter?
     var movie: Movie!
 
@@ -58,11 +60,17 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
         setupFavorite()
     }
 
-
     // MARK: Actions
 
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
+    @IBAction func setFavorite(_ sender: Any) {
+        if !movie.isFavorite {
+            home?.refresh()
+            presenter?.saveFavorite()
+
+        }
+    }
 }

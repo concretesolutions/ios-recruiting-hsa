@@ -29,15 +29,30 @@ extension MovieCoordinator {
         navigationController.pushViewController(movieScene, animated: false)
     }
 
-    func showMovieDetail(with movie: Movie) {
-        let detail = MoviesFactory.makeDetailScene(movie)
+    func showMovieDetail(with movie: Movie, delegate: MovieListRefresh) {
+        let detail = MoviesFactory.makeDetailScene(movie, home: delegate)
         navigationController.present(detail, animated: true, completion: nil)
+    }
+
+    func showFavorites() {
+        let favoriteScene = MoviesFactory.makeFavoriteScene(delegate: self)
+        navigationController.pushViewController(favoriteScene, animated: true)
+    }
+
+    func update(movie: Movie) {
+
+        guard let vc = navigationController.viewControllers.first
+                as? MovieListController else {
+                return
+        }
+
+
     }
 
 }
 
 extension MovieCoordinator: MovieListProtocol {
-    func didSelect(_ movie: Movie) {
-        showMovieDetail(with: movie)
+    func didSelect(_ movie: Movie, _ delegate: MovieListRefresh) {
+        showMovieDetail(with: movie, delegate: delegate)
     }
 }

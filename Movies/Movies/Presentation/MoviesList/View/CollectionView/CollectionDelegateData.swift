@@ -12,6 +12,7 @@ class CollectionDelegateData: NSObject, UICollectionViewDelegate, UICollectionVi
     weak var delegate: MovieListView?
     var movies: [Movie]
     var currentPage: Int = 1
+    var selected: Int? = nil
 
     init(withDelegate delegate: MovieListView, _ movies: [Movie]) {
         self.delegate = delegate
@@ -53,13 +54,8 @@ class CollectionDelegateData: NSObject, UICollectionViewDelegate, UICollectionVi
 
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selected = indexPath.row
         self.delegate?.showDetailMovie(movie: movies[indexPath.row])
     }
-
-    func updateData(_ movies: [Movie]) {
-        self.movies = movies
-    }
-
-
 
 }

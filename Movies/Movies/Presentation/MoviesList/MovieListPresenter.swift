@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieListProtocol: class {
-    func didSelect(_ movie: Movie)
+    func didSelect(_ movie: Movie, _ delegate: MovieListRefresh)
 }
 
 class MovieListPresenter {
@@ -17,7 +17,6 @@ class MovieListPresenter {
     let service: MoviesService
     var favoriteMng: FavoriteManager!
     weak var delegate: MovieListProtocol?
-
 
     init(service: MoviesService, view: MovieListView, delegate: MovieListProtocol?) {
         self.service = service
@@ -48,7 +47,5 @@ class MovieListPresenter {
 
         return movies
     }
-
-
 
 }
