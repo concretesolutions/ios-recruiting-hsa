@@ -26,17 +26,20 @@ class FavoritesController: UIViewController, FavoriteProtocol {
     var presenter: FavoritePresenter?
     var searching: Bool = false
     var currentMovie: Movie!
-    
+
+    //MARK: Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTable()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
         presenter?.load()
     }
+
+
+    // MARK: Properties
 
     func setupTable() {
         table.delegate = self
@@ -106,6 +109,8 @@ extension FavoritesController: UITableViewDelegate {
     }
 }
 
+// MARK: UISearchBarDelegate
+
 extension FavoritesController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let str = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -117,7 +122,9 @@ extension FavoritesController: UISearchBarDelegate {
             table.reloadData()
 
         } else {
-
+            searching = false
+            table.reloadData()
+            searchBar.resignFirstResponder()
         }
 
 
@@ -131,13 +138,26 @@ extension FavoritesController: UISearchBarDelegate {
                     filteredItems = temp
                 } else {
                     searching = false
+
                 }
                 table.reloadData()
-
             }
         }
         searchBar.resignFirstResponder()
     }
 
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+
+        table.reloadData()
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
+    }
 
 }
