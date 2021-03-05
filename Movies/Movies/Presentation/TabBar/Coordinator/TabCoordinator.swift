@@ -28,8 +28,13 @@ class TabCoordinator: NSObject, Coordinator {
     func start() {
         let pages: [TabBarPage] = [.movies, .favorites]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
-
+        setupAppearance()
         prepareTabBarController(withTabControllers: controllers)
+    }
+
+    func setupAppearance() {
+        UITabBar.appearance().tintColor = .systemYellow
+        UITabBar.appearance().unselectedItemTintColor = .darkGray
     }
 
     deinit {
@@ -46,8 +51,7 @@ class TabCoordinator: NSObject, Coordinator {
 
     private func getTabController(_ page: TabBarPage) -> UINavigationController {
         let navController = UINavigationController()
-        navController.setNavigationBarHidden(false, animated: false)
-
+        navController.setNavigationBarHidden(true, animated: false)
         navController.tabBarItem = UITabBarItem.init(title: page.title(),
                                                      image: page.icon(),
                                                      tag: page.order())
