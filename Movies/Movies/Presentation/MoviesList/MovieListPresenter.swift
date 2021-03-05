@@ -26,12 +26,15 @@ class MovieListPresenter {
     }
 
     func getMovies(with page: Int) {
+        self.view.loading()
         service.fetchMovies(page, { response in
 
             let movies = self.validFavorites(movies: response)
             self.view.showMovies(movies: movies)
+            self.view.finish()
 
         }, errorCompletion: {
+            self.view.finish()
             self.view.showError()
         })
     }

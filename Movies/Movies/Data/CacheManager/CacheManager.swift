@@ -87,15 +87,15 @@ class CacheManager {
     }
 
     func genreByID(id: [Int]) -> String {
-        var concatenate: String = ""
+        var genresString: [String] = []
         if let genresArray = loadGenreCache() {
             for genre in id {
                 if let name = genresArray.first(where: {$0.id == genre})?.name {
-                    concatenate += "\(name), "
+                    genresString.append(name)
                 }
             }
         }
 
-        return concatenate
+        return genresString.joined(separator: ", ")
     }
 }

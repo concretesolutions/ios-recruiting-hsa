@@ -13,8 +13,10 @@ protocol MovieListRefresh: class {
 
 protocol MovieListView: class {
     func showMovies(movies: [Movie]?)
-    func loadMore(page: Int)
     func showDetailMovie(movie: Movie)
+    func loadMore(page: Int)
+    func loading()
+    func finish()
     func validMessage()
     func showError()
 }
@@ -102,6 +104,14 @@ class MovieListController: UIViewController {
 }
 
 extension MovieListController: MovieListView {
+    func loading() {
+        collection.refreshControl?.beginRefreshing()
+    }
+
+    func finish() {
+        collection.refreshControl?.endRefreshing()
+    }
+
     func validMessage() {
         checkData()
     }
@@ -111,6 +121,7 @@ extension MovieListController: MovieListView {
     }
 
     func showMovies(movies: [Movie]?) {
+        collection.refreshControl?.endRefreshing()
         if dataSource.currentPage == 1 { self.items = movies! }
         else { self.items += movies! }
 
@@ -136,7 +147,11 @@ extension MovieListController: MovieListRefresh {
 // MARK: - extension - handleRefresh
 extension MovieListController {
     @objc func handleRefresh(_: UIRefreshControl) {
-        collection.reloadData()
+
+        dataSource.currentPage = 1
+        search.text = nil
+        searching = false
+        presenter?.getMovies(with: dataSource.currentPage)
     }
 }
 

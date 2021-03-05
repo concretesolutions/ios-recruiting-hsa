@@ -21,8 +21,9 @@ class MainCoordinator: MainCoordinatorProtocol {
 
     func start() {
         navigationController.setNavigationBarHidden(true, animated: false)
-    
+
         showMainFlow()
+        fetchGenres()
     }
 
     func showMainFlow() {
@@ -30,6 +31,20 @@ class MainCoordinator: MainCoordinatorProtocol {
         let tabCoordinator = TabCoordinator.init(navigationController)
         tabCoordinator.start()
         childCoordinators.append(tabCoordinator)
+    }
+
+    func fetchGenres() {
+
+        let service = GenreServices()
+        let cache = CacheManager()
+        service.fetchGenres({ response in
+
+            guard let temp = response else { return }
+            cache.saveGenre(items: temp)
+
+        }, errorCompletion: {})
+
+
     }
 
 
