@@ -19,7 +19,7 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var btnFavorite: UIBarButtonItem!
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblYear: UILabel!
+    @IBOutlet weak var lblRelease: UILabel!
     @IBOutlet weak var lblGenres: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
 
@@ -50,6 +50,7 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
         imgMovie.sd_setImage(with: movie.imgURL)
         navBar.title = movie.title
         lblTitle.text = movie.title
+        lblRelease.text =  NSLocalizedString("Fecha", comment: "").replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
         //        lblGenres.text = movie.genreIDS
         lblDesc.text = movie.overview
         setupFavorite()
@@ -59,6 +60,7 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
         movie.isFavorite = true
         setupFavorite()
     }
+
 
     // MARK: Actions
 
