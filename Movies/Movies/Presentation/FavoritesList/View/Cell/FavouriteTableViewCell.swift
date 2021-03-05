@@ -19,15 +19,11 @@ class FavouriteTableViewCell: UITableViewCell {
     @IBOutlet weak var lblRelease: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func fill(with movie: Movie) {
 
         lblTitle.text = movie.title
-        lblRelease.text = movie.title
+        lblRelease.text = NSLocalizedString("Fecha", comment: "").replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
         lblDesc.text = movie.overview
         imgMovie.sd_setImage(with: movie.imgURL)
 
