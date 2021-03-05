@@ -11,7 +11,7 @@
             <connections>
                 <outlet property="collection" destination="qp0-Sj-RAC" id="Ezj-2S-Z8K"/>
                 <outlet property="lblMessage" destination="nsl-vT-b39" id="Mdd-U4-Ckk"/>
-                <outlet property="search" destination="QfP-ls-Fqp" id="gv4-IT-JcE"/>
+                <outlet property="search" destination="QfP-ls-Fqp" id="pd1-LZ-2tT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,6 +36,9 @@
                         <constraint firstAttribute="height" constant="44" id="Dfr-Cc-ahJ"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="cGM-F0-0UA"/>
+                    </connections>
                 </searchBar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peliculas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p96-LA-awj">
                     <rect key="frame" x="160" y="51" width="94.5" height="26.5"/>

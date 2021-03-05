@@ -15,6 +15,7 @@ protocol MovieListView: class {
     func showMovies(movies: [Movie]?)
     func loadMore(page: Int)
     func showDetailMovie(movie: Movie)
+    func validMessage()
     func showError()
 }
 
@@ -101,6 +102,10 @@ class MovieListController: UIViewController {
 }
 
 extension MovieListController: MovieListView {
+    func validMessage() {
+        checkData()
+    }
+
     func showError() {
         lblMessage.text = NSLocalizedString("ErrorService", comment: "")
     }
@@ -144,10 +149,13 @@ extension MovieListController: UISearchBarDelegate {
             let temp = searchBy(with: str)
             searching = true
             filterItems = temp!
+            dataSource.movies = filterItems
             collection.reloadData()
+            
 
         } else {
             searching = false
+            dataSource.movies = items
             collection.reloadData()
             searchBar.resignFirstResponder()
         }
@@ -161,9 +169,10 @@ extension MovieListController: UISearchBarDelegate {
                 if let temp = searchBy(with: str) {
                     searching = true
                     filterItems = temp
+                    dataSource.movies = filterItems
                 } else {
                     searching = false
-
+                    dataSource.movies = items
                 }
                 collection.reloadData()
             }
@@ -175,7 +184,7 @@ extension MovieListController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
-
+        dataSource.movies = items
         collection.reloadData()
         searchBar.resignFirstResponder()
     }
