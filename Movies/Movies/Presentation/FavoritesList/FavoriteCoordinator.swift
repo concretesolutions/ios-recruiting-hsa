@@ -17,8 +17,8 @@ class FavoriteCoordinator: Coordinator {
     }
 
     func start() {
-        let favoritesVC = FavoritesController()
-        navigationController.pushViewController(favoritesVC, animated: true)
+        let favoriteScene = MoviesFactory.makeFavoriteScene()
+        navigationController.pushViewController(favoriteScene, animated: true)
     }
 
 

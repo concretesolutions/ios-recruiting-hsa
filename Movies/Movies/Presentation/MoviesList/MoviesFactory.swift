@@ -25,4 +25,12 @@ struct MoviesFactory {
 
         return viewController
     }
+
+    static func makeFavoriteScene() -> FavoritesController {
+        let viewController = FavoritesController()
+        viewController.presenter = FavoritePresenter(favoriteController: viewController)
+        viewController.modalPresentationStyle = .fullScreen
+
+        return viewController
+    }
 }
