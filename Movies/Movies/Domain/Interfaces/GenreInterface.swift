@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GenreInterface {
-    func fetchGenres(_ page: Int, _ completion: @escaping ([Movie]) -> (), errorCompletion: @escaping () -> ())
+    func fetchGenres(_ page: Int, _ completion: @escaping ([Genre]?) -> (), errorCompletion: @escaping () -> ())
 }

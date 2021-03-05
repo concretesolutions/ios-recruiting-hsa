@@ -12,11 +12,11 @@ class FavoritePresenter {
     weak var favoriteController: FavoriteProtocol!
     weak var delegate: MovieListRefresh?
 
-    let favoriteMng: FavoriteManager!
+    let favoriteMng: CacheManager!
 
     init(favoriteController: FavoriteProtocol) {
         self.favoriteController = favoriteController
-        self.favoriteMng = FavoriteManager()
+        self.favoriteMng = CacheManager()
     }
 
     func load() {

@@ -11,12 +11,12 @@ class MovieDetailPresenter {
 
     weak var movieDetailController: MovieDetailProtocol!
     let movie: Movie
-    let favoriteMng: FavoriteManager!
+    let favoriteMng: CacheManager!
 
     init(movie: Movie, movieDetail: MovieDetailProtocol) {
         self.movie = movie
         self.movieDetailController = movieDetail
-        self.favoriteMng = FavoriteManager()
+        self.favoriteMng = CacheManager()
     }
 
     func load() {

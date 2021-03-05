@@ -34,7 +34,7 @@
 		6FD3AE2825F1622600E7F476 /* CollectionDelegateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AE2725F1622600E7F476 /* CollectionDelegateData.swift */; };
 		6FD3AE5925F18FBD00E7F476 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AE5725F18FBD00E7F476 /* MovieCollectionViewCell.swift */; };
 		6FD3AE5A25F18FBD00E7F476 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD3AE5825F18FBD00E7F476 /* MovieCollectionViewCell.xib */; };
-		6FD3AECB25F1C4A900E7F476 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AECA25F1C4A900E7F476 /* FavoriteManager.swift */; };
+		6FD3AECB25F1C4A900E7F476 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AECA25F1C4A900E7F476 /* CacheManager.swift */; };
 		6FD3AF1425F1CD4F00E7F476 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AF1325F1CD4F00E7F476 /* MovieDetailPresenter.swift */; };
 		6FD3AF1825F1CD7F00E7F476 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD3AF1725F1CD7F00E7F476 /* FavoritePresenter.swift */; };
 		6FF0B82225F1F70F00057277 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF0B82025F1F70F00057277 /* FavouriteTableViewCell.swift */; };
@@ -79,7 +79,7 @@
 		6FD3AE2725F1622600E7F476 /* CollectionDelegateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDelegateData.swift; sourceTree = "<group>"; };
 		6FD3AE5725F18FBD00E7F476 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FD3AE5825F18FBD00E7F476 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
-		6FD3AECA25F1C4A900E7F476 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		6FD3AECA25F1C4A900E7F476 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		6FD3AF1325F1CD4F00E7F476 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		6FD3AF1725F1CD7F00E7F476 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		6FF0B82025F1F70F00057277 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		6F4BC57325F1364D00E06A87 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				6FD3AEC925F1C49B00E7F476 /* FavoritesManager */,
+				6FD3AEC925F1C49B00E7F476 /* CacheManager */,
 				6F4BC59925F13AED00E06A87 /* Repo */,
 				6F4BC57425F136E300E06A87 /* Mapping */,
 			);
@@ -348,12 +348,12 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		6FD3AEC925F1C49B00E7F476 /* FavoritesManager */ = {
+		6FD3AEC925F1C49B00E7F476 /* CacheManager */ = {
 			isa = PBXGroup;
 			children = (
-				6FD3AECA25F1C4A900E7F476 /* FavoriteManager.swift */,
+				6FD3AECA25F1C4A900E7F476 /* CacheManager.swift */,
 			);
-			path = FavoritesManager;
+			path = CacheManager;
 			sourceTree = "<group>";
 		};
 		6FF0B81F25F1F68800057277 /* Cell */ = {
@@ -489,7 +489,7 @@
 				6F4BC51D25F03A5C00E06A87 /* MovieCoordinator.swift in Sources */,
 				6F4BC4D025EFF9C400E06A87 /* MainCoordinator.swift in Sources */,
 				6FD3AE2825F1622600E7F476 /* CollectionDelegateData.swift in Sources */,
-				6FD3AECB25F1C4A900E7F476 /* FavoriteManager.swift in Sources */,
+				6FD3AECB25F1C4A900E7F476 /* CacheManager.swift in Sources */,
 				6F4BC59625F1397E00E06A87 /* MovieInterface.swift in Sources */,
 				6FF0B86C25F2390900057277 /* GenreService.swift in Sources */,
 				6F4BC5B525F141F700E06A87 /* MoviesFactory.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FavoriteManager {
+class CacheManager {
 
     private var favoritesKey = "favorites"
     private var genresKey = "genres"

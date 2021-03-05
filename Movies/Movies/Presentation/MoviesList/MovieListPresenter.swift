@@ -15,14 +15,14 @@ class MovieListPresenter {
 
     let view: MovieListView
     let service: MoviesService
-    var favoriteMng: FavoriteManager!
+    var favoriteMng: CacheManager!
     weak var delegate: MovieListProtocol?
 
     init(service: MoviesService, view: MovieListView, delegate: MovieListProtocol?) {
         self.service = service
         self.view = view
         self.delegate = delegate
-        favoriteMng = FavoriteManager()
+        favoriteMng = CacheManager()
     }
 
     func getMovies(with page: Int) {
