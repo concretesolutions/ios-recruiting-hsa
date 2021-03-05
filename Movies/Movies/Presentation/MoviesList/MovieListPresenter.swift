@@ -12,7 +12,6 @@ protocol MovieListProtocol: class {
 }
 
 class MovieListPresenter {
-
     let view: MovieListView
     let service: MoviesService
     var favoriteMng: CacheManager!
@@ -26,7 +25,7 @@ class MovieListPresenter {
     }
 
     func getMovies(with page: Int) {
-        self.view.loading()
+        view.loading()
         service.fetchMovies(page, { response in
 
             let movies = self.validFavorites(movies: response)
@@ -50,6 +49,4 @@ class MovieListPresenter {
 
         return movies
     }
-
-
 }

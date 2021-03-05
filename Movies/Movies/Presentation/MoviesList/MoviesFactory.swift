@@ -9,7 +9,6 @@ import Foundation
 
 struct MoviesFactory {
     static func makeMovieScene(delegate: MovieListProtocol?, coordinator: MovieCoordinator) -> MovieListController {
-
         let viewController = MovieListController()
         viewController.coordinator = coordinator
         let service = MoviesService()
@@ -28,7 +27,6 @@ struct MoviesFactory {
     }
 
     static func makeFavoriteScene(delegate: MovieCoordinator) -> FavoritesController {
-        
         let viewController = FavoritesController()
         viewController.coordinator = delegate
         viewController.presenter = FavoritePresenter(favoriteController: viewController)

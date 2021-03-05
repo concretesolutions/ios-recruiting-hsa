@@ -5,12 +5,11 @@
 //  Created by Daniel Nunez on 04-03-21.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 public class MoviesService: MovieInterface {
-
-    func fetchMovies(_ page: Int, _ completion: @escaping ([Movie]) -> (), errorCompletion: @escaping () -> ()) {
+    func fetchMovies(_ page: Int, _ completion: @escaping ([Movie]) -> Void, errorCompletion: @escaping () -> Void) {
         let path = API.moviesPath(with: page)
         AF.request(path).responseJSON { response in
 
@@ -30,7 +29,7 @@ public class MoviesService: MovieInterface {
                 ) {
                     completion(movies.toDomain())
                 }
-            case .failure(_):
+            case .failure:
                 errorCompletion()
             }
         }

@@ -8,13 +8,14 @@
 import Foundation
 
 // MARK: - MoviesResponse
+
 struct MoviesResponse: Codable {
     let results: [MovieDTO]
 }
 
 extension MoviesResponse {
-
     // MARK: - MovieDTO
+
     struct MovieDTO: Codable {
         let adult: Bool
         let backdropPath: String
@@ -54,12 +55,14 @@ extension MoviesResponse {
 
 extension MoviesResponse.MovieDTO {
     func toDomain() -> Movie {
-        return .init(id: Movie.Identifier(id),
-                     title: title,
-                     genreIDS: genreIDS,
-                     posterPath: posterPath,
-                     overview: overview,
-                     releaseDate: dateFormatter.date(from: releaseDate ))
+        return .init(
+            id: Movie.Identifier(id),
+            title: title,
+            genreIDS: genreIDS,
+            posterPath: posterPath,
+            overview: overview,
+            releaseDate: dateFormatter.date(from: releaseDate)
+        )
     }
 }
 

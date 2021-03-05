@@ -11,9 +11,7 @@ enum TabBarPage {
     case movies
     case favorites
 
-
-    init?(index: Int){
-
+    init?(index: Int) {
         switch index {
         case 0:
             self = .movies
@@ -43,13 +41,11 @@ enum TabBarPage {
     }
 
     func icon() -> UIImage {
-
         switch self {
         case .movies:
-           return #imageLiteral(resourceName: "list_icon.png")
+            return #imageLiteral(resourceName: "list_icon.png")
         case .favorites:
-           return #imageLiteral(resourceName: "favorite_empty_icon.png")
+            return #imageLiteral(resourceName: "favorite_empty_icon.png")
         }
-
     }
 }

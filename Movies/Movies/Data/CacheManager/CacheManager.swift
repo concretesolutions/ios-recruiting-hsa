@@ -8,12 +8,10 @@
 import Foundation
 
 class CacheManager {
-
     private var favoritesKey = "favorites"
     private var genresKey = "genres"
 
     func save(movie: Movie) {
-
         let encoder = JSONEncoder()
         let defaults = UserDefaults.standard
         if let favorites = getFavorites(), !checkFavorite(movie: movie) {
@@ -24,15 +22,15 @@ class CacheManager {
                 defaults.set(movies, forKey: favoritesKey)
             }
 
-        } else if !checkFavorite(movie: movie)  {
+        } else if !checkFavorite(movie: movie) {
             var moviesArray: [Movie] = []
             moviesArray.append(movie)
             if let encoded = try? encoder.encode(moviesArray) {
                 defaults.set(encoded, forKey: favoritesKey)
             }
         }
-
     }
+
     func getFavorites() -> [Movie]? {
         if let savedFavorites = UserDefaults.standard.object(forKey: favoritesKey) as? Data {
             let decoder = JSONDecoder()
@@ -44,7 +42,6 @@ class CacheManager {
     }
 
     func checkFavorite(movie: Movie) -> Bool {
-
         if let favoritesArray = getFavorites() {
             for favorite in favoritesArray {
                 if favorite.id == movie.id {
@@ -53,18 +50,16 @@ class CacheManager {
             }
         }
         return false
-
     }
 
     func delete(by id: Movie.Identifier) {
         guard let array = getFavorites() else { return }
         let encoder = JSONEncoder()
-        let filter = array.filter({$0.id != id})
+        let filter = array.filter { $0.id != id }
         if let encoded = try? encoder.encode(filter) {
             UserDefaults.standard.set(encoded, forKey: favoritesKey)
         }
     }
-
 
     // MARK: Genres
 
@@ -90,7 +85,7 @@ class CacheManager {
         var genresString: [String] = []
         if let genresArray = loadGenreCache() {
             for genre in id {
-                if let name = genresArray.first(where: {$0.id == genre})?.name {
+                if let name = genresArray.first(where: { $0.id == genre })?.name {
                     genresString.append(name)
                 }
             }

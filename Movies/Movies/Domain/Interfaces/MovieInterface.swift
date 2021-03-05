@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieInterface {
-    func fetchMovies(_ page: Int, _ completion: @escaping ([Movie]) -> (), errorCompletion: @escaping () -> ())
+    func fetchMovies(_ page: Int, _ completion: @escaping ([Movie]) -> Void, errorCompletion: @escaping () -> Void)
 }

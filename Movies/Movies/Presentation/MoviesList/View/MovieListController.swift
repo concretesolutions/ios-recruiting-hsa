@@ -22,7 +22,6 @@ protocol MovieListView: class {
 }
 
 class MovieListController: UIViewController {
-
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var lblMessage: UILabel!
@@ -34,7 +33,7 @@ class MovieListController: UIViewController {
     var searching: Bool = false
     var items: [Movie] = []
     var filterItems: [Movie] = []
-    
+
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(
@@ -47,6 +46,7 @@ class MovieListController: UIViewController {
     }()
 
     // MARK: Lyfecylce
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,14 +54,12 @@ class MovieListController: UIViewController {
         presenter?.getMovies(with: dataSource.currentPage)
     }
 
-
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_: Bool) {
         guard let presenter = presenter else { return }
         items = presenter.validFavorites(movies: items)
         filterItems = presenter.validFavorites(movies: items)
 
         collection.reloadData()
-
     }
 
     // MARK: Functions
@@ -69,7 +67,9 @@ class MovieListController: UIViewController {
     func checkData() {
         collection.isHidden = searching ? filterItems.isEmpty : items.isEmpty
         lblMessage.isHidden = searching ? !filterItems.isEmpty : !items.isEmpty
-        lblMessage.text = searching ? NSLocalizedString("NoResult", comment: "") : NSLocalizedString("ErrorService", comment: "")
+        lblMessage
+            .text = searching ? NSLocalizedString("NoResult", comment: "") :
+            NSLocalizedString("ErrorService", comment: "")
     }
 
     func setCollection() {
@@ -78,14 +78,15 @@ class MovieListController: UIViewController {
         collection.delegate = dataSource
         collection.dataSource = dataSource
         collection.refreshControl = refreshControl
-        collection.register(MovieCollectionViewCell.nib,
-                            forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+        collection.register(
+            MovieCollectionViewCell.nib,
+            forCellWithReuseIdentifier: MovieCollectionViewCell.identifier
+        )
 
         let collectionWidth = collection?.frame.width
         let cellWidth = (collectionWidth! - 40) / 2
         let layout = collection.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: 300)
-
     }
 
     func searchBy(with txt: String) -> [Movie]? {
@@ -93,14 +94,14 @@ class MovieListController: UIViewController {
             .lowercased()
         let filtrado = items
             .filter {
-                ($0.title?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
-                    .localizedCaseInsensitiveContains(textoABuscar))!
+                (
+                    $0.title?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+                        .localizedCaseInsensitiveContains(textoABuscar)
+                )!
             }
 
         return filtrado
     }
-
-    
 }
 
 extension MovieListController: MovieListView {
@@ -122,11 +123,11 @@ extension MovieListController: MovieListView {
 
     func showMovies(movies: [Movie]?) {
         collection.refreshControl?.endRefreshing()
-        if dataSource.currentPage == 1 { self.items = movies! }
-        else { self.items += movies! }
+        if dataSource.currentPage == 1 { items = movies! }
+        else { items += movies! }
 
         dataSource.movies = items
-        self.collection.reloadData()
+        collection.reloadData()
     }
 
     func loadMore(page: Int) {
@@ -145,9 +146,9 @@ extension MovieListController: MovieListRefresh {
 }
 
 // MARK: - extension - handleRefresh
+
 extension MovieListController {
     @objc func handleRefresh(_: UIRefreshControl) {
-
         dataSource.currentPage = 1
         search.text = nil
         searching = false
@@ -156,6 +157,7 @@ extension MovieListController {
 }
 
 // MARK: UISearchBarDelegate
+
 extension MovieListController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let str = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -166,7 +168,6 @@ extension MovieListController: UISearchBarDelegate {
             filterItems = temp!
             dataSource.movies = filterItems
             collection.reloadData()
-            
 
         } else {
             searching = false
@@ -174,13 +175,11 @@ extension MovieListController: UISearchBarDelegate {
             collection.reloadData()
             searchBar.resignFirstResponder()
         }
-
-
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let str = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
-            if str.count > 0 {
+            if !str.isEmpty {
                 if let temp = searchBy(with: str) {
                     searching = true
                     filterItems = temp
@@ -195,7 +194,6 @@ extension MovieListController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 
-
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
@@ -208,5 +206,4 @@ extension MovieListController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         return true
     }
-
 }

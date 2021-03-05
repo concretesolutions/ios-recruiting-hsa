@@ -8,7 +8,6 @@
 import Foundation
 
 class API {
-
     static func moviesPath(with page: Int) -> String {
         let appConfiguration = AppConfiguration()
         let base = appConfiguration.apiBaseURL
@@ -25,5 +24,4 @@ class API {
 
         return path
     }
-
 }

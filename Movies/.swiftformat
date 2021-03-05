@@ -1,0 +1,13 @@
+--maxwidth 120
+--disable strongOutlets
+--disable linebreaks
+--enable isEmpty
+--disable wrapMultilineStatementBraces
+--wrapparameters after-first
+--wraparguments before-first
+--commas inline
+
+# file options
+--exclude Pods
+--exclude **\Cripto\**
+--exclude **\Assets.xcassets\**

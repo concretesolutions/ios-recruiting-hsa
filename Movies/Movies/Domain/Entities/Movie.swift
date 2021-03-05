@@ -23,8 +23,9 @@ class Movie: Identifiable, Codable {
         }
         return nil
     }
-    
-    internal init(id: Movie.Identifier, title: String?, genreIDS: [Int], posterPath: String?, overview: String?, releaseDate: Date?, isFavorite: Bool = false) {
+
+    internal init(id: Movie.Identifier, title: String?, genreIDS: [Int], posterPath: String?, overview: String?,
+                  releaseDate: Date?, isFavorite _: Bool = false) {
         self.id = id
         self.title = title
         self.genreIDS = genreIDS

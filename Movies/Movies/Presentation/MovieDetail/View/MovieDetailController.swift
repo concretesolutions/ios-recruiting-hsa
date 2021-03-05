@@ -5,8 +5,8 @@
 //  Created by Daniel Nunez on 03-03-21.
 //
 
-import UIKit
 import SDWebImage
+import UIKit
 
 protocol MovieDetailProtocol: class {
     func fill(_ movie: Movie)
@@ -14,7 +14,6 @@ protocol MovieDetailProtocol: class {
 }
 
 class MovieDetailController: UIViewController, MovieDetailProtocol {
-
     @IBOutlet weak var imgMovie: UIImageView!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var btnFavorite: UIBarButtonItem!
@@ -34,7 +33,7 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         presenter?.load()
     }
 
@@ -52,7 +51,8 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
         imgMovie.sd_setImage(with: movie.imgURL)
         navBar.title = movie.title
         lblTitle.text = movie.title
-        lblRelease.text =  NSLocalizedString("Fecha", comment: "").replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
+        lblRelease.text = NSLocalizedString("Fecha", comment: "")
+            .replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
         lblGenres.text = cache.genreByID(id: movie.genreIDS)
         lblDesc.text = movie.overview
         setupFavorite()
@@ -63,18 +63,16 @@ class MovieDetailController: UIViewController, MovieDetailProtocol {
         setupFavorite()
     }
 
-
     // MARK: Actions
 
-    @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func back(_: Any) {
+        dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func setFavorite(_ sender: Any) {
+    @IBAction func setFavorite(_: Any) {
         if !movie.isFavorite {
             home?.refresh()
             presenter?.saveFavorite()
-
         }
     }
 }

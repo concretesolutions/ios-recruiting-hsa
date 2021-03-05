@@ -8,7 +8,6 @@
 import UIKit
 
 class MovieCoordinator: Coordinator {
-
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -19,11 +18,9 @@ class MovieCoordinator: Coordinator {
     func start() {
         showMovieScene()
     }
-
 }
 
 extension MovieCoordinator {
-
     func showMovieScene() {
         let movieScene = MoviesFactory.makeMovieScene(delegate: self, coordinator: self)
         navigationController.pushViewController(movieScene, animated: false)
@@ -39,16 +36,12 @@ extension MovieCoordinator {
         navigationController.pushViewController(favoriteScene, animated: true)
     }
 
-    func update(movie: Movie) {
-
+    func update(movie _: Movie) {
         guard let vc = navigationController.viewControllers.first
-                as? MovieListController else {
-                return
+            as? MovieListController else {
+            return
         }
-
-
     }
-
 }
 
 extension MovieCoordinator: MovieListProtocol {

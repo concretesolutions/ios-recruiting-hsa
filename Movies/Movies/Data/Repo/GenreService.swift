@@ -1,15 +1,14 @@
 //
+import Alamofire
 //  GenreService.swift
 //  Movies
 //
 //  Created by Daniel Nunez on 05-03-21.
 //
 import Foundation
-import Alamofire
 
 class GenreServices: GenreInterface {
-    
-    func fetchGenres(_ completion: @escaping ([Genre]?) -> (), errorCompletion: @escaping () -> ()) {
+    func fetchGenres(_ completion: @escaping ([Genre]?) -> Void, errorCompletion: @escaping () -> Void) {
         let path = API.genresPath()
         AF.request(path).responseJSON { response in
 
@@ -29,10 +28,9 @@ class GenreServices: GenreInterface {
                 ) {
                     completion(genres.genres)
                 }
-            case .failure(_):
+            case .failure:
                 errorCompletion()
             }
         }
     }
-
 }

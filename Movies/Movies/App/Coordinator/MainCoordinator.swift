@@ -27,14 +27,12 @@ class MainCoordinator: MainCoordinatorProtocol {
     }
 
     func showMainFlow() {
-
-        let tabCoordinator = TabCoordinator.init(navigationController)
+        let tabCoordinator = TabCoordinator(navigationController)
         tabCoordinator.start()
         childCoordinators.append(tabCoordinator)
     }
 
     func fetchGenres() {
-
         let service = GenreServices()
         let cache = CacheManager()
         service.fetchGenres({ response in
@@ -43,9 +41,5 @@ class MainCoordinator: MainCoordinatorProtocol {
             cache.saveGenre(items: temp)
 
         }, errorCompletion: {})
-
-
     }
-
-
 }

@@ -5,11 +5,10 @@
 //  Created by Daniel Nunez on 04-03-21.
 //
 
-import UIKit
 import SDWebImage
+import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var imgMovie: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgFavorite: UIImageView!
@@ -26,7 +25,5 @@ class MovieCollectionViewCell: UICollectionViewCell {
         lblTitle.text = movie.title
         imgFavorite.isHidden = !movie.isFavorite
         imgMovie.sd_setImage(with: movie.imgURL)
-
     }
-
 }

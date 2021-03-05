@@ -5,11 +5,10 @@
 //  Created by Daniel Nunez on 05-03-21.
 //
 
-import UIKit
 import SDWebImage
+import UIKit
 
 class FavouriteTableViewCell: UITableViewCell {
-
     static let identifier = String(describing: FavouriteTableViewCell.self)
     static let nib = UINib(nibName: identifier, bundle: nil)
 
@@ -19,15 +18,11 @@ class FavouriteTableViewCell: UITableViewCell {
     @IBOutlet weak var lblRelease: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
 
-
     func fill(with movie: Movie) {
-
         lblTitle.text = movie.title
-        lblRelease.text = NSLocalizedString("Fecha", comment: "").replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
+        lblRelease.text = NSLocalizedString("Fecha", comment: "")
+            .replacingOccurrences(of: "{d}", with: (movie.releaseDate?.toString())!)
         lblDesc.text = movie.overview
         imgMovie.sd_setImage(with: movie.imgURL)
-
     }
-
-    
 }

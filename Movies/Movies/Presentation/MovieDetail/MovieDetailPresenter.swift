@@ -8,15 +8,14 @@
 import Foundation
 
 class MovieDetailPresenter {
-
     weak var movieDetailController: MovieDetailProtocol!
     let movie: Movie
     let favoriteMng: CacheManager!
 
     init(movie: Movie, movieDetail: MovieDetailProtocol) {
         self.movie = movie
-        self.movieDetailController = movieDetail
-        self.favoriteMng = CacheManager()
+        movieDetailController = movieDetail
+        favoriteMng = CacheManager()
     }
 
     func load() {
@@ -34,5 +33,4 @@ class MovieDetailPresenter {
         movieDetailController.saved()
         favoriteMng.save(movie: movie)
     }
-
 }

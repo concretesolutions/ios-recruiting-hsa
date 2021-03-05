@@ -8,7 +8,6 @@
 import Foundation
 
 class FavoritePresenter {
-
     weak var favoriteController: FavoriteProtocol!
     weak var delegate: MovieListRefresh?
 
@@ -16,7 +15,7 @@ class FavoritePresenter {
 
     init(favoriteController: FavoriteProtocol) {
         self.favoriteController = favoriteController
-        self.favoriteMng = CacheManager()
+        favoriteMng = CacheManager()
     }
 
     func load() {
@@ -36,11 +35,12 @@ class FavoritePresenter {
             .lowercased()
         let filtrado = movies
             .filter {
-                ($0.title?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
-                    .localizedCaseInsensitiveContains(textoABuscar))!
+                (
+                    $0.title?.folding(options: .diacriticInsensitive, locale: .current).lowercased()
+                        .localizedCaseInsensitiveContains(textoABuscar)
+                )!
             }
 
         return filtrado
     }
-
 }

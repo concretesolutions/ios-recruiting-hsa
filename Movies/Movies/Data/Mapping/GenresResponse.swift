@@ -8,15 +8,17 @@
 import Foundation
 
 // MARK: - GenresResponse
+
 class GenreResponse: Codable {
     let genres: [Genre]?
 
     init(results: [Genre]?) {
-        self.genres = results
+        genres = results
     }
 }
 
 // MARK: - Genre
+
 class Genre: Codable {
     let id: Int?
     let name: String?
