@@ -27,9 +27,9 @@ enum TabBarPage {
     func title() -> String {
         switch self {
         case .movies:
-            return "Peliculas"
+            return NSLocalizedString("Peliculas", comment: "")
         case .favorites:
-            return "Favoritos"
+            return NSLocalizedString("Favoritos", comment: "")
         }
     }
 
@@ -46,9 +46,9 @@ enum TabBarPage {
 
         switch self {
         case .movies:
-           return  #imageLiteral(resourceName: "favorite_empty_icon.png")
-        case .favorites:
            return #imageLiteral(resourceName: "list_icon.png")
+        case .favorites:
+           return #imageLiteral(resourceName: "favorite_empty_icon.png")
         }
 
     }

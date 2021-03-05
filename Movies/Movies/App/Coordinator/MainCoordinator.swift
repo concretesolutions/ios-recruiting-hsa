@@ -20,11 +20,13 @@ class MainCoordinator: MainCoordinatorProtocol {
     }
 
     func start() {
-
+        navigationController.setNavigationBarHidden(true, animated: false)
+    
         showMainFlow()
     }
 
     func showMainFlow() {
+
         let tabCoordinator = TabCoordinator.init(navigationController)
         tabCoordinator.start()
         childCoordinators.append(tabCoordinator)
