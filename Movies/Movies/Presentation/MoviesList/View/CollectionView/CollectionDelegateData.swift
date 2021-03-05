@@ -12,6 +12,7 @@ class CollectionDelegateData: NSObject, UICollectionViewDelegate, UICollectionVi
     var movies: [Movie]
     var currentPage: Int = 1
     var selected: Int?
+    var serviceFinish: Bool = false
 
     init(withDelegate delegate: MovieListView, _ movies: [Movie]) {
         self.delegate = delegate
@@ -19,7 +20,7 @@ class CollectionDelegateData: NSObject, UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        delegate?.validMessage()
+        if serviceFinish { delegate?.validMessage() }
         return movies.count
     }
 

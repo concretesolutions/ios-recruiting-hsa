@@ -106,10 +106,12 @@ class MovieListController: UIViewController {
 
 extension MovieListController: MovieListView {
     func loading() {
+        dataSource.serviceFinish = false
         collection.refreshControl?.beginRefreshing()
     }
 
     func finish() {
+        dataSource.serviceFinish = true
         collection.refreshControl?.endRefreshing()
     }
 

@@ -30,7 +30,7 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Buscar peliculas" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ls-Fqp">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Buscar peliculas" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ls-Fqp">
                     <rect key="frame" x="0.0" y="85.5" width="414" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Dfr-Cc-ahJ"/>
