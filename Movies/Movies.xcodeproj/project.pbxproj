@@ -16,7 +16,6 @@
 		6F4BC4F725F0174700E06A87 /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC4F525F0174700E06A87 /* MovieDetailController.swift */; };
 		6F4BC4F825F0174700E06A87 /* MovieDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4BC4F625F0174700E06A87 /* MovieDetailController.xib */; };
 		6F4BC4FC25F018DD00E06A87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F4BC4FB25F018DD00E06A87 /* Localizable.strings */; };
-		6F4BC50125F027F500E06A87 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC50025F027F500E06A87 /* MainTabBarController.swift */; };
 		6F4BC50625F030B800E06A87 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC50525F030B800E06A87 /* TabCoordinator.swift */; };
 		6F4BC50A25F0322C00E06A87 /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC50925F0322C00E06A87 /* TabBarPage.swift */; };
 		6F4BC51D25F03A5C00E06A87 /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC51C25F03A5C00E06A87 /* MovieCoordinator.swift */; };
@@ -59,7 +58,6 @@
 		6F4BC4F525F0174700E06A87 /* MovieDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailController.swift; sourceTree = "<group>"; };
 		6F4BC4F625F0174700E06A87 /* MovieDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailController.xib; sourceTree = "<group>"; };
 		6F4BC4FB25F018DD00E06A87 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		6F4BC50025F027F500E06A87 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		6F4BC50525F030B800E06A87 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		6F4BC50925F0322C00E06A87 /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		6F4BC51C25F03A5C00E06A87 /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				6F4BC50425F0309A00E06A87 /* Coordinator */,
-				6F4BC50025F027F500E06A87 /* MainTabBarController.swift */,
 				6F4BC50925F0322C00E06A87 /* TabBarPage.swift */,
 			);
 			path = TabBar;
@@ -499,7 +496,6 @@
 				6FF0B86925F238D400057277 /* GenreInterface.swift in Sources */,
 				6F4BC56C25F12B0600E06A87 /* AppConfiguration.swift in Sources */,
 				6FF0B86525F238AF00057277 /* GenresResponse.swift in Sources */,
-				6F4BC50125F027F500E06A87 /* MainTabBarController.swift in Sources */,
 				6F4BC50A25F0322C00E06A87 /* TabBarPage.swift in Sources */,
 				6F4BC4F725F0174700E06A87 /* MovieDetailController.swift in Sources */,
 				6F4BC57625F136F800E06A87 /* MoviesResponse.swift in Sources */,
