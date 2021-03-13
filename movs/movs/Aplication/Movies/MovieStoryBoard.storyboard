@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vlc-G6-ZG9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies-->
+        <scene sceneID="wfm-vM-gNL">
+            <objects>
+                <viewController id="exS-J5-dgS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FbF-01-WEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZl-CF-NUA">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vv3-rU-VAU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vv3-rU-VAU" firstAttribute="trailing" secondItem="wZl-CF-NUA" secondAttribute="trailing" id="9Nn-oK-Y0b"/>
+                            <constraint firstItem="wZl-CF-NUA" firstAttribute="top" secondItem="vv3-rU-VAU" secondAttribute="top" id="efB-WH-OsJ"/>
+                            <constraint firstItem="vv3-rU-VAU" firstAttribute="bottom" secondItem="wZl-CF-NUA" secondAttribute="bottom" id="k24-ge-nDK"/>
+                            <constraint firstItem="wZl-CF-NUA" firstAttribute="leading" secondItem="vv3-rU-VAU" secondAttribute="leading" id="xNM-wc-D4V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movies" id="uXn-Fs-2wg"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ezq-mH-r2a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179.7101449275362" y="50.892857142857139"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="AYk-jr-Y47">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vlc-G6-ZG9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="list.dash" catalog="system" id="NBE-rJ-mcs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="buT-PZ-WXU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="exS-J5-dgS" kind="relationship" relationship="rootViewController" id="mis-vJ-FjU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEQ-gJ-0cw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269.56521739130437" y="50.892857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

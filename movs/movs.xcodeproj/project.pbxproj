@@ -18,6 +18,9 @@
 		BA730EFD25FD357D0081CD76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA730EFB25FD357D0081CD76 /* LaunchScreen.storyboard */; };
 		BA730F0825FD357D0081CD76 /* movsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730F0725FD357D0081CD76 /* movsTests.swift */; };
 		BA730F1325FD357D0081CD76 /* movsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730F1225FD357D0081CD76 /* movsUITests.swift */; };
+		BA730F5825FD45500081CD76 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA730F5725FD45500081CD76 /* MovieCell.xib */; };
+		BA730F5D25FD47590081CD76 /* MovieStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA730F5C25FD47590081CD76 /* MovieStoryBoard.storyboard */; };
+		BA730F6325FD4D320081CD76 /* FavoritesStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA730F6225FD4D320081CD76 /* FavoritesStoryBoard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		BA730F0E25FD357D0081CD76 /* movsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA730F1225FD357D0081CD76 /* movsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movsUITests.swift; sourceTree = "<group>"; };
 		BA730F1425FD357D0081CD76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA730F5725FD45500081CD76 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		BA730F5C25FD47590081CD76 /* MovieStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieStoryBoard.storyboard; sourceTree = "<group>"; };
+		BA730F6225FD4D320081CD76 /* FavoritesStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesStoryBoard.storyboard; sourceTree = "<group>"; };
 		CA18C442FE72771778BBAB3E /* Pods-movs-movsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movs-movsUITests.release.xcconfig"; path = "Target Support Files/Pods-movs-movsUITests/Pods-movs-movsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E0763F0C7D73681D34696A32 /* Pods-movsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movsTests.release.xcconfig"; path = "Target Support Files/Pods-movsTests/Pods-movsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +184,8 @@
 		BA730F2425FD35D50081CD76 /* Aplication */ = {
 			isa = PBXGroup;
 			children = (
+				BA730F5625FD45080081CD76 /* Movies */,
+				BA730F6125FD4D0F0081CD76 /* Favorites */,
 				BA730F2925FD36130081CD76 /* Animation */,
 				BA730F2A25FD361B0081CD76 /* Main */,
 			);
@@ -214,6 +222,23 @@
 				BA730EF925FD357D0081CD76 /* Assets.xcassets */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		BA730F5625FD45080081CD76 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				BA730F5725FD45500081CD76 /* MovieCell.xib */,
+				BA730F5C25FD47590081CD76 /* MovieStoryBoard.storyboard */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		BA730F6125FD4D0F0081CD76 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				BA730F6225FD4D320081CD76 /* FavoritesStoryBoard.storyboard */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,8 +350,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA730EFD25FD357D0081CD76 /* LaunchScreen.storyboard in Resources */,
+				BA730F6325FD4D320081CD76 /* FavoritesStoryBoard.storyboard in Resources */,
 				BA730EFA25FD357D0081CD76 /* Assets.xcassets in Resources */,
+				BA730F5825FD45500081CD76 /* MovieCell.xib in Resources */,
 				BA730EF825FD357C0081CD76 /* Main.storyboard in Resources */,
+				BA730F5D25FD47590081CD76 /* MovieStoryBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

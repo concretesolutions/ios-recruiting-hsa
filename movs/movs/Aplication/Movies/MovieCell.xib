@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="196" id="9oE-zb-yRI" customClass="CellTableViewCell" customModule="financial" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="195" height="196"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9oE-zb-yRI" id="Qcw-5R-5uN">
+                <rect key="frame" x="0.0" y="0.0" width="195" height="196"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-sC-kfi">
+                        <rect key="frame" x="0.0" y="0.0" width="195" height="144"/>
+                        <color key="backgroundColor" name="GrayColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="144" id="2Yc-wh-uWX"/>
+                            <constraint firstAttribute="width" constant="195" id="lA2-LH-FSr"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="18"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="NO"/>
+                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                <size key="value" width="0.0" height="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.80000000000000004"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="border.UIColor">
+                                <color key="value" systemColor="scrollViewTexturedBackgroundColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAP-2i-9Bh">
+                        <rect key="frame" x="76.5" y="158" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wj7-tN-c9t">
+                        <rect key="frame" x="155" y="156" width="24" height="26"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal">
+                            <imageReference key="image" image="suit.heart.fill" catalog="system" symbolScale="large"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.1776170433" green="0.18916806580000001" blue="0.276594758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="bAP-2i-9Bh" firstAttribute="centerY" secondItem="Qcw-5R-5uN" secondAttribute="centerY" constant="70.5" id="E74-Sg-8YN"/>
+                    <constraint firstItem="Wj7-tN-c9t" firstAttribute="leading" secondItem="bAP-2i-9Bh" secondAttribute="trailing" constant="36.5" id="HI7-q9-nKi"/>
+                    <constraint firstItem="bAP-2i-9Bh" firstAttribute="centerX" secondItem="Qcw-5R-5uN" secondAttribute="centerX" id="JwH-WB-SPr"/>
+                    <constraint firstItem="Wj7-tN-c9t" firstAttribute="trailing" secondItem="Qcw-5R-5uN" secondAttribute="trailingMargin" id="KH9-AL-0dT"/>
+                    <constraint firstItem="5fa-sC-kfi" firstAttribute="top" secondItem="Qcw-5R-5uN" secondAttribute="top" id="Owq-Z2-Gyy"/>
+                    <constraint firstItem="5fa-sC-kfi" firstAttribute="leading" secondItem="Qcw-5R-5uN" secondAttribute="leading" id="ZKT-WM-OsQ"/>
+                    <constraint firstItem="Wj7-tN-c9t" firstAttribute="top" secondItem="5fa-sC-kfi" secondAttribute="bottom" constant="12" id="cBT-hR-PbN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Wj7-tN-c9t" secondAttribute="bottom" constant="3" id="vbl-JG-Kaz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-416.66666666666669" y="-54.241071428571423"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
+        <namedColor name="GrayColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
