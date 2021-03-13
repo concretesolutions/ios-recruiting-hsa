@@ -99,13 +99,9 @@
 		BA730EEF25FD357C0081CD76 /* movs */ = {
 			isa = PBXGroup;
 			children = (
-				BA730EF025FD357C0081CD76 /* AppDelegate.swift */,
-				BA730EF225FD357C0081CD76 /* SceneDelegate.swift */,
-				BA730EF425FD357C0081CD76 /* ViewController.swift */,
-				BA730EF625FD357C0081CD76 /* Main.storyboard */,
-				BA730EF925FD357D0081CD76 /* Assets.xcassets */,
-				BA730EFB25FD357D0081CD76 /* LaunchScreen.storyboard */,
-				BA730EFE25FD357D0081CD76 /* Info.plist */,
+				BA730F2425FD35D50081CD76 /* Aplication */,
+				BA730F2325FD35CB0081CD76 /* Base */,
+				BA730F2525FD35E10081CD76 /* Resources */,
 			);
 			path = movs;
 			sourceTree = "<group>";
@@ -126,6 +122,58 @@
 				BA730F1425FD357D0081CD76 /* Info.plist */,
 			);
 			path = movsUITests;
+			sourceTree = "<group>";
+		};
+		BA730F2325FD35CB0081CD76 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BA730EF025FD357C0081CD76 /* AppDelegate.swift */,
+				BA730EF225FD357C0081CD76 /* SceneDelegate.swift */,
+				BA730EFB25FD357D0081CD76 /* LaunchScreen.storyboard */,
+				BA730EFE25FD357D0081CD76 /* Info.plist */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		BA730F2425FD35D50081CD76 /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				BA730F2925FD36130081CD76 /* Animation */,
+				BA730F2A25FD361B0081CD76 /* Main */,
+			);
+			path = Aplication;
+			sourceTree = "<group>";
+		};
+		BA730F2525FD35E10081CD76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA730F2C25FD36640081CD76 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BA730F2925FD36130081CD76 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		BA730F2A25FD361B0081CD76 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BA730EF425FD357C0081CD76 /* ViewController.swift */,
+				BA730EF625FD357C0081CD76 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BA730F2C25FD36640081CD76 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BA730EF925FD357D0081CD76 /* Assets.xcassets */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,7 +486,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HN3NYZH77;
-				INFOPLIST_FILE = movs/Info.plist;
+				INFOPLIST_FILE = movs/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +505,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HN3NYZH77;
-				INFOPLIST_FILE = movs/Info.plist;
+				INFOPLIST_FILE = movs/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +524,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HN3NYZH77;
-				INFOPLIST_FILE = movsTests/Info.plist;
+				INFOPLIST_FILE = movs/Base/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +546,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HN3NYZH77;
-				INFOPLIST_FILE = movsTests/Info.plist;
+				INFOPLIST_FILE = movs/Base/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +567,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HN3NYZH77;
-				INFOPLIST_FILE = movsUITests/Info.plist;
+				INFOPLIST_FILE = movs/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +587,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HN3NYZH77;
-				INFOPLIST_FILE = movsUITests/Info.plist;
+				INFOPLIST_FILE = movs/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
