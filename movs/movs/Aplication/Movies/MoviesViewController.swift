@@ -17,7 +17,6 @@ class MoviesViewController: UIViewController {
     }
     var favButton = UIButton(frame: CGRect(x: 151, y: 214, width: 37, height: 30))
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
-    let activityView = UIActivityIndicatorView(style: .whiteLarge)
     private var viewModel = MoviesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +34,6 @@ class MoviesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
     }
 }
@@ -56,8 +51,11 @@ extension MoviesViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .bold, scale: .large)
-        self.favButton = UIButton(frame: CGRect(x: 151, y: 214, width: 37, height: 30))
+        
+        self.favButton = UIButton(frame: CGRect(x: 145, y: 190, width: 37, height: 30))
         let isFavorite = viewModel.item(at: indexPath).favorite
+        print("Aerssss",indexPath.row, isFavorite)
+        
         self.favButton.setImage(UIImage(systemName: isFavorite ? "heart.fill":"heart", withConfiguration: largeConfig), for: .normal)
         cell.setUp(with: viewModel.item(at: indexPath), indexPath: indexPath.row)
        
@@ -66,7 +64,6 @@ extension MoviesViewController: UICollectionViewDataSource {
         self.favButton.addTarget(self, action: #selector(FavButtonPress), for: UIControl.Event.touchUpInside)
         self.favButton.tag = indexPath.row
         self.favButton.isUserInteractionEnabled = true
-
         cell.addSubview(self.favButton)
         return cell
     }
@@ -74,7 +71,9 @@ extension MoviesViewController: UICollectionViewDataSource {
 
 extension MoviesViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 190, height: 250)
+        print((self.view.frame.size.width/2))
+        return CGSize(width: (self.view.frame.size.width/2)-10, height: (self.view.frame.size.width/2 + 30))
+//        ((self.view.frame.size.width/3) - 16, )
     }
 }
 

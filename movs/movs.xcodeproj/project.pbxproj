@@ -26,6 +26,9 @@
 		BA730FB225FD7AEF0081CD76 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730FB125FD7AEF0081CD76 /* DetailMovieViewController.swift */; };
 		BA730FBC25FF99100081CD76 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730FBB25FF99100081CD76 /* ImageExtension.swift */; };
 		BA730FD925FFD4EC0081CD76 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730FD825FFD4EC0081CD76 /* Genres.swift */; };
+		BA730FDE260022C20081CD76 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730FDD260022C20081CD76 /* FavoritesViewController.swift */; };
+		BA730FE326002CF70081CD76 /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA730FE226002CF70081CD76 /* FavoriteCell.xib */; };
+		BA730FE826002EEA0081CD76 /* CellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA730FE726002EEA0081CD76 /* CellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		BA730FB125FD7AEF0081CD76 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		BA730FBB25FF99100081CD76 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		BA730FD825FFD4EC0081CD76 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		BA730FDD260022C20081CD76 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		BA730FE226002CF70081CD76 /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
+		BA730FE726002EEA0081CD76 /* CellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTableViewCell.swift; sourceTree = "<group>"; };
 		CA18C442FE72771778BBAB3E /* Pods-movs-movsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movs-movsUITests.release.xcconfig"; path = "Target Support Files/Pods-movs-movsUITests/Pods-movs-movsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E0763F0C7D73681D34696A32 /* Pods-movsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movsTests.release.xcconfig"; path = "Target Support Files/Pods-movsTests/Pods-movsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,6 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				BA730F6225FD4D320081CD76 /* FavoritesStoryBoard.storyboard */,
+				BA730FDD260022C20081CD76 /* FavoritesViewController.swift */,
+				BA730FE726002EEA0081CD76 /* CellTableViewCell.swift */,
+				BA730FE226002CF70081CD76 /* FavoriteCell.xib */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -377,6 +386,7 @@
 				BA730EFA25FD357D0081CD76 /* Assets.xcassets in Resources */,
 				BA730EF825FD357C0081CD76 /* Main.storyboard in Resources */,
 				BA730F5D25FD47590081CD76 /* MovieStoryBoard.storyboard in Resources */,
+				BA730FE326002CF70081CD76 /* FavoriteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,10 +518,12 @@
 				BA730EF525FD357C0081CD76 /* ViewController.swift in Sources */,
 				BA730F8B25FD69110081CD76 /* Movies.swift in Sources */,
 				BA730FB225FD7AEF0081CD76 /* DetailMovieViewController.swift in Sources */,
+				BA730FE826002EEA0081CD76 /* CellTableViewCell.swift in Sources */,
 				BA730EF125FD357C0081CD76 /* AppDelegate.swift in Sources */,
 				BA730FA525FD6DF00081CD76 /* MovieCollectionViewCell.swift in Sources */,
 				BA730EF325FD357C0081CD76 /* SceneDelegate.swift in Sources */,
 				BA730F7025FD50660081CD76 /* MoviesViewController.swift in Sources */,
+				BA730FDE260022C20081CD76 /* FavoritesViewController.swift in Sources */,
 				BA730FBC25FF99100081CD76 /* ImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

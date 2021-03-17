@@ -14,6 +14,14 @@ protocol MoviesViewModeldelegate {
 }
 
 
+protocol FavoritesMoviesViewModeldelegate {
+    func reloadData()
+}
+
+
+var items: [ResponseMovies] = []
+var favItems: [Movie] = []
+
 
 
 // MARK: - ResponseMovies
@@ -212,41 +220,48 @@ func newJSONEncoder() -> JSONEncoder {
 
 
 class MoviesViewModel {
-    private var items: [ResponseMovies] = []
+    
     
     var numbersOfItems: Int{
-        return (items.first?.results.count)!
+        var _count = 0
+        if(items.count > 0){
+            _count = items.first?.results.count ?? 0
+        }
+        return _count
+       
     }
     var delegate: MoviesViewModeldelegate?
     init (){
         getData()
       }
     @objc private func getData() {
-        print("Entro aqui ?")
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=8ac7358ab8ca29d459c647efc5664fae&language=en-US&page=1") else { return }
+        if(items.count <= 0) {
+            guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=8ac7358ab8ca29d459c647efc5664fae&language=en-US&page=1") else { return }
 
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.setValue("api_key", forHTTPHeaderField: "8ac7358ab8ca29d459c647efc5664fae")
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.setValue("api_key", forHTTPHeaderField: "8ac7358ab8ca29d459c647efc5664fae")
 
 
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                do {
-                    if let error = error {
-                        print("Error",error.localizedDescription)
-                        return
-                    }
-                    self.items.removeAll()
-                    let decoder = JSONDecoder()
+                URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    do {
+                        if let error = error {
+                            print("Error",error.localizedDescription)
+                            return
+                        }
+                        items.removeAll()
+                        let decoder = JSONDecoder()
+                        
+                        let response = try decoder.decode(ResponseMovies.self, from: data!)
+                        print(response)
+                        items.append(response)
+                       
+
+                    } catch { print("Errorsssds",error) }
                     
-                    let response = try decoder.decode(ResponseMovies.self, from: data!)
-                    print(response)
-                    self.items.append(response)
-                   
-
-                } catch { print("Errorsssds",error) }
-                
-            }.resume()
+                }.resume()
+        }
+        
      
      }
     
@@ -258,15 +273,57 @@ class MoviesViewModel {
         return MovieViewModel(movie: items[0].results[indexPath])
     }
     
-//    func PrintItem(at indexPath:Int) {
-//        print(MovieViewModel(movie: items[0].results[indexPath]).favorite)
-//    }
+    func printItems() {
+        
+    }
     
     func favorite(at indexPath: Int) {
         items[0].results[indexPath].isFavorite = !items[0].results[indexPath].isFavorite!
     }
     
-   
+    func remove(at indexPath: IndexPath) {
+        items[0].results[indexPath.row].isFavorite = false
+    }
+}
+
+class FavoritesMoviesViewModel {
+    
+    
+    var numbersOfItems: Int{
+        
+        return (favItems.count)
+    }
+    var delegate: FavoritesMoviesViewModeldelegate?
+    init (){
+        getData()
+      }
+    @objc private func getData() {
+        if(items.count > 0 ){
+            favItems = items[0].results.filter{ movie in
+                return movie.isFavorite!
+            }
+        }
+        
+     }
+    
+    func item(at indexPath:IndexPath) -> MovieViewModel {
+        return MovieViewModel(movie: favItems[indexPath.row])
+    }
+    
+    func item(at indexPath:Int) -> MovieViewModel {
+        return MovieViewModel(movie: favItems[indexPath])
+    }
+    
+    func remove(at indexPath: IndexPath) {
+        let item = favItems[indexPath.row]
+        var copyItems:[Movie] = []
+        favItems.remove(at: indexPath.row)
+        for items in items[0].results {
+            if(items.id == item.id){
+                items.isFavorite = false
+            }
+        }
+    }
 }
 
 
