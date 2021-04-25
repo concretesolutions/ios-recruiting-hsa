@@ -1,7 +1,7 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
-
+    
     private let navigationController: UINavigationController
     
     init(navigationController: UINavigationController = UINavigationController()) {

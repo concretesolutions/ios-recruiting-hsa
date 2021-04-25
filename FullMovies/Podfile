@@ -1,0 +1,12 @@
+
+platform :ios, '12.1'
+
+target 'FullMovies' do
+  use_frameworks!
+	pod 'Alamofire', '~> 5.4.0'
+
+  target 'FullMoviesTests' do
+    inherit! :search_paths
+  end
+
+end
