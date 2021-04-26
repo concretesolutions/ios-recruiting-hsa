@@ -6,19 +6,18 @@ class AppCoordinatorTests: TestCase {
     
     var sut : AppCoordinator!
     let windowMock = UIWindowMock()
-    let navigationMock = NavigationControllerMock()
+    let tabBarVCMock = TabBarControllerMock()
     
     override func setUp() {
-        sut = AppCoordinator(window: windowMock, navigationController: navigationMock)
+        sut = AppCoordinator(window: windowMock, tabBarController: tabBarVCMock)
     }
     
     func testInitCoordinator(){
         XCTAssertEqual(windowMock.makesKeyAndVisible, true)
-        XCTAssertEqual(windowMock.rootViewController, navigationMock)
+        XCTAssertEqual(windowMock.rootViewController, tabBarVCMock)
     }
     
-    func testStarterCoordinator(){
-        
+    func testStarterCoordinator(){        
         let coordinatorMock = CoordinatorMock()
         sut.starterCoordinator = coordinatorMock
         sut.start()
