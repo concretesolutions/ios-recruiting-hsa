@@ -2,19 +2,19 @@ import UIKit
 
 class MainCoordinator: Coordinator {
     
-    private let navigationController: UINavigationController
+    private let tabBarController: UITabBarController
     
-    init(navigationController: UINavigationController = UINavigationController()) {
-        self.navigationController = navigationController
+    init(tabBarController: UITabBarController = UITabBarController()) {
+        self.tabBarController = tabBarController
     }
     
     func start() {
-        showFirstScene()
+        showFirstVC()
     }
 }
 
 extension MainCoordinator {
-    func showFirstScene() {
-        //TO DO: call tabBarController
+    func showFirstVC() {
+        tabBarController.selectedIndex = 0
     }
 }
