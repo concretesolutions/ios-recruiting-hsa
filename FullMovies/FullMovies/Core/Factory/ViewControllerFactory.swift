@@ -3,18 +3,22 @@ import UIKit
 class ViewControllerFactory {
     
     class func popularMoviesVC() -> UIViewController {
-        return PopularMoviesVC()
+        let popularVC =  PopularMoviesVC()
+        let serviceLocator = PopularMoviesServiceLocator()
+        let presenter = PopularMoviesPresenter(view: popularVC, usecase: serviceLocator.getPopularMoviesUseCase)
+        popularVC.presenter = presenter
+        return popularVC
     }
     
     class func tabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         let pupularMoviesVC = popularMoviesVC()
-        let favsVC = popularMoviesVC()
+        let favsVC = popularMoviesVC() // TO DO: change this
         
         tabBarController.viewControllers = [
             tabBar(childController: pupularMoviesVC, title: "Movies"),
             tabBar(childController: favsVC, title: "Favs")
-        ]        
+        ]//TO DO: change "movies" to localizable file
         return tabBarController
     }
     

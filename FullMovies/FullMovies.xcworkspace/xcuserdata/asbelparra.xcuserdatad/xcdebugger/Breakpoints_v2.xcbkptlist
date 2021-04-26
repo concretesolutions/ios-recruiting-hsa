@@ -3,4 +3,118 @@
    uuid = "665FA621-A02C-460B-845C-E7B84D51DFD5"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1688F1D-59AA-4FD1-9080-468CB8CFD422"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FullMovies/List/UI/PopularMoviesVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0315A3A1-65DA-4DA1-AEBD-ACF782003B48"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FullMovies/List/UI/PopularMoviesPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "load(page:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3D8A22B-E388-453F-A7F8-0D2E8E39A392"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FullMovies/List/Data/Repository/PopularMoviesApiRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "list(in:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D3D8A22B-E388-453F-A7F8-0D2E8E39A392 - e0a4819f8907f396"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FullMovies.PopularMoviesApiRepository.list(in: Swift.String, completionHandler: (Swift.Optional&lt;FullMovies.Movies&gt;, Swift.Optional&lt;FullMovies.ErrorModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FullMovies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asbelparra/Desktop/ios-recruiting-hsa/FullMovies/FullMovies/List/Data/Repository/PopularMoviesApiRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  uuid = "D3D8A22B-E388-453F-A7F8-0D2E8E39A392 - b65759ce5005ca1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;FullMovies.Movies&gt;, Swift.Optional&lt;FullMovies.NetworkError&gt;) -&gt; () in FullMovies.PopularMoviesApiRepository.list(in: Swift.String, completionHandler: (Swift.Optional&lt;FullMovies.Movies&gt;, Swift.Optional&lt;FullMovies.ErrorModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FullMovies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/asbelparra/Desktop/ios-recruiting-hsa/FullMovies/FullMovies/List/Data/Repository/PopularMoviesApiRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "375">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CAB0314-8843-4069-8C58-D9C12D1E1973"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FullMovies/List/Data/Repository/PopularMoviesApiRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "list(in:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "196A45F3-27B8-4E14-AB46-E3B487FC6364"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FullMovies/List/Data/Network/PopularMoviesAlamofireRestApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "list(in:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

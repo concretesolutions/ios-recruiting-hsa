@@ -1,5 +1,4 @@
-struct MovieInfo : Codable {
-    
+struct MovieInfo : Codable {    
     let adult : Bool?
     let backdropPath : String?
     let genreIds : [Int]?
