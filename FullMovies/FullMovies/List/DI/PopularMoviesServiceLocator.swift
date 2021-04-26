@@ -18,4 +18,8 @@ class PopularMoviesServiceLocator {
             popularMoviesRepository: popularMoviesRepository
         )
     }
+    
+    var moviesModelMapper : Mapper<MoviesViewModel, Movies>  {
+        return MoviesModelMapper()
+    }
 }
