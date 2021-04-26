@@ -4,7 +4,7 @@ import Foundation
 class PopularMoviesRepositoryMock: PopularMoviesRepository {
     var success = false
     
-    func list(with key: String, completionHandler: @escaping (Movies?, ErrorModel?) -> Void) {
+    func list(in page: String, completionHandler: @escaping (Movies?, ErrorModel?) -> Void) {
         if success {
             let movie = movieInfoModel()
             let model = Movies(
@@ -41,7 +41,7 @@ class PopularMoviesRepositoryMock: PopularMoviesRepository {
     private func errorModel() -> ErrorModel {
         return ErrorModel(
             statusMessage: "Fail",
-            statusCode: 400
+            statusCode: NetworkConstants.StatusCode.badRequest.rawValue
         )
     }
 }

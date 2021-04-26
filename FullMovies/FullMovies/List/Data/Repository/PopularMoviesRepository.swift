@@ -1,3 +1,3 @@
 protocol PopularMoviesRepository: class {
-    func list(with key: String, completionHandler: @escaping (Movies?, ErrorModel?) -> Void)
+    func list(in page: String, completionHandler: @escaping (Movies?, ErrorModel?) -> Void)
 }

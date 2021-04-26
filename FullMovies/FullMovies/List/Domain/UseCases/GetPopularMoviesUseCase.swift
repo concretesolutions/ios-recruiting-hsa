@@ -6,7 +6,7 @@ struct GetPopularMoviesUseCase {
     }
     
     func execute(with key: String, completionHandler: @escaping (Movies?, ErrorModel?) -> Void){
-        popularMoviesRepository.list(with: key){ response, error in
+        popularMoviesRepository.list(in: key){ response, error in
             completionHandler(response, error)
         }
     }
