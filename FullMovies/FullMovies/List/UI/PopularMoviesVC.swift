@@ -29,7 +29,7 @@ class PopularMoviesVC: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Full Movies"
+        title = Constants.Generic.nameApp
         prepare()
     }
     
@@ -43,7 +43,7 @@ class PopularMoviesVC: BaseViewController {
         view.backgroundColor = .white
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
         layout.itemSize = CGSize(width: Constants.CollectionCell.width, height: Constants.CollectionCell.height)
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)

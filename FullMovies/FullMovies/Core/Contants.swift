@@ -3,6 +3,7 @@ enum Constants {
     enum Generic {
         static let empty = ""
         static let placeholder = "placeholder"
+        static let nameApp = "Full Movies"
     }
     
     enum TabBar {

@@ -5,7 +5,7 @@ class PopularMoviesPresenter: Presenter {
     weak var view: BaseView?
     private let getPopularMoviesUseCase : GetPopularMoviesUseCase
     private let moviesModelMapper : Mapper<MoviesViewModel, Movies>
-        
+    
     private var popularMoviesView: PopularMoviesView? {
         return view as? PopularMoviesView
     }

@@ -2,6 +2,7 @@ import UIKit
 
 class BaseViewController: UIViewController, BaseView {
     private(set) var presenter: Presenter?
+    private let activityIndicator = UIActivityIndicatorView()
     
     convenience init(presenter: Presenter) {
         self.init()
@@ -29,15 +30,39 @@ class BaseViewController: UIViewController, BaseView {
         super.viewWillAppear(animated)
         setNavigationBarTheme()
     }
+
+   
     
-    func showLoading() {
+    //MARK: - Private Methods -
+    private func setupLoader() {
+        hideLoading()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .gray
     }
     
-    func hideLoading() {
-    }
-    
-    func setNavigationBarTheme() {
+    private func setNavigationBarTheme() {
         navigationController?.navigationBar.barTintColor = .yellow
         navigationController?.navigationBar.tintColor = .white
+    }
+
+    //MARK: - Actions Activity Indicator
+    
+    func showLoading() {
+        setupLoader()
+
+        DispatchQueue.main.async {
+            self.activityIndicator.center = self.view.center
+            self.activityIndicator.startAnimating()
+            self.view.addSubview(self.activityIndicator)
+            UIApplication.shared.beginIgnoringInteractionEvents()
+        }
+    }
+
+    func hideLoading(){
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
     }
 }
