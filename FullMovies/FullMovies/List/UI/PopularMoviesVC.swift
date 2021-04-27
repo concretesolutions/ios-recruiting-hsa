@@ -5,12 +5,13 @@ class PopularMoviesVC: BaseViewController {
     private var collectionViewDataSource: PopularMoviesDataSource?
     private var collectionViewDelegate: PopularMoviesDelegate?
     var collectionView : UICollectionView?
-    var moviesData : MoviesViewModel?
+    var popularMoviesData : MoviesViewModel?
+    var movies = [MovieViewModel]()
     
     private var popularMoviesPresenter: PopularMoviesPresenter? {
         return presenter as? PopularMoviesPresenter
     }
-
+    
     convenience init(presenter: PopularMoviesPresenter,
                      dataSource: PopularMoviesDataSource,
                      delegate: PopularMoviesDelegate){
@@ -23,13 +24,13 @@ class PopularMoviesVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepare()
+        popularMoviesPresenter?.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Full Movies"
-        popularMoviesPresenter?.load()
+        prepare()
     }
     
     func prepare() {
@@ -42,11 +43,13 @@ class PopularMoviesVC: BaseViewController {
         view.backgroundColor = .white
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        layout.itemSize = CGSize(width: Constants.CollectionCell.width, height: Constants.CollectionCell.height)
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView?.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCollectionViewCell")
+        let nibName = UINib(nibName: "MovieCollectionViewCell", bundle:nil)
+        collectionView?.register(nibName, forCellWithReuseIdentifier: "MovieCollectionViewCell")
         collectionView?.backgroundColor = UIColor.white
         collectionView?.dataSource = collectionViewDataSource
         collectionView?.delegate = collectionViewDelegate
@@ -57,7 +60,13 @@ class PopularMoviesVC: BaseViewController {
 }
 
 extension PopularMoviesVC : PopularMoviesView {
-    func display(movies: MoviesViewModel) {
-        self.moviesData = movies
+    func display(popularMovies: MoviesViewModel) {
+        self.popularMoviesData = popularMovies
+        self.movies = popularMovies.list
+        collectionView?.reloadData()
+    }
+    
+    func showError(){
+        
     }
 }

@@ -18,14 +18,15 @@ class PopularMoviesPresenter: Presenter {
     }
     
     func load(page : String = "1"){
+        self.popularMoviesView?.showLoading()
         getPopularMoviesUseCase.execute(with: page){
             result, _ in
+            self.popularMoviesView?.hideLoading()
             if let result = result {
                 let viewModel = self.moviesModelMapper.reverseMap(value: result)
-                print("viewModel")
-                //TO DO: send view model to VC
+                self.popularMoviesView?.display(popularMovies: viewModel)
             } else{
-                print("errror")
+                self.popularMoviesView?.showLoading()
             }
         }
     }

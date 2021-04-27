@@ -42,6 +42,8 @@
 		7360E5342637A63600B92747 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E5332637A63600B92747 /* BaseView.swift */; };
 		7360E53A2637A67D00B92747 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E5392637A67D00B92747 /* Presenter.swift */; };
 		7360E5422637ABEF00B92747 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E5412637ABEF00B92747 /* BaseViewController.swift */; };
+		7360E54E2637BD1400B92747 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E54C2637BD1400B92747 /* MovieCollectionViewCell.swift */; };
+		7360E54F2637BD1400B92747 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7360E54D2637BD1400B92747 /* MovieCollectionViewCell.xib */; };
 		73F22EE52634B3C800D27C95 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F22EE42634B3C800D27C95 /* Coordinator.swift */; };
 		73F22EED2634B3DB00D27C95 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F22EEC2634B3DB00D27C95 /* AppCoordinator.swift */; };
 		73F22EF42634B44200D27C95 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F22EF32634B44200D27C95 /* MainCoordinator.swift */; };
@@ -124,6 +126,8 @@
 		7360E5332637A63600B92747 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7360E5392637A67D00B92747 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		7360E5412637ABEF00B92747 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7360E54C2637BD1400B92747 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		7360E54D2637BD1400B92747 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		73F22EE42634B3C800D27C95 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		73F22EEC2634B3DB00D27C95 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		73F22EF32634B44200D27C95 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -305,6 +309,7 @@
 		7360E4CC26370A2C00B92747 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7360E5462637BCA400B92747 /* View */,
 				7360E50C26375F6D00B92747 /* ViewModel */,
 				7360E50326375F0700B92747 /* Mapper */,
 				7360E4CD26370A4100B92747 /* PopularMoviesVC.swift */,
@@ -364,6 +369,15 @@
 				7360E5392637A67D00B92747 /* Presenter.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7360E5462637BCA400B92747 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7360E54C2637BD1400B92747 /* MovieCollectionViewCell.swift */,
+				7360E54D2637BD1400B92747 /* MovieCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		73F22EE32634B3B400D27C95 /* Coordinator */ = {
@@ -656,6 +670,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7360E54F2637BD1400B92747 /* MovieCollectionViewCell.xib in Resources */,
 				7322DEC126311C4D00149F3A /* LaunchScreen.storyboard in Resources */,
 				7322DEBE26311C4D00149F3A /* Assets.xcassets in Resources */,
 				7322DEBC26311C4B00149F3A /* Main.storyboard in Resources */,
@@ -762,6 +777,7 @@
 				7304223526363BCB006FFD36 /* UrlHelper.swift in Sources */,
 				73F22F762635BB4A00D27C95 /* MovieInfo.swift in Sources */,
 				73F22EED2634B3DB00D27C95 /* AppCoordinator.swift in Sources */,
+				7360E54E2637BD1400B92747 /* MovieCollectionViewCell.swift in Sources */,
 				7360E5162637665500B92747 /* MoviesViewModel.swift in Sources */,
 				7360E50526375F4B00B92747 /* MoviesModelMapper.swift in Sources */,
 				7360E5202637910800B92747 /* PopularMoviesDataSource.swift in Sources */,
