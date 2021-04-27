@@ -22,10 +22,15 @@ class MoviesModelMapper: Mapper<MoviesViewModel, Movies> {
     }
     
     func createMovieViewModel(from value : MovieInfo) ->  MovieViewModel {
+        
+        let release = value.releaseDate ?? Constants.Generic.empty
+        let index = release.index(release.startIndex, offsetBy: 4)
+        let year = String(release[..<index])
+        
         return MovieViewModel(
             title: value.title ?? Constants.Generic.empty,
             overview: value.overview ?? Constants.Generic.empty,
-            year: value.releaseDate ?? Constants.Generic.empty,
+            year: year ,
             poster: value.posterPath ?? Constants.Generic.empty)
     }
 }

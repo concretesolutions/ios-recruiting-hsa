@@ -10,4 +10,11 @@ enum Constants {
         static let movies = "Movies"
         static let favs = "Favs"
     }
+    
+    enum ViewTitle {
+        static let movies = "Movies"
+        static let movie = "Movie"
+        static let favs = "Favorites"
+    }
+    
 }

@@ -28,11 +28,7 @@ class BaseViewController: UIViewController, BaseView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = Constants.Generic.nameApp
-        setNavigationBarTheme()
     }
-
-   
     
     //MARK: - Private Methods -
     private func setupLoader() {
@@ -41,16 +37,11 @@ class BaseViewController: UIViewController, BaseView {
         activityIndicator.style = .gray
     }
     
-    private func setNavigationBarTheme() {
-        navigationController?.navigationBar.barTintColor = .yellow
-        navigationController?.navigationBar.tintColor = .white
-    }
-
     //MARK: - Actions Activity Indicator
     
     func showLoading() {
         setupLoader()
-
+        
         DispatchQueue.main.async {
             self.activityIndicator.center = self.view.center
             self.activityIndicator.startAnimating()
@@ -58,7 +49,7 @@ class BaseViewController: UIViewController, BaseView {
             UIApplication.shared.beginIgnoringInteractionEvents()
         }
     }
-
+    
     func hideLoading(){
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()

@@ -21,11 +21,14 @@ class ViewControllerFactory {
         return FavoritesVC()
     }
     
-    
+    class func movieDetailsVC() -> UIViewController {
+        return MovieDetailsVC()
+    }
+        
     class func tabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         let pupularMoviesVC = popularMoviesVC()
-        let favsVC = favoritesMoviesVC() // TO DO: change this
+        let favsVC = favoritesMoviesVC()
         
         tabBarController.viewControllers = [
             tabBar(childController: pupularMoviesVC, title: Constants.TabBar.movies),

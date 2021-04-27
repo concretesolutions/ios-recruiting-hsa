@@ -24,6 +24,7 @@ class PopularMoviesVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = Constants.ViewTitle.movies
         popularMoviesPresenter?.load()
     }
     
@@ -69,5 +70,15 @@ extension PopularMoviesVC : PopularMoviesView {
     
     func showError(){
         
+    }
+    
+    func select(index: Int) {
+        popularMoviesPresenter?.select(movie: movies[index])
+    }
+    
+    func showMovieDetails(to movie : MovieViewModel){
+        guard let vc =  ViewControllerFactory.movieDetailsVC() as? MovieDetailsVC else { return }
+        vc.movie = movie
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

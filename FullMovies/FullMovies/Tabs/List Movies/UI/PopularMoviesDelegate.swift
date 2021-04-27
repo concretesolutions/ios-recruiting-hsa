@@ -6,6 +6,6 @@ class PopularMoviesDelegate: NSObject {
 
 extension PopularMoviesDelegate: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
+        popularMoviesVC?.select(index : indexPath.row)
     }
 }

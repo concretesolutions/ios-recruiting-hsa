@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupAppearance() {
         let navigation = UINavigationBar.appearance()
         navigation.barTintColor = .yellow
-        navigation.tintColor = .white
+        navigation.tintColor = .black
 
         navigation.isTranslucent = false
         navigation.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)

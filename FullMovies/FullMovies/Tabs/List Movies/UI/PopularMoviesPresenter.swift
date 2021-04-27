@@ -10,7 +10,7 @@ class PopularMoviesPresenter: Presenter {
         return view as? PopularMoviesView
     }
     
-    init (
+    init(
         usecase: GetPopularMoviesUseCase,
         moviesModelMapper: Mapper<MoviesViewModel, Movies>){
         self.getPopularMoviesUseCase = usecase
@@ -29,5 +29,10 @@ class PopularMoviesPresenter: Presenter {
                 self.popularMoviesView?.showLoading()
             }
         }
+    }
+    
+    func select(movie: MovieViewModel) {
+       // TO DO: process data movie to link genre
+        self.popularMoviesView?.showMovieDetails(to: movie)
     }
 }
