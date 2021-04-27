@@ -3,15 +3,18 @@ import UIKit
 class ViewControllerFactory {
     
     class func popularMoviesVC() -> UIViewController {
-        let popularVC =  PopularMoviesVC()
         let serviceLocator = PopularMoviesServiceLocator()
+        let viewDataSource = PopularMoviesDataSource()
+        let viewDelegate = PopularMoviesDelegate()
         let presenter = PopularMoviesPresenter(
-            view: popularVC,
             usecase: serviceLocator.getPopularMoviesUseCase,
             moviesModelMapper: serviceLocator.moviesModelMapper
         )
-        popularVC.presenter = presenter
-        return popularVC
+        
+        return PopularMoviesVC(
+            presenter: presenter,
+            dataSource: viewDataSource,
+            delegate : viewDelegate)
     }
     
     class func tabBarController() -> UITabBarController {
