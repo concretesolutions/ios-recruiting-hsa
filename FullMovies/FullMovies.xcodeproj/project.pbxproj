@@ -43,6 +43,7 @@
 		7360E5422637ABEF00B92747 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E5412637ABEF00B92747 /* BaseViewController.swift */; };
 		7360E54E2637BD1400B92747 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E54C2637BD1400B92747 /* MovieCollectionViewCell.swift */; };
 		7360E54F2637BD1400B92747 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7360E54D2637BD1400B92747 /* MovieCollectionViewCell.xib */; };
+		7360E5632638566F00B92747 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7360E5622638566F00B92747 /* FavoritesVC.swift */; };
 		73F22EE52634B3C800D27C95 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F22EE42634B3C800D27C95 /* Coordinator.swift */; };
 		73F22EED2634B3DB00D27C95 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F22EEC2634B3DB00D27C95 /* AppCoordinator.swift */; };
 		73F22EF42634B44200D27C95 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F22EF32634B44200D27C95 /* MainCoordinator.swift */; };
@@ -126,6 +127,7 @@
 		7360E5412637ABEF00B92747 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7360E54C2637BD1400B92747 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		7360E54D2637BD1400B92747 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		7360E5622638566F00B92747 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		73F22EE42634B3C800D27C95 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		73F22EEC2634B3DB00D27C95 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		73F22EF32634B44200D27C95 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -268,8 +270,8 @@
 		7322DEB326311C4B00149F3A /* FullMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7360E55F2638561200B92747 /* Tabs */,
 				73F22EFB2634B76C00D27C95 /* Core */,
-				73F22EF12634B41600D27C95 /* List */,
 				73F22EFF2634B9BE00D27C95 /* Resources */,
 			);
 			path = FullMovies;
@@ -377,6 +379,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7360E55F2638561200B92747 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				73F22EF22634B42600D27C95 /* Coordinator */,
+				7360E5602638563400B92747 /* Favs */,
+				73F22EF12634B41600D27C95 /* List Movies */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		7360E5602638563400B92747 /* Favs */ = {
+			isa = PBXGroup;
+			children = (
+				7360E5612638564F00B92747 /* UI */,
+			);
+			path = Favs;
+			sourceTree = "<group>";
+		};
+		7360E5612638564F00B92747 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7360E5622638566F00B92747 /* FavoritesVC.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		73F22EE32634B3B400D27C95 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,16 +414,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		73F22EF12634B41600D27C95 /* List */ = {
+		73F22EF12634B41600D27C95 /* List Movies */ = {
 			isa = PBXGroup;
 			children = (
-				73F22EF22634B42600D27C95 /* Coordinator */,
 				73F22F562635B4C100D27C95 /* Data */,
 				7360E4DE2637227000B92747 /* DI */,
 				73F22F4F2635B43200D27C95 /* Domain */,
 				7360E4CC26370A2C00B92747 /* UI */,
 			);
-			path = List;
+			path = "List Movies";
 			sourceTree = "<group>";
 		};
 		73F22EF22634B42600D27C95 /* Coordinator */ = {
@@ -763,6 +790,7 @@
 				7360E4D4263712D500B92747 /* Image.swift in Sources */,
 				7360E52D2637950700B92747 /* PopularMoviesView.swift in Sources */,
 				7304223A26363FE4006FFD36 /* PopularMoviesApiRepository.swift in Sources */,
+				7360E5632638566F00B92747 /* FavoritesVC.swift in Sources */,
 				7360E5422637ABEF00B92747 /* BaseViewController.swift in Sources */,
 				7360E4CE26370A4100B92747 /* PopularMoviesVC.swift in Sources */,
 				73F22F522635B45700D27C95 /* GetPopularMoviesUseCase.swift in Sources */,

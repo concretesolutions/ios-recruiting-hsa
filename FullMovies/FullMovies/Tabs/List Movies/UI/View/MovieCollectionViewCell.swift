@@ -7,9 +7,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleMovie.numberOfLines = 2
-        titleMovie.lineBreakMode = .byWordWrapping
-        imageMovie.contentMode = .scaleAspectFill
+        setup()
     }
 
     override init(frame: CGRect) {
@@ -19,6 +17,12 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    private func setup(){
+        titleMovie.numberOfLines = 2
+        titleMovie.lineBreakMode = .byTruncatingTail
+        imageMovie.contentMode = .scaleAspectFill
     }
     
     func setupCellWith(movie: MovieViewModel){

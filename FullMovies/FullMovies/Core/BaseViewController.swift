@@ -28,6 +28,7 @@ class BaseViewController: UIViewController, BaseView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = Constants.Generic.nameApp
         setNavigationBarTheme()
     }
 

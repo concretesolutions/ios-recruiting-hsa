@@ -17,10 +17,15 @@ class ViewControllerFactory {
             delegate : viewDelegate)
     }
     
+    class func favoritesMoviesVC() -> UIViewController {
+        return FavoritesVC()
+    }
+    
+    
     class func tabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         let pupularMoviesVC = popularMoviesVC()
-        let favsVC = popularMoviesVC() // TO DO: change this
+        let favsVC = favoritesMoviesVC() // TO DO: change this
         
         tabBarController.viewControllers = [
             tabBar(childController: pupularMoviesVC, title: Constants.TabBar.movies),
@@ -41,6 +46,8 @@ class ViewControllerFactory {
         switch viewController {
         case is PopularMoviesVC:
             return Image.Icon.list
+        case is FavoritesVC:
+            return Image.Icon.favs
         default:
             return Image.Icon.favs
         }

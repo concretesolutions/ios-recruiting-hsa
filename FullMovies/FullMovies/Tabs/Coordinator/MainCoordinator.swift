@@ -9,12 +9,16 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        showFirstVC()
+        showFirstTabVC()
     }
 }
 
 extension MainCoordinator {
-    func showFirstVC() {
+    func showFirstTabVC() {
         tabBarController.selectedIndex = 0
+    }
+    
+    func showSecondTabVC() {
+        tabBarController.selectedIndex = 1
     }
 }

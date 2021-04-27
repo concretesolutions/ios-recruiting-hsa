@@ -29,7 +29,6 @@ class PopularMoviesVC: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = Constants.Generic.nameApp
         prepare()
     }
     
@@ -42,11 +41,13 @@ class PopularMoviesVC: BaseViewController {
         let view = UIView()
         view.backgroundColor = .white
         
+        let sizeCell = (self.view.frame.width/2) - 20
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
-        layout.itemSize = CGSize(width: Constants.CollectionCell.width, height: Constants.CollectionCell.height)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: sizeCell, height: sizeCell + 50)
         
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        let cFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height:self.view.frame.height)
+        collectionView = UICollectionView(frame: cFrame, collectionViewLayout: layout)
         collectionView?.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCollectionViewCell")
         let nibName = UINib(nibName: "MovieCollectionViewCell", bundle:nil)
         collectionView?.register(nibName, forCellWithReuseIdentifier: "MovieCollectionViewCell")
