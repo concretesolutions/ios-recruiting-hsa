@@ -7,23 +7,26 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
-
+class MoviesViewController: UIViewController,MoviesPresenterDelegate {
+   
+    private var movie:[Movie] = []
+    private let presenter = MoviesPresenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        presenter.setViewDelegate(delegate: self)
+        presenter.getMovies(search: "")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func presentMovies(movies: [Movie]) {
+        self.movie = movies
+        
+        DispatchQueue.main.async {
+            //
+        }
     }
-    */
+    
+    
 
 }

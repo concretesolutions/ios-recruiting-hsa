@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+struct Movies: Codable{
+    let page: Int
+    let results:[Movie]
+}
 
-struct Movie{
-    let name: String
-    let image: UIImage
+struct Movie: Codable{
+    let title: String
+    let poster_path: String
+    
 }
