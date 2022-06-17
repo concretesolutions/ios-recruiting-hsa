@@ -16,5 +16,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favorite: UIImageView!
     
-    
+    func configurate(){
+        
+    }
 }

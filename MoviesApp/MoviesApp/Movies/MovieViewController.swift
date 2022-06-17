@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - UI About the Show Grid of Movies
 class MovieViewController: UIViewController,MoviesPresenterDelegate {
-    
+      
     var movies:[Movie] = []
     let presenter = MoviesPresenter()
     
@@ -32,12 +32,14 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
         self.movies = movies
         
         DispatchQueue.main.async {
-            //
             self.moviesCollectionView.reloadData()
         }
 
     }
     
+    func showError(error: Error) {
+        AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: error.localizedDescription)
+    }
     
 }
 
@@ -60,14 +62,6 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt  indexPath: IndexPath) -> CGSize {
-        
-       /* let collectionViewWith = collectionView.bounds.width
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let spaceBetweenCells = flowLayout.minimumInteritemSpacing
-        let adjustWidth = collectionViewWith - spaceBetweenCells
-        let width: CGFloat = adjustWidth / 2
-        let height: CGFloat = 100*/
-        
         return CGSize(width: 200, height: 200)
     }
     

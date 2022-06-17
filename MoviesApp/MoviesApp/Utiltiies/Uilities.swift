@@ -24,3 +24,9 @@ extension UIImageView {
         }
     }
 }
+
+
+enum urlFail: Error {
+    case fail
+  
+}

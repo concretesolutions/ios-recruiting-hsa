@@ -10,6 +10,7 @@ import UIKit
 
 protocol MoviesPresenterDelegate: AnyObject{
     func presentMovies(movies:[Movie])
+    func showError(error:Error)
 }
 
 
@@ -25,6 +26,7 @@ class MoviesPresenter{
      
         let task: URLSessionDataTask = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {
+                self.delegate?.showError(error: urlFail.fail)
                 return
             }
             
@@ -34,6 +36,7 @@ class MoviesPresenter{
                 self.delegate?.presentMovies(movies: movies.results)
             }catch{
                 print(error)
+                self.delegate?.showError(error: error)
             }
         }
         
