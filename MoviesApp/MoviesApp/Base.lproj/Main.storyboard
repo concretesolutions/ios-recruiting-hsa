@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--Movie View Controller-->
         <scene sceneID="Qzc-mt-K3C">
             <objects>
                 <viewController id="C0p-EN-NNU" customClass="MovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                             <constraint firstItem="2bK-sR-qzW" firstAttribute="bottom" secondItem="T1w-qv-6dt" secondAttribute="bottom" constant="80" id="Y3g-v5-HD5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" id="dsf-BW-KUv"/>
+                    <navigationItem key="navigationItem" id="S2K-j6-VbZ"/>
                     <connections>
                         <outlet property="indicatorLoading" destination="ka2-3i-i0h" id="7Gp-Tj-Fmg"/>
                         <outlet property="moviesCollectionView" destination="T1w-qv-6dt" id="zdr-rm-W9J"/>
@@ -107,7 +107,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nlb-Jv-zrR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10076.8115942029" y="-668.97321428571422"/>
+            <point key="canvasLocation" x="10986.956521739132" y="-668.97321428571422"/>
+        </scene>
+        <!--Detail Movie View Controller-->
+        <scene sceneID="TsD-Lp-Mgn">
+            <objects>
+                <viewController id="Ta2-KU-svq" customClass="DetailMovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SKZ-Y9-hVu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PB2-wj-dFf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="p48-3d-QGz">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="ISG-8K-9vu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="332" translatesAutoresizingMaskIntoConstraints="NO" id="Ced-v2-gDP">
+                                        <rect key="frame" x="0.0" y="320" width="404.33333333333331" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ja-zm-vvG">
+                                                <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="21"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavoriteEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="On1-Lq-zUY">
+                                                <rect key="frame" x="382.33333333333331" y="0.0" width="22" height="21"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2008" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCH-kB-H0h">
+                                        <rect key="frame" x="0.0" y="361" width="60.666666666666664" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action,Adventure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNw-TO-Pf7">
+                                        <rect key="frame" x="0.0" y="411" width="185.66666666666666" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-Nx-jkr">
+                                        <rect key="frame" x="0.0" y="461" width="414" height="391"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="p48-3d-QGz" secondAttribute="trailing" constant="20" id="YpX-Co-9y6"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8d0-oI-dyy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PB2-wj-dFf" firstAttribute="leading" secondItem="8d0-oI-dyy" secondAttribute="leading" id="cFm-rq-fyh"/>
+                            <constraint firstItem="PB2-wj-dFf" firstAttribute="top" secondItem="8d0-oI-dyy" secondAttribute="top" id="kQI-Lr-Ngp"/>
+                            <constraint firstItem="8d0-oI-dyy" firstAttribute="trailing" secondItem="PB2-wj-dFf" secondAttribute="trailing" id="lEA-Z4-A1N"/>
+                            <constraint firstAttribute="bottom" secondItem="PB2-wj-dFf" secondAttribute="bottom" id="z2b-ci-lbG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="favoriteImage" destination="On1-Lq-zUY" id="18b-hJ-Jzj"/>
+                        <outlet property="generoLabel" destination="SNw-TO-Pf7" id="Eiy-PV-FQh"/>
+                        <outlet property="posterImagen" destination="p48-3d-QGz" id="ba1-Js-7nr"/>
+                        <outlet property="sinopsisLabel" destination="v1X-Nx-jkr" id="Das-Qm-0Y4"/>
+                        <outlet property="titleLabel" destination="7ja-zm-vvG" id="3Lj-Ud-BVF"/>
+                        <outlet property="yearLabel" destination="oCH-kB-H0h" id="ZKa-Pu-Bx9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="92E-0s-4z2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11752.17391304348" y="-672.32142857142856"/>
         </scene>
         <!--Favoritos-->
         <scene sceneID="HGp-fC-W9k">
@@ -136,7 +215,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="C0p-EN-NNU" kind="relationship" relationship="viewControllers" id="RRX-jc-ejz"/>
+                        <segue destination="mwK-xp-fjY" kind="relationship" relationship="viewControllers" id="RRX-jc-ejz"/>
                         <segue destination="b8J-de-quM" kind="relationship" relationship="viewControllers" id="XiC-7j-10h"/>
                     </connections>
                 </tabBarController>
@@ -144,8 +223,29 @@
             </objects>
             <point key="canvasLocation" x="9171.0144927536239" y="-342.39130434782612"/>
         </scene>
+        <!--Movies-->
+        <scene sceneID="XnD-9C-89T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mwK-xp-fjY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" id="dsf-BW-KUv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sR9-h3-jg5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C0p-EN-NNU" kind="relationship" relationship="rootViewController" id="ae8-Az-ShK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BlH-Iw-caE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10076.8115942029" y="-668.97321428571422"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="FavoriteEmpty" width="22" height="21"/>
+        <image name="default" width="128" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="wait" width="128" height="128"/>
         <systemColor name="labelColor">

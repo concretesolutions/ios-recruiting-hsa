@@ -18,5 +18,13 @@ struct Movies: Codable{
 struct Movie: Codable{
     let title: String
     let poster_path: String
+    let genre_ids:[Int]
+    let overview:String
+    let release_date:Date
     
+}
+
+struct Genre: Codable{
+    let id: Int
+    let name: String
 }

@@ -14,8 +14,8 @@
             filePath = "MoviesApp/Movies/MoviesPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "getMovies(search:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,13 +30,13 @@
             filePath = "MoviesApp/Movies/MoviesPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "getMovies(search:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "19871BA0-F9E8-4E87-8079-45B9783F3F16 - 4f11e078db5a0930"
+                  uuid = "19871BA0-F9E8-4E87-8079-45B9783F3F16 - 4f11e078db5a08d7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -46,12 +46,12 @@
                   urlString = "file:///Users/gustavo.salazar/Documents/GitHub/ios-recruiting-hsa/ios-recruiting-hsa/MoviesApp/MoviesApp/Movies/MoviesPresenter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "120">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "312">
                </Location>
                <Location
-                  uuid = "19871BA0-F9E8-4E87-8079-45B9783F3F16 - 4f11e078db5a0930"
+                  uuid = "19871BA0-F9E8-4E87-8079-45B9783F3F16 - 4f11e078db5a08d7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -61,9 +61,9 @@
                   urlString = "file:///Users/gustavo.salazar/Documents/GitHub/ios-recruiting-hsa/ios-recruiting-hsa/MoviesApp/MoviesApp/Movies/MoviesPresenter.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "168">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "380">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "MoviesApp/Movies/MoviesPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "getMovies(search:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "MoviesApp/Movies/MoviesPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "getMovies(search:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -337,6 +337,38 @@
             startingLineNumber = "84"
             endingLineNumber = "84"
             landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D89850B3-A8D0-40AA-BA52-8E7F3014782B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesApp/Movies/MoviesPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getMovies(search:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB90D088-641F-44C8-AB40-FDAF0B407866"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesApp/Movies/MoviesPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getMovies(search:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

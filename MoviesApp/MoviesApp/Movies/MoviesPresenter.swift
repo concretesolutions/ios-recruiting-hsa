@@ -15,12 +15,16 @@ protocol MoviesPresenterDelegate: AnyObject{
 
 typealias PresenterDelegate = MoviesPresenterDelegate & UIViewController
 
+
 // MARK: - Interactive with API y transform to model for the presenter to View
 class MoviesPresenter{
     weak var delegate: PresenterDelegate?
-    
+    let dateFormatter = DateFormatter()
+  
     //MARK: - Get movies of API
     public func getMovies(search: String){
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
         guard let url = URL(string: APIUrl.moviesURL) else {return}
      
         let task: URLSessionDataTask = URLSession.shared.dataTask(with: url) { data, _, error in
@@ -30,14 +34,19 @@ class MoviesPresenter{
             }
             
             do{
-                var movies = try JSONDecoder().decode(Movies.self,from:data)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(self.dateFormatter)
+                var movies = try decoder.decode(Movies.self,from:data)
+                
+                
                 //Send Information to View
                 //Filter
                 if search != "" {
-                    movies.results = movies.results.filter({(item: Movie) -> Bool in
+                    movies.results = movies.results.filter( { (item: Movie) -> Bool
+                        in
 
                         let stringMatch = item.title.lowercased().range(of:search.lowercased())
-                         return stringMatch != nil ? true : false
+                        return stringMatch != nil ? true : false
                     })
                 }
                 self.delegate?.presentMovies(movies: movies.results)
