@@ -11,7 +11,7 @@ import UIKit
 //MARK: - Represent the JSON https://api.themoviedb.org/3/movie/popular?
 struct Movies: Codable{
     let page: Int
-    let results:[Movie]
+    var results:[Movie]
 }
 
 //MARK: -  List Model

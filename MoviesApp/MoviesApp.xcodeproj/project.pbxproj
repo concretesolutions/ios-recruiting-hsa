@@ -151,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				FFC6E9ED285CCDFA00603177 /* Movies */,
-				FFC6E9F7285CD8BC00603177 /* Favorites */,
 				FFC6E9EF285CCE1800603177 /* DetailMovie */,
+				FFC6E9F7285CD8BC00603177 /* Favorites */,
 				FFC6E9F0285CCE2400603177 /* Filter */,
 				FFC6E9FC285CD92000603177 /* FilterDetailViewController */,
 				FFC6E9F3285CD07800603177 /* DataManager */,

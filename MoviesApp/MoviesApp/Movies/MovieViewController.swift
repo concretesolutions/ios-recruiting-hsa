@@ -15,16 +15,19 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
     let presenter = MoviesPresenter()
     
     @IBOutlet weak var moviesCollectionView: UICollectionView!
-  
+    @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
+    @IBOutlet weak var moviesSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
-        
+        moviesSearchBar.delegate = self
+
         presenter.setViewDelegate(delegate: self)
         presenter.getMovies(search: "")
+        indicatorLoading.startAnimating()
     }
     
     
@@ -32,7 +35,13 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
         self.movies = movies
         
         DispatchQueue.main.async {
+            
+            if self.movies.count == 0 {
+                AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: AlertConstant.ErrorMissingInfo + self.moviesSearchBar.text!)
+            }
+            
             self.moviesCollectionView.reloadData()
+            self.indicatorLoading.stopAnimating()
         }
 
     }
@@ -54,15 +63,26 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.movieCell, for: indexPath) as! MovieCollectionViewCell
         
         cell.title.text = movies[indexPath.row].title
+        //Buscar bien la ruta completa dela imagen
         //cell.poster.loadFrom(URLAddress: APIUrl.routeImage + (movies[indexPath.row].poster_path))
         
         cell.poster.loadFrom(URLAddress: "https://image.tmdb.org/t/p/w500/neMZH82Stu91d3iqvLdNQfqPPyl.jpg")
         return cell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt  indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 200)
     }
     
+}
+
+
+//MARK: - Find by title
+
+extension MovieViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            indicatorLoading.startAnimating()
+            presenter.getMovies(search: moviesSearchBar.text!)
+        
+    }
 }
