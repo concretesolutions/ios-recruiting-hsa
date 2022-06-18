@@ -64,6 +64,7 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
         
         cell.title.text = movies[indexPath.row].title
         //Buscar bien la ruta completa dela imagen
+       
         //cell.poster.loadFrom(URLAddress: APIUrl.routeImage + (movies[indexPath.row].poster_path))
         
         cell.poster.loadFrom(URLAddress: "https://image.tmdb.org/t/p/w500/neMZH82Stu91d3iqvLdNQfqPPyl.jpg")
@@ -73,6 +74,20 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt  indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 200)
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+      didSelectItemAt indexPath: IndexPath) {
+        
+        //let detail:DetailMovieViewController = DetailMovieViewController()
+    
+        let detail = storyboard?.instantiateViewController(withIdentifier:StoryBoardsIDS.idDetailMovie ) as? DetailMovieViewController
+        
+        let movieSelect = movies[indexPath.row]
+        detail?.movie = movieSelect
+        
+        print("Cell \(indexPath.row + 1) clicked")
+        self.navigationController?.pushViewController(detail!, animated: true)
+      }
     
 }
 

@@ -21,6 +21,10 @@ struct Cells{
     static let movieCell = "MovieCollectionViewCell"
 }
 
+struct StoryBoardsIDS{
+    static let idDetailMovie = "DetailMovieViewController"
+}
+
 //MARK: - Mesages of Alerts
 struct AlertConstant{
     static let OK = "OK"
