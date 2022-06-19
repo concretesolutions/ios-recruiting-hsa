@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 protocol DetailMoviePresenterDelegate: AnyObject{
     func presentGender(gender:String)
     func showError(error:Error)
+    func showFavorite()
 }
 
 typealias PresenterDetailMovieDelegate = DetailMoviePresenterDelegate & UIViewController
@@ -50,4 +52,23 @@ class DetailMoviePresenter{
         }
         task.resume()
     }
+
+    func saveFavorite(movie:Movie){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "MovieDB", in: context)
+        let movieFavorite = MovieDB(entity: entity!, insertInto: context)
+        movieFavorite.poster = movie.poster_path
+        movieFavorite.title = movie.title
+        movieFavorite.releaseYear = (movie.getYear() as NSString).intValue
+        movieFavorite.sinopsis = movie.overview
+        
+        do{
+            try context.save()
+        } catch{
+            print(error)
+        }
+        self.delegate?.showFavorite()
+    }
+
 }

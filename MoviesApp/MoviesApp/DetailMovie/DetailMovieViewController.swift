@@ -11,7 +11,7 @@ import UIKit
 class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
     @IBOutlet weak var posterImagen: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var sinopsisLabel: UITextView!
     @IBOutlet weak var generoLabel: UILabel!
@@ -25,12 +25,21 @@ class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
         setConfigure()
     }
     
+    func setFavorite(){
+        if movie?.favorite == true {
+            favoriteButton.setImage(UIImage(named:"FavoriteFull"), for: .normal)
+            } else {
+                favoriteButton.setImage(UIImage(named: "FavoriteEmpty"), for: .normal)
+            }
+    }
+    
     func setConfigure(){
         posterImagen.loadFrom(URLAddress: APIUrl.routeImage + (movie!.poster_path))
         titleLabel.text = movie?.title
-        yearLabel.text = movie?.formatDate()
+        yearLabel.text = movie?.getYear()
         generoLabel.text = ""
         sinopsisLabel.text = movie?.overview
+        setFavorite()
     }
     
     func presentGender(gender: String) {
@@ -43,5 +52,13 @@ class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
         AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: error.localizedDescription)
     }
 
-
+    @IBAction func touchFavorite(_ sender: Any) {
+        presenter.saveFavorite(movie: movie!)
+    }
+    
+    func showFavorite() {
+        //
+    }
+    
+  
 }

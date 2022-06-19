@@ -29,6 +29,6 @@ struct StoryBoardsIDS{
 struct AlertConstant{
     static let OK = "OK"
     static let Error = "Movies error!!!"
-    static let ErrorMissingInfo = "La busquda no encontro resultados"
+    static let ErrorMissingInfo = "La busquda no encontro resultados "
 }
 

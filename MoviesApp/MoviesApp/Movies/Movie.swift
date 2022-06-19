@@ -21,8 +21,9 @@ struct Movie: Codable{
     let genre_ids:[Int]
     let overview:String
     let release_date:Date
+    var favorite:Bool?
     
-    func formatDate() -> String{
+    func getYear() -> String{
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "YYYY"
         
