@@ -8,8 +8,7 @@
 import UIKit
 
 //MARK: - Detail of View Movie Controller
-class DetailMovieViewController: UIViewController {
-
+class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
     @IBOutlet weak var posterImagen: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var favoriteImage: UIImageView!
@@ -17,24 +16,31 @@ class DetailMovieViewController: UIViewController {
     @IBOutlet weak var sinopsisLabel: UITextView!
     @IBOutlet weak var generoLabel: UILabel!
     var movie: Movie? = nil
+    let presenter: DetailMoviePresenter = DetailMoviePresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        presenter.setViewDelegate(delegate: self)
+        presenter.getGenres(genreIDS: movie!.genre_ids)
         setConfigure()
     }
     
-    
     func setConfigure(){
-        //Buscar bien la ruta completa dela imagen
-       
-        //cell.poster.loadFrom(URLAddress: APIUrl.routeImage + (movies[indexPath.row].poster_path))
-        
-        posterImagen.loadFrom(URLAddress: "https://image.tmdb.org/t/p/w500/neMZH82Stu91d3iqvLdNQfqPPyl.jpg")
+        posterImagen.loadFrom(URLAddress: APIUrl.routeImage + (movie!.poster_path))
         titleLabel.text = movie?.title
-        yearLabel.text = movie?.release_date.description
+        yearLabel.text = movie?.formatDate()
         generoLabel.text = ""
         sinopsisLabel.text = movie?.overview
+    }
+    
+    func presentGender(gender: String) {
+        DispatchQueue.main.async {
+            self.generoLabel.text = gender
+        }
+    }
+    
+    func showError(error: Error) {
+        AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: error.localizedDescription)
     }
 
 

@@ -22,9 +22,12 @@ struct Movie: Codable{
     let overview:String
     let release_date:Date
     
+    func formatDate() -> String{
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "YYYY"
+        
+        return dateFormatterPrint.string(from: self.release_date)
+    }
+    
 }
 
-struct Genre: Codable{
-    let id: Int
-    let name: String
-}

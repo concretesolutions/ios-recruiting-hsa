@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie View Controller-->
+        <!--Movies-->
         <scene sceneID="Qzc-mt-K3C">
             <objects>
                 <viewController id="C0p-EN-NNU" customClass="MovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Buscar Movie" id="u6D-v3-mTe">
+                                <rect key="frame" x="0.0" y="88" width="394" height="51"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-qv-6dt">
-                                <rect key="frame" x="0.0" y="86" width="414" height="647"/>
+                                <rect key="frame" x="0.0" y="189" width="414" height="544"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tHE-Pg-pOF">
                                     <size key="itemSize" width="190" height="205"/>
@@ -78,13 +83,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="Buscar Movie" id="u6D-v3-mTe">
-                                <rect key="frame" x="20" y="20" width="374" height="51"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="ka2-3i-i0h">
-                                <rect key="frame" x="-23" y="765" width="149" height="48"/>
+                                <rect key="frame" x="123" y="801" width="149" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" systemColor="labelColor"/>
                             </activityIndicatorView>
@@ -94,11 +94,11 @@
                         <constraints>
                             <constraint firstItem="T1w-qv-6dt" firstAttribute="leading" secondItem="2bK-sR-qzW" secondAttribute="leading" id="3lj-6c-jDm"/>
                             <constraint firstItem="2bK-sR-qzW" firstAttribute="trailing" secondItem="T1w-qv-6dt" secondAttribute="trailing" id="9he-iU-G8L"/>
-                            <constraint firstItem="T1w-qv-6dt" firstAttribute="top" secondItem="u6D-v3-mTe" secondAttribute="bottom" constant="15" id="B2M-PU-f0r"/>
+                            <constraint firstItem="T1w-qv-6dt" firstAttribute="top" secondItem="u6D-v3-mTe" secondAttribute="bottom" constant="50" id="B2M-PU-f0r"/>
                             <constraint firstItem="2bK-sR-qzW" firstAttribute="bottom" secondItem="T1w-qv-6dt" secondAttribute="bottom" constant="80" id="Y3g-v5-HD5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="S2K-j6-VbZ"/>
+                    <navigationItem key="navigationItem" title="Movies" id="S2K-j6-VbZ"/>
                     <connections>
                         <outlet property="indicatorLoading" destination="ka2-3i-i0h" id="7Gp-Tj-Fmg"/>
                         <outlet property="moviesCollectionView" destination="T1w-qv-6dt" id="zdr-rm-W9J"/>
@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="10986.956521739132" y="-668.97321428571422"/>
         </scene>
-        <!--Detail Movie View Controller-->
+        <!--Movie-->
         <scene sceneID="TsD-Lp-Mgn">
             <objects>
                 <viewController storyboardIdentifier="DetailMovieViewController" id="Ta2-KU-svq" customClass="DetailMovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,17 +127,17 @@
                                             <constraint firstAttribute="height" constant="300" id="ISG-8K-9vu"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="332" translatesAutoresizingMaskIntoConstraints="NO" id="Ced-v2-gDP">
-                                        <rect key="frame" x="0.0" y="320" width="404.33333333333331" height="21"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ced-v2-gDP">
+                                        <rect key="frame" x="0.0" y="320" width="414" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ja-zm-vvG">
-                                                <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ja-zm-vvG">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavoriteEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="On1-Lq-zUY">
-                                                <rect key="frame" x="382.33333333333331" y="0.0" width="22" height="21"/>
+                                                <rect key="frame" x="288" y="0.0" width="126" height="21"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -164,11 +164,13 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="SNw-TO-Pf7" firstAttribute="leading" secondItem="PB2-wj-dFf" secondAttribute="leading" id="3FO-dJ-Eya"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ced-v2-gDP" secondAttribute="trailing" id="3JC-Do-xHi"/>
                                     <constraint firstAttribute="trailing" secondItem="oCH-kB-H0h" secondAttribute="trailing" id="FbP-AB-npf"/>
                                     <constraint firstItem="oCH-kB-H0h" firstAttribute="leading" secondItem="PB2-wj-dFf" secondAttribute="leading" id="QwU-u0-yHA"/>
                                     <constraint firstAttribute="trailing" secondItem="p48-3d-QGz" secondAttribute="trailing" constant="20" id="YpX-Co-9y6"/>
                                     <constraint firstItem="v1X-Nx-jkr" firstAttribute="leading" secondItem="PB2-wj-dFf" secondAttribute="leading" id="om7-lb-vqC"/>
                                     <constraint firstAttribute="trailing" secondItem="SNw-TO-Pf7" secondAttribute="trailing" id="qcN-9d-7f1"/>
+                                    <constraint firstItem="Ced-v2-gDP" firstAttribute="leading" secondItem="PB2-wj-dFf" secondAttribute="leading" id="yEB-yI-ocj"/>
                                     <constraint firstAttribute="trailing" secondItem="v1X-Nx-jkr" secondAttribute="trailing" id="zUy-Jd-m36"/>
                                 </constraints>
                             </stackView>
@@ -182,7 +184,9 @@
                             <constraint firstAttribute="bottom" secondItem="PB2-wj-dFf" secondAttribute="bottom" id="z2b-ci-lbG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LIc-g6-LX6"/>
+                    <navigationItem key="navigationItem" title="Movie" id="LIc-g6-LX6">
+                        <barButtonItem key="backBarButtonItem" title="Movies" id="9Vc-yR-qun"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoriteImage" destination="On1-Lq-zUY" id="18b-hJ-Jzj"/>
                         <outlet property="generoLabel" destination="SNw-TO-Pf7" id="Eiy-PV-FQh"/>
@@ -206,7 +210,7 @@
                         <viewLayoutGuide key="safeArea" id="OJA-1p-UPE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favoritos" id="F0P-2B-P05"/>
+                    <tabBarItem key="tabBarItem" title="Favoritos" image="FavoriteEmpty" id="F0P-2B-P05"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BZ-Pi-ETA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,7 +239,7 @@
         <scene sceneID="XnD-9C-89T">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mwK-xp-fjY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movies" id="dsf-BW-KUv"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="List" id="dsf-BW-KUv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sR9-h3-jg5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -253,6 +257,7 @@
     </scenes>
     <resources>
         <image name="FavoriteEmpty" width="22" height="21"/>
+        <image name="List" width="18" height="10"/>
         <image name="default" width="128" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="wait" width="128" height="128"/>

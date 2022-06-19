@@ -13,14 +13,20 @@ protocol MoviesPresenterDelegate: AnyObject{
     func showError(error:Error)
 }
 
-typealias PresenterDelegate = MoviesPresenterDelegate & UIViewController
+typealias PresenterMovieDelegate = MoviesPresenterDelegate & UIViewController
 
 
 // MARK: - Interactive with API y transform to model for the presenter to View
 class MoviesPresenter{
-    weak var delegate: PresenterDelegate?
+    weak var delegate: PresenterMovieDelegate?
     let dateFormatter = DateFormatter()
   
+    //MARK: - Set detelegate
+    public func setViewDelegate(delegate: PresenterMovieDelegate){
+        self.delegate = delegate
+    }
+    
+    
     //MARK: - Get movies of API
     public func getMovies(search: String){
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -37,7 +43,6 @@ class MoviesPresenter{
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(self.dateFormatter)
                 var movies = try decoder.decode(Movies.self,from:data)
-                
                 
                 //Send Information to View
                 //Filter
@@ -59,8 +64,5 @@ class MoviesPresenter{
         task.resume()
         
     }
-    //MARK: - Init Class
-    public func setViewDelegate(delegate: PresenterDelegate){
-        self.delegate = delegate
-    }
+   
 }

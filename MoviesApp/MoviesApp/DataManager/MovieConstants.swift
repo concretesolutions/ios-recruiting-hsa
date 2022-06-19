@@ -9,18 +9,18 @@ import Foundation
 
 //MARK: -URLS The Api Movies
 struct APIUrl{
-    static let appiKey = ""
-    static let moviesURL = "https://api.themoviedb.org/3/movie/popular?api_key=429bd6eb3ae6496210731b951f6d6f95&language=en-US&page=1"
-    static let genresURL = ""
-    static let routeImage = "https://image.tmdb.org/t/p/"
-    
+    static let appiKey = "429bd6eb3ae6496210731b951f6d6f95"
+    static let moviesURL = "https://api.themoviedb.org/3/movie/popular?api_key=" + appiKey + "&language=en-US&page=1"
+    static let genresURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + appiKey + "&language=en-US"
+    static let routeImage = "https://image.tmdb.org/t/p/original/"
 }
 
 //MARK: - IDs of the cells
 struct Cells{
     static let movieCell = "MovieCollectionViewCell"
+    static let movieFavoriteCell = ""
 }
-
+//MARK: -Ids of the storyboards
 struct StoryBoardsIDS{
     static let idDetailMovie = "DetailMovieViewController"
 }

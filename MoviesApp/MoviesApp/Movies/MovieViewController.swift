@@ -35,11 +35,10 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
         self.movies = movies
         
         DispatchQueue.main.async {
-            
+        
             if self.movies.count == 0 {
                 AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: AlertConstant.ErrorMissingInfo + self.moviesSearchBar.text!)
             }
-            
             self.moviesCollectionView.reloadData()
             self.indicatorLoading.stopAnimating()
         }
@@ -63,11 +62,8 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.movieCell, for: indexPath) as! MovieCollectionViewCell
         
         cell.title.text = movies[indexPath.row].title
-        //Buscar bien la ruta completa dela imagen
-       
-        //cell.poster.loadFrom(URLAddress: APIUrl.routeImage + (movies[indexPath.row].poster_path))
+        cell.poster.loadFrom(URLAddress: APIUrl.routeImage + (movies[indexPath.row].poster_path))
         
-        cell.poster.loadFrom(URLAddress: "https://image.tmdb.org/t/p/w500/neMZH82Stu91d3iqvLdNQfqPPyl.jpg")
         return cell
     }
     
@@ -77,11 +73,7 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView,
       didSelectItemAt indexPath: IndexPath) {
-        
-        //let detail:DetailMovieViewController = DetailMovieViewController()
-    
         let detail = storyboard?.instantiateViewController(withIdentifier:StoryBoardsIDS.idDetailMovie ) as? DetailMovieViewController
-        
         let movieSelect = movies[indexPath.row]
         detail?.movie = movieSelect
         
@@ -98,6 +90,5 @@ extension MovieViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             indicatorLoading.startAnimating()
             presenter.getMovies(search: moviesSearchBar.text!)
-        
     }
 }
