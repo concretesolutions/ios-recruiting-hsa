@@ -14,7 +14,7 @@
 		FF756FF8285EB9F7005DBE85 /* DetailMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF756FF7285EB9F7005DBE85 /* DetailMoviePresenter.swift */; };
 		FF7CDBB0285F7C6200161DA9 /* MovieDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7CDBAF285F7C6200161DA9 /* MovieDB.swift */; };
 		FF7CDBB2285F880A00161DA9 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7CDBB1285F880A00161DA9 /* FavoritesPresenter.swift */; };
-		FF7CDBB5285F964000161DA9 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7CDBB4285F964000161DA9 /* FavoriteCollectionViewCell.swift */; };
+		FF7CDBB5285F964000161DA9 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */; };
 		FFC6E9F6285CD88B00603177 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6E9F5285CD88B00603177 /* DetailMovieViewController.swift */; };
 		FFC6E9F9285CD8E800603177 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */; };
 		FFC6E9FB285CD90E00603177 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6E9FA285CD90E00603177 /* FilterViewController.swift */; };
@@ -40,7 +40,7 @@
 		FF756FF7285EB9F7005DBE85 /* DetailMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMoviePresenter.swift; sourceTree = "<group>"; };
 		FF7CDBAF285F7C6200161DA9 /* MovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB.swift; sourceTree = "<group>"; };
 		FF7CDBB1285F880A00161DA9 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
-		FF7CDBB4285F964000161DA9 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		FFC6E9F5285CD88B00603177 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		FFC6E9FA285CD90E00603177 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				FFC6E9FF285CD96900603177 /* DataManager.swift */,
-				FF7CDBAF285F7C6200161DA9 /* MovieDB.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -132,6 +131,7 @@
 		FFC6E9F4285CD18400603177 /* CoreManager */ = {
 			isa = PBXGroup;
 			children = (
+				FF7CDBAF285F7C6200161DA9 /* MovieDB.swift */,
 				FFD9DFAC285CC9DF00B8CC00 /* MoviesApp.xcdatamodeld */,
 			);
 			path = CoreManager;
@@ -142,7 +142,7 @@
 			children = (
 				FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */,
 				FF7CDBB1285F880A00161DA9 /* FavoritesPresenter.swift */,
-				FF7CDBB4285F964000161DA9 /* FavoriteCollectionViewCell.swift */,
+				FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				FF67050E285D35CA00785C10 /* AlertMovie.swift in Sources */,
 				FF67050C285D2DC400785C10 /* Uilities.swift in Sources */,
 				FF7CDBB2285F880A00161DA9 /* FavoritesPresenter.swift in Sources */,
-				FF7CDBB5285F964000161DA9 /* FavoriteCollectionViewCell.swift in Sources */,
+				FF7CDBB5285F964000161DA9 /* FavoriteViewCell.swift in Sources */,
 				FFC6EA00285CD96900603177 /* DataManager.swift in Sources */,
 				FF41B3D0285D1F340023F6C3 /* MovieViewController.swift in Sources */,
 				FFC6E9FB285CD90E00603177 /* FilterViewController.swift in Sources */,

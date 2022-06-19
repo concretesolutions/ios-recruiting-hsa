@@ -18,7 +18,7 @@ struct APIUrl{
 //MARK: - IDs of the cells
 struct Cells{
     static let movieCell = "MovieCollectionViewCell"
-    static let movieFavoriteCell = ""
+    static let movieFavoriteCell = "CellFavoriteMovie"
 }
 //MARK: -Ids of the storyboards
 struct StoryBoardsIDS{

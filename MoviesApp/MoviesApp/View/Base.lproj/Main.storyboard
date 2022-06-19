@@ -218,7 +218,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="81" id="eq0-C6-bdv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellFavoriteMovie" rowHeight="81" id="eq0-C6-bdv" customClass="FavoriteViewCell" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="323" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eq0-C6-bdv" id="9p4-sE-yG9">
@@ -252,6 +252,12 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="posterImage" destination="kVq-yL-LV2" id="vpM-Pw-KTs"/>
+                                            <outlet property="sinopsisLabel" destination="vdC-Yn-pbd" id="47W-Xy-4ok"/>
+                                            <outlet property="titleLabel" destination="cL1-xW-VIg" id="iR1-Zb-tmq"/>
+                                            <outlet property="yearReleaseLabel" destination="z2W-fc-vjv" id="XU1-rR-DI9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -260,6 +266,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favoritos" image="FavoriteEmpty" id="F0P-2B-P05"/>
+                    <connections>
+                        <outlet property="favoriteMoviesTableView" destination="n97-qx-MUn" id="Z7p-2g-Apc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BZ-Pi-ETA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
