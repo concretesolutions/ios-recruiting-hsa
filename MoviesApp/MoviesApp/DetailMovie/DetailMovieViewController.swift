@@ -57,7 +57,7 @@ class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
     }
     
     func showFavorite() {
-        //
+        AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: "Favorito Agregado")
     }
     
   

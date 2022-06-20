@@ -22,6 +22,8 @@ class FavoritesViewController: UIViewController ,FavoritesPresenterDelegate{
         presenter.getFavorites()
         
         favoriteMoviesTableView.dataSource = self
+        favoriteMoviesTableView.rowHeight = 200
+
     }
     
     func presentMoviesFavorites(movies: [MovieDB]) {

@@ -43,4 +43,8 @@ class FavoritesPresenter{
             print(error)
         }
     }
+    
+    func deleteFavorite(){
+        
+    }
 }
