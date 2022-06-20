@@ -41,8 +41,6 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
                 AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: AlertConstant.ErrorMissingInfo + self.moviesSearchBar.text!)
             }
             self.moviesCollectionView.reloadData()
-            //self.indicatorLoading.stopAnimating()
-        
             self.removeSpinner()
         }
 
@@ -64,8 +62,9 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.movieCell, for: indexPath) as! MovieCollectionViewCell
         
-        cell.title.text = movies[indexPath.row].title
-        cell.poster.loadFrom(URLAddress: APIUrl.routeImage + (movies[indexPath.row].poster_path))
+        let movie = movies[indexPath.row]
+        cell.configurate(movie: movie)
+       
         
         return cell
     }

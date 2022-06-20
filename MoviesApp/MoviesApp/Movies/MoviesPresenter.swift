@@ -20,7 +20,7 @@ typealias PresenterMovieDelegate = MoviesPresenterDelegate & UIViewController
 class MoviesPresenter{
     weak var delegate: PresenterMovieDelegate?
     let dateFormatter = DateFormatter()
-  
+    
     //MARK: - Set detelegate
     public func setViewDelegate(delegate: PresenterMovieDelegate){
         self.delegate = delegate
@@ -54,7 +54,9 @@ class MoviesPresenter{
                         return stringMatch != nil ? true : false
                     })
                 }
-                self.delegate?.presentMovies(movies: movies.results)
+                FavoriteManager.setFavorite(movies: &movies.results)
+                
+                self.delegate?.presentMovies(movies:movies.results )
             }catch{
                 print(error)
                 self.delegate?.showError(error: error)

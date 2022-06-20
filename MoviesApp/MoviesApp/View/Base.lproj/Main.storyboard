@@ -78,6 +78,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="190" height="205"/>
                                         <connections>
+                                            <outlet property="favorite" destination="hfJ-lF-BXC" id="6Um-h0-DMF"/>
                                             <outlet property="poster" destination="8TZ-sr-fBA" id="x8X-I1-Qpp"/>
                                             <outlet property="title" destination="OMY-2r-9oP" id="OoX-NM-Rws"/>
                                         </connections>

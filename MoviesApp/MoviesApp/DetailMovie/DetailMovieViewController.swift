@@ -53,11 +53,15 @@ class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
     }
 
     @IBAction func touchFavorite(_ sender: Any) {
-        presenter.saveFavorite(movie: movie!)
+        
+            self.presenter.saveFavorite(movie: self.movie!)
+        
     }
     
     func showFavorite() {
+       
         AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: "Favorito Agregado")
+       
     }
     
   

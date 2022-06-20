@@ -25,8 +25,6 @@ class FavoritesViewController: UIViewController ,FavoritesPresenterDelegate{
         favoriteMoviesTableView.dataSource = self
         favoriteMoviesTableView.delegate = self
         favoriteMoviesTableView.rowHeight = 200
-        
-
     }
     
     func presentMoviesFavorites(movies: [MovieDB]) {
@@ -61,7 +59,6 @@ extension FavoritesViewController: UITableViewDataSource{
              
              //Quitar de la Persistencia de datos
          }
-
          
     }
     

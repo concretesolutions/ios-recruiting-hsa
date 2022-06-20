@@ -31,6 +31,7 @@
 		FFD9DFB0285CC9E700B8CC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD9DFAF285CC9E700B8CC00 /* Assets.xcassets */; };
 		FFD9DFB3285CC9E700B8CC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFD9DFB1285CC9E700B8CC00 /* LaunchScreen.storyboard */; };
 		FFE34F7D2860C1EF007D70A6 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE34F7C2860C1EF007D70A6 /* Loading.swift */; };
+		FFE34F7F2860F471007D70A6 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE34F7E2860F471007D70A6 /* FavoriteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		FFD9DFB2285CC9E700B8CC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFD9DFB4285CC9E700B8CC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFE34F7C2860C1EF007D70A6 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		FFE34F7E2860F471007D70A6 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		FFC6E9F7285CD8BC00603177 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				FFE34F7E2860F471007D70A6 /* FavoriteManager.swift */,
 				FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */,
 				FF7CDBB1285F880A00161DA9 /* FavoritesPresenter.swift */,
 				FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */,
@@ -284,6 +287,7 @@
 				FFC6EA08285CFA0000603177 /* MovieCollectionViewCell.swift in Sources */,
 				FFD9DFA6285CC9DF00B8CC00 /* SceneDelegate.swift in Sources */,
 				FF7CDBB0285F7C6200161DA9 /* MovieDB.swift in Sources */,
+				FFE34F7F2860F471007D70A6 /* FavoriteManager.swift in Sources */,
 				FFC6EA04285CDAC200603177 /* MovieConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

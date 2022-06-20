@@ -54,14 +54,17 @@ class DetailMoviePresenter{
     }
 
     func saveFavorite(movie:Movie){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+     
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //let context:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+        let context = getContext()
         let entity = NSEntityDescription.entity(forEntityName: "MovieDB", in: context)
         let movieFavorite = MovieDB(entity: entity!, insertInto: context)
         movieFavorite.poster = movie.poster_path
         movieFavorite.title = movie.title
         movieFavorite.releaseYear = (movie.getYear() as NSString).intValue
         movieFavorite.sinopsis = movie.overview
+        movieFavorite.idMovieDB = movie.id as NSNumber
         
         do{
             try context.save()
@@ -69,6 +72,19 @@ class DetailMoviePresenter{
             print(error)
         }
         self.delegate?.showFavorite()
+        
     }
 
+    private  func getContext() -> NSManagedObjectContext {
+        let appDelegate: AppDelegate
+        if Thread.current.isMainThread {
+            appDelegate = UIApplication.shared.delegate as! AppDelegate
+        } else {
+            appDelegate = DispatchQueue.main.sync {
+                return UIApplication.shared.delegate as! AppDelegate
+            }
+        }
+        return appDelegate.persistentContainer.viewContext
+    }
 }
+

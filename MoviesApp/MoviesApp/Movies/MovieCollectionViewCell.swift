@@ -16,7 +16,14 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favorite: UIImageView!
     
-    func configurate(){
+    func configurate(movie:Movie){
+        title.text = movie.title
+        poster.loadFrom(URLAddress: APIUrl.routeImage + (movie.poster_path))
         
+        if movie.favorite == true {
+            favorite.image = UIImage(named:"FavoriteFull")
+            } else {
+                favorite.image = UIImage(named: "FavoriteEmpty")
+            }
     }
 }

@@ -16,6 +16,7 @@ struct Movies: Codable{
 
 //MARK: -  List Model
 struct Movie: Codable{
+    let id: Int
     let title: String
     let poster_path: String
     let genre_ids:[Int]
@@ -29,6 +30,8 @@ struct Movie: Codable{
         
         return dateFormatterPrint.string(from: self.release_date)
     }
+    
+    
     
 }
 

@@ -2,13 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
     <entity name="MovieDB" representedClassName="MovieDB" syncable="YES">
+        <attribute name="idMovieDB" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="poster" optional="YES" attributeType="String"/>
         <attribute name="releaseYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sinopsis" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="MovieDB" positionX="-63" positionY="-18" width="128" height="89"/>
         <element name="Entity" positionX="-54" positionY="18" width="128" height="29"/>
+        <element name="MovieDB" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>

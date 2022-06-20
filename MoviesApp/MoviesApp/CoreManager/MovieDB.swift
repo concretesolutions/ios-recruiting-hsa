@@ -11,6 +11,7 @@ import CoreData
 @objc(MovieDB)
 class MovieDB:NSManagedObject{
     @NSManaged var id: NSNumber!
+    @NSManaged var idMovieDB: NSNumber!
     @NSManaged var poster: String!
     @NSManaged var title: String!
     @NSManaged var releaseYear: Int32
