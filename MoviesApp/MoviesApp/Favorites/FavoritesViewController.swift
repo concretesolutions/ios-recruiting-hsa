@@ -25,6 +25,9 @@ class FavoritesViewController: UIViewController ,FavoritesPresenterDelegate{
         favoriteMoviesTableView.dataSource = self
         favoriteMoviesTableView.delegate = self
         favoriteMoviesTableView.rowHeight = 200
+        
+        navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
+        tabBarController?.tabBar.backgroundColor = UIColor(named: ColorsMovie.Yellow)
     }
     
     func presentMoviesFavorites(movies: [MovieDB]) {

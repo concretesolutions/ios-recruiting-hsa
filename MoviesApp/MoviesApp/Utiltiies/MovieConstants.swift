@@ -19,6 +19,8 @@ struct APIUrl{
 struct Cells{
     static let movieCell = "MovieCollectionViewCell"
     static let movieFavoriteCell = "CellFavoriteMovie"
+    static let movieFilterCell = ""
+    static let movieFilterDetailCell = ""
 }
 //MARK: -Ids of the storyboards
 struct StoryBoardsIDS{
@@ -32,3 +34,6 @@ struct AlertConstant{
     static let ErrorMissingInfo = "La busquda no encontro resultados "
 }
 
+struct ColorsMovie{
+    static let Yellow = "ColorMVYellowLight"
+}

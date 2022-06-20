@@ -9,13 +9,10 @@ import Foundation
 import UIKit
 import CoreData
 
-
-
+//MARK: -
 class FavoriteManager{
     
-    
     static func setFavorite( movies: inout [Movie]){
-        
         
         let moviesDB = getFavoriteMovie()
         

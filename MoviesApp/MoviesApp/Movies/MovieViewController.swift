@@ -28,7 +28,9 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
         presenter.setViewDelegate(delegate: self)
         presenter.getMovies(search: "")
       
-      
+        navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
+        tabBarController?.tabBar.backgroundColor = UIColor(named: ColorsMovie.Yellow)
+
     }
     
     
