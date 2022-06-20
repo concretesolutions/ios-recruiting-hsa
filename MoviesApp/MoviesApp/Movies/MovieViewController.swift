@@ -15,19 +15,20 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
     let presenter = MoviesPresenter()
     
     @IBOutlet weak var moviesCollectionView: UICollectionView!
-    @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     @IBOutlet weak var moviesSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.showSpinner()
+        //indicatorLoading.startAnimating()
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
         moviesSearchBar.delegate = self
 
         presenter.setViewDelegate(delegate: self)
         presenter.getMovies(search: "")
-        indicatorLoading.startAnimating()
+      
+      
     }
     
     
@@ -40,7 +41,9 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
                 AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: AlertConstant.ErrorMissingInfo + self.moviesSearchBar.text!)
             }
             self.moviesCollectionView.reloadData()
-            self.indicatorLoading.stopAnimating()
+            //self.indicatorLoading.stopAnimating()
+        
+            self.removeSpinner()
         }
 
     }
@@ -88,7 +91,7 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
 
 extension MovieViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            indicatorLoading.startAnimating()
-            presenter.getMovies(search: moviesSearchBar.text!)
+        self.showSpinner()
+        presenter.getMovies(search: moviesSearchBar.text!)
     }
 }

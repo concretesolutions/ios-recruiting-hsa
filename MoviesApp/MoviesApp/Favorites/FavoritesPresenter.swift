@@ -16,7 +16,7 @@ protocol FavoritesPresenterDelegate: AnyObject{
 
 typealias PresenterFavoriteDelegate = FavoritesPresenterDelegate & UIViewController
 
-
+//MARK: -
 class FavoritesPresenter{
     weak var delegate: PresenterFavoriteDelegate?
     
