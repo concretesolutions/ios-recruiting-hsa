@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol  ReturnOptionFilter:AnyObject{
+    func getDate(year:Int)
+    func getGenre(genre:Genre)
+}
 //MARK: -
 class FilterDetailViewController: UIViewController{
     @IBOutlet weak var detailsTableView: UITableView!
@@ -14,6 +19,7 @@ class FilterDetailViewController: UIViewController{
     var typeFilter: TypeFilter = .none
     var years:[Int] = []
     var genres:[Genre] = []
+    weak var delegate: ReturnOptionFilter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,5 +106,17 @@ extension FilterDetailViewController:UITableViewDataSource{
 extension FilterDetailViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
+        tableView.deselectRow(at: indexPath, animated: false)
+
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        
+        if self.typeFilter == .genres{
+            delegate?.getGenre(genre:self.genres[indexPath.row])
+        } else{
+            delegate?.getDate(year: self.years[indexPath.row])
+        }
+        
+        cell.accessoryType = .checkmark
+        self.navigationController?.popViewController(animated: true)
     }
 }

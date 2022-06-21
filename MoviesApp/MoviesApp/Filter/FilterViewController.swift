@@ -61,6 +61,25 @@ extension FilterViewController: UITableViewDelegate{
         let viewController = storyboard?.instantiateViewController(withIdentifier:StoryBoardsIDS.idDetailFilter) as? FilterDetailViewController
         viewController?.typeFilter = typeFilter
         viewController?.title = typeFilter.rawValue
+        viewController?.delegate = self
         navigationController?.pushViewController(viewController!, animated: true)
     }
+}
+
+//MARK: -
+
+extension FilterViewController: ReturnOptionFilter{
+    func getDate(year: Int) {
+        let idx = options.indices.filter{ options[$0].option == TypeFilter.date}
+        options[idx[0]].result = String(year)
+        self.optionsTableView.reloadData()
+    }
+    
+    func getGenre(genre: Genre) {
+        let idx = options.indices.filter{ options[$0].option == TypeFilter.genres}
+        options[idx[0]].result = (genre.name)
+        self.optionsTableView.reloadData()
+    }
+    
+  
 }
