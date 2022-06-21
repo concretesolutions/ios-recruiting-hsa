@@ -60,7 +60,9 @@ class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
     }
     
     func showFavorite() {
-       
+       // tabBarController?.tabBarItem[1].
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CallFavoritesUpdate"), object: "") // here we will call notifications center so our labal value upadate
+
         AlertMovie.showBasicAlert(in:self, title: AlertConstant.Favorites, message: "Favorito Agregado")
        
     }

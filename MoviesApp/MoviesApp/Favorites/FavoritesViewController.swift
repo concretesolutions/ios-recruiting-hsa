@@ -28,7 +28,15 @@ class FavoritesViewController: UIViewController ,FavoritesPresenterDelegate{
         
         navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
         tabBarController?.tabBar.backgroundColor = UIColor(named: ColorsMovie.Yellow)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setFavoritesMovies), name: NSNotification.Name(rawValue: "CallFavoritesUpdate"), object: nil) // this code will call when ever you update your value in view controller
+
     }
+    
+    @objc func setFavoritesMovies(_ notification: Notification) {
+        self.showSpinner()
+        presenter.getFavorites()
+       }
     
     func presentMoviesFavorites(movies: [MovieDB]) {
         self.favortiteMovies = movies
