@@ -44,6 +44,7 @@ class DetailMovieViewController: UIViewController,DetailMoviePresenterDelegate {
     
     func presentGender(gender: String) {
         DispatchQueue.main.async {
+            self.movie?.genre = gender
             self.generoLabel.text = gender
         }
     }

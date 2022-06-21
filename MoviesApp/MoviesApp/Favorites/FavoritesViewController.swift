@@ -38,8 +38,20 @@ class FavoritesViewController: UIViewController ,FavoritesPresenterDelegate{
             self.removeSpinner()
         }
     }
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.segueFilter  {
+            let yourNextViewController = (segue.destination as! FilterViewController)
+                 yourNextViewController.delegate = self
+            }
+    }
+    
+    @IBAction func removeFilterButton(_ sender: Any) {
+        presenter.getFavorites()
+    }
     
 }
+
 //MARK: -
 extension FavoritesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,8 +82,17 @@ extension FavoritesViewController: UITableViewDataSource{
 //MARK: - 
 extension FavoritesViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-           return "Unfavorite"
+        return Labels.unfavorite
    }
 }
 
-
+//MARK: -
+extension FavoritesViewController:ReturnFilterDelegate{
+    func returnFilter(year: Int, genre: String) {
+        //
+        print("\(year) y \(genre)")
+        presenter.getFavorites(releaseYear: year, gender: genre)
+    }
+    
+    
+}

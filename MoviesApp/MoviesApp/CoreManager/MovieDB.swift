@@ -16,5 +16,6 @@ class MovieDB:NSManagedObject{
     @NSManaged var title: String!
     @NSManaged var releaseYear: Int32
     @NSManaged var sinopsis: String!
+    @NSManaged var genre: String!
 }
 

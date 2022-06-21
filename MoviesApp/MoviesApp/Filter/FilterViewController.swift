@@ -7,11 +7,17 @@
 
 import UIKit
 
+
+protocol ReturnFilterDelegate: AnyObject{
+    func returnFilter(year:Int,genre:String)
+}
+
 //MARK: -
 class FilterViewController: UIViewController, FilterPresenterDelegate {
     var options:[Option] = []
     @IBOutlet weak var optionsTableView: UITableView!
     var presenter: FilterPresenter = FilterPresenter()
+    weak var delegate: ReturnFilterDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,8 @@ class FilterViewController: UIViewController, FilterPresenterDelegate {
     
     @IBAction func touchApplyFilter(_ sender: Any) {
         
+        delegate?.returnFilter(year: Int(options[0].result) ?? 0, genre: options[1].result)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -68,7 +76,7 @@ extension FilterViewController: UITableViewDelegate{
 
 //MARK: -
 
-extension FilterViewController: ReturnOptionFilter{
+extension FilterViewController: ReturnOptionFilterDelegate{
     func getDate(year: Int) {
         let idx = options.indices.filter{ options[$0].option == TypeFilter.date}
         options[idx[0]].result = String(year)

@@ -41,6 +41,15 @@ struct ColorsMovie{
 }
 
 //MARK: -
+struct Segues{
+    static let segueFilter = "SegueFilter"
+}
+
+struct Labels{
+    static let unfavorite = "Unfavorite"
+}
+
+//MARK: -
 enum TypeFilter: String{
     case date = "Date"
     case genres = "Genres"

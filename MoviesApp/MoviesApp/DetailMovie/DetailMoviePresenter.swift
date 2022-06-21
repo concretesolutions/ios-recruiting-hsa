@@ -64,6 +64,7 @@ class DetailMoviePresenter{
         movieFavorite.title = movie.title
         movieFavorite.releaseYear = (movie.getYear() as NSString).intValue
         movieFavorite.sinopsis = movie.overview
+        movieFavorite.genre = movie.genre
         movieFavorite.idMovieDB = movie.id as NSNumber
         
         do{

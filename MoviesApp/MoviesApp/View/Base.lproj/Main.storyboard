@@ -303,6 +303,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" name="ColorMVYellowLight"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="removeFilterButton:" destination="b8J-de-quM" eventType="touchUpInside" id="guP-EP-8hn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OJA-1p-UPE"/>

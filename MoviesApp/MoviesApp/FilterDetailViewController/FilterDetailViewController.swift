@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol  ReturnOptionFilter:AnyObject{
+protocol  ReturnOptionFilterDelegate:AnyObject{
     func getDate(year:Int)
     func getGenre(genre:Genre)
 }
@@ -19,7 +19,7 @@ class FilterDetailViewController: UIViewController{
     var typeFilter: TypeFilter = .none
     var years:[Int] = []
     var genres:[Genre] = []
-    weak var delegate: ReturnOptionFilter?
+    weak var delegate: ReturnOptionFilterDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +33,6 @@ class FilterDetailViewController: UIViewController{
         setFilter()
         navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
     }
-    
-    /*init(typeFilters:TypeFilter){
-        typeFilter = typeFilters
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }*/
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

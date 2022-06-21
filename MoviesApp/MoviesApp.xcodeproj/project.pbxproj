@@ -156,9 +156,9 @@
 		FFC6E9F7285CD8BC00603177 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				FFE34F7E2860F471007D70A6 /* FavoriteManager.swift */,
 				FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */,
 				FF7CDBB1285F880A00161DA9 /* FavoritesPresenter.swift */,
+				FFE34F7E2860F471007D70A6 /* FavoriteManager.swift */,
 				FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */,
 			);
 			path = Favorites;

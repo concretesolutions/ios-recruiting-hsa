@@ -23,13 +23,14 @@ class FavoritesPresenter{
     public func setViewDelegate(delegate: PresenterFavoriteDelegate){
         self.delegate = delegate
     }
-    
-    func getFavorites(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+   
+    func getFavorites(releaseYear:Int=0,gender:String=""){
+        
+        let context = getContext()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MovieDB")
         
         var moviesResult: [MovieDB] = []
+        
         do{
             let results:NSArray = try context.fetch(request) as NSArray
             for result in results {
@@ -38,10 +39,39 @@ class FavoritesPresenter{
                 print(movieDB)
                 
             }
+            
+            if releaseYear != 0 || gender != "" {
+                if releaseYear != 0 {
+                    moviesResult = moviesResult.filter{$0.releaseYear == releaseYear}
+                }
+                if gender != ""{
+                    moviesResult = moviesResult.filter{ item in
+                        if item.genre != nil {
+                        return item.genre.contains(gender)
+                    }
+                    return false
+                    }
+                }
+            }
+            
             self.delegate?.presentMoviesFavorites(movies:moviesResult)
+            
         }catch{
             print(error)
         }
+    }
+    
+    
+    private  func getContext() -> NSManagedObjectContext {
+        let appDelegate: AppDelegate
+        if Thread.current.isMainThread {
+            appDelegate = UIApplication.shared.delegate as! AppDelegate
+        } else {
+            appDelegate = DispatchQueue.main.sync {
+                return UIApplication.shared.delegate as! AppDelegate
+            }
+        }
+        return appDelegate.persistentContainer.viewContext
     }
     
     func deleteFavorite(){

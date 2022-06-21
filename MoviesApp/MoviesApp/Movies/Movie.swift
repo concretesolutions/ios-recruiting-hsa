@@ -23,6 +23,7 @@ struct Movie: Codable{
     let overview:String
     let release_date:Date
     var favorite:Bool?
+    var genre:String?
     
     func getYear() -> String{
         let dateFormatterPrint = DateFormatter()
