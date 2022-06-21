@@ -11,10 +11,16 @@ import UIKit
 struct AlertMovie {
    
 
-    static func showBasicAlert(in viewController: UIViewController, title: String, message: String) {
+    static func showBasicAlert(in viewController: UIViewController, title: String, message: String,imageName:String="") {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction( title: AlertConstant.OK, style: .default, handler: nil))
-         DispatchQueue.main.async { viewController.present(alert, animated: true) }
+        let action = UIAlertAction( title: AlertConstant.OK, style: .default, handler: nil)
+        
+        
+        
+        alert.addAction(action)
+         DispatchQueue.main.async {
+             
+             viewController.present(alert, animated: true) }
     }
     
 }

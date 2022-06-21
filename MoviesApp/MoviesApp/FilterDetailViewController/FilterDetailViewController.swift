@@ -29,7 +29,7 @@ class FilterDetailViewController: UIViewController{
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
         detailsTableView.register(UITableViewCell.self, forCellReuseIdentifier: Cells.movieFilterDetailCell)
-
+        self.showSpinner()
         setFilter()
         navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
     }
@@ -56,17 +56,20 @@ extension FilterDetailViewController:FilterDtlPresenterDelegate {
     func presentDate(years: [Int]) {
         self.years = years
         self.detailsTableView.reloadData()
+        self.removeSpinner()
     }
     
     func presentGenres(genres: [Genre]) {
         self.genres = genres
         DispatchQueue.main.sync {
             self.detailsTableView.reloadData()
+            self.removeSpinner()
         }
     }
     
     func showError(error: Error) {
         AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: error.localizedDescription)
+        self.removeSpinner()
     }
 }
 

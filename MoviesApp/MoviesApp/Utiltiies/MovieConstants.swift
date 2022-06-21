@@ -31,8 +31,9 @@ struct StoryBoardsIDS{
 //MARK: - Mesages of Alerts
 struct AlertConstant{
     static let OK = "OK"
+    static let Favorites = "Movies Favorites"
     static let Error = "Movies error!!!"
-    static let ErrorMissingInfo = "La busquda no encontro resultados "
+    static let ErrorMissingInfo = "La busqueda no encontro resultados con "
 }
 
 //MARK: -

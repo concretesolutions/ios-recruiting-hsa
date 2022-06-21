@@ -17,22 +17,21 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     @IBOutlet weak var moviesSearchBar: UISearchBar!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showSpinner()
-        //indicatorLoading.startAnimating()
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
         moviesSearchBar.delegate = self
 
         presenter.setViewDelegate(delegate: self)
         presenter.getMovies(search: "")
-      
+       
         navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
         tabBarController?.tabBar.backgroundColor = UIColor(named: ColorsMovie.Yellow)
 
     }
-    
     
     func presentMovies(movies: [Movie]) {
         self.movies = movies
@@ -40,10 +39,14 @@ class MovieViewController: UIViewController,MoviesPresenterDelegate {
         DispatchQueue.main.async {
         
             if self.movies.count == 0 {
-                AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: AlertConstant.ErrorMissingInfo + self.moviesSearchBar.text!)
+                self.moviesCollectionView.reloadData()
+                self.removeSpinner()
+                AlertMovie.showBasicAlert(in:self, title: AlertConstant.Error, message: AlertConstant.ErrorMissingInfo + self.moviesSearchBar.text!,imageName: "Search")
+                    
+            } else {
+                self.removeSpinner()
+                self.moviesCollectionView.reloadData()
             }
-            self.moviesCollectionView.reloadData()
-            self.removeSpinner()
         }
 
     }
@@ -66,8 +69,7 @@ extension MovieViewController: UICollectionViewDataSource,UICollectionViewDelega
         
         let movie = movies[indexPath.row]
         cell.configurate(movie: movie)
-       
-        
+  
         return cell
     }
     
