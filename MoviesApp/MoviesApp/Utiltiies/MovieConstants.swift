@@ -18,13 +18,14 @@ struct APIUrl{
 //MARK: - IDs of the cells
 struct Cells{
     static let movieCell = "MovieCollectionViewCell"
-    static let movieFavoriteCell = "CellFavoriteMovie"
-    static let movieFilterCell = ""
-    static let movieFilterDetailCell = ""
+    static let movieFavoriteCell = "FavoriteMovieCell"
+    static let movieFilterCell = "FilterMovieCell"
+    static let movieFilterDetailCell = "FilterDtlCell"
 }
 //MARK: -Ids of the storyboards
 struct StoryBoardsIDS{
     static let idDetailMovie = "DetailMovieViewController"
+    static let idDetailFilter = "DetailFilterViewController"
 }
 
 //MARK: - Mesages of Alerts
@@ -34,6 +35,14 @@ struct AlertConstant{
     static let ErrorMissingInfo = "La busquda no encontro resultados "
 }
 
+//MARK: -
 struct ColorsMovie{
     static let Yellow = "ColorMVYellowLight"
+}
+
+//MARK: -
+enum TypeFilter: String{
+    case date = "Date"
+    case genres = "Genres"
+    case none = "None"
 }

@@ -46,7 +46,6 @@ class FavoriteManager{
       
     }
     
-    
     static  func getContext() -> NSManagedObjectContext {
         let appDelegate: AppDelegate
         if Thread.current.isMainThread {

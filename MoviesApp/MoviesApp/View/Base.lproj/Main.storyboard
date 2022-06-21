@@ -213,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="172" width="414" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellFavoriteMovie" rowHeight="81" id="eq0-C6-bdv" customClass="FavoriteViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteMovieCell" rowHeight="81" id="eq0-C6-bdv" customClass="FavoriteViewCell" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eq0-C6-bdv" id="9p4-sE-yG9">
@@ -344,15 +344,15 @@
                                 <rect key="frame" x="0.0" y="98" width="414" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieFilterCell" id="CIm-Fn-qyk">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="41.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterMovieCell" id="CIm-Fn-qyk" customClass="FilterTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="41.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CIm-Fn-qyk" id="aZX-L3-hKh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="41.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="41.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUe-Xz-HUe">
-                                                    <rect key="frame" x="359" y="10.000000000000002" width="45" height="21.666666666666671"/>
+                                                    <rect key="frame" x="330.33333333333331" y="9.9999999999999982" width="45" height="21.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="0H0-HQ-rxy"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="X1r-5n-4dZ"/>
@@ -362,7 +362,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-EQ-FzL">
-                                                    <rect key="frame" x="10" y="10.000000000000002" width="41.333333333333336" height="21.666666666666671"/>
+                                                    <rect key="frame" x="10" y="9.9999999999999982" width="41.333333333333336" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -378,6 +378,10 @@
                                                 <constraint firstItem="0ub-EQ-FzL" firstAttribute="leading" secondItem="aZX-L3-hKh" secondAttribute="leading" constant="10" id="xa4-gw-6eX"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="optionLabel" destination="0ub-EQ-FzL" id="PDP-6i-bEC"/>
+                                            <outlet property="resultLabel" destination="bUe-Xz-HUe" id="Jpy-4R-4kD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -393,6 +397,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchApplyFilter:" destination="WrE-Zx-uFT" eventType="touchUpInside" id="vXy-cE-YpN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bP0-gr-VOK"/>
@@ -409,6 +416,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="oeQ-QA-b67"/>
                     <connections>
+                        <outlet property="optionsTableView" destination="s8U-Fg-Wce" id="d2s-gD-Mm0"/>
                         <segue destination="GUL-Kl-I0B" kind="show" identifier="SegueDetail" id="Zlc-H5-ogS"/>
                     </connections>
                 </viewController>
@@ -419,7 +427,7 @@
         <!--Filter Detail View Controller-->
         <scene sceneID="6Be-bw-9Do">
             <objects>
-                <viewController id="GUL-Kl-I0B" customClass="FilterDetailViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailFilterViewController" id="GUL-Kl-I0B" customClass="FilterDetailViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ipg-sV-AxL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,6 +447,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Ry-YA-n8f"/>
+                    <connections>
+                        <outlet property="detailsTableView" destination="1Vt-fD-jn5" id="WFh-lh-sZc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hP8-Q2-wk4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

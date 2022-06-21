@@ -7,23 +7,60 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
-
+//MARK: -
+class FilterViewController: UIViewController, FilterPresenterDelegate {
+    var options:[Option] = []
+    @IBOutlet weak var optionsTableView: UITableView!
+    var presenter: FilterPresenter = FilterPresenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        presenter.setViewDelegate(delegate: self)
+        presenter.getOptions()
+        
         // Do any additional setup after loading the view.
+        optionsTableView.dataSource = self
+        optionsTableView.delegate = self
+        
+        navigationController?.navigationBar.backgroundColor = UIColor(named:ColorsMovie.Yellow)
+        tabBarController?.tabBar.backgroundColor = UIColor(named: ColorsMovie.Yellow)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func presenteOptionsFilter(options: [Option]) {
+        self.options = options
+        self.optionsTableView.reloadData()
     }
-    */
+    
+    
+    @IBAction func touchApplyFilter(_ sender: Any) {
+        
+    }
+}
 
+//MARK: -
+extension FilterViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return options.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.movieFilterCell) as! FilterTableViewCell
+        let option = options[indexPath.row]
+        cell.setConfigurate(option: option)
+        return cell
+    }
+    
+    
+}
+
+//MARK: -
+extension FilterViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let typeFilter = options[indexPath.row].option
+        let viewController = storyboard?.instantiateViewController(withIdentifier:StoryBoardsIDS.idDetailFilter) as? FilterDetailViewController
+        viewController?.typeFilter = typeFilter
+        viewController?.title = typeFilter.rawValue
+        navigationController?.pushViewController(viewController!, animated: true)
+    }
 }

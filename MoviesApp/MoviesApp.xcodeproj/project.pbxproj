@@ -17,6 +17,8 @@
 		FF7CDBB5285F964000161DA9 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */; };
 		FFB6966328611C9A00343642 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB6966228611C9A00343642 /* FilterPresenter.swift */; };
 		FFB6966528611D2D00343642 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB6966428611D2D00343642 /* FilterTableViewCell.swift */; };
+		FFB6966728612A4600343642 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB6966628612A4600343642 /* Option.swift */; };
+		FFB696692862066C00343642 /* FilterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB696682862066C00343642 /* FilterDetailPresenter.swift */; };
 		FFC6E9F6285CD88B00603177 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6E9F5285CD88B00603177 /* DetailMovieViewController.swift */; };
 		FFC6E9F9285CD8E800603177 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */; };
 		FFC6E9FB285CD90E00603177 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6E9FA285CD90E00603177 /* FilterViewController.swift */; };
@@ -47,6 +49,8 @@
 		FF7CDBB4285F964000161DA9 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		FFB6966228611C9A00343642 /* FilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
 		FFB6966428611D2D00343642 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		FFB6966628612A4600343642 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		FFB696682862066C00343642 /* FilterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetailPresenter.swift; sourceTree = "<group>"; };
 		FFC6E9F5285CD88B00603177 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		FFC6E9F8285CD8E800603177 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		FFC6E9FA285CD90E00603177 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				FFC6E9FA285CD90E00603177 /* FilterViewController.swift */,
 				FFB6966228611C9A00343642 /* FilterPresenter.swift */,
 				FFB6966428611D2D00343642 /* FilterTableViewCell.swift */,
+				FFB6966628612A4600343642 /* Option.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC6E9FD285CD94A00603177 /* FilterDetailViewController.swift */,
+				FFB696682862066C00343642 /* FilterDetailPresenter.swift */,
 			);
 			path = FilterDetailViewController;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			files = (
 				FF756FF8285EB9F7005DBE85 /* DetailMoviePresenter.swift in Sources */,
 				FF67050E285D35CA00785C10 /* AlertMovie.swift in Sources */,
+				FFB6966728612A4600343642 /* Option.swift in Sources */,
 				FF67050C285D2DC400785C10 /* Uilities.swift in Sources */,
 				FFB6966328611C9A00343642 /* FilterPresenter.swift in Sources */,
 				FF7CDBB2285F880A00161DA9 /* FavoritesPresenter.swift in Sources */,
@@ -291,6 +298,7 @@
 				FFC6EA06285CEC0400603177 /* MoviesPresenter.swift in Sources */,
 				FFC6E9F6285CD88B00603177 /* DetailMovieViewController.swift in Sources */,
 				FFC6EA02285CDA5800603177 /* Movie.swift in Sources */,
+				FFB696692862066C00343642 /* FilterDetailPresenter.swift in Sources */,
 				FFC6EA08285CFA0000603177 /* MovieCollectionViewCell.swift in Sources */,
 				FFD9DFA6285CC9DF00B8CC00 /* SceneDelegate.swift in Sources */,
 				FF7CDBB0285F7C6200161DA9 /* MovieDB.swift in Sources */,

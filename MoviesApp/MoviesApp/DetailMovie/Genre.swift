@@ -11,8 +11,6 @@ struct Genres: Codable{
     var genres:[Genre]
 }
 
-
-
 //MARK: - Genre
 struct Genre: Codable{
     let id: Int
