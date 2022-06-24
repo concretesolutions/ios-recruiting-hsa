@@ -54,7 +54,7 @@ Si tienes alguna consulta, no dudes en preguntarnos :)
 ## Información del postulante
 
 ### Nombre
-_(Tu nombre va aquí)_
+Cristian Alexis Bahamondes Quiroga
 
 ### Comentarios
 
