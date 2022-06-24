@@ -9,43 +9,40 @@ import Foundation
 import UIKit
 import CoreData
 
-protocol FavoritesPresenterDelegate: AnyObject{
-    func presentMoviesFavorites(movies:[MovieDB])
-    
+protocol FavoritesPresenterDelegate: AnyObject {
+    func presentMoviesFavorites(movies: [MovieDB])
 }
 
 typealias PresenterFavoriteDelegate = FavoritesPresenterDelegate & UIViewController
 
-//MARK: -
-class FavoritesPresenter{
+// MARK: -
+class FavoritesPresenter {
     weak var delegate: PresenterFavoriteDelegate?
-    
-    public func setViewDelegate(delegate: PresenterFavoriteDelegate){
+
+    public func setViewDelegate(delegate: PresenterFavoriteDelegate) {
         self.delegate = delegate
     }
-   
-    func getFavorites(releaseYear:Int=0,gender:String=""){
-        
+
+    func getFavorites(releaseYear: Int=0, gender: String="") {
         let context = getContext()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MovieDB")
-        
         var moviesResult: [MovieDB] = []
-        
-        do{
-            let results:NSArray = try context.fetch(request) as NSArray
+
+        do {
+            let results: NSArray = try context.fetch(request) as NSArray
             for result in results {
-                let movieDB = result as! MovieDB
-                moviesResult.append(movieDB)
-                print(movieDB)
-                
+                if let movieDB = result as? MovieDB {
+                    moviesResult.append(movieDB)
+                    print(movieDB)
+                }
             }
-            
+
             if releaseYear != 0 || gender != "" {
                 if releaseYear != 0 {
-                    moviesResult = moviesResult.filter{$0.releaseYear == releaseYear}
+                    moviesResult = moviesResult.filter { $0.releaseYear == releaseYear }
                 }
                 if gender != ""{
-                    moviesResult = moviesResult.filter{ item in
+                    moviesResult = moviesResult.filter { item in
                         if item.genre != nil {
                         return item.genre.contains(gender)
                     }
@@ -53,28 +50,27 @@ class FavoritesPresenter{
                     }
                 }
             }
-            
-            self.delegate?.presentMoviesFavorites(movies:moviesResult)
-            
-        }catch{
+            self.delegate?.presentMoviesFavorites(movies: moviesResult)
+        } catch {
             print(error)
         }
     }
-    
-    
-    private  func getContext() -> NSManagedObjectContext {
-        let appDelegate: AppDelegate
-        if Thread.current.isMainThread {
-            appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+      func getContext() -> NSManagedObjectContext {
+        var appDelegate: AppDelegate = AppDelegate()
+
+          if Thread.current.isMainThread {
+            if let app = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate = app
+            }
         } else {
             appDelegate = DispatchQueue.main.sync {
-                return UIApplication.shared.delegate as! AppDelegate
+                return (UIApplication.shared.delegate as? AppDelegate)!
             }
         }
         return appDelegate.persistentContainer.viewContext
     }
-    
-    func deleteFavorite(){
-        
+
+    func deleteFavorite() {
     }
 }

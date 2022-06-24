@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 @objc(MovieDB)
-class MovieDB:NSManagedObject{
+class MovieDB: NSManagedObject {
     @NSManaged var id: NSNumber!
     @NSManaged var idMovieDB: NSNumber!
     @NSManaged var poster: String!
@@ -18,4 +18,3 @@ class MovieDB:NSManagedObject{
     @NSManaged var sinopsis: String!
     @NSManaged var genre: String!
 }
-

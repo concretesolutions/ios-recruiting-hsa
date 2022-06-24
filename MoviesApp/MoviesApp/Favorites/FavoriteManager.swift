@@ -9,50 +9,52 @@ import Foundation
 import UIKit
 import CoreData
 
-//MARK: -
-class FavoriteManager{
-    
-    static func setFavorite( movies: inout [Movie]){
-        
+// MARK: - Get favorites save in deveice
+class FavoriteManager {
+    static func setFavorite( movies: inout [Movie]) {
         let moviesDB = getFavoriteMovie()
-        
-        for (index,_) in movies.enumerated(){
-            movies[index].favorite =  moviesDB.first {$0.idMovieDB as! Int == movies[index].id } != nil ? true: false
+
+        for (index) in movies.indices {
+            movies[index].favorite =  moviesDB.first {
+                if let idDB =  $0.idMovieDB as? Int {
+                    return idDB == movies[index].id
+                }
+              return false
+            } != nil ? true: false
         }
     }
-    
-    static func getFavoriteMovie( ) -> [MovieDB]{
-        
+
+    static func getFavoriteMovie( ) -> [MovieDB] {
+
     var moviesResult: [MovieDB] = []
-    
+
     let context = getContext()
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MovieDB")
-    
-    
-    do{
-        let results:NSArray = try context.fetch(request) as NSArray
+
+    do {
+        let results: NSArray = try context.fetch(request) as NSArray
         for result in results {
-            let movieDB = result as! MovieDB
+            if let movieDB = result as? MovieDB {
             moviesResult.append(movieDB)
-            print(movieDB)
+                print(movieDB)
+            }
         }
-         
+
         return moviesResult
-    }catch{
+    } catch {
         print(error)
         return []
     }
-        
-      
-    }
-    
+}
     static  func getContext() -> NSManagedObjectContext {
-        let appDelegate: AppDelegate
+        var appDelegate: AppDelegate = AppDelegate()
         if Thread.current.isMainThread {
-            appDelegate = UIApplication.shared.delegate as! AppDelegate
+            if let app = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate = app
+            }
         } else {
             appDelegate = DispatchQueue.main.sync {
-                return UIApplication.shared.delegate as! AppDelegate
+                return (UIApplication.shared.delegate as? AppDelegate)!
             }
         }
         return appDelegate.persistentContainer.viewContext

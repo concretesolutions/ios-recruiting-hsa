@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
     <entity name="MovieDB" representedClassName="MovieDB" syncable="YES">
         <attribute name="genre" optional="YES" attributeType="String"/>
         <attribute name="idMovieDB" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -10,7 +9,6 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Entity" positionX="-54" positionY="18" width="128" height="29"/>
         <element name="MovieDB" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

@@ -8,25 +8,23 @@
 import Foundation
 import UIKit
 
-
 extension UIImageView {
-    func loadFrom(URLAddress: String) {
+    func loadFrom(URLAddress: String, completion:((_ msg: String) -> Void)? = nil) {
         guard let url = URL(string: URLAddress) else {
             return
         }
-        
         DispatchQueue.main.async { [weak self] in
             if let imageData = try? Data(contentsOf: url) {
                 if let loadedImage = UIImage(data: imageData) {
                         self?.image = loadedImage
+                    if let completion = completion {
+                        completion("OK") }
                 }
             }
         }
     }
 }
 
-
-enum urlFail: Error {
+enum UrlFail: Error {
     case fail
-  
 }

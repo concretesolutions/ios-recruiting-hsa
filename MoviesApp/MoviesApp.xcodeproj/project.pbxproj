@@ -104,6 +104,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FF8050FB286511010076E6EF /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FFD9DFA5285CC9DF00B8CC00 /* SceneDelegate.swift */,
+				FFD9DFA3285CC9DF00B8CC00 /* AppDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		FFC6E9ED285CCDFA00603177 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +201,8 @@
 		FFD9DFA2285CC9DF00B8CC00 /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				FFD9DFB4285CC9E700B8CC00 /* Info.plist */,
+				FF8050FB286511010076E6EF /* SupportingFiles */,
 				FF7CDBB3285F92A100161DA9 /* View */,
 				FFC6E9ED285CCDFA00603177 /* Movies */,
 				FFC6E9EF285CCE1800603177 /* DetailMovie */,
@@ -201,9 +212,6 @@
 				FFC6E9F3285CD07800603177 /* DataManager */,
 				FFC6E9F4285CD18400603177 /* CoreManager */,
 				FF67050A285D2D8E00785C10 /* Utiltiies */,
-				FFD9DFA5285CC9DF00B8CC00 /* SceneDelegate.swift */,
-				FFD9DFA3285CC9DF00B8CC00 /* AppDelegate.swift */,
-				FFD9DFB4285CC9E700B8CC00 /* Info.plist */,
 			);
 			path = MoviesApp;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 				FFD9DF9C285CC9DF00B8CC00 /* Sources */,
 				FFD9DF9D285CC9DF00B8CC00 /* Frameworks */,
 				FFD9DF9E285CC9DF00B8CC00 /* Resources */,
+				FF8050FA2864CB620076E6EF /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -273,6 +282,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FF8050FA2864CB620076E6EF /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FFD9DF9C285CC9DF00B8CC00 /* Sources */ = {

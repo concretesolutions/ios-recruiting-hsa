@@ -7,8 +7,8 @@
 
 import Foundation
 
-//MARK: -
-struct Option{
+// MARK: -
+struct Option {
     var option: TypeFilter
     var result: String
 }

@@ -8,23 +8,25 @@
 import Foundation
 import UIKit
 
-fileprivate var aView: UIView?
+private var aView: UIView?
 
-extension UIViewController{
-    
-    func showSpinner(){
-        aView = UIView(frame:self.view.bounds)
+extension UIViewController {
+    func showSpinner() {
+        aView = UIView(frame: self.view.bounds)
         aView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        
-        let ai = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
-        ai.center = aView!.center
-        ai.startAnimating()
-        aView!.addSubview(ai)
+
+        let aIView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        aIView.center = aView!.center
+        aIView.startAnimating()
+        aView!.addSubview(aIView)
         self.view.addSubview(aView!)
     }
-    
-    func removeSpinner(){
+    func removeSpinner() {
         aView?.removeFromSuperview()
         aView = nil
+    }
+
+    func isRunning() -> Bool {
+        return aView != nil
     }
 }

@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct Genres: Codable{
-    var genres:[Genre]
+// MARK: - Genre
+struct Genres: Codable {
+    var genres: [Genre]
 }
 
-//MARK: - Genre
-struct Genre: Codable{
+// MARK: - Genre
+struct Genre: Codable {
     let id: Int
     let name: String
 }

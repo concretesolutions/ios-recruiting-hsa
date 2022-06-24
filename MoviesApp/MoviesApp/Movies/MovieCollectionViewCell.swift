@@ -7,21 +7,31 @@
 
 import UIKit
 
-//MARK: -  Movie
+// MARK: - Movie
 class MovieCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var poster: UIImageView!
-    
     @IBOutlet weak var title: UILabel!
-    
     @IBOutlet weak var favorite: UIImageView!
-    
-    func configurate(movie:Movie){
+    private let cache = NSCache<NSNumber, UIImage>()
+
+    func configurate(movie: Movie) {
         title.text = movie.title
-        poster.loadFrom(URLAddress: APIUrl.routeImage + (movie.poster_path))
-        
+
+        if let cachedImage = self.cache.object(forKey: Int(movie.id) as NSNumber) {
+            print("Using a cached image for item: \(movie.id)")
+            poster.image = cachedImage
+        } else {
+            poster.loadFrom(URLAddress: APIUrl.routeImage + (movie.posterPath)) { result in
+                if result == "OK" {
+                    if let img = self.poster.image {
+                        self.cache.setObject(img, forKey: movie.id as NSNumber)
+                    }
+                }
+            }
+        }
+
         if movie.favorite == true {
-            favorite.image = UIImage(named:"FavoriteFull")
+            favorite.image = UIImage(named: "FavoriteFull")
             } else {
                 favorite.image = UIImage(named: "FavoriteEmpty")
             }

@@ -8,10 +8,7 @@
 import Foundation
 import CoreData
 
-class DataManager{
-    
-    func saveMovieFavorite(){
-       
+class DataManager {
+    func saveMovieFavorite() {
     }
-   
 }

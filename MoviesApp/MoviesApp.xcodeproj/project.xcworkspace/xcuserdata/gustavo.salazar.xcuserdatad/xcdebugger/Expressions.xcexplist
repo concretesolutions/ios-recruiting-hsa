@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MovieViewController.scrollViewDidEndDecelerating(_:):MovieViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scrollView.contentOffset.y">
+            </PersistentString>
+            <PersistentString
+               value = "scrollView.frame.size.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MoviesViewController.collectionView(_:numberOfItemsInSection:):MoviesViewController.swift">
          <PersistentStrings>
             <PersistentString
