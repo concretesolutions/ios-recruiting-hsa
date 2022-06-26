@@ -61,8 +61,8 @@ Cristian Alexis Bahamondes Quiroga
 _(Cualquier consideración que quieras mencionar, déjala acá)_
 
 ## Parte 1
-- [ ] Pantalla de Splash
-- [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [*] Pantalla de Splash
+- [*] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
 - [ ] Tratamiento de errores y presentación de flujos de excepción:
   - [ ] Error genérico
   - [ ] Cargando
