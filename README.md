@@ -80,7 +80,7 @@ _(Cualquier consideración que quieras mencionar, déjala acá)_
   - [OK] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
   - [OK] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
 - [OK] Lista de películas favoritas:
-  - [ ] Borrado de películas favoritas desde la lista.
+  - [OK] Borrado de películas favoritas desde la lista.
 - [OK] Layout en pestañas:
   - [OK] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
   - [OK] En la segunda pestaña debes mostrar la lista de películas favoritas.
