@@ -61,29 +61,29 @@ Cristian Alexis Bahamondes Quiroga
 _(Cualquier consideración que quieras mencionar, déjala acá)_
 
 ## Parte 1
-- [*] Pantalla de Splash
-- [*] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [OK] Pantalla de Splash
+- [OK] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
 - [ ] Tratamiento de errores y presentación de flujos de excepción:
   - [ ] Error genérico
   - [ ] Cargando
 
 ## Parte 2
-- [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
-  - [ ] Nombre de la película
-  - [ ] Año de estreno
-  - [ ] Sinopsis
-  - [ ] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
+- [OK] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
+  - [OK] Nombre de la película
+  - [OK] Año de estreno
+  - [OK] Sinopsis
+  - [OK] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 ## Parte 3
 
-- [ ] Selección de películas favoritas
-  - [ ] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
-  - [ ] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
-- [ ] Lista de películas favoritas:
+- [OK] Selección de películas favoritas
+  - [OK] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
+  - [OK] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
+- [OK] Lista de películas favoritas:
   - [ ] Borrado de películas favoritas desde la lista.
-- [ ] Layout en pestañas:
-  - [ ] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
-  - [ ] En la segunda pestaña debes mostrar la lista de películas favoritas.
+- [OK] Layout en pestañas:
+  - [OK] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
+  - [OK] En la segunda pestaña debes mostrar la lista de películas favoritas.
 
 ## Parte 4
 
