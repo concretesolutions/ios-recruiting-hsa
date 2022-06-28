@@ -9,4 +9,6 @@ import Foundation
 
 protocol ProtocolConsumirAPI {
     
+    func getPopularMovies()
+    func getCategorias()
 }

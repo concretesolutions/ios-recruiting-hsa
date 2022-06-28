@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource {
 
@@ -14,15 +16,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableMovies.dataSource = self
-        tableMovies.delegate = self
-        tableMovies.tableFooterView = UIView()
-        tableMovies.register(UINib(nibName: "MoviesAllCell", bundle: nil), forCellReuseIdentifier: "CeldaALLMovies")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        llenarTabla()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5 //Retornar la cantidad total del arreglo
+        return ResponsePopularMovies.shared.results.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -32,12 +36,35 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CeldaALLMovies", for: indexPath) as! MoviesAllCell
+        let URLimage = StructRequest.shared.getURLimage(cadenaFinalImagen: ResponsePopularMovies.shared.results[indexPath.row].poster_path)
+        let dateMovie = ResponsePopularMovies.shared.results[indexPath.row].release_date
         
-        cell.nombrePeliculaLabel.text = "Interestellar"
-        cell.DescripcionTextView.text = "Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido.También es una composición de caracteres imprimibles (con grafema) generados por un algoritmo de cifrado que, aunque no tienen sentido para cualquier persona, sí puede ser descifrado por su destinatario original. En otras palabras, un texto es un entramado de signos con una intención comunicativa que adquiere sentido en determinado contexto."
-        cell.yearPeliculaLabe.text = "2016"
+        cell.nombrePeliculaLabel.text = ResponsePopularMovies.shared.results[indexPath.row].title
+        cell.yearPeliculaLabe.text = String(dateMovie.prefix(4))
+        cell.DescripcionTextView.text = ResponsePopularMovies.shared.results[indexPath.row].overview
+        
+        AF.request(URLimage).responseImage {
+            
+            respuesta in
+            if case .success(let image)=respuesta.result {
+                
+                cell.imagenPeliculaImage.image=image
+                cell.imagenPeliculaImage.contentMode = .scaleToFill
+            }
+            
+        }
         
         return cell
+    }
+
+    func llenarTabla() {
+        
+        tableMovies.dataSource = self
+        tableMovies.delegate = self
+        tableMovies.tableFooterView = UIView()
+        tableMovies.register(UINib(nibName: "MoviesAllCell", bundle: nil), forCellReuseIdentifier: "CeldaALLMovies")
+
+        tableMovies.reloadData()
     }
 
 }
@@ -45,6 +72,20 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
 extension MoviesViewController:UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        
+        let numCelda = indexPath.row
+        self.performSegue(withIdentifier: "PantallaDetallePelicula", sender: numCelda)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "PantallaDetallePelicula"
+        {
+            let numRecibido = sender as! Int
+            let objSiguientePantalla:MovieSelectedViewController = segue.destination as! MovieSelectedViewController
+            
+            objSiguientePantalla.numFilaRecibido = numRecibido
+        }
     }
 }
