@@ -58,14 +58,14 @@ Cristian Alexis Bahamondes Quiroga
 
 ### Comentarios
 
-_(Cualquier consideración que quieras mencionar, déjala acá)_
+Para usar la aplicación se debe instalar Alamofire y AlamofireImage, ya que estas librerías no han sido subidas a este repositorio, una vez hecha la descarga del componente, se debe abrir un terminal, en el mismo terminal ingresar a la ruta del proyecto XCODE y escribir la instrucción pod install, ya que dentro del proyecto en el archivo llamado Podfile esta la referencia a las librerias que deben ser instaladas
 
 ## Parte 1
 - [OK] Pantalla de Splash
 - [OK] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
-- [ ] Tratamiento de errores y presentación de flujos de excepción:
-  - [ ] Error genérico
-  - [ ] Cargando
+- [OK] Tratamiento de errores y presentación de flujos de excepción:
+  - [OK] Error genérico
+  - [OK] Cargando
 
 ## Parte 2
 - [OK] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
