@@ -87,10 +87,10 @@ Para usar la aplicación se debe instalar Alamofire y AlamofireImage, ya que est
 
 ## Parte 4
 
-- [ ] Mejoras a la grilla de películas populares:
-  - [ ] Scroll infinito.
-  - [ ] Mostrar si una película es favorita o no en cada celda de la grilla.
-  - [ ] Búsqueda local (filtrar por algún término).
+- [OK] Mejoras a la grilla de películas populares:
+  - [OK] Scroll infinito.
+  - [OK] Mostrar si una película es favorita o no en cada celda de la grilla.
+  - [OK] Búsqueda local (filtrar por algún término).
 - [ ] Pantalla de filtro con selección de fecha de lanzamiento y género:
   - [ ] Sólo debe ser accesible desde la pantalla de favoritos.
   - [ ] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
