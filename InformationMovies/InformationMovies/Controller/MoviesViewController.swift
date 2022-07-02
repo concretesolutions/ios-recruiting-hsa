@@ -12,21 +12,53 @@ import AlamofireImage
 class MoviesViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableMovies: UITableView!
+    @IBOutlet weak var imageError: UIImageView!
+    @IBOutlet weak var labelError: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var filteredData:[DataResult]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if ResponsePopularMovies.shared.results.count > 0 {
+            filteredData = ResponsePopularMovies.shared.results
+        }
+        imageError.isHidden = true
+        labelError.isHidden = true
+        searchBar.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(FavoritesViewController.dismissKeyboard))
+                
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        llenarTabla()
+        if ResponsePopularMovies.shared.results.count > 0 {
+            llenarTabla()
+        }
+        else {
+            mostrarError()
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+           view.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return ResponsePopularMovies.shared.results.count
+        if ResponsePopularMovies.shared.results.count > 0 {
+            return filteredData.count
+        }
+        else
+        {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -36,12 +68,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CeldaALLMovies", for: indexPath) as! MoviesAllCell
-        let URLimage = StructRequest.shared.getURLimage(cadenaFinalImagen: ResponsePopularMovies.shared.results[indexPath.row].poster_path)
-        let dateMovie = ResponsePopularMovies.shared.results[indexPath.row].release_date
         
-        cell.nombrePeliculaLabel.text = ResponsePopularMovies.shared.results[indexPath.row].title
+        let URLimage = StructRequest.shared.getURLimage(cadenaFinalImagen: filteredData[indexPath.row].poster_path)
+        let dateMovie = filteredData[indexPath.row].release_date
+        
+        cell.nombrePeliculaLabel.text = filteredData[indexPath.row].title
         cell.yearPeliculaLabe.text = String(dateMovie.prefix(4))
-        cell.DescripcionTextView.text = ResponsePopularMovies.shared.results[indexPath.row].overview
+        cell.DescripcionTextView.text = filteredData[indexPath.row].overview
+        cell.favoriteImage.isHidden = !FavoriteMovies.shared.validarFavorito(idValidar: filteredData[indexPath.row].id)
         
         AF.request(URLimage).responseImage {
             
@@ -59,12 +93,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
 
     func llenarTabla() {
         
+        tableMovies.isHidden = false
+        imageError.isHidden = true
+        labelError.isHidden = true
+        
         tableMovies.dataSource = self
         tableMovies.delegate = self
         tableMovies.tableFooterView = UIView()
         tableMovies.register(UINib(nibName: "MoviesAllCell", bundle: nil), forCellReuseIdentifier: "CeldaALLMovies")
 
         tableMovies.reloadData()
+    }
+    
+    func mostrarError(){
+        
+        tableMovies.isHidden = true
+        imageError.isHidden = false
+        labelError.isHidden = false
+        labelError.text = "Se ha generado un error al consultar la informacion de peliculas"
     }
 
 }
@@ -73,7 +119,8 @@ extension MoviesViewController:UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let numCelda = indexPath.row
+        let idMovie = filteredData[indexPath.row].id
+        let numCelda = ResponsePopularMovies.shared.obtenerIndicePelicula(id: idMovie)
         self.performSegue(withIdentifier: "PantallaDetallePelicula", sender: numCelda)
         
     }
@@ -87,5 +134,28 @@ extension MoviesViewController:UITableViewDelegate {
             
             objSiguientePantalla.numFilaRecibido = numRecibido
         }
+    }
+}
+//MARK: Extension delegado para barra de busqueda
+extension MoviesViewController:UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredData = []
+        
+        if searchText == ""
+        {
+            filteredData = ResponsePopularMovies.shared.results
+        }
+        
+        for word in ResponsePopularMovies.shared.results
+        {
+            if word.title.uppercased().contains(searchText.uppercased())
+            {
+                filteredData.append(word)
+            }
+        }
+        
+        tableMovies.reloadData()
     }
 }

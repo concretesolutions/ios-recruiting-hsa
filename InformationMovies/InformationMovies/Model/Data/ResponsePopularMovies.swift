@@ -25,4 +25,17 @@ struct ResponsePopularMovies:Decodable, ProtocolResponsePopularMovies {
         self.total_results = total_results
         self.total_pages = total_pages
     }
+    //MARK: Funciones
+    func obtenerIndicePelicula(id:Int) -> Int {
+        
+        var respuesta:Int = 0
+        results.forEach { dato in
+            if dato.id == id {
+                if let idX = results.firstIndex(of: dato){
+                    respuesta = idX
+                }
+            }
+        }
+        return respuesta
+    }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataResult:Decodable {
+struct DataResult:Decodable, Equatable {
     
     //MARK: Properties
     var poster_path:String
@@ -24,5 +24,5 @@ struct DataResult:Decodable {
     var vote_count:Int
     var video:Bool
     var vote_average:Float
-    
+   
 }

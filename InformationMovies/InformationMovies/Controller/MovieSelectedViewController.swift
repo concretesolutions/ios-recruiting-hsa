@@ -54,27 +54,28 @@ class MovieSelectedViewController: UIViewController {
             imageFavoriteFULL.isHidden = false
             FavoriteMovies.shared.agregarFavorito(datos: ResponsePopularMovies.shared.results[numFilaRecibido ?? 0])
             createPersistItem(id: idPelicula)
+            
+            alertaRegistroSatisfactorio(tituloAlerta: "Favorito Creado", mensaje: "Su pelicula ha sido guardada como favorita correctamente")
         }
         else
         {
             imageFavoriteFULL.isHidden = true
-            let pos = FavoriteMovies.shared.favoriteMoviesArray.count - 1
-            let idMovi = FavoriteMovies.shared.favoriteMoviesArray[pos].id
-
+            let idPelicula = ResponsePopularMovies.shared.results[numFilaRecibido ?? 0].id
+            let pos = FavoriteMovies.shared.obtenerIndiceFavorito(id: idPelicula)
             
             do { self.items = try context.fetch(EntidadNumeroFila.fetchRequest())}
             catch{}
             
             items?.forEach({ item in
-                if item.idMovie == idMovi {
+                if item.idMovie == idPelicula {
+                    print(item.idMovie)
                     self.deletePersistItem(item: item)
                 }
             })
-            
            FavoriteMovies.shared.quitarFavorito(posIndex: pos)
+           alertaAviso(tituloAlerta: "Favorito Eliminado", mensaje: "Su pelicula ha sido retirada de la lista de favoritos")
         }
-        
-        
+
     }
     
     func cargarInfoPantalla(){
@@ -144,6 +145,26 @@ class MovieSelectedViewController: UIViewController {
         
         do { try context.save()}
         catch {}
+    }
+    
+    func alertaAviso (tituloAlerta:String, mensaje:String)
+    {
+        let alert = UIAlertController(title: tituloAlerta, message: mensaje, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Entendido", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert,animated: true, completion: nil)
+    }
+    
+    func alertaRegistroSatisfactorio(tituloAlerta:String, mensaje:String)
+    {
+        let alert = UIAlertController(title: tituloAlerta, message: mensaje, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Entendido", style: .default) { _ in
+            
+            //self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true)
+
+        }
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
     }
 }
 

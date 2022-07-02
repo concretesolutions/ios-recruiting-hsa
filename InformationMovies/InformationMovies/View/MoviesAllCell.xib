@@ -50,6 +50,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favorite_full_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZCf-rY-Era">
+                        <rect key="frame" x="372" y="62" width="18" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="QZB-hU-Vaa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="2ke-QA-R6h"/>
@@ -57,7 +61,6 @@
                     <constraint firstAttribute="trailing" secondItem="DTE-Gh-iqd" secondAttribute="trailing" constant="16" id="3wN-AS-9zo"/>
                     <constraint firstAttribute="trailing" secondItem="boC-nW-1A7" secondAttribute="trailing" constant="16" id="Avh-rE-fJ2"/>
                     <constraint firstAttribute="bottom" secondItem="DTE-Gh-iqd" secondAttribute="bottom" constant="16" id="E4L-Yh-ZPN"/>
-                    <constraint firstAttribute="trailing" secondItem="R40-AZ-9Yl" secondAttribute="trailing" constant="226" id="EPu-Tw-DLt"/>
                     <constraint firstItem="R40-AZ-9Yl" firstAttribute="leading" secondItem="QZB-hU-Vaa" secondAttribute="trailing" constant="16" id="Gza-0Q-bc1"/>
                     <constraint firstItem="DTE-Gh-iqd" firstAttribute="top" secondItem="R40-AZ-9Yl" secondAttribute="bottom" constant="8.5" id="HIH-Th-Neu"/>
                     <constraint firstItem="R40-AZ-9Yl" firstAttribute="top" secondItem="boC-nW-1A7" secondAttribute="bottom" constant="5.5" id="ZzA-qZ-Gbe"/>
@@ -69,6 +72,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="DescripcionTextView" destination="DTE-Gh-iqd" id="hkJ-3q-SNm"/>
+                <outlet property="favoriteImage" destination="ZCf-rY-Era" id="UpJ-UA-1Ew"/>
                 <outlet property="imagenPeliculaImage" destination="QZB-hU-Vaa" id="LqJ-ww-Rh1"/>
                 <outlet property="nombrePeliculaLabel" destination="boC-nW-1A7" id="WiX-2y-bw2"/>
                 <outlet property="yearPeliculaLabe" destination="R40-AZ-9Yl" id="kfk-0L-bd8"/>
@@ -77,6 +81,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="favorite_full_icon" width="18" height="16"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

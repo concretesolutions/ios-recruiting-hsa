@@ -17,6 +17,19 @@ struct ResponseCategories:Decodable {
     init(genres:[DataCategories] = []) {
         self.genres = genres
     }
+    //MARK: Func
+    func getIDCategory(name:String) -> Int {
+        
+        var respuesta:Int = 0
+        
+        genres.forEach { category in
+            if category.name == name {
+                respuesta = category.id
+            }
+        }
+        
+        return respuesta
+    }
     
 }
 

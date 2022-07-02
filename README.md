@@ -91,9 +91,9 @@ Para usar la aplicación se debe instalar Alamofire y AlamofireImage, ya que est
   - [OK] Scroll infinito.
   - [OK] Mostrar si una película es favorita o no en cada celda de la grilla.
   - [OK] Búsqueda local (filtrar por algún término).
-- [ ] Pantalla de filtro con selección de fecha de lanzamiento y género:
-  - [ ] Sólo debe ser accesible desde la pantalla de favoritos.
-  - [ ] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
+- [OK] Pantalla de filtro con selección de fecha de lanzamiento y género:
+  - [OK] Sólo debe ser accesible desde la pantalla de favoritos.
+  - [OK] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
 - [ ] Soporte para rotación y iPad.
 
 ## Parte 5

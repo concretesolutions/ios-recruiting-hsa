@@ -31,6 +31,12 @@ class FavoriteMovies {
         favoriteMoviesArray.remove(at: posIndex)
     }
     
+    func quitarFavoritoPorID(pID:Int){
+        
+        let posEliminar = obtenerIndiceFavorito(id:pID)
+        favoriteMoviesArray.remove(at: posEliminar)
+    }
+    
     func validarFavorito(idValidar:Int) -> Bool {
         
         var respuesta:Bool = false
@@ -38,6 +44,20 @@ class FavoriteMovies {
         favoriteMoviesArray.forEach { favMovie in
             if favMovie.id == idValidar {
                 respuesta = true
+            }
+        }
+        return respuesta
+    }
+    
+    func obtenerIndiceFavorito(id:Int) -> Int {
+        
+        var respuesta:Int = 0
+        
+        favoriteMoviesArray.forEach { dato in
+            if dato.id == id {
+                if let idX = favoriteMoviesArray.firstIndex(of: dato){
+                    respuesta = idX
+                }
             }
         }
         return respuesta

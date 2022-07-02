@@ -9,6 +9,8 @@ import UIKit
 
 class SplashViewController: UIViewController {
     
+    @IBOutlet weak var spinnerLoading: UIActivityIndicatorView!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items:[EntidadNumeroFila]?
 
@@ -17,7 +19,8 @@ class SplashViewController: UIViewController {
 
         ConsumeAPI.shared.getPopularMovies()
         ConsumeAPI.shared.getCategorias()
-        
+        spinnerLoading.startAnimating()
+        spinnerLoading.isHidden = false
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+3) {
             self.getPersistItem()
@@ -42,7 +45,7 @@ class SplashViewController: UIViewController {
             }
         }
         catch {
-            
+
         }
     }
 

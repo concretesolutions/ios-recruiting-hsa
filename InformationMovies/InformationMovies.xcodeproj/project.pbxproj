@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		21AAB239D0DFB205050323A4 /* Pods_InformationMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE48C23DF8AA53A5770C023 /* Pods_InformationMovies.framework */; };
+		510005B4286DF5EF00D49DD7 /* FiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510005B3286DF5EF00D49DD7 /* FiltroViewController.swift */; };
+		510005B6286DF60600D49DD7 /* DetalleFiltroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510005B5286DF60600D49DD7 /* DetalleFiltroViewController.swift */; };
+		510005B8286E08D500D49DD7 /* FilterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510005B7286E08D500D49DD7 /* FilterInfo.swift */; };
 		5123A34428680FA800569AD4 /* ResponsePopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123A34328680FA800569AD4 /* ResponsePopularMovies.swift */; };
 		5123A3462868102100569AD4 /* DataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123A3452868102100569AD4 /* DataResult.swift */; };
 		5123A349286813F600569AD4 /* ProtocolResponsePopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123A348286813F600569AD4 /* ProtocolResponsePopularMovies.swift */; };
@@ -60,6 +63,9 @@
 		21102FA782A75ECEC29E1522 /* Pods-InformationMoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InformationMoviesTests.release.xcconfig"; path = "Target Support Files/Pods-InformationMoviesTests/Pods-InformationMoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		3DE48C23DF8AA53A5770C023 /* Pods_InformationMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InformationMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2326537F97576C8012D45E /* Pods-InformationMoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InformationMoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-InformationMoviesTests/Pods-InformationMoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		510005B3286DF5EF00D49DD7 /* FiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltroViewController.swift; sourceTree = "<group>"; };
+		510005B5286DF60600D49DD7 /* DetalleFiltroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleFiltroViewController.swift; sourceTree = "<group>"; };
+		510005B7286E08D500D49DD7 /* FilterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInfo.swift; sourceTree = "<group>"; };
 		5123A34328680FA800569AD4 /* ResponsePopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePopularMovies.swift; sourceTree = "<group>"; };
 		5123A3452868102100569AD4 /* DataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResult.swift; sourceTree = "<group>"; };
 		5123A348286813F600569AD4 /* ProtocolResponsePopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolResponsePopularMovies.swift; sourceTree = "<group>"; };
@@ -211,6 +217,8 @@
 				517CB87F2867A7770002ABDB /* MoviesViewController.swift */,
 				517CB8812867A7910002ABDB /* FavoritesViewController.swift */,
 				517CB8872867D0AA0002ABDB /* MoviesAllCell.swift */,
+				510005B3286DF5EF00D49DD7 /* FiltroViewController.swift */,
+				510005B5286DF60600D49DD7 /* DetalleFiltroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 				5123A3452868102100569AD4 /* DataResult.swift */,
 				512876BD286978C900D7E28B /* ResponseCategories.swift */,
 				512876BF286A11E300D7E28B /* FavoriteMovies.swift */,
+				510005B7286E08D500D49DD7 /* FilterInfo.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -516,13 +525,16 @@
 			files = (
 				516FD3F428668278002CC9BA /* MovieSelectedViewController.swift in Sources */,
 				516FD3F028668278002CC9BA /* AppDelegate.swift in Sources */,
+				510005B6286DF60600D49DD7 /* DetalleFiltroViewController.swift in Sources */,
 				5123A3462868102100569AD4 /* DataResult.swift in Sources */,
 				517CB8822867A7910002ABDB /* FavoritesViewController.swift in Sources */,
 				512876C0286A11E300D7E28B /* FavoriteMovies.swift in Sources */,
 				51EB9849286A8BF000D01447 /* EntidadNumeroFila+CoreDataClass.swift in Sources */,
 				512876BE286978C900D7E28B /* ResponseCategories.swift in Sources */,
 				517CB8892867D0AA0002ABDB /* MoviesAllCell.swift in Sources */,
+				510005B8286E08D500D49DD7 /* FilterInfo.swift in Sources */,
 				517CB892286804C30002ABDB /* StructRequest.swift in Sources */,
+				510005B4286DF5EF00D49DD7 /* FiltroViewController.swift in Sources */,
 				516FD3F228668278002CC9BA /* SceneDelegate.swift in Sources */,
 				516FD3FA28668278002CC9BA /* InformationMovies.xcdatamodeld in Sources */,
 				517CB88C2867FE2B0002ABDB /* ConsumeAPI.swift in Sources */,
@@ -724,7 +736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = Accenture.InformationMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -755,7 +767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = Accenture.InformationMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
