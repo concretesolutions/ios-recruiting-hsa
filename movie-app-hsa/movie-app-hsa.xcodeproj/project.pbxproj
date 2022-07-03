@@ -101,7 +101,6 @@
 				A9284B451A15F9CF403AA9B1 /* Pods-movie-app-hsaTests.debug.xcconfig */,
 				6C4B1731560A5BF50967504C /* Pods-movie-app-hsaTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,6 +174,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86F6ED2B2871599200E8BA9A /* Build configuration list for PBXNativeTarget "movie-app-hsa" */;
 			buildPhases = (
+				86F6ED3428715F5F00E8BA9A /* Run Swiftlint */,
 				C5BD4C38A3861F4AD2CC9310 /* [CP] Check Pods Manifest.lock */,
 				86F6ECFD2871598A00E8BA9A /* Sources */,
 				86F6ECFE2871598A00E8BA9A /* Frameworks */,
@@ -338,6 +338,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movie-app-hsa-movie-app-hsaUITests/Pods-movie-app-hsa-movie-app-hsaUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		86F6ED3428715F5F00E8BA9A /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		8A6E6F03C47F2DAA3749266B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
