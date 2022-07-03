@@ -16,5 +16,6 @@ enum APIStatusType {
     case noData
     case decodingError
     case errorProcessingContent
+    case maxPage
 
 }

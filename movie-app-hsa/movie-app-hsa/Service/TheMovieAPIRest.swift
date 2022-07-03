@@ -15,13 +15,22 @@ class TheMovieAPIRest {
     let token: String = "6aedc7e1349584ac9224e8d9670af8a8"
     
     //MARK: Method popularMovie
-    func popularMovie(page: Int, complete : @escaping (_ status : APIStatusType, _ messsage: PopularMovieResponse?) -> ()) {
+    func popularMovie(page: Int, maxPage: Int, complete : @escaping (_ status : APIStatusType, _ messsage: PopularMovieResponse?) -> ()) {
+        
+        print("page: \(page)")
+        
+        if page > maxPage {
+            complete(.maxPage, nil)
+            return
+        }
 
         let context = "\(url_base)/movie/popular?api_key=\(token)&language=en-US&page=\(page)"
 
-        print(context)
+       // print(context)
 
         AF.request(context).response { response in
+            //print(response)
+            
             if response.error != nil {
                 complete(.apiCallError, nil)
                 return

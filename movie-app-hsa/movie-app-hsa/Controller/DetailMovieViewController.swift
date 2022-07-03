@@ -9,15 +9,12 @@ import UIKit
 
 class DetailMovieViewController: BaseViewController {
 
+
     // MARKER: Outlet
     @IBOutlet weak var photoImageView: UIImageView!
-    
     @IBOutlet weak var nameMoviewLabel: UILabel!
-    
     @IBOutlet weak var releaseYearLabel: UILabel!
-    
     @IBOutlet weak var movieGenreLabel: UILabel!
-    
     @IBOutlet weak var synopsisLabel: UILabel!
     
     var imageMovie: String = ""
@@ -25,6 +22,8 @@ class DetailMovieViewController: BaseViewController {
     var releaseYear: String = ""
     var movieGenre: String = ""
     var synopsys: String = ""
+    
+    let favouriteManager = FavouriteManager.shared
     
     
     override func viewDidLoad() {
@@ -36,7 +35,9 @@ class DetailMovieViewController: BaseViewController {
     }
     
     func setup() {
-        // photoImage
+        
+        favouriteManager.lists()
+        
         nameMoviewLabel.text = nameMovie
         releaseYearLabel.text =  releaseYear
         movieGenreLabel.text =  movieGenre
@@ -47,6 +48,7 @@ class DetailMovieViewController: BaseViewController {
         }
         activityIndicator.stopAnimating()
     }
+
     
     /*
     // MARK: - Navigation

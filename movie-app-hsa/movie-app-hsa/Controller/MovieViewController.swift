@@ -20,6 +20,11 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
     var movieList: [Movie] = []
     var genresList: [Genres] = []
     var movieIndex: Int = 0
+    var moviePage: Int = 1
+    var moviePageMax: Int = 34179
+    
+    let favouriteManager = FavouriteManager.shared
+    let api: TheMovieAPIRest = TheMovieAPIRest()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +35,9 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
 
     func setup() {
         activityIndicator.startAnimating()
-        let api: TheMovieAPIRest = TheMovieAPIRest()
         api.listMovie(complete: didGetGenresMovie)
-        api.popularMovie(page: 1, complete: didGetPopularMovie)
+        favouriteManager.lists()
+        api.popularMovie(page: moviePage, maxPage: moviePageMax, complete: didGetPopularMovie)
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
     }
@@ -44,13 +49,18 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
         activityIndicator.stopAnimating()
         if status == .success {
             response?.results.forEach { movieData in
-                movieList.append(Movie(name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)", favorite: false, releaseDate: movieData.releaseDate, synopsis: movieData.overview, genreIDS: movieData.genreIDS))
+                movieList.append(Movie(name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)", favorite: false, releaseDate: movieData.releaseDate ?? "-", synopsis: movieData.overview, genreIDS: movieData.genreIDS))
             }
             movieCollectionView.reloadData()
             print("Cantidad de películas: \(movieList.count)")
-            print("Películas: \(movieList)")
+            //print("Películas: \(movieList)")
         } else {
-            errorAlertMessage("No fue posible obtener las películas populares")
+            if moviePage == 1 {
+                errorAlertMessage("No fue posible obtener el listado de películas populares")
+            } else {
+                errorAlertMessage("No fue posible obtener la siguiente lista de películas populares")
+            }
+            
         }
     }
 
@@ -81,6 +91,7 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
         }
         return cell
     }
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
@@ -91,12 +102,15 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
         performSegue(withIdentifier: "detailMovieSegue", sender: movieSelected)
         
     }
-
-    @IBAction func onTapPopularMovie(_ sender: Any) {
-        let api: TheMovieAPIRest = TheMovieAPIRest()
-        activityIndicator.startAnimating()
-        api.popularMovie(page: 1, complete: didGetPopularMovie)
-    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+          if (indexPath.row == movieList.count - 1 ) { //it's your last cell
+            //Load more data & reload your collection view
+              activityIndicator.startAnimating()
+              moviePage += 1
+              api.popularMovie(page: moviePage, maxPage: moviePageMax, complete: didGetPopularMovie)
+          }
+     }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

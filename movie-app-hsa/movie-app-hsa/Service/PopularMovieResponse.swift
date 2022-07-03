@@ -28,13 +28,14 @@ struct PopularMovieResponse: Codable {
 // MARK: - PopularResult
 struct PopularResult: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
     let originalLanguage: OriginalLanguage
     let originalTitle, overview: String
     let popularity: Double
-    let posterPath, releaseDate, title: String
+    let posterPath, title: String
+    let releaseDate: String?
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
@@ -58,4 +59,22 @@ struct PopularResult: Codable {
 enum OriginalLanguage: String, Codable {
     case en = "en"
     case es = "es"
+    case ja = "ja"
+    case fr = "fr"
+    case de = "de"
+    case ko = "ko"
+    case pl = "pl"
+    case ru = "ru"
+    case pt = "pt"
+    case hi = "hi"
+    case nl = "nl"
+    case sv = "sv"
+    case th = "th"
+    case cn = "cn"
+    case zh = "zh"
+    case fi = "fi"
+    case sq = "sq"
+    case it = "it"
+    case tr = "tr"
+    case da = "da"
 }
