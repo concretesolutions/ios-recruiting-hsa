@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1BFAA301-5E8B-4932-9770-1D151BE39959"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4CA9BC8-C2C8-42D3-8035-D9A90D31C94F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Service/APiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getPolular(complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1AE60944-815F-4E72-9CBA-5F5F5C427FAD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Service/APiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getPolular(complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F89AD0C4-DE02-4DC6-84C2-ED77F9828701"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Controler/DetalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "didGetDetail(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4AB2634-6C7D-444C-9EB7-F8FBFB765755"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Service/APiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "getDetail(movieId:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2DCC5B9-49B7-4BBE-834F-8E3C44025D10"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Service/APiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "getDetail(movieId:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "087132D7-43C0-47A8-B3DF-B13BE085AC06"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Service/APiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "getDetail(movieId:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF2D1FF4-0744-4F44-928C-4516AE60C4B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Service/APiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "getDetail(movieId:complete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios-recruiting-hsa/Controler/DetalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "DetalViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22 - 77006870d15c3bf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_recruiting_hsa.DetalViewController.idMovie.getter : Swift.Int"
+                  moduleName = "ios-recruiting-hsa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/training/Documents/RepoGit/ios-recruiting-hsa/ios-recruiting-hsa/ios-recruiting-hsa/Controler/DetalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22 - 18e7b6f06cbedfd4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_recruiting_hsa.DetalViewController.idMovie.setter : Swift.Int"
+                  moduleName = "ios-recruiting-hsa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/training/Documents/RepoGit/ios-recruiting-hsa/ios-recruiting-hsa/ios-recruiting-hsa/Controler/DetalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "97">
+               </Location>
+               <Location
+                  uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22 - 2e25c4b449d49201"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_recruiting_hsa.DetalViewController.idMovie.modify : Swift.Int"
+                  moduleName = "ios-recruiting-hsa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/training/Documents/RepoGit/ios-recruiting-hsa/ios-recruiting-hsa/ios-recruiting-hsa/Controler/DetalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22 - 69c4abbed1426dcf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_recruiting_hsa.DetalViewController.idMovie.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ios-recruiting-hsa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/training/Documents/RepoGit/ios-recruiting-hsa/ios-recruiting-hsa/ios-recruiting-hsa/Controler/DetalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22 - 3d36ab7f41bb7e96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_recruiting_hsa.DetalViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ios_recruiting_hsa.DetalViewController"
+                  moduleName = "ios-recruiting-hsa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/training/Documents/RepoGit/ios-recruiting-hsa/ios-recruiting-hsa/ios-recruiting-hsa/Controler/DetalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "382">
+               </Location>
+               <Location
+                  uuid = "0BD572C8-3E0B-4E56-BCE0-B55B457FAF22 - 542dfc0c0b9cd826"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_recruiting_hsa.DetalViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ios_recruiting_hsa.DetalViewController&gt;"
+                  moduleName = "ios-recruiting-hsa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/training/Documents/RepoGit/ios-recruiting-hsa/ios-recruiting-hsa/ios-recruiting-hsa/Controler/DetalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "339">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
