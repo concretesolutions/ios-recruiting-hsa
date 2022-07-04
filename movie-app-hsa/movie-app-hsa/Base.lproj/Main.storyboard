@@ -235,6 +235,7 @@
                     <connections>
                         <outlet property="movieCollectionView" destination="jkQ-Os-OzQ" id="Z5G-3v-M6j"/>
                         <outlet property="movieSearchBar" destination="Dn4-oC-WBe" id="HpF-DE-nzD"/>
+                        <outlet property="searchMovieSearchBar" destination="Dn4-oC-WBe" id="YBx-Q4-fnk"/>
                         <outlet property="titleNavigationItem" destination="Nt2-5s-y4e" id="UaO-r2-QaQ"/>
                         <segue destination="vBL-h3-0Hv" kind="push" identifier="detailMovieSegue" id="FJV-B2-zzq"/>
                     </connections>
@@ -426,7 +427,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wnl-Dv-keO"/>
+        <segue reference="FJV-B2-zzq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>

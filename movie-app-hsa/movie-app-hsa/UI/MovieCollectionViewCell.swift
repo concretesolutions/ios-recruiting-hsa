@@ -46,6 +46,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
             }
             
         }
+        favouriteManager.favoriteChangeOff()
         favouriteManager.lists()
     }
 
