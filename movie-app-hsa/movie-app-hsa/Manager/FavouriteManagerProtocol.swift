@@ -10,12 +10,15 @@ import Foundation
 protocol FavouriteManagerProtocol {
 
     // MARK: Properties
-    var favorites: [Favourite] { get set}
+    var favorites: Set<Favourite> { get set}
+    var favoriteChange: Bool { get }
     
     // MARK: Methods
     func add(favourite: Favourite)
     func remove(favourite: Favourite)
     func count() -> Int
     func lists()
+    func favoriteChangeOff()
+    func setToArray() -> [Favourite]
     
 }

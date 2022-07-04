@@ -8,6 +8,12 @@
 import UIKit
 
 class FavouriteTableViewCell: UITableViewCell {
+    
+    var id: Int = 0
+    var name: String = ""
+    var releaseDate: String = ""
+    var synopsis: String = "";
+    var image: String = "";
 
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

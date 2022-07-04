@@ -19,6 +19,7 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
     // MARK: Properties
     var movieList: [Movie] = []
     var genresList: [Genres] = []
+    var favoriteList: [Favourite] = []
     var movieIndex: Int = 0
     var moviePage: Int = 1
     var moviePageMax: Int = 34179
@@ -36,10 +37,24 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
     func setup() {
         activityIndicator.startAnimating()
         api.listMovie(complete: didGetGenresMovie)
-        favouriteManager.lists()
+        favoriteList = favouriteManager.setToArray()
         api.popularMovie(page: moviePage, maxPage: moviePageMax, complete: didGetPopularMovie)
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
+        favouriteManager.favoriteChangeOff()
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if favouriteManager.favoriteChange {
+            favoriteList = favouriteManager.setToArray()
+            movieCollectionView.reloadData()
+            favouriteManager.favoriteChangeOff()
+        }
+       
     }
 
     func didGetPopularMovie(_ status: APIStatusType, _ response : PopularMovieResponse?) {
@@ -49,7 +64,11 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
         activityIndicator.stopAnimating()
         if status == .success {
             response?.results.forEach { movieData in
-                movieList.append(Movie(name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)", favorite: false, releaseDate: movieData.releaseDate ?? "-", synopsis: movieData.overview, genreIDS: movieData.genreIDS))
+                
+                let releaseDate = movieData.releaseDate ?? "-"
+                let year = releaseDate.components(separatedBy: ["-"]).filter({!$0.isEmpty})
+
+                movieList.append(Movie(id: movieData.id, name: movieData.title, image: "https://image.tmdb.org/t/p/w500/\(movieData.posterPath)", favorite: false, releaseDate: year[0], synopsis: movieData.overview, genreIDS: movieData.genreIDS))
             }
             movieCollectionView.reloadData()
             print("Cantidad de películas: \(movieList.count)")
@@ -60,7 +79,6 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
             } else {
                 errorAlertMessage("No fue posible obtener la siguiente lista de películas populares")
             }
-            
         }
     }
 
@@ -85,7 +103,33 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = movieCollectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCollectionViewCell
+        
+        cell.id = movieList[indexPath.row].id
+        cell.name = movieList[indexPath.row].name
+        cell.releaseDate = movieList[indexPath.row].releaseDate
+        cell.synopsis = movieList[indexPath.row].synopsis
+        cell.image = movieList[indexPath.row].image
+        
         cell.nameMovieLabel.text = movieList[indexPath.row].name
+        
+        // favoriteList.fi
+        
+        if let favoriteElement = favoriteList.first(where: {$0.id == movieList[indexPath.row].id}) {
+            cell.imageSelected = true
+        } else {
+            cell.imageSelected = false
+        }
+        
+        if cell.imageSelected {
+            if let image = UIImage(systemName: "heart.fill") {
+                cell.favouriteButton.setImage(image, for: .normal)
+            }
+        } else {
+            if let image = UIImage(systemName: "heart") {
+                cell.favouriteButton.setImage(image, for: .normal)
+            }
+        }
+        
         if let urlImage = URL(string: movieList[indexPath.row].image) {
             cell.photoMovieImageView.load(url: urlImage)
         }
@@ -111,7 +155,13 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
               api.popularMovie(page: moviePage, maxPage: moviePageMax, complete: didGetPopularMovie)
           }
      }
-
+    
+    
+    @IBAction func movieSelected(_ sender: Any) {
+        
+        
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print ("segue: \(segue.identifier)")
@@ -119,7 +169,19 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
             case "detailMovieSegue":
             
                 if let detailMovieViewController = segue.destination as? DetailMovieViewController, let movieSelected = sender as? Int {
+                    
                     print("index selected: \(movieSelected)")
+                    
+                    favoriteList = favouriteManager.setToArray()
+                    favouriteManager.favoriteChangeOff()
+                    
+                    if let favoriteElement = favoriteList.first(where: {$0.id == movieList[movieSelected].id}) {
+                        detailMovieViewController.selectedFavorite = true
+                    } else {
+                        detailMovieViewController.selectedFavorite = false
+                    }
+                    
+                    detailMovieViewController.idMovie = movieList[movieSelected].id
                     detailMovieViewController.imageMovie = movieList[movieSelected].image
                     detailMovieViewController.nameMovie = movieList[movieSelected].name
                     detailMovieViewController.releaseYear = movieList[movieSelected].releaseDate

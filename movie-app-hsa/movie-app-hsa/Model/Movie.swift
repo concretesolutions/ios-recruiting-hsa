@@ -9,6 +9,7 @@ import Foundation
 
 struct Movie: Hashable {
 
+    var id: Int
     var name: String
     var image: String
     var favorite: Bool
