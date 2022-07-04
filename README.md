@@ -54,25 +54,25 @@ Si tienes alguna consulta, no dudes en preguntarnos :)
 ## Información del postulante
 
 ### Nombre
-_(Tu nombre va aquí)_
+_Teresa Varas
 
 ### Comentarios
 
 _(Cualquier consideración que quieras mencionar, déjala acá)_
 
 ## Parte 1
-- [ ] Pantalla de Splash
-- [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
-- [ ] Tratamiento de errores y presentación de flujos de excepción:
-  - [ ] Error genérico
+- [ok] Pantalla de Splash
+- [ok] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [ok] Tratamiento de errores y presentación de flujos de excepción:
+  - [ok] Error genérico
   - [ ] Cargando
 
 ## Parte 2
-- [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
-  - [ ] Nombre de la película
-  - [ ] Año de estreno
-  - [ ] Sinopsis
-  - [ ] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
+- [ok] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
+  - [ok] Nombre de la película
+  - [ok] Año de estreno
+  - [ok] Sinopsis
+  - [ok] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 ## Parte 3
 
