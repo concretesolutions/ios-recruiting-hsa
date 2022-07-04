@@ -193,25 +193,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
 extension FavoritesViewController:UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        /*
-        filteredData = []
-        
-        if searchText == String()
-        {
-            filteredData = FavoriteMovies.shared.favoriteMoviesArray
-        }
-        
-        for item in FavoriteMovies.shared.favoriteMoviesArray
-        {
-            if item.title.uppercased().contains(searchText.uppercased())
-            {
-                filteredData.append(item)
-            }
-        }
-        
-        tableMovies.reloadData()
-         */
-        
+ 
         if FilterInfo.shared.applyYear || FilterInfo.shared.applyCategory
         {
             
