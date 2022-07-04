@@ -54,57 +54,57 @@ Si tienes alguna consulta, no dudes en preguntarnos :)
 ## Información del postulante
 
 ### Nombre
-_(Tu nombre va aquí)_
+_Juan Francisco Prado Navea_
 
 ### Comentarios
 
 _(Cualquier consideración que quieras mencionar, déjala acá)_
 
 ## Parte 1
-- [ ] Pantalla de Splash
-- [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
-- [ ] Tratamiento de errores y presentación de flujos de excepción:
-  - [ ] Error genérico
-  - [ ] Cargando
+- [OK] Pantalla de Splash
+- [OK] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [OK] Tratamiento de errores y presentación de flujos de excepción:
+  - [OK] Error genérico
+  - [OK] Cargando
 
 ## Parte 2
-- [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
-  - [ ] Nombre de la película
-  - [ ] Año de estreno
-  - [ ] Sinopsis
-  - [ ] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
+- [OK] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
+  - [OK] Nombre de la película
+  - [OK] Año de estreno
+  - [OK] Sinopsis
+  - [OK] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 ## Parte 3
 
-- [ ] Selección de películas favoritas
-  - [ ] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
-  - [ ] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
-- [ ] Lista de películas favoritas:
-  - [ ] Borrado de películas favoritas desde la lista.
-- [ ] Layout en pestañas:
-  - [ ] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
-  - [ ] En la segunda pestaña debes mostrar la lista de películas favoritas.
+- [OK] Selección de películas favoritas
+  - [OK] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
+  - [OK] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
+- [OK] Lista de películas favoritas:
+  - [OK] Borrado de películas favoritas desde la lista.
+- [OK] Layout en pestañas:
+  - [OK] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
+  - [OK] En la segunda pestaña debes mostrar la lista de películas favoritas.
 
 ## Parte 4
 
-- [ ] Mejoras a la grilla de películas populares:
-  - [ ] Scroll infinito.
-  - [ ] Mostrar si una película es favorita o no en cada celda de la grilla.
-  - [ ] Búsqueda local (filtrar por algún término).
-- [ ] Pantalla de filtro con selección de fecha de lanzamiento y género:
-  - [ ] Sólo debe ser accesible desde la pantalla de favoritos.
-  - [ ] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
-- [ ] Soporte para rotación y iPad.
+- [OK] Mejoras a la grilla de películas populares:
+  - [OK] Scroll infinito.
+  - [OK] Mostrar si una película es favorita o no en cada celda de la grilla.
+  - [50%] Búsqueda local (filtrar por algún término).
+- [50%] Pantalla de filtro con selección de fecha de lanzamiento y género:
+  - [50%] Sólo debe ser accesible desde la pantalla de favoritos.
+  - [50%] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
+- [OK] Soporte para rotación y iPad.
 
 ## Parte 5
 
-- [ ] Pruebas unitarias en el proyecto.
+- [50%] Pruebas unitarias en el proyecto.
 - [ ] Pruebas de snapshot.
 - [ ] Pruebas de UI.
-- [ ] Uso de SwiftLint.
+- [OK] Uso de SwiftLint.
 - [ ] Uso de fastlane para generar binarios.
 - [ ] Integración del repositorio con un servicio de integración continua como [Bitrise](https://www.bitrise.io/) o [AppCenter](https://appcenter.ms). No existe problema en usar otra plataforma, pero esta debe estar disponible online (un jenkins local no cuenta).
-- [ ] Integración de un servicio de análisis de código como [SonarCloud](https://sonarcloud.io/).
+- [OK] Integración de un servicio de análisis de código como [SonarCloud](https://sonarcloud.io/).
 
 
 # Ejemplos y sugerencias
