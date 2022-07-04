@@ -240,6 +240,7 @@
                     <navigationItem key="navigationItem" title="Movs" id="9aQ-JC-Hsp"/>
                     <connections>
                         <outlet property="movieCollectionView" destination="rOE-9q-Pb3" id="IgH-6P-TtA"/>
+                        <outlet property="movieSearchBar" destination="WnI-qI-wBJ" id="8cY-wY-FU3"/>
                         <segue destination="BlY-3x-s9z" kind="show" identifier="segueMovie" id="4dD-ZR-CTs"/>
                     </connections>
                 </viewController>
@@ -335,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scc-0d-jEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5553.6231884057979" y="594.64285714285711"/>
+            <point key="canvasLocation" x="5796" y="491"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -31,17 +31,6 @@ class FavoritesViewController: ViewController, UITableViewDataSource, UITableVie
     }
     func didGetMovies(_ status: APIStatusType, _ response : MovieResponse?) {
         if status == .success {
-            
-            guard let cantElements = response?.results.count else {
-                errorAlertMessage("No fue posible obtener la lista de Peliculas")
-                return
-            }
-            
-            if cantElements == 0 {
-                
-                errorAlertMessage("No se han ingresado Peliculas")
-                return
-            }
                 response?.results.forEach{ movies in
                     movieList.append(Movie(adult: movies.adult
                                            ,backdropPath : movies.backdropPath
@@ -63,6 +52,8 @@ class FavoritesViewController: ViewController, UITableViewDataSource, UITableVie
             favoriteTableView.dataSource = self
             favoriteTableView.delegate = self
             favoriteTableView.reloadData()
+            
+            successfullAlertMessage()
                 
         } else {
             errorAlertMessage("Error al obtener la lista de Peliculas")

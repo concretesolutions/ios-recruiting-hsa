@@ -14,28 +14,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    
-    
-    
-    
-    func successfulAlertMessage(_ mensaje: String, complete : @escaping () -> ()) {
+    func successfullAlertMessage() {
         // create the alert
-        let alert = UIAlertController(title: "Éxito", message: mensaje, preferredStyle: .alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: {
-            (action: UIAlertAction!) in
-            complete()
-            return
-        }))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func successfulAlertMessage(_ mensaje: String) {
-        // create the alert
-        let alert = UIAlertController(title: "Éxito", message: mensaje, preferredStyle: .alert)
+        let alert = UIAlertController(title: ":)", message: "Consulta Exitosa", preferredStyle: .alert)
         // add an action (button)
         alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
         // show the alert
@@ -43,13 +24,14 @@ class ViewController: UIViewController {
     }
     
     func errorAlertMessage(_ mensaje: String) {
-        // create the alert
-        let alert = UIAlertController(title: "Error", message: mensaje, preferredStyle: .alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
+            // create the alert
+            let alert = UIAlertController(title: "Error", message: mensaje, preferredStyle: .alert)
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+    
 
 }
 

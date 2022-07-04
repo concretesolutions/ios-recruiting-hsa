@@ -7,18 +7,23 @@
 
 import UIKit
 
-class MovieViewController: ViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MovieViewController: ViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
 
     @IBOutlet weak var movieCollectionView: UICollectionView!
     
+    @IBOutlet weak var movieSearchBar: UISearchBar!
     var movieList: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpMovie()
+        movieSearchBar.delegate = self
+         
+
     }
+       
     
     func getMovieByIndex ( index: Set<Movie>.Index) -> Movie {
         movieList[0]
@@ -32,17 +37,6 @@ class MovieViewController: ViewController, UICollectionViewDataSource, UICollect
     }
     func didGetMovies(_ status: APIStatusType, _ response : MovieResponse?) {
         if status == .success {
-            
-            guard let cantElements = response?.results.count else {
-                errorAlertMessage("No fue posible obtener la lista de Peliculas")
-                return
-            }
-            
-            if cantElements == 0 {
-                
-                errorAlertMessage("No se han ingresado Peliculas")
-                return
-            }
                 response?.results.forEach{ movies in
                     movieList.append(Movie(adult: movies.adult
                                            ,backdropPath : movies.backdropPath
@@ -64,6 +58,8 @@ class MovieViewController: ViewController, UICollectionViewDataSource, UICollect
             movieCollectionView.dataSource = self
             movieCollectionView.delegate = self
             movieCollectionView.reloadData()
+            
+            successfullAlertMessage()
                 
         } else {
             errorAlertMessage("Error al obtener la lista de Peliculas")
@@ -71,6 +67,42 @@ class MovieViewController: ViewController, UICollectionViewDataSource, UICollect
         
     }
 
+
+    func setUpSearch(searchMovie: String) {
+        let api: APIService = APIService()
+        api.getSearch(query: searchMovie, complete: didGetShearch)
+       
+    }
+    func didGetShearch(_ status: APIStatusType, _ response : SearchResponse?){
+//        if status == .success {
+//
+//            //Pintar filtro
+//
+//            successfullAlertMessage()
+//
+//        } else {
+//            errorAlertMessage("Error al Filtrar")
+//        }
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchMovie = movieSearchBar.text ?? ""
+        
+        
+        setUpSearch(searchMovie: searchMovie)
+//        movieSearchBar.delegate = self
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

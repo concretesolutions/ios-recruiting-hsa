@@ -41,16 +41,7 @@ class DetalViewController: ViewController {
 //            genreMovieLabel.text = response?.genres
             overviewMovieLabel.text = response?.overview
             
-            guard let cantElements = response?.id else {
-                errorAlertMessage("No fue posible obtener la lista de Peliculas")
-                return
-            }
-
-            if cantElements == 0 {
-
-                errorAlertMessage("No se han ingresado Peliculas")
-                return
-            }
+            successfullAlertMessage()
                 
         } else {
             errorAlertMessage("Error al obtener la lista de Peliculas")

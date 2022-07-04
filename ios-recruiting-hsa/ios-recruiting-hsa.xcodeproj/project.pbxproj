@@ -25,6 +25,7 @@
 		863E97A1286FED0800DE6547 /* DetailMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E97A0286FED0800DE6547 /* DetailMovieResponse.swift */; };
 		863E97A3286FF1E100DE6547 /* DetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E97A2286FF1E100DE6547 /* DetalViewController.swift */; };
 		863E97A52870E26C00DE6547 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E97A42870E26C00DE6547 /* FavoriteTableViewCell.swift */; };
+		863E97A72873752F00DE6547 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E97A62873752E00DE6547 /* SearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		863E97A0286FED0800DE6547 /* DetailMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieResponse.swift; sourceTree = "<group>"; };
 		863E97A2286FF1E100DE6547 /* DetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalViewController.swift; sourceTree = "<group>"; };
 		863E97A42870E26C00DE6547 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		863E97A62873752E00DE6547 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				863E978E286FD43700DE6547 /* APiService.swift */,
 				863E9790286FD47500DE6547 /* MovieResponse.swift */,
 				863E97A0286FED0800DE6547 /* DetailMovieResponse.swift */,
+				863E97A62873752E00DE6547 /* SearchResponse.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				863E978F286FD43700DE6547 /* APiService.swift in Sources */,
 				863E9756286D2B8A00DE6547 /* AppDelegate.swift in Sources */,
 				863E976A286D4B5800DE6547 /* FavoritesViewController.swift in Sources */,
+				863E97A72873752F00DE6547 /* SearchResponse.swift in Sources */,
 				863E9758286D2B8A00DE6547 /* SceneDelegate.swift in Sources */,
 				863E9794286FD4B100DE6547 /* MovieCollectionViewCell.swift in Sources */,
 				863E97A1286FED0800DE6547 /* DetailMovieResponse.swift in Sources */,
