@@ -8,14 +8,13 @@
 import UIKit
 
 class MovieViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource,
-                           UIScrollViewDelegate {
+                           UIScrollViewDelegate, UISearchBarDelegate {
 
     // MARK: Outlet
     @IBOutlet weak var movieSearchBar: UISearchBar!
     @IBOutlet weak var movieCollectionView: UICollectionView!
     @IBOutlet weak var titleNavigationItem: UINavigationItem!
     
-
     // MARK: Properties
     var movieList: [Movie] = []
     var genresList: [Genres] = []
@@ -41,10 +40,9 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
         api.popularMovie(page: moviePage, maxPage: moviePageMax, complete: didGetPopularMovie)
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
+        movieSearchBar.delegate = self
         favouriteManager.favoriteChangeOff()
     }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -54,7 +52,6 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
             movieCollectionView.reloadData()
             favouriteManager.favoriteChangeOff()
         }
-       
     }
 
     func didGetPopularMovie(_ status: APIStatusType, _ response : PopularMovieResponse?) {
@@ -155,11 +152,11 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
               api.popularMovie(page: moviePage, maxPage: moviePageMax, complete: didGetPopularMovie)
           }
      }
-    
-    
-    @IBAction func movieSelected(_ sender: Any) {
-        
-        
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        print (searchText)
+       
     }
     
     // MARK: - Navigation
@@ -180,12 +177,21 @@ class MovieViewController: BaseViewController, UICollectionViewDelegate, UIColle
                     } else {
                         detailMovieViewController.selectedFavorite = false
                     }
+                    var genreText: String = "-"
+                    if movieList[movieSelected].genreIDS.count > 0 {
+                        genresList.forEach{
+                            genres in
+                            if genres.id == movieList[movieSelected].genreIDS.first {
+                                genreText  = genres.name
+                            }
+                        }
+                    }
                     
                     detailMovieViewController.idMovie = movieList[movieSelected].id
                     detailMovieViewController.imageMovie = movieList[movieSelected].image
                     detailMovieViewController.nameMovie = movieList[movieSelected].name
                     detailMovieViewController.releaseYear = movieList[movieSelected].releaseDate
-                    detailMovieViewController.movieGenre = movieList[movieSelected].synopsis
+                    detailMovieViewController.movieGenre = genreText
                     detailMovieViewController.synopsys = movieList[movieSelected].synopsis
                     
                 }

@@ -7,13 +7,14 @@
 
 import UIKit
 
-class FavouriteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavouriteViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     let favouriteManager = FavouriteManager.shared
     
     var favoriteList: [Favourite] = []
     
     @IBOutlet weak var favouriteTableView: UITableView!
+    @IBOutlet weak var movieSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class FavouriteViewController: UIViewController, UITableViewDataSource, UITableV
         favouriteManager.lists()
         favouriteTableView.dataSource = self
         favouriteTableView.delegate = self
+        movieSearchBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,7 +48,7 @@ class FavouriteViewController: UIViewController, UITableViewDataSource, UITableV
         
         let favouriteCell:FavouriteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FavouriteCell", for: indexPath) as! FavouriteTableViewCell
         
-        print(favoriteList)
+        //print(favoriteList)
         print(indexPath.row)
         
         favouriteCell.id = favoriteList[indexPath.row].id
@@ -78,5 +80,11 @@ class FavouriteViewController: UIViewController, UITableViewDataSource, UITableV
             favouriteManager.lists()
             favouriteTableView.reloadData()
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        print (searchText)
+       
     }
 }

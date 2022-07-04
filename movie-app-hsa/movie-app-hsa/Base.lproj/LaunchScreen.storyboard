@@ -27,7 +27,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M36-0T-qiA"/>
-                        <color key="backgroundColor" white="0.7802116871" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.79607843137254897" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Qfq-Y1-7pl" firstAttribute="leading" secondItem="upr-cZ-07r" secondAttribute="leading" id="H3H-YG-VPS"/>
                             <constraint firstItem="Qfq-Y1-7pl" firstAttribute="trailing" secondItem="M36-0T-qiA" secondAttribute="trailing" id="MIO-jK-q36"/>

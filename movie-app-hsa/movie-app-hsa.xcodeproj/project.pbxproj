@@ -17,6 +17,11 @@
 		86615DF12871F1B200151B8B /* FavouriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86615DF02871F1B200151B8B /* FavouriteManager.swift */; };
 		86615DF32871F2C100151B8B /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86615DF22871F2C100151B8B /* Favourite.swift */; };
 		86615DF52871F56800151B8B /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86615DF42871F56800151B8B /* FavouriteViewController.swift */; };
+		867F6268287383C600E3499A /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867F6267287383C600E3499A /* LunchScreenViewController.swift */; };
+		867F626A2873887500E3499A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867F62692873887500E3499A /* FilterViewController.swift */; };
+		867F626C28738A4E00E3499A /* SecundaryFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867F626B28738A4E00E3499A /* SecundaryFilterViewController.swift */; };
+		867F627228738D2400E3499A /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867F627128738D2400E3499A /* FilterTableViewCell.swift */; };
+		867F627428738D3700E3499A /* SecondaryFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867F627328738D3700E3499A /* SecondaryFilterTableViewCell.swift */; };
 		86F6ED052871598A00E8BA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F6ED042871598A00E8BA9A /* AppDelegate.swift */; };
 		86F6ED072871598A00E8BA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F6ED062871598A00E8BA9A /* SceneDelegate.swift */; };
 		86F6ED092871598A00E8BA9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F6ED082871598A00E8BA9A /* ViewController.swift */; };
@@ -70,6 +75,11 @@
 		86615DF02871F1B200151B8B /* FavouriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteManager.swift; sourceTree = "<group>"; };
 		86615DF22871F2C100151B8B /* Favourite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		86615DF42871F56800151B8B /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		867F6267287383C600E3499A /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
+		867F62692873887500E3499A /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		867F626B28738A4E00E3499A /* SecundaryFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecundaryFilterViewController.swift; sourceTree = "<group>"; };
+		867F627128738D2400E3499A /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		867F627328738D3700E3499A /* SecondaryFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryFilterTableViewCell.swift; sourceTree = "<group>"; };
 		86F6ED012871598A00E8BA9A /* movie-app-hsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-app-hsa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86F6ED042871598A00E8BA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86F6ED062871598A00E8BA9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +233,8 @@
 			children = (
 				86F6ED3B287163C400E8BA9A /* MovieCollectionViewCell.swift */,
 				86615DEB2871EDD200151B8B /* FavouriteTableViewCell.swift */,
+				867F627128738D2400E3499A /* FilterTableViewCell.swift */,
+				867F627328738D3700E3499A /* SecondaryFilterTableViewCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -255,6 +267,9 @@
 				8618E5C3287195CA0084C071 /* SecondaryNavigationController.swift */,
 				8618E5C5287196220084C071 /* BaseNavigationController.swift */,
 				86615DF42871F56800151B8B /* FavouriteViewController.swift */,
+				867F6267287383C600E3499A /* LunchScreenViewController.swift */,
+				867F62692873887500E3499A /* FilterViewController.swift */,
+				867F626B28738A4E00E3499A /* SecundaryFilterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,15 +549,20 @@
 				86615DF52871F56800151B8B /* FavouriteViewController.swift in Sources */,
 				86F6ED49287164F600E8BA9A /* BaseViewController.swift in Sources */,
 				8618E5C4287195CA0084C071 /* SecondaryNavigationController.swift in Sources */,
+				867F626A2873887500E3499A /* FilterViewController.swift in Sources */,
+				867F627428738D3700E3499A /* SecondaryFilterTableViewCell.swift in Sources */,
 				86F6ED392871636E00E8BA9A /* Genres.swift in Sources */,
+				867F626C28738A4E00E3499A /* SecundaryFilterViewController.swift in Sources */,
 				8618E5C228718AE30084C071 /* MainNavigationController.swift in Sources */,
 				86F6ED4F2871658900E8BA9A /* DetailMovieViewController.swift in Sources */,
 				86F6ED052871598A00E8BA9A /* AppDelegate.swift in Sources */,
 				8618E5C6287196220084C071 /* BaseNavigationController.swift in Sources */,
 				86F6ED3C287163C400E8BA9A /* MovieCollectionViewCell.swift in Sources */,
+				867F6268287383C600E3499A /* LunchScreenViewController.swift in Sources */,
 				86F6ED46287164AC00E8BA9A /* ListMovieResponse.swift in Sources */,
 				86F6ED442871647A00E8BA9A /* PopularMovieResponse.swift in Sources */,
 				86F6ED372871636000E8BA9A /* Movie.swift in Sources */,
+				867F627228738D2400E3499A /* FilterTableViewCell.swift in Sources */,
 				86615DF32871F2C100151B8B /* Favourite.swift in Sources */,
 				86F6ED072871598A00E8BA9A /* SceneDelegate.swift in Sources */,
 				86615DF12871F1B200151B8B /* FavouriteManager.swift in Sources */,
@@ -737,7 +757,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.accenture.jpradon.movie-app-hsa";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -766,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.accenture.jpradon.movie-app-hsa";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
