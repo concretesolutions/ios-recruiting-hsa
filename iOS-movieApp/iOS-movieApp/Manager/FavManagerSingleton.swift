@@ -9,6 +9,7 @@ import Foundation
 
 
 class FavManagerSingleton{
+    //MARK: Properties
     let userDefaults = UserDefaults.standard
     var favoritesMovies : [MovieResult] = []
     var idsFavoriteMovies : [Int] = []
@@ -17,11 +18,8 @@ class FavManagerSingleton{
     
     
  
-    
-    static var shared: FavManagerSingleton = {
-        let instance = FavManagerSingleton()
-        return instance
-    }()
+    //Mark: Instance
+    static var shared: FavManagerSingleton = FavManagerSingleton()
     
     private init(){
         let apiManager = APIManager()

@@ -69,20 +69,8 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         cell.imageItemImageView.contentMode = .scaleAspectFill
         
-        
-        //Esto no me funciona aún pero no da problemas, (problema en el if)
-//        for movie in FavManagerSingleton.shared.favoritesMovies{
-//            cell.favoriteItemImageView.image = UIImage(systemName: "heart")
-//            if movie.id == currentMovie.id{
-//                cell.favoriteItemImageView.image = UIImage(systemName: "heart.fill")
-//            }
-//        }
-        
-        
     
         cell.titleItemLabel.text = self.popularMovies[indexPath.row].title
-        
-        
 
         return cell
     }
@@ -108,9 +96,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movieSelected = popularMovies[indexPath.row]
-        
-        
-        
+
         movieSelectedForSend = movieSelected
         
         

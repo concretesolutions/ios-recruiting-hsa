@@ -90,3 +90,6 @@ class APIManager{
         
     }
 }
+
+
+//Maneja todos las peticiones a la API

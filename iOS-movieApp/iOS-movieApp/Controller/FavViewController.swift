@@ -32,7 +32,6 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("LOG_: FavViewController_count: ", FavManagerSingleton.shared.favoritesMovies.count)
         FavMoviesTableView.reloadData()
         
     }
@@ -103,28 +102,4 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             singleMovieViewController.Movie = movieForSend
         }
     }
-
-
-    
-    
-//    func createTimer(){
-//
-//
-//        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: false)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-//
-//            timer.fire()
-//        }
-//    }
-//
-//
-//    @objc func fireTimer() {
-    
-//    FavMoviesTableView.reloadData()
-//
-//
-//
-//    }
-
 }
