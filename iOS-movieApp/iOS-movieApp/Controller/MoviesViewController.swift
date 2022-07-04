@@ -59,7 +59,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         
     
-        cell.titleItemLabel.text = self.popularMovies[indexPath.row].original_title
+        cell.titleItemLabel.text = self.popularMovies[indexPath.row].title
         
         
 

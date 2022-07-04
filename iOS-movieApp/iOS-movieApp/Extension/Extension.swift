@@ -29,3 +29,16 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
+
+extension Date{
+    func getYearFromString(dateString: String) -> String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from:dateString) else{ return "error"}
+        dateFormatter.dateFormat = "yyyy"
+        let yearString = dateFormatter.string(from: date)
+        
+        return yearString
+    }
+}

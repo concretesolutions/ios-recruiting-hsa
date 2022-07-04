@@ -40,17 +40,25 @@ class SingleMovieViewController: UIViewController {
             self.pictureImageView.showAnimatedGradientSkeleton()
             print("falla la en la carga")
         }
+
         
     }
     
-    private func setupUI(){
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
         for idPopularMovie in idsPopularMovies!{
             if(idPopularMovie == currentMovie!.id){
                 //Esta pelicula es favorita
                 self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
         }
+
+        
+    }
+    
+    private func setupUI(){
+ 
         
         self.titleMovieLabel.showAnimatedGradientSkeleton()
         self.anioLabel.showAnimatedGradientSkeleton()
@@ -60,7 +68,7 @@ class SingleMovieViewController: UIViewController {
         let apiManager = APIManager()
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             
             self.titleMovieLabel.hideSkeleton()
             self.anioLabel.hideSkeleton()
@@ -68,7 +76,9 @@ class SingleMovieViewController: UIViewController {
             self.pictureImageView.hideSkeleton()
             
             self.titleMovieLabel.text = self.currentMovie!.title
-            self.anioLabel.text = self.currentMovie!.release_date
+            
+            let myDate = Date()
+            self.anioLabel.text = myDate.getYearFromString(dateString : self.currentMovie!.release_date)
             self.descriptionTextView.text = self.currentMovie!.overview
             
             self.pictureImageView.downloaded(from: Endpoints.images +  self.currentMovie!.poster_path )
@@ -105,12 +115,6 @@ class SingleMovieViewController: UIViewController {
         self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
     
-    @IBAction func getDate(_ sender: Any) {
-        guard let arr = userDefaults.object(forKey: "idsPopularMovies") as? [Int] else { return }
-        
-        print("Arreglo", arr)
-
-    }
     
     private func setupSekeleton(){
         self.titleMovieLabel.isSkeletonable = true

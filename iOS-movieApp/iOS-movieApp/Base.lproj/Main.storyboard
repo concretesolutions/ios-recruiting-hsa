@@ -47,19 +47,25 @@
                                                     <rect key="frame" x="144" y="0.0" width="254" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleMovie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-tu-wgG">
-                                                            <rect key="frame" x="16" y="16" width="74" height="21"/>
+                                                            <rect key="frame" x="8" y="16" width="150" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="150" id="XYu-4N-daA"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBW-je-KXc">
-                                                            <rect key="frame" x="204" y="16" width="34" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anio" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBW-je-KXc">
+                                                            <rect key="frame" x="168" y="16" width="70" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="IO6-Uv-rMH"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-5e-swT">
-                                                            <rect key="frame" x="16" y="50" width="222" height="42"/>
+                                                            <rect key="frame" x="8" y="37" width="230" height="55"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <color key="textColor" systemColor="labelColor"/>
@@ -72,11 +78,11 @@
                                                         <constraint firstAttribute="bottom" secondItem="Kxb-5e-swT" secondAttribute="bottom" constant="8" id="6oo-3d-GHY"/>
                                                         <constraint firstItem="dBW-je-KXc" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HKZ-tu-wgG" secondAttribute="trailing" constant="131" id="6rQ-nA-vHN"/>
                                                         <constraint firstItem="dBW-je-KXc" firstAttribute="top" secondItem="6CQ-Dj-BqH" secondAttribute="top" constant="16" id="87A-Cw-K1b"/>
-                                                        <constraint firstItem="HKZ-tu-wgG" firstAttribute="leading" secondItem="6CQ-Dj-BqH" secondAttribute="leading" constant="16" id="IAH-ia-hIL"/>
+                                                        <constraint firstItem="HKZ-tu-wgG" firstAttribute="leading" secondItem="6CQ-Dj-BqH" secondAttribute="leading" constant="8" id="IAH-ia-hIL"/>
                                                         <constraint firstAttribute="trailing" secondItem="dBW-je-KXc" secondAttribute="trailing" constant="16" id="UN2-Gy-FGP"/>
                                                         <constraint firstItem="HKZ-tu-wgG" firstAttribute="top" secondItem="6CQ-Dj-BqH" secondAttribute="top" constant="16" id="gxk-ty-ion"/>
-                                                        <constraint firstItem="Kxb-5e-swT" firstAttribute="top" secondItem="HKZ-tu-wgG" secondAttribute="bottom" constant="13" id="r7j-He-gXg"/>
-                                                        <constraint firstItem="Kxb-5e-swT" firstAttribute="leading" secondItem="6CQ-Dj-BqH" secondAttribute="leading" constant="16" id="wEO-Zj-QHD"/>
+                                                        <constraint firstItem="Kxb-5e-swT" firstAttribute="top" secondItem="HKZ-tu-wgG" secondAttribute="bottom" id="r7j-He-gXg"/>
+                                                        <constraint firstItem="Kxb-5e-swT" firstAttribute="leading" secondItem="6CQ-Dj-BqH" secondAttribute="leading" constant="8" id="wEO-Zj-QHD"/>
                                                         <constraint firstAttribute="trailing" secondItem="Kxb-5e-swT" secondAttribute="trailing" constant="16" id="z4c-VS-V2p"/>
                                                     </constraints>
                                                 </view>
@@ -99,6 +105,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tct-tn-OZf" id="aCw-zv-CUt"/>
+                                    <outlet property="delegate" destination="tct-tn-OZf" id="IGR-b5-jtR"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="glK-1J-FCu"/>
@@ -110,6 +120,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="TrX-Un-KfU"/>
+                    <connections>
+                        <outlet property="FavMoviesTableView" destination="9LG-Kg-x56" id="V5O-KF-Uf0"/>
+                        <segue destination="lTU-Ji-VxF" kind="show" identifier="favoriteToSingleMovie" id="CLc-ar-OlD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghN-QN-gyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,15 +297,6 @@
                                     <action selector="favOnTap:" destination="lTU-Ji-VxF" eventType="touchUpInside" id="lYN-z4-6El"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqP-1X-T6i">
-                                <rect key="frame" x="174" y="782" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="getDate:" destination="lTU-Ji-VxF" eventType="touchUpInside" id="g8w-yp-bKy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fp0-TQ-QL1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -396,6 +401,9 @@
             <point key="canvasLocation" x="851" y="577"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="CLc-ar-OlD"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.18079704050000001" green="0.18636453150000001" blue="0.27059882880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
