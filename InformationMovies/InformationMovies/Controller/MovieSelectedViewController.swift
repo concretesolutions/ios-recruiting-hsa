@@ -55,7 +55,7 @@ class MovieSelectedViewController: UIViewController {
             FavoriteMovies.shared.agregarFavorito(datos: ResponsePopularMovies.shared.results[numFilaRecibido ?? 0])
             createPersistItem(id: idPelicula)
             
-            alertaRegistroSatisfactorio(tituloAlerta: "Favorito Creado", mensaje: "Su pelicula ha sido guardada como favorita correctamente")
+            alertaRegistroSatisfactorio(tituloAlerta: "Favorito Creado", mensaje: "Su película ha sido guardada como favorita correctamente")
         }
         else
         {
@@ -73,7 +73,7 @@ class MovieSelectedViewController: UIViewController {
                 }
             })
            FavoriteMovies.shared.quitarFavorito(posIndex: pos)
-           alertaAviso(tituloAlerta: "Favorito Eliminado", mensaje: "Su pelicula ha sido retirada de la lista de favoritos")
+           alertaAviso(tituloAlerta: "Favorito Eliminado", mensaje: "Su película ha sido retirada de la lista de favoritos")
         }
 
     }

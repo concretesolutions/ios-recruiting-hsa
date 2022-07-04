@@ -35,7 +35,7 @@ class DetalleFiltroViewController: UIViewController {
         }
         else
         {
-            tituloLabel.text = "Genero"
+            tituloLabel.text = "Género"
         }
     }
     

@@ -50,7 +50,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         else
         {
             alertImage.image = UIImage(named : "attention")
-            alertLabel.text = "Usted no ha marcado ninguna pelicula como favorito"
+            alertLabel.text = "Usted no ha marcado ninguna película como favorito"
             alertImage.isHidden = false
             alertLabel.isHidden = false
         }
@@ -86,20 +86,20 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             alertImage.isHidden = false
             alertLabel.isHidden = false
             alertImage.image = UIImage(named: "magnifying-glass") //search_icon
-            alertLabel.text = "Ningun resultado coincide con tu busqueda 😟"
+            alertLabel.text = "Ningún resultado coincide con tu búsqueda 😟"
         }
         else if filteredData.count == 0 && FavoriteMovies.shared.favoriteMoviesArray.count == 0
         {
             alertImage.isHidden = false
             alertLabel.isHidden = false
             alertImage.image = UIImage(named : "attention")
-            alertLabel.text = "Usted no ha marcado ninguna pelicula como favorito"
+            alertLabel.text = "Usted no ha marcado ninguna película como favorita"
         }
         else
         {
             alertImage.isHidden = true
             alertLabel.isHidden = true
-            alertLabel.text = "Usted no ha marcado ninguna pelicula como favorito"
+            alertLabel.text = "Usted no ha marcado ninguna película como favorita"
         }
         
         return filteredData.count
@@ -184,7 +184,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         FilterInfo.shared.categoriSelected = String()
         FilterInfo.shared.yearSelected = String()
         FilterInfo.shared.itemsFilter[0] = "Año"
-        FilterInfo.shared.itemsFilter[1] = "Genero"
+        FilterInfo.shared.itemsFilter[1] = "Género"
     }
     
 }
@@ -193,7 +193,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
 extension FavoritesViewController:UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        /*
         filteredData = []
         
         if searchText == String()
@@ -210,6 +210,53 @@ extension FavoritesViewController:UISearchBarDelegate {
         }
         
         tableMovies.reloadData()
+         */
+        
+        if FilterInfo.shared.applyYear || FilterInfo.shared.applyCategory
+        {
+            
+            var filteredAUX:[DataResult]!
+            filteredAUX = filteredData
+            
+            filteredData = []
+            
+            if searchText == String()
+            {
+                //filteredData = filteredAUX
+                let idCategoria = ResponseCategories.shared.getIDCategory(name: FilterInfo.shared.categoriSelected)
+                        
+                aplicarFiltroGenereYear(aplicarFiltroAnio: FilterInfo.shared.applyYear, year: FilterInfo.shared.yearSelected, aplicarFiltroGenero: FilterInfo.shared.applyCategory, genero: idCategoria)
+            }
+            else
+            {
+                for item in filteredAUX
+                {
+                    if item.title.uppercased().contains(searchText.uppercased())
+                    {
+                        filteredData.append(item)
+                        
+                    }
+                }
+            }
+            
+            tableMovies.reloadData()
+        }
+        else
+        {
+            filteredData = []
+            if searchText == String()
+            {
+                filteredData = FavoriteMovies.shared.favoriteMoviesArray
+            }
+            for item in FavoriteMovies.shared.favoriteMoviesArray
+            {
+                if item.title.uppercased().contains(searchText.uppercased())
+                {
+                    filteredData.append(item)
+                }
+            }
+            tableMovies.reloadData()
+        }
     }
     
     func aplicarFiltroGenereYear(aplicarFiltroAnio:Bool, year:String, aplicarFiltroGenero:Bool, genero:Int){

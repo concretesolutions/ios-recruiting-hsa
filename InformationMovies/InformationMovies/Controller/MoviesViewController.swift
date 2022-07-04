@@ -110,7 +110,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource {
         tableMovies.isHidden = true
         imageError.isHidden = false
         labelError.isHidden = false
-        labelError.text = "Se ha generado un error al consultar la informacion de peliculas"
+        labelError.text = "Se ha generado un error al consultar la información de películas"
     }
 
 }

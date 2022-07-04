@@ -58,7 +58,9 @@ Cristian Alexis Bahamondes Quiroga
 
 ### Comentarios
 
-Para usar la aplicación se debe instalar Alamofire y AlamofireImage, ya que estas librerías no han sido subidas a este repositorio, una vez hecha la descarga del componente, se debe abrir un terminal, en el mismo terminal ingresar a la ruta del proyecto XCODE y escribir la instrucción pod install, ya que dentro del proyecto en el archivo llamado Podfile esta la referencia a las librerias que deben ser instaladas
+Para usar la aplicación se debe instalar Alamofire y AlamofireImage, ya que estas librerías no han sido subidas a este repositorio, una vez hecha la descarga del componente, se debe abrir un terminal  e ingresar a la ruta del proyecto XCODE y escribir la instrucción pod install, ya que dentro del proyecto en el archivo llamado Podfile esta la referencia a las librerías que deben ser instaladas
+
+Por otra parte en la Parte 4 donde se pide soporte para iPad y rotación se implementa solamente el soporte para iPad (bloqueando la rotación para entregar un producto estable)
 
 ## Parte 1
 - [OK] Pantalla de Splash
@@ -94,7 +96,7 @@ Para usar la aplicación se debe instalar Alamofire y AlamofireImage, ya que est
 - [OK] Pantalla de filtro con selección de fecha de lanzamiento y género:
   - [OK] Sólo debe ser accesible desde la pantalla de favoritos.
   - [OK] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
-- [ ] Soporte para rotación y iPad.
+- [50% OK] Soporte para rotación y iPad.
 
 ## Parte 5
 

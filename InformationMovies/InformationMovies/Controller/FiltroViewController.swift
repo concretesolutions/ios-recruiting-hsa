@@ -38,7 +38,7 @@ class FiltroViewController: UIViewController {
         FilterInfo.shared.categoriSelected = String()
         FilterInfo.shared.yearSelected = String()
         FilterInfo.shared.itemsFilter[0] = "Año"
-        FilterInfo.shared.itemsFilter[1] = "Genero"
+        FilterInfo.shared.itemsFilter[1] = "Género"
         tablaFiltro.reloadData()
         self.dismiss(animated: true)
     }

@@ -20,7 +20,7 @@ class FilterInfo {
     var applyCategory:Bool
     
     //MARK: Init
-    init(itemsFilter:[String] = ["Año","Genero"], yearSelected:String = String(), categoriSelected:String = String(), applyYear:Bool = false, applyCategory:Bool = false)
+    init(itemsFilter:[String] = ["Año","Género"], yearSelected:String = String(), categoriSelected:String = String(), applyYear:Bool = false, applyCategory:Bool = false)
     {
         self.itemsFilter = itemsFilter
         self.yearSelected = yearSelected
