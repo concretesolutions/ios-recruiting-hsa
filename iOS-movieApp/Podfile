@@ -7,6 +7,7 @@ target 'iOS-movieApp' do
 
   # Pods for iOS-movieApp
 	pod 'Alamofire'
+	pod 'SkeletonView'
 
 
   target 'iOS-movieAppTests' do

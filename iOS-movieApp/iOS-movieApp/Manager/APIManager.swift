@@ -29,21 +29,21 @@ class APIManager{
     func getPopularMovies(completionHandler : @escaping([MovieResult]?) -> Void){
         
         let url = Endpoints.popularMovies
-        request(urlApi: url, completionHandler : completionHandler)
+        requestPopularMovies(urlApi: url, completionHandler : completionHandler)
         
     }
     
-    func getGenres(completionHandler : @escaping([Genre]?) -> Void){
+    func getGenres(completionHandler : @escaping(getGenre?) -> Void){
         
         let url = Endpoints.genres
-        request(urlApi: url, completionHandler : completionHandler)
+        requestGenre(urlApi: url, completionHandler : completionHandler)
         
     }
     
 
     
     
-    private func request<collectionMovies:Codable>(urlApi : String, completionHandler : @escaping(collectionMovies?) -> Void){
+    private func requestPopularMovies<collectionMovies:Codable>(urlApi : String, completionHandler : @escaping(collectionMovies?) -> Void){
         
         AF.request(urlApi).response { response in
             if response.error != nil {
@@ -58,6 +58,30 @@ class APIManager{
                 let popularMovies = try JSONDecoder().decode( getPopularResponse.self, from: data )
                 
                 completionHandler(popularMovies.results as? collectionMovies)
+            } catch let error {
+                //Aqui cuando hay un error en la API
+                print("Aqui cuando hay un error en la API_:", error)
+            }
+        }
+        
+    }
+    
+    private func requestGenre<collectionGenre:Codable>(urlApi : String, completionHandler : @escaping(collectionGenre?) -> Void){
+        
+        AF.request(urlApi).response { response in
+            if response.error != nil {
+                print("se encontró un error")
+                return
+            }
+            guard let data = response.data else {
+                print("sin datos")
+                return
+            }
+            do {
+                let genres = try JSONDecoder().decode( getGenre.self, from: data )
+                
+                
+                completionHandler(genres as? collectionGenre)
             } catch let error {
                 //Aqui cuando hay un error en la API
                 print("Aqui cuando hay un error en la API_:", error)

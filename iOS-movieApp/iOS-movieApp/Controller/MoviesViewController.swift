@@ -8,17 +8,19 @@
 import UIKit
 
 
+
 class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var MoviesCollectionView : UICollectionView!
+    @IBOutlet weak var Spinner : UIActivityIndicatorView!
     
     var popularMovies : [MovieResult] = []
     var movieSelectedForSend : MovieResult? = nil
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
     }
     
@@ -36,6 +38,8 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.popularMovies = movie
         }
     }
+    
+
     
     
     
@@ -104,15 +108,21 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func createTimer(){
         
+        self.Spinner.isHidden = false
+        self.Spinner.startAnimating()
+        
         let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: false)
         
         DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            
             timer.fire()
         }
     }
     
     
     @objc func fireTimer() {
+        self.Spinner.hidesWhenStopped = true
+        self.Spinner.stopAnimating()
         MoviesCollectionView.reloadData()
 
     }
