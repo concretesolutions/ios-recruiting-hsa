@@ -57,7 +57,7 @@ class FavManagerSingleton{
         return true
     }
     
-    func addMovieToFavorites(movie : MovieResult) ->Bool{
+    func addMovieToFavorites(movie : MovieResult){
         
         if !idsFavoriteMovies.contains(movie.id){
             
@@ -71,12 +71,10 @@ class FavManagerSingleton{
             
             print("LOG_: Singleton: idsFavoriteMovies: ", idsFavoriteMovies)
             print("LOG_: Singleton: favoritesMovies: ", favoritesMovies)
-            
-            return true
+
         }
         
         print("ya existe la pelicula en favoritos")
-        return false
         
     }
     

@@ -47,9 +47,9 @@
                                                     <rect key="frame" x="144" y="0.0" width="254" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleMovie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-tu-wgG">
-                                                            <rect key="frame" x="8" y="16" width="150" height="21"/>
+                                                            <rect key="frame" x="8" y="16" width="180" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="XYu-4N-daA"/>
+                                                                <constraint firstAttribute="width" constant="180" id="XYu-4N-daA"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -58,7 +58,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anio" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBW-je-KXc">
                                                             <rect key="frame" x="168" y="16" width="70" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="70" id="IO6-Uv-rMH"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="IO6-Uv-rMH"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -251,7 +251,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleMovie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMI-OJ-F72">
                                 <rect key="frame" x="16" y="401" width="323" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="323" id="aLT-Xu-8rI"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="323" id="aLT-Xu-8rI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -289,7 +289,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large" weight="heavy"/>
                                 </state>
@@ -342,6 +342,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.18079704050000001" green="0.18636453150000001" blue="0.27059882880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
@@ -365,7 +367,8 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.18079704050000001" green="0.18636453150000001" blue="0.27059882880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.18079704050000001" green="0.18636453150000001" blue="0.27059882880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
@@ -389,7 +392,11 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.93997550009999997" green="0.81275969739999998" blue="0.43126976490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.18079704050000001" green="0.18636453150000001" blue="0.27059882880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -402,7 +409,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GJn-FJ-FHI"/>
+        <segue reference="CLc-ar-OlD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.18079704050000001" green="0.18636453150000001" blue="0.27059882880000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
