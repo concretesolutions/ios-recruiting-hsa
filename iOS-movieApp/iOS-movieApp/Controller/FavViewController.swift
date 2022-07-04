@@ -14,24 +14,28 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let userDefaults = UserDefaults.standard
     var idsPopularMovies : [Int]?
     var popularMovies : [MovieResult] = []
-    var favMovies : [MovieResult] = []
     var movieSelectedForSend : MovieResult?
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-
+        super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if checkPopularMovies(){
+        
+        if FavManagerSingleton.shared.checkFavoriteMovies(){
             setupUI()
         }
-        createTimer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("LOG_: FavViewController_count: ", FavManagerSingleton.shared.favoritesMovies.count)
+        FavMoviesTableView.reloadData()
+        
+    }
     func setupUI(){
         let apiManager = APIManager()
 
@@ -40,35 +44,32 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             guard let movie = MovieResult else{ return }
             self.popularMovies = movie
             
-            self.favMovies = self.getFavMovies(arrIds: self.idsPopularMovies!)
-        
-            
         }
         
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.favMovies.count
+        return FavManagerSingleton.shared.favoritesMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellTableFavs", for: indexPath) as! ItemFavTableViewCell
         
-        cell.pictureMovieImageView.downloaded(from: Endpoints.images +  self.favMovies[indexPath.row].poster_path )
+        cell.pictureMovieImageView.downloaded(from: Endpoints.images +  FavManagerSingleton.shared.favoritesMovies[indexPath.row].poster_path )
 
         cell.pictureMovieImageView.contentMode = .scaleAspectFill
-        cell.titleMovieLabel.text = self.favMovies[indexPath.row].title
-        cell.desciptionTextView.text = self.favMovies[indexPath.row].overview
+        cell.titleMovieLabel.text = FavManagerSingleton.shared.favoritesMovies[indexPath.row].title
+        cell.desciptionTextView.text = FavManagerSingleton.shared.favoritesMovies[indexPath.row].overview
         
         let myDate = Date()
-        cell.anioMovieLabel.text = myDate.getYearFromString(dateString: self.favMovies[indexPath.row].release_date)
+        cell.anioMovieLabel.text = myDate.getYearFromString(dateString: FavManagerSingleton.shared.favoritesMovies[indexPath.row].release_date)
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movieSelected = favMovies[indexPath.row]
+        let movieSelected = FavManagerSingleton.shared.favoritesMovies[indexPath.row]
         
         movieSelectedForSend = movieSelected
         self.performSegue(withIdentifier: "favoriteToSingleMovie", sender: nil)
@@ -80,21 +81,17 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             var indexForDelete : Int = 0
             
             
-            let movieToDeleted = self.favMovies[indexPath.row]
+            let movieToDeleted = FavManagerSingleton.shared.favoritesMovies[indexPath.row]
             
-            for (i, id) in self.idsPopularMovies!.enumerated(){
+            
+            
+            for (i, id) in FavManagerSingleton.shared.idsFavoriteMovies.enumerated(){
                 if id == movieToDeleted.id{
                    indexForDelete = i
                 }
             }
             
-            self.idsPopularMovies?.remove(at: indexForDelete)
-            
-            userDefaults.set(self.idsPopularMovies, forKey: "idsPopularMovies")
-            userDefaults.synchronize()
-            
-            self.favMovies.remove(at: indexPath.row)
-            
+            FavManagerSingleton.shared.deleteMovieFromFavorites(movieIndex: indexForDelete, movieDeleted: movieToDeleted)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
@@ -108,46 +105,26 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
 
-
-    
-    private func getFavMovies(arrIds : [Int]) -> [MovieResult]{
-        var favMovies : [MovieResult] = []
-        for popularMovie in self.popularMovies{
-            for id in arrIds{
-                if(popularMovie.id == id){
-                    favMovies.append(popularMovie)
-                }
-            }
-        }
-        return favMovies
-    }
     
     
-    private func checkPopularMovies() -> Bool {
-        
-        guard let popular = userDefaults.object(forKey: "idsPopularMovies") as? [Int] else { return false }
-        idsPopularMovies = popular
-        return true
-        
-    }
+//    func createTimer(){
+//
+//
+//        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: false)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+//
+//            timer.fire()
+//        }
+//    }
+//
+//
+//    @objc func fireTimer() {
     
-    
-    func createTimer(){
-
-        
-        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: false)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            
-            timer.fire()
-        }
-    }
-    
-    
-    @objc func fireTimer() {
-
-        FavMoviesTableView.reloadData()
-
-    }
+//    FavMoviesTableView.reloadData()
+//
+//
+//
+//    }
 
 }

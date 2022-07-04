@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieResult : Codable{
+struct MovieResult : Codable, Hashable{
     
     let adult : Bool
     let backdrop_path : String
@@ -23,5 +23,14 @@ struct MovieResult : Codable{
     let video : Bool
     let vote_average : Double
     let vote_count : Int
+    
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func ==(lhs: MovieResult, rhs: MovieResult) -> Bool {
+        return lhs.id == rhs.id
+    }
     
 }

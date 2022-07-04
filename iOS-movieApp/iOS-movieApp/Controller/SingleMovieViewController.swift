@@ -22,7 +22,7 @@ class SingleMovieViewController: UIViewController {
     var Movie : MovieResult?
     var nameGenre : [String] = []
     let userDefaults = UserDefaults.standard
-    var idsPopularMovies : [Int]?
+    var idsFavoriteMovies : [Int] = FavManagerSingleton.shared.idsFavoriteMovies
     var currentMovie : MovieResult?
     
     
@@ -30,8 +30,7 @@ class SingleMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSekeleton()
-        if chekMovie(), checkPopularMovies(){
-            
+        if chekMovie(){
             setupUI()
         }else{
             self.titleMovieLabel.showAnimatedGradientSkeleton()
@@ -46,9 +45,9 @@ class SingleMovieViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        for idPopularMovie in idsPopularMovies!{
-            if(idPopularMovie == currentMovie!.id){
+        
+        for idFavoriteMovie in idsFavoriteMovies{
+            if(idFavoriteMovie == currentMovie!.id){
                 //Esta pelicula es favorita
                 self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
@@ -59,7 +58,7 @@ class SingleMovieViewController: UIViewController {
     
     private func setupUI(){
  
-        
+        self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
         self.titleMovieLabel.showAnimatedGradientSkeleton()
         self.anioLabel.showAnimatedGradientSkeleton()
         self.descriptionTextView.showAnimatedGradientSkeleton()
@@ -107,11 +106,7 @@ class SingleMovieViewController: UIViewController {
         
         guard let movie = Movie else {return }
         
-        idsPopularMovies!.append(movie.id)
-        
-        userDefaults.set(idsPopularMovies, forKey: "idsPopularMovies")
-        userDefaults.synchronize()
-        
+        FavManagerSingleton.shared.addMovieToFavorites(movie: movie)
         self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
     
@@ -123,13 +118,6 @@ class SingleMovieViewController: UIViewController {
         self.pictureImageView.isSkeletonable = true
     }
     
-    private func checkPopularMovies() -> Bool {
-        
-        guard let popular = userDefaults.object(forKey: "idsPopularMovies") as? [Int] else { return false }
-        idsPopularMovies = popular
-        return true
-        
-    }
     
     private func chekMovie() -> Bool{
         

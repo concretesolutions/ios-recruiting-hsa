@@ -16,6 +16,7 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var popularMovies : [MovieResult] = []
     var movieSelectedForSend : MovieResult? = nil
+    var count = 0
     
     
 
@@ -26,7 +27,15 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        createTimer()
+            
+            self.Spinner.isHidden = false
+            self.Spinner.startAnimating()
+            print("LOG_:")
+
+            MoviesCollectionView.reloadData()
+
+            self.Spinner.hidesWhenStopped = true
+            self.Spinner.stopAnimating()
     }
     
     func setupUI(){
@@ -37,6 +46,8 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
             guard let movie = MovieResult else{ return }
             self.popularMovies = movie
         }
+        
+        
     }
     
 
@@ -51,11 +62,21 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemMoviesCollection", for: indexPath) as! ItemCollectionViewCell
         
+        //let currentMovie = self.popularMovies[indexPath.row]
         
         
         cell.imageItemImageView.downloaded(from: Endpoints.images +  self.popularMovies[indexPath.row].poster_path )
         
         cell.imageItemImageView.contentMode = .scaleAspectFill
+        
+        
+        //Esto no me funciona aún pero no da problemas, (problema en el if)
+//        for movie in FavManagerSingleton.shared.favoritesMovies{
+//            cell.favoriteItemImageView.image = UIImage(systemName: "heart")
+//            if movie.id == currentMovie.id{
+//                cell.favoriteItemImageView.image = UIImage(systemName: "heart.fill")
+//            }
+//        }
         
         
     
@@ -103,28 +124,4 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate, UICollec
             singleMovieViewController.Movie = movieForSend
         }
     }
-    
-    
-    
-    func createTimer(){
-        
-        self.Spinner.isHidden = false
-        self.Spinner.startAnimating()
-        
-        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: false)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            
-            timer.fire()
-        }
-    }
-    
-    
-    @objc func fireTimer() {
-        self.Spinner.hidesWhenStopped = true
-        self.Spinner.stopAnimating()
-        MoviesCollectionView.reloadData()
-
-    }
-    
 }
