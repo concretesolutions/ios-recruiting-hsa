@@ -85,7 +85,7 @@ extension MovieViewController: UICollectionViewDataSource, UICollectionViewDeleg
         self.navigationController?.pushViewController(detail!, animated: true)
       }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    /*func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
@@ -100,7 +100,7 @@ extension MovieViewController: UICollectionViewDataSource, UICollectionViewDeleg
                                               at: .top,
                                               animated: false)
         }
-    }
+    }*/
 
 }
 

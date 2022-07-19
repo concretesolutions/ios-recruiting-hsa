@@ -21,13 +21,22 @@ class MovieCollectionViewCell: UICollectionViewCell {
             print("Using a cached image for item: \(movie.id)")
             poster.image = cachedImage
         } else {
-            poster.loadFrom(URLAddress: APIUrl.routeImage + (movie.posterPath)) { result in
+            guard let image = UIImage(named: "Search") else {return}
+            poster.imageFromServerURL(urlString: APIUrl.routeImage + (movie.posterPath),
+                                      placeHolderImage: image) { result in
                 if result == "OK" {
                     if let img = self.poster.image {
                         self.cache.setObject(img, forKey: movie.id as NSNumber)
                     }
                 }
             }
+            /*poster.loadFrom(URLAddress: APIUrl.routeImage + (movie.posterPath)) {
+                if result == "OK" {
+                    if let img = self.poster.image {
+                        self.cache.setObject(img, forKey: movie.id as NSNumber)
+                    }
+                }
+            }*/
         }
 
         if movie.favorite == true {

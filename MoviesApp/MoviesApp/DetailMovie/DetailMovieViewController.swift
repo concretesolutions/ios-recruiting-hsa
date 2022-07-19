@@ -35,13 +35,9 @@ class DetailMovieViewController: UIViewController, DetailMoviePresenterDelegate 
     }
 
     func setConfigure() {
-        posterImagen.loadFrom(URLAddress: APIUrl.routeImage + (movie!.posterPath)) { [self] result in
-                if result == "OK" {
-                    if let img = self.posterImagen.image, let idMovie = movie?.id {
-                        self.cache.setObject(img, forKey: idMovie as NSNumber)
-                    }
-                }
-        }
+        guard let image = UIImage(named: "Search") else {return}
+        posterImagen.imageFromServerURL(urlString: APIUrl.routeImage + (movie!.posterPath),
+                                  placeHolderImage: image)
         titleLabel.text = movie?.title
         yearLabel.text = movie?.getYear()
         generoLabel.text = ""

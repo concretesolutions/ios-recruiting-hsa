@@ -15,7 +15,8 @@ class FavoriteViewCell: UITableViewCell {
 @IBOutlet weak var sinopsisLabel: UILabel!
 
     func configureCell(movie: MovieDB) {
-        posterImage.loadFrom(URLAddress: APIUrl.routeImage + movie.poster)
+        posterImage.imageFromServerURL(urlString: APIUrl.routeImage + movie.poster,
+                                       placeHolderImage: UIImage(named: "Search")!)
         titleLabel.text = movie.title
         yearReleaseLabel.text = String(movie.releaseYear)
         sinopsisLabel.text = movie.sinopsis

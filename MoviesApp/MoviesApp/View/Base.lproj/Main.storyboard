@@ -348,14 +348,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterMovieCell" id="CIm-Fn-qyk" customClass="FilterTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="41.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="41.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CIm-Fn-qyk" id="aZX-L3-hKh">
-                                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="41.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="41.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUe-Xz-HUe">
-                                                    <rect key="frame" x="330.33333333333331" y="10.000000000000002" width="45" height="21.666666666666671"/>
+                                                    <rect key="frame" x="330.33333333333331" y="9.9999999999999982" width="45" height="21.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="0H0-HQ-rxy"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="X1r-5n-4dZ"/>
@@ -365,7 +365,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-EQ-FzL">
-                                                    <rect key="frame" x="10" y="10.000000000000002" width="41.333333333333336" height="21.666666666666671"/>
+                                                    <rect key="frame" x="10" y="9.9999999999999982" width="41.333333333333336" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -527,7 +527,7 @@
             <color red="0.17599999904632568" green="0.18799999356269836" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ColorMVYellowLight">
-            <color red="0.96899998188018799" green="0.80800002813339233" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9684479832649231" green="0.80797165632247925" blue="0.35695898532867432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ColorMVYellowStrong">
             <color red="0.85100001096725464" green="0.59200000762939453" blue="0.27799999713897705" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
