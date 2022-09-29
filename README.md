@@ -22,7 +22,6 @@ Para tener un estándar y un layout minimamente definido adjuntamos algunos asse
 
 Piensa en el desafío como una oportunidad de mostrar todo tu conocimiento. **¡Hazlo con calma!** porque tienes una semana para entregar.
 
-
 Dentro de los elementos que vamos a evaluar se encuentra:
 
 - Consumo de APIs
@@ -45,7 +44,7 @@ Estamos especialmente preocupados por la calidad. Creemos que los patrones de di
 3. Al momento de hacer commit, sube los cambios a tu fork.
 4. Por la interfaz de GitHub, haz un pull request a este repositorio.
 5. En el pull request copia y pega la sección **Requerimientos** de este archivo y actualiza las cosas que hayas podido completar.
-    - Si pudiste completar algún aspecto específico de alguna de las partes, por ejemplo, de la parte 5, pero no terminaste todo lo que se pedía, no hay problema en marcarlo.
+   - Si pudiste completar algún aspecto específico de alguna de las partes, por ejemplo, de la parte 5, pero no terminaste todo lo que se pedía, no hay problema en marcarlo.
 
 Si tienes alguna consulta, no dudes en preguntarnos :)
 
@@ -54,13 +53,15 @@ Si tienes alguna consulta, no dudes en preguntarnos :)
 ## Información del postulante
 
 ### Nombre
-_(Tu nombre va aquí)_
+
+Francisco Zuñiga De Spirito
 
 ### Comentarios
 
 _(Cualquier consideración que quieras mencionar, déjala acá)_
 
 ## Parte 1
+
 - [ ] Pantalla de Splash
 - [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
 - [ ] Tratamiento de errores y presentación de flujos de excepción:
@@ -68,6 +69,7 @@ _(Cualquier consideración que quieras mencionar, déjala acá)_
   - [ ] Cargando
 
 ## Parte 2
+
 - [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
   - [ ] Nombre de la película
   - [ ] Año de estreno
@@ -105,7 +107,6 @@ _(Cualquier consideración que quieras mencionar, déjala acá)_
 - [ ] Uso de fastlane para generar binarios.
 - [ ] Integración del repositorio con un servicio de integración continua como [Bitrise](https://www.bitrise.io/) o [AppCenter](https://appcenter.ms). No existe problema en usar otra plataforma, pero esta debe estar disponible online (un jenkins local no cuenta).
 - [ ] Integración de un servicio de análisis de código como [SonarCloud](https://sonarcloud.io/).
-
 
 # Ejemplos y sugerencias
 
