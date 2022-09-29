@@ -6,7 +6,9 @@ target 'movieFinder' do
   use_frameworks!
 
   # Pods for movieFinder
-  pod 'Alamofire'
+  pod 'Alamofire', '5.6.2'
+  pod 'SwiftLint', '0.49.1'
+  pod 'RealmSwift', '10.30.0'
 
   target 'movieFinderTests' do
     inherit! :search_paths

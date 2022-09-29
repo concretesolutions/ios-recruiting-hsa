@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie {
+struct MovieItem {
     let id: UUID
     let imageURL: String
     let name: String
