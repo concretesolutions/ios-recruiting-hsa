@@ -13,5 +13,6 @@ struct MovieItem {
     let name: String
     let releaseDate: String
     let genres: [String]
-    let description : String
+    let description: String
+    let isFavorite: Bool
 }
