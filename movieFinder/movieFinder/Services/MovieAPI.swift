@@ -19,7 +19,6 @@ class MovieAPI {
         
         AF.request("https://api.themoviedb.org/3/movie/popular?api_key=ad621d1fabf4ec347cce5b4743b92795&page=1", headers: headers).responseDecodable(of: popularMoviesResponseType.self) { response in
             
-            if response.error == nil {
                 if let movieList = response.value {
                     let realmMovieList = movieList.results.map { item in
                         let realmItem = RealmMovieItem()
@@ -31,7 +30,6 @@ class MovieAPI {
                                         
                     responseHandler(realmMovieList)
                 }
-            }
         }
     }
         
@@ -39,8 +37,7 @@ class MovieAPI {
         
     func getMovieDetail(_ id: Int, _ responseHandler: @escaping (RealmMovieItem) -> Void) {
         AF.request("https://api.themoviedb.org/3/movie/" + "\(id)" + "?api_key=ad621d1fabf4ec347cce5b4743b92795", headers: headers).responseDecodable(of: movieDetailType.self) { response in
-            if response.error == nil {
-                if let movieDetail = response.value {
+            if let movieDetail = response.value {
                     let realmItem = RealmMovieItem()
                     realmItem.backdropImageURL = "https://image.tmdb.org/t/p/w780" + "\(movieDetail.backdrop_path)"
                     realmItem.descriptionText = movieDetail.overview
@@ -57,7 +54,6 @@ class MovieAPI {
                     
                     responseHandler(realmItem)
                 }
-            }
         }
     }
 }
