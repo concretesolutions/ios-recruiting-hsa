@@ -17,8 +17,6 @@ class MovieListViewController: UIViewController, UICollectionViewDataSource, UIC
       bottom: 20.0,
       right: 20.0)
     
-    let realm = try! Realm()
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var movies = [RealmMovieItem]()
