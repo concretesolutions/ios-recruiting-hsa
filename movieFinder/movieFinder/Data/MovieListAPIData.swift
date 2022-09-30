@@ -8,11 +8,11 @@
 import Foundation
 
 struct movieListType: Decodable {
-    let original_title: String,
-        id: Int,
-        poster_path: String
+    let original_title: String
+    let id: Int
+    let poster_path: String
 }
 public struct popularMoviesResponseType: Decodable {
-    let page: Int,
-        results: [movieListType]
+    let page: Int
+    let results: [movieListType]
 }

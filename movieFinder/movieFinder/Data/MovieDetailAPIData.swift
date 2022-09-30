@@ -8,14 +8,15 @@
 import Foundation
 
 public struct Genres: Decodable {
-    let id: Int,
-        name: String
+    let id: Int
+    let name: String
 }
 
 public struct movieDetailType: Decodable {
-    let original_title: String,
-        id: Int, backdrop_path: String,
-        release_date: String,
-        genres: [Genres],
-        overview: String
+    let original_title: String
+    let id: Int
+    let backdrop_path: String
+    let release_date: String
+    let genres: [Genres]
+    let overview: String
 }
