@@ -60,21 +60,22 @@ Francisco Zuñiga De Spirito
 
 _(Cualquier consideración que quieras mencionar, déjala acá)_
 
+
 ## Parte 1
 
-- [ ] Pantalla de Splash
-- [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [X] Pantalla de Splash
+- [X] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
 - [ ] Tratamiento de errores y presentación de flujos de excepción:
   - [ ] Error genérico
   - [ ] Cargando
 
 ## Parte 2
 
-- [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
-  - [ ] Nombre de la película
-  - [ ] Año de estreno
-  - [ ] Sinopsis
-  - [ ] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
+- [X] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
+  - [X] Nombre de la película
+  - [X] Año de estreno
+  - [X] Sinopsis
+  - [X] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 ## Parte 3
 
@@ -84,7 +85,7 @@ _(Cualquier consideración que quieras mencionar, déjala acá)_
 - [ ] Lista de películas favoritas:
   - [ ] Borrado de películas favoritas desde la lista.
 - [ ] Layout en pestañas:
-  - [ ] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
+  - [X] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
   - [ ] En la segunda pestaña debes mostrar la lista de películas favoritas.
 
 ## Parte 4
@@ -105,7 +106,7 @@ _(Cualquier consideración que quieras mencionar, déjala acá)_
 - [ ] Pruebas de UI.
 - [ ] Uso de SwiftLint.
 - [ ] Uso de fastlane para generar binarios.
-- [ ] Integración del repositorio con un servicio de integración continua como [Bitrise](https://www.bitrise.io/) o [AppCenter](https://appcenter.ms). No existe problema en usar otra plataforma, pero esta debe estar disponible online (un jenkins local no cuenta).
+- [X] Integración del repositorio con un servicio de integración continua como [Bitrise](https://www.bitrise.io/) o [AppCenter](https://appcenter.ms). No existe problema en usar otra plataforma, pero esta debe estar disponible online (un jenkins local no cuenta).
 - [ ] Integración de un servicio de análisis de código como [SonarCloud](https://sonarcloud.io/).
 
 # Ejemplos y sugerencias
