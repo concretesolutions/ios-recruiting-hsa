@@ -12,34 +12,38 @@ import AlamofireImage
 class PeliculasViewController: UIViewController {
 
     @IBOutlet weak var peliculasPopularesCollectionView: UICollectionView!
-  
+    @IBOutlet weak var barraBusqueda: UISearchBar!
+    
     var rqApi = Requests()
     var pelicula = PeliculaViewController()
     var consumirAPI = ConsumirAPI()
     var detallePeli = DetallePelicula()
+    var filtro: [DataResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        barraBusqueda.delegate = self
         peliculasPopularesCollectionView.dataSource = self
         peliculasPopularesCollectionView.delegate = self
         peliculasPopularesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        filtro = ResponsesPelisPopulares.shared.results
         peliculasPopularesCollectionView.reloadData()
     }
 }
 
 extension PeliculasViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ResponsesPelisPopulares.shared.results.count
+        return filtro.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var flEsFavorita: Bool = false
         let celda = collectionView.dequeueReusableCell(withReuseIdentifier: "PeliculasPopularesCollectionViewCell", for: indexPath) as! PeliculasPopularesCollectionViewCell
-        celda.llenar(peli: ResponsesPelisPopulares.shared.results[indexPath.row])
-        let urlImagen = rqApi.obtenerImagenPeli(urlImagen: ResponsesPelisPopulares.shared.results[indexPath.row].poster_path)
+        celda.llenar(peli: filtro[indexPath.row])
+        let urlImagen = rqApi.obtenerImagenPeli(urlImagen: filtro[indexPath.row].poster_path)
         
         AF.request(urlImagen).responseImage {respuesta in
             if case .success(let imagen) = respuesta.result {
@@ -49,7 +53,7 @@ extension PeliculasViewController: UICollectionViewDataSource {
         }
         
         Favoritos.shared.peliculaFav.forEach { detallePeli in
-        if detallePeli.id  == ResponsesPelisPopulares.shared.results[indexPath.row].id {
+        if detallePeli.id  == filtro[indexPath.row].id {
             flEsFavorita = true
             }
         }
@@ -75,7 +79,7 @@ extension PeliculasViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var listaNombresGen: [String] = []
         
-        ResponsesPelisPopulares.shared.results[indexPath.row].genre_ids.forEach { generoBuscado in
+        filtro[indexPath.row].genre_ids.forEach { generoBuscado in
             ResponseGeneros.shared.genres.forEach { generoGuardado in
                 if generoGuardado.id == generoBuscado {
                     listaNombresGen.append(generoGuardado.name)
@@ -83,13 +87,13 @@ extension PeliculasViewController: UICollectionViewDelegate {
             }
         }
         detallePeli.genero = listaNombresGen
-        let anio = ResponsesPelisPopulares.shared.results[indexPath.row].release_date
+        let anio = filtro[indexPath.row].release_date
         detallePeli.anio = String(anio.prefix(4))
-        detallePeli.titulo = ResponsesPelisPopulares.shared.results[indexPath.row].title
-        detallePeli.urlImagenAmpliada = rqApi.obtenerImagenPeli(urlImagen: ResponsesPelisPopulares.shared.results[indexPath.row].backdrop_path)
-        detallePeli.urlImagenPoster = rqApi.obtenerImagenPeli(urlImagen: ResponsesPelisPopulares.shared.results[indexPath.row].poster_path)
-        detallePeli.descripcion = ResponsesPelisPopulares.shared.results[indexPath.row].overview
-        detallePeli.id = ResponsesPelisPopulares.shared.results[indexPath.row].id
+        detallePeli.titulo = filtro[indexPath.row].title
+        detallePeli.urlImagenAmpliada = rqApi.obtenerImagenPeli(urlImagen: filtro[indexPath.row].backdrop_path)
+        detallePeli.urlImagenPoster = rqApi.obtenerImagenPeli(urlImagen: filtro[indexPath.row].poster_path)
+        detallePeli.descripcion = filtro[indexPath.row].overview
+        detallePeli.id = filtro[indexPath.row].id
         self.performSegue(withIdentifier: "DetallePeliculaSegue", sender: detallePeli)
     }
     
@@ -98,5 +102,22 @@ extension PeliculasViewController: UICollectionViewDelegate {
             let viewControllerDestino = segue.destination as? PeliculaViewController
             viewControllerDestino?.detallesPelicula = detallePeli
         }
+    }
+}
+
+extension PeliculasViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtro = []
+        
+        if searchText == "" {
+            filtro = ResponsesPelisPopulares.shared.results
+        }
+        ResponsesPelisPopulares.shared.results.forEach { pelicula in
+            if pelicula.title.uppercased().contains(searchText.uppercased()) {
+                filtro.append(pelicula)
+            }
+        }
+        peliculasPopularesCollectionView.reloadData()
     }
 }
