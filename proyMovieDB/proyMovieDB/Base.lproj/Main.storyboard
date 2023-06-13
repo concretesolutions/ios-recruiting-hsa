@@ -22,11 +22,16 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="729"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="MhV-KA-WyB">
+                                <rect key="frame" x="179" y="478" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LZB-PO-CUc"/>
                         <color key="backgroundColor" red="0.94283699990000003" green="0.81247514489999995" blue="0.43128335480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
+                        <outlet property="cargaSpinner" destination="MhV-KA-WyB" id="Qvm-RZ-XB3"/>
                         <segue destination="phk-VC-taz" kind="presentation" identifier="GoHome" modalPresentationStyle="fullScreen" id="TDM-8L-2oa"/>
                     </connections>
                 </viewController>
@@ -98,6 +103,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="trash.square.fill" catalog="system" title="Limpiar Filtro">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption1"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onLimpiarFiltro:" destination="zBz-gq-FmP" eventType="touchUpInside" id="CpV-9c-pHm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BbY-Ki-LSa"/>
@@ -109,6 +117,7 @@
                     <connections>
                         <outlet property="barraFavoritos" destination="zL2-th-lgr" id="1j3-ZJ-qfY"/>
                         <outlet property="filtroButton" destination="14I-yG-EJB" id="Tgf-nd-0wF"/>
+                        <outlet property="limpiarFiltroButton" destination="Udg-Vz-xJm" id="bXT-iL-RHB"/>
                         <outlet property="peliculasFavoritasTable" destination="TzV-LW-2Vb" id="WPW-PB-8AR"/>
                         <segue destination="Tow-fS-5bq" kind="presentation" identifier="FiltroFavoritosSegue" modalPresentationStyle="fullScreen" id="Bss-BV-R7D"/>
                     </connections>
@@ -126,24 +135,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMO-wl-IMU">
-                                <rect key="frame" x="0.0" y="85" width="393" height="767"/>
+                                <rect key="frame" x="0.0" y="85" width="393" height="663"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYR-aD-Tmk">
-                                        <rect key="frame" x="48" y="681" width="297" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Aplicar">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.94283699990000003" green="0.81247514489999995" blue="0.43128335480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="onAplicarButton:" destination="Tow-fS-5bq" eventType="touchUpInside" id="6mH-K8-KjB"/>
-                                        </connections>
-                                    </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nEW-oa-yrq">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="663"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -192,12 +186,33 @@
                                     <action selector="onBackButton:" destination="Tow-fS-5bq" eventType="touchUpInside" id="Lvh-Lf-Pou"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-bP-LPW">
+                                <rect key="frame" x="49" y="767" width="298" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.97647058819999999" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Aplicar">
+                                            <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="22" name="Helvetica"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onAplicarButton:" destination="Tow-fS-5bq" eventType="touchUpInside" id="7LP-3S-MW1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q5S-u4-LQV"/>
                         <color key="backgroundColor" red="0.94283699990000003" green="0.81247514489999995" blue="0.43128335480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
-                        <outlet property="aplicarButton" destination="hYR-aD-Tmk" id="EeR-zS-ZCu"/>
+                        <outlet property="aplicarButton" destination="aYG-bP-LPW" id="e9c-Kc-zlA"/>
                         <outlet property="backButton" destination="Dm5-FP-VsX" id="n6d-wz-Q3E"/>
                         <outlet property="filtrosTableView" destination="nEW-oa-yrq" id="PRH-Q9-xnj"/>
                         <segue destination="hiA-5L-hOA" kind="presentation" identifier="CeldaFiltro" modalPresentationStyle="fullScreen" id="XRk-HG-OJd"/>

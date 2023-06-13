@@ -30,6 +30,7 @@ class PeliculasViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         filtro = ResponsesPelisPopulares.shared.results
+        barraBusqueda.text = ""
         peliculasPopularesCollectionView.reloadData()
     }
 }

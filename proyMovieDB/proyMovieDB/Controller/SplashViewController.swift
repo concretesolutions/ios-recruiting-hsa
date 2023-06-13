@@ -11,8 +11,11 @@ class SplashViewController: UIViewController {
 
     var consumirAPI = ConsumirAPI()
 
+    @IBOutlet weak var cargaSpinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cargaSpinner.startAnimating()
         consumirAPI.obtenerListadoPeliculasPopulares()
         consumirAPI.obtenerGeneros()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+3){

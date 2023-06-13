@@ -14,15 +14,17 @@ protocol FiltroViewProtocol {
 class FiltroViewController: UIViewController, FiltroViewProtocol {
     
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var aplicarButton: UIButton!
     @IBOutlet weak var filtrosTableView: UITableView!
-
+    @IBOutlet weak var aplicarButton: UIButton!
+    
     var anioFiltrado:String = ""
     var generoFiltrado:String = ""
     var arregloTipoFiltro:[String] = ["Año","Género"]
     var filtro: [DetallePelicula] = []
     var delegate:FavoritosViewProtocol?
     var flFiltroAplicado = false
+    var anioAux:String = ""
+    var generoAux:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +36,17 @@ class FiltroViewController: UIViewController, FiltroViewProtocol {
         filtro = Favoritos.shared.peliculaFav
         filtrosTableView.reloadData()
     }
-    /*
+    
     override func viewWillDisappear(_ animated: Bool) {
-        if flFiltroAplicado {
-            delegate?.pass(arregloFiltro: filtro)
+        if flFiltroAplicado || (anioAux == anioFiltrado && generoAux == generoFiltrado) {
+            delegate?.pass(anioFilt: anioFiltrado, generoFilt: generoFiltrado)
+        } else if !flFiltroAplicado && (anioAux != anioFiltrado || generoAux != generoFiltrado) {
+            delegate?.pass(anioFilt: anioAux, generoFilt: generoAux)
         } else {
-            delegate?.pass(arregloFiltro: Favoritos.shared.peliculaFav)
+            delegate?.pass(anioFilt: "", generoFilt: "")
         }
     }
-    */
+    
     @IBAction func onBackButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -57,49 +61,20 @@ class FiltroViewController: UIViewController, FiltroViewProtocol {
     }
     
     @IBAction func onAplicarButton(_ sender: Any) {
-        filtro = []
-//        var filtroAux:[DetallePelicula] = []
-        var flOK = false
-        flFiltroAplicado = false
-        
-        if anioFiltrado != "" && generoFiltrado != "" {
-            Favoritos.shared.peliculaFav.forEach { pelicula in
-                if pelicula.anio.contains(anioFiltrado){
-                    let objGenero:[String] = pelicula.genero
-                    objGenero.forEach { genero in
-                        if genero.contains(generoFiltrado) {
-                            flOK = true
-                        }
-                    }
-                    if flOK {
-                        filtro.append(pelicula)
-                        flFiltroAplicado = true
-                        flOK = false
-                    }
-                }
-            }
+        if anioFiltrado == "" && generoFiltrado == "" {
+            //seleccionar valor válido
+            flFiltroAplicado = false
+            alertaAviso(tituloAlerta: "No ha seleccionado ningún filtro", mensaje: "Por favor selecciona al menos un valor para alguno de los filtros", tituloOK: "OK")
+        } else {
+            flFiltroAplicado = true
+            self.dismiss(animated: true)
         }
-        
-        if anioFiltrado != "" && generoFiltrado == "" {
-            Favoritos.shared.peliculaFav.forEach { pelicula in
-                if pelicula.anio.contains(anioFiltrado){
-                    filtro.append(pelicula)
-                    flFiltroAplicado = true
-                }
-            }
-        }
-        
-        if generoFiltrado != "" && anioFiltrado == "" {
-            Favoritos.shared.peliculaFav.forEach { pelicula in
-                let objGenero:[String] = pelicula.genero
-                objGenero.forEach { genero in
-                    if genero.contains(generoFiltrado) {
-                        filtro.append(pelicula)
-                        flFiltroAplicado = true
-                    }
-                }
-            }
-        }
+    }
+    
+    func alertaAviso(tituloAlerta: String, mensaje: String, tituloOK: String){
+        let alert = UIAlertController(title: tituloAlerta, message: mensaje, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: tituloOK, style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert,animated: true, completion: nil)
     }
 }
 
