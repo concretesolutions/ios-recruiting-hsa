@@ -19,6 +19,8 @@ class FavoritosViewController: UIViewController, FavoritosViewProtocol {
     @IBOutlet weak var limpiarFiltroButton: UIButton!
     @IBOutlet weak var barraFavoritos: UISearchBar!
     @IBOutlet weak var filtroButton: UIButton!
+    @IBOutlet weak var imagenInformativa: UIImageView!
+    @IBOutlet weak var textoInformativo: UILabel!
     
     var filtro: [DetallePelicula] = []
     var filtroPorItem: [DetallePelicula] = []
@@ -30,42 +32,15 @@ class FavoritosViewController: UIViewController, FavoritosViewProtocol {
         super.viewDidLoad()
         barraFavoritos.delegate = self
         peliculasFavoritasTable.dataSource = self
+        peliculasFavoritasTable.delegate = self
         peliculasFavoritasTable.tableFooterView = UIView()
         peliculasFavoritasTable.register(UINib(nibName: "FavoritosTableViewCell", bundle: nil), forCellReuseIdentifier: "CeldaFavoritos")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if filtroPorItem.isEmpty && !flFiltroAplicado{
-            filtro = Favoritos.shared.peliculaFav
-        } else if flFiltroAplicado {
-            filtro = filtroPorItem
-        } else {
-            filtro = Favoritos.shared.peliculaFav
-        }
         
-        peliculasFavoritasTable.reloadData()
-        
-        if filtro.count > 0 || flFiltroAplicado {
-            filtroButton.isHidden = false
-            if filtroPorItem.isEmpty && flFiltroAplicado{
-                barraFavoritos.isEnabled = false
-                barraFavoritos.text = ""
-            } else {
-                barraFavoritos.isEnabled = true
-            }
-            if flFiltroAplicado {
-                barraFavoritos.text = ""
-            }
-        } else {
-            filtroButton.isHidden = true
-            barraFavoritos.isEnabled = false
-            barraFavoritos.text = ""
-        }
-        if flFiltroAplicado {
-            limpiarFiltroButton.isHidden = false
-        } else {
-            limpiarFiltroButton.isHidden = true
-        }
+        setearDetallesInformativos()
+        recargarDatos(texto: barraFavoritos.text ?? "")
     }
     
     @IBAction func onFiltroButton(_ sender: Any) {
@@ -82,9 +57,7 @@ class FavoritosViewController: UIViewController, FavoritosViewProtocol {
     
     func filtradoBoton(){
         filtroPorItem = []
-//        var filtroAux:[DetallePelicula] = []
         var flContieneGenero = false
-//        flFiltroAplicado = false
         if anioFiltrado != "" && generoFiltrado != "" {
             Favoritos.shared.peliculaFav.forEach { pelicula in
                 if pelicula.anio.contains(anioFiltrado){
@@ -125,23 +98,19 @@ class FavoritosViewController: UIViewController, FavoritosViewProtocol {
         }
         if filtroPorItem.isEmpty {
             flFiltroAplicado = true
-            print("no se encontró")
         }
     }
     
     @IBAction func onLimpiarFiltro(_ sender: Any) {
         flFiltroAplicado = false
-        filtro = Favoritos.shared.peliculaFav
         peliculasFavoritasTable.reloadData()
         limpiarFiltroButton.isHidden = true
-        barraFavoritos.isEnabled = true
-        barraFavoritos.text = ""
+        recargarDatos(texto: barraFavoritos.text ?? "")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FiltroFavoritosSegue" {
             let viewControllerDestino: FiltroViewController = segue.destination as! FiltroViewController
-//            if anioFiltrado != "" {
             if flFiltroAplicado {
                 viewControllerDestino.anioFiltrado = anioFiltrado
                 viewControllerDestino.anioAux = anioFiltrado
@@ -155,13 +124,76 @@ class FavoritosViewController: UIViewController, FavoritosViewProtocol {
                 viewControllerDestino.generoFiltrado = ""
                 viewControllerDestino.generoAux = ""
             }
-
-//            }
-//            if generoFiltrado != "" {
             
-//            }
             viewControllerDestino.delegate = self
         }
+    }
+    
+    func setearDetallesInformativos() {
+        if Favoritos.shared.peliculaFav.count == 0 {
+            imagenInformativa.image = UIImage(systemName: "exclamationmark.icloud.fill")
+            imagenInformativa.isHidden = false
+            textoInformativo.text = "Aún no has añadido ninguna película favorita"
+            peliculasFavoritasTable.isHidden = true
+            barraFavoritos.text = ""
+            barraFavoritos.isEnabled = false
+            filtroButton.isHidden = true
+            limpiarFiltroButton.isHidden = true
+        } else if filtro.count < 1 {
+            imagenInformativa.image = UIImage(systemName: "magnifyingglass")
+            imagenInformativa.isHidden = false
+            textoInformativo.text = "No se ha encontrado ninguna película con ese filtro"
+            peliculasFavoritasTable.isHidden = true
+            filtroButton.isHidden = false
+            barraFavoritos.isEnabled = true
+        } else {
+            imagenInformativa.isHidden = true
+            textoInformativo.text = String()
+            peliculasFavoritasTable.isHidden = false
+            barraFavoritos.isEnabled = true
+            if flFiltroAplicado {
+                limpiarFiltroButton.isHidden = false
+            } else {
+                limpiarFiltroButton.isHidden = true
+            }
+        }
+    }
+    
+    func recargarDatos(texto: String){
+        filtro = []
+        
+        if texto == "" && !flFiltroAplicado {
+            filtro = Favoritos.shared.peliculaFav
+        } else if texto == "" && flFiltroAplicado {
+            pass(anioFilt: anioFiltrado, generoFilt: generoFiltrado)
+            filtro = filtroPorItem
+        }
+        
+        Favoritos.shared.peliculaFav.forEach { pelicula in
+            if pelicula.titulo.uppercased().contains(texto.uppercased()) {
+                filtro.append(pelicula)
+            }
+        }
+        peliculasFavoritasTable.reloadData()
+        setearDetallesInformativos()
+    }
+    
+    func recargaDatos(texto: String){
+        filtro = []
+        if Favoritos.shared.peliculaFav.count == 0 {
+            if flFiltroAplicado && texto == "" {
+                filtro = filtroPorItem
+            } else if !flFiltroAplicado && texto == "" {
+                filtro = Favoritos.shared.peliculaFav
+            }
+        }
+        Favoritos.shared.peliculaFav.forEach { pelicula in
+            if pelicula.titulo.uppercased().contains(texto.uppercased()) {
+                filtro.append(pelicula)
+            }
+        }
+        setearDetallesInformativos()
+        peliculasFavoritasTable.reloadData()
     }
 }
     
@@ -178,7 +210,6 @@ extension FavoritosViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celda = tableView.dequeueReusableCell(withIdentifier: "CeldaFavoritos", for: indexPath) as! FavoritosTableViewCell
-        // let peliculaFavorita = Favoritos.shared.peliculaFav
         let objPelicula:DetallePelicula  = filtro[indexPath.row]
         
         celda.anioPelicula.text = objPelicula.anio
@@ -196,22 +227,36 @@ extension FavoritosViewController: UITableViewDataSource {
     }
 }
 
-extension FavoritosViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+extension FavoritosViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        filtro = []
-        
-        if searchText == "" && !flFiltroAplicado {
-            filtro = Favoritos.shared.peliculaFav
-        } else if searchText == "" && flFiltroAplicado {
-            filtro = filtroPorItem
-        }
-        
-        Favoritos.shared.peliculaFav.forEach { pelicula in
-            if pelicula.titulo.uppercased().contains(searchText.uppercased()) {
-                filtro.append(pelicula)
+        let eliminar = UIContextualAction(style: .destructive, title: "Eliminar") { (action, view, completionHandler) in
+            
+            var indiceArregloFavoritos: Int = 0
+            var idPelicula: Int
+            
+            idPelicula = self.filtro[indexPath.row].id
+            Favoritos.shared.peliculaFav.forEach { peli in
+                if peli.id == idPelicula {
+                    indiceArregloFavoritos = Favoritos.shared.peliculaFav.firstIndex(of: peli) ?? 0
+                }
             }
+            
+            Favoritos.shared.peliculaFav.remove(at: indiceArregloFavoritos)
+            
+            self.setearDetallesInformativos()
+            self.recargarDatos(texto: self.barraFavoritos.text ?? "")
         }
-        peliculasFavoritasTable.reloadData()
+        return UISwipeActionsConfiguration(actions: [eliminar])
     }
 }
+
+extension FavoritosViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        recargarDatos(texto: searchText)
+    }
+}
+
+

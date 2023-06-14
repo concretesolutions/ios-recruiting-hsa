@@ -13,6 +13,8 @@ class PeliculasViewController: UIViewController {
 
     @IBOutlet weak var peliculasPopularesCollectionView: UICollectionView!
     @IBOutlet weak var barraBusqueda: UISearchBar!
+    @IBOutlet weak var imagenInformativa: UIImageView!
+    @IBOutlet weak var textoInformativo: UILabel!
     
     var rqApi = Requests()
     var pelicula = PeliculaViewController()
@@ -29,9 +31,7 @@ class PeliculasViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        filtro = ResponsesPelisPopulares.shared.results
-        barraBusqueda.text = ""
-        peliculasPopularesCollectionView.reloadData()
+        recargarDatos(texto: barraBusqueda.text ?? "")
     }
 }
 
@@ -95,6 +95,8 @@ extension PeliculasViewController: UICollectionViewDelegate {
         detallePeli.urlImagenPoster = rqApi.obtenerImagenPeli(urlImagen: filtro[indexPath.row].poster_path)
         detallePeli.descripcion = filtro[indexPath.row].overview
         detallePeli.id = filtro[indexPath.row].id
+        
+        barraBusqueda.text = ""
         self.performSegue(withIdentifier: "DetallePeliculaSegue", sender: detallePeli)
     }
     
@@ -104,21 +106,35 @@ extension PeliculasViewController: UICollectionViewDelegate {
             viewControllerDestino?.detallesPelicula = detallePeli
         }
     }
-}
-
-extension PeliculasViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+   
+    func recargarDatos(texto: String) {
         filtro = []
         
-        if searchText == "" {
+        if texto == "" {
             filtro = ResponsesPelisPopulares.shared.results
         }
         ResponsesPelisPopulares.shared.results.forEach { pelicula in
-            if pelicula.title.uppercased().contains(searchText.uppercased()) {
+            if pelicula.title.uppercased().contains(texto.uppercased()) {
                 filtro.append(pelicula)
             }
         }
         peliculasPopularesCollectionView.reloadData()
+        if filtro.count < 1 {
+            imagenInformativa.isHidden = false
+            textoInformativo.text = "No se ha encontrado ninguna película con ese filtro"
+            peliculasPopularesCollectionView.isHidden = true
+            
+        } else {
+            imagenInformativa.isHidden = true
+            textoInformativo.text = String()
+            peliculasPopularesCollectionView.isHidden = false
+        }
+    }
+    
+}
+
+extension PeliculasViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        recargarDatos(texto: searchText)
     }
 }

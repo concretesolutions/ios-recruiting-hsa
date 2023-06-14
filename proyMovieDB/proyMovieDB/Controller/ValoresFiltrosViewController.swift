@@ -84,10 +84,8 @@ extension ValoresFiltrosViewController:UITableViewDelegate {
         
         if flAnio {
             anio = anios[indexPath.row]
-            print("Año: \(anio)")
         } else {
             genero = ResponseGeneros.shared.genres[indexPath.row].name
-            print("Genero: \(genero)")
         }
         self.dismiss(animated: true)
     }

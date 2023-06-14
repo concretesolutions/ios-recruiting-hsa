@@ -54,7 +54,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Información" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0E-fK-iwi">
                                         <rect key="frame" x="52" y="320" width="289" height="98"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -117,8 +117,10 @@
                     <connections>
                         <outlet property="barraFavoritos" destination="zL2-th-lgr" id="1j3-ZJ-qfY"/>
                         <outlet property="filtroButton" destination="14I-yG-EJB" id="Tgf-nd-0wF"/>
+                        <outlet property="imagenInformativa" destination="3MK-T5-1Hk" id="lcA-YX-jbT"/>
                         <outlet property="limpiarFiltroButton" destination="Udg-Vz-xJm" id="bXT-iL-RHB"/>
                         <outlet property="peliculasFavoritasTable" destination="TzV-LW-2Vb" id="WPW-PB-8AR"/>
+                        <outlet property="textoInformativo" destination="z0E-fK-iwi" id="S2k-YB-5GT"/>
                         <segue destination="Tow-fS-5bq" kind="presentation" identifier="FiltroFavoritosSegue" modalPresentationStyle="fullScreen" id="Bss-BV-R7D"/>
                     </connections>
                 </viewController>
@@ -323,14 +325,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="52z-Rc-ucm"/>
                                 </connections>
                             </searchBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6FC-VJ-Dnf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" id="6FC-VJ-Dnf">
                                 <rect key="frame" x="82" y="238" width="230" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lu1-aj-Qc8">
                                 <rect key="frame" x="50" y="500" width="289" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -421,7 +423,9 @@
                     <tabBarItem key="tabBarItem" title="Películas" image="AppIconList" selectedImage="AppIconList" id="fQb-Ek-rcn"/>
                     <connections>
                         <outlet property="barraBusqueda" destination="QUI-tU-BuK" id="hq7-mC-HBV"/>
+                        <outlet property="imagenInformativa" destination="6FC-VJ-Dnf" id="Rgn-as-1q1"/>
                         <outlet property="peliculasPopularesCollectionView" destination="k2y-B4-DYf" id="FEi-Ag-Y4f"/>
+                        <outlet property="textoInformativo" destination="Lu1-aj-Qc8" id="fUS-73-l9L"/>
                         <segue destination="tQY-3V-sz2" kind="presentation" identifier="DetallePeliculaSegue" modalPresentationStyle="fullScreen" id="Aee-ua-zO5"/>
                     </connections>
                 </viewController>
@@ -557,6 +561,7 @@
         <image name="AppSplash" width="375" height="667"/>
         <image name="FilterIcon" width="17" height="19"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="trash.square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

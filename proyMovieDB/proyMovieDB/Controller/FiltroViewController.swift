@@ -103,7 +103,7 @@ extension FiltroViewController: UITableViewDataSource {
 }
 
 extension FiltroViewController: UITableViewDelegate {
-//    seleccionar celda de tabla
+//   //seleccionar celda de tabla
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indice = indexPath.row
         self.performSegue(withIdentifier: "CeldaFiltro", sender: indice)
