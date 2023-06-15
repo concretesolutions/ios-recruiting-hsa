@@ -54,46 +54,46 @@ Si tienes alguna consulta, no dudes en preguntarnos :)
 ## Información del postulante
 
 ### Nombre
-_(Tu nombre va aquí)_
+Tabata Isabel Céspedes Figueroa
 
 ### Comentarios
 
-_(Cualquier consideración que quieras mencionar, déjala acá)_
+Desarrollado usando Iphone 14 pro, aún pendiente resolver constraints (sólo aplicadas al splash y las celdas). 
 
 ## Parte 1
-- [ ] Pantalla de Splash
-- [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
-- [ ] Tratamiento de errores y presentación de flujos de excepción:
-  - [ ] Error genérico
-  - [ ] Cargando
+- [x] Pantalla de Splash
+- [x] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [x] Tratamiento de errores y presentación de flujos de excepción:
+  - [x] Error genérico
+  - [x] Cargando
 
 ## Parte 2
-- [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
-  - [ ] Nombre de la película
-  - [ ] Año de estreno
-  - [ ] Sinopsis
-  - [ ] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
+- [x] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
+  - [x] Nombre de la película
+  - [x] Año de estreno
+  - [x] Sinopsis
+  - [x] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 ## Parte 3
 
-- [ ] Selección de películas favoritas
-  - [ ] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
-  - [ ] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
-- [ ] Lista de películas favoritas:
-  - [ ] Borrado de películas favoritas desde la lista.
-- [ ] Layout en pestañas:
-  - [ ] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
-  - [ ] En la segunda pestaña debes mostrar la lista de películas favoritas.
+- [x] Selección de películas favoritas
+  - [x] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
+  - [x] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
+- [x] Lista de películas favoritas:
+  - [x] Borrado de películas favoritas desde la lista.
+- [x] Layout en pestañas:
+  - [x] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
+  - [x] En la segunda pestaña debes mostrar la lista de películas favoritas.
 
 ## Parte 4
 
-- [ ] Mejoras a la grilla de películas populares:
+- [x] Mejoras a la grilla de películas populares:
   - [ ] Scroll infinito.
-  - [ ] Mostrar si una película es favorita o no en cada celda de la grilla.
-  - [ ] Búsqueda local (filtrar por algún término).
-- [ ] Pantalla de filtro con selección de fecha de lanzamiento y género:
-  - [ ] Sólo debe ser accesible desde la pantalla de favoritos.
-  - [ ] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
+  - [x] Mostrar si una película es favorita o no en cada celda de la grilla.
+  - [x] Búsqueda local (filtrar por algún término).
+- [x] Pantalla de filtro con selección de fecha de lanzamiento y género:
+  - [x] Sólo debe ser accesible desde la pantalla de favoritos.
+  - [x] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
 - [ ] Soporte para rotación y iPad.
 
 ## Parte 5
