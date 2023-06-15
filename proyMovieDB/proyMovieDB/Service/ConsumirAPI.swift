@@ -13,10 +13,12 @@ class ConsumirAPI {
     var resul:[DataResult] = []
     
     func obtenerListadoPeliculasPopulares() {
+        
         AF.request(self.rqApi.obtenerListaPeliPopulares()).response {respuesta in
             guard let datos = respuesta.data else {
                 return
             }
+            
             do {
                 let resultado = try JSONDecoder().decode(ResponsesPelisPopulares.self, from: datos)
                 ResponsesPelisPopulares.shared.page = resultado.page
@@ -31,10 +33,12 @@ class ConsumirAPI {
     }
         
     func obtenerGeneros( ) {
+        
         AF.request(self.rqApi.obtenerGenerosPeli()).response {respuesta in
             guard let datos = respuesta.data else {
                 return
             }
+            
             do {
                 let resultado = try JSONDecoder().decode(ResponseGeneros.self, from: datos)
                 ResponseGeneros.shared.genres = resultado.genres

@@ -27,17 +27,20 @@ class FiltroViewController: UIViewController, FiltroViewProtocol {
     var generoAux:String = ""
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         filtrosTableView.dataSource = self
         filtrosTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         filtro = Favoritos.shared.peliculaFav
         filtrosTableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         if flFiltroAplicado || (anioAux == anioFiltrado && generoAux == generoFiltrado) {
             delegate?.pass(anioFilt: anioFiltrado, generoFilt: generoFiltrado)
         } else if !flFiltroAplicado && (anioAux != anioFiltrado || generoAux != generoFiltrado) {
@@ -52,6 +55,7 @@ class FiltroViewController: UIViewController, FiltroViewProtocol {
     }
     
     func pass(anioSelec: String, generoSelec: String) {
+        
         if anioSelec != "" {
             anioFiltrado = anioSelec
         }
@@ -61,6 +65,7 @@ class FiltroViewController: UIViewController, FiltroViewProtocol {
     }
     
     @IBAction func onAplicarButton(_ sender: Any) {
+        
         if anioFiltrado == "" && generoFiltrado == "" {
             //seleccionar valor válido
             flFiltroAplicado = false
@@ -72,6 +77,7 @@ class FiltroViewController: UIViewController, FiltroViewProtocol {
     }
     
     func alertaAviso(tituloAlerta: String, mensaje: String, tituloOK: String){
+        
         let alert = UIAlertController(title: tituloAlerta, message: mensaje, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: tituloOK, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert,animated: true, completion: nil)
@@ -85,6 +91,7 @@ extension FiltroViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let celda:FiltrosTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CeldaFiltro", for: indexPath) as! FiltrosTableViewCell
         
         let objFiltro = arregloTipoFiltro[indexPath.row]
@@ -105,11 +112,13 @@ extension FiltroViewController: UITableViewDataSource {
 extension FiltroViewController: UITableViewDelegate {
 //   //seleccionar celda de tabla
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let indice = indexPath.row
         self.performSegue(withIdentifier: "CeldaFiltro", sender: indice)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "CeldaFiltro" {
             let idRecibido = sender as! Int
             let viewControllerDestino: ValoresFiltrosViewController = segue.destination as! ValoresFiltrosViewController

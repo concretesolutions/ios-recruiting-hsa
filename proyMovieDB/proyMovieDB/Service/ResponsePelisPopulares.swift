@@ -24,6 +24,7 @@ class ResponsesPelisPopulares: Decodable {
     }
     
     func getDataPelisPopulares() -> [DataResult] {
+        
         var datos:[DataResult] = []
         results.forEach { data in
             datos.append(data)

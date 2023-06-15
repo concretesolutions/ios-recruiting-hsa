@@ -23,11 +23,17 @@ class PeliculasViewController: UIViewController {
     var filtro: [DataResult] = []
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         barraBusqueda.delegate = self
         peliculasPopularesCollectionView.dataSource = self
         peliculasPopularesCollectionView.delegate = self
         peliculasPopularesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(bajarTeclado))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +47,10 @@ extension PeliculasViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         var flEsFavorita: Bool = false
         let celda = collectionView.dequeueReusableCell(withReuseIdentifier: "PeliculasPopularesCollectionViewCell", for: indexPath) as! PeliculasPopularesCollectionViewCell
+        
         celda.llenar(peli: filtro[indexPath.row])
         let urlImagen = rqApi.obtenerImagenPeli(urlImagen: filtro[indexPath.row].poster_path)
         
@@ -66,11 +74,16 @@ extension PeliculasViewController: UICollectionViewDataSource {
         }
         return celda
     }
+    
+    @objc func bajarTeclado() {
+        view.endEditing(true)
+    }
 }
 
 //ajusta tamaño de la celda
 extension PeliculasViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: 180, height: 280)
     }
 }
@@ -78,6 +91,7 @@ extension PeliculasViewController: UICollectionViewDelegateFlowLayout {
 //acción al seleccionar la celda
 extension PeliculasViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      
         var listaNombresGen: [String] = []
         
         filtro[indexPath.row].genre_ids.forEach { generoBuscado in
@@ -87,6 +101,7 @@ extension PeliculasViewController: UICollectionViewDelegate {
                 }
             }
         }
+        
         detallePeli.genero = listaNombresGen
         let anio = filtro[indexPath.row].release_date
         detallePeli.anio = String(anio.prefix(4))
@@ -101,6 +116,7 @@ extension PeliculasViewController: UICollectionViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "DetallePeliculaSegue" {
             let viewControllerDestino = segue.destination as? PeliculaViewController
             viewControllerDestino?.detallesPelicula = detallePeli
@@ -108,6 +124,7 @@ extension PeliculasViewController: UICollectionViewDelegate {
     }
    
     func recargarDatos(texto: String) {
+       
         filtro = []
         
         if texto == "" {
@@ -119,11 +136,11 @@ extension PeliculasViewController: UICollectionViewDelegate {
             }
         }
         peliculasPopularesCollectionView.reloadData()
+       
         if filtro.count < 1 {
             imagenInformativa.isHidden = false
             textoInformativo.text = "No se ha encontrado ninguna película con ese filtro"
             peliculasPopularesCollectionView.isHidden = true
-            
         } else {
             imagenInformativa.isHidden = true
             textoInformativo.text = String()
@@ -135,6 +152,7 @@ extension PeliculasViewController: UICollectionViewDelegate {
 
 extension PeliculasViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      
         recargarDatos(texto: searchText)
     }
 }

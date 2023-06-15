@@ -161,8 +161,6 @@
 				135B00062A2BF25D009C55E3 /* Service */,
 				135B00052A2BF234009C55E3 /* Controller */,
 				1384FBA22A30CDFA005B8366 /* FavoritosTableViewCell.xib */,
-				1384FBAB2A318E34005B8366 /* Favoritos.swift */,
-				1384FBA52A31041C005B8366 /* DetallePelicula.swift */,
 			);
 			path = proyMovieDB;
 			sourceTree = "<group>";
@@ -215,6 +213,8 @@
 				1384FBA12A30CDFA005B8366 /* FavoritosTableViewCell.swift */,
 				1378B2482A362DCB00556E91 /* FiltrosTableViewCell.swift */,
 				1378B24E2A3641B900556E91 /* ValoresFiltrosTableViewCell.swift */,
+				1384FBAB2A318E34005B8366 /* Favoritos.swift */,
+				1384FBA52A31041C005B8366 /* DetallePelicula.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -678,6 +678,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R8UG4LM2AU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = proyMovieDB/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -706,6 +707,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R8UG4LM2AU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = proyMovieDB/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -22,6 +22,7 @@ class ValoresFiltrosViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         filtroSeleccionadoTableView.dataSource = self
         filtroSeleccionadoTableView.delegate = self
@@ -35,6 +36,7 @@ class ValoresFiltrosViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+       
         if flAnio {
             delegate?.pass(anioSelec: anio, generoSelec: "")
         } else {
@@ -47,10 +49,12 @@ class ValoresFiltrosViewController: UIViewController {
     }
     
     func eliminarAnioRepetido() {
+       
         ResponsesPelisPopulares.shared.results.forEach { peli in
             let anio = String(peli.release_date.prefix(4))
             aniosAux.insert(anio)
         }
+        
         aniosAux.forEach { indice in
             anios.append(indice)
         }
@@ -59,6 +63,7 @@ class ValoresFiltrosViewController: UIViewController {
 
 extension ValoresFiltrosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         if flAnio {
             return anios.count
         } else {
@@ -67,6 +72,7 @@ extension ValoresFiltrosViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
         let celda:ValoresFiltrosTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CeldaFiltroAplicado", for: indexPath) as! ValoresFiltrosTableViewCell
         
         if flAnio {
