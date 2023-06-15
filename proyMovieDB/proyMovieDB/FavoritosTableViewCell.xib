@@ -50,11 +50,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXv-4d-KQ7">
-                        <rect key="frame" x="186" y="71" width="213" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXv-4d-KQ7">
+                        <rect key="frame" x="186" y="62" width="213" height="42"/>
                         <color key="tintColor" name="AccentColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="33" id="c19-eM-G47"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="4FU-h4-faU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" name="AccentColor"/>

@@ -18,17 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="82K-jb-Pkw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="82K-jb-Pkw">
                                 <rect key="frame" x="0.0" y="59" width="393" height="729"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="MhV-KA-WyB">
-                                <rect key="frame" x="179" y="478" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="MhV-KA-WyB">
+                                <rect key="frame" x="178" y="505" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LZB-PO-CUc"/>
                         <color key="backgroundColor" red="0.94283699990000003" green="0.81247514489999995" blue="0.43128335480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="82K-jb-Pkw" firstAttribute="leading" secondItem="LZB-PO-CUc" secondAttribute="leading" id="3fR-ac-ExW"/>
+                            <constraint firstItem="82K-jb-Pkw" firstAttribute="trailing" secondItem="LZB-PO-CUc" secondAttribute="trailing" id="9Lv-Wa-e6P"/>
+                            <constraint firstItem="MhV-KA-WyB" firstAttribute="centerY" secondItem="82K-jb-Pkw" secondAttribute="centerY" constant="100" id="HHA-1p-lgi"/>
+                            <constraint firstItem="MhV-KA-WyB" firstAttribute="centerX" secondItem="82K-jb-Pkw" secondAttribute="centerX" id="VWU-ai-8UR"/>
+                            <constraint firstItem="82K-jb-Pkw" firstAttribute="top" secondItem="LZB-PO-CUc" secondAttribute="top" id="Xds-nx-Dx9"/>
+                            <constraint firstItem="LZB-PO-CUc" firstAttribute="bottom" secondItem="82K-jb-Pkw" secondAttribute="bottom" constant="30" id="p61-Ol-Hzc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cargaSpinner" destination="MhV-KA-WyB" id="Qvm-RZ-XB3"/>
@@ -236,8 +242,8 @@
                                 <rect key="frame" x="0.0" y="82" width="393" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wVv-UT-UaV">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="667"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wVv-UT-UaV">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="690"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -266,15 +272,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filtro Aplicado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5u-Wk-ShN">
-                                <rect key="frame" x="128" y="53" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUp-rl-JaD">
-                                <rect key="frame" x="0.0" y="39" width="40" height="35"/>
+                                <rect key="frame" x="0.0" y="39" width="39.666666666666664" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -283,6 +282,13 @@
                                     <action selector="onBackButton:" destination="hiA-5L-hOA" eventType="touchUpInside" id="QJ3-Kl-m7e"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filtro Aplicado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5u-Wk-ShN">
+                                <rect key="frame" x="142" y="53" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KHI-XK-xvf"/>
                         <color key="backgroundColor" red="0.94283699990000003" green="0.81247514489999995" blue="0.43128335480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
