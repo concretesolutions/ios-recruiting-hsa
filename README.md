@@ -54,57 +54,59 @@ Si tienes alguna consulta, no dudes en preguntarnos :)
 ## Información del postulante
 
 ### Nombre
-_(Tu nombre va aquí)_
+Pedro Rothen
 
 ### Comentarios
 
-_(Cualquier consideración que quieras mencionar, déjala acá)_
+Proyecto Clean Architecture UIKit MVVM + Coordinator. Scheme Movies contiene los tests unitarios, para los tests de UI y Snapshot es necesario cambiar al scheme correspondiente. 
+
+[![Build Status](https://app.bitrise.io/app/6dc4d66f-75ed-47f1-be16-27d6c0dd3c78/status.svg?token=BUnZU7qR6yjkmdATwfSb_A&branch=master)](https://app.bitrise.io/app/6dc4d66f-75ed-47f1-be16-27d6c0dd3c78) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pedro-rothen_ios-recruiting-hsa&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pedro-rothen_ios-recruiting-hsa)
 
 ## Parte 1
-- [ ] Pantalla de Splash
-- [ ] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
-- [ ] Tratamiento de errores y presentación de flujos de excepción:
-  - [ ] Error genérico
-  - [ ] Cargando
+- [X] Pantalla de Splash
+- [X] Pantalla con una grilla de películas populares. Para ello debes usar esta [API](https://developers.themoviedb.org/3/movies/get-popular-movies)
+- [X] Tratamiento de errores y presentación de flujos de excepción:
+  - [X] Error genérico
+  - [X] Cargando
 
 ## Parte 2
-- [ ] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
-  - [ ] Nombre de la película
-  - [ ] Año de estreno
-  - [ ] Sinopsis
-  - [ ] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
+- [X] Al hacer clic en una película de la grilla debe dirigirse a la pantalla de detalle de la película. Esta pantalla debe contener:
+  - [X] Nombre de la película
+  - [X] Año de estreno
+  - [X] Sinopsis
+  - [X] El nombre del género de la película y no su ID (ej: Action, Horror, etc). Para ello, debes utilizar esta [API](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 ## Parte 3
 
-- [ ] Selección de películas favoritas
-  - [ ] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
-  - [ ] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
-- [ ] Lista de películas favoritas:
-  - [ ] Borrado de películas favoritas desde la lista.
-- [ ] Layout en pestañas:
-  - [ ] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
-  - [ ] En la segunda pestaña debes mostrar la lista de películas favoritas.
+- [X] Selección de películas favoritas
+  - [X] La acción para poner como favorita una película debe estar en la pantalla creada en el nivel 2.
+  - [X] La información sobre las películas favoritas debe ser persistente, es decir, debe guardarse entre sesiones de la aplicación.
+- [X] Lista de películas favoritas:
+  - [X] Borrado de películas favoritas desde la lista.
+- [X] Layout en pestañas:
+  - [X] En la primera pestaña debes mostrarse la pantalla creada en el nivel 1.
+  - [X] En la segunda pestaña debes mostrar la lista de películas favoritas.
 
 ## Parte 4
 
-- [ ] Mejoras a la grilla de películas populares:
-  - [ ] Scroll infinito.
-  - [ ] Mostrar si una película es favorita o no en cada celda de la grilla.
-  - [ ] Búsqueda local (filtrar por algún término).
-- [ ] Pantalla de filtro con selección de fecha de lanzamiento y género:
-  - [ ] Sólo debe ser accesible desde la pantalla de favoritos.
-  - [ ] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
-- [ ] Soporte para rotación y iPad.
+- [X] Mejoras a la grilla de películas populares:
+  - [X] Scroll infinito.
+  - [X] Mostrar si una película es favorita o no en cada celda de la grilla.
+  - [X] Búsqueda local (filtrar por algún término).
+- [X] Pantalla de filtro con selección de fecha de lanzamiento y género:
+  - [X] Sólo debe ser accesible desde la pantalla de favoritos.
+  - [X] Al aplicar el filtro, debes volver a la pantalla de favoritos y hacer un filtro local usando la información seleccionada referente a la fecha de lanzamiento y el género.
+- [X] Soporte para rotación y iPad.
 
 ## Parte 5
 
-- [ ] Pruebas unitarias en el proyecto.
-- [ ] Pruebas de snapshot.
-- [ ] Pruebas de UI.
-- [ ] Uso de SwiftLint.
+- [X] Pruebas unitarias en el proyecto.
+- [X] Pruebas de snapshot.
+- [X] Pruebas de UI.
+- [X] Uso de SwiftLint.
 - [ ] Uso de fastlane para generar binarios.
-- [ ] Integración del repositorio con un servicio de integración continua como [Bitrise](https://www.bitrise.io/) o [AppCenter](https://appcenter.ms). No existe problema en usar otra plataforma, pero esta debe estar disponible online (un jenkins local no cuenta).
-- [ ] Integración de un servicio de análisis de código como [SonarCloud](https://sonarcloud.io/).
+- [X] Integración del repositorio con un servicio de integración continua como [Bitrise](https://www.bitrise.io/) o [AppCenter](https://appcenter.ms). No existe problema en usar otra plataforma, pero esta debe estar disponible online (un jenkins local no cuenta).
+- [X] Integración de un servicio de análisis de código como [SonarCloud](https://sonarcloud.io/).
 
 
 # Ejemplos y sugerencias

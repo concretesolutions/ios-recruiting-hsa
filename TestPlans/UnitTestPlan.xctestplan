@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "59923C38-0947-4731-9123-6AD4A133C940",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Movies.xcodeproj",
+          "identifier" : "EB2D5E322C4FF89D0043A6EE",
+          "name" : "Movies"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Movies.xcodeproj",
+      "identifier" : "EB2D5E322C4FF89D0043A6EE",
+      "name" : "Movies"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Movies.xcodeproj",
+        "identifier" : "EB2D5E4B2C4FF89F0043A6EE",
+        "name" : "MoviesTests"
+      }
+    }
+  ],
+  "version" : 1
+}

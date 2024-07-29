@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "D4DB8670-268B-4F0B-85D4-C3407B6E8FED",
+      "name" : "Configuration 1",
+      "options" : {
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:Movies.xcodeproj",
+          "identifier" : "EB2D5F772C569A7A0043A6EE",
+          "name" : "MoviesSnapshotTests"
+        }
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "FB_REFERENCE_IMAGE_DIR",
+        "value" : "$(SOURCE_ROOT)\/$(PROJECT_NAME)Snapshots\/ReferenceImages"
+      },
+      {
+        "key" : "IMAGE_DIFF_DIR",
+        "value" : "$(SOURCE_ROOT)\/$(PROJECT_NAME)Snapshots\/FailureDiffs"
+      }
+    ],
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Movies.xcodeproj",
+        "identifier" : "EB2D5F772C569A7A0043A6EE",
+        "name" : "MoviesSnapshotTests"
+      }
+    }
+  ],
+  "version" : 1
+}

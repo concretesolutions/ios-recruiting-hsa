@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteFiltersViewController" customModule="Movies" customModuleProvider="target">
+            <connections>
+                <outlet property="genreLabel" destination="VvJ-py-SV0" id="KNY-52-lAp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearLabel" destination="DZB-WK-dgI" id="NN0-lE-zvQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQ0-8O-tDa">
+                    <rect key="frame" x="20" y="763" width="353" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Apply"/>
+                    <connections>
+                        <action selector="applyFiltersButtonTapped:" destination="-1" eventType="touchUpInside" id="7WB-gu-3c9"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7I-1J-LqL">
+                    <rect key="frame" x="0.0" y="59" width="393" height="41"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReX-jO-gi6">
+                            <rect key="frame" x="20" y="10" width="97" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJO-NE-hMn">
+                            <rect key="frame" x="343" y="0.0" width="40" height="41"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZB-WK-dgI">
+                            <rect key="frame" x="299" y="10" width="34" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="AccentColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="ReX-jO-gi6" firstAttribute="leading" secondItem="w7I-1J-LqL" secondAttribute="leading" constant="20" id="9qJ-uu-4dP"/>
+                        <constraint firstItem="YJO-NE-hMn" firstAttribute="leading" secondItem="DZB-WK-dgI" secondAttribute="trailing" constant="10" id="KRm-d9-s1u"/>
+                        <constraint firstItem="ReX-jO-gi6" firstAttribute="top" secondItem="w7I-1J-LqL" secondAttribute="top" constant="10" id="R3y-d3-kd7"/>
+                        <constraint firstItem="DZB-WK-dgI" firstAttribute="centerY" secondItem="ReX-jO-gi6" secondAttribute="centerY" id="VR9-iq-SDQ"/>
+                        <constraint firstAttribute="trailing" secondItem="YJO-NE-hMn" secondAttribute="trailing" constant="10" id="f16-QA-vlM"/>
+                        <constraint firstItem="YJO-NE-hMn" firstAttribute="top" secondItem="w7I-1J-LqL" secondAttribute="top" id="gke-Sl-ShK"/>
+                        <constraint firstAttribute="bottom" secondItem="ReX-jO-gi6" secondAttribute="bottom" constant="10" id="n3u-01-voT"/>
+                        <constraint firstAttribute="bottom" secondItem="YJO-NE-hMn" secondAttribute="bottom" id="zVX-fA-jFk"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="2mi-tr-8SC" appends="YES" id="v6H-5h-n0d"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvQ-qF-XH6">
+                    <rect key="frame" x="0.0" y="100" width="393" height="41"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mO-zQ-SIn">
+                            <rect key="frame" x="20" y="10" width="47" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obb-Ec-RLo">
+                            <rect key="frame" x="343" y="0.0" width="40" height="41"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvJ-py-SV0">
+                            <rect key="frame" x="286" y="10" width="47" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="AccentColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="8mO-zQ-SIn" secondAttribute="bottom" constant="10" id="1nb-7D-N1x"/>
+                        <constraint firstItem="Obb-Ec-RLo" firstAttribute="leading" secondItem="VvJ-py-SV0" secondAttribute="trailing" constant="10" id="B7f-7h-CLO"/>
+                        <constraint firstAttribute="bottom" secondItem="Obb-Ec-RLo" secondAttribute="bottom" id="KUi-MZ-lbl"/>
+                        <constraint firstItem="VvJ-py-SV0" firstAttribute="centerY" secondItem="8mO-zQ-SIn" secondAttribute="centerY" id="Pjc-3u-iaN"/>
+                        <constraint firstItem="Obb-Ec-RLo" firstAttribute="top" secondItem="QvQ-qF-XH6" secondAttribute="top" id="WBV-U4-pfM"/>
+                        <constraint firstAttribute="trailing" secondItem="Obb-Ec-RLo" secondAttribute="trailing" constant="10" id="XUy-Vi-j2D"/>
+                        <constraint firstItem="8mO-zQ-SIn" firstAttribute="leading" secondItem="QvQ-qF-XH6" secondAttribute="leading" constant="20" id="bfF-VB-TOG"/>
+                        <constraint firstItem="8mO-zQ-SIn" firstAttribute="top" secondItem="QvQ-qF-XH6" secondAttribute="top" constant="10" id="tyo-BN-QUT"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="qs8-B2-CKk" appends="YES" id="d6X-o9-tqL"/>
+                    </connections>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="w7I-1J-LqL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0Mu-dg-Ocx"/>
+                <constraint firstItem="w7I-1J-LqL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4MG-ml-GaN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EQ0-8O-tDa" secondAttribute="bottom" constant="20" id="5X1-FC-fW6"/>
+                <constraint firstItem="QvQ-qF-XH6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KLi-3N-DBC"/>
+                <constraint firstItem="EQ0-8O-tDa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="OLI-5k-VJh"/>
+                <constraint firstItem="QvQ-qF-XH6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VlZ-8B-LUR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EQ0-8O-tDa" secondAttribute="trailing" constant="20" id="XPv-Ha-AJ7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w7I-1J-LqL" secondAttribute="trailing" id="f2X-WT-CRJ"/>
+                <constraint firstItem="QvQ-qF-XH6" firstAttribute="top" secondItem="w7I-1J-LqL" secondAttribute="bottom" id="grH-P7-WEh"/>
+            </constraints>
+            <point key="canvasLocation" x="35.877862595419849" y="-1.4084507042253522"/>
+        </view>
+        <tapGestureRecognizer id="2mi-tr-8SC">
+            <connections>
+                <action selector="yearPickerTapped:" destination="-1" id="wra-2O-NJE"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="qs8-B2-CKk">
+            <connections>
+                <action selector="genrePickerTapped:" destination="-1" id="AUs-1s-HTR"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
